@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="vitalspanel"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
-    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**&#39;http ://loinc.org&#39;**&#xD;    -   a fixed  `Observation.code.coding.code`= **&#39;85353-1&#39;**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
+    <valueMarkdown value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
@@ -19,9 +17,13 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
-    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**&#39;http ://loinc.org&#39;**&#xD;    -   a fixed  `Observation.code.coding.code`= **&#39;85353-1&#39;**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
+    <valueString value="#### Complete Summary of the Mandatory Requirements&#xD;&#xD;1.  One code in `Observation.code` which must have&#xD;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#xD;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#xD;    -   Other additional Codings are allowed in `Observation.code`- e.g. more specific LOINC&#xD;        Codes, SNOMED CT concepts, system specific codes. All codes&#xD;        SHALL have an system value&#xD;1.  No value in `Observation.value[x]`&#xD;1.  At Least one Vitals Sign Observation reference in `Observation.hasMember`"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/vitalspanel"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1458"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="observation-vitalspanel"/>
   <title value="Observation Vital Signs Panel Profile"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/group-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.285"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.285"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GroupType"/>
@@ -43,12 +41,12 @@
   <concept>
     <code value="person"/>
     <display value="Person"/>
-    <definition value="Group contains &quot;person&quot; Patient resources."/>
+    <definition value="Group contains &#34;person&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="animal"/>
     <display value="Animal"/>
-    <definition value="Group contains &quot;animal&quot; Patient resources."/>
+    <definition value="Group contains &#34;animal&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="practitioner"/>
@@ -61,18 +59,33 @@
     <definition value="Group contains Device resources."/>
   </concept>
   <concept>
-    <code value="medication"/>
-    <display value="Medication"/>
-    <definition value="Group contains Medication resources."/>
+    <code value="careteam"/>
+    <display value="CareTeam"/>
+    <definition value="Group contains CareTeam resources."/>
   </concept>
   <concept>
-    <code value="substance"/>
-    <display value="Substance"/>
-    <definition value="Group contains Substance resources."/>
+    <code value="healthcareservice"/>
+    <display value="HealthcareService"/>
+    <definition value="Group contains HealthcareService resources."/>
   </concept>
   <concept>
-    <code value="bodystructure"/>
-    <display value="BodyStructure"/>
-    <definition value="Group contains BodyStructure resources."/>
+    <code value="location"/>
+    <display value="Location"/>
+    <definition value="Group contains Location resources."/>
+  </concept>
+  <concept>
+    <code value="organization"/>
+    <display value="Organization"/>
+    <definition value="Group contains Organization resources."/>
+  </concept>
+  <concept>
+    <code value="relatedperson"/>
+    <display value="RelatedPerson"/>
+    <definition value="Group contains RelatedPerson resources."/>
+  </concept>
+  <concept>
+    <code value="specimen"/>
+    <display value="Specimen"/>
+    <definition value="Group contains Specimen resources."/>
   </concept>
 </CodeSystem>

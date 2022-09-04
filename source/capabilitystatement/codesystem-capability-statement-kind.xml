@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="capability-statement-kind"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -70,7 +68,7 @@
           
           <td>The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.</td>
           
-          <td>Elements marked as &#39;optional&#39; represent configurable capabilities</td>
+          <td>Elements marked as 'optional' represent configurable capabilities</td>
         
         </tr>
         
@@ -84,7 +82,7 @@
           
           <td>Requirements</td>
           
-          <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or &#39;request for proposal&#39;.</td>
+          <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</td>
           
           <td/>
         
@@ -109,7 +107,7 @@
   <url value="http://hl7.org/fhir/capability-statement-kind"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.199"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.199"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="CapabilityStatementKind"/>
@@ -139,7 +137,7 @@
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="Elements marked as &#39;optional&#39; represent configurable capabilities"/>
+      <valueString value="Elements marked as 'optional' represent configurable capabilities"/>
     </extension>
     <code value="capability"/>
     <display value="Capability"/>
@@ -148,6 +146,6 @@
   <concept>
     <code value="requirements"/>
     <display value="Requirements"/>
-    <definition value="The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or &#39;request for proposal&#39;."/>
+    <definition value="The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'."/>
   </concept>
 </CodeSystem>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="observation-statistics"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://hl7.org/fhir/observation-statistics"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.406"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2100"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="StatisticsCode"/>
@@ -116,7 +114,7 @@
   <concept>
     <code value="kurtosis"/>
     <display value="Kurtosis"/>
-    <definition value="Kurtosis  is a measure of the &quot;tailedness&quot; of the probability distribution of a real-valued random variable.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)."/>
+    <definition value="Kurtosis  is a measure of the &#34;tailedness&#34; of the probability distribution of a real-valued random variable.   Source: [Wikipedia](https://en.wikipedia.org/wiki/Kurtosis)."/>
   </concept>
   <concept>
     <code value="regression"/>

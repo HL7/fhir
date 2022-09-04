@@ -1,7 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://www.abs.gov.au/ausstats/abs@.nsf/mf/1220.0"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1805"/>
+  </identifier>
   <name value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
   <status value="active"/>
   <experimental value="false"/>
@@ -1286,23 +1288,23 @@
   </concept>
   <concept>
     <code value="231212"/>
-    <display value="Ship&#39;s Engineer"/>
-    <definition value="Ship&#39;s Engineer"/>
+    <display value="Ship's Engineer"/>
+    <definition value="Ship's Engineer"/>
   </concept>
   <concept>
     <code value="231213"/>
-    <display value="Ship&#39;s Master"/>
-    <definition value="Ship&#39;s Master"/>
+    <display value="Ship's Master"/>
+    <definition value="Ship's Master"/>
   </concept>
   <concept>
     <code value="231214"/>
-    <display value="Ship&#39;s Officer"/>
-    <definition value="Ship&#39;s Officer"/>
+    <display value="Ship's Officer"/>
+    <definition value="Ship's Officer"/>
   </concept>
   <concept>
     <code value="231215"/>
-    <display value="Ship&#39;s Surveyor"/>
-    <definition value="Ship&#39;s Surveyor"/>
+    <display value="Ship's Surveyor"/>
+    <definition value="Ship's Surveyor"/>
   </concept>
   <concept>
     <code value="231299"/>
@@ -3836,8 +3838,8 @@
   </concept>
   <concept>
     <code value="399915"/>
-    <display value="Photographer&#39;s Assistant"/>
-    <definition value="Photographer&#39;s Assistant"/>
+    <display value="Photographer's Assistant"/>
+    <definition value="Photographer's Assistant"/>
   </concept>
   <concept>
     <code value="399916"/>
@@ -4021,8 +4023,8 @@
   </concept>
   <concept>
     <code value="422116"/>
-    <display value="Teachers&#39; Aide"/>
-    <definition value="Teachers&#39; Aide"/>
+    <display value="Teachers' Aide"/>
+    <definition value="Teachers' Aide"/>
   </concept>
   <concept>
     <code value="423000"/>
@@ -4761,8 +4763,8 @@
   </concept>
   <concept>
     <code value="561112"/>
-    <display value="Bookmaker&#39;s Clerk"/>
-    <definition value="Bookmaker&#39;s Clerk"/>
+    <display value="Bookmaker's Clerk"/>
+    <definition value="Bookmaker's Clerk"/>
   </concept>
   <concept>
     <code value="561113"/>
@@ -5916,8 +5918,8 @@
   </concept>
   <concept>
     <code value="821111"/>
-    <display value="Builder&#39;s Labourer"/>
-    <definition value="Builder&#39;s Labourer"/>
+    <display value="Builder's Labourer"/>
+    <definition value="Builder's Labourer"/>
   </concept>
   <concept>
     <code value="821112"/>
@@ -5931,8 +5933,8 @@
   </concept>
   <concept>
     <code value="821114"/>
-    <display value="Plumber&#39;s Assistant"/>
-    <definition value="Plumber&#39;s Assistant"/>
+    <display value="Plumber's Assistant"/>
+    <definition value="Plumber's Assistant"/>
   </concept>
   <concept>
     <code value="821211"/>
@@ -6006,8 +6008,8 @@
   </concept>
   <concept>
     <code value="821912"/>
-    <display value="Driller&#39;s Assistant"/>
-    <definition value="Driller&#39;s Assistant"/>
+    <display value="Driller's Assistant"/>
+    <definition value="Driller's Assistant"/>
   </concept>
   <concept>
     <code value="821913"/>
@@ -6021,8 +6023,8 @@
   </concept>
   <concept>
     <code value="821915"/>
-    <display value="Surveyor&#39;s Assistant"/>
-    <definition value="Surveyor&#39;s Assistant"/>
+    <display value="Surveyor's Assistant"/>
+    <definition value="Surveyor's Assistant"/>
   </concept>
   <concept>
     <code value="830000"/>
@@ -6446,8 +6448,8 @@
   </concept>
   <concept>
     <code value="851211"/>
-    <display value="Pastrycook&#39;s Assistant"/>
-    <definition value="Pastrycook&#39;s Assistant"/>
+    <display value="Pastrycook's Assistant"/>
+    <definition value="Pastrycook's Assistant"/>
   </concept>
   <concept>
     <code value="851299"/>
@@ -6481,8 +6483,8 @@
   </concept>
   <concept>
     <code value="891112"/>
-    <display value="Truck Driver&#39;s Offsider"/>
-    <definition value="Truck Driver&#39;s Offsider"/>
+    <display value="Truck Driver's Offsider"/>
+    <definition value="Truck Driver's Offsider"/>
   </concept>
   <concept>
     <code value="891113"/>
@@ -6561,8 +6563,8 @@
   </concept>
   <concept>
     <code value="899511"/>
-    <display value="Printer&#39;s Assistant"/>
-    <definition value="Printer&#39;s Assistant"/>
+    <display value="Printer's Assistant"/>
+    <definition value="Printer's Assistant"/>
   </concept>
   <concept>
     <code value="899512"/>
@@ -6611,8 +6613,8 @@
   </concept>
   <concept>
     <code value="899916"/>
-    <display value="Mechanic&#39;s Assistant"/>
-    <definition value="Mechanic&#39;s Assistant"/>
+    <display value="Mechanic's Assistant"/>
+    <definition value="Mechanic's Assistant"/>
   </concept>
   <concept>
     <code value="899917"/>

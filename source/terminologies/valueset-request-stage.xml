@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml"  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="request-stage"/>
 	<url value="http://hl7.org/fhir/ValueSet/request-stage"/>
-	<name value="RequestStage"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2066"/>
+  </identifier>
+  <name value="RequestStage"/>
 	<status value="draft"/>
 	<publisher value="Orders and Observations Work Group"/>
 	<description value="Kind of request - proposal, plan or order."/>

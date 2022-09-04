@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".operationalStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1072"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
   <status value="draft"/>
@@ -165,6 +167,69 @@
         <code value="uri"/>
       </type>
     </element>
+
+    <element id="DeviceDefinition.regulatoryIdentifier">
+      <path value="DeviceDefinition.regulatoryIdentifier"/>
+      <short value="Regulatory identifier(s) associated with this device"/>
+      <definition value="Identifier associated with the regulatory documentation (certificates, technical documentation, post-market surveillance documentation and reports) of a set of device models sharing the same intended purpose, risk class and essential design and manufacturing characteristics. One example is the Basic UDI-DI in Europe."/>
+      <comment value="This should not be used for regulatory authorization numbers which are to be captured elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+
+    <element id="DeviceDefinition.regulatoryIdentifier.type">
+      <path value="DeviceDefinition.regulatoryIdentifier.type"/>
+      <short value="basic | master | license"/>
+      <definition value="The type of identifier itself."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceRegulatoryIdentifierType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Device regulatory identifier type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
+      </binding>
+
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
+      <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
+      <short value="The identifier itself"/>
+      <definition value="The identifier itself."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.issuer">
+      <path value="DeviceDefinition.regulatoryIdentifier.issuer"/>
+      <short value="The organization that issued this identifier"/>
+      <definition value="The organization that issued this identifier."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="DeviceDefinition.regulatoryIdentifier.jurisdiction">
+      <path value="DeviceDefinition.regulatoryIdentifier.jurisdiction"/>
+      <short value="The jurisdiction to which the deviceIdentifier applies"/>
+      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+
     <element id="DeviceDefinition.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
@@ -220,7 +285,7 @@
       <path value="DeviceDefinition.deviceName.name"/>
       <short value="A name that is used to refer to the device"/>
       <definition value="A human-friendly name that is used to refer to the device - depending on the type, it can be the brand name, the common name or alias, or other."/>
-      <alias value="&#x3A3;"/>
+      <alias value="Σ"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -426,7 +491,7 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
     </element>
     <element id="DeviceDefinition.packaging.udiDeviceIdentifier">
@@ -434,12 +499,10 @@
       <short value="Unique Device Identifier (UDI) Barcode string on the packaging"/>
       <definition value="Unique Device Identifier (UDI) Barcode string on the packaging."/>
       <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
+			<max value="*"/>
+			<contentReference value="#DeviceDefinition.udiDeviceIdentifier"/>
     </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
+    <!-- <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
       <path value="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier"/>
       <short value="Identifier to be associated with every instance for issuer and jurisdiction"/>
       <definition value="Identifier to be associated with every instance for issuer and jurisdiction."/>
@@ -499,7 +562,7 @@
       <type>
         <code value="uri"/>
       </type>
-    </element>
+    </element> -->
 
     <element id="DeviceDefinition.packaging.packaging">
       <path value="DeviceDefinition.packaging.packaging"/>
@@ -523,7 +586,7 @@
       <path value="DeviceDefinition.version.type"/>
       <short value="The type of the device version, e.g. manufacturer, approved, internal"/>
       <definition value="The type of the device version, e.g. manufacturer, approved, internal."/>
-      <alias value="&#x3A3;"/>
+      <alias value="Σ"/>
       <min value="0"/>
       <max value="1"/>
       <type>

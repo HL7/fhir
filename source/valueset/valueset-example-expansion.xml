@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example-expansion"/>
 	<meta>
 		<!--   many expansions are not shareable, but this one is   -->
@@ -63,7 +62,11 @@
 		</div>
 	</text>
 	<url value="http://hl7.org/fhir/ValueSet/example-expansion"/>
-	<version value="20150622"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3141"/>
+  </identifier>
+  <version value="20150622"/>
 	<name value="LOINCCodesForCholesterolInSerumPlasma"/>
 	<title value="LOINC Codes for Cholesterol in Serum/Plasma"/>
 	<status value="draft"/>
@@ -101,7 +104,7 @@
 		<!--   a reference to the original content - if there is one. Note that 
 		when you store an expansion, there often won't be one   -->
 		<extension url="http://hl7.org/fhir/StructureDefinition/valueset-expansionSource">
-			<valueUri value="http://hl7.org/fhir/ValueSet/example-extensional"/>
+			<valueUri value="http://hl7.org/fhir/ValueSet/example"/>
 		</extension>
 		<!--   always assigned to any expansion, this is cacheable id   -->
 		<identifier value="urn:uuid:42316ff8-2714-4680-9980-f37a6d1a71bc"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="auditevent-ParticipantObjectContainsStudy"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-ParticipantObjectContainsStudy"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1005"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ParticipantObjectContainsStudy"/>
   <status value="draft"/>
@@ -20,7 +22,7 @@
       <value value="http://www.hl7.org/Special/committees/security/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A Study Instance ID, which may be used when the Entity type is not (110180, DCM, &quot;Study Instance UID&quot;)."/>
+  <description value="A Study Instance ID, which may be used when the Entity type is not (110180, DCM, &#34;Study Instance UID&#34;)."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="dicom"/>
@@ -45,7 +47,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Contains Study"/>
-      <definition value="A Study Instance ID, which may be used when the Entity type is not (110180, DCM, &quot;Study Instance UID&quot;)."/>
+      <definition value="A Study Instance ID, which may be used when the Entity type is not (110180, DCM, &#34;Study Instance UID&#34;)."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>

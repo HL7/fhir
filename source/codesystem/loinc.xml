@@ -1,4 +1,4 @@
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
 LOINC is a well maintained, version independent code system
 
 This CodeSystem resource describes 'LOINC' independent of 
@@ -16,9 +16,7 @@ LOINC code systems:
  
 Servers may generate variants of this for the LOINC version(s) and features
 they support
--->
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+--><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="loinc"/>
   
   <!-- this url is unchanged for all editions and versions of LOINC. There
@@ -29,7 +27,7 @@ they support
   <!-- the HL7 v3 OID assigned to LOINC -->
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.6.1"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2003"/>
   </identifier>
   
   <!--  
@@ -56,7 +54,7 @@ they support
   
   <description value="LOINC is a universal code system for tests, measurements, and observations"/>
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
-  <caseSensitive  value="false"/>
+  <caseSensitive value="false"/>
   
   <valueSet value=" http://loinc.org/vs"/>
    <!--

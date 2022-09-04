@@ -1,10 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<NamingSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><NamingSystem xmlns="http://hl7.org/fhir">
   <id value="example-metadata-2"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablenamingsystem"/>
   </meta>
-  <url value="http://hl7.org/fhir/NamingSystem/example-metadata"/>
+  <url value="http://hl7.org/fhir/NamingSystem/example-metadata-2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.22.4"/>
+  </identifier>
   <version value="20220721"/>
 
   <name value="ExampleMetadata"/>

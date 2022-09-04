@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1377"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1377"/>
   </identifier>
   <name value="MedicationRequest Status Codes"/>
   <status value="draft"/>
@@ -23,12 +21,12 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The request is &#39;actionable&#39;, but not all actions that are implied by it have occurred yet."/>
+    <definition value="The request is 'actionable', but not all actions that are implied by it have occurred yet."/>
   </concept>
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called &#39;suspended&#39;."/>
+    <definition value="Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called 'suspended'."/>
   </concept>
   
   <concept>
@@ -60,11 +58,11 @@
   <concept>
     <code value="draft"/>
     <display value="Draft"/>
-    <definition value="The request is not yet &#39;actionable&#39;, e.g. it is a work in progress, requires sign-off, verification&#xA0;or&#xA0;needs to be run through decision support process."/>
+    <definition value="The request is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &#39;other&#39; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
   </concept>
 </CodeSystem>

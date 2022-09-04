@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-minOccurs"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -8,7 +7,11 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1254"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="minOccurs"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -36,7 +39,7 @@
 		<type value="element"/>
 		<expression value="ElementDefinition"/>
 	</context>
-	<contextInvariant value="type!=&#39;display&#39; and (required=true or %extension.valueInteger=0)"/>
+	<contextInvariant value="type!='display' and (required=true or %extension.valueInteger=0)"/>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
 	<derivation value="constraint"/>
@@ -45,7 +48,7 @@
 			<path value="Extension"/>
 			<short value="Minimum repetitions"/>
 			<definition value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
-			<comment value="Default assumption for &quot;required&quot; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#minOccurs)."/>
+			<comment value="Default assumption for &#34;required&#34; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#minOccurs)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<mapping>

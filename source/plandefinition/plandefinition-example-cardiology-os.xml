@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
-<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="example-cardiology-os" />
+<?xml version="1.0" encoding="UTF-8"?><!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) --><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="example-cardiology-os"/>
   <contained>
     <Library>
-      <id value="cardiology-chestPain-logic" />
+      <id value="cardiology-chestPain-logic"/>
       <status value="active"/>
       <type>
          <coding>
@@ -15,16 +11,16 @@
             <display value="Logic Library"/>
          </coding>
       </type>
-      <description value="Placeholder library" />
+      <description value="Placeholder library"/>
     </Library>
   </contained>
   <contained>
     <ActivityDefinition>
-      <id value="referralToCardiologyConsult" />
-      <status value="draft" />
-      <description value="Consider other consult modalities which might be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent." />
+      <id value="referralToCardiologyConsult"/>
+      <status value="draft"/>
+      <description value="Consider other consult modalities which might be available (e.g., e-consult or other rapidly iterative consult method. A simple consult is included here as the overarching clinical intent."/>
       <!--  Kind indicates the type of resource that is defined by this activity, a ServiceRequest in this case  -->
-      <kind value="ServiceRequest" />
+      <kind value="ServiceRequest"/>
       <!-- <code>
         <coding>
           <system value="http://snomed.info/sct" />
@@ -38,95 +34,95 @@
           <extension url="http://hl7.org/fhir/StructureDefinition/cqf-expression">
             <valueExpression>
               <language value="text/cql"/>
-              <expression value="Now()" />
+              <expression value="Now()"/>
             </valueExpression>
           </extension>
         </event>
       </timingTiming>
       <participant>
-        <type value="practitioner" />
+        <type value="practitioner"/>
       </participant>
     </ActivityDefinition>
   </contained>
   <contained>
     <ActivityDefinition>
-      <id value="metoprololTartrate25Prescription" />
-      <status value="draft" />
-      <kind value="MedicationRequest" />
+      <id value="metoprololTartrate25Prescription"/>
+      <status value="draft"/>
+      <kind value="MedicationRequest"/>
       <productReference>
-        <reference value="#metoprololTartrate25Medication" />
+        <reference value="#metoprololTartrate25Medication"/>
       </productReference>
       <dosage>
-        <text value="1 tablet oral 2 time daily" />
+        <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
-            <frequency value="2" />
-            <period value="1" />
-            <periodUnit value="d" />
+            <frequency value="2"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <route>
           <coding>
-            <code value="26643006" />
-            <display value="Oral route (qualifier value)" />
+            <code value="26643006"/>
+            <display value="Oral route (qualifier value)"/>
           </coding>
-          <text value="Oral route (qualifier value)" />
+          <text value="Oral route (qualifier value)"/>
         </route>
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
-              <code value="ordered" />
-              <display value="Ordered" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
             </coding>
           </type>
           <doseQuantity>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
       </dosage>
       <dynamicValue>
-        <path value="medicationRequest.priority" />
+        <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine" />
+          <expression value="routine"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
   <contained>
     <Medication>
-      <id value="metoprololTartrate25Medication" />
+      <id value="metoprololTartrate25Medication"/>
       <code>
         <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="866426" />
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="866426"/>
         </coding>
-        <text value="Metoprolol Tartrate 25 MG" />
+        <text value="Metoprolol Tartrate 25 MG"/>
       </code>
       <doseForm>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="385055001" />
-          <display value="Tablet dose form" />
+          <system value="http://snomed.info/sct"/>
+          <code value="385055001"/>
+          <display value="Tablet dose form"/>
         </coding>
-        <text value="Tablet dose form" />
+        <text value="Tablet dose form"/>
       </doseForm>
       <ingredient>
         <item>
           <reference>
-          <reference value="#metoprololTartrate25Substance" />
+          <reference value="#metoprololTartrate25Substance"/>
           </reference>
         </item>
         <strengthRatio>
           <numerator>
-            <value value="25" />
-            <unit value="mg" />
+            <value value="25"/>
+            <unit value="mg"/>
           </numerator>
           <denominator>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </denominator>
         </strengthRatio>
       </ingredient>
@@ -134,98 +130,98 @@
   </contained>
   <contained>
     <Substance>
-      <id value="metoprololTartrate25Substance" />
+      <id value="metoprololTartrate25Substance"/>
       <instance value="false"/>
       <code>
         <concept>
           <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-            <code value="6918" />
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="6918"/>
           </coding>
-          <text value="Metoprolol" />
+          <text value="Metoprolol"/>
         </concept>
       </code>
     </Substance>
   </contained>
   <contained>
     <ActivityDefinition>
-      <id value="metoprololTartrate50Prescription" />
-      <status value="draft" />
-      <kind value="MedicationRequest" />
+      <id value="metoprololTartrate50Prescription"/>
+      <status value="draft"/>
+      <kind value="MedicationRequest"/>
       <productReference>
-        <reference value="#metoprololTartrate50Medication" />
+        <reference value="#metoprololTartrate50Medication"/>
       </productReference>
       <dosage>
-        <text value="1 tablet oral 2 time daily" />
+        <text value="1 tablet oral 2 time daily"/>
         <timing>
           <repeat>
-            <frequency value="2" />
-            <period value="1" />
-            <periodUnit value="d" />
+            <frequency value="2"/>
+            <period value="1"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <route>
           <coding>
-            <code value="26643006" />
-            <display value="Oral route (qualifier value)" />
+            <code value="26643006"/>
+            <display value="Oral route (qualifier value)"/>
           </coding>
-          <text value="Oral route (qualifier value)" />
+          <text value="Oral route (qualifier value)"/>
         </route>
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
-              <code value="ordered" />
-              <display value="Ordered" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
             </coding>
           </type>
           <doseQuantity>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
       </dosage>
       <dynamicValue>
-        <path value="medicationRequest.priority" />
+        <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine" />
+          <expression value="routine"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
   <contained>
     <Medication>
-      <id value="metoprololTartrate50Medication" />
+      <id value="metoprololTartrate50Medication"/>
       <code>
         <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="866435" />
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="866435"/>
         </coding>
-        <text value="Metoprolol Tartrate 50 MG" />
+        <text value="Metoprolol Tartrate 50 MG"/>
       </code>
       <doseForm>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="385055001" />
-          <display value="Tablet dose form" />
+          <system value="http://snomed.info/sct"/>
+          <code value="385055001"/>
+          <display value="Tablet dose form"/>
         </coding>
-        <text value="Tablet dose form" />
+        <text value="Tablet dose form"/>
       </doseForm>
       <ingredient>
         <item>
         <reference>
-          <reference value="#metoprololTartrate50Substance" />
+          <reference value="#metoprololTartrate50Substance"/>
         </reference>
         </item>
         <strengthRatio>
           <numerator>
-            <value value="50" />
-            <unit value="mg" />
+            <value value="50"/>
+            <unit value="mg"/>
           </numerator>
           <denominator>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </denominator>
         </strengthRatio>
       </ingredient>
@@ -233,15 +229,15 @@
   </contained>
   <contained>
     <Substance>
-      <id value="metoprololTartrate50Substance" />
+      <id value="metoprololTartrate50Substance"/>
       <instance value="false"/>
       <code>
         <concept>
           <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-            <code value="6918" />
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="6918"/>
           </coding>
-          <text value="Metoprolol" />
+          <text value="Metoprolol"/>
         </concept>
       </code>
     </Substance>
@@ -340,19 +336,19 @@
   </contained> -->
   <contained>
     <ActivityDefinition>
-      <id value="nitroglycerinPrescription" />
-      <status value="draft" />
-      <kind value="MedicationRequest" />
+      <id value="nitroglycerinPrescription"/>
+      <status value="draft"/>
+      <kind value="MedicationRequest"/>
       <productReference>
-        <reference value="#nitroglycerinMedication" />
+        <reference value="#nitroglycerinMedication"/>
       </productReference>
       <dosage>
-        <text value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets" />
+        <text value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets"/>
         <timing>
           <repeat>
-            <frequency value="1" />
-            <period value="5" />
-            <periodUnit value="min" />
+            <frequency value="1"/>
+            <period value="5"/>
+            <periodUnit value="min"/>
           </repeat>
         </timing>
         <!-- <route>
@@ -365,62 +361,62 @@
         <doseAndRate>
           <type>
             <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type" />
-              <code value="ordered" />
-              <display value="Ordered" />
+              <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+              <code value="ordered"/>
+              <display value="Ordered"/>
             </coding>
           </type>
           <doseQuantity>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </doseQuantity>
         </doseAndRate>
         <maxDosePerAdministration>
-          <value value="3" />
-          <unit value="{tbl}" />
+          <value value="3"/>
+          <unit value="{tbl}"/>
         </maxDosePerAdministration>
       </dosage>
       <dynamicValue>
-        <path value="medicationRequest.priority" />
+        <path value="medicationRequest.priority"/>
         <expression>
           <language value="text/cql"/>
-          <expression value="routine" />
+          <expression value="routine"/>
         </expression>
       </dynamicValue>
     </ActivityDefinition>
   </contained>
   <contained>
     <Medication>
-      <id value="nitroglycerinMedication" />
+      <id value="nitroglycerinMedication"/>
       <code>
         <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="316365" />
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="316365"/>
         </coding>
-        <text value="Nitroglycerin 0.4 MG" />
+        <text value="Nitroglycerin 0.4 MG"/>
       </code>
       <doseForm>
         <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="385055001" />
-          <display value="Tablet dose form" />
+          <system value="http://snomed.info/sct"/>
+          <code value="385055001"/>
+          <display value="Tablet dose form"/>
         </coding>
-        <text value="Tablet dose form" />
+        <text value="Tablet dose form"/>
       </doseForm>
       <ingredient>
         <item>
         <reference>
-          <reference value="#nitroglycerinSubstance" />
+          <reference value="#nitroglycerinSubstance"/>
         </reference>
         </item>
         <strengthRatio>
           <numerator>
-            <value value="0.4" />
-            <unit value="mg" />
+            <value value="0.4"/>
+            <unit value="mg"/>
           </numerator>
           <denominator>
-            <value value="1" />
-            <unit value="{tbl}" />
+            <value value="1"/>
+            <unit value="{tbl}"/>
           </denominator>
         </strengthRatio>
       </ingredient>
@@ -428,15 +424,15 @@
   </contained>
   <contained>
     <Substance>
-      <id value="nitroglycerinSubstance" />
+      <id value="nitroglycerinSubstance"/>
       <instance value="false"/>
       <code>
         <concept>
           <coding>
-            <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-            <code value="4917" />
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="4917"/>
           </coding>
-          <text value="Nitroglycerin" />
+          <text value="Nitroglycerin"/>
         </concept>
       </code>
     </Substance>
@@ -484,77 +480,81 @@
 
   <contained>
     <Questionnaire>
-      <id value="CollectReferralReason" />
-      <status value="draft" />
+      <id value="CollectReferralReason"/>
+      <status value="draft"/>
       <item>
-        <linkId value="1" />
-        <text value="Reason for Cardiology Consult" />
-        <type value="coding" />
-        <required value="true" />
-        <repeats value="true" />
-        <answerValueSet value="#CardiologyReferralReasonValues" />
+        <linkId value="1"/>
+        <text value="Reason for Cardiology Consult"/>
+        <type value="coding"/>
+        <required value="true"/>
+        <repeats value="true"/>
+        <answerValueSet value="#CardiologyReferralReasonValues"/>
       </item>
     </Questionnaire>
   </contained>
   <contained>
     <Questionnaire>
-      <id value="CardiologyConsultationGoal" />
-      <status value="draft" />
+      <id value="CardiologyConsultationGoal"/>
+      <status value="draft"/>
       <item>
-        <linkId value="2" />
-        <text value="Goal of cardiology consultation" />
-        <type value="string" />
+        <linkId value="2"/>
+        <text value="Goal of cardiology consultation"/>
+        <type value="string"/>
       </item>
     </Questionnaire>
   </contained>
-  <url value="http://va.gov/kas/orderset/B5-Cardiology-ChestPainCAD-OS" />
+  <url value="http://va.gov/kas/orderset/B5-Cardiology-ChestPainCAD-OS"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.8"/>
+  </identifier>
   <identifier>
     <!--identifierName="B5" -->
-    <use value="official" />
-    <system value="urn:va.gov:kbs:knart:artifact:r1" />
-    <value value="bb7ccea6-9744-4743-854a-bcffd87191f6" />
+    <use value="official"/>
+    <system value="urn:va.gov:kbs:knart:artifact:r1"/>
+    <value value="bb7ccea6-9744-4743-854a-bcffd87191f6"/>
   </identifier>
   <!--identifierName="Contract: VA118-16-D-1008, Task Order (TO): VA-118-16-F-1008-0007, CLIN0004AG" -->
   <identifier>
-    <system value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007" />
-    <value value="CLIN0004AG" />
+    <system value="urn:va.gov:kbs:contract:VA118-16-D-1008:to:VA-118-16-F-1008-0007"/>
+    <value value="CLIN0004AG"/>
   </identifier>
   <!--identifierName="Jira KP-914" -->
   <identifier>
-    <system value="urn:cognitivemedicine.com:lab:jira" />
-    <value value="KP-914" />
+    <system value="urn:cognitivemedicine.com:lab:jira"/>
+    <value value="KP-914"/>
   </identifier>
-  <version value="0.1" />
-  <name value="ChestPainCoronaryArteryDiseaseOrderSetKNART" />
-  <title value="Chest Pain (CP) - Coronary Artery Disease (CAD) Order Set KNART" />
+  <version value="0.1"/>
+  <name value="ChestPainCoronaryArteryDiseaseOrderSetKNART"/>
+  <title value="Chest Pain (CP) - Coronary Artery Disease (CAD) Order Set KNART"/>
   <type>
     <coding>
-      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type" />
-      <code value="order-set" />
-      <display value="Order Set" />
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="order-set"/>
+      <display value="Order Set"/>
     </coding>
   </type>
-  <status value="active" />
-  <date value="2017-08-29" />
-  <publisher value="Department of Veterans Affairs" />
-  <description value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are     intended to assist primary care providers in the management of adult patients with stable     chest pain (with or without known CAD); aid in determining when a cardiology consultation is     appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and     provide a structured documentation template for the process. Stable patients with cardiac     chest pain require risk stratification, office-based workup, initiation of disease-specific     medications, and subspecialty referral to a cardiologist." />
+  <status value="active"/>
+  <date value="2017-08-29"/>
+  <publisher value="Department of Veterans Affairs"/>
+  <description value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are     intended to assist primary care providers in the management of adult patients with stable     chest pain (with or without known CAD); aid in determining when a cardiology consultation is     appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and     provide a structured documentation template for the process. Stable patients with cardiac     chest pain require risk stratification, office-based workup, initiation of disease-specific     medications, and subspecialty referral to a cardiologist."/>
   <useContext>
     <code>
-      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type" />
-      <code value="focus" />
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://snomed.info/sct" />
-        <code value="look up value" />
-        <display value="appropriate snomed condition" />
+        <system value="http://snomed.info/sct"/>
+        <code value="look up value"/>
+        <display value="appropriate snomed condition"/>
       </coding>
     </valueCodeableConcept>
   </useContext>
-  <usage value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are intended to assist primary care providers in the management of adult patients with stable chest pain (with or without known CAD); aid in determining when a cardiology consultation is appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and provide a structured documentation template for the process. Stable patients with cardiac chest pain require risk stratification, office-based workup, initiation of disease-specific medications, and subspecialty referral to a cardiologist. This context excludes emergent patients (new/ongoing/unstable pattern CP). Included are those patients with stable CP with or without known CAD, to be considered for evaluation by cardiology." />
-  <copyright value="© Copyright Cognitive Medical Systems, Inc. 9444 Waples Street Suite 300 San Diego, CA 92121" />
+  <usage value="The Cardiology chest pain (CP) and coronary artery disease (CAD) group of KNARTs are intended to assist primary care providers in the management of adult patients with stable chest pain (with or without known CAD); aid in determining when a cardiology consultation is appropriate; provide guidance for initial noninvasive diagnostic orders (stress testing) and provide a structured documentation template for the process. Stable patients with cardiac chest pain require risk stratification, office-based workup, initiation of disease-specific medications, and subspecialty referral to a cardiologist. This context excludes emergent patients (new/ongoing/unstable pattern CP). Included are those patients with stable CP with or without known CAD, to be considered for evaluation by cardiology."/>
+  <copyright value="© Copyright Cognitive Medical Systems, Inc. 9444 Waples Street Suite 300 San Diego, CA 92121"/>
   <author>
-    <name value="Bruce Bray MD" />
+    <name value="Bruce Bray MD"/>
     <!-- No place for affiliation in the contributor, left here as comments
         <affiliation>
                <name
@@ -564,7 +564,7 @@
            </affiliation> -->
   </author>
   <author>
-    <name value="Scott Wall MD" />
+    <name value="Scott Wall MD"/>
     <!-- No place for affiliation in the contributor, left here as comments
      <affiliation>
         <name
@@ -574,7 +574,7 @@
      </affiliation> -->
   </author>
   <author>
-    <name value="Aiden Abidov MD, PhD" />
+    <name value="Aiden Abidov MD, PhD"/>
     <!-- No place for affiliation in the contributor, left here as comments
      <affiliation>
         <name
@@ -582,23 +582,23 @@
      </affiliation> -->
   </author>
   <relatedArtifact>
-    <type value="derived-from" />
-    <display value="Cardiology: Chest Pain (CP) / Coronary Artery Disease (CAD) Clinical Content White Paper" />
+    <type value="derived-from"/>
+    <display value="Cardiology: Chest Pain (CP) / Coronary Artery Disease (CAD) Clinical Content White Paper"/>
     <document>
-      <url value="NEED-A-URL-HERE" />
+      <url value="NEED-A-URL-HERE"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!-- used the description from HeD example for display here-->
-    <display value="Outcome CVD (coronary death, myocardial infarction, coronary insufficiency, angina, ischemic stroke, hemorrhagic stroke, transient ischemic attack, peripheral artery disease, heart failure)" />
-    <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php." />
+    <display value="Outcome CVD (coronary death, myocardial infarction, coronary insufficiency, angina, ischemic stroke, hemorrhagic stroke, transient ischemic attack, peripheral artery disease, heart failure)"/>
+    <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php."/>
     <document>
-      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
          <identifier root="https://doi.org/10.1161/CIRCULATIONAHA.107.699579"
@@ -607,32 +607,32 @@
             identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="General cardiovascular risk profile for use in primary care: the Framingham Heart Study" />
-    <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php." />
+    <display value="General cardiovascular risk profile for use in primary care: the Framingham Heart Study"/>
+    <citation value="Cardiovascular disease          (10-year risk) [Internet].: Framingham Heart Study; cited 2017]. Available from: https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php."/>
     <document>
-      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php" />
+      <url value="https://www.framinghamheartstudy.org/risk-functions/cardiovascular-disease/10-year-risk.php"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
          <identifier root="10.1016/j.jtcvs.2014.11.002" identifierName="DOI"/>
          <identifier root="Fihn et al., 2015" identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="2014 ACC/AHA/AATS/PCNA/SCAI/STS focused update of the guideline for the diagnosis and management of patients with stable ischemic heart disease: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines, and the American Association for Thoracic Surgery, Preventive Cardiovascular Nurses Association, Society for Cardiovascular Angiography and Interventions, and Society of Thoracic Surgeons" />
+    <display value="2014 ACC/AHA/AATS/PCNA/SCAI/STS focused update of the guideline for the diagnosis and management of patients with stable ischemic heart disease: a report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines, and the American Association for Thoracic Surgery, Preventive Cardiovascular Nurses Association, Society for Cardiovascular Angiography and Interventions, and Society of Thoracic Surgeons"/>
     <!-- here is the description from the source OS, no spot for it
         <description
             value="A report of the American College of Cardiology/American Heart Association Task Force on Practice Guidelines, and the American Association for Thoracic Surgery, Preventive Cardiovascular Nurses Association, Society for Cardiovascular Angiography and Interventions, and Society of Thoracic Surgeons"/>
       -->
-    <citation value="Fihn SD, Blankenship JC, Alexander KP, Bittl JA, Byrne JG, Fletcher BJ, et al. 2014 ACC/AHA/AATS/PCNA/SCAI/STS focused update of the guideline for the diagnosis and management of patients with stable ischemic heart disease: A report of the american college of cardiology/american heart association task force on practice guidelines, and the american association for thoracic surgery, preventive cardiovascular nurses association, society for cardiovascular angiography and interventions, and society of thoracic surgeons. J Thorac Cardiovasc Surg. 2015 March 01;149(3):5." />
+    <citation value="Fihn SD, Blankenship JC, Alexander KP, Bittl JA, Byrne JG, Fletcher BJ, et al. 2014 ACC/AHA/AATS/PCNA/SCAI/STS focused update of the guideline for the diagnosis and management of patients with stable ischemic heart disease: A report of the american college of cardiology/american heart association task force on practice guidelines, and the american association for thoracic surgery, preventive cardiovascular nurses association, society for cardiovascular angiography and interventions, and society of thoracic surgeons. J Thorac Cardiovasc Surg. 2015 March 01;149(3):5."/>
     <document>
-      <url value="NEED-A-URL-HERE" />
+      <url value="NEED-A-URL-HERE"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
         <identifier root="https://doi.org/10.1016/S0735-1097(02)02164-2"
@@ -640,119 +640,119 @@
          <identifier root="Gibbons et al., 2002" identifierName="LocalDocBook"/>
      </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="ACC/AHA 2002 guideline update for exercise testing: summary article: A report of the American college of cardiology/American heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines)" />
+    <display value="ACC/AHA 2002 guideline update for exercise testing: summary article: A report of the American college of cardiology/American heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines)"/>
     <!-- there was no description in this specific entry -->
-    <citation value="Gibbons RJ, Balady GJ, Bricker JT, Chaitman BR, Fletcher GF, Froelicher VF, et al. ACC/AHA 2002 guideline update for exercise testing: Summary article: A report of the american college of cardiology/american heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines). Circulation. 2002 October 01;106(14):1883-92." />
+    <citation value="Gibbons RJ, Balady GJ, Bricker JT, Chaitman BR, Fletcher GF, Froelicher VF, et al. ACC/AHA 2002 guideline update for exercise testing: Summary article: A report of the american college of cardiology/american heart association task force on practice guidelines (committee to update the 1997 exercise testing guidelines). Circulation. 2002 October 01;106(14):1883-92."/>
     <document>
-      <url value="NEED-A-URL-HERE" />
+      <url value="NEED-A-URL-HERE"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
        <identifier root="b4064039-2345-4227-b83d-54dc13a838d3"/>
        <identifier root="NLM 2017a" identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: ASPIRIN 81 MG- aspirin tablet, coated" />
+    <display value="LABEL: ASPIRIN 81 MG- aspirin tablet, coated"/>
     <!-- there was no description in this specific entry -->
-    <citation value="Label: ASPIRIN 81 MG- aspirin tablet, coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3." />
+    <citation value="Label: ASPIRIN 81 MG- aspirin tablet, coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4064039-2345-4227-b83d-54dc13a838d3"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
          <identifier root="edae8df1-caf9-ff72-1304-5ae8b355f8e7"/>
          <identifier root="NLM 2017b" identifierName="LocalDocBook"/>
      </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated" />
+    <display value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated"/>
     <!-- there was no description in this specific entry -->
-    <citation value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=edae8df1-caf9-ff72-1304-5ae8b355f8e7." />
+    <citation value="LABEL: CLOPIDOGREL- clopidogrel bisulfate tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=edae8df1-caf9-ff72-1304-5ae8b355f8e7."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
         <identifier root="7fe85155-bc00-406b-b097-e8aece187a8a"/>
         <identifier root="NLM 2017c" identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated" />
+    <display value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated"/>
     <!-- there was no description in this specific entry -->
-    <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a." />
+    <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
        <identifier root="2d948600-35d8-4490-983b-918bdce488c8"/>
        <identifier root="NLM 2017d" identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: METOPROLOL SUCCINATE EXTENDED-RELEASE - metoprolol succinate tablet, film coated, extended release" />
+    <display value="LABEL: METOPROLOL SUCCINATE EXTENDED-RELEASE - metoprolol succinate tablet, film coated, extended release"/>
     <!-- there was no description in this specific entry -->
-    <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a." />
+    <citation value="LABEL: LIPITOR- atorvastatin calcium tablet, film coated [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7fe85155-bc00-406b-b097-e8aece187a8a."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d948600-35d8-4490-983b-918bdce488c8" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2d948600-35d8-4490-983b-918bdce488c8"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
      <identifiers>
        <identifier root="67bf2a15-b115-47ac-ae28-ce2dafd6b5c9"/>
        <identifier root="NLM 2017e" identifierName="LocalDocBook"/>
      </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: NITROGLYCERIN- nitroglycerin tablet" />
+    <display value="LABEL: NITROGLYCERIN- nitroglycerin tablet"/>
     <!-- there was no description in this specific entry -->
-    <citation value="LABEL: NITROGLYCERIN- nitroglycerin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9." />
+    <citation value="LABEL: NITROGLYCERIN- nitroglycerin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=67bf2a15-b115-47ac-ae28-ce2dafd6b5c9"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
       <identifiers>
         <identifier root="5c1c694c-4b08-469e-b538-08e69df06146"/>
         <identifier root="NLM 2017g" identifierName="LocalDocBook"/>
       </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="LABEL: SIMVASTATIN - simvastatin tablet" />
+    <display value="LABEL: SIMVASTATIN - simvastatin tablet"/>
     <!-- there was no description in this specific entry -->
-    <citation value="LABEL: SIMVASTATIN - simvastatin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146." />
+    <citation value="LABEL: SIMVASTATIN - simvastatin tablet [Internet].: National Library of Medicine; 2017. Available from: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146."/>
     <document>
-      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146" />
+      <url value="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5c1c694c-4b08-469e-b538-08e69df06146"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
-    <type value="justification" />
+    <type value="justification"/>
     <!--  no identifier field available, this is an example of what is in the source OS
        <identifiers>
           <identifier root="10.1136/hrt.2009.190066" identifierName="DOI"/>
           <identifier root="Skinner et al., 2010" identifierName="LocalDocBook"/>
         </identifiers> -->
     <!-- used the title from HeD example for display here-->
-    <display value="Chest Pain Guideline Development Group. NICE guidance. Chest          pain of recent onset: assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin." />
+    <display value="Chest Pain Guideline Development Group. NICE guidance. Chest          pain of recent onset: assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin."/>
     <!-- there was no description in this specific entry -->
-    <citation value="Skinner JS, Smeeth L, Kendall JM, Adams PC, Timmis A, Chest Pain Guideline Development Group. NICE guidance. chest pain of recent onset: Assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin. Heart. 2010 June 01;96(12):974-8." />
+    <citation value="Skinner JS, Smeeth L, Kendall JM, Adams PC, Timmis A, Chest Pain Guideline Development Group. NICE guidance. chest pain of recent onset: Assessment and diagnosis of recent onset chest pain or discomfort of suspected cardiac origin. Heart. 2010 June 01;96(12):974-8."/>
     <document>
-      <url value="http://heart.bmj.com/content/96/12/974.long" />
+      <url value="http://heart.bmj.com/content/96/12/974.long"/>
     </document>
   </relatedArtifact>
-  <library value="#cardiology-chestPain-logic" />
+  <library value="#cardiology-chestPain-logic"/>
   <!--  Actions  -->
   <action>
     <!--
@@ -761,72 +761,72 @@
     </action>
       -->
     <action>
-      <title value="Consults and Referrals" />
-      <groupingBehavior value="logical-group" />
-      <selectionBehavior value="any" />
+      <title value="Consults and Referrals"/>
+      <groupingBehavior value="logical-group"/>
+      <selectionBehavior value="any"/>
       <action>
-        <textEquivalent value="Referral to cardiology to evaluate chest pain (routine)" />
-        <definitionCanonical value="#referralToCardiologyConsult" />
+        <textEquivalent value="Referral to cardiology to evaluate chest pain (routine)"/>
+        <definitionCanonical value="#referralToCardiologyConsult"/>
         <!--  These expressions will be evaluated with the library referenced above as an include  -->
         <dynamicValue>
-          <path value="timing.event" />
+          <path value="timing.event"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="Now()" />
+            <expression value="Now()"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
-          <path value="specialty" />
+          <path value="specialty"/>
           <!--  This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy  -->
           <expression>
             <language value="text/cql"/>
-            <expression value="Code '261QM0850X' from CardiologyChestPainLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'" />
+            <expression value="Code '261QM0850X' from CardiologyChestPainLogic.&#34;NUCC Provider Taxonomy&#34; display 'Adult Mental Health'"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
           <!--  The fulfillmentTime element of the resulting ServiceRequest will be set to the result of the ServiceRequestFulfillmentTime expression defined in the SuicideRiskLogic library  -->
-          <path value="occurrenceDateTime" />
+          <path value="occurrenceDateTime"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="CardiologyChestPainLogic.ServiceRequestFulfillmentTime" />
+            <expression value="CardiologyChestPainLogic.ServiceRequestFulfillmentTime"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
-          <path value="subject" />
+          <path value="subject"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="CardiologyChestPainLogic.Patient" />
+            <expression value="CardiologyChestPainLogic.Patient"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
-          <path value="requester.agent" />
+          <path value="requester.agent"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="CardiologyChestPainLogic.Practitioner" />
+            <expression value="CardiologyChestPainLogic.Practitioner"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
-          <path value="reasonCode" />
+          <path value="reasonCode"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="CardiologyChestPainLogic.CardiologyReferralReason" />
+            <expression value="CardiologyChestPainLogic.CardiologyReferralReason"/>
           </expression>
         </dynamicValue>
         <dynamicValue>
-          <path value="reasonReference" />
+          <path value="reasonReference"/>
           <expression>
             <language value="text/cql"/>
-            <expression value="CardiologyChestPainLogic.RiskAssessment" />
+            <expression value="CardiologyChestPainLogic.RiskAssessment"/>
           </expression>
         </dynamicValue>
       </action>
       <action>
-        <title value="Reason for cardiology consultation" />
-        <definitionCanonical value="#CollectReferralReason" />
+        <title value="Reason for cardiology consultation"/>
+        <definitionCanonical value="#CollectReferralReason"/>
       </action>
       <action>
-        <title value="Goal of cardiology consultation" />
-        <definitionCanonical value="#CardiologyConsultationGoal" />
+        <title value="Goal of cardiology consultation"/>
+        <definitionCanonical value="#CardiologyConsultationGoal"/>
       </action>
     </action>
     <!--
@@ -845,119 +845,119 @@
     </action>
      -->
     <action>
-      <title value="Medications" />
-      <description value="Consider the following medications for stable patients to be initiated prior to the cardiology consultation." />
+      <title value="Medications"/>
+      <description value="Consider the following medications for stable patients to be initiated prior to the cardiology consultation."/>
       <action>
-        <groupingBehavior value="logical-group" />
-        <selectionBehavior value="at-most-one" />
+        <groupingBehavior value="logical-group"/>
+        <selectionBehavior value="at-most-one"/>
       </action>
       <action>
-        <title value="Antianginal Therapy" />
-        <groupingBehavior value="logical-group" />
-        <selectionBehavior value="at-most-one" />
+        <title value="Antianginal Therapy"/>
+        <groupingBehavior value="logical-group"/>
+        <selectionBehavior value="at-most-one"/>
         <action>
-          <textEquivalent value="metoprolol tartrate 25 mg tablet 1 tablet oral 2 time daily" />
-          <definitionCanonical value="#metoprololTartrate25Prescription" />
+          <textEquivalent value="metoprolol tartrate 25 mg tablet 1 tablet oral 2 time daily"/>
+          <definitionCanonical value="#metoprololTartrate25Prescription"/>
           <dynamicValue>
-            <path value="status" />
+            <path value="status"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="'draft'" />
+              <expression value="'draft'"/>
             </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="patient" />
+            <path value="patient"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Patient" />
+              <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="prescriber" />
+            <path value="prescriber"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Practitioner" />
+              <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
         </action>
         <action>
-          <textEquivalent value="metoprolol tartrate 50 mg tablet 1 tablet oral 2 time daily" />
-          <definitionCanonical value="#metoprololTartrate50Prescription" />
+          <textEquivalent value="metoprolol tartrate 50 mg tablet 1 tablet oral 2 time daily"/>
+          <definitionCanonical value="#metoprololTartrate50Prescription"/>
           <dynamicValue>
-            <path value="status" />
+            <path value="status"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="'draft'" />
+              <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="patient" />
+            <path value="patient"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Patient" />
+              <expression value="CardiologyChestPainLogic.Patient"/>
             </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="prescriber" />
+            <path value="prescriber"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Practitioner" />
+              <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
         </action>
         <action>
-          <textEquivalent value="amlodipine 5  tablet 1 tablet oral  daily" />
-          <definitionCanonical value="#amlodipinePrescription" />
+          <textEquivalent value="amlodipine 5  tablet 1 tablet oral  daily"/>
+          <definitionCanonical value="#amlodipinePrescription"/>
           <dynamicValue>
-            <path value="status" />
+            <path value="status"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="'draft'" />
+              <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="patient" />
+            <path value="patient"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Patient" />
+              <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="prescriber" />
+            <path value="prescriber"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Practitioner" />
+              <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
         </action>
       </action>
       <action>
-        <title value="Nitroglycerin" />
-        <groupingBehavior value="logical-group" />
-        <selectionBehavior value="at-most-one" />
+        <title value="Nitroglycerin"/>
+        <groupingBehavior value="logical-group"/>
+        <selectionBehavior value="at-most-one"/>
         <!-- This is a subgroup with one element -->
         <action>
-          <textEquivalent value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets" />
-          <definitionCanonical value="#nitroglycerinPrescription" />
+          <textEquivalent value="nitroglycerin 0.4 mg tablet sub-lingual every 5 minutes as needed for chest pain; maximum 3 tablets"/>
+          <definitionCanonical value="#nitroglycerinPrescription"/>
           <dynamicValue>
-            <path value="status" />
+            <path value="status"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="'draft'" />
+              <expression value="'draft'"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="patient" />
+            <path value="patient"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Patient" />
+              <expression value="CardiologyChestPainLogic.Patient"/>
 		    </expression>
           </dynamicValue>
           <dynamicValue>
-            <path value="prescriber" />
+            <path value="prescriber"/>
             <expression>
               <language value="text/cql"/>
-              <expression value="CardiologyChestPainLogic.Practitioner" />
+              <expression value="CardiologyChestPainLogic.Practitioner"/>
 		    </expression>
           </dynamicValue>
         </action>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SupplyRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1379"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SupplyRequest"/>
   <status value="draft"/>
@@ -255,7 +257,7 @@
       <path value="SupplyRequest.item"/>
       <short value="Medication, Substance, or Device requested to be supplied"/>
       <definition value="The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list."/>
-      <comment value="Note that there&#39;s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions."/>
+      <comment value="Note that there's a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions."/>
       <min value="1"/>
       <max value="1"/>
       <type>

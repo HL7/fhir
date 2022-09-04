@@ -1,7 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="etsi-signature-type"/>
   <url value="http://uri.etsi.org/01903/v1.2.2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1808"/>
+  </identifier>
   <name value="ETSISignatureTypeCodes"/>
   <title value="ETSI Signature Type Codes"/>
   <status value="active"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="composition-section-subject"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sd"/>
@@ -9,13 +7,17 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/composition-section-subject"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1179"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="section-subject"/>
   <title value="Overrides Composition.subject"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Specifies that the section has a different subject that the Composition, or it&#39;s container section."/>
+  <description value="Specifies that the section has a different subject that the Composition, or it's container section."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -34,9 +36,9 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Section has a different subject that it&#39;s container"/>
-      <definition value="Specifies that the section has a different subject that the Composition, or it&#39;s container section."/>
-      <comment value="This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it&#39;s not clear whether it belongs in the actual value set resource."/>
+      <short value="Section has a different subject that it's container"/>
+      <definition value="Specifies that the section has a different subject that the Composition, or it's container section."/>
+      <comment value="This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

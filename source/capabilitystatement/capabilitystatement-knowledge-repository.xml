@@ -1,4 +1,4 @@
-﻿<CapabilityStatement xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="knowledge-repository"/>
   <text>
     <status value="generated"/>
@@ -79,8 +79,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Basic conformance statement for a Knowledge Repository Service. A server can support more functionality
-   than defined here, but this is the minimum amount"/>
+  <description value="Basic conformance statement for a Knowledge Repository Service. A server can support more functionality    than defined here, but this is the minimum amount"/>
   <kind value="capability"/>
   <software>
     <name value="ACME Knowledge Repository Service"/>

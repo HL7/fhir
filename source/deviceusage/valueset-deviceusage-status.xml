@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-usage-adherence-code"/>
+  <id value="deviceusage-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -11,10 +14,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-usage-adherence-code"/>
-  <version value="5.0.0"/>
-  <name value="DeviceUsageAdherenceCode"/>
-  <title value="DeviceUsageAdherenceCode"/>
+  <url value="http://hl7.org/fhir/ValueSet/deviceusage-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3212"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="DeviceUsageStatus"/>
+  <title value="DeviceUsageStatus"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -29,11 +36,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A coded concept indicating the adherence of device usage."/>
+  <description value="A coded concept indicating the current status of the Device Usage."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-usage-adherence-code"/>
+      <system value="http://hl7.org/fhir/deviceusage-status"/>
     </include>
   </compose>
 </ValueSet>

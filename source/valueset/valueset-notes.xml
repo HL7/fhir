@@ -41,6 +41,255 @@ using the facilities provided by the <a href="codesystem.html">code system</a>. 
    and can be included either by enumerating them, or by using a filter.</li>
  <li>Any compose.exclude SHALL be processed such that excluded codes are not found in the expansion</li>
 </ul>
+
+<a name="compose"></a>
+<h3>Compose</h3>
+<p>
+VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose</code>. The ValueSet author creates the expression (intensional definition), the extensional list, or a text description of <code>ValueSet.scope</code> and <code>ValueSet.description</code>. There are three ways to accomplish ValueSet definitions in FHIR:
+</p>
+<ol>
+ <li>Computable Expression Option 1</li>
+ <ol>
+	<li><code>ValueSet.compose</code></li>
+ </ol>
+ <li>Computable Expression Option 2</li>
+ <ol>
+	<li><a href="extension-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
+	<ol>
+		<li>If valued with <code>ValueSet.compose</code>, must be an expression that aligns with the <code>ValueSet.compose</code></li>
+		<li>If valued without <code>ValueSet.compose</code>, must be a computable expression (e.g., ECL)</li>
+	</ol>
+ </ol>
+ <li>Non-computable Expression</li>
+ <ol>
+	<li><a href="extension-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
+	<ol>
+		<li>An expression that is not computable and is meant to be interpreted by a human</li>
+		<li>May be valued <em>with</em> or <em>without</em> <code>ValueSet.compose</code></li>
+	</ol>
+ </ol>
+</ol>
+
+<a name="filters"></a>
+<h3>Filters </h3>
+<p>
+VSD describes filters for the Content Logical Definition. FHIR uses filters in the <code>ValueSet.compose</code> to implement the VSD features.
+</p>
+<table class="grid">
+<tr>
+<td>Scenario</td>
+<td>FHIR Implementation</td>
+</tr>
+<tr>
+<td>When the <code>ValueSet.compose</code> is an expression (<code>ValueSet.expression</code>), declare the type of expression here</td>
+<td>
+<p><code>compose.include.filter.op</code> = "property"</p>
+<p><code>compose.include.filter.op</code> = regex</p>
+<p><code>compose.include.filter.value</code> = "property value"</p>
+</td>
+</tr>
+<tr>
+<td>When the <code>ValueSet.compose</code> describes Concepts to include based on CodeSystem properties</td>
+<td>
+<p><code>compose.include.filter.property</code> = "property name"</p>
+<p>Either the Value or Expression must be provided</p>
+<p>Value:</p>
+<p><code>compose.include.filter.op</code> = "="</p>
+<p><code>compose.include.filter.value</code> =&nbsp;<em>the value</em></p>
+<p>Expression:</p>
+<ul>
+<li><code>compose.include.filter.op</code> = "regex"</li>
+<li><code>compose.include.filter.value</code> =&nbsp;<em>the Expression</em></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>When the <code>ValueSet.compose</code> defines the types of relationships between concepts to include in the ValueSet Expansion</td>
+<td>
+<p><code>compose.filter.property</code> = "RelationshipType"</p>
+<p>(note: filter property is a string in VSD, code in FHIR)</p>
+<p><code>compose.filter.property.op</code> = "="</p>
+<p><code>compose.filter.property.value</code> = a code defined by the CodeSystem</p>
+<p>Example:</p>
+<p>to find all concepts in SNOMED CT with the SNOMED CT laterality qualifier relationship to the SNOMED CT concept "left":</p>
+<p><code>filter.property.name</code> = '272741003'</p>
+<p><code>filter.property.op</code> = '='</p>
+<p><code>filter.property.value</code> = '7771000'</p>
+</td>
+</tr>
+</table>
+
+<a name="csnote"></a>
+<h4>Code Systems Note</h4>
+<p>
+Each <a href="codesystem.html">Code System</a> defines which filters can be 
+used in <code>ValueSet.compose.include.filter</code>. All code systems have
+<a href="codesystem.html#filter">base filters</a> and any additional 
+filters defined in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
+</p>
+<p>
+HL7 Terminology defines filters for various published code systems:
+</p>
+<ul>
+ <li><a href="https://terminology.hl7.org/LOINC.html">LOINC</a></li>
+ <li><a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a></li>
+ <li><a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a></li>
+ <li><a href="https://terminology.hl7.org/UCUM.html">UCUM</a></li>
+ <li><a href="https://terminology.hl7.org/CPT.html">CPT</a></li>
+ <li><a href="https://terminology.hl7.org/NDFRT.html">NDF-RT</a></li>
+</ul>
+
+<a name="union-intersection"></a>
+<h3>Union and Intersection</h3>
+<p>
+<code>ValueSet.compose</code> may reference other ValueSets.
+</p>
+<p>
+Intersection:
+</p>
+<ul>
+	<li>If the ValueSet definition contains references to multiple ValueSets within a single <code>ValueSet.compose.include</code></li>
+	<ul>
+		<li>The resulting expansion includes only those concepts that are in each expansion of the included ValueSets</li>
+	</ul>
+</ul>
+<p>
+Union:
+</p>
+<ul>
+	<li>If the ValueSet definition contains references to ValueSets using multiple <code>ValueSet.compose.include</code> elements</li>
+	<ul>
+		<li>The resulting expansion includes all concepts from the ValueSet expansions</li>
+	</ul>
+</ul>
+<p>
+For expansion guidance, and how to manage <em>exclude</em>, see <a href="valueset.html#expansion">Value Set Expansion</a>
+</p>
+<p>
+When a ValueSet definition includes other ValueSets, use the <a href="extension-valueset-compose-include-valuesettitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
+</p>
+
+<a name="fragments"></a>
+<h3>Referencing CodeSystem Fragments</h3>
+<p>
+The VSD Partition aligns with FHIR <a href="codesystem.html#fragments">CodeSystem Fragments</a>.
+</p>
+<p>
+Code System fragments are a unique and identifiable distinct segment of an overall Code System namespace. While most Code Systems are in essence one fragment and, therefore, do not have identifiable fragments, some Code Systems can be made up of a collection of distinct segments. SNOMED CT is an example of such a Code System. The SNOMED CT International Edition is the base fragment and can be used alone, but there are many distinct additional fragments that can be added to the international core to create what is known as a SNOMED CT Edition.
+</p>
+<p>
+The CodeSystem referenced in a <code>ValueSet.compose</code> may reference a CodeSystem fragment.
+</p>
+
+<a name="vsd"></a>
+<h2>ValueSet Alignment with VSD</h2>
+
+<a name="author-publisher"></a>
+<h3>Author and Publisher</h3>
+<p>
+Author, Steward and Publisher are roles associated with a Value Set Definition.
+</p>
+<p>
+ValueSet Author is the person or organization that creates and may modify the ValueSet. The Steward is the person or organization responsible for the content, maintenance and life cycle of the ValueSet. The Publisher is the person or organization that makes the ValueSet available. The publisher or a terminology server might provide the ValueSet expansions.  
+</p>
+<p>
+In FHIR, <code>ValueSet.publisher</code> satisfies the requirements for both publisher and steward. 
+</p>
+
+<a name="scope-description"></a>
+<h3>Scope and Description</h3>
+<p>
+Description and Purpose are standard elements that appear in many FHIR resources. Neither fully supports the intent of the VSD Scope element, however <code>ValueSet.description</code> does support Focus as defined in VSD.
+</p>
+<p>
+In combination with <code>ValueSet.description</code>, <code>ValueSet.scope</code> is used by a <code>ValueSet.author</code> to communicate the semantic space the ValueSet expansion is intended to cover to other authors and users and to create specific descriptions of what is included and what is excluded. Inclusion criteria should not be used to repeat the Content Logical Definition (<code>ValueSet.compose</code>) (see the first example below).
+</p>
+<p>
+When a ValueSet definition includes other ValueSets, use <code>ValueSet.description</code> to provide information about the included value sets in context of the parent value set.
+</p>
+<p>
+Purpose may be used for the <code>ValueSet.author</code> to describe why the ValueSet was created. <code>ValueSet.description</code> may be used to provide the ValueSet Focus as described in VSD.  
+</p>
+<p>
+Example: 
+</p>
+<table class="grid">
+<tr>
+<td>Value Set Name</td>
+<td>Description</td>
+<td>Scope Inclusion Criteria</td>
+<td>Scope Exclusion Criteria</td>
+</tr>
+<tr>
+<td>Body Site Value Set</td>
+<td>All SNOMED CT anatomic structures, locations, abnormal structures that can be considered to describe an anatomical site.</td>
+<td><b>Bad Example:</b> SNOMED CT concepts descending from the Anatomical Structure (91723000) or Acquired body structure (body structure) (289115004) or Anatomical site notations for tumor staging (body structure) (258331007) or Body structure, altered from its original anatomical structure (morphologic abnormality) (118956008) or Physical anatomical entity (body structure) (91722005).</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Familial Hypercholesterolemia</td>
+<td>This value set contains terms defining familial hypercholesterolemia, regardless of genetic origin.</td>
+<td><b>Good Example:</b> Terms identifying familial hypercholesterolemia diagnoses.</td>
+<td>Familial combined hyperlipidemia, polygenic hypercholesterolemia, pure hypercholesterolemia not specifically familial. There are no ICD-9-CM codes specific to familial hypercholesterolemia, hence no ICD-9-CM codes are included in this value set.</td>
+</tr>
+</table>
+
+<a name="name-title"></a>
+<h3>Name and Title</h3>
+<p>
+The VSD element <em>Name</em> aligns with <code>ValueSet.title</code> which does not support preference or language. Use the <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle extension</a> when a language or preference is necessary. <code>ValueSet.title</code> or <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle</a> must be valued.
+</p>
+
+<a name="activeonly"></a>
+<h3>Include Active Concepts Only</h3>
+<p>
+VSD and FHIR support the constraining the $expand operation to return only active concepts as defined by the CodeSystem.
+</p>
+<p>
+The VSD element <em>ActiveOnly</em> equal to TRUE is equivalent to <code>ValueSet.compose.inactive</code> equal to FALSE.
+</p>
+
+<a name="status"></a>
+<h3>Status</h3>
+<p>
+The ValueSet resource defines a Value Set Definition <em>and</em> a Value Set Expansion. VSD describes only the characteristics of the Value Set Definition.
+</p>
+<p>
+The VSD element <em>ActivityStatus</em> aligns with <code>ValueSet.status</code>, which is the status of the entire ValueSet resource <em>with the exception of the</em> <code>ValueSet.expansion</code>. This aligns with VSD using the word <em>definition</em> to mean the Content Logical Definition <em>plus</em> all the other non-expansion metadata. A Value Set Expansion is stateless. 
+</p>
+<p>
+Note: <code>ValueSet.status</code> is bound with <em>required</em> binding strength to the <a href="valueset-publication-status.html">PublicationStatus</a> value set. The following table shows how the ActivityStatus values in VSD align with the values in the PublicationStatus Value Set Expansion.
+</p>
+<table class="grid">
+<tr>
+<td>VSD Activity Status Value</td>
+<td>FHIR Publication Status Value</td>
+</tr>
+<tr>
+<td>Preliminary</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>Active</td>
+<td>Active</td>
+</tr>
+<tr>
+<td>Inactive</td>
+<td>Retired</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Deleted</td>
+<td>*</td>
+</tr>
+</table>
+<p>
+*There is no equivalent value in either VSD or the PublicationStatus Value Set. 
+</p>
+
 <a name="designations"></a>
 <h2>Display and Designations</h2>
 <p>
@@ -185,26 +434,6 @@ code systems should be done with care to avoid creating definitional confusion.
 Value sets should only include well differentiated concepts, but many value sets and code systems
 do not have well differentiated concepts because of various real world constraints.
 </p>
-
-<a name="csnote"></a>
-<h3>Code systems Note</h3>
-<p>
-Each <a href="codesystem.html">Code System</a> defines which filters can be 
-used in <code>ValueSet.compose.include.filter</code>. All code systems have
-<a href="codesystem.html#filter">base filters</a> and any additional 
-filters defined in (<a href="codesystem-definitions.html#CodeSystem.filter">CodeSystem.filter)</a>.
-</p>
-<p>
-HL7 Terminology defines filters for various published code systems:
-</p>
-<ul>
- <li><a href="https://terminology.hl7.org/LOINC.html">LOINC</a></li>
- <li><a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a></li>
- <li><a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a></li>
- <li><a href="https://terminology.hl7.org/UCUM.html">UCUM</a></li>
- <li><a href="https://terminology.hl7.org/CPT.html">CPT</a></li>
- <li><a href="https://terminology.hl7.org/NDFRT.html">NDF-RT</a></li>
-</ul>
 
 <a name="expansion"></a>
 <h2>Value Set Expansion</h2>
@@ -423,4 +652,40 @@ Use cases for the different combinations:
  (which may include a large number of concepts in the value set definition).
  </li>
 </ul>
+
+<a name="implicit"></a>
+<h2>Implicit Value Sets</h2>
+  <p>
+    Implicit value sets are those whose specification can be predicted based on the grammar of the
+    underlying code system, and the known structure of the URL that identifies them. The implicit value set 
+    capability allows a single URL to serve as a value set definition, and can serve as the basis for the
+    <a href="valueset-operation-expand.html">$expand</a>
+    operation and for other value set references. If any value set resources exist with an identifier that 
+    conforms to the specified implicit value set URL patterns, the content of the resource must conform to the 
+    template provided. Profiles and other value set references can reference these value sets directly (by 
+    reference as a URI, rather than by a literal value set reference).
+</p>
+<p>
+  Some (but not all) code systems have implicit value set URL patterns that have been defined and documented 
+  for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
+  or all of these URL patterns.
+</p>
+  <blockquote class="stu-note">
+    <p>
+      <strong>Note: </strong>
+      At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
+      declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
+      regarding whether this capability should be added to the TerminologyCapabilities resource.
+    </p>
+  </blockquote>
+<p>
+  The following links describe the currently defined FHIR implicit value set URL patterns for these listed code systems:
+  <ul>
+    <li><a href="https://terminology.hl7.org/SNOMEDCT.html#implicit">Using SNOMED CT with HL7 Standards: Implicit Value Sets</a> (SNOMED CT currently has the most extensive set of defined implicit value set URL patterns)<br/></li>
+    <li><a href="https://terminology.hl7.org/LOINC.html#implicit">Using LOINC with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/RxNorm.html#implicit">Using RxNorm with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/UCUM.html#4.3.4.5">Using UCUM with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/CPT.html#4.3.9.6">Using CPT with HL7 Standards: Implicit Value Sets</a><br/></li>
+  </ul>
+</p>
 </div>
