@@ -777,8 +777,12 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="Coding"/>
       </type>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/guide-parameter-code"/>
+      </binding>
     </element>
     <element id="ImplementationGuide.definition.parameter.value">
       <path value="ImplementationGuide.definition.parameter.value"/>
