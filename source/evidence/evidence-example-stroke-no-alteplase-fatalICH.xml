@@ -1,22 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
   <id value="example-stroke-no-alteplase-fatalICH"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
-        &quot;Risk of fatal ICH without alteplase for stroke&quot; is a univariate risk estimate.
+        "Risk of fatal ICH without alteplase for stroke" is a univariate risk estimate.
       </p>
 	</div>
   </text>
   <url value="http://hl7.org/fhir/Evidence/example-stroke-no-alteplase-fatalICH"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.10.4"/>
+  </identifier>
   <title value="Risk of fatal ICH without alteplase for stroke"/>
   <status value="draft"/>
   <relatedArtifact>
   	<type value="citation"/>
   	<label value="Emberson 2014"/>
   	<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
-  	<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists&apos; Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
+  	<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists' Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
     <document>
   	  <url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
     </document>

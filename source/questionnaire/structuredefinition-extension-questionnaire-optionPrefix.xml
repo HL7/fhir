@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-optionPrefix"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -8,7 +7,11 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1248"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="optionPrefix"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -38,7 +41,7 @@
 	<differential>
 		<element id="Extension">
 			<path value="Extension"/>
-			<short value="E.g. &quot;(a)&quot;, &quot;1.&quot;, etc."/>
+			<short value="E.g. &#34;(a)&#34;, &#34;1.&#34;, etc."/>
 			<definition value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
 			<comment value="See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#optionPrefix)."/>
 			<min value="0"/>

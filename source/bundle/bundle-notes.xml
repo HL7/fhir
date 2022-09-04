@@ -4,7 +4,7 @@
 <h3>Notes about Bundle</h3>
 <ul>
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
-  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
+  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels. Note that the values in Bundle.meta.security will generally be influenced by the meta.security values of the entries within the Bundle; see http://hl7.org/fhir/security.html</li>
   <li>Although there are no extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
   <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
     Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
@@ -75,7 +75,7 @@ information:
 <p>
 A change history (type = "history") consists of a series of 
 0 or more entries. Each entry element SHALL contain a request element that describes the change
-that was made and, if the method is a POST or PUT, a resource that represents the state of the 
+that was made and, if the method is a POST, PATCH, or PUT, a resource that represents the state of the 
 resource at the conclusion of the operation. A response element SHALL also be present so that consumers
 can access the <code>location</code> header. See <a href="http.html#history">History</a> for further information.
 </p>
@@ -138,25 +138,25 @@ may be additional contents, as specified by the subscription responsible for gen
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Except for transactions and batches, each entry in a <code>Bundle</code> must have a <code>fullUrl</code> 
+Except for transactions and batches, each entry in a <code>Bundle</code> SHALL must have a <code>fullUrl</code> 
 which is the identity of the resource in the entry. Note that this is not a versioned reference to the resource, but its 
 identity. Where a resource is not assigned a persistent identity that can be used
-in the Bundle, a UUID should be used (urn:uuid:...).
+in the Bundle, a UUID SHALL be used in fullUrl (urn:uuid:...).
 </p>
 <p>
-For transactions and batches, entries MAY not have fullURLs when the entry.request.method = POST, 
+For transactions and batches, entries MAY omit fullURLs when the entry.request.method = POST, 
 and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
 transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
-A given version of a resource SHALL only appear once in each Bundle. There might, however, 
+A given version of a resource SHALL only appear once in each Bundle. There MAY, however, 
 be multiple versions of a single resource present in a single bundle. This would be expected
 in Bundles of type <code>history</code>, and also might be necessitated by closely tracking
 Provenance. 
 </p>
 <p>
 Note that the meaning of an unversioned reference to a resource that appears multiple times 
-is potentially ambiguous, though processors may have additional informaton to help resolve 
+is potentially ambiguous, though processors may have additional information to help resolve 
 this (e.g. change order in a history bundle).
 </p>
 <p>
@@ -187,45 +187,97 @@ Applications reading a Bundle should always <a href="references.html#bundle-refs
 by its identity in the bundle first before trying to access it by its URL externally.
 </p>
 <p>
+Note that reference.value in entry resources can use any URI scheme (in addition to using
+relative values like "Patient/123").</p>
+
+<p>
 How to resolve a reference in a Bundle:
 </p>
-<ul>
- <li>If the reference is not an absolute reference, convert it to an absolute URL:
+
+
+  <p><b>Resolving urns.</b> If the reference.value is a URN (always absolute) (e.g.
+    "urn:uuid:9d1714da-b7e6-455b-bfd2-69ce0ff5fb12")</p>
   <ul>
-	 <li>if the reference has the format [type]/[id], and</li>
-   <li>if the fullUrl for the bundle entry containing the resource is a RESTful one (see the <a href="references.html#regex">RESTful URL regex</a>) 
-	  <ul>
-     <li>extract the [root] from the fullUrl, and append the reference (type/id) to it</li>
-     <li>then try to resolve within the bundle as for a RESTful URL reference. </li>
-     <li>If no resolution is possible, then the reference has no defined meaning within this specification</li>
- 	  </ul>
-	 </li>
-   <li>else no resolution is possible and the reference has no defined meaning within this specification</li>
-	</ul>
- </li>
- <li>else 
-  <ul>
-   <li>Look for an entry with a fullUrl that matches the URI in the reference</li>
-   <li>if no match is found, and the URI is a URL that can be resolved (e.g. if an http: URL), try accessing it directly)</li>
+    <li>Look for an entry with a fullUrl that matches the reference.value</li>
+    <li>If one is found, the resolution succeeds (and ends) here</li>
+    <li>Otherwise, the resolution fails (and ends) here. The reference has no defined meaning within
+      this specification.</li>
   </ul>
- </li>
-</ul>
-
-<p>
-Note, in addition, that a reference may be by identifier, and if it is, and there is no URL, it may be 
-resolved by scanning the ids in the bundle. Note also that transactions may contain <a href="http.html#trules">conditional references</a>  
-that must be resolved by the server before processing the matches.
-</p>
-<p>
-If the reference is version specific (either relative or absolute), then remove the version from the 
-URL before matching fullUrl, and then match the version based on <code>Resource.meta.versionId</code>.
-Note that the rules for resolving references in contained resources are the same as those for 
-resolving resources in the resource that contains the contained resource.
-</p>
-<p>
-If multiple matches are found, it is ambiguous which is correct. Applications MAY return an error or take some other action as they deem appropriate.
-</p>
-
+  <p><b>Resolving absolute references.</b> If the reference.value is an absolute URL (e.g.,
+    "https://fhir.example.org/base/Patient/123",
+    "https://fhir.example.org/base/Patient/123/_history/a"):</p>
+  <ul>
+    <li>If the reference.value is versionless (i.e. it has no "/_history/" path segment - e.g.
+      "https://fhir.example.org/base/Patient/123"): <ul>
+        <li>Look for an entry with a fullUrl that matches the reference.value</li>
+        <li>If one is found, the resolution succeeds (and ends) here</li>
+        <li>If more than one is found, the server MAY look for the most recent version (based on
+          meta.lastUpdated). If it is able to find exactly one most recent this way, the resolution
+          succeeds (and ends) here</li>
+      </ul></li>
+    <li>If the reference.value includes a "_history" path segment (e.g.
+      "https://fhir.example.org/base/Patient/123/_history/a"), split the value into two parts: a
+      versionless reference (e.g. "https://fhir.example.org/base/Patient/123" and a version id (e.g.
+      "a") <ul>
+        <li>Look for an entry with a fullUrl that matches the versionless reference and a
+          resource.meta.versionId that matches the reference's version id.</li>
+        <li>If a single record is found, the resolution succeeds (and ends) here.</li>
+        <li>If multiple records are found, it is an error.</li>
+      </ul></li>
+    <li>Optionally, attempt to resolve the URI if possible (e.g. by issuing a FHIR [read] on an
+      https URL if not version-specific or a [vread] it the URL is version-specific). <ul>
+        <li>If found, the resolution succeeds (and ends) here.</li>
+        <li>Otherwise, the resolution fails (and ends) here. The reference has no defined meaning
+          within this specification.</li>
+      </ul></li>
+  </ul>
+  <p><b>Resolving relative references against a RESTful base.</b> If the reference.value is of the
+    form "[type]/[id]" (e.g., "Patient/123"):</p>
+  <ul>
+    <li>If the Bundle entry containing the reference has a fullUrl matching the RESTful URL regex
+      (e.g., "https://fhir.example.org/Observation/456"): <ul>
+        <li>Extract the [root] from the Bundle entry's fullUrl and append the relative reference to
+          it (e.g., "https://fhir.example.org/" + "Patient/123" -->
+          "https://fhir.example.org/Patient/123")</li>
+        <li>Follow the steps for Resolving absolute references above</li>
+      </ul></li>
+    <li>If the Bundle entry containing the reference does not have a fullUrl that matches the
+      [RESTful URL regex] and the Bundle is a batch or transaction and the entry.request.method is
+      POST, PUT or PATCH <ul>
+        <li>take the base URL of the server that is the target of the batch/transaction and append
+          the relative reference to it (e.g., transaction is being posted to
+          "https://fhir.somewhere.org", then the expanded reference would be
+          "https://fhir.somewhere.org/Patient/123"</li>
+        <li>Follow the steps for Resolving absolute references above</li>
+      </ul>
+    </li>
+  </ul>
+  <p>Resolving conditional references. If the reference occurs in a transaction Bundle and the
+    reference.value is a conditional reference (e.g.
+    "http://example.org/base/Patient?identifier=1234"):</p>
+  <ul>
+    <li>Perform the [search] specified in the conditional reference on the server. <ul>
+      <li>If the search succeeds with a single resource, the resolution succeeds (and ends)
+        here.</li>
+      <li>If the search succeeds with multiple matching resources, resolution fails (and ends)
+        here. An error SHOULD be raised.</li>
+    </ul></li>
+    <li>Otherwise the resolution fails (and ends) here.</li>
+  </ul>
+  <p><b>Resolving other references.</b> If the rules above do not apply, the resolution fails (and
+    ends) here. The reference has no defined meaning within this specification.</p>
+  <p>Note that the rules for resolving references in contained resources are the same as those for
+    resolving references in the resource that contains the contained resource. I.e. the fullUrl of
+    the containing resource is used when determining the base for relative references, etc.</p>
+  <p>Several portions of this algorithm are dependent on on the presence of Bundle.entry.fullUrl. In
+    instances where references might be resolved within a Bundle but entries do not have fullURLs,
+    resolution expectations are undefined. For this reason, Bundles where cross-Bundle references
+    are present SHOULD always populate Bundle.entry.fullUrl.</p>
+  <p>If multiple matches are found (except where explicitly handled in the above algorithm), it is
+    ambiguous which is correct. Applications MAY return an error or take some other action as they
+    deem appropriate</p>
+  
+  
 <p>
 There is an <a href="bundle-references.html">example Bundle that demonstrates</a> these rules.
 </p>
@@ -248,7 +300,11 @@ GET /[base]/Bundle/[location] will return the same resource.
 The Bundle end point does have two special search parameters - <code>composition</code> and <code>message</code>,
 which allow for chained search into the first (special) entries in document and message resources.
 </p>
-
+<p>
+[%stu-note%]
+If an element marked as 'summary' is itself a nested resource (i.e. type is Resource), then the expectation is that the conveyed resource will also be expressed in its summary form.  The typical place this applies is Bundle.entry.resource. This statement is left as STU because there is not yet significant implementer experience on its ramifications.
+[%end-note%]
+</p>
 
 <a name="signature"> </a>
 <h3>Signatures</h3>

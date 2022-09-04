@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-display-category"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,13 +9,13 @@
 	<url value="http://hl7.org/fhir/questionnaire-display-category"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.1.936"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.4.936"/>
 	</identifier>
 	<name value="QuestionnaireDisplayCategories"/>
 	<title value="Questionnaire Display Categories"/>
 	<status value="draft"/>
 	<experimental value="false"/>
-	<description value="Codes defining the purpose of a Questionnaire item of type &#39;display&#39;."/>
+	<description value="Codes defining the purpose of a Questionnaire item of type 'display'."/>
 	<caseSensitive value="true"/>
 	<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-display-category"/>
 	<content value="complete"/>

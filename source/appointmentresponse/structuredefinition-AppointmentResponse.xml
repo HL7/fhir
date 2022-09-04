@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AppointmentResponse"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".participantStatus=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1128"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="AppointmentResponse"/>
   <status value="draft"/>
@@ -94,7 +96,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Act[@moodCode &amp;lt;= &#39;PRMS&#39;]"/>
+        <map value="Act[@moodCode &amp;lt;= 'PRMS']"/>
       </mapping>
       <mapping>
         <identity value="ical"/>
@@ -149,7 +151,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= &#39;ARQ&#39;]"/>
+        <map value="scheduleRequest.ActAppointmentRequest[@moodCode &amp;lt;= 'ARQ']"/>
       </mapping>
     </element>
     <element id="AppointmentResponse.proposedNewTime">
@@ -328,7 +330,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="ATTENDEE;CN=&quot;Brian Postlethwaite&quot;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)"/>
+        <map value="ATTENDEE;CN=&#34;Brian Postlethwaite&#34;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)"/>
       </mapping>
     </element>
     <element id="AppointmentResponse.comment">
@@ -347,7 +349,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".subjectOf.observation[@moodCode = &#39;EVN&#39;][code = &#39;annotation&#39;].value"/>
+        <map value=".subjectOf.observation[@moodCode = 'EVN'][code = 'annotation'].value"/>
       </mapping>
       <mapping>
         <identity value="ical"/>

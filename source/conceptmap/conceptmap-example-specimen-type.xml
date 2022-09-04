@@ -1,7 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
+<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
   <id value="102"/>
   <url value="http://hl7.org/fhir/ConceptMap/102"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.14.3"/>
+  </identifier>
   <version value="20130725"/>
   <name value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
   <status value="draft"/>

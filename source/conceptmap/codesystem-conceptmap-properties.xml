@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="conceptmap-properties"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/> 
+  </extension> 
+  <url value="http://hl7.org/fhir/conceptmap-properties"/>
+  <name value="ConceptMap Properties"/>
+  <title value="FHIR Defined ConceptMap Properties"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project"/>
+  <description value="A set of common concept properties for use on ConceptMap"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="relationshipRefinement"/>
+    <display value="Relationship Refinement"/>
+    <definition value="Property of type coding that indicates a specific refined relationship such as categorized by or grouped"/>
+  </concept>
+</CodeSystem>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImmunizationRecommendation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -21,9 +19,13 @@
     <valueCode value="pher"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Immunization recommendations are generated on &quot;just in time&quot; and typically are not retained by the system generating them so there isn&#39;t an expected workflow where a previous recommendation would be re-evaluated and found to be &quot;in error&quot;."/>
+    <valueCode value="Immunization recommendations are generated on &#34;just in time&#34; and typically are not retained by the system generating them so there isn't an expected workflow where a previous recommendation would be re-evaluated and found to be &#34;in error&#34;."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1232"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ImmunizationRecommendation"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A patient&#39;s point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+  <description value="A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -75,7 +77,7 @@
       </extension>
       <path value="ImmunizationRecommendation"/>
       <short value="Guidance or advice relating to an immunization"/>
-      <definition value="A patient&#39;s point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
+      <definition value="A patient's point-in-time set of recommendations (i.e. forecasting) according to a published schedule with optional supporting justification."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -222,7 +224,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#39;COMP&#39;].target[classCode=SBADM, moodCode=RMD]"/>
+        <map value=".outboundRelationship[typeCode='COMP'].target[classCode=SBADM, moodCode=RMD]"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.vaccineCode">
@@ -326,7 +328,7 @@
           <valueString value="ImmunizationRecommendationStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="The patient&#39;s status with respect to a vaccination protocol."/>
+        <description value="The patient's status with respect to a vaccination protocol."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-status"/>
       </binding>
       <mapping>
@@ -335,7 +337,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&quot;Immunization Forecast Status&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&#34;Immunization Forecast Status&#34;].value"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.forecastReason">
@@ -353,7 +355,7 @@
           <valueString value="ImmunizationRecommendationReason"/>
         </extension>
         <strength value="example"/>
-        <description value="The reason for the patient&#39;s status with respect to a vaccination protocol."/>
+        <description value="The reason for the patient's status with respect to a vaccination protocol."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-reason"/>
       </binding>
       <mapping>
@@ -387,7 +389,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#39;LIMIT&#39;].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]"/>
+        <map value=".outboundRelationship[typeCode='LIMIT'].target[classCode=OBS, moodCode=EVN, isCriterionInd=true]"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.dateCriterion.code">
@@ -404,7 +406,7 @@
           <valueString value="ImmunizationRecommendationDateCriterion"/>
         </extension>
         <strength value="example"/>
-        <description value="Classifies date criterion with respect to conveying information about a patient&#39;s vaccination status (e.g. due date, latest to give date, etc.)."/>
+        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
       </binding>
       <mapping>
@@ -532,7 +534,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]"/>
+        <map value=".outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&#34;immunization&#34;]"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.supportingPatientInformation">
@@ -551,7 +553,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX If OBX is associated with ( RXA : RXA-5-administered code = &#39;998^No vaccine administered^CVX&#39;), could contain the reason the vaccine was not administered"/>
+        <map value="OBX If OBX is associated with ( RXA : RXA-5-administered code = '998^No vaccine administered^CVX'), could contain the reason the vaccine was not administered"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

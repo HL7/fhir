@@ -1,8 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
+<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
   <id value="example2"/>
   <url value="http://hl7.org/fhir/ConceptMap/example2"/>
   <!--  set of loinc codes for cholesterol for LONC 2.36  -->
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.14.8"/>
+  </identifier>
   <name value="FHIR-exanple-2"/>
   <title value="FHIR Example 2"/>
   <status value="draft"/>

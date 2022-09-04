@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Lloyd McKenzie (private) -->
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2014 rel. 2 sp1 (x64) (http://www.altova.com) by Lloyd McKenzie (private) --><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="consentdirective"/>
   <text>
     <status value="generated"/>
@@ -10,6 +8,10 @@
     <valueCode value="cbcc"/> 
   </extension>   
   <url value="http://hl7.org/fhir/StructureDefinition/consentdirective"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1059"/>
+  </identifier>
   <name value="ConsentDirective"/>
   <title value="Consent Directive"/>
   <status value="draft"/>
@@ -663,7 +665,7 @@
       <path value="Contract.friendly"/>
       <label value="ConsentDirective-friendly"/>
       <short value="Consent Directive Friendly Language"/>
-      <definition value="The &quot;patient friendly language&quot; versionof the Consent Directive in whole or in parts. &quot;Patient friendly language&quot; means the representation of the  Consent Directive and  Consent Directive Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the  Consent Directive understand the roles, actions, obligations, responsibilities, and implication of the agreement."/>
+      <definition value="The &#34;patient friendly language&#34; versionof the Consent Directive in whole or in parts. &#34;Patient friendly language&#34; means the representation of the  Consent Directive and  Consent Directive Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the  Consent Directive understand the roles, actions, obligations, responsibilities, and implication of the agreement."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -757,7 +759,7 @@
       <path value="Contract.legallyBinding[x]"/>
       <label value="ConsentDirective-binding[x]"/>
       <short value="Binding Consent Directive"/>
-      <definition value="Legally binding onsent Directive Provision.  This is the signed and legally recognized representation of the Consent Directive. that is considered the &quot;source of truth&quot;, which would be the basis for legal action related to enforcement of the onsent Directive Provision."/>
+      <definition value="Legally binding onsent Directive Provision.  This is the signed and legally recognized representation of the Consent Directive. that is considered the &#34;source of truth&#34;, which would be the basis for legal action related to enforcement of the onsent Directive Provision."/>
       <min value="1"/>
       <max value="1"/>
       <type>

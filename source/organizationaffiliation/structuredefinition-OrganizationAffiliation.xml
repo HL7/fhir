@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="OrganizationAffiliation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/OrganizationAffiliation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1452"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="OrganizationAffiliation"/>
   <status value="draft"/>
@@ -140,7 +142,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".performance[@typeCode &lt;= &#39;PPRF&#39;].ActDefinitionOrEvent.effectiveTime"/>
+        <map value=".performance[@typeCode &lt;= 'PPRF'].ActDefinitionOrEvent.effectiveTime"/>
       </mapping>
     </element>
     <element id="OrganizationAffiliation.organization">
@@ -177,8 +179,8 @@
     </element>
     <element id="OrganizationAffiliation.network">
       <path value="OrganizationAffiliation.network"/>
-      <short value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)"/>
-      <definition value="The network in which the participatingOrganization provides the role&#39;s services (if defined) at the indicated locations (if defined)."/>
+      <short value="The network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)"/>
+      <definition value="The network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)."/>
       <comment value="e.g. Commonly used for Health Insurance provider networks."/>
       <min value="0"/>
       <max value="*"/>
@@ -231,7 +233,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".player.HealthCareProvider[@classCode = &#39;PROV&#39;].code"/>
+        <map value=".player.HealthCareProvider[@classCode = 'PROV'].code"/>
       </mapping>
     </element>
     <element id="OrganizationAffiliation.location">
@@ -251,7 +253,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = &#39;SDLOC&#39;]"/>
+        <map value=".performance.ActDefinitionOrEvent.ServiceDeliveryLocation[@classCode = 'SDLOC']"/>
       </mapping>
     </element>
     <element id="OrganizationAffiliation.healthcareService">
@@ -266,7 +268,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".player.QualifiedEntity[@classCode = &#39;QUAL&#39;].code"/>
+        <map value=".player.QualifiedEntity[@classCode = 'QUAL'].code"/>
       </mapping>
     </element>
     <element id="OrganizationAffiliation.contact">
@@ -285,17 +287,17 @@
       <constraint>
         <key value="org-3"/>
         <severity value="error"/>
-        <human value="The telecom of an organization can never be of use &#39;home&#39;"/>
-        <expression value="telecom.where(use = &#39;home&#39;).empty()"/>
-        <xpath value="f:telecom.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <human value="The telecom of an organization can never be of use 'home'"/>
+        <expression value="telecom.where(use = 'home').empty()"/>
+        <xpath value="f:telecom.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <constraint>
         <key value="org-4"/>
         <severity value="error"/>
-        <human value="The address of an organization can never be of use &#39;home&#39;"/>
-        <expression value="address.where(use = &#39;home&#39;).empty()"/>
-        <xpath value="f:address.count(f:use[@value=&#39;home&#39;]) = 0"/>
+        <human value="The address of an organization can never be of use 'home'"/>
+        <expression value="address.where(use = 'home').empty()"/>
+        <xpath value="f:address.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <mapping>

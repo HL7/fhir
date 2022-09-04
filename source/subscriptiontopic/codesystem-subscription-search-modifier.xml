@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscription-search-modifier"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/subscription-search-modifier"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1526"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2035"/>
   </identifier>
   <name value="SubscriptionSearchModifer"/>
   <status value="draft"/>
@@ -92,6 +90,6 @@
   <concept>
     <code value="of-type"/>
     <display value="Of Type"/>
-    <definition value="The search parameter has the format system|code|value, where the system and code refer to a&#xA0;Identifier.type.coding.system&#xA0;and&#xA0;.code, and match if any of the type codes match. All 3 parts must be present."/>
+    <definition value="The search parameter has the format system|code|value, where the system and code refer to a Identifier.type.coding.system and .code, and match if any of the type codes match. All 3 parts must be present."/>
   </concept>
 </CodeSystem>

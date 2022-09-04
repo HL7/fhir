@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="binding-strength"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/binding-strength"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.44"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.44"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="BindingStrength"/>

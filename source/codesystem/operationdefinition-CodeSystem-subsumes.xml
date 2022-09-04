@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem-subsumes"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -66,7 +64,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The &quot;A&quot; code that is to be tested. If a code is provided, a system must be provided"/>
+    <documentation value="The &#34;A&#34; code that is to be tested. If a code is provided, a system must be provided"/>
     <type value="code"/>
   </parameter>
   <parameter>
@@ -74,7 +72,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The &quot;B&quot; code that is to be tested. If a code is provided, a system must be provided"/>
+    <documentation value="The &#34;B&#34; code that is to be tested. If a code is provided, a system must be provided"/>
     <type value="code"/>
   </parameter>
   <parameter>
@@ -98,7 +96,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The &quot;A&quot; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established"/>
+    <documentation value="The &#34;A&#34; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established"/>
     <type value="Coding"/>
   </parameter>
   <parameter>
@@ -106,7 +104,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The &quot;B&quot; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established"/>
+    <documentation value="The &#34;B&#34; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established"/>
     <type value="Coding"/>
   </parameter>
   <parameter>
@@ -114,7 +112,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The subsumption relationship between code/Coding &quot;A&quot; and code/Coding &quot;B&quot;. There are 4 possible codes to be returned (equivalent, subsumes, subsumed-by, and not-subsumed) as defined in the concept-subsumption-outcome value set.  If the server is unable to determine the relationship between the codes/Codings, then it returns an error response with an OperationOutcome."/>
+    <documentation value="The subsumption relationship between code/Coding &#34;A&#34; and code/Coding &#34;B&#34;. There are 4 possible codes to be returned (equivalent, subsumes, subsumed-by, and not-subsumed) as defined in the concept-subsumption-outcome value set.  If the server is unable to determine the relationship between the codes/Codings, then it returns an error response with an OperationOutcome."/>
     <type value="code"/>
     <binding>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

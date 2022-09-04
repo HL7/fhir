@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-example-cms"/>
 	<url value="http://hl7.org/fhir/Questionnaire/questionnaire-example-cms"/>
 	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.20.3"/>
+  </identifier>
+  <identifier>
 		<!-- There should be a system, but not sure what URI will choose to use -->
 		<use value="official"/>
 		<value value="0938-070"/>
@@ -349,8 +352,7 @@
 			<type value="display"/>
 		</item>
 	</item>
-</Questionnaire>
-<!--
+</Questionnaire><!--
 
 
 CLINICAL RECORD ITEMS

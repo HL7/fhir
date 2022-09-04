@@ -1,66 +1,68 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="smart-capabilities"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/smart-capabilities"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1858"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SmartCapabilities"/>
   <concept>
     <code value="launch-ehr"/>
     <display value="EHR Launch Mode"/>
-    <definition value="support for SMART&#x2019;s EHR Launch mode."/>
+    <definition value="support for SMART’s EHR Launch mode."/>
   </concept>
   <concept>
     <code value="launch-standalone"/>
     <display value="Standalone Launch Mode"/>
-    <definition value="support for SMART&#x2019;s Standalone Launch mode."/>
+    <definition value="support for SMART’s Standalone Launch mode."/>
   </concept>
   <concept>
     <code value="client-public"/>
     <display value="Public Client Profile"/>
-    <definition value="support for SMART&#x2019;s public client profile (no client authentication)."/>
+    <definition value="support for SMART’s public client profile (no client authentication)."/>
   </concept>
   <concept>
     <code value="client-confidential-symmetric"/>
     <display value="Confidential Client Profile"/>
-    <definition value="support for SMART&#x2019;s confidential client profile (symmetric client secret authentication)."/>
+    <definition value="support for SMART’s confidential client profile (symmetric client secret authentication)."/>
   </concept>
   <concept>
     <code value="sso-openid-connect"/>
     <display value="Supports OpenID Connect"/>
-    <definition value="support for SMART&#x2019;s OpenID Connect profile."/>
+    <definition value="support for SMART’s OpenID Connect profile."/>
   </concept>
   <concept>
     <code value="context-passthrough-banner"/>
-    <display value="Allows &quot;Need Patient Banner&quot;"/>
-    <definition value="support for &#x201C;need patient banner&#x201D; launch context (conveyed via need_patient_banner token parameter)."/>
+    <display value="Allows &#34;Need Patient Banner&#34;"/>
+    <definition value="support for “need patient banner” launch context (conveyed via need_patient_banner token parameter)."/>
   </concept>
   <concept>
     <code value="context-passthrough-style"/>
-    <display value="Allows &quot;Smart Style Style&quot;"/>
-    <definition value="support for &#x201C;SMART style URL&#x201D; launch context (conveyed via smart_style_url token parameter)."/>
+    <display value="Allows &#34;Smart Style Style&#34;"/>
+    <definition value="support for “SMART style URL” launch context (conveyed via smart_style_url token parameter)."/>
   </concept>
   <concept>
     <code value="context-ehr-patient"/>
-    <display value="Allows &quot;Patient Level Launch Context (EHR)&quot;"/>
+    <display value="Allows &#34;Patient Level Launch Context (EHR)&#34;"/>
     <definition value="support for patient-level launch context (requested by launch/patient scope, conveyed via patient token parameter)."/>
   </concept>
   <concept>
     <code value="context-ehr-encounter"/>
-    <display value="Allows &quot;Encounter Level Launch Context (EHR)&quot;"/>
+    <display value="Allows &#34;Encounter Level Launch Context (EHR)&#34;"/>
     <definition value="support for encounter-level launch context (requested by launch/encounter scope, conveyed via encounter token parameter)."/>
   </concept>
   <concept>
     <code value="context-standalone-patient"/>
-    <display value="Allows &quot;Patient Level Launch Context (STANDALONE)&quot;"/>
+    <display value="Allows &#34;Patient Level Launch Context (STANDALONE)&#34;"/>
     <definition value="support for patient-level launch context (requested by launch/patient scope, conveyed via patient token parameter)."/>
   </concept>
   <concept>
     <code value="context-standalone-encounter"/>
-    <display value="Allows &quot;Encounter Level Launch Context (STANDALONE)&quot;"/>
+    <display value="Allows &#34;Encounter Level Launch Context (STANDALONE)&#34;"/>
     <definition value="support for encounter-level launch context (requested by launch/encounter scope, conveyed via encounter token parameter)."/>
   </concept>
   <concept>

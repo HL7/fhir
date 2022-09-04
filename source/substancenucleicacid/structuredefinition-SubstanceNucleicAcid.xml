@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceNucleicAcid"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -18,6 +16,10 @@
     <valueCode value="brr"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceNucleicAcid"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1450"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceNucleicAcid"/>
   <status value="draft"/>
@@ -35,7 +37,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5&#x2019;-3&#x2019; direction."/>
+  <description value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -58,8 +60,8 @@
         <valueCode value="200,0"/>
       </extension>
       <path value="SubstanceNucleicAcid"/>
-      <short value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5&#x2019;-3&#x2019; direction"/>
-      <definition value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5&#x2019;-3&#x2019; direction."/>
+      <short value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction"/>
+      <definition value="Nucleic acids are defined by three distinct elements: the base, sugar and linkage. Individual substance/moiety IDs will be created for each of these elements. The nucleotide sequence will be always entered in the 5’-3’ direction."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -91,8 +93,8 @@
     </element>
     <element id="SubstanceNucleicAcid.areaOfHybridisation">
       <path value="SubstanceNucleicAcid.areaOfHybridisation"/>
-      <short value="The area of hybridisation shall be described if applicable for double stranded RNA or DNA. The number associated with the subunit followed by the number associated to the residue shall be specified in increasing order. The underscore &#x201C;&#x201D; shall be used as separator as follows: &#x201C;Subunitnumber Residue&#x201D;"/>
-      <definition value="The area of hybridisation shall be described if applicable for double stranded RNA or DNA. The number associated with the subunit followed by the number associated to the residue shall be specified in increasing order. The underscore &#x201C;&#x201D; shall be used as separator as follows: &#x201C;Subunitnumber Residue&#x201D;."/>
+      <short value="The area of hybridisation shall be described if applicable for double stranded RNA or DNA. The number associated with the subunit followed by the number associated to the residue shall be specified in increasing order. The underscore “” shall be used as separator as follows: “Subunitnumber Residue”"/>
+      <definition value="The area of hybridisation shall be described if applicable for double stranded RNA or DNA. The number associated with the subunit followed by the number associated to the residue shall be specified in increasing order. The underscore “” shall be used as separator as follows: “Subunitnumber Residue”."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -138,8 +140,8 @@
     </element>
     <element id="SubstanceNucleicAcid.subunit.sequence">
       <path value="SubstanceNucleicAcid.subunit.sequence"/>
-      <short value="Actual nucleotide sequence notation from 5&#39; to 3&#39; end using standard single letter codes. In addition to the base sequence, sugar and type of phosphate or non-phosphate linkage should also be captured"/>
-      <definition value="Actual nucleotide sequence notation from 5&#39; to 3&#39; end using standard single letter codes. In addition to the base sequence, sugar and type of phosphate or non-phosphate linkage should also be captured."/>
+      <short value="Actual nucleotide sequence notation from 5' to 3' end using standard single letter codes. In addition to the base sequence, sugar and type of phosphate or non-phosphate linkage should also be captured"/>
+      <definition value="Actual nucleotide sequence notation from 5' to 3' end using standard single letter codes. In addition to the base sequence, sugar and type of phosphate or non-phosphate linkage should also be captured."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -171,8 +173,8 @@
     </element>
     <element id="SubstanceNucleicAcid.subunit.fivePrime">
       <path value="SubstanceNucleicAcid.subunit.fivePrime"/>
-      <short value="The nucleotide present at the 5&#x2019; terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5&#39; to the 3&#39; end, the 5&#x2019; prime nucleotide is the letter at the first position in the sequence. A separate representation would be redundant"/>
-      <definition value="The nucleotide present at the 5&#x2019; terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5&#39; to the 3&#39; end, the 5&#x2019; prime nucleotide is the letter at the first position in the sequence. A separate representation would be redundant."/>
+      <short value="The nucleotide present at the 5’ terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5' to the 3' end, the 5’ prime nucleotide is the letter at the first position in the sequence. A separate representation would be redundant"/>
+      <definition value="The nucleotide present at the 5’ terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5' to the 3' end, the 5’ prime nucleotide is the letter at the first position in the sequence. A separate representation would be redundant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -182,8 +184,8 @@
     </element>
     <element id="SubstanceNucleicAcid.subunit.threePrime">
       <path value="SubstanceNucleicAcid.subunit.threePrime"/>
-      <short value="The nucleotide present at the 3&#x2019; terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5&#39; to the 3&#39; end, the 5&#x2019; prime nucleotide is the letter at the last position in the sequence. A separate representation would be redundant"/>
-      <definition value="The nucleotide present at the 3&#x2019; terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5&#39; to the 3&#39; end, the 5&#x2019; prime nucleotide is the letter at the last position in the sequence. A separate representation would be redundant."/>
+      <short value="The nucleotide present at the 3’ terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5' to the 3' end, the 5’ prime nucleotide is the letter at the last position in the sequence. A separate representation would be redundant"/>
+      <definition value="The nucleotide present at the 3’ terminal shall be specified based on a controlled vocabulary. Since the sequence is represented from the 5' to the 3' end, the 5’ prime nucleotide is the letter at the last position in the sequence. A separate representation would be redundant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -207,8 +209,8 @@
     </element>
     <element id="SubstanceNucleicAcid.subunit.linkage.connectivity">
       <path value="SubstanceNucleicAcid.subunit.linkage.connectivity"/>
-      <short value="The entity that links the sugar residues together should also be captured for nearly all naturally occurring nucleic acid the linkage is a phosphate group. For many synthetic oligonucleotides phosphorothioate linkages are often seen. Linkage connectivity is assumed to be 3&#x2019;-5&#x2019;. If the linkage is either 3&#x2019;-3&#x2019; or 5&#x2019;-5&#x2019; this should be specified"/>
-      <definition value="The entity that links the sugar residues together should also be captured for nearly all naturally occurring nucleic acid the linkage is a phosphate group. For many synthetic oligonucleotides phosphorothioate linkages are often seen. Linkage connectivity is assumed to be 3&#x2019;-5&#x2019;. If the linkage is either 3&#x2019;-3&#x2019; or 5&#x2019;-5&#x2019; this should be specified."/>
+      <short value="The entity that links the sugar residues together should also be captured for nearly all naturally occurring nucleic acid the linkage is a phosphate group. For many synthetic oligonucleotides phosphorothioate linkages are often seen. Linkage connectivity is assumed to be 3’-5’. If the linkage is either 3’-3’ or 5’-5’ this should be specified"/>
+      <definition value="The entity that links the sugar residues together should also be captured for nearly all naturally occurring nucleic acid the linkage is a phosphate group. For many synthetic oligonucleotides phosphorothioate linkages are often seen. Linkage connectivity is assumed to be 3’-5’. If the linkage is either 3’-3’ or 5’-5’ this should be specified."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -287,8 +289,8 @@
     </element>
     <element id="SubstanceNucleicAcid.subunit.sugar.residueSite">
       <path value="SubstanceNucleicAcid.subunit.sugar.residueSite"/>
-      <short value="The residues that contain a given sugar will be captured. The order of given residues will be captured in the 5&#x2018;-3&#x2018;direction consistent with the base sequences listed above"/>
-      <definition value="The residues that contain a given sugar will be captured. The order of given residues will be captured in the 5&#x2018;-3&#x2018;direction consistent with the base sequences listed above."/>
+      <short value="The residues that contain a given sugar will be captured. The order of given residues will be captured in the 5‘-3‘direction consistent with the base sequences listed above"/>
+      <definition value="The residues that contain a given sugar will be captured. The order of given residues will be captured in the 5‘-3‘direction consistent with the base sequences listed above."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="guide-parameter-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/guide-parameter-code"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.997"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="GuideParameterCode"/>
   <concept>
@@ -16,17 +18,17 @@
   <concept>
     <code value="path-resource"/>
     <display value="Resource Path"/>
-    <definition value="The value of this string 0..* parameter is a subfolder of the build context&#39;s location that is to be scanned to load resources. Scope is (if present) a particular resource type."/>
+    <definition value="The value of this string 0..* parameter is a subfolder of the build context's location that is to be scanned to load resources. Scope is (if present) a particular resource type."/>
   </concept>
   <concept>
     <code value="path-pages"/>
     <display value="Pages Path"/>
-    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that contains files that are part of the html content processed by the builder."/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context's location that contains files that are part of the html content processed by the builder."/>
   </concept>
   <concept>
     <code value="path-tx-cache"/>
     <display value="Terminology Cache Path"/>
-    <definition value="The value of this string 0..1 parameter is a subfolder of the build context&#39;s location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control."/>
+    <definition value="The value of this string 0..1 parameter is a subfolder of the build context's location that is used as the terminology cache. If this is not present, the terminology cache is on the local system, not under version control."/>
   </concept>
   <concept>
     <code value="expansion-parameter"/>
@@ -36,7 +38,7 @@
   <concept>
     <code value="rule-broken-links"/>
     <display value="Broken Links Rule"/>
-    <definition value="The value of this string 0..1 parameter is either &quot;warning&quot; or &quot;error&quot; (default = &quot;error&quot;). If the value is &quot;warning&quot; then IG build tools allow the IG to be considered successfully build even when there is no internal broken links."/>
+    <definition value="The value of this string 0..1 parameter is either &#34;warning&#34; or &#34;error&#34; (default = &#34;error&#34;). If the value is &#34;warning&#34; then IG build tools allow the IG to be considered successfully build even when there is no internal broken links."/>
   </concept>
   <concept>
     <code value="generate-xml"/>

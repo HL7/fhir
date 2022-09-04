@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="allergy-intolerance-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/allergy-intolerance-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.132"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.132"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="AllergyIntoleranceType"/>
@@ -43,11 +41,11 @@
   <concept>
     <code value="allergy"/>
     <display value="Allergy"/>
-    <definition value="A propensity for hypersensitive reaction(s) to a substance.  These reactions are most typically type I hypersensitivity, plus other &quot;allergy-like&quot; reactions, including pseudoallergy."/>
+    <definition value="A propensity for hypersensitive reaction(s) to a substance.  These reactions are most typically type I hypersensitivity, plus other &#34;allergy-like&#34; reactions, including pseudoallergy."/>
   </concept>
   <concept>
     <code value="intolerance"/>
     <display value="Intolerance"/>
-    <definition value="A propensity for adverse reactions to a substance that is judged to be not allergic or &quot;allergy-like&quot;.  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or patient-specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances)."/>
+    <definition value="A propensity for adverse reactions to a substance that is judged to be not allergic or &#34;allergy-like&#34;.  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or patient-specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances)."/>
   </concept>
 </CodeSystem>

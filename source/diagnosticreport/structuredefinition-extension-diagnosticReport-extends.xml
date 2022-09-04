@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="diagnosticReport-extends"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/diagnosticReport-extends"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1390"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="extends"/>
   <title value="Extends"/>
@@ -21,7 +23,7 @@
       <value value="HL7"/>
     </telecom>
   </contact>
-  <description value="The report references related (&quot;sibling&quot;) reports."/>
+  <description value="The report references related (&#34;sibling&#34;) reports."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -41,7 +43,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Related reports"/>
-      <definition value="The report references related (&quot;sibling&quot;) reports."/>
+      <definition value="The report references related (&#34;sibling&#34;) reports."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>
