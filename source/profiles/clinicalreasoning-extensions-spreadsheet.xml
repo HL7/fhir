@@ -4224,7 +4224,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">expression</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:StyleID="s106"/>
@@ -4274,7 +4274,7 @@
     <Cell><Data ss:Type="String">parameterDefinition</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Parameter to the trigger</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">What parameter</Data></Cell>
     <Cell><Data ss:Type="String">The definition of a parameter that is expected to be provided as part of the invocation of the trigger</Data></Cell>
     <Cell><Data ss:Type="String">For each event, what data are expected to be provided to event handlers</Data></Cell>
    </Row>
@@ -4987,7 +4987,7 @@
     <Cell><Data ss:Type="String">Ability to specify formal expressions in multiple languages</Data></Cell>
     <Cell><Data ss:Type="String">This extension can be used on any Expression, including other Expression extensions such as cqf-expression, cqf-initialValue, and cqf-calculatedValue</Data></Cell>
    </Row>
-   <Row ss:Height="105">
+   <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell><Data ss:Type="String">supportedCqlVersion</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">CapabilityStatement.rest</Data></Cell>
@@ -5014,9 +5014,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>61</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
