@@ -457,6 +457,18 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="ImplementationGuide.dependsOn.reason">
+      <path value="ImplementationGuide.dependsOn.reason"/>
+      <short value="Why dependency exists"/>
+      <definition value="A description explaining the nature of the dependency on the listed IG"/>
+      <comment value="This doesn't need to enumerate every resource used, but should give some sense of why the dependency exists.  It will be used in the rendered list of dependencies"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+    </element>
     <element id="ImplementationGuide.global">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="250,300"/>
