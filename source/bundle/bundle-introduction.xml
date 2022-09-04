@@ -60,7 +60,7 @@ often reference Lists as the focus of particular sections.
 <p>
 These three resources represent meaningful groupings of the resources they refer to (e.g. a discharge medication List, a Group of 
 participants for a clinical trial, a set of resources that form a signed document), while a Bundle is merely is a container for 
-resources used for transfer and storage. This list is not exhaustive; other resources also provde grouping functionality.
+resources used for transfer and storage. This list is not exhaustive; other resources also provide grouping functionality.
 </p>
 
 </div>
