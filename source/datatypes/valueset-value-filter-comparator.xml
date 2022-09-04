@@ -6,6 +6,10 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/value-filter-comparator"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3306"/>
+  </identifier>  
   <name value="ValueFilterComparator"/>
   <title value="Value Filter Comparator"/>
   <status value="active"/>

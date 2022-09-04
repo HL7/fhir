@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<NamingSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><NamingSystem xmlns="http://hl7.org/fhir">
   <id value="example-id"/>
   <text>
     <status value="generated"/>
@@ -17,6 +15,10 @@
   </text>
   <!-- this url identifies the *registration* of the IHI number, not the IH number itself -->
   <url value="http://hl7.org/fhir/NamingSystem/example-id"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.22.3"/>
+  </identifier>
   <name value="Austalian Healthcare Identifier - Individual"/>
   <status value="active"/>
   <kind value="identifier"/>

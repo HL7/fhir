@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="devicedispense-status-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/devicedispense-status-reason"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2110"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="DeviceDispense Status Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="out-of-stock"/>
+    <display value="Out of Stock"/>
+    <definition value="The device was not dispensed because it was not available."/>
+  </concept>
+  <concept>
+    <code value="off-market"/>
+    <display value="Off market"/>
+    <definition value="The device was not dispensed because it is of-market - for example not authorized, withdrawn or recalled."/>
+  </concept>
+  <concept>
+    <code value="contraindication"/>
+    <display value="Contraindication"/>
+    <definition value="The device was not dispensed because a contraindication was found - for example pregnancy, allergy to a device component..."/>
+  </concept>
+  <concept>
+    <code value="incompatible-device"/>
+    <display value="Incompatible device"/>
+    <definition value="The device was not dispensed because an incompatibility has been found with the device or between the device and other devices being used in the same context."/>
+  </concept>
+  <concept>
+    <code value="order-expired"/>
+    <display value="Order expired"/>
+    <definition value="The device was not dispensed because the order has expired or been invalidated."/>
+  </concept>
+  <concept>
+    <code value="verbal-order"/>
+    <display value="Verbal order"/>
+    <definition value="The device not dispensed because there was a verbal order."/>
+  </concept>
+</CodeSystem>
+

@@ -20,6 +20,10 @@
     <valueCode value="cds"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ArtifactAssessment"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1262"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ArtifactAssessment"/>
   <status value="draft"/>
@@ -168,7 +172,7 @@
       <path value="ArtifactAssessment.approvalDate"/>
       <short value="When the artifact assessment was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -176,7 +180,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;approval&#34;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -188,7 +192,7 @@
       <short value="When the artifact assessment was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -197,7 +201,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;; subsetCode=&#34;RECENT&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;review&#34;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>

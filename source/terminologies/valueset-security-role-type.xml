@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="security-role-type"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
     <valueBoolean value="true"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.978"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SecurityRoleType"/>
   <status value="draft"/>

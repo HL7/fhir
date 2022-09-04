@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="study-design"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/ValueSet/study-design"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1692"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3045"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="StudyDesign"/>

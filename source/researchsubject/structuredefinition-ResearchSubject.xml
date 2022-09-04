@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ResearchSubject"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ResearchSubject"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1157"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ResearchSubject"/>
   <status value="draft"/>
@@ -156,7 +158,7 @@
       <path value="ResearchSubject.progress"/>
       <short value="Subject status"/>
       <definition value="The current state (status) of the subject and resons for status change where appropriate."/>
-      <comment value="This is intended to deal with the confusion routinely created by haing two conflated concepts of being in a particular state and having achieved a particular milestone.  In strict terms a milestone is a point of time event that results in a change from one state to another.  The state before the milestone is achieved is often given the same name as the milestone, and sometimes the state may have the same description.  For instance &quot;Randomised&quot; and &quot;Visit 1&quot; may be different milestones but the state remains at &quot;on study&quot; after each of them. &#xA;&#xA;It is likely that more than one &quot;state&quot; pattern will be recorded for a subject and a type has been introduced to allow this simultaneous recording."/>
+      <comment value="This is intended to deal with the confusion routinely created by haing two conflated concepts of being in a particular state and having achieved a particular milestone.  In strict terms a milestone is a point of time event that results in a change from one state to another.  The state before the milestone is achieved is often given the same name as the milestone, and sometimes the state may have the same description.  For instance &#34;Randomised&#34; and &#34;Visit 1&#34; may be different milestones but the state remains at &#34;on study&#34; after each of them. &#xA;&#xA;It is likely that more than one &#34;state&#34; pattern will be recorded for a subject and a type has been introduced to allow this simultaneous recording."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -166,7 +168,7 @@
     <element id="ResearchSubject.progress.type">
       <path value="ResearchSubject.progress.type"/>
       <short value="state | milestone"/>
-      <definition value="Identifies the aspect of the subject&#39;s journey that the state refers to."/>
+      <definition value="Identifies the aspect of the subject's journey that the state refers to."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -196,7 +198,7 @@
         </extension>
         <strength value="required"/>
         <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-progress"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -261,8 +263,7 @@
       <short value="State change date"/>
       <definition value="The date when the new status started."/>
       <comment value="This is NOT the date the change in state was recorded."/>
-      <requirements value="This was originally defined as the date when the change in status occurred.  This assumed all 
-                    states were recorded which is not true.  Hence the need to track the end of the state."/>
+      <requirements value="This was originally defined as the date when the change in status occurred.  This assumed all                      states were recorded which is not true.  Hence the need to track the end of the state."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -375,7 +376,7 @@
     <element id="ResearchSubject.consent">
       <path value="ResearchSubject.consent"/>
       <short value="Agreement to participate in study"/>
-      <definition value="A record of the patient&#39;s informed agreement to participate in the study."/>
+      <definition value="A record of the patient's informed agreement to participate in the study."/>
       <min value="0"/>
       <max value="1"/>
       <type>

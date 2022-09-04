@@ -1,7 +1,11 @@
-<ChargeItemDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ChargeItemDefinition xmlns="http://hl7.org/fhir">
 	<id value="ebm"/>
 	<url value="http://fhir.de/ChargeItemDefinition/kbv/ebm-30110"/>
-	<version value="2-2018"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.29.1"/>
+  </identifier>
+  <version value="2-2018"/>
 	<status value="active"/> 
 	<description value="Allergologisch-diagnostischer Komplex zur Diagnostik und/oder zum Ausschluss einer (Kontakt-)Allergie vom Spättyp (Typ IV), einschl. Kosten"/>
 	<code>	

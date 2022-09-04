@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- not used anymore -->
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!-- not used anymore --><ValueSet xmlns="http://hl7.org/fhir">
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -8,6 +6,10 @@
 	  <valueBoolean value="true"/>
 	</extension>
   <url value="http://hl7.org/fhir/ValueSet/provenance-participant-role"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3177"/>
+  </identifier>
   <name value="ProvenanceParticipantRole"/>
   <status value="draft"/>
   <date value="2023-05-12"/>

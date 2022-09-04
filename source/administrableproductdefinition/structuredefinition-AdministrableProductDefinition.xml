@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AdministrableProductDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1306"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="AdministrableProductDefinition"/>
   <status value="draft"/>
@@ -118,7 +120,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -239,8 +241,8 @@
     </element>
     <element id="AdministrableProductDefinition.device">
       <path value="AdministrableProductDefinition.device"/>
-      <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product"/>
-      <definition value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged."/>
+      <short value="A device that is integral to the medicinal product, in effect being considered as an &#34;ingredient&#34; of the medicinal product"/>
+      <definition value="A device that is integral to the medicinal product, in effect being considered as an &#34;ingredient&#34; of the medicinal product. This is not intended for devices that are just co-packaged."/>
       <min value="0"/>
       <max value="1"/>
       <type>

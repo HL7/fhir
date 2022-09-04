@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AuditEvent"/>
   <meta>
     <lastUpdated value="2021-04-07T09:58:31.578+11:00"/>
@@ -23,6 +22,10 @@
     <valueCode value="Audit Events are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AuditEvent"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1006"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="AuditEvent"/>
   <status value="draft"/>
@@ -122,7 +125,7 @@
           <valueString value="AuditEventType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <strength value="example"/>
         <description value="Type of event."/>
@@ -166,7 +169,7 @@
           <valueString value="AuditEventSubType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <strength value="example"/>
         <description value="Specific type of event."/>
@@ -205,7 +208,7 @@
           <valueString value="AuditEventAction"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Indicator for type of action performed during the event that generated the event."/>
@@ -331,7 +334,7 @@
       <path value="AuditEvent.outcome"/>
       <short value="Whether the event succeeded or failed"/>
       <definition value="Indicates whether the event succeeded or failed. A free text descripiton can be given in outcome.text."/>
-      <comment value="In some cases a &quot;success&quot; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
+      <comment value="In some cases a &#34;success&#34; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
       <requirements value="when a code is given there must be one code from the given codeSystem, and may be other equivilant codes from other codeSystems (for example http response codes such as 2xx, 4xx, or 5xx)."/>
       <min value="0"/>
       <max value="1"/>
@@ -352,7 +355,7 @@
       <path value="AuditEvent.outcome.code"/>
       <short value="Whether the event succeeded or failed"/>
       <definition value="Indicates whether the event succeeded or failed."/>
-      <comment value="In some cases a &quot;success&quot; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
+      <comment value="In some cases a &#34;success&#34; may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant."/>
       <requirements value="when a code is given there must be one code from the given codeSystem."/>
       <min value="1"/>
       <max value="1"/>
@@ -365,7 +368,7 @@
           <valueString value="AuditEventOutcome"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Indicates whether the event succeeded or failed."/>
@@ -610,7 +613,7 @@
           <valueString value="AuditAgentType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <strength value="preferred"/>
         <description value="The Participation type of the agent to the event."/>
@@ -644,7 +647,7 @@
     <element id="AuditEvent.agent.role">
       <path value="AuditEvent.agent.role"/>
       <short value="Agent role in the event"/>
-      <definition value="The structural roles of the agent indicating the agent&#39;s competency. The security role enabling the agent with respect to the activity."/>
+      <definition value="The structural roles of the agent indicating the agent's competency. The security role enabling the agent with respect to the activity."/>
       <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
       <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
@@ -979,7 +982,7 @@
           <valueString value="AuditEventSourceType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <strength value="preferred"/>
         <description value="Code specifying the type of system that detected and recorded the event. Use of these codes is not required but is encouraged to maintain translation with DICOM AuditMessage schema."/>
@@ -1079,7 +1082,7 @@
           <valueString value="AuditEventEntityRole"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association."/>
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="Code representing the role the entity played in the audit event."/>
@@ -1277,8 +1280,8 @@
     <element id="AuditEvent.entity.agent">
       <path value="AuditEvent.entity.agent"/>
       <short value="Entity is attributed to this agent"/>
-      <definition value="The entity is attributed to an agent to express the agent&#39;s responsibility for that entity in the activity. This is most used to indicate when persistence media (the entity) are used by an agent. For example when importing data from a device, the device would be described in an entity, and the user importing data from that media would be indicated as the entity.agent."/>
-      <comment value="A usecase where one AuditEvent.entity.agent is used where the Entity that was used in the creation/updating of a target resource, is not in the context of the same custodianship as the target resource, and thus the meaning of AuditEvent.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the provenance of that Entity&#39;s use in the context of this AuditEvent activity."/>
+      <definition value="The entity is attributed to an agent to express the agent's responsibility for that entity in the activity. This is most used to indicate when persistence media (the entity) are used by an agent. For example when importing data from a device, the device would be described in an entity, and the user importing data from that media would be indicated as the entity.agent."/>
+      <comment value="A usecase where one AuditEvent.entity.agent is used where the Entity that was used in the creation/updating of a target resource, is not in the context of the same custodianship as the target resource, and thus the meaning of AuditEvent.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the provenance of that Entity's use in the context of this AuditEvent activity."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#AuditEvent.agent"/>

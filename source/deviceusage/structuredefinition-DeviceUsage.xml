@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceUsage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceUsage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1402"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DeviceUsage"/>
   <status value="draft"/>
@@ -148,7 +150,7 @@
     <element id="DeviceUsage.status">
       <path value="DeviceUsage.status"/>
       <short value="active | completed | not-done | entered-in-error +"/>
-      <definition value="A code representing the patient or other source&#39;s judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
+      <definition value="A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed."/>
       <comment value="DeviceUseStatment is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for contains codes that assert the status of the use  by the patient (for example, stopped or on hold) as well as codes that assert the status of the resource itself (for example, entered in error).&#xD;&#xD;This element is labeled as a modifier because the status contains the codes that mark the statement as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
@@ -164,7 +166,7 @@
         </extension>
         <strength value="required"/>
         <description value="A coded concept indicating the current status of the Device Usage."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-status"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -180,7 +182,7 @@
       </mapping>
       <mapping>
         <identity value="quick"/>
-        <map value="&#x2026;status"/>
+        <map value="…status"/>
       </mapping>
     </element>
     <element id="DeviceUsage.category">
@@ -323,7 +325,7 @@
         </extension>
         <strength value="required"/>
         <description value="Codes representing the usage status of the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-usage-status"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceusage-status"/>
       </binding>
     </element>
     <element id="DeviceUsage.usageReason">
@@ -467,7 +469,7 @@
     <element id="DeviceUsage.bodySite">
       <path value="DeviceUsage.bodySite"/>
       <short value="Target body site"/>
-      <definition value="Indicates the anotomic location on the subject&#39;s body where the device was used ( i.e. the target)."/>
+      <definition value="Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)."/>
       <requirements value="Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]]."/>
       <min value="0"/>
       <max value="1"/>

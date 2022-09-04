@@ -1,5 +1,5 @@
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
-  <id value="zika-virus-intervention-initial"/>
+<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+  <id value="plandefinition-predecessor-example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -92,7 +92,7 @@
          </table>
          <p/>
          <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+         <p class="hierarchy" style="width: 100%;">
             <span>
                <b>Step: </b>
                <br/>
@@ -369,10 +369,14 @@
          </p>
       </div>
   </text>
-  <url value="http://example.org/PlanDefinition/zika-virus-intervention"/>
+  <url value="http://example.org/PlanDefinition/plandefinition-predecessor-example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.9"/>
+  </identifier>
   <identifier>
     <use value="official"/>
-    <value value="zika-virus-intervention"/>
+    <value value="plandefinition-predecessor-example"/>
   </identifier>
   <version value="1.0.0"/>
   <title value="Example Zika Virus Intervention"/>

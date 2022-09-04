@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-objective-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -12,7 +10,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1248"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1248"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyObjectiveType"/>
@@ -38,7 +36,7 @@
   <concept>
     <code value="primary"/>
     <display value="Primary"/>
-    <definition value="The main question to be answered, and the one that drives any statistical planning for the study&#x2014;e.g., calculation of the sample size to provide the appropriate power for statistical testing."/>
+    <definition value="The main question to be answered, and the one that drives any statistical planning for the study—e.g., calculation of the sample size to provide the appropriate power for statistical testing."/>
   </concept>
   <concept>
     <code value="secondary"/>

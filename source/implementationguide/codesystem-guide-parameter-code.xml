@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="guide-parameter-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -9,7 +7,11 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/guide-parameter-code"/>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.997"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="GuideParameterCode"/>
   <status value="draft"/>
   <concept>
@@ -40,7 +42,7 @@
   <concept>
     <code value="rule-broken-links"/>
     <display value="Broken Links Rule"/>
-    <definition value="The value of this string 0..1 parameter is either &quot;warning&quot; or &quot;error&quot; (default = &quot;error&quot;). If the value is &quot;warning&quot; then IG build tools allow the IG to be considered successfully build even when there is no internal broken links."/>
+    <definition value="The value of this string 0..1 parameter is either &#34;warning&#34; or &#34;error&#34; (default = &#34;error&#34;). If the value is &#34;warning&#34; then IG build tools allow the IG to be considered successfully build even when there is no internal broken links."/>
   </concept>
   <concept>
     <code value="generate-xml"/>

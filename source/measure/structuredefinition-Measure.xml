@@ -26,6 +26,10 @@
 		<valueString value="MetadataResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1375"/>
+  </identifier>
 	<version value="5.0.0"/>
 	<name value="Measure"/>
 	<status value="draft"/>
@@ -409,8 +413,8 @@
 		</element>
 		<element id="Measure.publisher">
 			<path value="Measure.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the measure."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the measure."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the measure is the organization or individual primarily responsible for the maintenance and upkeep of the measure. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the measure. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the measure.  May also allow for contact."/>
 			<min value="0"/>
@@ -456,7 +460,7 @@
 			<path value="Measure.description"/>
 			<short value="Natural language description of the measure"/>
 			<definition value="A free text natural language description of the measure from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the measure was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

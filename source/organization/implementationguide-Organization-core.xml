@@ -20,5 +20,10 @@
         <reference value="StructureDefinition/organization-preferredContact"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/extended-contact-availability"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>

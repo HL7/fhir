@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Provenance"/>
   <meta>
     <lastUpdated value="2021-04-07T08:58:31.578+11:00"/>
@@ -23,6 +22,10 @@
     <valueCode value="Provenance are recorded, there is no update or delete. "/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1317"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Provenance"/>
   <status value="draft"/>
@@ -202,7 +205,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./inboundRelationship[isNormalActRelationship() and typeCode=&quot;SUBJ&quot;]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode=&#39;ED&#39;/tel"/>
+        <map value="./inboundRelationship[isNormalActRelationship() and typeCode=&#34;SUBJ&#34;]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode='ED'/tel"/>
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
@@ -229,7 +232,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=&quot;LOC&quot; and determinerCode=&quot;INST&quot;]"/>
+        <map value="unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=&#34;LOC&#34; and determinerCode=&#34;INST&#34;]"/>
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
@@ -464,7 +467,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./participation[isNormalParticipation()]  OR  ./outboundRelationship[isNormalActRelationship() and typeCode=&#39;DRIV&#39;]"/>
+        <map value="./participation[isNormalParticipation()]  OR  ./outboundRelationship[isNormalActRelationship() and typeCode='DRIV']"/>
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
@@ -515,7 +518,7 @@
     <element id="Provenance.agent.role">
       <path value="Provenance.agent.role"/>
       <short value="What the agents role was"/>
-      <definition value="The structural roles of the agent indicating the agent&#39;s competency. The security role enabling the agent with respect to the activity."/>
+      <definition value="The structural roles of the agent indicating the agent's competency. The security role enabling the agent with respect to the activity."/>
       <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
       <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
@@ -680,8 +683,8 @@
     <element id="Provenance.entity.agent">
       <path value="Provenance.entity.agent"/>
       <short value="Entity is attributed to this agent"/>
-      <definition value="The entity is attributed to an agent to express the agent&#39;s responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which used the entity."/>
-      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity&#39;s use in the context of this Provenance activity."/>
+      <definition value="The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which used the entity."/>
+      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Provenance.agent"/>

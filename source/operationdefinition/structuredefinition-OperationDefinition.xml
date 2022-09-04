@@ -29,6 +29,10 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1386"/>
+  </identifier>
 	<version value="5.0.0"/>
 	<name value="OperationDefinition"/>
 	<status value="active"/>
@@ -324,8 +328,8 @@
 		</element>
 		<element id="OperationDefinition.publisher">
 			<path value="OperationDefinition.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the operation definition."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the operation definition."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the operation definition is the organization or individual primarily responsible for the maintenance and upkeep of the operation definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the operation definition. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the operation definition.  May also allow for contact."/>
 			<min value="0"/>
@@ -363,7 +367,7 @@
 			<path value="OperationDefinition.description"/>
 			<short value="Natural language description of the operation definition"/>
 			<definition value="A free text natural language description of the operation definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the operation definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
