@@ -173,7 +173,7 @@
         <severity value="error"/>
         <human value="A document must have a date"/>
         <expression value="type = 'document' implies (timestamp.hasValue())"/>
-        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/f:value)"/>
+        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/@value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -181,7 +181,23 @@
         <severity value="error"/>
         <human value="entry.request.method PATCH not allowed for history"/>
         <expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
-        <xpath value="(f:type/@value = 'history') and not(f:entry/request/method/@value = 'PATCH')"/>
+        <xpath value="(f:type/@value = 'history') and not(f:entry/f:request/f:method/@value = 'PATCH')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-15"/>
+        <severity value="error"/>
+        <human
+          value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
+ 
+        <expression
+          value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
+        <xpath value="not(
+          (f:type/@value = 'transaction') or 
+          (f:type/@value = 'transaction-response') or 
+          (f:type/@value = 'batch') or 
+          (f:type/@value = 'batch-response') 
+          ) or count(f:entry) = (count(f:entry/f:fullUrl) + count(f:entry[not(f:fullUrl)]/f:request/f:method/@value='POST'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <mapping>
