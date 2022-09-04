@@ -4,7 +4,7 @@
 <h3>Notes about Bundle</h3>
 <ul>
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
-  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
+  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels. Note that the values in Bundle.meta.security will generally be influenced by the meta.security values of the entries within the Bundle; see http://hl7.org/fhir/security.html</li>
   <li>Although there are no extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
   <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
     Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
