@@ -16,8 +16,8 @@
         <description value="The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to search its contents"/>
         <code value="composition"/>
         <type value="reference"/>
-        <expression value="Bundle.entry[0].resource"/>
-        <xpath value="f:Bundle/f:entry[0]/f:resource"/>
+        <expression value="Bundle.entry[0].resource as Composition"/>
+        <xpath value="f:Bundle/f:entry[0]/f:resource[f:Composition]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
@@ -56,8 +56,8 @@
         <description value="The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents"/>
         <code value="message"/>
         <type value="reference"/>
-        <expression value="Bundle.entry[0].resource"/>
-        <xpath value="f:Bundle/f:entry[0]/f:resource"/>
+        <expression value="Bundle.entry[0].resource as MessageHeader"/>
+        <xpath value="f:Bundle/f:entry[0]/f:resource[f:MessageHeader]"/>
         <xpathUsage value="normal"/>
       </SearchParameter>
     </resource>
