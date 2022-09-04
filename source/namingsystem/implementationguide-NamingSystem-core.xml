@@ -20,5 +20,10 @@
         <reference value="StructureDefinition/publishablenamingsystem"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/namingsystem-checkdigit"/>
+      </reference>
+    </resource>
   </definition>
 </ImplementationGuide>
