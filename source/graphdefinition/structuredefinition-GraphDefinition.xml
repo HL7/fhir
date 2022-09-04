@@ -1,648 +1,600 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="GraphDefinition"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Foundation.Conformance"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="CanonicalResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
+  <id value="GraphDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Conformance"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="CanonicalResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1327"/>
   </identifier>
-	<version value="5.0.0"/>
-	<name value="GraphDefinition"/>
-	<status value="draft"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="objimpl"/>
-		<uri value="http://hl7.org/fhir/object-implementation"/>
-		<name value="Object Implementation Information"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="GraphDefinition"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="GraphDefinition">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="0,0"/>
-			</extension>
-			<path value="GraphDefinition"/>
-			<short value="Definition of a graph of resources"/>
-			<definition value="A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set."/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
-			</constraint>
-			<mapping>
-				<identity value="rim"/>
-				<map value="n/a"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="conformance.behavior"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.url">
-			<path value="GraphDefinition.url"/>
-			<short value="Canonical identifier for this graph definition, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-			<requirements value="Allows the graph definition to be referenced by a single globally unique identifier."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.version">
-			<path value="GraphDefinition.version"/>
-			<short value="Business version of the graph definition"/>
-			<definition value="The identifier that is used to identify this version of the graph definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the graph definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different graph definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the graph definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.versionAlgorithm[x]">
-			<path value="GraphDefinition.versionAlgorithm[x]"/>
-			<short value="How to compare versions"/>
-			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.name">
-			<path value="GraphDefinition.name"/>
-			<short value="Name for this graph definition (computer friendly)"/>
-			<definition value="A natural language name identifying the graph definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-		</element>
-		<element id="GraphDefinition.title">
-			<path value="GraphDefinition.title"/>
-			<short value="Name for this graph definition (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the capability statement."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.status">
-			<path value="GraphDefinition.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this graph definition. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of graph definitions that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The lifecycle status of an artifact."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.status"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.status"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.experimental">
-			<path value="GraphDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of graph definitions that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level graph definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.date">
-			<path value="GraphDefinition.date"/>
-			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the graph definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the graph definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.publisher">
-			<path value="GraphDefinition.publisher"/>
+  <version value="5.0.0"/>
+  <name value="GraphDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="GraphDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="GraphDefinition">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="GraphDefinition"/>
+      <short value="Definition of a graph of resources"/>
+      <definition value="A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.behavior"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.url">
+      <path value="GraphDefinition.url"/>
+      <short value="Canonical identifier for this graph definition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this graph definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this graph definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the graph definition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the graph definition to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.version">
+      <path value="GraphDefinition.version"/>
+      <short value="Business version of the graph definition"/>
+      <definition value="The identifier that is used to identify this version of the graph definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the graph definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different graph definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the graph definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.versionAlgorithm[x]">
+      <path value="GraphDefinition.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.name">
+      <path value="GraphDefinition.name"/>
+      <short value="Name for this graph definition (computer friendly)"/>
+      <definition value="A natural language name identifying the graph definition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="GraphDefinition.title">
+      <path value="GraphDefinition.title"/>
+      <short value="Name for this graph definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the capability statement."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="GraphDefinition.status">
+      <path value="GraphDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this graph definition. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of graph definitions that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.experimental">
+      <path value="GraphDefinition.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this graph definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of graph definitions that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level graph definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.date">
+      <path value="GraphDefinition.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the graph definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the graph definition changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the graph definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.publisher">
+      <path value="GraphDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the graph definition."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the graph definition is the organization or individual primarily responsible for the maintenance and upkeep of the graph definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the graph definition. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the graph definition.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.contact">
-			<path value="GraphDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.description">
-			<path value="GraphDefinition.description"/>
-			<short value="Natural language description of the graph definition"/>
-			<definition value="A free text natural language description of the graph definition from a consumer&#39;s perspective."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the graph definition is the organization or individual primarily responsible for the maintenance and upkeep of the graph definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the graph definition. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the graph definition.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.contact">
+      <path value="GraphDefinition.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="GraphDefinition.description">
+      <path value="GraphDefinition.description"/>
+      <short value="Natural language description of the graph definition"/>
+      <definition value="A free text natural language description of the graph definition from a consumer&#39;s perspective."/>
 			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the graph definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the graph definition is presumed to be the predominant language in the place the graph definition was created)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.useContext">
-			<path value="GraphDefinition.useContext"/>
-			<short value="The context that the content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate graph definition instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.jurisdiction">
-			<path value="GraphDefinition.jurisdiction"/>
-			<short value="Intended jurisdiction for graph definition (if applicable)"/>
-			<definition value="A legal or geographic region in which the graph definition is intended to be used."/>
-			<comment value="It may be possible for the graph definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.jurisdiction"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.purpose">
-			<path value="GraphDefinition.purpose"/>
-			<short value="Why this graph definition is defined"/>
-			<definition value="Explanation of why this graph definition is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the graph definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this graph definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="GraphDefinition.start">
-			<path value="GraphDefinition.start"/>
-			<short value="Type of resource at which the graph starts"/>
-			<definition value="The type of FHIR resource at which instances of this graph start."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ResourceType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.profile">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="250,0"/>
-			</extension>
-			<path value="GraphDefinition.profile"/>
-			<short value="Profile on base resource"/>
-			<definition value="The profile that describes the use of the base resource."/>
-			<comment value="The code does not include the &#39;$&#39; prefix that is always included in the URL when the operation is invoked."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link">
-			<path value="GraphDefinition.link"/>
-			<short value="Links this graph makes rules about"/>
-			<definition value="Links this graph makes rules about."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.path">
-			<path value="GraphDefinition.link.path"/>
-			<short value="Path in the resource that contains the link"/>
-			<definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
-			<comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.sliceName">
-			<path value="GraphDefinition.link.sliceName"/>
-			<short value="Which slice (if profiled)"/>
-			<definition value="Which slice (if profiled)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.min">
-			<path value="GraphDefinition.link.min"/>
-			<short value="Minimum occurrences for this link"/>
-			<definition value="Minimum occurrences for this link."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.max">
-			<path value="GraphDefinition.link.max"/>
-			<short value="Maximum occurrences for this link"/>
-			<definition value="Maximum occurrences for this link."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.description">
-			<path value="GraphDefinition.link.description"/>
-			<short value="Why this link is specified"/>
-			<definition value="Information about why this link is of interest in this graph definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="500,0"/>
-			</extension>
-			<path value="GraphDefinition.link.target"/>
-			<short value="Potential target for the link"/>
-			<definition value="Potential target for the link."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.type">
-			<path value="GraphDefinition.link.target.type"/>
-			<short value="Type of resource this link refers to"/>
-			<definition value="Type of resource this link refers to."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="AllResourceType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.link.target.params">
-			<path value="GraphDefinition.link.target.params"/>
-			<short value="Criteria for reverse lookup"/>
-			<definition value="A set of parameters to look up."/>
-			<comment value="At least one of the parameters must have the value {ref} which identifies the focus resource."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.profile">
-			<path value="GraphDefinition.link.target.profile"/>
-			<short value="Profile for the target resource"/>
-			<definition value="Profile for the target resource."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.compartment">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="500,200"/>
-			</extension>
-			<path value="GraphDefinition.link.target.compartment"/>
-			<short value="Compartment Consistency Rules"/>
-			<definition value="Compartment Consistency Rules."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.compartment.use">
-			<path value="GraphDefinition.link.target.compartment.use"/>
-			<short value="condition | requirement"/>
-			<definition value="Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed."/>
-			<comment value="All conditional rules are evaluated; if they are true, then the rules are evaluated."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="GraphCompartmentUse"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Defines how a compartment rule is used."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-use"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.link.target.compartment.code">
-			<path value="GraphDefinition.link.target.compartment.code"/>
-			<short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
-			<definition value="Identifies the compartment."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CompartmentCode"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Identifies a compartment."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.link.target.compartment.rule">
-			<path value="GraphDefinition.link.target.compartment.rule"/>
-			<short value="identical | matching | different | custom"/>
-			<definition value="identical | matching | different | no-rule | custom."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="GraphCompartmentRule"/>
-				</extension>
-				<strength value="required"/>
-				<description value="How a compartment must be linked."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-rule"/>
-			</binding>
-		</element>
-		<element id="GraphDefinition.link.target.compartment.expression">
-			<path value="GraphDefinition.link.target.compartment.expression"/>
-			<short value="Custom rule, as a FHIRPath expression"/>
-			<definition value="Custom rule, as a FHIRPath expression."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.compartment.description">
-			<path value="GraphDefinition.link.target.compartment.description"/>
-			<short value="Documentation for FHIRPath expression"/>
-			<definition value="Documentation for FHIRPath expression."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="GraphDefinition.link.target.link">
-			<path value="GraphDefinition.link.target.link"/>
-			<short value="Additional links from target resource"/>
-			<definition value="Additional links from target resource."/>
-			<min value="0"/>
-			<max value="*"/>
-			<contentReference value="#GraphDefinition.link"/>
-		</element>
-	</differential>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.useContext">
+      <path value="GraphDefinition.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate graph definition instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="GraphDefinition.jurisdiction">
+      <path value="GraphDefinition.jurisdiction"/>
+      <short value="Intended jurisdiction for graph definition (if applicable)"/>
+      <definition value="A legal or geographic region in which the graph definition is intended to be used."/>
+      <comment value="It may be possible for the graph definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.purpose">
+      <path value="GraphDefinition.purpose"/>
+      <short value="Why this graph definition is defined"/>
+      <definition value="Explanation of why this graph definition is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the graph definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this graph definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="GraphDefinition.start">
+      <path value="GraphDefinition.start"/>
+      <short value="Type of resource at which the graph starts"/>
+      <definition value="The type of FHIR resource at which instances of this graph start."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResourceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.profile">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="250,0"/>
+      </extension>
+      <path value="GraphDefinition.profile"/>
+      <short value="Profile on base resource"/>
+      <definition value="The profile that describes the use of the base resource."/>
+      <comment value="The code does not include the &#39;$&#39; prefix that is always included in the URL when the operation is invoked."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link">
+      <path value="GraphDefinition.link"/>
+      <short value="Links this graph makes rules about"/>
+      <definition value="Links this graph makes rules about."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.path">
+      <path value="GraphDefinition.link.path"/>
+      <short value="Path in the resource that contains the link"/>
+      <definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
+      <comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.sliceName">
+      <path value="GraphDefinition.link.sliceName"/>
+      <short value="Which slice (if profiled)"/>
+      <definition value="Which slice (if profiled)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.min">
+      <path value="GraphDefinition.link.min"/>
+      <short value="Minimum occurrences for this link"/>
+      <definition value="Minimum occurrences for this link."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.max">
+      <path value="GraphDefinition.link.max"/>
+      <short value="Maximum occurrences for this link"/>
+      <definition value="Maximum occurrences for this link."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.description">
+      <path value="GraphDefinition.link.description"/>
+      <short value="Why this link is specified"/>
+      <definition value="Information about why this link is of interest in this graph definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,0"/>
+      </extension>
+      <path value="GraphDefinition.link.target"/>
+      <short value="Potential target for the link"/>
+      <definition value="Potential target for the link."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.type">
+      <path value="GraphDefinition.link.target.type"/>
+      <short value="Type of resource this link refers to"/>
+      <definition value="Type of resource this link refers to."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AllResourceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.link.target.params">
+      <path value="GraphDefinition.link.target.params"/>
+      <short value="Criteria for reverse lookup"/>
+      <definition value="A set of parameters to look up."/>
+      <comment value="At least one of the parameters must have the value {ref} which identifies the focus resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.profile">
+      <path value="GraphDefinition.link.target.profile"/>
+      <short value="Profile for the target resource"/>
+      <definition value="Profile for the target resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.compartment">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="500,200"/>
+      </extension>
+      <path value="GraphDefinition.link.target.compartment"/>
+      <short value="Compartment Consistency Rules"/>
+      <definition value="Compartment Consistency Rules."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.compartment.use">
+      <path value="GraphDefinition.link.target.compartment.use"/>
+      <short value="condition | requirement"/>
+      <definition value="Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed."/>
+      <comment value="All conditional rules are evaluated; if they are true, then the rules are evaluated."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GraphCompartmentUse"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Defines how a compartment rule is used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-use"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.link.target.compartment.code">
+      <path value="GraphDefinition.link.target.compartment.code"/>
+      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+      <definition value="Identifies the compartment."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompartmentCode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Identifies a compartment."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.link.target.compartment.rule">
+      <path value="GraphDefinition.link.target.compartment.rule"/>
+      <short value="identical | matching | different | custom"/>
+      <definition value="identical | matching | different | no-rule | custom."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GraphCompartmentRule"/>
+        </extension>
+        <strength value="required"/>
+        <description value="How a compartment must be linked."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-rule"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.link.target.compartment.expression">
+      <path value="GraphDefinition.link.target.compartment.expression"/>
+      <short value="Custom rule, as a FHIRPath expression"/>
+      <definition value="Custom rule, as a FHIRPath expression."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.compartment.description">
+      <path value="GraphDefinition.link.target.compartment.description"/>
+      <short value="Documentation for FHIRPath expression"/>
+      <definition value="Documentation for FHIRPath expression."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.target.link">
+      <path value="GraphDefinition.link.target.link"/>
+      <short value="Additional links from target resource"/>
+      <definition value="Additional links from target resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#GraphDefinition.link"/>
+    </element>
+  </differential>
 </StructureDefinition>
