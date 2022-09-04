@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="example-alteplase-dosing"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
-        &quot;Alteplase Dosing for Stroke&quot; defines a dosing instruction referenced from an EvidenceVariable resource.
+        "Alteplase Dosing for Stroke" defines a dosing instruction referenced from an EvidenceVariable resource.
       </p>
 	</div>
   </text>
   <url value="http://example.org/fhir/ActivityDefinition/example-alteplase-dosing"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.19.3"/>
+  </identifier>
   <name value="Alteplase Dosing for Stroke"/>
   <status value="draft"/>
   <kind value="MedicationRequest"/>

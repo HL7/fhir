@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="EpisodeOfCare"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1121"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="EpisodeOfCare"/>
   <status value="draft"/>
@@ -247,8 +249,8 @@
     </element>
     <element id="EpisodeOfCare.diagnosis.role">
       <path value="EpisodeOfCare.diagnosis.role"/>
-      <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge &#x2026;)"/>
-      <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge &#x2026;)."/>
+      <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)"/>
+      <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

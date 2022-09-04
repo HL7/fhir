@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceSourceMaterial"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -21,6 +19,10 @@
     <valueCode value="brr"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1070"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceSourceMaterial"/>
   <status value="draft"/>
@@ -149,8 +151,8 @@
     </element>
     <element id="SubstanceSourceMaterial.countryOfOrigin">
       <path value="SubstanceSourceMaterial.countryOfOrigin"/>
-      <short value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For &#x201C;Plasma-derived substances&#x201D; the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate"/>
-      <definition value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For &#x201C;Plasma-derived substances&#x201D; the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate."/>
+      <short value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For “Plasma-derived substances” the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate"/>
+      <definition value="The country where the plant material is harvested or the countries where the plasma is sourced from as laid down in accordance with the Plasma Master File. For “Plasma-derived substances” the attribute country of origin provides information about the countries used for the manufacturing of the Cryopoor plama or Crioprecipitate."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -337,8 +339,8 @@
     </element>
     <element id="SubstanceSourceMaterial.organism.hybrid.maternalOrganismId">
       <path value="SubstanceSourceMaterial.organism.hybrid.maternalOrganismId"/>
-      <short value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
-      <definition value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
+      <short value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
+      <definition value="The identifier of the maternal species constituting the hybrid organism shall be specified based on a controlled vocabulary. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -348,8 +350,8 @@
     </element>
     <element id="SubstanceSourceMaterial.organism.hybrid.maternalOrganismName">
       <path value="SubstanceSourceMaterial.organism.hybrid.maternalOrganismName"/>
-      <short value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
-      <definition value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren&#x2019;t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
+      <short value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal"/>
+      <definition value="The name of the maternal species constituting the hybrid organism shall be specified. For plants, the parents aren’t always known, and it is unlikely that it will be known which is maternal and which is paternal."/>
       <min value="0"/>
       <max value="1"/>
       <type>

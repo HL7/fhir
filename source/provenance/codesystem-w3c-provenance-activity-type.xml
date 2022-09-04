@@ -1,10 +1,14 @@
-﻿<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
 	<id value="w3c-provenance-activity-type"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
 	</meta>
 	<url value="http://hl7.org/fhir/w3c-provenance-activity-type"/>
-	<version value="1.1.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1844"/>
+  </identifier>
+  <version value="1.1.0"/>
 	<name value="W3cProvenanceActivityType"/>
 	<status value="draft"/>
 	<experimental value="true"/>

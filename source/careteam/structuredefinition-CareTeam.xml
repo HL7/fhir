@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CareTeam"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1413"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CareTeam"/>
   <status value="draft"/>
@@ -179,8 +181,8 @@
       </extension>
       <path value="CareTeam.name"/>
       <short value="Name of the team, such as crisis assessment team"/>
-      <definition value="A label for human use intended to distinguish like teams.  E.g. the &quot;red&quot; vs. &quot;green&quot; trauma teams."/>
-      <comment value="The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. &quot;Red trauma team&quot;), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (&quot;Team 18735&quot; isn&#39;t as friendly.)."/>
+      <definition value="A label for human use intended to distinguish like teams.  E.g. the &#34;red&#34; vs. &#34;green&#34; trauma teams."/>
+      <comment value="The meaning/purpose of the team is conveyed in CareTeam.category.  This element may also convey semantics of the team (e.g. &#34;Red trauma team&#34;), but its primary purpose is to distinguish between identical teams in a human-friendly way.  (&#34;Team 18735&#34; isn't as friendly.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -250,7 +252,7 @@
         <severity value="error"/>
         <human value="CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner"/>
         <expression value="onBehalfOf.exists() implies (member.resolve() is Practitioner)"/>
-        <xpath value="starts-with(f:member/f:reference/@value, &#39;Practitioner/&#39;) or contains(f:member/f:reference/@value, &#39;/Practitioner/&#39;) or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, &#39;#&#39;)]) or not(exists(f:onBehalfOf))"/>
+        <xpath value="starts-with(f:member/f:reference/@value, 'Practitioner/') or contains(f:member/f:reference/@value, '/Practitioner/') or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, '#')]) or not(exists(f:onBehalfOf))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </constraint>
       <constraint>
@@ -275,7 +277,7 @@
     <element id="CareTeam.participant.role">
       <path value="CareTeam.participant.role"/>
       <short value="Type of involvement"/>
-      <definition value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc."/>
+      <definition value="Indicates specific responsibility of an individual within the care team, such as &#34;Primary care physician&#34;, &#34;Trained social worker counselor&#34;, &#34;Caregiver&#34;, etc."/>
       <comment value="Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.  If a participant has multiple roles within the team, then there should be multiple participants."/>
       <min value="0"/>
       <max value="1"/>
@@ -288,7 +290,7 @@
           <valueString value="CareTeamParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &#34;Primary physician&#34;, &#34;Team coordinator&#34;, &#34;Caregiver&#34;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -307,7 +309,7 @@
       <path value="CareTeam.participant.member"/>
       <short value="Who is involved"/>
       <definition value="The specific person or organization who is participating/expected to participate in the care team."/>
-      <comment value="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans."/>
+      <comment value="Patient only needs to be listed if they have a role other than &#34;subject of care&#34;.&#xA;&#xA;Member is optional because some participants may be known only by their role, particularly in draft plans."/>
       <min value="0"/>
       <max value="1"/>
       <type>

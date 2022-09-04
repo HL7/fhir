@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="PractitionerRole"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1443"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="PractitionerRole"/>
   <status value="draft"/>
@@ -107,7 +109,7 @@
     </element>
     <element id="PractitionerRole.identifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
+        <valueString value="Under &#34;Comments&#34; it said: &#34;The identifier changes when a new/different person steps into the same role&#34;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
       </extension>
       <path value="PractitionerRole.identifier"/>
       <short value="Business Identifiers that are specific to a role/location"/>
@@ -365,7 +367,7 @@
       <path value="PractitionerRole.availability"/>
       <short value="Times the Practitioner is available at this location and/or healthcare service (including exceptions)"/>
       <definition value="A collection of times the practitioner is available or performing this role at the location and/or healthcareservice."/>
-      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
+      <comment value="More detailed availability information may be provided in associated Schedule/Slot resources.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &#34;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&#34; as would be implied by two availableTime repetitions, an application could render this information as &#34;Mon-Fri 9-12am and 1-5pm&#34;.&#xD;&#xD;The NotAvailableTime(s) included indicate the general days/periods where the practitioner is not available (for things such as vacation time, or public holidays)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-category"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/device-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2105"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="FHIRDeviceCategory"/>
+  <title value="FHIRDeviceCategory"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-03-28T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The category of the device."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="Device where the operation depends on a source of energy."/>
+  </concept>
+  <concept>
+    <code value="communicating"/>
+    <display value="communicating"/>
+    <definition value="Device communicates electronically to peer information systems or possibly another device."/>
+  </concept>
+  <concept>
+    <code value="dme"/>
+    <display value="Durable Medical Equipment"/>
+    <definition value="Equipment and supplies that provides therapeutic benefits to a patient."/>
+  </concept>
+  <concept>
+    <code value="home-use"/>
+    <display value="Maintenance"/>
+    <definition value="Medical device intended for users in a non-medical setting."/>
+  </concept>
+  <concept>
+    <code value="implantable"/>
+    <display value="Implantable"/>
+    <definition value="A device that is placed into a surgically or naturally formed cavity of the human body."/>
+  </concept>
+  <concept>
+    <code value="in-vitro"/>
+    <display value="In vitro"/>
+    <definition value="Tests done on samples such as blood or tissue that have been taken from the human body."/>
+  </concept>
+  <concept>
+    <code value="point-of-care"/>
+    <display value="Point of Care"/>
+    <definition value="a class of communicating devices that are used by medical providers for various purposes (e.g., monitoring, delivering or measuring)."/>
+  </concept>
+  <concept>
+    <code value="single-use"/>
+    <display value="Single Use"/>
+    <definition value="A device use on one individual during a single procedure."/>
+  </concept>
+  <concept>
+    <code value="reusable"/>
+    <display value="Reusable"/>
+    <definition value="A device that healthcare providers can use to diagnose and treat one or more patients."/>
+  </concept>
+  <concept>
+    <code value="software"/>
+    <display value="Software"/>
+    <definition value="A device that may include a software component or consist exclusively of software e.g. data transformer or converter, clinical support algorithms, clinical apps"/>
+  </concept>
+</CodeSystem>

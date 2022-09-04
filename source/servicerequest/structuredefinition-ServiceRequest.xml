@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ServiceRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1440"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ServiceRequest"/>
   <status value="draft"/>
@@ -119,7 +121,7 @@
       <path value="ServiceRequest.identifier"/>
       <short value="Identifiers assigned to this order"/>
       <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
-      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the &#39;Placer&#39; in HL7 v2) and the producer of the observations in response to the order (known as the &#39;Filler&#39; in HL7 v2).  For further discussion and examples see the resource notes section below."/>
+      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -270,8 +272,8 @@
       <path value="ServiceRequest.requisition"/>
       <short value="Composite Request ID"/>
       <definition value="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
-      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes."/>
+      <comment value="Requests are linked either by a &#34;basedOn&#34; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &#34;requisition&#34; for billing or other purposes."/>
       <alias value="grouperId"/>
       <alias value="groupIdentifier"/>
       <min value="0"/>
@@ -352,7 +354,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -385,7 +387,7 @@
       </extension>
       <path value="ServiceRequest.category"/>
       <short value="Classification of service"/>
-      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
+      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g. &#34;Surgical Procedure&#34;)."/>
       <comment value="There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what service request are retrieved and displayed."/>
       <min value="0"/>
@@ -412,7 +414,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;INT&quot;].code"/>
+        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;INT&#34;].code"/>
       </mapping>
     </element>
     <element id="ServiceRequest.priority">
@@ -468,7 +470,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If missing, the request is a positive request e.g. &quot;do perform&quot;"/>
+      <meaningWhenMissing value="If missing, the request is a positive request e.g. &#34;do perform&#34;"/>
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
       <isSummary value="true"/>
@@ -635,7 +637,7 @@
     <element id="ServiceRequest.focus">
       <path value="ServiceRequest.focus"/>
       <short value="What the service request is about, when it is not about the subject of record"/>
-      <definition value="The actual focus of a service request when it is not the subject of record representing something or someone associated with the subject such as a spouse, parent, fetus, or donor. The focus of a service request could also be an existing condition,  an intervention, the subject&#39;s diet,  another service request on the subject,  or a body structure such as tumor or implanted device."/>
+      <definition value="The actual focus of a service request when it is not the subject of record representing something or someone associated with the subject such as a spouse, parent, fetus, or donor. The focus of a service request could also be an existing condition,  an intervention, the subject's diet,  another service request on the subject,  or a body structure such as tumor or implanted device."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -739,7 +741,7 @@
       </extension>
       <path value="ServiceRequest.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -754,12 +756,12 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&#34;Assertion&#34;].value"/>
       </mapping>
       <mapping>
         <identity value="quick"/>
@@ -851,7 +853,7 @@
       <path value="ServiceRequest.performerType"/>
       <short value="Performer role"/>
       <definition value="Desired type of performer for doing the requested service."/>
-      <comment value="This is a  role, not  a participation type.  In other words, does not describe the task but describes the capacity.  For example, &#x201C;compounding pharmacy&#x201D;, &#x201C;psychiatrist&#x201D; or &#x201C;internal referral&#x201D;."/>
+      <comment value="This is a  role, not  a participation type.  In other words, does not describe the task but describes the capacity.  For example, “compounding pharmacy”, “psychiatrist” or “internal referral”."/>
       <alias value="specialty"/>
       <min value="0"/>
       <max value="1"/>
@@ -864,7 +866,7 @@
           <valueString value="ServiceRequestParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &#34;Primary physician&#34;, &#34;Team coordinator&#34;, &#34;Caregiver&#34;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -1032,7 +1034,7 @@
       </extension>
       <path value="ServiceRequest.supportingInfo"/>
       <short value="Additional clinical information"/>
-      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
+      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &#34;ask at order entry questions (AOEs)&#34;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
       <comment value="To represent information about how the services are to be delivered use the `instructions` element."/>
       <alias value="Ask at order entry question"/>
       <alias value="AOE"/>
@@ -1208,7 +1210,7 @@
       <path value="ServiceRequest.relevantHistory"/>
       <short value="Request provenance"/>
       <definition value="Key events in the history of the request."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important.&#xD;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#xD;All Provenances should have some historical version of this Request as their subject."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important.&#xD;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#xD;All Provenances should have some historical version of this Request as their subject."/>
       <min value="0"/>
       <max value="*"/>
       <type>

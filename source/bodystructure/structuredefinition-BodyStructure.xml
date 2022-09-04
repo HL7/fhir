@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BodyStructure"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1265"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="BodyStructure"/>
   <status value="draft"/>
@@ -82,7 +84,7 @@
       </mapping>
       <mapping>
         <identity value="openehr"/>
-        <map value="Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   &#xA9; openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurrence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organization: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokm&#xE5;l: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail."/>
+        <map value="Archetype ID   openEHR-EHR-CLUSTER.anatomical_location.v1      Concept name   Anatomical Location      Concept description   Record details about an anatomical location.      Keywords   location, site, anatomical      Copyright   © openEHR Foundation      Purpose   To record details about anatomical location.      Misuse   Not for specifiying unilateral/bilateral occurrence - this is related to an evaluation which perhaps includes multiple locations.      Author   Author name: Heather Leslie Organization: Ocean Informatics Email: heather.leslie@oceaninformatics.com Date of Origination: 2008-11-10       Translator   Norwegian Bokmål: Lars Bitsch-Larsen, Haukeland University Hospital of Bergen, Norway, MD, DEAA, MBA, spec in anesthesia, spec in tropical medicine. Arabic (Syria): Mona Saleh       Other contributors   Heather Leslie, Ocean Informatics, Australia (Editor) Ian McNicoll, freshEHR Clinical Informatics, United Kingdom (Editor) Dunmail Hodkinson, Black Pear Software Ltd, UK      References   Use cases: - 5LICS, midclavicular line - L forearm, 2cm anterior to the cubital fossa - Right iliac fossa - 5 cm below L tibial tuberosity - 2 cm medial to R nipple - 4 cm below R costal margin in midclavicular line - R femur - midline nose - medial aspect of R great toe nail."/>
       </mapping>
       <mapping>
         <identity value="w5"/>

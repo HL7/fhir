@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="disease-symptom-procedure"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -29,7 +28,7 @@
   <url value="http://hl7.org/fhir/ValueSet/disease-symptom-procedure"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1660"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3114"/>
   </identifier>
   <version value="4.6.0"/>
   <name value="DiseaseSymptomProcedure"/>
@@ -49,7 +48,7 @@
     </telecom>
   </contact>
   <description value="A symptom, disease or procedure."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="concept-properties"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/> 
@@ -12,6 +10,10 @@
     <valueInteger value="4"/> 
   </extension> 
   <url value="http://hl7.org/fhir/concept-properties"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1826"/>
+  </identifier>
   <name value="ConceptProperties"/>
   <title value="FHIR Defined Concept Properties"/>
   <status value="draft"/>

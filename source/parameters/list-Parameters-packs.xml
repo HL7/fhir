@@ -9,4 +9,9 @@
       <reference value="ImplementationGuide/Parameters-core"/>
     </item>
   </entry>
+  <!--<entry>
+    <item>
+      <reference value="ImplementationGuide/Parameters-cqf"/>
+    </item>
+  </entry>-->
 </List>

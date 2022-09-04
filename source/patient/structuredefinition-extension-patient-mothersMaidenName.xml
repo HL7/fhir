@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-mothersMaidenName"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -9,13 +7,17 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1329"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="mothersMaidenName"/>
-  <title value="Mother&#39;s Maiden Name"/>
+  <title value="Mother's Maiden Name"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Mother&#39;s maiden (unmarried) name, commonly collected to help verify patient identity."/>
+  <description value="Mother's maiden (unmarried) name, commonly collected to help verify patient identity."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
@@ -39,8 +41,8 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Mother&#39;s Maiden name"/>
-      <definition value="Mother&#39;s maiden (unmarried) name, commonly collected to help verify patient identity."/>
+      <short value="Mother's Maiden name"/>
+      <definition value="Mother's maiden (unmarried) name, commonly collected to help verify patient identity."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>

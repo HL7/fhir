@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/structuremap.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureMap xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/structuremap.xsd">
   <id value="supplyrequest-transform"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
 map "http://hl7.org/fhir/StructureMap/supplyrequest-transform" = supplyRequestTransform
 
@@ -23,6 +22,10 @@ group main
     </div>
   </text>
   <url value="http://hl7.org/fhir/StructureMap/supplyrequest-transform"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.13.1"/>
+  </identifier>
   <name value="Transform from an ActivityDefinition to a SupplyRequest"/>
   <status value="draft"/>
   <structure>

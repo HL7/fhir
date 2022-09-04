@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="provenance-relevant-history"/>
   <text>
     <status value="generated"/>
@@ -16,6 +14,10 @@
     <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/provenance-relevant-history"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1318"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Provenance Relevant History"/>
   <status value="draft"/>
@@ -76,7 +78,7 @@
     <element id="Provenance.occurred[x]">
       <path value="Provenance.occurred[x]"/>
       <definition value="This indicates the time the resource action (creation, revision, deletion, etc.) occurred."/>
-      <comment value="Both low and high will be set to the time the record event occurred.  (In a future version, this element will likely be a choice with dateTime so that multiple values aren&#39;t needed.)."/>
+      <comment value="Both low and high will be set to the time the record event occurred.  (In a future version, this element will likely be a choice with dateTime so that multiple values aren't needed.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -86,14 +88,14 @@
     </element>
     <element id="Provenance.authorization">
       <path value="Provenance.authorization"/>
-      <comment value="Plain text reasons can be sent in the &quot;text&quot; component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource&#39;s existence of the resource itself will be maintained on the resource, not here."/>
+      <comment value="Plain text reasons can be sent in the &#34;text&#34; component with no codings.  Domains may wish to define a constrained terminology.  The authorization for the resource's existence of the resource itself will be maintained on the resource, not here."/>
       <mustSupport value="true"/>
     </element>
     <element id="Provenance.activity">
       <path value="Provenance.activity"/>
       <short value="Record activity"/>
       <definition value="Indicates what action occurred to the referenced resource."/>
-      <comment value="This should be captured at a sufficiently useful level of granularity.  For example &quot;suspended&quot; is more useful than &quot;updated&quot;.  Domains will need to map the listed codes to their own state transitions and may wish to define additional domain-specific fine-grained codes."/>
+      <comment value="This should be captured at a sufficiently useful level of granularity.  For example &#34;suspended&#34; is more useful than &#34;updated&#34;.  Domains will need to map the listed codes to their own state transitions and may wish to define additional domain-specific fine-grained codes."/>
       <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>

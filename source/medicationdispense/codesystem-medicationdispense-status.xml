@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationdispense-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://hl7.org/fhir/CodeSystem/medicationdispense-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1511"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1971"/>
   </identifier>
   <name value="Medication Dispense Status Codes"/>
   <status value="draft"/>
@@ -62,6 +60,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring system does not know which of the status values applies for this medication dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it&#39;s just now known which one."/>
+    <definition value="The authoring system does not know which of the status values applies for this medication dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which one."/>
   </concept>
 </CodeSystem>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="codesystem-label"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/codesystem-label"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1152"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="label"/>
   <status value="draft"/>
@@ -33,7 +35,7 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="E.g. &quot;(a)&quot;, &quot;1.&quot;, etc."/>
+      <short value="E.g. &#34;(a)&#34;, &#34;1.&#34;, etc."/>
       <definition value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
       <min value="0"/>
       <max value="1"/>

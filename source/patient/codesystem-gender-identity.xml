@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="gender-identity"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,12 +9,12 @@
   <url value="http://hl7.org/fhir/gender-identity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.973"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.973"/>
   </identifier>
   <name value="GenderIdentity"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="This example code system defines a set of codes that can be used to indicate a individual&#39;s gender identity."/>
+  <description value="This example code system defines a set of codes that can be used to indicate a individual's gender identity."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

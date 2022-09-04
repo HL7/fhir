@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
   <id value="occupation-cdc-census-2010"/>
   <url value="urn:oid:2.16.840.1.114222.4.5.314"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.114222.4.5.314"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2012"/>
   </identifier>
   <version value="2010"/>
   <name value="Occupation CDC Census 2010"/>

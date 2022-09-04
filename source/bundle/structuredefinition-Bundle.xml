@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -29,6 +27,10 @@
     />
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1156"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Bundle"/>
   <status value="active"/>
@@ -171,7 +173,7 @@
         <severity value="error"/>
         <human value="A document must have a date"/>
         <expression value="type = 'document' implies (timestamp.hasValue())"/>
-        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/f:value)"/>
+        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/@value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -179,7 +181,23 @@
         <severity value="error"/>
         <human value="entry.request.method PATCH not allowed for history"/>
         <expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
-        <xpath value="(f:type/@value = 'history') and not(f:entry/request/method/@value = 'PATCH')"/>
+        <xpath value="(f:type/@value = 'history') and not(f:entry/f:request/f:method/@value = 'PATCH')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-15"/>
+        <severity value="error"/>
+        <human
+          value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
+ 
+        <expression
+          value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
+        <xpath value="not(
+          (f:type/@value = 'transaction') or 
+          (f:type/@value = 'transaction-response') or 
+          (f:type/@value = 'batch') or 
+          (f:type/@value = 'batch-response') 
+          ) or count(f:entry) = (count(f:entry/f:fullUrl) + count(f:entry[not(f:fullUrl)]/f:request/f:method/@value='POST'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <mapping>
@@ -368,9 +386,9 @@
     </element>
     <element id="Bundle.entry.fullUrl">
       <path value="Bundle.entry.fullUrl"/>
-      <short value="URI for resource (Absolute URL server address or URI for UUID/OID)"/>
+      <short value="URI for resource (e.g. the absolute URL server address, URI for UUID/OID, etc.)"/>
       <definition
-        value="The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except when: &#xA;* invoking a create&#xA;* invoking or responding to an operation where the body is not a single identified resource&#xA;* invoking or returning the results of a search or history operation&#xA;Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction."/>
+        value="The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: &#xA;* invoking a create&#xA;* invoking or responding to an operation where the body is not a single identified resource&#xA;* invoking or returning the results of a search or history operation."/>
       <comment
         value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
       <min value="0"/>

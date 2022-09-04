@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="observation-replaces"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/observation-replaces"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1456"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="replaces"/>
   <title value="Replaces"/>
@@ -42,7 +44,7 @@
       <path value="Extension"/>
       <short value="Replaces referenced Observation"/>
       <definition value="This observation replaces a previous observation (i.e. a revised value)."/>
-      <comment value="This is an alternative to updating the Observation with a new version with status = &#39;amended&#39;or &#39;corrected&#39;.  The target observation is now obsolete."/>
+      <comment value="This is an alternative to updating the Observation with a new version with status = 'amended'or 'corrected'.  The target observation is now obsolete."/>
       <min value="0"/>
       <max value="*"/>
     </element>

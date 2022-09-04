@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MeasureReport"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value="Delete the instance if it is in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1080"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MeasureReport"/>
   <status value="draft"/>
@@ -76,15 +78,15 @@
         <severity value="error"/>
         <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
-        <xpath value="not(f:kind/@value=&#39;data-exchange&#39;) or not(exists(f:group))"/>
+        <xpath value="not(f:kind/@value='data-exchange') or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <constraint>
         <key value="mrp-1"/>
         <severity value="error"/>
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
-        <expression value="(type != &#39;data-exchange&#39;) or group.exists().not()"/>
-        <xpath value="not(f:kind/@value=&#39;data-exchange&#39;) or not(exists(f:group))"/>
+        <expression value="(type != 'data-exchange') or group.exists().not()"/>
+        <xpath value="not(f:kind/@value='data-exchange') or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <mapping>
@@ -215,7 +217,7 @@
       <path value="MeasureReport.measure"/>
       <short value="What measure was calculated"/>
       <definition value="A reference to the Measure that was calculated to produce this report."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="canonical"/>
@@ -242,13 +244,16 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -312,7 +317,7 @@
     <element id="MeasureReport.reportingVendor">
       <path value="MeasureReport.reportingVendor"/>
       <short value="What vendor prepared the data"/>
-      <definition value="A reference to the vendor who queried the data, calculated results and/or generated the report. The &#x2018;reporting vendor&#x2019; is intended to represent the submitting entity when it is not the same as the reporting entity. This extension is used when the Receiver is interested in getting vendor information in the report."/>
+      <definition value="A reference to the vendor who queried the data, calculated results and/or generated the report. The ‘reporting vendor’ is intended to represent the submitting entity when it is not the same as the reporting entity. This extension is used when the Receiver is interested in getting vendor information in the report."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -352,6 +357,23 @@
       <mapping>
         <identity value="rim"/>
         <map value="effectiveTime"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.inputParameters">
+      <path value="MeasureReport.inputParameters"/>
+      <short value="What parameters were provided to the report"/>
+      <definition value="A reference to a Parameters resource (typically represented using a contained resource) that represents any input parameters that were provided to the operation that generated the report."/>
+      <requirement value="Consumers of a measure report need to understand the parameters that were given to produce the report"/>
+      <comment value="Whenever an operation returns a MeasureReport, the IN parameters from that operation can be returned to the caller of the operation using MeasureReport.inputParameters. Operations include but are not limited to $evaluate-measure, $care-gaps, $data-requirements, and $collect-data. The inputParameters can also be used in a MeasureReport used to define a test case (i.e., not as a result of an operation)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
       </mapping>
     </element>
     <element id="MeasureReport.scoring">

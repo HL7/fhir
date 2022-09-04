@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DiagnosticReport"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1395"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DiagnosticReport"/>
   <status value="draft"/>
@@ -72,7 +74,7 @@
   <differential>
     <element id="DiagnosticReport">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="It&#39;s not clear how to handle cumulative reports."/>
+        <valueString value="It's not clear how to handle cumulative reports."/>
       </extension>
       <path value="DiagnosticReport"/>
       <short value="A Diagnostic report - a combination of request information, atomic results, images, interpretation, as well as formatted reports"/>
@@ -210,7 +212,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;"/>
+        <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &#34;revise&#34;"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.category">
@@ -290,7 +292,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-4 (HL7 v2 doesn&#39;t provide an easy way to indicate both the ordered test and the performed panel)"/>
+        <map value="OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -476,7 +478,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PRT-8 (where this PRT-4-Participation = &quot;PO&quot;)"/>
+        <map value="PRT-8 (where this PRT-4-Participation = &#34;PO&#34;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -489,7 +491,7 @@
       </extension>
       <path value="DiagnosticReport.resultsInterpreter"/>
       <short value="Primary result interpreter"/>
-      <definition value="The practitioner or organization that is responsible for the report&#39;s conclusions and interpretations."/>
+      <definition value="The practitioner or organization that is responsible for the report's conclusions and interpretations."/>
       <comment value="Might not be the same entity that takes responsibility for the clinical report."/>
       <requirements value="Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis."/>
       <alias value="Analyzed by"/>
@@ -514,7 +516,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PI&quot;)"/>
+        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &#34;PI&#34;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -675,7 +677,7 @@
     <element id="DiagnosticReport.media.comment">
       <path value="DiagnosticReport.media.comment"/>
       <short value="Comment about the image or data (e.g. explanation)"/>
-      <definition value="A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer&#39;s attention to important features."/>
+      <definition value="A comment about the image or data. Typically, this is used to provide an explanation for why the image or data is included, or to draw the viewer's attention to important features."/>
       <comment value="The comment should be displayed with the image or data. It would be common for the report to include additional discussion of the image or data contents or in other sections such as the conclusion."/>
       <requirements value="The provider of the report should make a comment about each image or data included in the report."/>
       <min value="0"/>
@@ -685,7 +687,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.media.link">
@@ -737,7 +739,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=&quot;SPRT&quot;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)"/>
+        <map value="inboundRelationship[typeCode=&#34;SPRT&#34;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.conclusionCode">
@@ -773,7 +775,7 @@
       <path value="DiagnosticReport.presentedForm"/>
       <short value="Entire report as issued"/>
       <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
-      <comment value="&quot;application/pdf&quot; is recommended as the most reliable and interoperable in this context."/>
+      <comment value="&#34;application/pdf&#34; is recommended as the most reliable and interoperable in this context."/>
       <requirements value="Gives laboratory the ability to provide its own fully formatted report for clinical fidelity."/>
       <min value="0"/>
       <max value="*"/>

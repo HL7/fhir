@@ -1,25 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
+<?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="example"/>
-	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission" />
-	<version value="0.3" />
-	<title value="admission" />
+	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.24.2"/>
+  </identifier>
+  <version value="0.3"/>
+	<title value="admission"/>
 	<status value="draft"/>
-	<date value="2019-08-01" />
-  <description value="Admission SubscriptionTopic for testing framework and behavior" />
+	<date value="2019-08-01"/>
+  <description value="Admission SubscriptionTopic for testing framework and behavior"/>
 	<resourceTrigger>
-		<description value="Beginning of a clinical encounter" />
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter" />
+		<description value="Beginning of a clinical encounter"/>
+		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
     <queryCriteria>
-      <current value="status:in-progress" />
-      <previous value="status:not=in-progress" />
-      <requireBoth value="true" />
+      <current value="status:in-progress"/>
+      <previous value="status:not=in-progress"/>
+      <requireBoth value="true"/>
 		</queryCriteria>
-		<fhirPathCriteria value="%previous.status!=&#x27;in-progress&#x27; and %current.status=&#x27;in-progress&#x27;"/>
+		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
 		<canFilterBy>
-			<searchParamName value="patient" />
-			<searchModifier value="=" />
-			<documentation value="Exact match to a patient resource (reference)" />
+			<searchParamName value="patient"/>
+			<searchModifier value="="/>
+			<documentation value="Exact match to a patient resource (reference)"/>
 		</canFilterBy>
 	</resourceTrigger>
 	<!-- insert contents here -->
