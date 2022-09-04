@@ -328,13 +328,18 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage examples</h4>
         <p>
         </p>
-
+        <a name="optionl"></a>
+        <h3>Option L: Combining Workflow Approaches</h3>
+        <p>This approach requires the presence of an active FHIR-aware intermediary/broker, that provides the appropriate interface to requester and fulfiller with different capabilities. The broker translates between multiple workflow fulfillment approaches. For example, messaging in, REST out, or REST in, operation out.</p>
+        <p>An example of a Prescription workflow is shown below:</p>
+        <img alt="Diagram showing a hybrid messaging/REST approach" src="workflow-optionl.png" />
+        <h4>Example Steps</h4>
         <h3>Additional Scenarios</h3>
         <p>
             <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
         </p>
         <h4>POST of "request" resource for filler system, response via Task</h4>
-        <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request and be made aware of the changes to
+        <p>This is a variation of <a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request and be made aware of the changes to
             the other resources via subscription or polling.
         </p>
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />
@@ -351,6 +356,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Placer system retrieves the event</li>
             <li>Placer system marks the request as "complete"</li>
         </ol>
+        
     [%file newfooter%]
 </body>
 
