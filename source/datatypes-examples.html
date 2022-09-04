@@ -1200,6 +1200,28 @@ on the structured data elements of the address.
    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
+<p>HL7 office's address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="IN"&gt;
+     &lt;/extension>
+   &lt;/state&gt;	 
+   &lt;postalCode value="46240" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;country value="United States"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="US"&gt;
+     &lt;/extension>
+  &lt;/address&gt;
+</pre>
 <p>A UK example address, with the county 'HUDDERSFIELD'.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
@@ -1219,6 +1241,20 @@ on the structured data elements of the address.
     &lt;line value=&quot;PO Box 31445&quot;/&gt;
     &lt;city value=&quot;Erewhon&quot;/&gt;
     &lt;postalCode value=&quot;0001&quot;/&gt;
+  &lt;/address&gt;
+</pre>
+
+<p>An example of an address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
 
