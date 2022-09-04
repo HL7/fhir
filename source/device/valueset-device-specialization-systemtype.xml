@@ -15,8 +15,10 @@
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="DeviceSpecializationSystemType"/>
+  <title value="Device Specialization System Type"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <description value="Type of specialization or standard that devices can adhere to"/>
+  <description value="The type or specialization of a standard that devices can adhere to"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>
