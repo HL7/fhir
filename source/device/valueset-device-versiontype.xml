@@ -13,8 +13,10 @@
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="DeviceVersionType"/>
+  <title value="Device Version Type"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <description value="Description Needed Here"/>
+  <description value="Describes the type of version"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>
