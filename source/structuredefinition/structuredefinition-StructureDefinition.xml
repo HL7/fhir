@@ -475,8 +475,8 @@
 		</element>
 		<element id="StructureDefinition.publisher">
 			<path value="StructureDefinition.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the structure definition."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the structure definition is the organization or individual primarily responsible for the maintenance and upkeep of the structure definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the structure definition. This item SHOULD be populated unless the information is available from context."/>
 			<requirements value="Helps establish the &quot;authority/credibility&quot; of the structure definition.  May also allow for contact."/>
 			<min value="0"/>
@@ -521,7 +521,7 @@
 			<path value="StructureDefinition.description"/>
 			<short value="Natural language description of the structure definition"/>
 			<definition value="A free text natural language description of the structure definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the structure definition was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -624,10 +624,14 @@
 			</mapping>
 		</element>
 		<element id="StructureDefinition.keyword">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+				<valueCode value="deprecated"/>
+			</extension>
 			<path value="StructureDefinition.keyword"/>
 			<short value="Assist with indexing and finding"/>
-			<definition value="A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
+			<definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
 			<requirements value="Assist in searching for appropriate StructureDefinitions."/>
+			<comment value="Note that this element is deprecated. Use the artifact-keyword extension instead."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
