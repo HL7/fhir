@@ -147,6 +147,14 @@
     <type value="dateTime"/>
   </parameter>
   <parameter>
+    <name value="parameters"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Any input parameters for the evaluation. Parameters defined in this input will be made available by name to the CQL expression. Parameter types are mapped to CQL as specified in the Using CQL topic of the Clinical Reasoning Module. If a parameter appears more than once in the input Parameters resource, it is represented with a List in the input CQL. If a parameter has parts, it is represented as a Tuple in the input CQL."/>
+    <type value="Parameters"/>
+  </parameter>
+  <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="0"/>
