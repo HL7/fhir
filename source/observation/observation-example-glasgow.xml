@@ -1,172 +1,170 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!-- 
  This is an example of a Glasgow Coma Score using components to group  the measurements  source http://www.choa.org/~/media/CHOA/Documents/Services/Concussion/Concussion-glasgow-coma-scale.pdf
  -->
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/valueset.xsd">
-	<id value="glasgow"/>
-
-	<!--  the mandatory quality flags:  -->
-	<status value="final"/>
-	<!-- 
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="glasgow"/>
+  <!--  the mandatory quality flags:  -->
+  <status value="final"/>
+  <!-- 
     Observations are often coded in multiple code systems.
       - LOINC
 		- or SNOMED
       -and/or the source system may provides its own "local" code, which may be less or more granular than LOINC.
 	In this example there is only LOINC
    -->
-	<code>
-		<!--  LOINC - always recommended to have a LOINC code  -->
-		<coding>
-			<system value="http://loinc.org"/>
-			<code value="9269-2"/>
-			<display value="Glasgow coma score total"/>
-		</coding>
-		<text value="Glasgow Coma Scale , (GCS)"/>
-	</code>
-	<subject>
-		<reference value="Patient/example"/>
-		<display value="Peter James Chalmers"/>
-	</subject>
-	<effectiveDateTime value="2014-12-11T04:44:16Z"/>
-	<!--  In FHIR, units may be represented twice. Once in the
+  <code>
+    <!--  LOINC - always recommended to have a LOINC code  -->
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="9269-2"/>
+      <display value="Glasgow coma score total"/>
+    </coding>
+    <text value="Glasgow Coma Scale , (GCS)"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </subject>
+  <effectiveDateTime value="2014-12-11T04:44:16Z"/>
+  <!--  In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     In this example the UCUM unit is provided but no human representation since this is often not displayed
     -->
-	<valueQuantity>
-		<value value="13"/>
-		<system value="http://unitsofmeasure.org"/>
-		<code value="{score}"/>
-	</valueQuantity>
-	<referenceRange>
-		<high>
-			<value value="8"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="{score}"/>
-		</high>
-		<!--  meaning as text  -->
-		<type>
-			<text value="Severe TBI"/>
-		</type>
-	</referenceRange>
-	<referenceRange>
-		<low>
-			<value value="9"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="{score}"/>
-		</low>
-		<high>
-			<value value="12"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="{score}"/>
-		</high>
-		<!--  meaning as text  -->
-		<type>
-			<text value="Moderate TBI"/>
-		</type>
-	</referenceRange>
-	<referenceRange>
-		<low>
-			<value value="13"/>
-			<system value="http://unitsofmeasure.org"/>
-			<code value="{score}"/>
-		</low>
-		<!--  meaning as text  -->
-		<type>
-			<text value="Mild TBI"/>
-		</type>
-	</referenceRange>
-
-	<!-- Using components since these measurements are typically reported and interpreted together -->
-		<!-- GCS motor Component -->
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="9268-4"/>
-				<display value="Glasgow coma score motor"/>
-			</coding>
-			<text value="GCS Motor"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://acme.ec/codes"/>
-				<code value="5"/>
-				<display value="Localizes painful stimuli"/>
-			</coding>
-			<coding>
-				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<!--  from Element: extension  -->
-					<valueDecimal value="5"/>
-					<!--  0..1 Value of extension  -->
-				</extension>
-				<system value="http://loinc.org"/>
-				<code value="LA6566-9"/>
-				<display value="Localizing pain"/>
-			</coding>
-			<text value="5 (Localizes painful stimuli)"/>
-		</valueCodeableConcept>
-	</component>
-		<!-- GCS verbal Component -->
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="9270-0"/>
-				<display value="Glasgow coma score verbal"/>
-			</coding>
-			<text value="GSC Verbal"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://acme.ec/codes"/>
-				<code value="4"/>
-				<display value="Confused, disoriented"/>
-			</coding>
-			<coding>
-				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<!--  from Element: extension  -->
-					<valueDecimal value="4"/>
-					<!--  0..1 Value of extension  -->
-				</extension>
-				<system value="http://loinc.org"/>
-				<!-- technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention -->
-				<code value="LA6560-2"/>
-				<display value="Confused"/>
-			</coding>
-			<text value="4 (Confused, disoriented)"/>
-		</valueCodeableConcept>
-	</component>
-	<!-- GCS eyes Component -->
-	<component>
-		<code>
-			<coding>
-				<system value="http://loinc.org"/>
-				<code value="9267-6"/>
-				<display value="Glasgow coma score eye opening"/>
-			</coding>
-			<text value="Eyes"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://acme.ec/codes"/>
-				<code value="4"/>
-				<display value="Opens eyes spontaneously"/>
-			</coding>
-			<coding>
-				<!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
-					<!--  from Element: extension  -->
-					<valueDecimal value="4"/>
-					<!--  0..1 Value of extension  -->
-				</extension>
-				<system value="http://loinc.org"/>
-				<!-- technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention -->
-				<code value="LA6556-0"/>
-				<display value="Eyes open spontaneously"/>
-			</coding>
-			<text value="4 (Opens eyes spontaneously)"/>
-		</valueCodeableConcept>
-	</component>
+  <valueQuantity>
+    <value value="13"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="{score}"/>
+  </valueQuantity>
+  <referenceRange>
+    <high>
+      <value value="8"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="{score}"/>
+    </high>
+    <!--  meaning as text  -->
+    <type>
+      <text value="Severe TBI"/>
+    </type>
+  </referenceRange>
+  <referenceRange>
+    <low>
+      <value value="9"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="{score}"/>
+    </low>
+    <high>
+      <value value="12"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="{score}"/>
+    </high>
+    <!--  meaning as text  -->
+    <type>
+      <text value="Moderate TBI"/>
+    </type>
+  </referenceRange>
+  <referenceRange>
+    <low>
+      <value value="13"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="{score}"/>
+    </low>
+    <!--  meaning as text  -->
+    <type>
+      <text value="Mild TBI"/>
+    </type>
+  </referenceRange>
+  <!-- Using components since these measurements are typically reported and interpreted together -->
+  <!-- GCS motor Component -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="9268-4"/>
+        <display value="Glasgow coma score motor"/>
+      </coding>
+      <text value="GCS Motor"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://acme.ec/codes"/>
+        <code value="5"/>
+        <display value="Localizes painful stimuli"/>
+      </coding>
+      <coding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <!--  from Element: extension  -->
+          <valueDecimal value="5"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <code value="LA6566-9"/>
+        <display value="Localizing pain"/>
+      </coding>
+      <text value="5 (Localizes painful stimuli)"/>
+    </valueCodeableConcept>
+  </component>
+  <!-- GCS verbal Component -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="9270-0"/>
+        <display value="Glasgow coma score verbal"/>
+      </coding>
+      <text value="GSC Verbal"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://acme.ec/codes"/>
+        <code value="4"/>
+        <display value="Confused, disoriented"/>
+      </coding>
+      <coding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <!--  from Element: extension  -->
+          <valueDecimal value="4"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <!-- technicallly the code is '5' and the LA is the identifier to do hav e both  would require an extention -->
+        <code value="LA6560-2"/>
+        <display value="Confused"/>
+      </coding>
+      <text value="4 (Confused, disoriented)"/>
+    </valueCodeableConcept>
+  </component>
+  <!-- GCS eyes Component -->
+  <component>
+    <code>
+      <coding>
+        <system value="http://loinc.org"/>
+        <code value="9267-6"/>
+        <display value="Glasgow coma score eye opening"/>
+      </coding>
+      <text value="Eyes"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://acme.ec/codes"/>
+        <code value="4"/>
+        <display value="Opens eyes spontaneously"/>
+      </coding>
+      <coding>
+        <!--   This example has the extension which maps a numeric score to the code this may already be known and unecessary in the Observation resource  -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/itemWeight">
+          <!--  from Element: extension  -->
+          <valueDecimal value="4"/>
+          <!--  0..1 Value of extension  -->
+        </extension>
+        <system value="http://loinc.org"/>
+        <!-- technicallly the code is '4' and the LA is the identifier to do hav e both  would require an extention -->
+        <code value="LA6556-0"/>
+        <display value="Eyes open spontaneously"/>
+      </coding>
+      <text value="4 (Opens eyes spontaneously)"/>
+    </valueCodeableConcept>
+  </component>
 </Observation>
