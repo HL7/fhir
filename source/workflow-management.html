@@ -271,7 +271,7 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <h4>Steps</h4>
         <ol>
-            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Task resource, also contained in the message. The message might or might not contain any other relevant resources (e.g. the actual request resource), or
+            <li>Placer sends message to filler with a MessageHeader, where the <code>focus</code> element points to the Task resource, also contained in the message. The message might or might not contain any other relevant resources (e.g. the actual request resource), or
                 an "event" code saying "please fulfill"</li>
             <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally, an indication of their intention to fulfill the request</li>
             <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results) by including an updated Task resource</li>
@@ -328,13 +328,40 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Usage examples</h4>
         <p>
         </p>
-
+        <a name="optionl"></a>
+        <h3>Option L: Combining workflow approaches</h3>
+        <p>This approach requires the presence of an active FHIR-aware intermediary/broker, that provides the appropriate interface to requester and fulfiller with different capabilities. The broker translates between multiple workflow fulfillment approaches. For example, messaging in, REST out, or REST in, operation out.</p>
+        <p>An example of a Prescription workflow is shown below:</p>
+        <img alt="Diagram showing a hybrid messaging/REST approach" src="workflow-optionl.png" />
+        <h4>Steps</h4>
+        <p>These steps are for the example above, which includes the assumption that the filler is subscribed to any relevant Task resources on the broker.</p>
+        <ol>
+            <li>Placer sends message to broker with a MessageHeader, where the <code>focus</code> element points to the Task resource, also contained in the message. In this case the message also contains the MedicationRequest resource describing the prescription, as well as any other relevant resources.<br />Note that in certain cases it may be possible to omit the Task resource, for example if <code>MessageHeader.event</code> can be directly mapped to <code>Task.code</code>. For support of complex workflow management, it is still recommended to include the Task resource in the message Bundle.</li>
+            <li>Broker creates local copies of the resources contained in the message, and sends a subscription notification to Filler system that a new Task resource is available</li>
+            <li>Filler searches broker for the known Task resource, using the relevant <code>_include</code> and <code>_revinclude</code> values to get the information about the prescription</li>
+            <li>Filler system may PUT incremental updates to the Task resource on the broker showing progress</li>
+            <li>Based on the updates of the Task resource, the broker may send FHIR messages to the placer to inform them of the progress. In order to include the relevant information about the updates, the broker may precede the sending of the message with a search on the filler to obtain the necessary details.</li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>Allows interoperability among systems with different data exchange architectures</li>
+            <li>A sophisticated FHIR-aware broker can be used for multiple purposes, and provides the flexibility to include more participants at different levels of support for FHIR</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Requires the presence of a broker that is capable of converting between the different approaches</li>
+            <li>Does not provide RESTful access to the clinical information on the non-RESTful side</li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <p>
+            This approach may enable a gradual introduction for FHIR RESTful exchange patterns 
+        </p>
         <h3>Additional Scenarios</h3>
         <p>
             <i>TODO: needs review and update. Possibly add options about using messaging and/or services instead of polling/subscription in above scenarios</i>
         </p>
         <h4>POST of "request" resource for filler system, response via Task</h4>
-        <p>This is a variation of<a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request and be made aware of the changes to
+        <p>This is a variation of <a href="workflow-management.html#optionh">Option H</a>, where the Workflow broker is essentially merged with the fulfiller. It still allows the placer to only use a POST of the request and be made aware of the changes to
             the other resources via subscription or polling.
         </p>
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />
@@ -351,6 +378,7 @@ in order to support consistent definitions for schema and UML derived code.
             <li>Placer system retrieves the event</li>
             <li>Placer system marks the request as "complete"</li>
         </ol>
+        
     [%file newfooter%]
 </body>
 
