@@ -35,6 +35,10 @@
     <display value="Urgency (qualifier value)"/>
     <display value="Urgent"/>
   </concept>
+  <concept id="103579009" display="Race">
+    <display value="Race"/>
+    <display value="Race (observable entity)"/>
+  </concept>
   <concept id="103693007" display="Diagnostic procedure">
     <display value="Diagnostic procedure"/>
     <display value="Diagnostic procedure (procedure)"/>
@@ -112,6 +116,11 @@
   <concept id="108806006" display="Docetaxel">
     <display value="Docetaxel"/>
     <display value="Docetaxel (product)"/>
+  </concept>
+  <concept id="109355002" display="Carcinoma in situ">
+    <display value="Carcinoma in situ (disorder)"/>
+    <display value="Carcinoma in situ"/>
+    <display value="Cancer in situ"/>
   </concept>
   <concept id="11161001" display="DK pig 77">
     <display value="DK pig 77"/>
@@ -11530,6 +11539,12 @@
     <display value="Status epilepticus"/>
     <display value="Status epilepticus (disorder)"/>
   </concept>
+  <concept id="230690007" display="CVA - Cerebrovascular accident">
+    <display value="CVA - Cerebrovascular accident"/>
+    <display value="Stroke"/>
+    <display value="Cerebrovascular accident"/>
+    <display value="Cerebrovascular accident (disorder)"/>
+  </concept>
   <concept id="230993007" display="Worsening">
     <display value="Worsening"/>
     <display value="Worsening (qualifier value)"/>
@@ -11744,6 +11759,15 @@
     <display value="Non-small cell lung cancer"/>
     <display value="NSCLC - Non-small cell lung cancer"/>
     <display value="Non-small cell lung cancer (disorder)"/>
+  </concept>
+  <concept id="254701007" display="Basal cell carcinoma of skin">
+    <display value="Basal cell carcinoma of skin"/>
+    <display value="Rodent ulcer"/>
+    <display value="Basalioma"/>
+    <display value="BCC - Basal cell carcinoma of skin"/>
+    <display value="RU - Rodent ulcer"/>
+    <display value="Basal cell carcinoma of skin (disorder)"/>
+    <display value="Cancer of skin, basal cell"/>
   </concept>
   <concept id="255551008" display="Posterior">
     <display value="Posterior"/>
@@ -12479,6 +12503,11 @@
   <concept id="304784009" display="Administrative form">
     <display value="Administrative form (record artifact)"/>
     <display value="Administrative form"/>
+  </concept>
+  <concept id="305450004" display="Under care of doctor">
+    <display value="Under care of doctor"/>
+    <display value="Under care of doctor (finding)"/>
+    <display value="Under care of physician"/>
   </concept>
   <concept id="30549001" display="Removal of suture">
     <display value="Removal of suture"/>
@@ -13615,6 +13644,11 @@
     <display value="Nuclear medicine - specialty"/>
     <display value="Nuclear medicine"/>
   </concept>
+  <concept id="394659003" display="Acute coronary syndrome">
+    <display value="Acute coronary syndrome (disorder)"/>
+    <display value="Acute coronary syndrome"/>
+    <display value="ACS - Acute coronary syndrome"/>
+  </concept>
   <concept id="394687007" display="Low suicide risk">
     <display value="Low suicide risk (finding)"/>
     <display value="Low suicide risk"/>
@@ -13747,6 +13781,10 @@
     <display value="Hematopathology"/>
     <display value="Hematopathology (specialty)"/>
   </concept>
+  <concept id="395100000" display="No evidence of cancer found">
+    <display value="No evidence of cancer found"/>
+    <display value="No evidence of cancer found (situation)"/>
+  </concept>
   <concept id="39532001" display="Norman coach horse">
     <display value="Norman coach horse"/>
     <display value="Norman coach horse (organism)"/>
@@ -13824,6 +13862,11 @@
   <concept id="397640006" display="Healthcare knowledge finding">
     <display value="Healthcare knowledge finding (finding)"/>
     <display value="Healthcare knowledge finding"/>
+  </concept>
+  <concept id="397669002" display="Age">
+    <display value="Age (qualifier value)"/>
+    <display value="Age"/>
+    <display value="Age - descriptor"/>
   </concept>
   <concept id="397709008" display="Patient died">
     <display value="Patient died (finding)"/>
@@ -14690,6 +14733,11 @@
     <display value="Ischemic stroke"/>
     <display value="Ischaemic stroke"/>
   </concept>
+  <concept id="424144002" display="Current chronological age">
+    <display value="Current chronological age (observable entity)"/>
+    <display value="Current chronological age"/>
+    <display value="Age"/>
+  </concept>
   <concept id="424553001" display="Uninsured medical expenses">
     <display value="Uninsured medical expenses (finding)"/>
     <display value="Uninsured medical expenses"/>
@@ -15303,6 +15351,10 @@
     <display value="Debouillet sheep"/>
     <display value="Debouillet sheep (organism)"/>
   </concept>
+  <concept id="450332002" display="Assessment of eligibility for clinical trial">
+    <display value="Assessment of eligibility for clinical trial (procedure)"/>
+    <display value="Assessment of eligibility for clinical trial"/>
+  </concept>
   <concept id="45036003" display="Ultrasonography of abdomen">
     <display value="Ultrasonography of abdomen"/>
     <display value="Ultrasonography of abdomen (procedure)"/>
@@ -15848,6 +15900,11 @@
     <display value="Navajo sheep"/>
     <display value="Navajo sheep (organism)"/>
   </concept>
+  <concept id="59282003" display="Pulmonary embolism">
+    <display value="Pulmonary embolism"/>
+    <display value="Pulmonary embolism (disorder)"/>
+    <display value="PE - Pulmonary embolism"/>
+  </concept>
   <concept id="59374000" display="Traveler's aid clinic">
     <display value="Traveler's aid clinic"/>
     <display value="Traveler's aid clinic (environment)"/>
@@ -15990,6 +16047,10 @@
     <display value="Kidney structure"/>
     <display value="Kidney structure (body structure)"/>
     <display value="Renal structure"/>
+  </concept>
+  <concept id="64156001" display="Thrombophlebitis">
+    <display value="Thrombophlebitis"/>
+    <display value="Thrombophlebitis (disorder)"/>
   </concept>
   <concept id="64158000" display="Angora goat">
     <display value="Angora goat"/>
@@ -16873,6 +16934,11 @@
   <concept id="81234003" display="Walk-in clinic">
     <display value="Walk-in clinic"/>
     <display value="Walk-in clinic (environment)"/>
+  </concept>
+  <concept id="81266008" display="Heart revascularization">
+    <display value="Heart revascularization"/>
+    <display value="Heart revascularisation"/>
+    <display value="Heart revascularization (procedure)"/>
   </concept>
   <concept id="81267004" display="Normandie cattle">
     <display value="Normandie cattle"/>

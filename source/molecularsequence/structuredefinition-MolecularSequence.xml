@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MolecularSequence"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1301"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MolecularSequence"/>
   <status value="draft"/>
@@ -353,7 +355,7 @@
     <element id="MolecularSequence.relative.startingSequence.orientation">
       <path value="MolecularSequence.relative.startingSequence.orientation"/>
       <short value="sense | antisense"/>
-      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
+      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &#34;sense&#34; strand, and the opposite complementary strand is the &#34;antisense&#34; strand."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -372,7 +374,7 @@
     <element id="MolecularSequence.relative.startingSequence.strand">
       <path value="MolecularSequence.relative.startingSequence.strand"/>
       <short value="watson | crick"/>
-      <definition value="An absolute reference to a strand. The Watson strand is the strand whose 5&#39;-end is on the short arm of the chromosome, and the Crick strand as the one whose 5&#39;-end is on the long arm."/>
+      <definition value="An absolute reference to a strand. The Watson strand is the strand whose 5'-end is on the short arm of the chromosome, and the Crick strand as the one whose 5'-end is on the long arm."/>
       <min value="0"/>
       <max value="1"/>
       <type>

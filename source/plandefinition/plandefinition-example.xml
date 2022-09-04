@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
   <id value="low-suicide-risk-order-set"/>
   <text>
     <status value="generated"/>
@@ -443,7 +440,7 @@
          </table>
          <p/>
          <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+         <p class="hierarchy" style="width: 100%;">
             <span>
                <b>Step: </b>
                <br/>
@@ -778,6 +775,10 @@
   </contained>
   <url value="http://motivemi.com/artifacts/PlanDefinition/low-suicide-risk-order-set"/>
   <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.7"/>
+  </identifier>
+  <identifier>
     <use value="official"/>
     <system value="http://motivemi.com/artifacts"/>
     <value value="mmi:low-suicide-risk-order-set"/>
@@ -963,7 +964,7 @@
           <!-- This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy -->
           <expression>
             <language value="text/cql"/>
-            <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NUCC Provider Taxonomy&quot; display 'Adult Mental Health'"/>
+            <expression value="Code '261QM0850X' from SuicideRiskLogic.&#34;NUCC Provider Taxonomy&#34; display 'Adult Mental Health'"/>
 		  </expression>
         </dynamicValue>
         <dynamicValue>

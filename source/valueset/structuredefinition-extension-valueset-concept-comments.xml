@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-concept-comments"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-concept-comments"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1197"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="concept-comments"/>
   <title value="Comment"/>
@@ -36,7 +38,7 @@
       <path value="Extension"/>
       <short value="Comment about the use of this code in this context"/>
       <definition value="A comment that explains how this code is used in this context (where the value set is expected to be used)."/>
-      <comment value="This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it&#39;s not clear whether it belongs in the actual value set resource."/>
+      <comment value="This is used in various FHIR value sets to make comments on how particular codes are used when the formal definition is a little abstract or vague, but it's not clear whether it belongs in the actual value set resource."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

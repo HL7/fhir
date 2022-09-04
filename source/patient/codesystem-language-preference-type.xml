@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="language-preference-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,12 +9,12 @@
   <url value="http://hl7.org/fhir/language-preference-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1023"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1023"/>
   </identifier>
   <name value="LanguagePreferenceType"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="This code system defines a defines the set of codes for describing the type or mode of the patient&#39;s preferred language."/>
+  <description value="This code system defines a defines the set of codes for describing the type or mode of the patient's preferred language."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

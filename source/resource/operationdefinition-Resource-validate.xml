@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Resource-validate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -70,7 +68,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Must be present unless the mode is &quot;delete&quot;"/>
+    <documentation value="Must be present unless the mode is &#34;delete&#34;"/>
     <type value="Resource"/>
   </parameter>
   <parameter>
@@ -78,7 +76,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Default is &#39;no action&#39;; (e.g. general validation)"/>
+    <documentation value="Default is 'no action'; (e.g. general validation)"/>
     <type value="code"/>
     <binding>
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

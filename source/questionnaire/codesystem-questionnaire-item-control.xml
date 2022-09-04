@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-item-control"/>
 	<meta>
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,7 +9,7 @@
 	<url value="http://hl7.org/fhir/questionnaire-item-control"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.1.932"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.4.932"/>
 	</identifier>
 	<name value="QuestionnaireItemUIControlCodes"/>
 	<title value="Questionnaire Item UI Control Codes"/>
@@ -23,7 +22,7 @@
 	<content value="complete"/>
 	<property>
 		<code value="abstract"/>
-		<description value="True if an element is considered &#39;abstract&#39; - that is the code is not for use as a real concept"/>
+		<description value="True if an element is considered 'abstract' - that is the code is not for use as a real concept"/>
 		<type value="boolean"/>
 	</property>
 	<concept>
@@ -41,12 +40,12 @@
 		<concept>
 			<code value="table"/>
 			<display value="Vertical Answer Table"/>
-			<definition value="Questions within the group are rows in the table with possible answers as columns.  Used for &#39;choice&#39; questions."/>
+			<definition value="Questions within the group are rows in the table with possible answers as columns.  Used for 'choice' questions."/>
 		</concept>
 		<concept>
 			<code value="htable"/>
 			<display value="Horizontal Answer Table"/>
-			<definition value="Questions within the group are columns in the table with possible answers as rows.  Used for &#39;choice&#39; questions."/>
+			<definition value="Questions within the group are columns in the table with possible answers as rows.  Used for 'choice' questions."/>
 		</concept>
 		<concept>
 			<code value="gtable"/>
@@ -71,7 +70,7 @@
 		<concept>
 			<code value="page"/>
 			<display value="Page"/>
-			<definition value="Indicates that the content within the group should appear as a logical &quot;page&quot; when rendering the form, such that all enabled items        within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the &#39;next&#39; group.        (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same        level as a &#39;page&#39; group that are listed before the &#39;page&#39; group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
+			<definition value="Indicates that the content within the group should appear as a logical &#34;page&#34; when rendering the form, such that all enabled items        within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the 'next' group.        (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same        level as a 'page' group that are listed before the 'page' group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
 		</concept>
 	</concept>
 	<concept>
@@ -94,12 +93,12 @@
 		<concept>
 			<code value="lower"/>
 			<display value="Lower-bound"/>
-			<definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;lower&#39; bound.  E.g. &#39;Strongly disagree&#39;"/>
+			<definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'lower' bound.  E.g. 'Strongly disagree'"/>
 		</concept>
 		<concept>
 			<code value="upper"/>
 			<display value="Upper-bound"/>
-			<definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the &#39;upper&#39; bound.  E.g. &#39;Strongly agree&#39;"/>
+			<definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'upper' bound.  E.g. 'Strongly agree'"/>
 		</concept>
 		<concept>
 			<code value="flyover"/>
@@ -109,7 +108,7 @@
 		<concept>
 			<code value="help"/>
 			<display value="Help-Button"/>
-			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request &#39;help&#39; for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
+			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'help' for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
 		</concept>
 		<concept>
 			<code value="legal"/>

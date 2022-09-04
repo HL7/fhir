@@ -1,11 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
 	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
 	  <valueBoolean value="true"/>
 	</extension>
   <id value="ucum-common"/>
   <url value="http://hl7.org/fhir/ValueSet/ucum-common"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3144"/>
+  </identifier>
   <name value="Common UCUM units"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>
@@ -20,139 +22,139 @@
       </concept>
       <concept>
         <code value="%/100{WBC}"/>
-        <display value="percent / 100 WBC"/>
+        <display value="percent / 100 wbc"/>
       </concept>
       <concept>
         <code value="%{0to3Hours}"/>
-        <display value="percent 0to3Hours"/>
+        <display value="percent 0to3hours"/>
       </concept>
       <concept>
         <code value="%{Abnormal}"/>
-        <display value="percent Abnormal"/>
+        <display value="percent abnormal"/>
       </concept>
       <concept>
         <code value="%{Activity}"/>
-        <display value="percent Activity"/>
+        <display value="percent activity"/>
       </concept>
       <concept>
         <code value="%{BasalActivity}"/>
-        <display value="percent BasalActivity"/>
+        <display value="percent basalactivity"/>
       </concept>
       <concept>
         <code value="%{Binding}"/>
-        <display value="percent Binding"/>
+        <display value="percent binding"/>
       </concept>
       <concept>
         <code value="%{Blockade}"/>
-        <display value="percent Blockade"/>
+        <display value="percent blockade"/>
       </concept>
       <concept>
         <code value="%{Carboxyhemoglobin}"/>
-        <display value="percent Carboxyhemoglobin"/>
+        <display value="percent carboxyhemoglobin"/>
       </concept>
       <concept>
         <code value="%{Conversion}"/>
-        <display value="percent Conversion"/>
+        <display value="percent conversion"/>
       </concept>
       <concept>
         <code value="%{Cound}"/>
-        <display value="percent Cound"/>
+        <display value="percent cound"/>
       </concept>
       <concept>
         <code value="%{EosSeen}"/>
-        <display value="percent EosSeen"/>
+        <display value="percent eosseen"/>
       </concept>
       <concept>
         <code value="%{Excretion}"/>
-        <display value="percent Excretion"/>
+        <display value="percent excretion"/>
       </concept>
       <concept>
         <code value="%{Fat}"/>
-        <display value="percent Fat"/>
+        <display value="percent fat"/>
       </concept>
       <concept>
         <code value="%{FetalErythrocytes}"/>
-        <display value="percent FetalErythrocytes"/>
+        <display value="percent fetalerythrocytes"/>
       </concept>
       <concept>
         <code value="%{Hemoglobin}"/>
-        <display value="percent Hemoglobin"/>
+        <display value="percent hemoglobin"/>
       </concept>
       <concept>
         <code value="%{HemoglobinA1C}"/>
-        <display value="percent HemoglobinA1C"/>
+        <display value="percent hemoglobina1c"/>
       </concept>
       <concept>
         <code value="%{HemoglobinSaturation}"/>
-        <display value="percent HemoglobinSaturation"/>
+        <display value="percent hemoglobinsaturation"/>
       </concept>
       <concept>
         <code value="%{Hemolysis}"/>
-        <display value="percent Hemolysis"/>
+        <display value="percent hemolysis"/>
       </concept>
       <concept>
         <code value="%{HumanResponse}"/>
-        <display value="percent HumanResponse"/>
+        <display value="percent humanresponse"/>
       </concept>
       <concept>
         <code value="%{Index}"/>
-        <display value="percent Index"/>
+        <display value="percent index"/>
       </concept>
       <concept>
         <code value="%{Inhibition}"/>
-        <display value="percent Inhibition"/>
+        <display value="percent inhibition"/>
       </concept>
       <concept>
         <code value="%{Live}"/>
-        <display value="percent Live"/>
+        <display value="percent live"/>
       </concept>
       <concept>
         <code value="%{Negative Control}"/>
-        <display value="percent Negative Control"/>
+        <display value="percent negative control"/>
       </concept>
       <concept>
         <code value="%{Normal}"/>
-        <display value="percent Normal"/>
+        <display value="percent normal"/>
       </concept>
       <concept>
         <code value="%{NormalControl}"/>
-        <display value="percent NormalControl"/>
+        <display value="percent normalcontrol"/>
       </concept>
       <concept>
         <code value="%{NormalPooledPlasma}"/>
-        <display value="percent NormalPooledPlasma"/>
+        <display value="percent normalpooledplasma"/>
       </concept>
       <concept>
         <code value="%{ofAvailable}"/>
-        <display value="percent ofAvailable"/>
+        <display value="percent ofavailable"/>
       </concept>
       <concept>
         <code value="%{ofBacteria}"/>
-        <display value="percent ofBacteria"/>
+        <display value="percent ofbacteria"/>
       </concept>
       <concept>
         <code value="%{OfLymphocytes}"/>
-        <display value="percent OfLymphocytes"/>
+        <display value="percent oflymphocytes"/>
       </concept>
       <concept>
         <code value="%{OfWBCs}"/>
-        <display value="percent OfWBCs"/>
+        <display value="percent ofwbcs"/>
       </concept>
       <concept>
         <code value="%{Oxygen}"/>
-        <display value="percent Oxygen"/>
+        <display value="percent oxygen"/>
       </concept>
       <concept>
         <code value="%{Positive}"/>
-        <display value="percent Positive"/>
+        <display value="percent positive"/>
       </concept>
       <concept>
         <code value="%{Precipitate}"/>
-        <display value="percent Precipitate"/>
+        <display value="percent precipitate"/>
       </concept>
       <concept>
         <code value="%{Reactivity}"/>
-        <display value="percent Reactivity"/>
+        <display value="percent reactivity"/>
       </concept>
       <concept>
         <code value="%{response}"/>
@@ -164,42 +166,42 @@
       </concept>
       <concept>
         <code value="%{SpermMotility}"/>
-        <display value="percent SpermMotility"/>
+        <display value="percent spermmotility"/>
       </concept>
       <concept>
         <code value="%{Total}"/>
-        <display value="percent Total"/>
+        <display value="percent total"/>
       </concept>
       <concept>
         <code value="%{TotalProtein}"/>
-        <display value="percent TotalProtein"/>
+        <display value="percent totalprotein"/>
       </concept>
       <concept>
         <code value="%{Tot&#39;Cholesterol}"/>
-        <display value="percent Tot&#39;Cholesterol"/>
+        <display value="percent tot&#39;cholesterol"/>
       </concept>
       <concept>
         <code value="%{Tot&#39;Hgb}"/>
-        <display value="percent Tot&#39;Hgb"/>
+        <display value="percent tot&#39;hgb"/>
       </concept>
       <concept>
         <code value="%{Uptake}"/>
-        <display value="percent Uptake"/>
+        <display value="percent uptake"/>
       </concept>
       <concept>
         <code value="%{vol}"/>
-        <display value="VolumePercent"/>
+        <display value="volume percent"/>
       </concept>
       <concept>
         <code value="%{WeightToWeight}"/>
-        <display value="percent WeightToWeight"/>
+        <display value="percent weight to weight"/>
       </concept>
       <concept>
         <code value="/(12.h)"/>
         <display value="per 12 * hour"/>
       </concept>
       <concept>
-        <code value="/[arb&#39;U]"/>
+        <code value="/[arb'U]"/>
         <display value="per arbitrary unit"/>
       </concept>
       <concept>
@@ -216,7 +218,7 @@
       </concept>
       <concept>
         <code value="/{Entity}"/>
-        <display value="per Entity"/>
+        <display value="per entity"/>
       </concept>
       <concept>
         <code value="/[HPF]"/>
@@ -224,7 +226,7 @@
       </concept>
       <concept>
         <code value="/[LPF]"/>
-        <display value="per LPF"/>
+        <display value="per lpf"/>
       </concept>
       <concept>
         <code value="/{oif}"/>
@@ -232,7 +234,7 @@
       </concept>
       <concept>
         <code value="/{Specimen}"/>
-        <display value="per Specimen"/>
+        <display value="per specimen"/>
       </concept>
       <concept>
         <code value="/{tot}"/>
@@ -240,23 +242,23 @@
       </concept>
       <concept>
         <code value="/10*10"/>
-        <display value="PerTenGiga"/>
+        <display value="per ten giga"/>
       </concept>
       <concept>
         <code value="/10*12"/>
-        <display value="PerTrillion"/>
+        <display value="per trillion"/>
       </concept>
       <concept>
         <code value="/10*12{rbc}"/>
-        <display value="PerTrillionRedBloodCells"/>
+        <display value="per trillion red blood cells"/>
       </concept>
       <concept>
         <code value="/10*6"/>
-        <display value="PerMillion"/>
+        <display value="per million"/>
       </concept>
       <concept>
         <code value="/10*9"/>
-        <display value="PerBillion"/>
+        <display value="per billion"/>
       </concept>
       <concept>
         <code value="/100"/>
@@ -276,11 +278,11 @@
       </concept>
       <concept>
         <code value="/100{WBC}"/>
-        <display value="Per100WBC"/>
+        <display value="per 100 wbc"/>
       </concept>
       <concept>
         <code value="/100{WBCs}"/>
-        <display value="Per100WBC"/>
+        <display value="per 100 wbc"/>
       </concept>
       <concept>
         <code value="/a"/>
@@ -312,15 +314,15 @@
       </concept>
       <concept>
         <code value="/g{tot&#39;nit}"/>
-        <display value="per gram tot&#39;nit"/>
+        <display value="per gram total nitrogen"/>
       </concept>
       <concept>
         <code value="/g{tot&#39;prot}"/>
-        <display value="per gram tot&#39;prot"/>
+        <display value="per gram total protein"/>
       </concept>
       <concept>
         <code value="/g{wet&#39;tis}"/>
-        <display value="per gram wet&#39;tis"/>
+        <display value="per gram wet tissue"/>
       </concept>
       <concept>
         <code value="/h"/>
@@ -331,7 +333,7 @@
         <display value="per kilogram"/>
       </concept>
       <concept>
-        <code value="/kg{body&#39;wt}"/>
+        <code value="/kg{body'wt}"/>
         <display value="per kilogram body wt"/>
       </concept>
       <concept>
@@ -387,23 +389,23 @@
         <display value="per week"/>
       </concept>
       <concept>
-        <code value="[APL&#39;U]"/>
+        <code value="[APL'U]"/>
         <display value="IgA anticardiolipin unit"/>
       </concept>
       <concept>
-        <code value="[APL&#39;U]/mL"/>
+        <code value="[APL'U]/mL"/>
         <display value="IgA anticardiolipin unit per milliliter"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]"/>
+        <code value="[arb'U]"/>
         <display value="arbitrary unit"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]/L"/>
+        <code value="[arb'U]/L"/>
         <display value="arbitary unit / liter"/>
       </concept>
       <concept>
-        <code value="[arb&#39;U]/mL"/>
+        <code value="[arb'U]/mL"/>
         <display value="arbitrary unit per milliliter"/>
       </concept>
       <concept>
@@ -415,11 +417,7 @@
         <display value="bioequivalent allergen unit"/>
       </concept>
       <concept>
-        <code value="[beth&#39;U]"/>
-        <display value="Bethesda unit"/>
-      </concept>
-      <concept>
-        <code value="[beth&#39;U]"/>
+        <code value="[beth'U]"/>
         <display value="Bethesda unit"/>
       </concept>
       <concept>
@@ -452,7 +450,7 @@
       </concept>
       <concept>
         <code value="[dr_av]"/>
-        <display value="Dram (US and British)"/>
+        <display value="dram (US and British)"/>
       </concept>
       <concept>
         <code value="[drp]"/>
@@ -460,7 +458,7 @@
       </concept>
       <concept>
         <code value="[drp]/[HPF]"/>
-        <display value="drop / HPF"/>
+        <display value="drop / hpf"/>
       </concept>
       <concept>
         <code value="[drp]/h"/>
@@ -488,11 +486,11 @@
       </concept>
       <concept>
         <code value="[foz_us]"/>
-        <display value="fluid ounce"/>
+        <display value="fluid ounce (US)"/>
       </concept>
       <concept>
         <code value="[ft_i]"/>
-        <display value="Feet"/>
+        <display value="feet"/>
       </concept>
       <concept>
         <code value="[fth_i]"/>
@@ -504,10 +502,10 @@
       </concept>
       <concept>
         <code value="[gal_us]"/>
-        <display value="Queen Anne&#39;s wine gallon"/>
+        <display value="gallon (US)"/>
       </concept>
       <concept>
-        <code value="[GPL&#39;U]"/>
+        <code value="[GPL'U]"/>
         <display value="IgG anticardiolipin unit"/>
       </concept>
       <concept>
@@ -552,7 +550,7 @@
       </concept>
       <concept>
         <code value="[iU]/g{Hgb}"/>
-        <display value="international unit / gram Hgb"/>
+        <display value="international unit / gram hgb"/>
       </concept>
       <concept>
         <code value="[IU]/h"/>
@@ -595,7 +593,7 @@
         <display value="minim"/>
       </concept>
       <concept>
-        <code value="[MPL&#39;U]"/>
+        <code value="[MPL'U]"/>
         <display value="IgM anticardiolipin unit"/>
       </concept>
 <!-- GG 25/03/2018 this is not legal
@@ -662,7 +660,7 @@
       </concept>
       <concept>
         <code value="[qt_us]"/>
-        <display value="quart"/>
+        <display value="quart (US)"/>
       </concept>
       <concept>
         <code value="[sft_i]"/>
@@ -674,7 +672,7 @@
       </concept>
       <concept>
         <code value="[ston_av]"/>
-        <display value="short ton U.S. ton"/>
+        <display value="short ton u.s. ton"/>
       </concept>
       <concept>
         <code value="[syd_i]"/>
@@ -685,20 +683,16 @@
         <display value="tablespoon (US)"/>
       </concept>
       <concept>
-        <code value="[tb&#39;U]"/>
+        <code value="[tb'U]"/>
         <display value="tuberculin unit"/>
       </concept>
       <concept>
-        <code value="[todd&#39;U]"/>
-        <display value="Todd unit"/>
-      </concept>
-      <concept>
-        <code value="[todd&#39;U]"/>
+        <code value="[todd'U]"/>
         <display value="Todd unit"/>
       </concept>
       <concept>
         <code value="[tsp_us]"/>
-        <display value="teaspoon"/>
+        <display value="teaspoon (US)"/>
       </concept>
       <concept>
         <code value="[yd_i]"/>
@@ -750,11 +744,11 @@
       </concept>
       <concept>
         <code value="{Absorbance&#39;U}"/>
-        <display value="Absorbance&#39;U"/>
+        <display value="absorbance&#39;u"/>
       </concept>
       <concept>
         <code value="{Absorbance&#39;U}/mL"/>
-        <display value="Absorbance&#39;U / milliliter"/>
+        <display value="absorbance&#39;u / milliliter"/>
       </concept>
       <concept>
         <code value="{activity}"/>
@@ -762,71 +756,71 @@
       </concept>
       <concept>
         <code value="{ActivityCoefficient}"/>
-        <display value="ActivityCoefficient"/>
+        <display value="activitycoefficient"/>
       </concept>
       <concept>
         <code value="{AHF&#39;U}"/>
-        <display value="AHF&#39;U"/>
+        <display value="American Hospital Formulary unit"/>
       </concept>
       <concept>
         <code value="{AntibodyResponse&#39;U}"/>
-        <display value="AntibodyResponse&#39;U"/>
+        <display value="antibodyresponse&#39;u"/>
       </concept>
       <concept>
         <code value="{Applicator}"/>
-        <display value="Applicator"/>
+        <display value="applicator"/>
       </concept>
       <concept>
-        <code value="{APS&#39;U}"/>
+        <code value="{APS'U}"/>
         <display value="IgA antiphosphatidylserine unit"/>
       </concept>
       <concept>
         <code value="{AspirinReaction&#39;U}"/>
-        <display value="AspirinReaction&#39;U"/>
+        <display value="aspirinreaction&#39;u"/>
       </concept>
       <concept>
         <code value="{Bead}"/>
-        <display value="Bead"/>
+        <display value="bead"/>
       </concept>
       <concept>
         <code value="{Beats}/min"/>
-        <display value="Beats / minute"/>
+        <display value="beats / minute"/>
       </concept>
       <concept>
         <code value="{Bottle}"/>
-        <display value="Bottle"/>
+        <display value="bottle"/>
       </concept>
       <concept>
         <code value="{Bowls}/d"/>
-        <display value="Bowls / day"/>
+        <display value="bowls / day"/>
       </concept>
       <concept>
         <code value="{Breaths}/min"/>
-        <display value="Breaths / minute"/>
+        <display value="breaths / minute"/>
       </concept>
       <concept>
-        <code value="{CAE&#39;U}"/>
+        <code value="{CAE'U}"/>
         <display value="complement activity enzyme unit"/>
       </concept>
       <concept>
         <code value="{CagRepeat}"/>
-        <display value="CagRepeat"/>
+        <display value="CAG repeat"/>
       </concept>
       <concept>
         <code value="{Can}"/>
-        <display value="Can"/>
+        <display value="can"/>
       </concept>
       <concept>
         <code value="{Cans}/wk"/>
-        <display value="Cans / week"/>
+        <display value="cans / week"/>
       </concept>
       <concept>
         <code value="{Capsule}"/>
-        <display value="Capsule"/>
+        <display value="capsule"/>
       </concept>
       <concept>
         <code value="{Cell}"/>
-        <display value="Cell"/>
+        <display value="cell"/>
       </concept>
       <concept>
         <code value="{cells}"/>
@@ -838,7 +832,7 @@
       </concept>
       <concept>
         <code value="{Cells}/mL"/>
-        <display value="Cells / milliliter"/>
+        <display value="cells / milliliter"/>
       </concept>
       <concept>
         <code value="{cells}/uL"/>
@@ -846,7 +840,7 @@
       </concept>
       <concept>
         <code value="{CfTiter}"/>
-        <display value="CfTiter"/>
+        <display value="cftiter"/>
       </concept>
       <concept>
         <code value="{cfu}"/>
@@ -858,14 +852,14 @@
       </concept>
       <concept>
         <code value="{CGG_repeats}"/>
-        <display value="CGG_repeats"/>
+        <display value="cgg_repeats"/>
       </concept>
       <concept>
         <code value="{CGG}"/>
-        <display value="CGG"/>
+        <display value="cgg"/>
       </concept>
       <concept>
-        <code value="{CH100&#39;U}"/>
+        <code value="{CH100'U}"/>
         <display value="complement CH100 unit"/>
       </concept>
       <concept>
@@ -878,15 +872,15 @@
       </concept>
       <concept>
         <code value="{ComplementActivityEnzyme&#39;U}"/>
-        <display value="ComplementActivityEnzyme&#39;U"/>
+        <display value="complementactivityenzyme&#39;u"/>
       </concept>
       <concept>
         <code value="{ComplementCH100&#39;U}"/>
-        <display value="ComplementCH100&#39;U"/>
+        <display value="complementch100&#39;u"/>
       </concept>
       <concept>
         <code value="{ComplementCH50&#39;U}"/>
-        <display value="ComplementCH50&#39;U"/>
+        <display value="complement CH50 unit"/>
       </concept>
       <concept>
         <code value="{copies}/mL"/>
@@ -898,27 +892,27 @@
       </concept>
       <concept>
         <code value="{Copies}/uL"/>
-        <display value="Copies / microliter"/>
+        <display value="copies / microliter"/>
       </concept>
       <concept>
         <code value="{Count}"/>
-        <display value="Count"/>
+        <display value="count"/>
       </concept>
       <concept>
         <code value="{Counts}/min"/>
-        <display value="Counts / minute"/>
+        <display value="counts / minute"/>
       </concept>
       <concept>
         <code value="{Dalton}"/>
-        <display value="Dalton"/>
+        <display value="dalton"/>
       </concept>
       <concept>
         <code value="{DdTiter}"/>
-        <display value="DdTiter"/>
+        <display value="ddtiter"/>
       </concept>
       <concept>
         <code value="{DeltaOpticalDensity}"/>
-        <display value="DeltaOpticalDensity"/>
+        <display value="deltaopticaldensity"/>
       </concept>
       <concept>
         <code value="{Dilution}"/>
@@ -926,43 +920,43 @@
       </concept>
       <concept>
         <code value="{Disintegrations}/min"/>
-        <display value="Disintegrations / minute"/>
+        <display value="disintegrations / minute"/>
       </concept>
       <concept>
         <code value="{Dose}"/>
-        <display value="Dose"/>
+        <display value="dose"/>
       </concept>
       <concept>
         <code value="{Drinks}/d"/>
-        <display value="Drinks / day"/>
+        <display value="drinks / day"/>
       </concept>
       <concept>
         <code value="{Each}"/>
-        <display value="Each"/>
+        <display value="each"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}"/>
+        <code value="{Ehrlich'U}"/>
         <display value="Ehrlich unit"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/(2.h)"/>
+        <code value="{Ehrlich'U}/(2.h)"/>
         <display value="Ehrlich unit per 2 hour"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/100.g"/>
+        <code value="{Ehrlich'U}/100.g"/>
         <display value="Ehrlich unit per 100 gram"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/d"/>
+        <code value="{Ehrlich'U}/d"/>
         <display value="Ehrlich unit per day"/>
       </concept>
       <concept>
         <code value="{Ehrlich&#39;U}/dL"/>
-        <display value="Ehrilich unit per deciliter"/>
+        <display value="Ehrlich unit per deciliter"/>
       </concept>
       <concept>
         <code value="{Ehrlich&#39;U}/mL"/>
-        <display value="Ehrlich&#39;U / milliliter"/>
+        <display value="Ehrlich unit per milliliter"/>
       </concept>
       <concept>
         <code value="{EIAIndex}"/>
@@ -973,28 +967,28 @@
         <display value="EIA titer"/>
       </concept>
       <concept>
-        <code value="{EIA&#39;U}"/>
+        <code value="{EIA'U}"/>
         <display value="EIA unit"/>
       </concept>
       <concept>
         <code value="{EIA&#39;U}/U"/>
-        <display value="EIA unit per enzyme Unit"/>
+        <display value="EIA unit per enzyme unit"/>
       </concept>
       <concept>
         <code value="{ElisaIndex}"/>
-        <display value="ElisaIndex"/>
+        <display value="ELISA index"/>
       </concept>
       <concept>
-        <code value="{ELISA&#39;U}"/>
+        <code value="{ELISA'U}"/>
         <display value="ELISA unit"/>
       </concept>
       <concept>
         <code value="{Elisa&#39;U}/mL"/>
-        <display value="Elisa&#39;U / milliliter"/>
+        <display value="ELISA unit per milliliter"/>
       </concept>
       <concept>
         <code value="{ElisaValue}"/>
-        <display value="ElisaValue"/>
+        <display value="ELISA value"/>
       </concept>
       <concept>
         <code value="{ERY}/uL"/>
@@ -1002,75 +996,75 @@
       </concept>
       <concept>
         <code value="{Events}"/>
-        <display value="Events"/>
+        <display value="events"/>
       </concept>
       <concept>
         <code value="{FluorescenceIntensity&#39;U}"/>
-        <display value="FluorescenceIntensity&#39;U"/>
+        <display value="fluorescenceintensity&#39;u"/>
       </concept>
       <concept>
         <code value="U{G}"/>
-        <display value="G unit"/>
+        <display value="g unit"/>
       </concept>
       <concept>
         <code value="{GliadinIndexValue}"/>
-        <display value="GliadinIndexValue"/>
+        <display value="gliadin index value"/>
       </concept>
       <concept>
         <code value="{G-PortionPhospholipids}"/>
-        <display value="G-PortionPhospholipids"/>
+        <display value="g-portionphospholipids"/>
       </concept>
       <concept>
         <code value="{HaTiter}"/>
-        <display value="HaTiter"/>
+        <display value="hatiter"/>
       </concept>
       <concept>
         <code value="{IfaIndex}"/>
-        <display value="IfaIndex"/>
+        <display value="ifaindex"/>
       </concept>
       <concept>
         <code value="{IfaTiter}"/>
-        <display value="IfaTiter"/>
+        <display value="ifatiter"/>
       </concept>
       <concept>
         <code value="{IgAAntiphosphatidyleserine&#39;U}"/>
-        <display value="IgAAntiphosphatidyleserine&#39;U"/>
+        <display value="igaantiphosphatidyleserine&#39;u"/>
       </concept>
       <concept>
         <code value="{IgAPhospholipid&#39;U}"/>
-        <display value="IgAPhospholipid&#39;U"/>
+        <display value="igaphospholipid&#39;u"/>
       </concept>
       <concept>
         <code value="{IgGAntiphosphatidyleserine&#39;U}"/>
-        <display value="IgGAntiphosphatidyleserine&#39;U"/>
+        <display value="iggantiphosphatidyleserine&#39;u"/>
       </concept>
       <concept>
         <code value="{IgGIndex}"/>
-        <display value="IgGIndex"/>
+        <display value="iggindex"/>
       </concept>
       <concept>
         <code value="{IgMAntiphosphatidyleserine&#39;U}"/>
-        <display value="IgMAntiphosphatidyleserine&#39;U"/>
+        <display value="igmantiphosphatidyleserine&#39;u"/>
       </concept>
       <concept>
         <code value="{IgMIndex}"/>
-        <display value="IgMIndex"/>
+        <display value="igmindex"/>
       </concept>
       <concept>
-        <code value="{ImmuneComplex&#39;U}"/>
+        <code value="{ImmuneComplex'U}"/>
         <display value="immune complex unit"/>
       </concept>
       <concept>
         <code value="{ImmuneStatusRatio}"/>
-        <display value="ImmuneStatusRatio"/>
+        <display value="immunestatusratio"/>
       </concept>
       <concept>
         <code value="{Immunity}"/>
-        <display value="Immunity"/>
+        <display value="immunity"/>
       </concept>
       <concept>
         <code value="{Index_val}"/>
-        <display value="Index_val"/>
+        <display value="index_val"/>
       </concept>
       <concept>
         <code value="{index}"/>
@@ -1078,15 +1072,15 @@
       </concept>
       <concept>
         <code value="{IndexValue}"/>
-        <display value="IndexValue"/>
+        <display value="index value"/>
       </concept>
       <concept>
         <code value="{InhaledTobaccoUseAmountYears}"/>
-        <display value="InhaledTobaccoUseAmountYears"/>
+        <display value="inhaledtobaccouseamountyears"/>
       </concept>
       <concept>
         <code value="{InhaledTobaccoUsePacks}/d"/>
-        <display value="InhaledTobaccoUsePacks / day"/>
+        <display value="inhaledtobaccousepacks / day"/>
       </concept>
       <concept>
         <code value="{INR}"/>
@@ -1094,35 +1088,35 @@
       </concept>
       <concept>
         <code value="{INR&#39;unit}"/>
-        <display value="INR&#39;unit"/>
+        <display value="inr&#39;unit"/>
       </concept>
       <concept>
-        <code value="{JDF&#39;U}"/>
+        <code value="{JDF'U}"/>
         <display value="Juvenile Diabetes Foundation unit"/>
       </concept>
       <concept>
-        <code value="{JDF&#39;U}/L"/>
+        <code value="{JDF'U}/L"/>
         <display value="Juvenile Diabetes Foundation unit per liter"/>
       </concept>
       <concept>
         <code value="{JuvenileDiabetesFound&#39;U}"/>
-        <display value="JuvenileDiabetesFound&#39;U"/>
+        <display value="juvenile diabetes found unit"/>
       </concept>
       <concept>
-        <code value="{KCT&#39;U}"/>
+        <code value="{KCT'U}"/>
         <display value="kaolin clotting time"/>
       </concept>
       <concept>
-        <code value="{KRONU&#39;U}/L"/>
+        <code value="{KRONU'U}/L"/>
         <display value="Kronus unit per liter"/>
       </concept>
       <concept>
-        <code value="{KRONU&#39;U}/mL"/>
+        <code value="{KRONU'U}/mL"/>
         <display value="Kronus unit per milliliter"/>
       </concept>
       <concept>
         <code value="{lgCopies}/ml"/>
-        <display value="lgCopies / milliliter"/>
+        <display value="lgcopies / milliliter"/>
       </concept>
       <concept>
         <code value="{log_copies}/mL"/>
@@ -1134,11 +1128,11 @@
       </concept>
       <concept>
         <code value="{LymeIndexValue}"/>
-        <display value="LymeIndexValue"/>
+        <display value="Lyme index value"/>
       </concept>
       <concept>
         <code value="{M.o.M.}"/>
-        <display value="M.o.M."/>
+        <display value="m.o.m."/>
       </concept>
       <concept>
         <code value="{M.o.M}"/>
@@ -1146,7 +1140,7 @@
       </concept>
       <concept>
         <code value="{Markers}"/>
-        <display value="Markers"/>
+        <display value="markers"/>
       </concept>
       <concept>
         <code value="{minidrp}"/>
@@ -1154,31 +1148,31 @@
       </concept>
       <concept>
         <code value="{Molecule}/{Platelet}"/>
-        <display value="Molecule / Platelet"/>
+        <display value="molecule / platelet"/>
       </concept>
       <concept>
         <code value="{M-PortionPhospholipids}"/>
-        <display value="M-PortionPhospholipids"/>
+        <display value="m-portionphospholipids"/>
       </concept>
       <concept>
-        <code value="{MPS&#39;U}"/>
+        <code value="{MPS'U}"/>
         <display value="IgM antiphosphatidylserine unit"/>
       </concept>
       <concept>
-        <code value="{MPS&#39;U}/mL"/>
+        <code value="{MPS'U}/mL"/>
         <display value="IgM antiphosphatidylserine unit per milliliter"/>
       </concept>
       <concept>
         <code value="{MultOfMean}"/>
-        <display value="MultOfMean"/>
+        <display value="multofmean"/>
       </concept>
       <concept>
         <code value="{NonspecificOunce}"/>
-        <display value="NonspecificOunce"/>
+        <display value="nonspecificounce"/>
       </concept>
       <concept>
         <code value="{Number}"/>
-        <display value="Number"/>
+        <display value="number"/>
       </concept>
       <concept>
         <code value="{OD_unit}"/>
@@ -1186,55 +1180,55 @@
       </concept>
       <concept>
         <code value="{Once}/d"/>
-        <display value="Once / day"/>
+        <display value="once / day"/>
       </concept>
       <concept>
         <code value="{OpticalDensity}"/>
-        <display value="OpticalDensity"/>
+        <display value="opticaldensity"/>
       </concept>
       <concept>
         <code value="{OpticalDensityIndex}"/>
-        <display value="OpticalDensityIndex"/>
+        <display value="opticaldensityindex"/>
       </concept>
       <concept>
         <code value="{OpticalDensityRatio}"/>
-        <display value="OpticalDensityRatio"/>
+        <display value="opticaldensityratio"/>
       </concept>
       <concept>
         <code value="{P2Y12 Reaction Units}"/>
-        <display value="P2Y12 Reaction Units"/>
+        <display value="p2y12 reaction units"/>
       </concept>
       <concept>
         <code value="{Package}"/>
-        <display value="Package"/>
+        <display value="package"/>
       </concept>
       <concept>
         <code value="{Packs}/d"/>
-        <display value="Packs / day"/>
+        <display value="packs / day"/>
       </concept>
       <concept>
         <code value="{PackYears}"/>
-        <display value="PackYears"/>
+        <display value="packyears"/>
       </concept>
       <concept>
         <code value="{Patch}"/>
-        <display value="Patch"/>
+        <display value="patch"/>
       </concept>
       <concept>
         <code value="{Percentile}"/>
-        <display value="Percentile"/>
+        <display value="percentile"/>
       </concept>
       <concept>
         <code value="{Pill}"/>
-        <display value="Pill"/>
+        <display value="pill"/>
       </concept>
       <concept>
         <code value="{Pouches}/wk"/>
-        <display value="Pouches / week"/>
+        <display value="pouches / week"/>
       </concept>
       <concept>
         <code value="{RadioactiveT3UptakeRatio}"/>
-        <display value="RadioactiveT3UptakeRatio"/>
+        <display value="radioactivet3uptakeratio"/>
       </concept>
       <concept>
         <code value="{ratio}"/>
@@ -1246,35 +1240,35 @@
       </concept>
       <concept>
         <code value="{RecTiter}"/>
-        <display value="RecTiter"/>
+        <display value="rectiter"/>
       </concept>
       <concept>
         <code value="{Relative&#39;U}"/>
-        <display value="Relative&#39;U"/>
+        <display value="relative&#39;u"/>
       </concept>
       <concept>
         <code value="{RelativeViscosity}"/>
-        <display value="RelativeViscosity"/>
+        <display value="relativeviscosity"/>
       </concept>
       <concept>
         <code value="{RPI&#39;U}"/>
-        <display value="RPI&#39;U"/>
+        <display value="rpi&#39;u"/>
       </concept>
       <concept>
         <code value="{RubellaVirus}"/>
-        <display value="RubellaVirus"/>
+        <display value="rubellavirus"/>
       </concept>
       <concept>
         <code value="{SatIndex}"/>
-        <display value="SatIndex"/>
+        <display value="satindex"/>
       </concept>
       <concept>
         <code value="{Scoop}"/>
-        <display value="Scoop"/>
+        <display value="scoop"/>
       </concept>
       <concept>
         <code value="{ScoreOf}"/>
-        <display value="ScoreOf"/>
+        <display value="scoreof"/>
       </concept>
       <concept>
         <code value="{shift}"/>
@@ -1290,47 +1284,47 @@
       </concept>
       <concept>
         <code value="{StandardDeviation}"/>
-        <display value="StandardDeviation"/>
+        <display value="standarddeviation"/>
       </concept>
       <concept>
         <code value="{StandardIgA&#39;U}"/>
-        <display value="StandardIgA&#39;U"/>
+        <display value="standardiga&#39;u"/>
       </concept>
       <concept>
         <code value="{StandardIgG&#39;U}"/>
-        <display value="StandardIgG&#39;U"/>
+        <display value="standardigg&#39;u"/>
       </concept>
       <concept>
         <code value="{StandardIgM&#39;U}"/>
-        <display value="StandardIgM&#39;U"/>
+        <display value="standardigm&#39;u"/>
       </concept>
       <concept>
         <code value="{StdDeviation&#39;U}"/>
-        <display value="StdDeviation&#39;U"/>
+        <display value="stddeviation&#39;u"/>
       </concept>
       <concept>
         <code value="{StimulatingIndex}"/>
-        <display value="StimulatingIndex"/>
+        <display value="stimulatingindex"/>
       </concept>
       <concept>
         <code value="{Streptozyme&#39;U}"/>
-        <display value="Streptozyme&#39;U"/>
+        <display value="streptozyme&#39;u"/>
       </concept>
       <concept>
         <code value="{ThyroxinUptake&#39;U}"/>
-        <display value="ThyroxinUptake&#39;U"/>
+        <display value="thyroxinuptake&#39;u"/>
       </concept>
       <concept>
         <code value="{TIBC&#39;U}"/>
-        <display value="TIBC&#39;U"/>
+        <display value="tibc&#39;u"/>
       </concept>
       <concept>
         <code value="{Times}/wk"/>
-        <display value="Times / week"/>
+        <display value="times / week"/>
       </concept>
       <concept>
         <code value="{Tine&#39;U}"/>
-        <display value="Tine&#39;U"/>
+        <display value="tine&#39;u"/>
       </concept>
       <concept>
         <code value="{titer}"/>
@@ -1338,23 +1332,23 @@
       </concept>
       <concept>
         <code value="{ToxoplasmaIndexValue}"/>
-        <display value="ToxoplasmaIndexValue"/>
+        <display value="toxoplasma index value"/>
       </concept>
       <concept>
         <code value="{Vial}"/>
-        <display value="Vial"/>
+        <display value="vial"/>
       </concept>
       <concept>
         <code value="{Volume}/{Vvolume}"/>
-        <display value="Volume / Vvolume"/>
+        <display value="volume / vvolume"/>
       </concept>
       <concept>
         <code value="{WeeksDays}"/>
-        <display value="WeeksDays"/>
+        <display value="weeksdays"/>
       </concept>
       <concept>
         <code value="{WhiteBloodCell}"/>
-        <display value="WhiteBloodCell"/>
+        <display value="whitebloodcell"/>
       </concept>
       <concept>
         <code value="1/d"/>
@@ -1370,59 +1364,59 @@
       </concept>
       <concept>
         <code value="10*3"/>
-        <display value="Thousand"/>
+        <display value="thousand"/>
       </concept>
       <concept>
         <code value="10*3.{RBC}"/>
-        <display value="Thousand Red Blood Cells"/>
+        <display value="thousand red blood cells"/>
       </concept>
       <concept>
         <code value="10*3.U"/>
-        <display value="Thousand Per * Unit"/>
+        <display value="thousand per * unit"/>
       </concept>
       <concept>
         <code value="10*3/L"/>
-        <display value="Thousand Per Liter"/>
+        <display value="thousand per liter"/>
       </concept>
       <concept>
         <code value="10*3/mL"/>
-        <display value="Thousand Per MilliLiter"/>
+        <display value="thousand per milliliter"/>
       </concept>
       <concept>
         <code value="10*3/uL"/>
-        <display value="Thousands Per MicroLiter"/>
+        <display value="thousands per microliter"/>
       </concept>
       <concept>
         <code value="10*3{Copies}/mL"/>
-        <display value="Thousand Copies Per MilliLiter"/>
+        <display value="thousand copies per milliliter"/>
       </concept>
       <concept>
         <code value="10*-3{Polarization&#39;U}"/>
-        <display value="(the number ten for arbitrary powers ^ -3) Polarization&#39;U"/>
+        <display value="(the number ten for arbitrary powers ^ -3) polarization&#39;u"/>
       </concept>
       <concept>
         <code value="10*5"/>
-        <display value="OneHundredThousand"/>
+        <display value="onehundredthousand"/>
       </concept>
       <concept>
         <code value="10*6"/>
-        <display value="Million"/>
+        <display value="million"/>
       </concept>
       <concept>
         <code value="10*6.[iU]"/>
-        <display value="MillionInternationalUnit"/>
+        <display value="millioninternationalunit"/>
       </concept>
       <concept>
         <code value="10*6.eq/mL"/>
-        <display value="MillionEquivalentsPerMilliLiter"/>
+        <display value="millionequivalentspermilliliter"/>
       </concept>
       <concept>
         <code value="10*6.U"/>
-        <display value="(the number ten for arbitrary powers ^ 6) * Unit"/>
+        <display value="(the number ten for arbitrary powers ^ 6) * unit"/>
       </concept>
       <concept>
         <code value="10*6/{Specimen}"/>
-        <display value="MillionPerSpecimen"/>
+        <display value="million per specimen"/>
       </concept>
       <concept>
         <code value="10*6/kg"/>
@@ -1446,11 +1440,11 @@
       </concept>
       <concept>
         <code value="10*-6{Immunofluorescence&#39;U}"/>
-        <display value="(the number ten for arbitrary powers ^ -6) Immunofluorescence&#39;U"/>
+        <display value="(the number ten for arbitrary powers ^ -6) immunofluorescence&#39;u"/>
       </concept>
       <concept>
         <code value="10*8"/>
-        <display value="TenToEighth"/>
+        <display value="ten to eighth"/>
       </concept>
       <concept>
         <code value="10*9/L"/>
@@ -1474,15 +1468,15 @@
       </concept>
       <concept>
         <code value="10.uN.s/(cm.m2)"/>
-        <display value="10 * microNewton * second / centimeter * (meter ^ 2)"/>
+        <display value="10 * micronewton * second / centimeter * (meter ^ 2)"/>
       </concept>
       <concept>
         <code value="10.uN.s/cm"/>
-        <display value="10 * microNewton * second / centimeter"/>
+        <display value="10 * micronewton * second / centimeter"/>
       </concept>
       <concept>
         <code value="10.uN.s/cm2"/>
-        <display value="10 * microNewton * second / (centimeter ^ 2)"/>
+        <display value="10 * micronewton * second / (centimeter ^ 2)"/>
       </concept>
       <concept>
         <code value="a"/>
@@ -1490,7 +1484,7 @@
       </concept>
       <concept>
         <code value="A/m"/>
-        <display value="Ampère / meter"/>
+        <display value="ampère / meter"/>
       </concept>
       <concept>
         <code value="att"/>
@@ -1546,11 +1540,11 @@
       </concept>
       <concept>
         <code value="cP"/>
-        <display value="centiPoise"/>
+        <display value="centipoise"/>
       </concept>
       <concept>
         <code value="cSt"/>
-        <display value="centiStokes"/>
+        <display value="centistokes"/>
       </concept>
       <concept>
         <code value="d"/>
@@ -1610,7 +1604,7 @@
       </concept>
       <concept>
         <code value="eV"/>
-        <display value="electronvolt"/>
+        <display value="electron Volt"/>
       </concept>
       <concept>
         <code value="fg"/>
@@ -1718,7 +1712,7 @@
       </concept>
       <concept>
         <code value="g/{TotalWeight}"/>
-        <display value="gram / TotalWeight"/>
+        <display value="gram / totalweight"/>
       </concept>
       <concept>
         <code value="g/d"/>
@@ -1734,7 +1728,7 @@
       </concept>
       <concept>
         <code value="g/g{Cre}"/>
-        <display value="gram / gram Cre"/>
+        <display value="gram / gram cre"/>
       </concept>
       <concept>
         <code value="g/g{creat}"/>
@@ -1766,7 +1760,7 @@
       </concept>
       <concept>
         <code value="g/m2"/>
-        <display value="grams Per Square Meter"/>
+        <display value="grams per square meter"/>
       </concept>
       <concept>
         <code value="g/mg"/>
@@ -1794,7 +1788,7 @@
       </concept>
       <concept>
         <code value="GBq"/>
-        <display value="gigaBecquerel"/>
+        <display value="gigabecquerel"/>
       </concept>
       <concept>
         <code value="h"/>
@@ -1814,11 +1808,11 @@
       </concept>
       <concept>
         <code value="J"/>
-        <display value="joule"/>
+        <display value="Joule"/>
       </concept>
       <concept>
         <code value="J/L"/>
-        <display value="joule per liter"/>
+        <display value="Joule per liter"/>
       </concept>
       <concept>
         <code value="K"/>
@@ -1826,7 +1820,7 @@
       </concept>
       <concept>
         <code value="K/W"/>
-        <display value="Kelvin / Watt"/>
+        <display value="degree Kelvin per Watt"/>
       </concept>
       <concept>
         <code value="k[IU]/L"/>
@@ -1846,7 +1840,7 @@
       </concept>
       <concept>
         <code value="kBq"/>
-        <display value="kiloBecquerel"/>
+        <display value="kilobecquerel"/>
       </concept>
       <concept>
         <code value="kcal"/>
@@ -1910,7 +1904,7 @@
       </concept>
       <concept>
         <code value="kPa"/>
-        <display value="kiloPascal"/>
+        <display value="kilopascal"/>
       </concept>
       <concept>
         <code value="ks"/>
@@ -1918,15 +1912,15 @@
       </concept>
       <concept>
         <code value="kU/g"/>
-        <display value="kiloenzyme Unit per gram"/>
+        <display value="kiloenzyme unit per gram"/>
       </concept>
       <concept>
         <code value="kU/h"/>
-        <display value="kiloUnit / hour"/>
+        <display value="kilounit / hour"/>
       </concept>
       <concept>
         <code value="kU/L"/>
-        <display value="kiloenzyme Unit per liter"/>
+        <display value="kiloenzyme unit per liter"/>
       </concept>
       <concept>
         <code value="kU/mL"/>
@@ -2014,7 +2008,7 @@
       </concept>
       <concept>
         <code value="mA"/>
-        <display value="milliAmpère"/>
+        <display value="milliampère"/>
       </concept>
       <concept>
         <code value="mbar"/>
@@ -2026,11 +2020,11 @@
       </concept>
       <concept>
         <code value="MBq"/>
-        <display value="megaBecquerel"/>
+        <display value="mega Becquerel"/>
       </concept>
       <concept>
         <code value="mCi"/>
-        <display value="milliCurie"/>
+        <display value="millicurie"/>
       </concept>
       <concept>
         <code value="meq"/>
@@ -2062,7 +2056,7 @@
       </concept>
       <concept>
         <code value="meq/{Specimen}"/>
-        <display value="milliequivalents / Specimen"/>
+        <display value="milliequivalents / specimen"/>
       </concept>
       <concept>
         <code value="meq/d"/>
@@ -2078,7 +2072,7 @@
       </concept>
       <concept>
         <code value="meq/g{Cre}"/>
-        <display value="milliequivalents / gram Cre"/>
+        <display value="milliequivalents / gram cre"/>
       </concept>
       <concept>
         <code value="meq/h"/>
@@ -2154,19 +2148,19 @@
       </concept>
       <concept>
         <code value="mg/{Hgb}/g"/>
-        <display value="milligram / Hgb / gram"/>
+        <display value="milligram / hgb / gram"/>
       </concept>
       <concept>
         <code value="mg/{Specimen}"/>
-        <display value="milligram / Specimen"/>
+        <display value="milligram / specimen"/>
       </concept>
       <concept>
         <code value="mg/{Tot&#39;Volume}"/>
-        <display value="milligram / Tot&#39;Volume"/>
+        <display value="milligram / tot&#39;volume"/>
       </concept>
       <concept>
         <code value="mg/{Volume}"/>
-        <display value="milligram / Volume"/>
+        <display value="milligram / volume"/>
       </concept>
       <concept>
         <code value="mg/d"/>
@@ -2186,7 +2180,7 @@
       </concept>
       <concept>
         <code value="mg/g{Cre}"/>
-        <display value="milligram / gram Cre"/>
+        <display value="milligram / gram cre"/>
       </concept>
       <concept>
         <code value="mg/g{creat}"/>
@@ -2246,7 +2240,7 @@
       </concept>
       <concept>
         <code value="mg/mmol{Cre}"/>
-        <display value="milligram / millimole Cre"/>
+        <display value="milligram / millimole cre"/>
       </concept>
       <concept>
         <code value="mg/mmol{creat}"/>
@@ -2258,7 +2252,7 @@
       </concept>
       <concept>
         <code value="mg{Phenylketones}/dL"/>
-        <display value="milligram Phenylketones / deciliter"/>
+        <display value="milligram phenylketones / deciliter"/>
       </concept>
       <concept>
         <code value="min"/>
@@ -2269,8 +2263,8 @@
         <display value="milliliter"/>
       </concept>
       <concept>
-        <code value="mL/({h&#39;b}.m2)"/>
-        <display value="milliliter / h&#39;b * (meter ^ 2)"/>
+        <code value="mL/({h'b}.m2)"/>
+        <display value="milliliter / h'b * (meter ^ 2)"/>
       </concept>
       <concept>
         <code value="mL/(10.h)"/>
@@ -2310,7 +2304,7 @@
       </concept>
       <concept>
         <code value="mL/{h&#39;b}"/>
-        <display value="MilliLitersPerHeartbeat [SI Volume Units]"/>
+        <display value="milliliters per heartbeat [SI volume units]"/>
       </concept>
       <concept>
         <code value="mL/cm[H2O]"/>
@@ -2446,7 +2440,7 @@
       </concept>
       <concept>
         <code value="mmol/{Tot&#39;Volume}"/>
-        <display value="millimole / Tot&#39;Volume"/>
+        <display value="millimole / tot&#39;volume"/>
       </concept>
       <concept>
         <code value="mmol/d"/>
@@ -2602,51 +2596,51 @@
       </concept>
       <concept>
         <code value="mU"/>
-        <display value="millienzyme Unit"/>
+        <display value="millienzyme unit"/>
       </concept>
       <concept>
         <code value="mU/g"/>
-        <display value="millienzyme Unit per gram"/>
+        <display value="millienzyme unit per gram"/>
       </concept>
       <concept>
         <code value="mU/g{Hgb}"/>
-        <display value="milliUnit / gram Hgb"/>
+        <display value="milliunit / gram hgb"/>
       </concept>
       <concept>
         <code value="mU/L"/>
-        <display value="millienzyme Unit per liter"/>
+        <display value="millienzyme unit per liter"/>
       </concept>
       <concept>
         <code value="mU/mg"/>
-        <display value="milliUnit / milligram"/>
+        <display value="milliunit / milligram"/>
       </concept>
       <concept>
         <code value="mU/mg{Cre}"/>
-        <display value="milliUnit / milligram Cre"/>
+        <display value="milliunit / milligram cre"/>
       </concept>
       <concept>
         <code value="mU/min"/>
-        <display value="milliUnit / minute"/>
+        <display value="milliunit / minute"/>
       </concept>
       <concept>
         <code value="mU/mL"/>
-        <display value="millienzyme Unit per milliliter"/>
+        <display value="millienzyme unit per milliliter"/>
       </concept>
       <concept>
         <code value="mU/mL/min"/>
-        <display value="millienzyme Unit per milliliter per minute"/>
+        <display value="millienzyme unit per milliliter per minute"/>
       </concept>
       <concept>
         <code value="mU/mmol{creatinine}"/>
-        <display value="millienzyme Unit per millimole of creatinine"/>
+        <display value="millienzyme unit per millimole of creatinine"/>
       </concept>
       <concept>
         <code value="mU/mmol{RBCs}"/>
-        <display value="millienzyme Unit per millimole of red blood cells"/>
+        <display value="millienzyme unit per millimole of red blood cells"/>
       </concept>
       <concept>
         <code value="mV"/>
-        <display value="milliVolt"/>
+        <display value="millivolt"/>
       </concept>
       <concept>
         <code value="N"/>
@@ -2662,7 +2656,7 @@
       </concept>
       <concept>
         <code value="nCi"/>
-        <display value="nanoCurie"/>
+        <display value="nanocurie"/>
       </concept>
       <concept>
         <code value="ng"/>
@@ -2714,7 +2708,7 @@
       </concept>
       <concept>
         <code value="ng/g{Cre}"/>
-        <display value="nanogram / gram Cre"/>
+        <display value="nanogram / gram cre"/>
       </concept>
       <concept>
         <code value="ng/g{creat}"/>
@@ -2758,7 +2752,7 @@
       </concept>
       <concept>
         <code value="ng/mg{Protein}"/>
-        <display value="nanogram / milligram Protein"/>
+        <display value="nanogram / milligram protein"/>
       </concept>
       <concept>
         <code value="ng/min"/>
@@ -2818,7 +2812,7 @@
       </concept>
       <concept>
         <code value="nmol/g{Cre}"/>
-        <display value="nanomole / gram Cre"/>
+        <display value="nanomole / gram cre"/>
       </concept>
       <concept>
         <code value="nmol/g{creat}"/>
@@ -2898,7 +2892,7 @@
       </concept>
       <concept>
         <code value="nmol/mmol{Cre}"/>
-        <display value="nanomole / millimole Cre"/>
+        <display value="nanomole / millimole cre"/>
       </concept>
       <concept>
         <code value="nmol/mmol{creat}"/>
@@ -3058,7 +3052,7 @@
       </concept>
       <concept>
         <code value="St"/>
-        <display value="Stokes"/>
+        <display value="stokes"/>
       </concept>
       <concept>
         <code value="t"/>
@@ -3066,11 +3060,11 @@
       </concept>
       <concept>
         <code value="U"/>
-        <display value="enzyme Unit"/>
+        <display value="enzyme unit"/>
       </concept>
       <concept>
         <code value="U/(1.h)"/>
-        <display value="enzyme Unit per 1 hour"/>
+        <display value="enzyme unit per 1 hour"/>
       </concept>
       <concept>
         <code value="U/(12.h)"/>
@@ -3078,7 +3072,7 @@
       </concept>
       <concept>
         <code value="U/(18.h)"/>
-        <display value="enzyme Unit per 18 hour"/>
+        <display value="enzyme unit per 18 hour"/>
       </concept>
       <concept>
         <code value="U/(2.h)"/>
@@ -3118,7 +3112,7 @@
       </concept>
       <concept>
         <code value="U/g{Cre}"/>
-        <display value="Unit / gram Cre"/>
+        <display value="unit / gram cre"/>
       </concept>
       <concept>
         <code value="U/g{Hb}"/>
@@ -3126,11 +3120,11 @@
       </concept>
       <concept>
         <code value="U/g{hemoglobin}"/>
-        <display value="enzyme Unit per gram of hemoglobin"/>
+        <display value="enzyme unit per gram of hemoglobin"/>
       </concept>
       <concept>
         <code value="U/g{Hgb}"/>
-        <display value="UnitsPerGramHemoglobin"/>
+        <display value="units per gram hemoglobin"/>
       </concept>
       <concept>
         <code value="U/h"/>
@@ -3138,7 +3132,7 @@
       </concept>
       <concept>
         <code value="U/kg/h"/>
-        <display value="Unit / kilogram / hour"/>
+        <display value="unit / kilogram / hour"/>
       </concept>
       <concept>
         <code value="U/kg{Hb}"/>
@@ -3146,7 +3140,7 @@
       </concept>
       <concept>
         <code value="U/kg{hemoglobin}"/>
-        <display value="enzyme Unit per kilogram of hemoglobin"/>
+        <display value="enzyme unit per kilogram of hemoglobin"/>
       </concept>
       <concept>
         <code value="U/L"/>
@@ -3162,7 +3156,7 @@
       </concept>
       <concept>
         <code value="U/mL{RBC}"/>
-        <display value="Unit / milliliter RBC"/>
+        <display value="unit / milliliter rbc"/>
       </concept>
       <concept>
         <code value="U/mL{RBCs}"/>
@@ -3174,7 +3168,7 @@
       </concept>
       <concept>
         <code value="U/mol"/>
-        <display value="enzyme Unit per mole"/>
+        <display value="enzyme unit per mole"/>
       </concept>
       <concept>
         <code value="U/s"/>
@@ -3182,7 +3176,7 @@
       </concept>
       <concept>
         <code value="U/umol"/>
-        <display value="enzyme Unit per micromole"/>
+        <display value="enzyme unit per micromole"/>
       </concept>
       <concept>
         <code value="u[IU]"/>
@@ -3230,11 +3224,11 @@
       </concept>
       <concept>
         <code value="ug/{Specimen}"/>
-        <display value="microgram / Specimen"/>
+        <display value="microgram / specimen"/>
       </concept>
       <concept>
         <code value="ug/{TotalVolume}"/>
-        <display value="MicroGramsPerTotalVolume"/>
+        <display value="micrograms per total volume"/>
       </concept>
       <concept>
         <code value="ug/d"/>
@@ -3254,7 +3248,7 @@
       </concept>
       <concept>
         <code value="ug/g{Cre}"/>
-        <display value="microgram / gram Cre"/>
+        <display value="microgram / gram cre"/>
       </concept>
       <concept>
         <code value="ug/g{creat}"/>
@@ -3262,15 +3256,15 @@
       </concept>
       <concept>
         <code value="ug/g{DryWeight}"/>
-        <display value="microgram / gram DryWeight"/>
+        <display value="microgram / gram dryweight"/>
       </concept>
       <concept>
         <code value="ug/g{Hgb}"/>
-        <display value="microgram / gram Hgb"/>
+        <display value="microgram / gram hgb"/>
       </concept>
       <concept>
         <code value="ug/g{Tissue}"/>
-        <display value="microgram / gram Tissue"/>
+        <display value="microgram / gram tissue"/>
       </concept>
       <concept>
         <code value="ug/h"/>
@@ -3306,7 +3300,7 @@
       </concept>
       <concept>
         <code value="ug/L{DDU}"/>
-        <display value="microgram / liter DDU"/>
+        <display value="microgram / liter ddu"/>
       </concept>
       <concept>
         <code value="ug/m2"/>
@@ -3318,7 +3312,7 @@
       </concept>
       <concept>
         <code value="ug/mg{Cre}"/>
-        <display value="microgram / milligram Cre"/>
+        <display value="microgram / milligram cre"/>
       </concept>
       <concept>
         <code value="ug/mg{creat}"/>
@@ -3334,7 +3328,7 @@
       </concept>
       <concept>
         <code value="ug/mL{FEU}"/>
-        <display value="microgram / milliliter FEU"/>
+        <display value="microgram / milliliter feu"/>
       </concept>
       <concept>
         <code value="ug/mmol"/>
@@ -3346,7 +3340,7 @@
       </concept>
       <concept>
         <code value="ug{T4}/dL"/>
-        <display value="microgram T4 / deciliter"/>
+        <display value="microgram t4 / deciliter"/>
       </concept>
       <concept>
         <code value="ukat"/>
@@ -3394,7 +3388,7 @@
       </concept>
       <concept>
         <code value="umol/g{Cre}"/>
-        <display value="micromole / gram Cre"/>
+        <display value="micromole / gram cre"/>
       </concept>
       <concept>
         <code value="umol/g{creat}"/>
@@ -3410,7 +3404,7 @@
       </concept>
       <concept>
         <code value="umol/g{Hgb}"/>
-        <display value="micromole / gram Hgb"/>
+        <display value="micromole / gram hgb"/>
       </concept>
       <concept>
         <code value="umol/h"/>
@@ -3454,7 +3448,7 @@
       </concept>
       <concept>
         <code value="umol/mg{Cre}"/>
-        <display value="micromole / milligram Cre"/>
+        <display value="micromole / milligram cre"/>
       </concept>
       <concept>
         <code value="umol/min"/>
@@ -3494,7 +3488,7 @@
       </concept>
       <concept>
         <code value="umol/mol{Cre}"/>
-        <display value="micromole / mole Cre"/>
+        <display value="micromole / mole cre"/>
       </concept>
       <concept>
         <code value="umol/mol{creat}"/>
@@ -3518,7 +3512,7 @@
       </concept>
       <concept>
         <code value="uU"/>
-        <display value="microUnit"/>
+        <display value="microunit"/>
       </concept>
       <concept>
         <code value="uU/g"/>
@@ -3558,7 +3552,7 @@
       </concept>
       <concept>
         <code value="A"/>
-        <display value="Ampère"/>
+        <display value="ampère"/>
       </concept>
       <concept>
         <code value="{ARU}"/>
@@ -3581,7 +3575,7 @@
         <display value="binding index"/>
       </concept>
       <concept>
-        <code value="[bdsk&#39;U]"/>
+        <code value="[bdsk'U]"/>
         <display value="Bodansky unit"/>
       </concept>
       <concept>
@@ -3637,20 +3631,20 @@
         <display value="dyne second per centimeter per square meter"/>
       </concept>
       <concept>
-        <code value="{Ehrlich&#39;U}/100.g"/>
+        <code value="{Ehrlich'U}/100.g"/>
         <display value="Ehrlich unit per 100 gram"/>
       </concept>
       <concept>
         <code value="{EIA_index}"/>
-        <display value="EIA index"/>
+        <display value="eia index"/>
       </concept>
       <concept>
         <code value="{EIA_titer}"/>
-        <display value="EIA titer"/>
+        <display value="eia titer"/>
       </concept>
       <concept>
         <code value="{EV}"/>
-        <display value="EIA value"/>
+        <display value="eia value"/>
       </concept>
       <concept>
         <code value="U/10"/>
@@ -3801,15 +3795,15 @@
         <display value="high power field"/>
       </concept>
       <concept>
-        <code value="[GPL&#39;U]/mL"/>
+        <code value="[GPL'U]/mL"/>
         <display value="IgG anticardiolipin unit per milliliter**"/>
       </concept>
       <concept>
-        <code value="{GPS&#39;U}"/>
+        <code value="{GPS'U}"/>
         <display value="IgG antiphosphatidylserine unit"/>
       </concept>
       <concept>
-        <code value="[MPL&#39;U]/mL"/>
+        <code value="[MPL'U]/mL"/>
         <display value="IgM anticardiolipin unit per milliliter**"/>
       </concept>
       <concept>
@@ -3825,7 +3819,7 @@
         <display value="Immunofluorescence assay titer"/>
       </concept>
       <concept>
-        <code value="[in_i&#39;H2O]"/>
+        <code value="[in_i'H2O]"/>
         <display value="inch (international) of water"/>
       </concept>
       <concept>
@@ -3873,7 +3867,7 @@
         <display value="kilocalorie per ounce (US &amp; British)"/>
       </concept>
       <concept>
-        <code value="[ka&#39;U]"/>
+        <code value="[ka'U]"/>
         <display value="King Armstrong unit"/>
       </concept>
       <concept>
@@ -3914,11 +3908,11 @@
       </concept>
       <concept>
         <code value="{Lyme_index_value}"/>
-        <display value="Lyme index value"/>
+        <display value="lyme index value"/>
       </concept>
       <concept>
         <code value="[mclg&#39;U]"/>
-        <display value="Mac Lagan unit"/>
+        <display value="Maclagan unit"/>
       </concept>
       <concept>
         <code value="Ms"/>
@@ -4325,7 +4319,7 @@
         <display value="osmole"/>
       </concept>
       <concept>
-        <code value="{Pan_Bio&#39;U}"/>
+        <code value="{Pan_Bio'U}"/>
         <display value="panbio unit"/>
       </concept>
       <concept>
@@ -4570,7 +4564,7 @@
       </concept>
       <concept>
         <code value="[pt_us]"/>
-        <display value="pint"/>
+        <display value="pint (US)"/>
       </concept>
       <concept>
         <code value="%{relative}"/>
@@ -4637,11 +4631,11 @@
         <display value="1*"/>
       </concept>
       <concept>
-        <code value="&#39;"/>
+        <code value="'"/>
         <display value="minute"/>
       </concept>
       <concept>
-        <code value="&#39;&#39;"/>
+        <code value="''"/>
         <display value="second"/>
       </concept>
       <concept>
@@ -4650,15 +4644,15 @@
       </concept>
       <concept>
         <code value="%{Bound}"/>
-        <display value="PercentBound"/>
+        <display value="percentbound"/>
       </concept>
       <concept>
         <code value="/100{Spermatozoa}"/>
-        <display value="Per100Spermatozoa"/>
+        <display value="per 100 spermatozoa"/>
       </concept>
       <concept>
         <code value="/g{HGB}"/>
-        <display value="PerGramHemoglobin"/>
+        <display value="per gram hemoglobin"/>
       </concept>
       <concept>
         <code value="[acr_br]"/>
@@ -4670,7 +4664,7 @@
       </concept>
       <concept>
         <code value="[Amb&#39;a&#39;1&#39;U]"/>
-        <display value="Amb a 1 units"/>
+        <display value="amb a 1 units"/>
       </concept>
       <concept>
         <code value="[bbl_us]"/>
@@ -4686,15 +4680,15 @@
       </concept>
       <concept>
         <code value="[Btu_39]"/>
-        <display value="British thermal unit at 39 °F"/>
+        <display value="British thermal unit at 39 °f"/>
       </concept>
       <concept>
         <code value="[Btu_59]"/>
-        <display value="British thermal unit at 59 °F"/>
+        <display value="British thermal unit at 59 °f"/>
       </concept>
       <concept>
         <code value="[Btu_60]"/>
-        <display value="British thermal unit at 60 °F"/>
+        <display value="British thermal unit at 60 °f"/>
       </concept>
       <concept>
         <code value="[Btu_IT]"/>
@@ -4722,7 +4716,7 @@
       </concept>
       <concept>
         <code value="[Cal]"/>
-        <display value="nutrition label Calories"/>
+        <display value="nutrition label calories"/>
       </concept>
       <concept>
         <code value="[car_Au]"/>
@@ -4734,7 +4728,7 @@
       </concept>
       <concept>
         <code value="[CCID_50]"/>
-        <display value="CELL CULTURE INFECTIOUS DOSE 50%"/>
+        <display value="cell culture infectious dose 50%"/>
       </concept>
       <concept>
         <code value="[cft_i]"/>
@@ -4742,15 +4736,15 @@
       </concept>
       <concept>
         <code value="[ch_br]"/>
-        <display value="Gunter&#39;s chain"/>
+        <display value="gunter&#39;s chain"/>
       </concept>
       <concept>
         <code value="[ch_us]"/>
-        <display value="Gunter&#39;s chain Surveyor&#39;s chain"/>
+        <display value="gunter&#39;s chain surveyor&#39;s chain"/>
       </concept>
       <concept>
         <code value="[cicero]"/>
-        <display value="cicero Didot&#39;s pica"/>
+        <display value="cicero didot&#39;s pica"/>
       </concept>
       <concept>
         <code value="[cml_i]"/>
@@ -4770,11 +4764,11 @@
       </concept>
       <concept>
         <code value="[D&#39;ag&#39;U]"/>
-        <display value="D-ANTIGEN UNITS"/>
+        <display value="d-antigen units"/>
       </concept>
       <concept>
         <code value="[didot]"/>
-        <display value="didot Didot&#39;s point"/>
+        <display value="didot didot&#39;s point"/>
       </concept>
       <concept>
         <code value="[diop]"/>
@@ -4794,7 +4788,7 @@
       </concept>
       <concept>
         <code value="[dye&#39;U]"/>
-        <display value="Dye unit"/>
+        <display value="dye unit"/>
       </concept>
       <concept>
         <code value="[e]"/>
@@ -4810,7 +4804,7 @@
       </concept>
       <concept>
         <code value="[FFU]"/>
-        <display value="FOCUS-FORMING UNITS"/>
+        <display value="focus-forming units"/>
       </concept>
       <concept>
         <code value="[ft_br]"/>
@@ -4834,7 +4828,7 @@
       </concept>
       <concept>
         <code value="[G]"/>
-        <display value="Newtonian constant of gravitation"/>
+        <display value="newtonian constant of gravitation"/>
       </concept>
       <concept>
         <code value="[gal_wi]"/>
@@ -4850,7 +4844,7 @@
       </concept>
       <concept>
         <code value="[h]"/>
-        <display value="Planck constant"/>
+        <display value="planck constant"/>
       </concept>
       <concept>
         <code value="[hd_i]"/>
@@ -4858,7 +4852,7 @@
       </concept>
       <concept>
         <code value="[hnsf&#39;U]"/>
-        <display value="Hounsfield unit"/>
+        <display value="hounsfield unit"/>
       </concept>
       <concept>
         <code value="[HP]"/>
@@ -4866,26 +4860,26 @@
       </concept>
       <concept>
         <code value="[hp_C]"/>
-        <display value="HOMEOPATHIC POTENCY OF CENTESIMAL SERIES"/>
+        <display value="homeopathic potency of centesimal series"/>
       </concept>
       <concept>
         <code value="[hp_M]"/>
-        <display value="HOMEOPATHIC POTENCY OF MILLESIMAL SERIES"/>
+        <display value="homeopathic potency of millesimal series"/>
       </concept>
       <concept>
         <code value="[hp_Q]"/>
-        <display value="HOMEOPATHIC POTENCY OF QUINTAMILLESIMAL SERIES"/>
+        <display value="homeopathic potency of quintamillesimal series"/>
       </concept>
       <concept>
         <code value="[hp_X]"/>
-        <display value="HOMEOPATHIC POTENCY OF DECIMAL SERIES"/>
+        <display value="homeopathic potency of decimal series"/>
       </concept>
       <concept>
         <code value="[in_br]"/>
         <display value="inch"/>
       </concept>
       <concept>
-        <code value="[in_i&#39;Hg]"/>
+        <code value="[in_i'Hg]"/>
         <display value="inch of mercury column"/>
       </concept>
       <concept>
@@ -4894,27 +4888,27 @@
       </concept>
       <concept>
         <code value="[iU]/dL"/>
-        <display value="InternationalUnitsPerDeciLiter"/>
+        <display value="internationalunitsperdeciliter"/>
       </concept>
       <concept>
         <code value="[iU]/g"/>
-        <display value="InternationalUnitsPerGram"/>
+        <display value="international units per gram"/>
       </concept>
       <concept>
         <code value="[iU]/kg"/>
-        <display value="InternationalUnitsPerKilogram"/>
+        <display value="international units per kilogram"/>
       </concept>
       <concept>
         <code value="[iU]/L"/>
-        <display value="InternationalUnitsPerLiter"/>
+        <display value="international units per liter"/>
       </concept>
       <concept>
         <code value="[iU]/mL"/>
-        <display value="InternationalUnitsPerMilliLiter"/>
+        <display value="international units per milliliter"/>
       </concept>
       <concept>
         <code value="[k]"/>
-        <display value="Boltzmann constant"/>
+        <display value="boltzmann constant"/>
       </concept>
       <concept>
         <code value="[kn_br]"/>
@@ -4925,7 +4919,7 @@
         <display value="knot"/>
       </concept>
       <concept>
-        <code value="[knk&#39;U]"/>
+        <code value="[knk'U]"/>
         <display value="Kunkel unit"/>
       </concept>
       <concept>
@@ -4946,7 +4940,7 @@
       </concept>
       <concept>
         <code value="[Lf]"/>
-        <display value="LIMIT OF FLOCCULATION"/>
+        <display value="limit of flocculation"/>
       </concept>
       <concept>
         <code value="[ligne]"/>
@@ -4954,11 +4948,11 @@
       </concept>
       <concept>
         <code value="[lk_br]"/>
-        <display value="link for Gunter&#39;s chain"/>
+        <display value="link for gunter&#39;s chain"/>
       </concept>
       <concept>
         <code value="[lk_us]"/>
-        <display value="link for Gunter&#39;s chain"/>
+        <display value="link for gunter&#39;s chain"/>
       </concept>
       <concept>
         <code value="[lne]"/>
@@ -5026,15 +5020,15 @@
       </concept>
       <concept>
         <code value="[pca_pr]"/>
-        <display value="Printer&#39;s pica"/>
+        <display value="printer&#39;s pica"/>
       </concept>
       <concept>
-        <code value="[p&#39;diop]"/>
+        <code value="[p'diop]"/>
         <display value="prism diopter"/>
       </concept>
       <concept>
         <code value="[PFU]"/>
-        <display value="PLAQUE-FORMING UNITS"/>
+        <display value="plaque-forming units"/>
       </concept>
       <concept>
         <code value="[pi]"/>
@@ -5058,11 +5052,11 @@
       </concept>
       <concept>
         <code value="[pnt_pr]"/>
-        <display value="Printer&#39;s point"/>
+        <display value="printer&#39;s point"/>
       </concept>
       <concept>
         <code value="[PNU]"/>
-        <display value="PROTEIN NITROGEN UNITS"/>
+        <display value="protein nitrogen units"/>
       </concept>
       <concept>
         <code value="[pouce]"/>
@@ -5078,7 +5072,7 @@
       </concept>
       <concept>
         <code value="[rch_us]"/>
-        <display value="Ramden&#39;s chain Engineer&#39;s chain"/>
+        <display value="ramden&#39;s chain engineer&#39;s chain"/>
       </concept>
       <concept>
         <code value="[rd_br]"/>
@@ -5090,11 +5084,11 @@
       </concept>
       <concept>
         <code value="[rlk_us]"/>
-        <display value="link for Ramden&#39;s chain"/>
+        <display value="link for ramden&#39;s chain"/>
       </concept>
       <concept>
         <code value="[S]"/>
-        <display value="Svedberg unit"/>
+        <display value="svedberg unit"/>
       </concept>
       <concept>
         <code value="[sc_ap]"/>
@@ -5106,11 +5100,11 @@
       </concept>
       <concept>
         <code value="[scwt_av]"/>
-        <display value="short hundredweight U.S. hundredweight"/>
+        <display value="short hundredweight u.s. hundredweight"/>
       </concept>
       <concept>
         <code value="[smgy&#39;U]"/>
-        <display value="Somogyi unit"/>
+        <display value="somogyi unit"/>
       </concept>
       <concept>
         <code value="[smi_us]"/>
@@ -5118,7 +5112,7 @@
       </concept>
       <concept>
         <code value="[smoot]"/>
-        <display value="Smoot"/>
+        <display value="smoot"/>
       </concept>
       <concept>
         <code value="[srd_us]"/>
@@ -5130,7 +5124,7 @@
       </concept>
       <concept>
         <code value="[TCID_50]"/>
-        <display value="TISSUE CULTURE INFECTIOUS DOSE 50%"/>
+        <display value="tissue culture infectious dose 50%"/>
       </concept>
       <concept>
         <code value="[twp]"/>
@@ -5138,7 +5132,7 @@
       </concept>
       <concept>
         <code value="[USP&#39;U]"/>
-        <display value="UNITED STATES PHARMACOPEIA UNIT"/>
+        <display value="united states pharmacopeia unit"/>
       </concept>
       <concept>
         <code value="[yd_br]"/>
@@ -5150,35 +5144,35 @@
       </concept>
       <concept>
         <code value="{Cells}/uL"/>
-        <display value="CellsPerMicroLiter"/>
+        <display value="cells per microliter"/>
       </concept>
       <concept>
         <code value="{Copies}/mL"/>
-        <display value="CopiesPerMilliLiter"/>
+        <display value="copies per milliliter"/>
       </concept>
       <concept>
         <code value="{Ct}"/>
         <display value="crossing threshold"/>
       </concept>
       <concept>
-        <code value="{Ehrlich_U}/dL"/>
-        <display value="EhrlichUnitsPerDeciLiter"/>
+        <code value="{Ehrlich&#39;U}/dL"/>
+        <display value="Ehrlich unit per deciliter"/>
       </concept>
       <concept>
         <code value="{EhrlichU}/dL"/>
-        <display value="EhrlichUnitsPerDeciLiter [Arbitrary Concentration Units]"/>
+        <display value="Ehrlich unit per deciliter [arbitrary concentration units]"/>
       </concept>
       <concept>
-        <code value="{Elisa_U}/mL"/>
-        <display value="ElisaUnitsPerMilliLiter"/>
+        <code value="{Elisa&#39;U}/mL"/>
+        <display value="ELISA unit per milliliter"/>
       </concept>
       <concept>
         <code value="{ElisaU}/mL"/>
-        <display value="ElisaUnitsPerMilliLiter [Arbitrary Concentration Units]"/>
+        <display value="ELISA unit per milliliter [arbitrary concentration units]"/>
       </concept>
       <concept>
         <code value="[kp_C]"/>
-        <display value="HOMEOPATHIC POTENCY OF CENTESIMAL KORSAKOVIAN SERIES"/>
+        <display value="homeopathic potency of Centesimal Korsakovian Series"/>
       </concept>
       <concept>
         <code value="{rbc}"/>
@@ -5186,7 +5180,7 @@
       </concept>
       <concept>
         <code value="{Spermatozoa}/mL"/>
-        <display value="SpermatozoaPerMilliLiter"/>
+        <display value="spermatozoa per milliliter"/>
       </concept>
       <concept>
         <code value="{tbl}"/>
@@ -5206,11 +5200,11 @@
       </concept>
       <concept>
         <code value="a_g"/>
-        <display value="mean Gregorian year"/>
+        <display value="mean gregorian year"/>
       </concept>
       <concept>
         <code value="a_j"/>
-        <display value="mean Julian year"/>
+        <display value="mean julian year"/>
       </concept>
       <concept>
         <code value="a_t"/>
@@ -5266,7 +5260,7 @@
       </concept>
       <concept>
         <code value="Bi"/>
-        <display value="Biot"/>
+        <display value="biot"/>
       </concept>
       <concept>
         <code value="bit"/>
@@ -5282,15 +5276,15 @@
       </concept>
       <concept>
         <code value="C"/>
-        <display value="Coulomb"/>
+        <display value="coulomb"/>
       </concept>
       <concept>
         <code value="cal_[15]"/>
-        <display value="calorie at 15 °C"/>
+        <display value="calorie at 15 °c"/>
       </concept>
       <concept>
         <code value="cal_[20]"/>
-        <display value="calorie at 20 °C"/>
+        <display value="calorie at 20 °c"/>
       </concept>
       <concept>
         <code value="cal_IT"/>
@@ -5310,7 +5304,7 @@
       </concept>
       <concept>
         <code value="Ci"/>
-        <display value="CURIE"/>
+        <display value="curie"/>
       </concept>
       <concept>
         <code value="circ"/>
@@ -5322,7 +5316,7 @@
       </concept>
       <concept>
         <code value="G"/>
-        <display value="Gauss"/>
+        <display value="gauss"/>
       </concept>
       <concept>
         <code value="g%"/>
@@ -5334,11 +5328,11 @@
       </concept>
       <concept>
         <code value="Gal"/>
-        <display value="Gal"/>
+        <display value="gal"/>
       </concept>
       <concept>
         <code value="Gb"/>
-        <display value="Gilbert"/>
+        <display value="gilbert"/>
       </concept>
       <concept>
         <code value="gf"/>
@@ -5350,19 +5344,19 @@
       </concept>
       <concept>
         <code value="k[iU]/mL"/>
-        <display value="KiloInternationalUnitsPerMilliLiter"/>
+        <display value="kilo international units per milliliter"/>
       </concept>
       <concept>
-        <code value="kg{wet&#39;tis}"/>
+        <code value="kg{wet'tis}"/>
         <display value="kilogram of wet tissue"/>
       </concept>
       <concept>
         <code value="Ky"/>
-        <display value="Kayser"/>
+        <display value="kayser"/>
       </concept>
       <concept>
         <code value="Lmb"/>
-        <display value="Lambert"/>
+        <display value="lambert"/>
       </concept>
       <concept>
         <code value="lx"/>
@@ -5378,11 +5372,11 @@
       </concept>
       <concept>
         <code value="mg/{TotalVolume}"/>
-        <display value="MilliGramPerTotalVolume"/>
+        <display value="milligram per total volume"/>
       </concept>
       <concept>
         <code value="mg/mg{Cre}"/>
-        <display value="MilligramsPerMilligramCreatinine"/>
+        <display value="milligrams per milligram creatinine"/>
       </concept>
       <concept>
         <code value="mg{creat}"/>
@@ -5394,19 +5388,19 @@
       </concept>
       <concept>
         <code value="mmol/{TotalVolume}"/>
-        <display value="MilliMolesPerTotalVolume [Substance Units]"/>
+        <display value="millimoles per total volume [substance units]"/>
       </concept>
       <concept>
         <code value="mmol/mol{Cre}"/>
-        <display value="MilliMolesPerMoleCreatinine"/>
+        <display value="millimoles per mole creatinine"/>
       </concept>
       <concept>
         <code value="mo_g"/>
-        <display value="mean Gregorian month"/>
+        <display value="mean gregorian month"/>
       </concept>
       <concept>
         <code value="mo_j"/>
-        <display value="mean Julian month"/>
+        <display value="mean julian month"/>
       </concept>
       <concept>
         <code value="mo_s"/>
@@ -5414,7 +5408,7 @@
       </concept>
       <concept>
         <code value="Mx"/>
-        <display value="Maxwell"/>
+        <display value="maxwell"/>
       </concept>
       <concept>
         <code value="Np"/>
@@ -5422,11 +5416,11 @@
       </concept>
       <concept>
         <code value="Oe"/>
-        <display value="Oersted"/>
+        <display value="oersted"/>
       </concept>
       <concept>
         <code value="P"/>
-        <display value="Poise"/>
+        <display value="poise"/>
       </concept>
       <concept>
         <code value="pc"/>
@@ -5438,7 +5432,7 @@
       </concept>
       <concept>
         <code value="R"/>
-        <display value="Roentgen"/>
+        <display value="roentgen"/>
       </concept>
       <concept>
         <code value="rad"/>
@@ -5474,11 +5468,11 @@
       </concept>
       <concept>
         <code value="uCi"/>
-        <display value="MICROCURIE"/>
+        <display value="microcurie"/>
       </concept>
       <concept>
         <code value="W"/>
-        <display value="Watt"/>
+        <display value="watt"/>
       </concept>
     </include>
   </compose>

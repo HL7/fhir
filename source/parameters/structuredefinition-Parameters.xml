@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Parameters"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value="n/a - this resource is never stored"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1368"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Parameters"/>
   <status value="active"/>
@@ -101,7 +103,7 @@
         <severity value="error"/>
         <human value="A parameter must have one and only one of (value, resource, part)"/>
         <expression value="(part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))"/>
-        <xpath value="(exists(f:resource) or exists(f:part) or exists(f:*[starts-with(local-name(.), &#39;value&#39;)])) and not(exists(f:*[starts-with(local-name(.), &#39;value&#39;)])) and exists(f:resource))) and not(exists(f:*[starts-with(local-name(.), &#39;value&#39;)])) and exists(f:part))) and not(exists(f:part) and exists(f:resource))"/>
+        <xpath value="(exists(f:resource) or exists(f:part) or exists(f:*[starts-with(local-name(.), 'value')])) and not(exists(f:*[starts-with(local-name(.), 'value')])) and exists(f:resource))) and not(exists(f:*[starts-with(local-name(.), 'value')])) and exists(f:part))) and not(exists(f:part) and exists(f:resource))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
       </constraint>
       <isSummary value="true"/>
@@ -283,7 +285,7 @@
       <path value="Parameters.parameter.resource"/>
       <short value="If parameter is a whole resource"/>
       <definition value="Conveys the content if the parameter is a whole resource."/>
-      <comment value="When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to it&#39;s general resource resolution methods."/>
+      <comment value="When resolving references in resources, the operation definition may specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to it's general resource resolution methods."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="ExampleScenario"/>
 	<meta>
 		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -26,7 +25,11 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1065"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="ExampleScenario"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
@@ -81,8 +84,8 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
 			</constraint>
       <constraint>
@@ -133,7 +136,7 @@
         <human value="Process titles must be unique"/>
         <expression value="process.title.count() = process.title.distinct().count()"/>
         <xpath value="count(f:process/f:title/@value) = count(distinct-values(f:process/f:title/@value))"/>
-      </constraint>      
+      </constraint>
 			<mapping>
 				<identity value="w5"/>
 				<map value="infrastructure.information"/>
@@ -154,8 +157,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
 			<isSummary value="true"/>
@@ -275,7 +278,7 @@
 				<code value="code"/>
 			</type>
 			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -322,7 +325,7 @@
 		<element id="ExampleScenario.date">
 			<path value="ExampleScenario.date"/>
 			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the &#39;content logical definition&#39;)."/>
+			<definition value="The date  (and optionally time) when the example scenario was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition')."/>
 			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
@@ -342,10 +345,10 @@
 		</element>
 		<element id="ExampleScenario.publisher">
 			<path value="ExampleScenario.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the example scenario."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the example scenario.  May also allow for contact."/>
+			<requirements value="Helps establish the &#34;authority/credibility&#34; of the example scenario.  May also allow for contact."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -381,7 +384,7 @@
 			<path value="ExampleScenario.description"/>
 			<short value="Natural language description of the ExampleScenario"/>
 			<definition value="A free text natural language description of the ExampleScenario from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as why the ExampleScenario was built. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
+			<comment value="This description can be used to capture details such as comments about misuse. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -441,7 +444,7 @@
 			<path value="ExampleScenario.purpose"/>
 			<short value="The purpose of the example, e.g. to illustrate a scenario"/>
 			<definition value="What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario."/>
-			<comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
+			<comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>

@@ -1,4 +1,4 @@
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
   <id value="zika-virus-intervention"/>
   <text>
     <status value="generated"/>
@@ -92,7 +92,7 @@
          </table>
          <p/>
          <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+         <p class="hierarchy" style="width: 100%;">
             <span>
                <b>Step: </b>
                <br/>
@@ -370,6 +370,10 @@
       </div>
   </text>
   <url value="http://example.org/PlanDefinition/zika-virus-intervention"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.11.5"/>
+  </identifier>
   <identifier>
     <use value="official"/>
     <value value="zika-virus-intervention"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-status"/>
   <meta>
     <lastUpdated value="2022-02-10T16:15:00+05:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/research-study-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.820"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.820"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyStatus"/>

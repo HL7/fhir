@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="concept-map-relationship"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -14,7 +12,7 @@
   <url value="http://hl7.org/fhir/concept-map-relationship"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1409"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1986"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ConceptMapRelationship"/>

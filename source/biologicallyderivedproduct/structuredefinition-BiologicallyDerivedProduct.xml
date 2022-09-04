@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProduct"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".verificationStatus = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1124"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProduct"/>
   <status value="draft"/>
@@ -325,7 +327,7 @@
       <path value="BiologicallyDerivedProduct.storageTempRequirements"/>
       <short value="Product storage temperature requirements"/>
       <definition value="The temperature requirements for storage of the biologically-derived product."/>
-      <comment value="May be extracted from information held in the Product Description Code." />
+      <comment value="May be extracted from information held in the Product Description Code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -366,7 +368,7 @@
       <path value="BiologicallyDerivedProduct.property.value[x]"/>
       <short value="Property values"/>
       <definition value="Property values."/>
-      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027." />
+      <comment value="The value should be provided as a boolean, integer, CodeableConcept, period, quantity, range, ratio, or attachment. The description can be a string only when these others are not available. The type of value will depend on the property type and is specified in ST-027."/>
       <min value="1"/>
       <max value="1"/>
       <type>

@@ -1,4 +1,4 @@
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
     <id value="knowledge-representation-level"/>
 		<meta>
 			<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -16,7 +16,11 @@
       <valueCode value="structured"/>
     </extension>
     <url value="http://hl7.org/fhir/CodeSystem/knowledge-representation-level"/>
-		<name value="KnowledgeRepresentationLevel"/>
+		<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1864"/>
+  </identifier>
+  <name value="KnowledgeRepresentationLevel"/>
     <title value="Knowledge Representation Level"/>
     <status value="draft"/>
     <experimental value="false"/>

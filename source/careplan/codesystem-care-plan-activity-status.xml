@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="care-plan-activity-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/care-plan-activity-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.147"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.147"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="CarePlanActivityStatus"/>
@@ -79,7 +77,7 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The current state of the care plan activity is not known.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one."/>
+    <definition value="The current state of the care plan activity is not known.  Note: This concept is not to be used for &#34;other&#34; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which one."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

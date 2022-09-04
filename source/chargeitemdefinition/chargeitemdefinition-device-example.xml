@@ -1,7 +1,11 @@
-<ChargeItemDefinition xmlns="http://hl7.org/fhir"> 
+<?xml version="1.0" encoding="UTF-8"?><ChargeItemDefinition xmlns="http://hl7.org/fhir"> 
 	<id value="device"/>
 	<url value="http://sap.org/ChargeItemDefinition/device-123"/>
-	<status value="active"/> 
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.29.2"/>
+  </identifier>
+  <status value="active"/> 
 	<description value="Financial details for  custom made device"/>
 	<instance>
 		<reference value="Device/12345"/>
@@ -39,7 +43,7 @@
 				<description value="Gültigkeit Steuersatz"/>
 				<language value="text/fhirpath"/>
 				<!-- syntax of expression may be incorrect, but you get the idea-->
-				<expression value="%context.occurenceDateTime &gt; &apos;2018-04-01&apos;"/>
+				<expression value="%context.occurenceDateTime &gt; '2018-04-01'"/>
 			</condition>
 		</applicability>
 		<priceComponent>
@@ -60,7 +64,7 @@
 				<description value="Gültigkeit Steuersatz"/>
 				<language value="text/fhirpath"/>
 				<!-- syntax of expression may be incorrect, but you get the idea-->
-				<expression value="%context.occurenceDateTime &lt;= &apos;2018-04-01&apos;"/>
+				<expression value="%context.occurenceDateTime &lt;= '2018-04-01'"/>
 			</condition>
 		</applicability>
 		<priceComponent>

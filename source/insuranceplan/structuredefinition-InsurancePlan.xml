@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="InsurancePlan"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = retired"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1354"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="InsurancePlan"/>
   <status value="draft"/>
@@ -208,7 +210,7 @@
     <element id="InsurancePlan.ownedBy">
       <path value="InsurancePlan.ownedBy"/>
       <short value="Product issuer"/>
-      <definition value="The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as &#39;payers&#39;."/>
+      <definition value="The entity that is providing  the health insurance product and underwriting the risk.  This is typically an insurance carriers, other third-party payers, or health plan sponsors comonly referred to as 'payers'."/>
       <alias value="Payer"/>
       <min value="0"/>
       <max value="1"/>
@@ -233,7 +235,7 @@
     <element id="InsurancePlan.coverageArea">
       <path value="InsurancePlan.coverageArea"/>
       <short value="Where product applies"/>
-      <definition value="The geographic region in which a health insurance product&#39;s benefits apply."/>
+      <definition value="The geographic region in which a health insurance product's benefits apply."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -247,7 +249,7 @@
       <short value="Official contact details relevant to the health insurance plan/product"/>
       <definition value="The contact details of communication devices available relevant to the specific Insurance Plan/Product. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
-      <comment value="The address/telecom use code &#39;home&#39; are not to be used."/>
+      <comment value="The address/telecom use code 'home' are not to be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -365,7 +367,7 @@
       <path value="InsurancePlan.coverage.benefit.limit.value"/>
       <short value="Maximum value allowed"/>
       <definition value="The maximum amount of a service item a plan will pay for a covered benefit.  For examples. wellness visits, or eyeglasses."/>
-      <comment value="May also be called &#x201C;eligible expense,&#x201D; &#x201C;payment allowance,&#x201D; or &#x201C;negotiated rate.&#x201D;."/>
+      <comment value="May also be called “eligible expense,” “payment allowance,” or “negotiated rate.”."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -415,7 +417,7 @@
     <element id="InsurancePlan.plan.type">
       <path value="InsurancePlan.plan.type"/>
       <short value="Type of plan"/>
-      <definition value="Type of plan. For example, &quot;Platinum&quot; or &quot;High Deductable&quot;."/>
+      <definition value="Type of plan. For example, &#34;Platinum&#34; or &#34;High Deductable&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -425,7 +427,7 @@
     <element id="InsurancePlan.plan.coverageArea">
       <path value="InsurancePlan.plan.coverageArea"/>
       <short value="Where product applies"/>
-      <definition value="The geographic region in which a health insurance plan&#39;s benefits apply."/>
+      <definition value="The geographic region in which a health insurance plan's benefits apply."/>
       <min value="0"/>
       <max value="*"/>
       <type>

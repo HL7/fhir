@@ -12,8 +12,8 @@
       <valueString value="valueset-example"/>
     </extension>
     <item>
-      <reference value="ValueSet/example-extensional"/>
-      <display value="Extensional"/>
+      <reference value="ValueSet/example"/>
+      <display value="Extensional Example"/>
     </item>
   </entry>
   <entry>

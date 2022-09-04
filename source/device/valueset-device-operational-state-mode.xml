@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-usage-adherence-code"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="device-operational-state-mode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -9,15 +10,19 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="0"/>
+    <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-usage-adherence-code"/>
-  <version value="5.0.0"/>
-  <name value="DeviceUsageAdherenceCode"/>
-  <title value="DeviceUsageAdherenceCode"/>
+  <url value="http://hl7.org/fhir/ValueSet/device-operational-state-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3199"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="FHIRDeviceOperationalStateMode"/>
+  <title value="FHIRDeviceOperationalStateMode"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2022-03-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -29,11 +34,6 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="A coded concept indicating the adherence of device usage."/>
+  <description value="The operation mode of the device."/>
   <immutable value="true"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/device-usage-adherence-code"/>
-    </include>
-  </compose>
 </ValueSet>

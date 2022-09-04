@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="derivation-reference"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1425"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DerivationReference"/>
   <title value="Derivation Reference"/>
@@ -44,7 +46,7 @@
         <key value="der-1"/>
         <severity value="error"/>
         <human value="Cannot have length if offset is missing."/>
-        <expression value="extension.where(url=&#39;length&#39;).exists() implies extension.where(url=&#39;offset&#39;).exists()"/>
+        <expression value="extension.where(url='length').exists() implies extension.where(url='offset').exists()"/>
         <xpath value="todo-remove-this-line-when-build-process-allows-that"/>
         <source value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
       </constraint>
@@ -77,7 +79,7 @@
       <sliceName value="path"/>
       <short value="Element containing text."/>
       <definition value="Corresponds to the element within the resource containing the text."/>
-      <comment value="Follows the FHIRPath expression syntax used for OperationOutcome. If not present, then the resource must either be a Binary or a DocumentReference (with a single content element) and the content is the text represented by the instance or the attachment.  If the DocumentReference has more than one &#39;content&#39;, then this path element SHALL be present to distinguish which repetition the derivation occurred from."/>
+      <comment value="Follows the FHIRPath expression syntax used for OperationOutcome. If not present, then the resource must either be a Binary or a DocumentReference (with a single content element) and the content is the text represented by the instance or the attachment.  If the DocumentReference has more than one 'content', then this path element SHALL be present to distinguish which repetition the derivation occurred from."/>
       <min value="0"/>
       <max value="1"/>
     </element>
