@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://hl7.org/fhir/StructureDefinition/example"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1016"/>
+  </identifier>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="1.2.36.90146595217.4.2"/>
@@ -54,7 +56,7 @@
     <identity value="m1"/>
     <uri value="https://www.rcpa.edu.au/getattachment/0961c6d1-ec80-4500-8dc0-de516500e05b/Lipid-and-lipoprotein-testing.aspx"/>
     <name value="RCPA Lipid Report recommendations"/>
-    <comment value="Actual mappings haven&#39;t yet been filled out"/>
+    <comment value="Actual mappings haven't yet been filled out"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -104,7 +106,7 @@
     <element id="DiagnosticReport.text">
       <path value="DiagnosticReport.text"/>
       <short value="Text summary of the resource, for human interpretation"/>
-      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
+      <definition value="A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &#34;clinically safe&#34; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety."/>
       <comment value="Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative."/>
       <alias value="narrative"/>
       <alias value="html"/>
@@ -146,7 +148,7 @@
       <path value="DiagnosticReport.status"/>
       <short value="registered|interim|final|amended|cancelled|withdrawn"/>
       <definition value="The status of the diagnostic report as a whole."/>
-      <comment value="This is labeled as &quot;Is Modifier&quot; because applications need to take appropriate action if a report is withdrawn."/>
+      <comment value="This is labeled as &#34;Is Modifier&#34; because applications need to take appropriate action if a report is withdrawn."/>
       <min value="1"/>
       <max value="1"/>
       <base>
@@ -205,7 +207,7 @@
       <path value="DiagnosticReport.performer"/>
       <short value="Responsible Diagnostic Service"/>
       <definition value="The diagnostic service that is responsible for issuing the report."/>
-      <comment value="This is not necessarily the source of the atomic data items - it&#39;s the entity that takes responsibility for the clinical report."/>
+      <comment value="This is not necessarily the source of the atomic data items - it's the entity that takes responsibility for the clinical report."/>
       <min value="1"/>
       <max value="1"/>
       <base>
@@ -403,7 +405,7 @@
       <path value="DiagnosticReport.conclusion"/>
       <short value="Clinical Interpretation of Lipid Panel"/>
       <definition value="May include diagnosis or suggestions for follow up testing."/>
-      <comment value="It&#39;s not unusual for the lab to make some kind of interpretative comment on the set of results."/>
+      <comment value="It's not unusual for the lab to make some kind of interpretative comment on the set of results."/>
       <min value="0"/>
       <max value="1"/>
       <base>

@@ -10,7 +10,7 @@
   "relatedArtifact": [
     {
       "type": "depends-on",
-      "display": "Zika Affected Areas"
+      "display": "Zika Affected Areas",
       "resource": "ValueSet/zika-affected-areas"
     },
     {
@@ -28,8 +28,8 @@
       "display": "Zika Virus Signs and Symptoms",
       "url": "https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7459",
       "resource": "urn:oid:2.16.840.1.114222.4.11.7459"
-    },
-  ]
+    }
+  ],
   "dataRequirement": [
     {
       "type": "Condition",

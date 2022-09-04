@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="ImplementationGuide"/>
 	<meta>
 		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -26,7 +25,11 @@
 		<valueString value="CanonicalResource"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1373"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="ImplementationGuide"/>
 	<status value="draft"/>
 	<date value="2021-01-05T10:01:24+11:00"/>
@@ -85,8 +88,8 @@
 				<key value="cnl-0"/>
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
 			</constraint>
 			<constraint>
@@ -125,8 +128,8 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
 			<isSummary value="true"/>
@@ -219,7 +222,7 @@
 				<code value="code"/>
 			</type>
 			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
 			<isSummary value="true"/>
 			<binding>
 				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -286,10 +289,10 @@
 		</element>
 		<element id="ImplementationGuide.publisher">
 			<path value="ImplementationGuide.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the implementation guide."/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide."/>
 			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the implementation guide is the organization or individual primarily responsible for the maintenance and upkeep of the implementation guide. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the implementation guide. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the implementation guide.  May also allow for contact."/>
+			<requirements value="Helps establish the &#34;authority/credibility&#34; of the implementation guide.  May also allow for contact."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -324,8 +327,8 @@
 		<element id="ImplementationGuide.description">
 			<path value="ImplementationGuide.description"/>
 			<short value="Natural language description of the implementation guide"/>
-			<definition value="A free text natural language description of the implementation guide from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
+			<definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
+			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -416,7 +419,7 @@
 		<element id="ImplementationGuide.license">
 			<path value="ImplementationGuide.license"/>
 			<short value="SPDX license code for this IG (or not-open-source)"/>
-			<definition value="The license that applies to this Implementation Guide, using an SPDX license code, or &#39;not-open-source&#39;."/>
+			<definition value="The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -428,7 +431,7 @@
 					<valueString value="SPDXLicense"/>
 				</extension>
 				<strength value="required"/>
-				<description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or &#39;not-open-source&#39;). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
+				<description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
 				<valueSet value="http://hl7.org/fhir/ValueSet/spdx-license"/>
 			</binding>
 		</element>
@@ -512,7 +515,7 @@
 			<path value="ImplementationGuide.global"/>
 			<short value="Profiles that apply globally"/>
 			<definition value="A set of profiles that all resources covered by this implementation guide must conform to."/>
-			<comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are &#39;covered&#39; by an implementation guide."/>
+			<comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -946,7 +949,7 @@
 			<path value="ImplementationGuide.manifest.resource.relativePath"/>
 			<short value="Relative path for page in IG"/>
 			<definition value="The relative path for primary page for this resource within the IG."/>
-			<comment value="Appending &#39;rendering&#39; + &quot;/&quot; + this should resolve to the resource page."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the resource page."/>
 			<min value="0"/>
 			<max value="1"/>
 			<type>
@@ -971,7 +974,7 @@
 			<path value="ImplementationGuide.manifest.page.name"/>
 			<short value="HTML page name"/>
 			<definition value="Relative path to the page."/>
-			<comment value="Appending &#39;rendering&#39; + &quot;/&quot; + this should resolve to the page."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the page."/>
 			<min value="1"/>
 			<max value="1"/>
 			<type>
@@ -993,7 +996,7 @@
 			<path value="ImplementationGuide.manifest.page.anchor"/>
 			<short value="Anchor available on the page"/>
 			<definition value="The name of an anchor available on the page."/>
-			<comment value="Appending &#39;rendering&#39; + &quot;/&quot; + page.name + &quot;#&quot; + page.anchor should resolve to the anchor."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + page.name + &#34;#&#34; + page.anchor should resolve to the anchor."/>
 			<requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
 			<min value="0"/>
 			<max value="*"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="list-for"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/list-for"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1358"/>
+  </identifier>
   <version value="0.1.0"/>
   <name value="ListFor"/>
   <title value="List For Extension"/>
@@ -37,7 +39,7 @@
       <path value="Extension"/>
       <short value="Who the list is for"/>
       <definition value="Reference to the entity that this *List* is for."/>
-      <comment value="This extension answers questions like &quot;who is this allergy list or problem list for?&quot;"/>
+      <comment value="This extension answers questions like &#34;who is this allergy list or problem list for?&#34;"/>
       <min value="0"/>
       <max value="*"/>
     </element>

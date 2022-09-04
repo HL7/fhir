@@ -5,6 +5,9 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">to do</div>
 	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+		<valueMarkdown value="**mustSupport**&#xA;&#xA;When this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."/>
+	</extension>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
 		<valueInteger value="5"/>
 	</extension>
@@ -14,7 +17,14 @@
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
 		<valueCode value="trial-use"/>
 	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
+		<valueString value="**mustSupport**&#xA;&#xA;When this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."/>
+	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1192"/>
+  </identifier>
 	<version value="5.0.0"/>
 	<name value="ShareableValueSet"/>
 	<title value="Shareable ValueSet"/>

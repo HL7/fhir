@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="examplescenario-resource-type"/>
 	<meta>
 		<lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -15,7 +14,11 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/ValueSet/examplescenario-resource-type"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3005"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="ExampleScenarioResourceType"/>
 	<title value="Example Scenario Resource Type"/>
 	<status value="draft"/>

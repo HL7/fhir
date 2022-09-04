@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="research-study-party-org-type"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1686"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3077"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyPartyOrgType"/>
@@ -37,7 +35,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is a ResearchStudy&#39;s party organization type."/>
+  <description value="This is a ResearchStudy's party organization type."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-specialization-systemtype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,12 +9,14 @@
   <url value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3204"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="DeviceSpecializationSystemType"/>
+  <title value="Device Specialization System Type"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <description value="Type of specialization or standard that devices can adhere to"/>
+  <description value="The type or specialization of a standard that devices can adhere to"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>

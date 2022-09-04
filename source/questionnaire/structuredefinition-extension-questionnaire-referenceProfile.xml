@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
 	<id value="questionnaire-referenceProfile"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -8,7 +7,11 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-referenceProfile"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1241"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="referenceProfile"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -19,7 +22,7 @@
 			<value value="http://www.hl7.org"/>
 		</telecom>
 	</contact>
-	<description value="Where the type for a question is &quot;Reference&quot;, indicates a profile that the resource instances pointed to in answers to this question must be valid against."/>
+	<description value="Where the type for a question is &#34;Reference&#34;, indicates a profile that the resource instances pointed to in answers to this question must be valid against."/>
 	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="rim"/>
@@ -36,7 +39,7 @@
 		<type value="element"/>
 		<expression value="ElementDefinition"/>
 	</context>
-	<contextInvariant value="type=&#39;reference&#39;"/>
+	<contextInvariant value="type='reference'"/>
 	<type value="Extension"/>
 	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
 	<derivation value="constraint"/>
@@ -44,7 +47,7 @@
 		<element id="Extension">
 			<path value="Extension"/>
 			<short value="Allowed profile for reference"/>
-			<definition value="Where the type for a question is &quot;Reference&quot;, indicates a profile that the resource instances pointed to in answers to this question must be valid against."/>
+			<definition value="Where the type for a question is &#34;Reference&#34;, indicates a profile that the resource instances pointed to in answers to this question must be valid against."/>
 			<comment value="If multiple profiles are present, then the resource must be valid against at least one of them.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#referenceProfile)."/>
 			<min value="0"/>
 			<max value="*"/>

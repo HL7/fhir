@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="family-member-history-genetics-observation"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-observation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1224"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="observation"/>
   <status value="draft"/>
@@ -20,7 +22,7 @@
       <value value="http://www.hl7.org/Special/committees/clingenomics"/>
     </telecom>
   </contact>
-  <description value="Allows capturing risk-relevant observations about the relative that aren&#39;t themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc."/>
+  <description value="Allows capturing risk-relevant observations about the relative that aren't themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -40,7 +42,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Genetic markers, ethnicity, etc."/>
-      <definition value="Allows capturing risk-relevant observations about the relative that aren&#39;t themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc."/>
+      <definition value="Allows capturing risk-relevant observations about the relative that aren't themselves a specific health condition; e.g. Certain ethnic ancestries that are disease-relevant, presence of particular genetic markers, etc."/>
       <comment value="This may be extended with additional genomics-specific resources when they are ready."/>
       <min value="0"/>
       <max value="*"/>

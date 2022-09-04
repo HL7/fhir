@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationUsage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1111"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MedicationUsage"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient&#39;s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient&#39;s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information."/>
+  <description value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -72,7 +74,7 @@
     <element id="MedicationUsage">
       <path value="MedicationUsage"/>
       <short value="Record of medication being taken by a patient"/>
-      <definition value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient&#39;s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient&#39;s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.&#xA;&#xA;The MedicationUsage resource was previously called MedicationStatement."/>
+      <definition value="A record of a medication that is being consumed by a patient.   A MedicationUsage may indicate that the patient may be taking the medication now or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from sources such as the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains. &#xA;&#xA;The primary difference between a medicationusage and a medicationadministration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medicationusage is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the Medication Usage information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.&#xA;&#xA;The MedicationUsage resource was previously called MedicationStatement."/>
       <alias value="MedicationStatement"/>
       <min value="0"/>
       <max value="*"/>
@@ -132,7 +134,7 @@
       <path value="MedicationUsage.status"/>
       <short value="recorded | entered-in-error | draft"/>
       <definition value="A code representing the status of recording the medication usage."/>
-      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient&#39;s adherence to the information in this resource.  Note, the statuses are different than in previous releases for MedicationUsage or MedicationStatement.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="This status concerns just the recording of the medication usage.  MedicationUsage.adherence should be used for indicating a patient's adherence to the information in this resource.  Note, the statuses are different than in previous releases for MedicationUsage or MedicationStatement.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -189,7 +191,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;type of medication usage&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;type of medication usage&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationUsage.medication">
@@ -275,14 +277,14 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&#34;type of encounter or episode&#34;]"/>
       </mapping>
     </element>
     <element id="MedicationUsage.effective[x]">
       <path value="MedicationUsage.effective[x]"/>
       <short value="The date/time or interval when the medication is/was/will be taken"/>
       <definition value="The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationUsage.adherence element is Not Taking)."/>
-      <comment value="This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Usages. If the medication is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+      <comment value="This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Usages. If the medication is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &#34;end&#34; date will be omitted.  If the end date is known, then it is included as the &#34;end date&#34;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -412,7 +414,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&#34;annotation&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationUsage.relatedClinicalInformation">
@@ -453,7 +455,7 @@
       <path value="MedicationUsage.dosage"/>
       <short value="Details of how medication is/was taken or should be taken"/>
       <definition value="Indicates how the medication is/was or should be taken by the patient."/>
-      <comment value="The dates included in the dosage on a Medication Usage reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Usage is derived from a MedicationRequest."/>
+      <comment value="The dates included in the dosage on a Medication Usage reflect the dates for a given dose.  For example, &#34;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&#34;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Usage is derived from a MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -505,7 +507,7 @@
       <path value="MedicationUsage.adherence.reason"/>
       <short value="Details of the reason for the current use of the medication"/>
       <definition value="Captures the reason for the current use or adherence of a medication."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;entered-in-error&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>

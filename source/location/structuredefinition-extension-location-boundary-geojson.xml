@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="location-boundary-geojson"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/location-boundary-geojson"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1102"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="boundary-geojson"/>
   <title value="Boundary (GeoJSON)"/>
@@ -36,7 +38,7 @@
       <path value="Extension"/>
       <short value="A boundary shape that represents the outside edge of the location (in GeoJSON format)"/>
       <definition value="A boundary shape that represents the outside edge of the location (in GeoJSON format) This shape may have holes, and disconnected shapes."/>
-      <comment value="The format of the content is GeoJSON in both the JSON and XML formats. It will be stored in the resource using the .data property, and externally referenced via the URL property. The mimetype to be used will be &#39;application/geo+json&#39;."/>
+      <comment value="The format of the content is GeoJSON in both the JSON and XML formats. It will be stored in the resource using the .data property, and externally referenced via the URL property. The mimetype to be used will be 'application/geo+json'."/>
       <min value="0"/>
       <max value="1"/>
     </element>

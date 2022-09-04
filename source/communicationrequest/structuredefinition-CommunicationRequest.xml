@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CommunicationRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CommunicationRequest"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1303"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CommunicationRequest"/>
   <status value="draft"/>
@@ -153,7 +155,7 @@
       <path value="CommunicationRequest.groupIdentifier"/>
       <short value="Composite request this is part of"/>
       <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <comment value="Requests are linked either by a &#34;basedOn&#34; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <alias value="grouperId"/>
       <min value="0"/>
       <max value="1"/>
@@ -203,7 +205,7 @@
       <path value="CommunicationRequest.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the CommunicationRequest."/>
-      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;on-hold&quot; or &quot;revoked&quot;.  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;on-hold&#34; or &#34;revoked&#34;.  The reason why the CommunicationRequest was created at all is captured in reasonCode, not here."/>
       <alias value="Suspended Reason"/>
       <alias value="Cancelled Reason"/>
       <min value="0"/>
@@ -235,7 +237,7 @@
       <path value="CommunicationRequest.intent"/>
       <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Indicates the level of authority/intentionality associated with the CommunicationRequest and where the request fits into the workflow chain."/>
-      <comment value="This element is expected to be immutable.  E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance.  Instead, a new instance &#39;basedOn&#39; the prior instance should be created with the new &#39;intent&#39; value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &quot;order&quot; might later be clarified to be a &quot;filler-order&quot;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
+      <comment value="This element is expected to be immutable.  E.g. A &#34;proposal&#34; instance should never change to be a &#34;plan&#34; instance or &#34;order&#34; instance.  Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value.&#xA;&#xA;One exception to this is that the granularity of CommunicationRequest.intent is allowed to change.  For example, a Request identified as an &#34;order&#34; might later be clarified to be a &#34;filler-order&#34;.  Or, in rarer cases (to meet recipient constraints), the reverse might also occur."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <min value="1"/>
       <max value="1"/>
@@ -243,7 +245,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -327,7 +329,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;"/>
+      <meaningWhenMissing value="If do not perform is not specified, the request is a positive request e.g. &#34;do perform&#34;"/>
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a communication, it is a request for the communication to not occur."/>
       <isSummary value="true"/>
@@ -386,7 +388,7 @@
       <path value="CommunicationRequest.about"/>
       <short value="Resources that pertain to this communication request"/>
       <definition value="Other resources that pertain to this communication request and to which this communication request should be associated."/>
-      <comment value="Don&#39;t use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces."/>
+      <comment value="Don't use CommunicationRequest.about element when a more specific element exists, such as basedOn, reasonReference, or replaces."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -446,7 +448,7 @@
       <path value="CommunicationRequest.payload.content[x]"/>
       <short value="Message part content"/>
       <definition value="The communicated content (or for multi-part communications, one portion of the communication)."/>
-      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn&#39;t appropriate.&#xA;&#xA;If the content isn&#39;t codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
+      <comment value="The content can be codified or textual.  As an example of codified content, when working with machine generated communications, the payload may be drawn from a finite, terminology defined set of communications, especially for short, status update kinds of communications where more of a natural language approach isn't appropriate.&#xA;&#xA;If the content isn't codified, contentCodeableConcept.text can be used.  &#xA;&#xA;When using contentCodeableConcept, the CodeableConcept is what is being communicated and is not a categorization of the content."/>
       <min value="1"/>
       <max value="1"/>
       <type>

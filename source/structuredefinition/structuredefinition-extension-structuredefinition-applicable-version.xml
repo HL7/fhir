@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="structuredefinition-applicable-version"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-applicable-version"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1024"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="applicable-version"/>
   <title value="Applicable Version"/>
@@ -42,7 +44,7 @@
       <path value="Extension"/>
       <short value="Another Version this applies to"/>
       <definition value="An additional version that this profile apples to, other than the version explicitly stated in StructureDefinition.fhirVersion."/>
-      <comment value="This is typically only used where derivation = constraint. As the underlying resources become more stable, profiles on one version become applicable to other versions as well. It&#39;s possible to calculate automatically with the strutural features of a profile apply to a given version, but just because it&#39;s structurally ok doesn&#39;t mean that the meaning is correct. This extension allows a positive statement that the profile applies."/>
+      <comment value="This is typically only used where derivation = constraint. As the underlying resources become more stable, profiles on one version become applicable to other versions as well. It's possible to calculate automatically with the strutural features of a profile apply to a given version, but just because it's structurally ok doesn't mean that the meaning is correct. This extension allows a positive statement that the profile applies."/>
       <min value="0"/>
       <max value="*"/>
     </element>

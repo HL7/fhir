@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="RelatedPerson"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1066"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="RelatedPerson"/>
   <status value="draft"/>
@@ -126,7 +128,7 @@
     </element>
     <element id="RelatedPerson.active">
       <path value="RelatedPerson.active"/>
-      <short value="Whether this related person&#39;s record is in active use"/>
+      <short value="Whether this related person's record is in active use"/>
       <definition value="Whether this related person record is in active use."/>
       <comment value="This element is labeled as a modifier because it may be used to mark that the resource was created in error."/>
       <requirements value="Need to be able to mark a related person record as not to be used, such as if it was created in error."/>
@@ -173,7 +175,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="scoper[classCode=PSN|ANM and determinerCode=&#39;INSTANCE&#39;]/playedRole[classCode=&#39;PAT&#39;]/id"/>
+        <map value="scoper[classCode=PSN|ANM and determinerCode='INSTANCE']/playedRole[classCode='PAT']/id"/>
       </mapping>
     </element>
     <element id="RelatedPerson.relationship">
@@ -358,7 +360,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="player[classCode=&#39;PSN&#39; and determinerCode=&#39;INSTANCE&#39;]/desc"/>
+        <map value="player[classCode='PSN' and determinerCode='INSTANCE']/desc"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -386,8 +388,8 @@
     </element>
     <element id="RelatedPerson.communication">
       <path value="RelatedPerson.communication"/>
-      <short value="A language which may be used to communicate with the related person about the patient&#39;s health"/>
-      <definition value="A language which may be used to communicate with the related person about the patient&#39;s health."/>
+      <short value="A language which may be used to communicate with the related person about the patient's health"/>
+      <definition value="A language which may be used to communicate with the related person about the patient's health."/>
       <comment value="If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes, then you need multiple RelatedPerson.Communication associations.   If the RelatedPerson does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required."/>
       <requirements value="If a related person does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest."/>
       <min value="0"/>
@@ -406,8 +408,8 @@
     </element>
     <element id="RelatedPerson.communication.language">
       <path value="RelatedPerson.communication.language"/>
-      <short value="The language which can be used to communicate with the related person about the patient&#39;s health"/>
-      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
+      <short value="The language which can be used to communicate with the related person about the patient's health"/>
+      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &#34;en&#34; for English, or &#34;en-US&#34; for American English versus &#34;en-AU&#34; for Australian English."/>
       <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
       <min value="1"/>

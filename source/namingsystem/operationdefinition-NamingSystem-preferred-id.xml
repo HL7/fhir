@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="NamingSystem-preferred-id"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -68,7 +66,7 @@
     <use value="in"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The server parses the provided identifier to see what type it is (e.g. a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can&#39;t tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier"/>
+    <documentation value="The server parses the provided identifier to see what type it is (e.g. a URI, an OID as a URI, a plain OID, or a v2 table 0396 code). If the server can't tell what type of identifier it is, it can try it as multiple types. It is an error if more than one system matches the provided identifier"/>
     <type value="string"/>
   </parameter>
   <parameter>

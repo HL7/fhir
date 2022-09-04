@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="list-changeBase"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,12 +7,16 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/list-changeBase"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1356"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="changeBase"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="Reference to the List that a &quot;change&quot; list is asserting changes with respect to."/>
+  <description value="Reference to the List that a &#34;change&#34; list is asserting changes with respect to."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -27,7 +29,7 @@
     <type value="element"/>
     <expression value="List"/>
   </context>
-  <contextInvariant value="mode = &#39;changes&#39;"/>
+  <contextInvariant value="mode = 'changes'"/>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
@@ -35,7 +37,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Base List for changes"/>
-      <definition value="Reference to the List that a &quot;change&quot; list is asserting changes with respect to."/>
+      <definition value="Reference to the List that a &#34;change&#34; list is asserting changes with respect to."/>
       <comment value="Only for mode = changes."/>
       <min value="0"/>
       <max value="1"/>
