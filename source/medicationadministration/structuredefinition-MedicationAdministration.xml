@@ -113,42 +113,8 @@
         <map value=".id"/>
       </mapping>
     </element>
-    <element id="MedicationAdministration.instantiatesCanonical">
-      <path value="MedicationAdministration.instantiatesCanonical"/>
-      <short value="Instantiates protocol or definition"/>
-      <definition value="A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=unspecified]"/>
-      </mapping>
-    </element>
-    <element id="MedicationAdministration.instantiatesUri">
-      <path value="MedicationAdministration.instantiatesUri"/>
-      <short value="Instantiates external protocol or definition"/>
-      <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this MedicationAdministration."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=DEFN].target"/>
-      </mapping>
-    </element>
+    
+    
     <element id="MedicationAdministration.basedOn">
       <path value="MedicationAdministration.basedOn"/>
       <short value="Plan this is fulfilled by this administration"/>

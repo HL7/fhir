@@ -31,7 +31,7 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345689"/>
     </identifier>
-    <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
+    
     <status value="completed"/>
     <intent value="order"/>
     <medication> <!-- Linked to a RESOURCE Medication -->
