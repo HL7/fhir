@@ -652,4 +652,40 @@ Use cases for the different combinations:
  (which may include a large number of concepts in the value set definition).
  </li>
 </ul>
+
+<a name="implicit"></a>
+<h3>Implicit Value Sets</h3>
+  <p>
+    Implicit value sets are those whose specification can be predicted based on the grammar of the
+    underlying code system, and the known structure of the URL that identifies them. The implicit value set 
+    capability allows a single URL to serve as a value set definition, and can serve as the basis for the
+    <a href="valueset-operation-expand.html">$expand</a>
+    operation and for other value set references. If any value set resources exist with an identifier that 
+    conforms to the specified implicit value set URL patterns, the content of the resource must conform to the 
+    template provided. Profiles and other value set references can reference these value sets directly (by 
+    reference as a URI, rather than by a literal value set reference).
+</p>
+<p>
+  Some (but not all) code systems have implicit value set url patterns that have been defined and documented 
+  for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
+  or all of these URL patterns.
+</p>
+  <blockquote class="stu-note">
+    <p>
+      <strong>Note: </strong>
+      At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
+      declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
+      regarding whether this capability should be added to the TerminologyCapabilities resource.
+    </p>
+  </blockquote>
+<p>
+  The following links describe the currently defined FHIR implicit value set URL patterns for these code systems:
+  <ul>
+    <li><a href="https://terminology.hl7.org/SNOMEDCT.html#implicit">Using SNOMED CT with HL7 Standards: Implicit Value Sets</a> (SNOMED CT currently has the most extensive set of defined implicit value set URL patterns)<br/></li>
+    <li><a href="https://terminology.hl7.org/LOINC.html#implicit">Using LOINC with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/RxNorm.html#implicit">Using RxNorm with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/UCUM.html#4.3.4.5">Using UCUM with HL7 Standards: Implicit Value Sets</a><br/></li>
+    <li><a href="https://terminology.hl7.org/CPT.html#4.3.9.6">Using CPT with HL7 Standards: Implicit Value Sets</a><br/></li>
+  </ul>
+</p>
 </div>
