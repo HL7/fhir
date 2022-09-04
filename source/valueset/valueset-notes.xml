@@ -654,7 +654,7 @@ Use cases for the different combinations:
 </ul>
 
 <a name="implicit"></a>
-<h3>Implicit Value Sets</h3>
+<h2>Implicit Value Sets</h2>
   <p>
     Implicit value sets are those whose specification can be predicted based on the grammar of the
     underlying code system, and the known structure of the URL that identifies them. The implicit value set 
@@ -666,7 +666,7 @@ Use cases for the different combinations:
     reference as a URI, rather than by a literal value set reference).
 </p>
 <p>
-  Some (but not all) code systems have implicit value set url patterns that have been defined and documented 
+  Some (but not all) code systems have implicit value set URL patterns that have been defined and documented 
   for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
   or all of these URL patterns.
 </p>
@@ -679,7 +679,7 @@ Use cases for the different combinations:
     </p>
   </blockquote>
 <p>
-  The following links describe the currently defined FHIR implicit value set URL patterns for these code systems:
+  The following links describe the currently defined FHIR implicit value set URL patterns for these listed code systems:
   <ul>
     <li><a href="https://terminology.hl7.org/SNOMEDCT.html#implicit">Using SNOMED CT with HL7 Standards: Implicit Value Sets</a> (SNOMED CT currently has the most extensive set of defined implicit value set URL patterns)<br/></li>
     <li><a href="https://terminology.hl7.org/LOINC.html#implicit">Using LOINC with HL7 Standards: Implicit Value Sets</a><br/></li>
