@@ -7,11 +7,6 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/iana-link-relations"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <!-- Need to get a real OID from HTA when moved there -->
-    <value value="urn:oid:"/>
-  </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="LinkRelationTypes"/>
   <status value="active"/>
