@@ -666,7 +666,7 @@ have trouble complying with the expectations of the binding.  Both 'required' an
 to map their existing data to the value set.  For 'required' bindings, if no mapping is possible, the element can't be sent (not even with
 an extension).  If the element and its ancestor elements all have a 'min' cardinality of 1 or more, then the system cannot produce a
 conformant instance.  For extensible bindings, if a mapping has been tried and there is no corresponding concept, then the legacy data may be
-freely sent.  However, this still imposes the expectation of performing a mapping, and this may not be possible if new externally sourced
+freely sent.  However, this still imposes the expectation of performing a mapping, and this might not be possible if new externally sourced
 data with arbitrary codes is being regularly received.  If no mapping has been performed, then the element would need to be omitted, or the
 instance would not be able to claim conformance to the specification that imposed the binding.
 </p>
@@ -681,7 +681,7 @@ Binding extension to better reflect the expectations of systems.
 </p>
 <p>
 Servers may support a variety of implementation guides.  There is no guarantee that all data they have available on their FHIR interfaces will 
-necessarily comply with all implementation guides.  On the other hand, some clients may not be able to safely consume data that does not comply 
+necessarily comply with all implementation guides.  On the other hand, some clients might not be able to safely consume data that does not comply 
 with a given IG.  In environments where there will be a need to expose a mixture of IG-conformant and non-IG conformant data, but some consumers will depend on data 
 being conformant to safely consume, then Resource.meta.profile can be used to explicitly flag the instances that conform.  Clients can then
 filter using the _profile search parameter to ensure they only receive data they can safely handle - with the known cost that they won't necessarily
