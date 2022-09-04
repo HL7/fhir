@@ -474,7 +474,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Use of RadLex is preferred"/>
-        <valueSet value="http://loinc.org/download/loincrsna-radiology-playbook-file/"/>
+        <valueSet value="http://loinc.org/vs/loinc-rsna-radiology-playbook"/>
       </binding>
       <mapping>
         <identity value="workflow"/>
