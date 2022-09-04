@@ -1,26 +1,625 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="iana-link-relations"/>
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <url value="http://hl7.org/fhir/CodeSystem/iana-link-relations"/>
-  <version value="5.0.0-cibuild"/>
-  <name value="LinkRelationTypes"/>
-  <title value="Link Relation Types"/>
-  <status value="active"/>
-  <publisher value="Internet Assigned Numbers Authority (IANA)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
-    </telecom>
-  </contact>
-  <description value="Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
-  <caseSensitive value="true"/>
-  <content value="not-present"/>
+   <id value="iana-link-relations"/>
+   <meta>
+      <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+   </meta>
+   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+      <valueCode value="fhir"/>
+   </extension>
+   <url value="http://hl7.org/fhir/CodeSystem/iana-link-relations"/>
+   <version value="5.0.0-cibuild"/>
+   <name value="LinkRelationTypes"/>
+   <title value="Link Relation Types"/>
+   <status value="active"/>
+   <publisher value="Internet Assigned Numbers Authority (IANA)"/>
+   <contact>
+      <telecom>
+         <system value="url"/>
+         <value value="https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
+      </telecom>
+   </contact>
+   <description value="Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
+   <caseSensitive value="true"/>
+   <content value="complete"/>
+   <concept>
+      <code value="about"/>
+      <display value="Refers to a resource that is the subject of the link's context."/>
+      <definition value="Refers to a resource that is the subject of the link's context."/>
+   </concept>
+   <concept>
+      <code value="acl"/>
+      <display value="Asserts that the link target provides an access control description for the link context."/>
+      <definition value="Asserts that the link target provides an access control description for the link context."/>
+   </concept>
+   <concept>
+      <code value="alternate"/>
+      <display value="Refers to a substitute for this context"/>
+      <definition value="Refers to a substitute for this context"/>
+   </concept>
+   <concept>
+      <code value="amphtml"/>
+      <display value="Used to reference alternative content that uses the AMP profile of the HTML format."/>
+      <definition value="Used to reference alternative content that uses the AMP profile of the HTML format."/>
+   </concept>
+   <concept>
+      <code value="appendix"/>
+      <display value="Refers to an appendix."/>
+      <definition value="Refers to an appendix."/>
+   </concept>
+   <concept>
+      <code value="apple-touch-icon"/>
+      <display value="Refers to an icon for the context. Synonym for icon."/>
+      <definition value="Refers to an icon for the context. Synonym for icon."/>
+   </concept>
+   <concept>
+      <code value="apple-touch-startup-image"/>
+      <display value="Refers to a launch screen for the context."/>
+      <definition value="Refers to a launch screen for the context."/>
+   </concept>
+   <concept>
+      <code value="archives"/>
+      <display value="Refers to a collection of records, documents, or other&#xA;      materials of historical interest."/>
+      <definition value="Refers to a collection of records, documents, or other&#xA;      materials of historical interest."/>
+   </concept>
+   <concept>
+      <code value="author"/>
+      <display value="Refers to the context's author."/>
+      <definition value="Refers to the context's author."/>
+   </concept>
+   <concept>
+      <code value="blocked-by"/>
+      <display value="Identifies the entity that blocks access to a resource&#xA;      following receipt of a legal demand."/>
+      <definition value="Identifies the entity that blocks access to a resource&#xA;      following receipt of a legal demand."/>
+   </concept>
+   <concept>
+      <code value="bookmark"/>
+      <display value="Gives a permanent link to use for bookmarking purposes."/>
+      <definition value="Gives a permanent link to use for bookmarking purposes."/>
+   </concept>
+   <concept>
+      <code value="canonical"/>
+      <display value="Designates the preferred version of a resource (the IRI and its contents)."/>
+      <definition value="Designates the preferred version of a resource (the IRI and its contents)."/>
+   </concept>
+   <concept>
+      <code value="chapter"/>
+      <display value="Refers to a chapter in a collection of resources."/>
+      <definition value="Refers to a chapter in a collection of resources."/>
+   </concept>
+   <concept>
+      <code value="cite-as"/>
+      <display value="Indicates that the link target is preferred over the link context for the purpose of permanent citation."/>
+      <definition value="Indicates that the link target is preferred over the link context for the purpose of permanent citation."/>
+   </concept>
+   <concept>
+      <code value="collection"/>
+      <display value="The target IRI points to a resource which represents the collection resource for the context IRI."/>
+      <definition value="The target IRI points to a resource which represents the collection resource for the context IRI."/>
+   </concept>
+   <concept>
+      <code value="contents"/>
+      <display value="Refers to a table of contents."/>
+      <definition value="Refers to a table of contents."/>
+   </concept>
+   <concept>
+      <code value="convertedFrom"/>
+      <display value="The document linked to was later converted to the&#xA;      document that contains this link relation.  For example, an RFC can&#xA;      have a link to the Internet-Draft that became the RFC; in that case,&#xA;      the link relation would be &#34;convertedFrom&#34;."/>
+      <definition value="The document linked to was later converted to the&#xA;      document that contains this link relation.  For example, an RFC can&#xA;      have a link to the Internet-Draft that became the RFC; in that case,&#xA;      the link relation would be &#34;convertedFrom&#34;."/>
+   </concept>
+   <concept>
+      <code value="copyright"/>
+      <display value="Refers to a copyright statement that applies to the&#xA;    link's context."/>
+      <definition value="Refers to a copyright statement that applies to the&#xA;    link's context."/>
+   </concept>
+   <concept>
+      <code value="create-form"/>
+      <display value="The target IRI points to a resource where a submission form can be obtained."/>
+      <definition value="The target IRI points to a resource where a submission form can be obtained."/>
+   </concept>
+   <concept>
+      <code value="current"/>
+      <display value="Refers to a resource containing the most recent&#xA;      item(s) in a collection of resources."/>
+      <definition value="Refers to a resource containing the most recent&#xA;      item(s) in a collection of resources."/>
+   </concept>
+   <concept>
+      <code value="describedby"/>
+      <display value="Refers to a resource providing information about the&#xA;      link's context."/>
+      <definition value="Refers to a resource providing information about the&#xA;      link's context."/>
+   </concept>
+   <concept>
+      <code value="describes"/>
+      <display value="The relationship A 'describes' B asserts that&#xA;      resource A provides a description of resource B. There are no&#xA;      constraints on the format or representation of either A or B,&#xA;      neither are there any further constraints on either resource."/>
+      <definition value="The relationship A 'describes' B asserts that&#xA;      resource A provides a description of resource B. There are no&#xA;      constraints on the format or representation of either A or B,&#xA;      neither are there any further constraints on either resource."/>
+   </concept>
+   <concept>
+      <code value="disclosure"/>
+      <display value="Refers to a list of patent disclosures made with respect to &#xA;      material for which 'disclosure' relation is specified."/>
+      <definition value="Refers to a list of patent disclosures made with respect to &#xA;      material for which 'disclosure' relation is specified."/>
+   </concept>
+   <concept>
+      <code value="dns-prefetch"/>
+      <display value="Used to indicate an origin that will be used to fetch required &#xA;      resources for the link context, and that the user agent ought to resolve &#xA;      as early as possible."/>
+      <definition value="Used to indicate an origin that will be used to fetch required &#xA;      resources for the link context, and that the user agent ought to resolve &#xA;      as early as possible."/>
+   </concept>
+   <concept>
+      <code value="duplicate"/>
+      <display value="Refers to a resource whose available representations&#xA;      are byte-for-byte identical with the corresponding representations of&#xA;      the context IRI."/>
+      <definition value="Refers to a resource whose available representations&#xA;      are byte-for-byte identical with the corresponding representations of&#xA;      the context IRI."/>
+   </concept>
+   <concept>
+      <code value="edit"/>
+      <display value="Refers to a resource that can be used to edit the&#xA;      link's context."/>
+      <definition value="Refers to a resource that can be used to edit the&#xA;      link's context."/>
+   </concept>
+   <concept>
+      <code value="edit-form"/>
+      <display value="The target IRI points to a resource where a submission form for&#xA;      editing associated resource can be obtained."/>
+      <definition value="The target IRI points to a resource where a submission form for&#xA;      editing associated resource can be obtained."/>
+   </concept>
+   <concept>
+      <code value="edit-media"/>
+      <display value="Refers to a resource that can be used to edit media&#xA;      associated with the link's context."/>
+      <definition value="Refers to a resource that can be used to edit media&#xA;      associated with the link's context."/>
+   </concept>
+   <concept>
+      <code value="enclosure"/>
+      <display value="Identifies a related resource that is potentially&#xA;      large and might require special handling."/>
+      <definition value="Identifies a related resource that is potentially&#xA;      large and might require special handling."/>
+   </concept>
+   <concept>
+      <code value="external"/>
+      <display value="Refers to a resource that is not part of the same site as the current context."/>
+      <definition value="Refers to a resource that is not part of the same site as the current context."/>
+   </concept>
+   <concept>
+      <code value="first"/>
+      <display value="An IRI that refers to the furthest preceding resource&#xA;    in a series of resources."/>
+      <definition value="An IRI that refers to the furthest preceding resource&#xA;    in a series of resources."/>
+   </concept>
+   <concept>
+      <code value="glossary"/>
+      <display value="Refers to a glossary of terms."/>
+      <definition value="Refers to a glossary of terms."/>
+   </concept>
+   <concept>
+      <code value="help"/>
+      <display value="Refers to context-sensitive help."/>
+      <definition value="Refers to context-sensitive help."/>
+   </concept>
+   <concept>
+      <code value="hosts"/>
+      <display value="Refers to a resource hosted by the server indicated by&#xA;      the link context."/>
+      <definition value="Refers to a resource hosted by the server indicated by&#xA;      the link context."/>
+   </concept>
+   <concept>
+      <code value="hub"/>
+      <display value="Refers to a hub that enables registration for&#xA;    notification of updates to the context."/>
+      <definition value="Refers to a hub that enables registration for&#xA;    notification of updates to the context."/>
+   </concept>
+   <concept>
+      <code value="icon"/>
+      <display value="Refers to an icon representing the link's context."/>
+      <definition value="Refers to an icon representing the link's context."/>
+   </concept>
+   <concept>
+      <code value="index"/>
+      <display value="Refers to an index."/>
+      <definition value="Refers to an index."/>
+   </concept>
+   <concept>
+      <code value="intervalAfter"/>
+      <display value="refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that ends before the beginning of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalBefore"/>
+      <display value="refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalContains"/>
+      <display value="refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalDisjoint"/>
+      <display value="refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins after the end of the time interval associated with the context resource, or ends before the beginning of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalDuring"/>
+      <display value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalEquals"/>
+      <display value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalFinishedBy"/>
+      <display value="refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins after the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalFinishes"/>
+      <display value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and whose end coincides with the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalIn"/>
+      <display value="refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins before or is coincident with the beginning of the time interval associated with the context resource, and ends after or is coincident with the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalMeets"/>
+      <display value="refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval whose beginning coincides with the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalMetBy"/>
+      <display value="refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval whose end coincides with the beginning of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalOverlappedBy"/>
+      <display value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins before the beginning of the time interval associated with the context resource, and ends after the beginning of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalOverlaps"/>
+      <display value="refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval that begins before the end of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalStartedBy"/>
+      <display value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends before the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="intervalStarts"/>
+      <display value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+      <definition value="refers to a resource associated with a time interval whose beginning coincides with the beginning of the time interval associated with the context resource, and ends after the end of the time interval associated with the context resource"/>
+   </concept>
+   <concept>
+      <code value="item"/>
+      <display value="The target IRI points to a resource that is a member of the collection represented by the context IRI."/>
+      <definition value="The target IRI points to a resource that is a member of the collection represented by the context IRI."/>
+   </concept>
+   <concept>
+      <code value="last"/>
+      <display value="An IRI that refers to the furthest following resource&#xA;      in a series of resources."/>
+      <definition value="An IRI that refers to the furthest following resource&#xA;      in a series of resources."/>
+   </concept>
+   <concept>
+      <code value="latest-version"/>
+      <display value="Points to a resource containing the latest (e.g.,&#xA;      current) version of the context."/>
+      <definition value="Points to a resource containing the latest (e.g.,&#xA;      current) version of the context."/>
+   </concept>
+   <concept>
+      <code value="license"/>
+      <display value="Refers to a license associated with this context."/>
+      <definition value="Refers to a license associated with this context."/>
+   </concept>
+   <concept>
+      <code value="linkset"/>
+      <display value="The link target of a link with the &#34;linkset&#34; relation&#xA;      type provides a set of links, including links in which the link&#xA;      context of the link participates.&#xA;    "/>
+      <definition value="The link target of a link with the &#34;linkset&#34; relation&#xA;      type provides a set of links, including links in which the link&#xA;      context of the link participates.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="lrdd"/>
+      <display value="Refers to further information about the link's context,&#xA;      expressed as a LRDD (&#34;Link-based Resource Descriptor Document&#34;)&#xA;      resource.  See  for information about&#xA;      processing this relation type in host-meta documents. When used&#xA;      elsewhere, it refers to additional links and other metadata.&#xA;      Multiple instances indicate additional LRDD resources. LRDD&#xA;      resources MUST have an &#34;application/xrd+xml&#34; representation, and&#xA;      MAY have others."/>
+      <definition value="Refers to further information about the link's context,&#xA;      expressed as a LRDD (&#34;Link-based Resource Descriptor Document&#34;)&#xA;      resource.  See  for information about&#xA;      processing this relation type in host-meta documents. When used&#xA;      elsewhere, it refers to additional links and other metadata.&#xA;      Multiple instances indicate additional LRDD resources. LRDD&#xA;      resources MUST have an &#34;application/xrd+xml&#34; representation, and&#xA;      MAY have others."/>
+   </concept>
+   <concept>
+      <code value="manifest"/>
+      <display value="Links to a manifest file for the context."/>
+      <definition value="Links to a manifest file for the context."/>
+   </concept>
+   <concept>
+      <code value="mask-icon"/>
+      <display value="Refers to a mask that can be applied to the icon for the context."/>
+      <definition value="Refers to a mask that can be applied to the icon for the context."/>
+   </concept>
+   <concept>
+      <code value="media-feed"/>
+      <display value="Refers to a feed of personalised media recommendations relevant to the link context."/>
+      <definition value="Refers to a feed of personalised media recommendations relevant to the link context."/>
+   </concept>
+   <concept>
+      <code value="memento"/>
+      <display value="The Target IRI points to a Memento, a fixed resource that will not change state anymore."/>
+      <definition value="The Target IRI points to a Memento, a fixed resource that will not change state anymore."/>
+   </concept>
+   <concept>
+      <code value="micropub"/>
+      <display value="Links to the context's Micropub endpoint."/>
+      <definition value="Links to the context's Micropub endpoint."/>
+   </concept>
+   <concept>
+      <code value="modulepreload"/>
+      <display value="Refers to a module that the user agent is to preemptively fetch and store for use in the current context."/>
+      <definition value="Refers to a module that the user agent is to preemptively fetch and store for use in the current context."/>
+   </concept>
+   <concept>
+      <code value="monitor"/>
+      <display value="Refers to a resource that can be used to monitor changes in an HTTP resource.&#xA;    "/>
+      <definition value="Refers to a resource that can be used to monitor changes in an HTTP resource.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="monitor-group"/>
+      <display value="Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.&#xA;    "/>
+      <definition value="Refers to a resource that can be used to monitor changes in a specified group of HTTP resources.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="next"/>
+      <display value="Indicates that the link's context is a part of a series, and&#xA;      that the next in the series is the link target.&#xA;    "/>
+      <definition value="Indicates that the link's context is a part of a series, and&#xA;      that the next in the series is the link target.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="next-archive"/>
+      <display value="Refers to the immediately following archive resource."/>
+      <definition value="Refers to the immediately following archive resource."/>
+   </concept>
+   <concept>
+      <code value="nofollow"/>
+      <display value="Indicates that the context’s original author or publisher does not endorse the link target."/>
+      <definition value="Indicates that the context’s original author or publisher does not endorse the link target."/>
+   </concept>
+   <concept>
+      <code value="noopener"/>
+      <display value="Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context."/>
+      <definition value="Indicates that any newly created top-level browsing context which results from following the link will not be an auxiliary browsing context."/>
+   </concept>
+   <concept>
+      <code value="noreferrer"/>
+      <display value="Indicates that no referrer information is to be leaked when following the link."/>
+      <definition value="Indicates that no referrer information is to be leaked when following the link."/>
+   </concept>
+   <concept>
+      <code value="opener"/>
+      <display value="Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context."/>
+      <definition value="Indicates that any newly created top-level browsing context which results from following the link will be an auxiliary browsing context."/>
+   </concept>
+   <concept>
+      <code value="openid2.local_id"/>
+      <display value="Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier."/>
+      <definition value="Refers to an OpenID Authentication server on which the context relies for an assertion that the end user controls an Identifier."/>
+   </concept>
+   <concept>
+      <code value="openid2.provider"/>
+      <display value="Refers to a resource which accepts OpenID Authentication protocol messages for the context."/>
+      <definition value="Refers to a resource which accepts OpenID Authentication protocol messages for the context."/>
+   </concept>
+   <concept>
+      <code value="original"/>
+      <display value="The Target IRI points to an Original Resource."/>
+      <definition value="The Target IRI points to an Original Resource."/>
+   </concept>
+   <concept>
+      <code value="P3Pv1"/>
+      <display value="Refers to a P3P privacy policy for the context."/>
+      <definition value="Refers to a P3P privacy policy for the context."/>
+   </concept>
+   <concept>
+      <code value="payment"/>
+      <display value="Indicates a resource where payment is accepted."/>
+      <definition value="Indicates a resource where payment is accepted."/>
+   </concept>
+   <concept>
+      <code value="pingback"/>
+      <display value="Gives the address of the pingback resource for the link context."/>
+      <definition value="Gives the address of the pingback resource for the link context."/>
+   </concept>
+   <concept>
+      <code value="preconnect"/>
+      <display value="Used to indicate an origin that will be used to fetch required &#xA;      resources for the link context. Initiating an early connection, which &#xA;      includes the DNS lookup, TCP handshake, and optional TLS negotiation, &#xA;      allows the user agent to mask the high latency costs of establishing a &#xA;      connection."/>
+      <definition value="Used to indicate an origin that will be used to fetch required &#xA;      resources for the link context. Initiating an early connection, which &#xA;      includes the DNS lookup, TCP handshake, and optional TLS negotiation, &#xA;      allows the user agent to mask the high latency costs of establishing a &#xA;      connection."/>
+   </concept>
+   <concept>
+      <code value="predecessor-version"/>
+      <display value="Points to a resource containing the predecessor&#xA;      version in the version history.&#xA;    "/>
+      <definition value="Points to a resource containing the predecessor&#xA;      version in the version history.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="prefetch"/>
+      <display value="The prefetch link relation type is used to identify a resource &#xA;      that might be required by the next navigation from the link context, and &#xA;      that the user agent ought to fetch, such that the user agent can deliver a &#xA;      faster response once the resource is requested in the future."/>
+      <definition value="The prefetch link relation type is used to identify a resource &#xA;      that might be required by the next navigation from the link context, and &#xA;      that the user agent ought to fetch, such that the user agent can deliver a &#xA;      faster response once the resource is requested in the future."/>
+   </concept>
+   <concept>
+      <code value="preload"/>
+      <display value="Refers to a resource that should be loaded early in the &#xA;      processing of the link's context, without blocking rendering."/>
+      <definition value="Refers to a resource that should be loaded early in the &#xA;      processing of the link's context, without blocking rendering."/>
+   </concept>
+   <concept>
+      <code value="prerender"/>
+      <display value="Used to identify a resource that might be required by the next &#xA;      navigation from the link context, and that the user agent ought to fetch &#xA;      and execute, such that the user agent can deliver a faster response once &#xA;      the resource is requested in the future."/>
+      <definition value="Used to identify a resource that might be required by the next &#xA;      navigation from the link context, and that the user agent ought to fetch &#xA;      and execute, such that the user agent can deliver a faster response once &#xA;      the resource is requested in the future."/>
+   </concept>
+   <concept>
+      <code value="prev"/>
+      <display value="Indicates that the link's context is a part of a series, and&#xA;      that the previous in the series is the link target.&#xA;    "/>
+      <definition value="Indicates that the link's context is a part of a series, and&#xA;      that the previous in the series is the link target.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="preview"/>
+      <display value="Refers to a resource that provides a preview of the link's context."/>
+      <definition value="Refers to a resource that provides a preview of the link's context."/>
+   </concept>
+   <concept>
+      <code value="previous"/>
+      <display value="Refers to the previous resource in an ordered series&#xA;      of resources.  Synonym for &#34;prev&#34;."/>
+      <definition value="Refers to the previous resource in an ordered series&#xA;      of resources.  Synonym for &#34;prev&#34;."/>
+   </concept>
+   <concept>
+      <code value="prev-archive"/>
+      <display value="Refers to the immediately preceding archive resource."/>
+      <definition value="Refers to the immediately preceding archive resource."/>
+   </concept>
+   <concept>
+      <code value="privacy-policy"/>
+      <display value="Refers to a privacy policy associated with the link's context."/>
+      <definition value="Refers to a privacy policy associated with the link's context."/>
+   </concept>
+   <concept>
+      <code value="profile"/>
+      <display value="Identifying that a resource representation conforms&#xA;to a certain profile, without affecting the non-profile semantics&#xA;of the resource representation."/>
+      <definition value="Identifying that a resource representation conforms&#xA;to a certain profile, without affecting the non-profile semantics&#xA;of the resource representation."/>
+   </concept>
+   <concept>
+      <code value="publication"/>
+      <display value="Links to a publication manifest. A manifest represents &#xA;      structured information about a publication, such as informative metadata, &#xA;      a list of resources, and a default reading order."/>
+      <definition value="Links to a publication manifest. A manifest represents &#xA;      structured information about a publication, such as informative metadata, &#xA;      a list of resources, and a default reading order."/>
+   </concept>
+   <concept>
+      <code value="related"/>
+      <display value="Identifies a related resource."/>
+      <definition value="Identifies a related resource."/>
+   </concept>
+   <concept>
+      <code value="restconf"/>
+      <display value="Identifies the root of RESTCONF API as configured on this HTTP server.&#xA;      The &#34;restconf&#34; relation defines the root of the API defined in RFC8040.&#xA;      Subsequent revisions of RESTCONF will use alternate relation values to support &#xA;      protocol versioning."/>
+      <definition value="Identifies the root of RESTCONF API as configured on this HTTP server.&#xA;      The &#34;restconf&#34; relation defines the root of the API defined in RFC8040.&#xA;      Subsequent revisions of RESTCONF will use alternate relation values to support &#xA;      protocol versioning."/>
+   </concept>
+   <concept>
+      <code value="replies"/>
+      <display value="Identifies a resource that is a reply to the context&#xA;      of the link.&#xA;    "/>
+      <definition value="Identifies a resource that is a reply to the context&#xA;      of the link.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="ruleinput"/>
+      <display value="The resource identified by the link target provides an input value to an &#xA;    instance of a rule, where the resource which represents the rule instance is &#xA;    identified by the link context.&#xA;    "/>
+      <definition value="The resource identified by the link target provides an input value to an &#xA;    instance of a rule, where the resource which represents the rule instance is &#xA;    identified by the link context.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="search"/>
+      <display value="Refers to a resource that can be used to search through&#xA;      the link's context and related resources."/>
+      <definition value="Refers to a resource that can be used to search through&#xA;      the link's context and related resources."/>
+   </concept>
+   <concept>
+      <code value="section"/>
+      <display value="Refers to a section in a collection of resources."/>
+      <definition value="Refers to a section in a collection of resources."/>
+   </concept>
+   <concept>
+      <code value="self"/>
+      <display value="Conveys an identifier for the link's context.&#xA;    "/>
+      <definition value="Conveys an identifier for the link's context.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="service"/>
+      <display value="Indicates a URI that can be used to retrieve a&#xA;      service document."/>
+      <definition value="Indicates a URI that can be used to retrieve a&#xA;      service document."/>
+   </concept>
+   <concept>
+      <code value="service-desc"/>
+      <display value="Identifies service description for the context that&#xA;      is primarily intended for consumption by machines."/>
+      <definition value="Identifies service description for the context that&#xA;      is primarily intended for consumption by machines."/>
+   </concept>
+   <concept>
+      <code value="service-doc"/>
+      <display value="Identifies service documentation for the context that&#xA;      is primarily intended for human consumption."/>
+      <definition value="Identifies service documentation for the context that&#xA;      is primarily intended for human consumption."/>
+   </concept>
+   <concept>
+      <code value="service-meta"/>
+      <display value="Identifies general metadata for the context that is&#xA;      primarily intended for consumption by machines."/>
+      <definition value="Identifies general metadata for the context that is&#xA;      primarily intended for consumption by machines."/>
+   </concept>
+   <concept>
+      <code value="sponsored"/>
+      <display value="Refers to a resource that is within a context that is &#xA;&#x9;&#x9;sponsored (such as advertising or another compensation agreement)."/>
+      <definition value="Refers to a resource that is within a context that is &#xA;&#x9;&#x9;sponsored (such as advertising or another compensation agreement)."/>
+   </concept>
+   <concept>
+      <code value="start"/>
+      <display value="Refers to the first resource in a collection of&#xA;      resources."/>
+      <definition value="Refers to the first resource in a collection of&#xA;      resources."/>
+   </concept>
+   <concept>
+      <code value="status"/>
+      <display value="Identifies a resource that represents the context's&#xA;      status."/>
+      <definition value="Identifies a resource that represents the context's&#xA;      status."/>
+   </concept>
+   <concept>
+      <code value="stylesheet"/>
+      <display value="Refers to a stylesheet."/>
+      <definition value="Refers to a stylesheet."/>
+   </concept>
+   <concept>
+      <code value="subsection"/>
+      <display value="Refers to a resource serving as a subsection in a&#xA;      collection of resources."/>
+      <definition value="Refers to a resource serving as a subsection in a&#xA;      collection of resources."/>
+   </concept>
+   <concept>
+      <code value="successor-version"/>
+      <display value="Points to a resource containing the successor version&#xA;      in the version history.&#xA;    "/>
+      <definition value="Points to a resource containing the successor version&#xA;      in the version history.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="sunset"/>
+      <display value="Identifies a resource that provides information about&#xA;      the context's retirement policy.&#xA;    "/>
+      <definition value="Identifies a resource that provides information about&#xA;      the context's retirement policy.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="tag"/>
+      <display value="Gives a tag (identified by the given address) that applies to&#xA;      the current document.&#xA;    "/>
+      <definition value="Gives a tag (identified by the given address) that applies to&#xA;      the current document.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="terms-of-service"/>
+      <display value="Refers to the terms of service associated with the link's context."/>
+      <definition value="Refers to the terms of service associated with the link's context."/>
+   </concept>
+   <concept>
+      <code value="timegate"/>
+      <display value="The Target IRI points to a TimeGate for an Original Resource."/>
+      <definition value="The Target IRI points to a TimeGate for an Original Resource."/>
+   </concept>
+   <concept>
+      <code value="timemap"/>
+      <display value="The Target IRI points to a TimeMap for an Original Resource."/>
+      <definition value="The Target IRI points to a TimeMap for an Original Resource."/>
+   </concept>
+   <concept>
+      <code value="type"/>
+      <display value="Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance."/>
+      <definition value="Refers to a resource identifying the abstract semantic type of which the link's context is considered to be an instance."/>
+   </concept>
+   <concept>
+      <code value="ugc"/>
+      <display value="Refers to a resource that is within a context that is User Generated Content.&#xA;    "/>
+      <definition value="Refers to a resource that is within a context that is User Generated Content.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="up"/>
+      <display value="Refers to a parent document in a hierarchy of&#xA;      documents.&#xA;    "/>
+      <definition value="Refers to a parent document in a hierarchy of&#xA;      documents.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="version-history"/>
+      <display value="Points to a resource containing the version history&#xA;      for the context.&#xA;    "/>
+      <definition value="Points to a resource containing the version history&#xA;      for the context.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="via"/>
+      <display value="Identifies a resource that is the source of the&#xA;      information in the link's context.&#xA;    "/>
+      <definition value="Identifies a resource that is the source of the&#xA;      information in the link's context.&#xA;    "/>
+   </concept>
+   <concept>
+      <code value="webmention"/>
+      <display value="Identifies a target URI that supports the Webmention protocol.&#xA;    This allows clients that mention a resource in some form of publishing process&#xA;    to contact that endpoint and inform it that this resource has been mentioned."/>
+      <definition value="Identifies a target URI that supports the Webmention protocol.&#xA;    This allows clients that mention a resource in some form of publishing process&#xA;    to contact that endpoint and inform it that this resource has been mentioned."/>
+   </concept>
+   <concept>
+      <code value="working-copy"/>
+      <display value="Points to a working copy for this resource."/>
+      <definition value="Points to a working copy for this resource."/>
+   </concept>
+   <concept>
+      <code value="working-copy-of"/>
+      <display value="Points to the versioned resource from which this&#xA;      working copy was obtained.&#xA;    "/>
+      <definition value="Points to the versioned resource from which this&#xA;      working copy was obtained.&#xA;    "/>
+   </concept>
 </CodeSystem>
