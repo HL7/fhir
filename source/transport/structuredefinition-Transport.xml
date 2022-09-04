@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Transport"/>
   <meta> 
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Transport"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1071"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Transport"/>
   <status value="draft"/>
@@ -155,7 +157,7 @@
     <element id="Transport.basedOn">
       <path value="Transport.basedOn"/>
       <short value="Request fulfilled by this transport"/>
-      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &quot;request&quot; resource such as a ServiceRequest or Transport, which is distinct from the &quot;request&quot; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
+      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &#34;request&#34; resource such as a ServiceRequest or Transport, which is distinct from the &#34;request&#34; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -269,14 +271,14 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&#34;status change&#34;].reasonCode"/>
       </mapping>
     </element>
     <element id="Transport.intent">
       <path value="Transport.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
-      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
+      <definition value="Indicates the &#34;level&#34; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
+      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &#34;order&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -320,7 +322,7 @@
           <valueString value="TransportPriority"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The transport&#39;s priority."/>
+          <valueString value="The transport's priority."/>
         </extension>
         <strength value="required"/>
         <description value="The priority of a transport (may affect service level applied to the transport)."/>
@@ -343,7 +345,7 @@
       <path value="Transport.code"/>
       <short value="Transport Type"/>
       <definition value="A name or code (or both) briefly describing what the transport involves."/>
-      <comment value="The title (eg &quot;My Transports&quot;, &quot;Outstanding Transports for Patient X&quot;) should go into the code."/>
+      <comment value="The title (eg &#34;My Transports&#34;, &#34;Outstanding Transports for Patient X&#34;) should go into the code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -497,7 +499,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.authoredOn"/>
@@ -522,7 +523,6 @@
       <type>
         <code value="dateTime"/>
       </type>
-      <condition value="inv-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -750,7 +750,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
+        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value(string)"/>
       </mapping>
     </element>
     <element id="Transport.relevantHistory">
@@ -782,7 +782,7 @@
       <path value="Transport.restriction"/>
       <short value="Constraints on fulfillment transports"/>
       <definition value="If the Transport.focus is a request resource and the transport is seeking fulfillment (i.e. is asking for the request to be actioned), this element identifies any limitations on what parts of the referenced request should be actioned."/>
-      <requirements value="Sometimes when fulfillment is sought, you don&#39;t want full fulfillment."/>
+      <requirements value="Sometimes when fulfillment is sought, you don't want full fulfillment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -813,7 +813,7 @@
       <short value="When fulfillment sought"/>
       <definition value="Over what time-period is fulfillment sought."/>
       <comment value="Note that period.high is the due date representing the time by which the transport should be completed."/>
-      <requirements value="E.g. order that authorizes 1 year&#39;s services.  Fulfillment is sought for next 3 months."/>
+      <requirements value="E.g. order that authorizes 1 year's services.  Fulfillment is sought for next 3 months."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -870,7 +870,7 @@
       <path value="Transport.input.type"/>
       <short value="Label for the input"/>
       <definition value="A code or description indicating how the input is intended to be used as part of the transport execution."/>
-      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
+      <comment value="If referencing a BPMN workflow or Protocol, the &#34;system&#34; is the URL for the workflow definition and the code is the &#34;name&#34; of the required input."/>
       <requirements value="Inputs are named to enable transport automation to bind data and pass it from one transport to the next."/>
       <alias value="Name"/>
       <min value="1"/>
@@ -883,7 +883,7 @@
           <valueString value="TransportInputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Comparison source&#34;, &#34;Applicable consent&#34;, &#34;Concomitent Medications&#34;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1088,7 +1088,7 @@
           <valueString value="TransportOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Identified issues&#34;, &#34;Preliminary results&#34;, &#34;Filler order&#34;, &#34;Final results&#34;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>

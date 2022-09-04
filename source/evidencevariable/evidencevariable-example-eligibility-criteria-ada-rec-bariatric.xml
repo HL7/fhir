@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+  <id value="example-eligibility-criteria-ada-rec-bariatric"/>
+  <identifier>
+    <type>
+      <text value="FEvIR Object Identifier"/>
+    </type>
+    <system value="https://fevir.net"/>
+    <value value="32140"/>
+    <assigner>
+      <display value="Computable Publishing LLC"/>
+    </assigner>
+  </identifier>
+  <title value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+  <shortTitle value="Recommend bariatric surgery if BMI 35 or higher"/>
+  <status value="active"/>
+  <publisher value="Computable Publishing LLC"/>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="support@computablepublishing.com"/>
+    </telecom>
+  </contact>
+  <description value="Inclusion Criteria: [[1]] Adults. [[2]] Diagnosed with type 2 diabetes. [[3]] Body Mass Index (BMI) ≥ 40.0 kg/m2 (BMI ≥ 37.5 kg/m2 in Asian Americans), or BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 (BMI 32.5-37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods. [[4]] Screened surgical candidates."/>
+  <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
+  <effectivePeriod>
+    <start value="2021-01"/>
+  </effectivePeriod>
+  <author>
+    <name value="Brian S. Alper"/>
+  </author>  
+  <actual value="false"/>
+  <characteristic>
+    <description value="Adult."/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="397669002"/>
+          <display value="Age"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="18"/>
+        <comparator value="&gt;="/>
+        <unit value="years"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="Diagnosed with type 2 diabetes."/>
+    <exclude value="false"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64572001"/>
+          <display value="Disease (disorder)"/>
+        </coding>
+        <coding>
+          <system value="http://hl7.org/fhir/resource-types"/>
+          <code value="Condition"/>
+          <display value="Condition"/>
+        </coding>
+      </type>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="44054006"/>
+          <display value="Diabetes mellitus type 2 (disorder)"/>
+        </coding>
+      </valueCodeableConcept>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="Body Mass Index (BMI) ≥ 40.0 kg/m2 (BMI ≥ 37.5 kg/m2 in Asian Americans), or BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 (BMI 32.5-37.4 kg/m2 in Asian Americans) who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
+    <definitionByCombination>
+      <code value="any-of"/>
+      <characteristic>
+        <description value="Body Mass Index (BMI) ≥ 40.0 kg/m2"/>
+        <exclude value="false"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://loinc.org"/>
+              <code value="39156-5"/>
+              <display value="Body mass index (BMI) [Ratio]"/>
+            </coding>
+          </type>
+          <valueQuantity>
+            <value value="40"/>
+            <comparator value="&gt;="/>
+            <unit value="kg/m2"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="kg/m2"/>
+          </valueQuantity>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="BMI ≥ 37.5 kg/m2 in Asian Americans"/>
+        <definitionByCombination>
+          <code value="all-of"/>
+          <characteristic>
+            <description value="BMI ≥ 37.5 kg/m2"/>
+            <exclude value="false"/>
+            <definitionByTypeAndValue>
+              <type>
+                <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="39156-5"/>
+                  <display value="Body mass index (BMI) [Ratio]"/>
+                </coding>
+              </type>
+              <valueQuantity>
+                <value value="37.5"/>
+                <comparator value="&gt;="/>
+                <unit value="kg/m2"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="kg/m2"/>
+              </valueQuantity>
+            </definitionByTypeAndValue>
+          </characteristic>
+          <characteristic>
+            <linkId value="AsianAmerican"/>
+            <description value="Asian American"/>
+            <note>
+              <text value="The evidence and guideline panel decision to modify the BMI threshold for Asian Americans is based on data mostly from Asian Americans not generally including Native Hawaiians and other Pacific Islanders, so it is not explicit whether the modified thresholds apply to Native Hawaiians and other Pacific Islanders. See https://diabetesjournals.org/care/article/38/1/150/37769/BMI-Cut-Points-to-Identify-At-Risk-Asian-Americans for details"/>
+            </note>
+            <definitionByTypeAndValue>
+              <type>
+                <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="103579009"/>
+                  <display value="Race (observable entity)"/>
+                </coding>
+              </type>
+              <valueCodeableConcept>
+                <coding>
+                  <system value="urn:oid:2.16.840.1.113883.6.238"/>
+                  <code value="2028-9"/>
+                  <display value="Asian"/>
+                </coding>
+                <text value="Asian American"/>
+              </valueCodeableConcept>
+            </definitionByTypeAndValue>
+          </characteristic>
+        </definitionByCombination>
+      </characteristic>
+      <characteristic>
+        <description value="BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2 who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
+        <definitionByCombination>
+          <code value="all-of"/>
+          <characteristic>
+            <description value="BMI ≥ 35.0 kg/m2 and ≤ 39.9 kg/m2"/>
+            <definitionByTypeAndValue>
+              <type>
+                <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="39156-5"/>
+                  <display value="Body mass index (BMI) [Ratio]"/>
+                </coding>
+              </type>
+              <valueRange>
+                <low>
+                  <value value="35"/>
+                  <unit value="kg/m2"/>
+                  <system value="http://unitsofmeasure.org"/>
+                  <code value="kg/m2"/>
+                </low>
+                <high>
+                  <value value="39.9"/>
+                  <unit value="kg/m2"/>
+                  <system value="http://unitsofmeasure.org"/>
+                  <code value="kg/m2"/>
+                </high>
+              </valueRange>
+            </definitionByTypeAndValue>
+          </characteristic>
+          <characteristic>
+            <description value="who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
+            <exclude value="true"/>
+            <definitionCodeableConcept>
+              <text value="achieving durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods"/>
+            </definitionCodeableConcept>
+          </characteristic>
+        </definitionByCombination>
+      </characteristic>
+      <characteristic>
+        <description value="BMI ≥ 32.5 kg/m2 and ≤ 37.4 kg/m2 in Asian Americans who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
+        <definitionByCombination>
+          <code value="all-of"/>
+          <characteristic>
+            <description value="BMI ≥ 32.5 kg/m2 and ≤ 37.4 kg/m2"/>
+            <definitionByTypeAndValue>
+              <type>
+                <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="39156-5"/>
+                  <display value="Body mass index (BMI) [Ratio]"/>
+                </coding>
+              </type>
+              <valueRange>
+                <low>
+                  <value value="32.5"/>
+                  <unit value="kg/m2"/>
+                  <system value="http://unitsofmeasure.org"/>
+                  <code value="kg/m2"/>
+                </low>
+                <high>
+                  <value value="37.4"/>
+                  <unit value="kg/m2"/>
+                  <system value="http://unitsofmeasure.org"/>
+                  <code value="kg/m2"/>
+                </high>
+              </valueRange>
+            </definitionByTypeAndValue>
+          </characteristic>
+          <characteristic>
+            <description value="Asian American"/>
+            <definitionId value="AsianAmerican"/>
+          </characteristic>
+          <characteristic>
+            <description value="who do not achieve durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods."/>
+            <exclude value="true"/>
+            <definitionCodeableConcept>
+              <text value="achieving durable weight loss and improvement in comorbidities (including hyperglycemia) with nonsurgical methods"/>
+            </definitionCodeableConcept>
+          </characteristic>
+        </definitionByCombination>
+      </characteristic>
+    </definitionByCombination>
+  </characteristic>
+  <characteristic>
+    <description value="Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months."/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByCombination>
+      <code value="any-of"/>
+      <characteristic>
+        <description value="acute coronary heart disease (a value set covering many forms)"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueReference>
+            <reference value="ValueSet/32152"/>
+            <type value="ValueSet"/>
+            <display value="Acute Coronary Heart Disease Value Set"/>
+          </valueReference>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="coronary artery angioplasty or bypass"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="71388002"/>
+              <display value="Procedure (procedure)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Procedure"/>
+              <display value="Procedure"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="81266008"/>
+              <display value="Heart revascularization (procedure)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="stroke"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="230690007"/>
+              <display value="Cerebrovascular accident (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+    </definitionByCombination>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+	  <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease."/>
+    <note>
+      <text value="This may be possible to encode as presence of Disease(disorder) without &apos;in remission&apos;"/>
+    </note>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionCodeableConcept>
+      <text value="Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease."/>
+    </definitionCodeableConcept>
+  </characteristic>
+  <characteristic>
+    <description value="Cardiac stress test indicating that surgery or IMM would not be safe."/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionCodeableConcept>
+      <text value="Cardiac stress test indicating that surgery or IMM would not be safe."/>
+    </definitionCodeableConcept>
+  </characteristic>
+  <characteristic>
+    <description value="Pulmonary embolus in the past six months."/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64572001"/>
+          <display value="Disease (disorder)"/>
+        </coding>
+        <coding>
+          <system value="http://hl7.org/fhir/resource-types"/>
+          <code value="Condition"/>
+          <display value="Condition"/>
+        </coding>
+      </type>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="59282003"/>
+          <display value="Pulmonary embolism (disorder)"/>
+        </coding>
+      </valueCodeableConcept>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+      <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Thrombophlebitis in the past six months."/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64572001"/>
+          <display value="Disease (disorder)"/>
+        </coding>
+        <coding>
+          <system value="http://hl7.org/fhir/resource-types"/>
+          <code value="Condition"/>
+          <display value="Condition"/>
+        </coding>
+      </type>
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="64156001"/>
+          <display value="Thrombophlebitis (disorder)"/>
+        </coding>
+      </valueCodeableConcept>
+    </definitionByTypeAndValue>
+    <timeFromEvent>
+      <description value="in the past six months"/>
+      <note>
+        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      </note>
+      <range>
+        <low>
+          <value value="-6"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </low>
+        <high>
+          <value value="0"/>
+          <unit value="months"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mo"/>
+        </high>
+      </range>
+    </timeFromEvent>
+  </characteristic>
+  <characteristic>
+    <description value="Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years."/>
+    <note>
+      <text value="This combination logic fails if the patient has both a basal cell skin cancer or cancer in situ and a cancer of another kind."/>
+    </note>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByCombination>
+      <code value="all-of"/>
+      <characteristic>
+        <description value="Cancer of any kind"/>
+        <exclude value="false"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="363346000"/>
+              <display value="Malignant neoplastic disease (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="(except basal cell skin cancer)"/>
+        <exclude value="true"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="254701007"/>
+              <display value="Basal cell carcinoma of skin (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="(except cancer in situ)"/>
+        <exclude value="true"/>
+        <definitionByTypeAndValue>
+          <type>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="64572001"/>
+              <display value="Disease (disorder)"/>
+            </coding>
+            <coding>
+              <system value="http://hl7.org/fhir/resource-types"/>
+              <code value="Condition"/>
+              <display value="Condition"/>
+            </coding>
+          </type>
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="109355002"/>
+              <display value="Carcinoma in situ (disorder)"/>
+            </coding>
+          </valueCodeableConcept>
+        </definitionByTypeAndValue>
+      </characteristic>
+      <characteristic>
+        <description value="unless documented to be disease-free for five years"/>
+        <exclude value="true"/>
+        <definitionCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="395100000"/>
+            <display value="No evidence of cancer found (situation)"/>
+          </coding>
+        </definitionCodeableConcept>
+        <timeFromEvent>
+          <description value="for five years"/>
+          <note>
+            <text value="presence throughout the range is equivalent to &apos;for five years&apos;"/>
+          </note>
+          <range>
+            <low>
+              <value value="-5"/>
+              <unit value="years"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="a"/>
+            </low>
+            <high>
+              <value value="0"/>
+              <unit value="years"/>
+              <system value="http://unitsofmeasure.org"/>
+              <code value="a"/>
+            </high>
+          </range>
+        </timeFromEvent>
+      </characteristic>
+    </definitionByCombination>
+  </characteristic>
+  <characteristic>
+    <description value="History of coagulopathy"/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionCodeableConcept>
+      <text value="history of coagulopathy"/>
+    </definitionCodeableConcept>
+  </characteristic>
+  <characteristic>
+    <description value="Significant anemia (hemoglobin 1.0 g or more below normal range)"/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="718-7"/>
+          <display value="Hemoglobin [Mass/volume] in Blood"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="-1"/>
+        <comparator value="&lt;="/>
+        <unit value="g/dL"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="g/dL"/>
+      </valueQuantity>
+      <offset>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+          <code value="LNL"/>
+          <display value="Lower Normal Limit"/>
+        </coding>
+      </offset>
+    </definitionByTypeAndValue>
+  </characteristic>
+  <characteristic>
+    <description value="Serum creatinine ≥ 1.5 mg/dl"/>
+    <note>
+      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+    </note>
+    <exclude value="true"/>
+    <definitionByTypeAndValue>
+      <type>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="2160-0"/>
+          <display value="Creatinine [Mass/volume] in Serum or Plasma"/>
+        </coding>
+      </type>
+      <valueQuantity>
+        <value value="1.5"/>
+        <comparator value="&gt;="/>
+        <unit value="mg/dl"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mg/dL"/>
+      </valueQuantity>
+    </definitionByTypeAndValue>
+  </characteristic>
+</EvidenceVariable>

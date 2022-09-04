@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Task xmlns="http://hl7.org/fhir">
+  <!-- Example from https://hl7.org/fhir/uv/cpg/Task-request-dnci-scenario4.xml.html -->
+  <id value="cpg-example-1"/>
+  <!--<instantiatesCanonical value="http://hl7.org/fhir/uv/cpg/ActivityDefinition/activity-example-collectinformation"/>-->
+  <status value="ready"/>
+  <intent value="order"/>
+  <doNotPerform value="true"/>
+  <code>
+    <!--
+    <coding>
+      <system value="http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type"/>
+      <code value="collect-information"/>
+      <display value="Collect information"/>
+    </coding>
+    -->
+    <text value="Collect information"/>
+  </code>
+  <for>
+    <!--<reference value="Patient/dnci-scenario4"/>-->
+    <reference value="Patient/example"/>
+  </for>
+  <input>
+    <type>
+      <!--
+      <coding>
+        <system value="http://hl7.org/fhir/uv/cpg/CodeSystem/cpg-activity-type"/>
+        <code value="collect-information"/>
+        <display value="Collect information"/>
+      </coding>
+      -->
+      <text value="Collect information"/>
+    </type>
+    <!--<valueCanonical value="http://hl7.org/fhir/uv/cpg/Questionnaire/activity-example-collectinformation"/>-->
+    <valueCanonical value="http://hl7.org/fhir/Questionnaire/f201"/>
+  </input>
+</Task>

@@ -1,8 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
 	<id value="security-label-examples"/>
 	<url value="http://hl7.org/fhir/ValueSet/security-label-examples"/>
-	<version value="2.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3011"/>
+  </identifier>
+  <version value="2.0.0"/>
 	<name value="SecurityLabelExamples"/>
 	<title value="Example set of Security Labels"/>
 	<status value="draft"/>

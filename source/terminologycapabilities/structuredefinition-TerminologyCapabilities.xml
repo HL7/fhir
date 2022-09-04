@@ -1,898 +1,923 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="TerminologyCapabilities"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Terminology"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-  <version value="5.0.0"/>
-  <name value="TerminologyCapabilities"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Vocabulary)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="TerminologyCapabilities"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="TerminologyCapabilities">
-      <path value="TerminologyCapabilities"/>
-      <short value="A statement of system capabilities"/>
-      <definition value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-      <constraint>
-        <key value="tcp-3"/>
-        <severity value="error"/>
-        <human value="If kind = instance, implementation must be present and software may be present"/>
-        <expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-      <constraint>
-        <key value="tcp-2"/>
-        <severity value="error"/>
-        <human value="A Capability Statement SHALL have at least one of description, software, or implementation element."/>
-        <expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
-        <xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-      <constraint>
-        <key value="tcp-5"/>
-        <severity value="error"/>
-        <human value="If kind = requirements, implementation and software must be absent"/>
-        <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-      <constraint>
-        <key value="tcp-4"/>
-        <severity value="error"/>
-        <human value="If kind = capability, implementation must be absent, software must be present"/>
-        <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.behavior"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.url">
-      <path value="TerminologyCapabilities.url"/>
-      <short value="Canonical identifier for this terminology capabilities, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the terminology capabilities to be referenced by a single globally unique identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <constraint>
-        <key value="cnl-1"/>
-        <severity value="warning"/>
-        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-      </constraint>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.identifier">
-      <path value="TerminologyCapabilities.identifier"/>
-      <short value="Additional identifier for the terminology capabilities"/>
-      <definition value="A formal identifier that is used to identify this terminology capabilities when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this terminology capabilities outside of FHIR, where it is not possible to use the logical URI."/>
-      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Identifier"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.version">
-      <path value="TerminologyCapabilities.version"/>
-      <short value="Business version of the terminology capabilities"/>
-      <definition value="The identifier that is used to identify this version of the terminology capabilities when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the terminology capabilities author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different terminology capabilities instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the terminology capabilities with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.name">
-      <path value="TerminologyCapabilities.name"/>
-      <short value="Name for this terminology capabilities (computer friendly)"/>
-      <definition value="A natural language name identifying the terminology capabilities. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.title">
-      <path value="TerminologyCapabilities.title"/>
-      <short value="Name for this terminology capabilities (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the terminology capabilities."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.status">
-      <path value="TerminologyCapabilities.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this terminology capabilities. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of terminology capabilitiess that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.experimental">
-      <path value="TerminologyCapabilities.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of terminology capabilitiess that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level terminology capabilities."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.date">
-      <path value="TerminologyCapabilities.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the terminology capabilities was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the terminology capabilities. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.publisher">
-      <path value="TerminologyCapabilities.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the terminology capabilities."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the terminology capabilities is the organization or individual primarily responsible for the maintenance and upkeep of the terminology capabilities. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the terminology capabilities. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the terminology capabilities.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.contact">
-      <path value="TerminologyCapabilities.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.description">
-      <path value="TerminologyCapabilities.description"/>
-      <short value="Natural language description of the terminology capabilities"/>
-      <definition value="A free text natural language description of the terminology capabilities from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
-      <comment value="This description can be used to capture details such as why the terminology capabilities was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the terminology capabilities as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the terminology capabilities is presumed to be the predominant language in the place the terminology capabilities was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.useContext">
-      <path value="TerminologyCapabilities.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate terminology capabilities instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.jurisdiction">
-      <path value="TerminologyCapabilities.jurisdiction"/>
-      <short value="Intended jurisdiction for terminology capabilities (if applicable)"/>
-      <definition value="A legal or geographic region in which the terminology capabilities is intended to be used."/>
-      <comment value="It may be possible for the terminology capabilities to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.purpose">
-      <path value="TerminologyCapabilities.purpose"/>
-      <short value="Why this terminology capabilities is defined"/>
-      <definition value="Explanation of why this terminology capabilities is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the terminology capabilities. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this terminology capabilities."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.purpose"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.copyright">
-      <path value="TerminologyCapabilities.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the terminology capabilities and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the terminology capabilities."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the terminology capabilities and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="TerminologyCapabilities.kind">
-      <path value="TerminologyCapabilities.kind"/>
-      <short value="instance | capability | requirements"/>
-      <definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)."/>
-      <requirements value="Allow searching the 3 modes."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <condition value="tcp-3"/>
-      <condition value="tcp-4"/>
-      <condition value="tcp-5"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CapabilityStatementKind"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How a capability statement is intended to be used."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
-      </binding>
-    </element>
-    <element id="TerminologyCapabilities.software">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,100"/>
-      </extension>
-      <path value="TerminologyCapabilities.software"/>
-      <short value="Software that is covered by this terminology capability statement"/>
-      <definition value="Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="tcp-2"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.software.name">
-      <path value="TerminologyCapabilities.software.name"/>
-      <short value="A name the software is known by"/>
-      <definition value="Name the software is known by."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.software.version">
-      <path value="TerminologyCapabilities.software.version"/>
-      <short value="Version covered by this statement"/>
-      <definition value="The version identifier for the software covered by this statement."/>
-      <comment value="If possible, a version should be specified, as statements are likely to be different for different versions of software."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.implementation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,200"/>
-      </extension>
-      <path value="TerminologyCapabilities.implementation"/>
-      <short value="If this describes a specific instance"/>
-      <definition value="Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <condition value="tcp-2"/>
-      <condition value="tcp-5"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.implementation.description">
-      <path value="TerminologyCapabilities.implementation.description"/>
-      <short value="Describes this specific instance"/>
-      <definition value="Information about the specific installation that this terminology capability statement relates to."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.implementation.url">
-      <path value="TerminologyCapabilities.implementation.url"/>
-      <short value="Base URL for the implementation"/>
-      <definition value="An absolute base URL for the implementation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.lockedDate">
-      <path value="TerminologyCapabilities.lockedDate"/>
-      <short value="Whether lockedDate is supported"/>
-      <definition value="Whether the server supports lockedDate."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-        <valueCode value="down"/>
-      </extension>
-      <path value="TerminologyCapabilities.codeSystem"/>
-      <short value="A code system supported by the server"/>
-      <definition value="Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource."/>
-      <comment value="The code system - identified by its system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it might not be."/>
-      <alias value="1"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="tcp-1"/>
-        <severity value="error"/>
-        <human value="If there is more than one version, a version code must be defined"/>
-        <expression value="version.count() &gt; 1 implies version.all(code.exists())"/>
-        <xpath value="(count(f:version) &lt;= 1) or not(exists(f:version[not(f:code)]))"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-      </constraint>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.uri">
-      <path value="TerminologyCapabilities.codeSystem.uri"/>
-      <short value="Canonical identifier for the code system, represented as a URI"/>
-      <definition value="Canonical identifier for the code system, represented as a URI."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version">
-      <path value="TerminologyCapabilities.codeSystem.version"/>
-      <short value="Version of Code System supported"/>
-      <definition value="For the code system, a list of versions that are supported by the server."/>
-      <comment value="Language translations might not be available for all codes."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.code">
-      <path value="TerminologyCapabilities.codeSystem.version.code"/>
-      <short value="Version identifier for this version"/>
-      <definition value="For version-less code systems, there should be a single version with no identifier."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="tcp-1"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.isDefault">
-      <path value="TerminologyCapabilities.codeSystem.version.isDefault"/>
-      <short value="If this is the default version for this code system"/>
-      <definition value="If this is the default version for this code system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.compositional">
-      <path value="TerminologyCapabilities.codeSystem.version.compositional"/>
-      <short value="If compositional grammar is supported"/>
-      <definition value="If the compositional grammar defined by the code system is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.language">
-      <path value="TerminologyCapabilities.codeSystem.version.language"/>
-      <short value="Language Displays supported"/>
-      <definition value="Language Displays supported."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-	  <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Language"/>
-        </extension>
-        <strength value="required"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
-      </binding>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.filter">
-      <path value="TerminologyCapabilities.codeSystem.version.filter"/>
-      <short value="Filter Properties supported"/>
-      <definition value="Filter Properties supported."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.filter.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="TerminologyCapabilities.codeSystem.version.filter.code"/>
-      <short value="Code of the property supported"/>
-      <definition value="Code of the property supported."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.filter.op">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="TerminologyCapabilities.codeSystem.version.filter.op"/>
-      <short value="Operations supported for the property"/>
-      <definition value="Operations supported for the property."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.version.property">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="TerminologyCapabilities.codeSystem.version.property"/>
-      <short value="Properties supported for $lookup"/>
-      <definition value="Properties supported for $lookup."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-	<element id="TerminologyCapabilities.codeSystem.content">
-      <path value="TerminologyCapabilities.codeSystem.content"/>
-      <short value="not-present | example | fragment | complete | supplement"/>
-      <definition value="The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CodeSystemContentMode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0"/>
-      </binding>
-    </element>
-    <element id="TerminologyCapabilities.codeSystem.subsumption">
-      <path value="TerminologyCapabilities.codeSystem.subsumption"/>
-      <short value="Whether subsumption is supported"/>
-      <definition value="True if subsumption is supported for this version of the code system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion">
-      <path value="TerminologyCapabilities.expansion"/>
-      <short value="Information about the [ValueSet/$expand](valueset-operation-expand.html) operation"/>
-      <definition value="Information about the [ValueSet/$expand](valueset-operation-expand.html) operation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.hierarchical">
-      <path value="TerminologyCapabilities.expansion.hierarchical"/>
-      <short value="Whether the server can return nested value sets"/>
-      <definition value="Whether the server can return nested value sets."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.paging">
-      <path value="TerminologyCapabilities.expansion.paging"/>
-      <short value="Whether the server supports paging on expansion"/>
-      <definition value="Whether the server supports paging on expansion."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.incomplete">
-      <path value="TerminologyCapabilities.expansion.incomplete"/>
-      <short value="Allow request for incomplete expansions?"/>
-      <definition value="True if requests for incomplete expansions are allowed."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.parameter">
-      <path value="TerminologyCapabilities.expansion.parameter"/>
-      <short value="Supported expansion parameter"/>
-      <definition value="Supported expansion parameter."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.parameter.name">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="TerminologyCapabilities.expansion.parameter.name"/>
-      <short value="Name of the supported expansion parameter"/>
-      <definition value="Name of the supported expansion parameter."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.parameter.documentation">
-      <path value="TerminologyCapabilities.expansion.parameter.documentation"/>
-      <short value="Description of support for parameter"/>
-      <definition value="Description of support for parameter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.expansion.textFilter">
-      <path value="TerminologyCapabilities.expansion.textFilter"/>
-      <short value="Documentation about text searching works"/>
-      <definition value="Documentation about text searching works."/>
-      <comment value="This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.codeSearch">
-      <path value="TerminologyCapabilities.codeSearch"/>
-      <short value="in-compose | in-expansion | in-compose-or-expansion"/>
-      <definition value="The degree to which the server supports the code search parameter on ValueSet, if it is supported."/>
-      <comment value="See notes on the [ValueSet](valueset.html#) resource."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CodeSearchSupport"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The degree to which the server supports the code search parameter on ValueSet, if it is supported."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/code-search-support"/>
-      </binding>
-    </element>
-    <element id="TerminologyCapabilities.validateCode">
-      <path value="TerminologyCapabilities.validateCode"/>
-      <short value="Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation"/>
-      <definition value="Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.validateCode.translations">
-      <path value="TerminologyCapabilities.validateCode.translations"/>
-      <short value="Whether translations are validated"/>
-      <definition value="Whether translations are validated."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.translation">
-      <path value="TerminologyCapabilities.translation"/>
-      <short value="Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation"/>
-      <definition value="Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.translation.needsMap">
-      <path value="TerminologyCapabilities.translation.needsMap"/>
-      <short value="Whether the client must identify the map"/>
-      <definition value="Whether the client must identify the map."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.closure">
-      <path value="TerminologyCapabilities.closure"/>
-      <short value="Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation"/>
-      <definition value="Whether the $closure operation is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="TerminologyCapabilities.closure.translation">
-      <path value="TerminologyCapabilities.closure.translation"/>
-      <short value="If cross-system closure is supported"/>
-      <definition value="If cross-system closure is supported."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="TerminologyCapabilities"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Terminology"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="vocab"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.993"/>
+  </identifier>
+	<version value="5.0.0"/>
+	<name value="TerminologyCapabilities"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (Vocabulary)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="TerminologyCapabilities"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="TerminologyCapabilities">
+			<path value="TerminologyCapabilities"/>
+			<short value="A statement of system capabilities"/>
+			<definition value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-3"/>
+				<severity value="error"/>
+				<human value="If kind = instance, implementation must be present and software may be present"/>
+				<expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
+				<xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-2"/>
+				<severity value="error"/>
+				<human value="A Terminology Capability statement SHALL have at least one of description, software, or implementation element"/>
+				<expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
+				<xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-5"/>
+				<severity value="error"/>
+				<human value="If kind = requirements, implementation and software must be absent"/>
+				<expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
+				<xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-4"/>
+				<severity value="error"/>
+				<human value="If kind = capability, implementation must be absent, software must be present"/>
+				<expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
+				<xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-6"/>
+				<severity value="error"/>
+				<human value="Each instance of the codeSystem element must represent a distinct code system."/>
+				<expression value="codeSystem.uri.isDistinct()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-7"/>
+				<severity value="error"/>
+				<human value="Each version.code element must be distinct for a particular code system."/>
+				<expression value="codeSystem.select(uri + version.code).isDistinct()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<constraint>
+				<key value="tcp-8"/>
+				<severity value="error"/>
+				<human value="A codeSystem element instance may have at most one version.isDefault element with a value of 'true'."/>
+				<expression value="codeSystem.uri.where(codeSystem.version.isDefault = true).count() = codeSystem.uri.where(codeSystem.version.isDefault = true).distinct().count()"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+			<mapping>
+				<identity value="rim"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.behavior"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.url">
+			<path value="TerminologyCapabilities.url"/>
+			<short value="Canonical identifier for this terminology capabilities, represented as a URI (globally unique)"/>
+			<definition value="An absolute URI that is used to identify this terminology capabilities when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this terminology capabilities is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the terminology capabilities is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the terminology capabilities to be referenced by a single globally unique identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+			<constraint>
+				<key value="cnl-1"/>
+				<severity value="warning"/>
+				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
+				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+			</constraint>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.identifier">
+			<path value="TerminologyCapabilities.identifier"/>
+			<short value="Additional identifier for the terminology capabilities"/>
+			<definition value="A formal identifier that is used to identify this terminology capabilities when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this terminology capabilities outside of FHIR, where it is not possible to use the logical URI."/>
+			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Identifier"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.version">
+			<path value="TerminologyCapabilities.version"/>
+			<short value="Business version of the terminology capabilities"/>
+			<definition value="The identifier that is used to identify this version of the terminology capabilities when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the terminology capabilities author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<comment value="There may be different terminology capabilities instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the terminology capabilities with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.name">
+			<path value="TerminologyCapabilities.name"/>
+			<short value="Name for this terminology capabilities (computer friendly)"/>
+			<definition value="A natural language name identifying the terminology capabilities. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.title">
+			<path value="TerminologyCapabilities.title"/>
+			<short value="Name for this terminology capabilities (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the terminology capabilities."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.status">
+			<path value="TerminologyCapabilities.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this terminology capabilities. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of terminology capabilitiess that are appropriate for use versus not.This is not intended for use with actual capability statements, but where capability statements are used to describe possible or desired systems."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.experimental">
+			<path value="TerminologyCapabilities.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this terminology capabilities is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of terminology capabilitiess that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level terminology capabilities."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.date">
+			<path value="TerminologyCapabilities.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the terminology capabilities was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the terminology capabilities. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.publisher">
+			<path value="TerminologyCapabilities.publisher"/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the terminology capabilities."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the terminology capabilities is the organization or individual primarily responsible for the maintenance and upkeep of the terminology capabilities. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the terminology capabilities. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &quot;authority/credibility&quot; of the terminology capabilities.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.contact">
+			<path value="TerminologyCapabilities.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.description">
+			<path value="TerminologyCapabilities.description"/>
+			<short value="Natural language description of the terminology capabilities"/>
+			<definition value="A free text natural language description of the terminology capabilities from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
+			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the terminology capabilities as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the terminology capabilities is presumed to be the predominant language in the place the terminology capabilities was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.useContext">
+			<path value="TerminologyCapabilities.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate terminology capabilities instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.jurisdiction">
+			<path value="TerminologyCapabilities.jurisdiction"/>
+			<short value="Intended jurisdiction for terminology capabilities (if applicable)"/>
+			<definition value="A legal or geographic region in which the terminology capabilities is intended to be used."/>
+			<comment value="It may be possible for the terminology capabilities to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.purpose">
+			<path value="TerminologyCapabilities.purpose"/>
+			<short value="Why this terminology capabilities is defined"/>
+			<definition value="Explanation of why this terminology capabilities is needed and why it has been designed as it has."/>
+			<comment value="This element does not describe the usage of the terminology capabilities. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this terminology capabilities."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.purpose"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.why[x]"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.copyright">
+			<path value="TerminologyCapabilities.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the terminology capabilities and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the terminology capabilities."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the terminology capabilities and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="TerminologyCapabilities.kind">
+			<path value="TerminologyCapabilities.kind"/>
+			<short value="instance | capability | requirements"/>
+			<definition value="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind, not instance of software) or a class of implementation (e.g. a desired purchase)."/>
+			<requirements value="Allow searching the 3 modes."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<condition value="tcp-3"/>
+			<condition value="tcp-4"/>
+			<condition value="tcp-5"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="CapabilityStatementKind"/>
+				</extension>
+				<strength value="required"/>
+				<description value="How a capability statement is intended to be used."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/capability-statement-kind"/>
+			</binding>
+		</element>
+		<element id="TerminologyCapabilities.software">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,100"/>
+			</extension>
+			<path value="TerminologyCapabilities.software"/>
+			<short value="Software that is covered by this terminology capability statement"/>
+			<definition value="Software that is covered by this terminology capability statement.  It is used when the statement describes the capabilities of a particular software version, independent of an installation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="tcp-2"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.software.name">
+			<path value="TerminologyCapabilities.software.name"/>
+			<short value="A name the software is known by"/>
+			<definition value="Name the software is known by."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.software.version">
+			<path value="TerminologyCapabilities.software.version"/>
+			<short value="Version covered by this statement"/>
+			<definition value="The version identifier for the software covered by this statement."/>
+			<comment value="If possible, a version should be specified, as statements are likely to be different for different versions of software."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.implementation">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,200"/>
+			</extension>
+			<path value="TerminologyCapabilities.implementation"/>
+			<short value="If this describes a specific instance"/>
+			<definition value="Identifies a specific implementation instance that is described by the terminology capability statement - i.e. a particular installation, rather than the capabilities of a software program."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<condition value="tcp-2"/>
+			<condition value="tcp-5"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.implementation.description">
+			<path value="TerminologyCapabilities.implementation.description"/>
+			<short value="Describes this specific instance"/>
+			<definition value="Information about the specific installation that this terminology capability statement relates to."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.implementation.url">
+			<path value="TerminologyCapabilities.implementation.url"/>
+			<short value="Base URL for the implementation"/>
+			<definition value="An absolute base URL for the implementation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.lockedDate">
+			<path value="TerminologyCapabilities.lockedDate"/>
+			<short value="Whether lockedDate is supported"/>
+			<definition value="Whether the server supports lockedDate."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+				<valueCode value="down"/>
+			</extension>
+			<path value="TerminologyCapabilities.codeSystem"/>
+			<short value="A code system supported by the server"/>
+			<definition value="Identifies a code system that is supported by the server. If there is a no code system URL, then this declares the general assumptions a client can make about support for any CodeSystem resource."/>
+			<comment value="The code system - identified by its system URL - may also be declared explicitly as a Code System Resource at /CodeSystem, but it might not be."/>
+			<alias value="1"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="tcp-1"/>
+				<severity value="error"/>
+				<human value="If there is more than one version, a version code must be defined"/>
+				<expression value="version.count() &gt; 1 implies version.all(code.exists())"/>
+				<xpath value="(count(f:version) &lt;= 1) or not(exists(f:version[not(f:code)]))"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+			</constraint>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.uri">
+			<path value="TerminologyCapabilities.codeSystem.uri"/>
+			<short value="Canonical identifier for the code system, represented as a URI"/>
+			<definition value="Canonical identifier for the code system, represented as a URI."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version">
+			<path value="TerminologyCapabilities.codeSystem.version"/>
+			<short value="Version of Code System supported"/>
+			<definition value="For the code system, a list of versions that are supported by the server."/>
+			<comment value="Language translations might not be available for all codes."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.code">
+			<path value="TerminologyCapabilities.codeSystem.version.code"/>
+			<short value="Version identifier for this version"/>
+			<definition value="For version-less code systems, there should be a single version with no identifier."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="tcp-1"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.isDefault">
+			<path value="TerminologyCapabilities.codeSystem.version.isDefault"/>
+			<short value="If this is the default version for this code system"/>
+			<definition value="If this is the default version for this code system."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.compositional">
+			<path value="TerminologyCapabilities.codeSystem.version.compositional"/>
+			<short value="If compositional grammar is supported"/>
+			<definition value="If the compositional grammar defined by the code system is supported."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.language">
+			<path value="TerminologyCapabilities.codeSystem.version.language"/>
+			<short value="Language Displays supported"/>
+			<definition value="Language Displays supported."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Language"/>
+				</extension>
+				<strength value="required"/>
+				<description value="IETF language tag"/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+			</binding>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.filter">
+			<path value="TerminologyCapabilities.codeSystem.version.filter"/>
+			<short value="Filter Properties supported"/>
+			<definition value="Filter Properties supported."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.filter.code">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="TerminologyCapabilities.codeSystem.version.filter.code"/>
+			<short value="Code of the property supported"/>
+			<definition value="Code of the property supported."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.filter.op">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="TerminologyCapabilities.codeSystem.version.filter.op"/>
+			<short value="Operations supported for the property"/>
+			<definition value="Operations supported for the property."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.version.property">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="TerminologyCapabilities.codeSystem.version.property"/>
+			<short value="Properties supported for $lookup"/>
+			<definition value="Properties supported for $lookup."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.content">
+			<path value="TerminologyCapabilities.codeSystem.content"/>
+			<short value="not-present | example | fragment | complete | supplement"/>
+			<definition value="The extent of the content of the code system (the concepts and codes it defines) are represented in this resource instance."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="CodeSystemContentMode"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The extent of the content of the code system (the concepts and codes it defines) are represented in a code system resource."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/codesystem-content-mode|5.0.0"/>
+			</binding>
+		</element>
+		<element id="TerminologyCapabilities.codeSystem.subsumption">
+			<path value="TerminologyCapabilities.codeSystem.subsumption"/>
+			<short value="Whether subsumption is supported"/>
+			<definition value="True if subsumption is supported for this version of the code system."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion">
+			<path value="TerminologyCapabilities.expansion"/>
+			<short value="Information about the [ValueSet/$expand](valueset-operation-expand.html) operation"/>
+			<definition value="Information about the [ValueSet/$expand](valueset-operation-expand.html) operation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.hierarchical">
+			<path value="TerminologyCapabilities.expansion.hierarchical"/>
+			<short value="Whether the server can return nested value sets"/>
+			<definition value="Whether the server can return nested value sets."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.paging">
+			<path value="TerminologyCapabilities.expansion.paging"/>
+			<short value="Whether the server supports paging on expansion"/>
+			<definition value="Whether the server supports paging on expansion."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.incomplete">
+			<path value="TerminologyCapabilities.expansion.incomplete"/>
+			<short value="Allow request for incomplete expansions?"/>
+			<definition value="True if requests for incomplete expansions are allowed."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.parameter">
+			<path value="TerminologyCapabilities.expansion.parameter"/>
+			<short value="Supported expansion parameter"/>
+			<definition value="Supported expansion parameter."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.parameter.name">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="TerminologyCapabilities.expansion.parameter.name"/>
+			<short value="Name of the supported expansion parameter"/>
+			<definition value="Name of the supported expansion parameter."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.parameter.documentation">
+			<path value="TerminologyCapabilities.expansion.parameter.documentation"/>
+			<short value="Description of support for parameter"/>
+			<definition value="Description of support for parameter."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.expansion.textFilter">
+			<path value="TerminologyCapabilities.expansion.textFilter"/>
+			<short value="Documentation about text searching works"/>
+			<definition value="Documentation about text searching works."/>
+			<comment value="This documentation should cover things like case sensitivity,  use of punctuation if not ignored, what wild cards are supported (if any), whether text is starts with or contains, and whether word order matters."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.codeSearch">
+			<path value="TerminologyCapabilities.codeSearch"/>
+			<short value="in-compose | in-expansion | in-compose-or-expansion"/>
+			<definition value="The degree to which the server supports the code search parameter on ValueSet, if it is supported."/>
+			<comment value="See notes on the [ValueSet](valueset.html#) resource."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="CodeSearchSupport"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The degree to which the server supports the code search parameter on ValueSet, if it is supported."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/code-search-support"/>
+			</binding>
+		</element>
+		<element id="TerminologyCapabilities.validateCode">
+			<path value="TerminologyCapabilities.validateCode"/>
+			<short value="Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation"/>
+			<definition value="Information about the [ValueSet/$validate-code](valueset-operation-validate-code.html) operation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.validateCode.translations">
+			<path value="TerminologyCapabilities.validateCode.translations"/>
+			<short value="Whether translations are validated"/>
+			<definition value="Whether translations are validated."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.translation">
+			<path value="TerminologyCapabilities.translation"/>
+			<short value="Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation"/>
+			<definition value="Information about the [ConceptMap/$translate](conceptmap-operation-translate.html) operation."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.translation.needsMap">
+			<path value="TerminologyCapabilities.translation.needsMap"/>
+			<short value="Whether the client must identify the map"/>
+			<definition value="Whether the client must identify the map."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.closure">
+			<path value="TerminologyCapabilities.closure"/>
+			<short value="Information about the [ConceptMap/$closure](conceptmap-operation-closure.html) operation"/>
+			<definition value="Whether the $closure operation is supported."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="TerminologyCapabilities.closure.translation">
+			<path value="TerminologyCapabilities.closure.translation"/>
+			<short value="If cross-system closure is supported"/>
+			<definition value="If cross-system closure is supported."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Subscription"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1258"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Subscription"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
     </telecom>
   </contact>
-  <description value="The subscription resource describes a particular client&#39;s request to be notified about a SubscriptionTopic."/>
+  <description value="The subscription resource describes a particular client's request to be notified about a SubscriptionTopic."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -62,7 +64,7 @@
     <element id="Subscription">
       <path value="Subscription"/>
       <short value="Notification about a SubscriptionTopic"/>
-      <definition value="The subscription resource describes a particular client&#39;s request to be notified about a SubscriptionTopic."/>
+      <definition value="The subscription resource describes a particular client's request to be notified about a SubscriptionTopic."/>
       <alias value="WebHook"/>
       <alias value="Hook"/>
       <alias value="Routing Rule"/>
@@ -209,7 +211,7 @@
     <element id="Subscription.filterBy.resourceType">
       <path value="Subscription.filterBy.resourceType"/>
       <short value="Allowed Data type or Resource (reference to definition) for this Subscription"/>
-      <definition value="If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
+      <definition value="If the element is a reference to another resource, this element contains &#34;Reference&#34;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -228,7 +230,7 @@
     <element id="Subscription.filterBy.filterParameter">
       <path value="Subscription.filterBy.filterParameter"/>
       <short value="Filter label defined in SubscriptionTopic"/>
-      <definition value="The filter label (=key) as defined in the `SubscriptionTopic.canfilterBy.filterParameter`  element."/>
+      <definition value="The filter as defined in the `SubscriptionTopic.canfilterBy.filterParameter` element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -240,6 +242,7 @@
       <path value="Subscription.filterBy.modifier"/>
       <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
       <definition value="Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic."/>
+      <comment value="If filterDefinition refers to a SearchParameter, then the modifiers indicated must be allowed by the SearchParameter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -258,7 +261,7 @@
     <element id="Subscription.filterBy.value">
       <path value="Subscription.filterBy.value"/>
       <short value="Literal value or resource path"/>
-      <definition value="The literal value or resource path as is legal in search - for example, &quot;Patient/123&quot; or &quot;le1950&quot;."/>
+      <definition value="The literal value or resource path as is legal in search - for example, &#34;Patient/123&#34; or &#34;le1950&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -311,8 +314,8 @@
     </element>
     <element id="Subscription.heartbeatPeriod">
       <path value="Subscription.heartbeatPeriod"/>
-      <short value="Interval in seconds to send &#39;heartbeat&#39; notification"/>
-      <definition value="If present,  a &#39;hearbeat&quot; notification (keepalive) is sent via this channel with an the interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
+      <short value="Interval in seconds to send 'heartbeat' notification"/>
+      <definition value="If present,  a 'hearbeat&#34; notification (keepalive) is sent via this channel with an the interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -334,7 +337,7 @@
     <element id="Subscription.contentType">
       <path value="Subscription.contentType"/>
       <short value="MIME type to send, or omit for no payload"/>
-      <definition value="The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. The MIME types &quot;text/plain&quot; and &quot;text/html&quot; may also be used for Email subscriptions."/>
+      <definition value="The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. The MIME types &#34;text/plain&#34; and &#34;text/html&#34; may also be used for Email subscriptions."/>
       <min value="0"/>
       <max value="1"/>
       <type>

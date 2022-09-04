@@ -1,164 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="ImplementationGuide"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-    <valueString value="Foundation.Conformance"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-    <valueCode value="anonymous"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value=".status = retired"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-    <valueString value="CanonicalResource"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="ImplementationGuide"/>
+	<meta>
+		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+		<valueString value="Foundation.Conformance"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+		<valueCode value="anonymous"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="fhir"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+		<valueCode value=".status = retired"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+		<valueString value="CanonicalResource"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1373"/>
+  </identifier>
   <version value="5.0.0"/>
-  <name value="ImplementationGuide"/>
-  <status value="draft"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-    </telecom>
-  </contact>
-  <description value="A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."/>
-  <purpose value="An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating."/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="ImplementationGuide"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-  <derivation value="specialization"/>
-  <differential>
-    <element id="ImplementationGuide">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,0"/>
-      </extension>
-      <path value="ImplementationGuide"/>
-      <short value="A set of rules about how FHIR is used"/>
-      <definition value="A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."/>
-      <min value="0"/>
-      <max value="*"/>
-      <constraint>
-        <key value="cnl-0"/>
-        <severity value="warning"/>
-        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-      </constraint>
-      <constraint>
-        <key value="ig-2"/>
-        <severity value="error"/>
-        <human value="If a resource has a fhirVersion, it must be one of the versions defined for the Implementation Guide"/>
-        <expression value="definition.resource.fhirVersion.all(%context.fhirVersion contains $this)"/>
-        <xpath value="count(for $id in (f:resource/f:fhirVersion) return $id[not(ancestor::f:fhirVersion/@value=$id/@value)])=0"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-      </constraint>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="conformance.misc"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.url">
-      <path value="ImplementationGuide.url"/>
-      <short value="Canonical identifier for this implementation guide, represented as a URI (globally unique)"/>
-      <definition value="An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-      <requirements value="Allows the implementation guide to be referenced by a single globally unique identifier. This is required to allow hosting Implementation Guides on multiple different servers, and to allow for the editorial process."/>
-      <alias value="url"/>
-      <alias value="authoritative-url"/>
-      <alias value="destination"/>
-      <alias value="identity"/>
-      <min value="1"/>
-      <max value="1"/>
+	<name value="ImplementationGuide"/>
+	<status value="draft"/>
+	<date value="2021-01-05T10:01:24+11:00"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+		</telecom>
+	</contact>
+	<description value="A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."/>
+	<purpose value="An implementation guide is able to define default profiles that must apply to any use of a resource, so validation services may need to take one or more implementation guide resources when validating."/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="ImplementationGuide"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+	<derivation value="specialization"/>
+	<differential>
+		<element id="ImplementationGuide">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="250,0"/>
+			</extension>
+			<path value="ImplementationGuide"/>
+			<short value="A set of rules about how FHIR is used"/>
+			<definition value="A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."/>
+			<min value="0"/>
+			<max value="*"/>
+			<constraint>
+				<key value="cnl-0"/>
+				<severity value="warning"/>
+				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+			</constraint>
+			<constraint>
+				<key value="ig-2"/>
+				<severity value="error"/>
+				<human value="If a resource has a fhirVersion, it must be one of the versions defined for the Implementation Guide"/>
+				<expression value="definition.resource.fhirVersion.all(%context.fhirVersion contains $this)"/>
+				<xpath value="count(for $id in (f:resource/f:fhirVersion) return $id[not(ancestor::f:fhirVersion/@value=$id/@value)])=0"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+			</constraint>
+			<mapping>
+				<identity value="rim"/>
+				<map value="n/a"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="conformance.misc"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.url">
+			<path value="ImplementationGuide.url"/>
+			<short value="Canonical identifier for this implementation guide, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers."/>
+			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+			<requirements value="Allows the implementation guide to be referenced by a single globally unique identifier. This is required to allow hosting Implementation Guides on multiple different servers, and to allow for the editorial process."/>
+			<alias value="url"/>
+			<alias value="authoritative-url"/>
+			<alias value="destination"/>
+			<alias value="identity"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
       <constraint>
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
-      <type>
-        <code value="uri"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.identifier"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.version">
-      <path value="ImplementationGuide.version"/>
-      <short value="Business version of the implementation guide"/>
-      <definition value="The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.url"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.identifier"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.version">
+			<path value="ImplementationGuide.version"/>
+			<short value="Business version of the implementation guide"/>
+			<definition value="The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
       <comment value="There may be different implementation guide instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the implementation guide with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.version"/>
-      </mapping>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.version"/>
+			</mapping>
     </element>
     <element id="ImplementationGuide.versionAlgorithm[x]">
       <path value="ImplementationGuide.versionAlgorithm[x]"/>
@@ -173,821 +175,856 @@
       <type>
         <code value="Coding"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
-      <isSummary value="true"/>
     </element>
-    <element id="ImplementationGuide.name">
-      <path value="ImplementationGuide.name"/>
-      <short value="Name for this implementation guide (computer friendly)"/>
-      <definition value="A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-      <requirements value="Support human navigation and code generation."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <condition value="cnl-0"/>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.title">
-      <path value="ImplementationGuide.title"/>
-      <short value="Name for this implementation guide (human friendly)"/>
-      <definition value="A short, descriptive, user-friendly title for the implementation guide."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.status">
-      <path value="ImplementationGuide.status"/>
-      <short value="draft | active | retired | unknown"/>
-      <definition value="The status of this implementation guide. Enables tracking the life-cycle of the content."/>
-      <comment value="Allows filtering of implementation guides that are appropriate for use versus not."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PublicationStatus"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The lifecycle status of an artifact."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.status"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.experimental">
-      <path value="ImplementationGuide.experimental"/>
-      <short value="For testing purposes, not real usage"/>
-      <definition value="A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-      <comment value="Allows filtering of implementation guides that are appropriate for use versus not."/>
-      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level implementation guide."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.experimental"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.date">
-      <path value="ImplementationGuide.date"/>
-      <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the implementation guide. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-      <alias value="Revision Date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.recorded"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.publisher">
-      <path value="ImplementationGuide.publisher"/>
-      <short value="Name of the publisher (organization or individual)"/>
-      <definition value="The name of the organization or individual that published the implementation guide."/>
-      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the implementation guide is the organization or individual primarily responsible for the maintenance and upkeep of the implementation guide. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the implementation guide. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &quot;authority/credibility&quot; of the implementation guide.  May also allow for contact."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.contact">
-      <path value="ImplementationGuide.contact"/>
-      <short value="Contact details for the publisher"/>
-      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="ContactDetail"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.description">
-      <path value="ImplementationGuide.description"/>
-      <short value="Natural language description of the implementation guide"/>
-      <definition value="A free text natural language description of the implementation guide from a consumer&#39;s perspective."/>
-      <comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.useContext">
-      <path value="ImplementationGuide.useContext"/>
-      <short value="The context that the content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate implementation guide instances."/>
-      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-      <requirements value="Assist in searching for appropriate content."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="UsageContext"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.jurisdiction">
-      <path value="ImplementationGuide.jurisdiction"/>
-      <short value="Intended jurisdiction for implementation guide (if applicable)"/>
-      <definition value="A legal or geographic region in which the implementation guide is intended to be used."/>
-      <comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Jurisdiction"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Countries and regions within which this artifact is targeted for use."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.jurisdiction"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.copyright">
-      <path value="ImplementationGuide.copyright"/>
-      <short value="Use and/or publishing restrictions"/>
-      <definition value="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide."/>
-      <requirements value="Consumers must be able to determine any legal restrictions on the use of the implementation guide and/or its content."/>
-      <alias value="License"/>
-      <alias value="Restrictions"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
-        <identity value="objimpl"/>
-        <map value="no-gen-base"/>
-      </mapping>
-    </element>
-    <element id="ImplementationGuide.packageId">
-      <path value="ImplementationGuide.packageId"/>
-      <short value="NPM Package name for IG"/>
-      <definition value="The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care."/>
-      <comment value="Many (if not all) IG publishing tools will require that this element be present. For implementation guides published through HL7 or the FHIR foundation, the FHIR product director assigns package IDs."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.license">
-      <path value="ImplementationGuide.license"/>
-      <short value="SPDX license code for this IG (or not-open-source)"/>
-      <definition value="The license that applies to this Implementation Guide, using an SPDX license code, or &#39;not-open-source&#39;."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SPDXLicense"/>
-        </extension>
-        <strength value="required"/>
-        <description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or &#39;not-open-source&#39;). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/spdx-license"/>
-      </binding>
-    </element>
-    <element id="ImplementationGuide.fhirVersion">
-      <path value="ImplementationGuide.fhirVersion"/>
-      <short value="FHIR Version(s) this Implementation Guide targets"/>
-      <definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version."/>
-      <comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRVersion"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="All published FHIR Versions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
-      </binding>
-    </element>
-    <element id="ImplementationGuide.dependsOn">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-20,80"/>
-      </extension>
-      <path value="ImplementationGuide.dependsOn"/>
-      <short value="Another Implementation guide this depends on"/>
-      <definition value="Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.dependsOn.uri">
-      <path value="ImplementationGuide.dependsOn.uri"/>
-      <short value="Identity of the IG that this depends on"/>
-      <definition value="A canonical reference to the Implementation guide for the dependency."/>
-      <comment value="Usually, A canonical reference to the implementation guide is the same as the master location at which the implementation guide is published."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.dependsOn.packageId">
-      <path value="ImplementationGuide.dependsOn.packageId"/>
-      <short value="NPM Package name for IG this depends on"/>
-      <definition value="The NPM package name for the Implementation Guide that this IG depends on."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.dependsOn.version">
-      <path value="ImplementationGuide.dependsOn.version"/>
-      <short value="Version of the IG"/>
-      <definition value="The version of the IG that is depended on, when the correct version is required to understand the IG correctly."/>
-      <comment value="This follows the syntax of the NPM packaging version field - see [[reference]]."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.global">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,300"/>
-      </extension>
-      <path value="ImplementationGuide.global"/>
-      <short value="Profiles that apply globally"/>
-      <definition value="A set of profiles that all resources covered by this implementation guide must conform to."/>
-      <comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are &#39;covered&#39; by an implementation guide."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.global.type">
-      <path value="ImplementationGuide.global.type"/>
-      <short value="Type this profile applies to"/>
-      <definition value="The type of resource that all instances must conform to."/>
-      <comment value="The type must match that of the profile that is referred to but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-      </binding>
-    </element>
-    <element id="ImplementationGuide.global.profile">
-      <path value="ImplementationGuide.global.profile"/>
-      <short value="Profile that all resources must conform to"/>
-      <definition value="A reference to the profile that all instances must conform to."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.definition">
-      <path value="ImplementationGuide.definition"/>
-      <short value="Information needed to build the IG"/>
-      <definition value="The information needed by an IG publisher tool to publish the whole implementation guide."/>
-      <comment value="Principally, this consists of information abuot source resource and file locations, and build parameters and templates."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <constraint>
-        <key value="ig-1"/>
-        <severity value="error"/>
-        <human value="If a resource has a groupingId, it must refer to a grouping defined in the Implementation Guide"/>
-        <expression value="resource.groupingId.all(%context.grouping.id contains $this)"/>
-        <xpath value="count(for $id in (f:resource/f:groupingId) return $id[not(ancestor::f:grouping/@id=$id/@value)])=0"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-      </constraint>
-    </element>
-    <element id="ImplementationGuide.definition.grouping">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="600,80"/>
-      </extension>
-      <path value="ImplementationGuide.definition.grouping"/>
-      <short value="Grouping used to present related resources in the IG"/>
-      <definition value="A logical group of resources. Logical groups can be used when building pages."/>
-      <comment value="Groupings are arbitrary sub-divisions of content. Typically, they are used to help build Table of Contents automatically."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.grouping.name">
-      <path value="ImplementationGuide.definition.grouping.name"/>
-      <short value="Descriptive name for the package"/>
-      <definition value="The human-readable title to display for the package of resources when rendering the implementation guide."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.grouping.description">
-      <path value="ImplementationGuide.definition.grouping.description"/>
-      <short value="Human readable text describing the package"/>
-      <definition value="Human readable text describing the package."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,220"/>
-      </extension>
-      <path value="ImplementationGuide.definition.resource"/>
-      <short value="Resource in the implementation guide"/>
-      <definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource.reference">
-      <path value="ImplementationGuide.definition.resource.reference"/>
-      <short value="Location of the resource"/>
-      <definition value="Where this resource is found."/>
-      <comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource.fhirVersion">
-      <path value="ImplementationGuide.definition.resource.fhirVersion"/>
-      <short value="Versions this applies to (if different to IG)"/>
-      <definition value="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion."/>
-      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [applicable-version](extension-structuredefinition-applicable-version.html) extension."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRVersion"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="All published FHIR Versions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
-      </binding>
-    </element>
-    <element id="ImplementationGuide.definition.resource.name">
-      <path value="ImplementationGuide.definition.resource.name"/>
-      <short value="Human readable name for the resource"/>
-      <definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource.description">
-      <path value="ImplementationGuide.definition.resource.description"/>
-      <short value="Reason why included in guide"/>
-      <definition value="A description of the reason that a resource has been included in the implementation guide."/>
-      <comment value="This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource.example[x]">
-      <path value="ImplementationGuide.definition.resource.example[x]"/>
-      <short value="Is an example/What is this an example of?"/>
-      <definition value="If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile."/>
-      <comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.resource.groupingId">
-      <path value="ImplementationGuide.definition.resource.groupingId"/>
-      <short value="Grouping this is part of"/>
-      <definition value="Reference to the id of the grouping this resource appears in."/>
-      <comment value="This must correspond to a group.id element within this implementation guide."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="id"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.page">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,180"/>
-      </extension>
-      <path value="ImplementationGuide.definition.page"/>
-      <short value="Page/Section in the Guide"/>
-      <definition value="A page / section in the implementation guide. The root page is the implementation guide home page."/>
-      <comment value="Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.page.name[x]">
-      <path value="ImplementationGuide.definition.page.name[x]"/>
-      <short value="Where to find that page"/>
-      <definition value="The source address for the page."/>
-      <comment value="The publishing tool will autogenerate source for list (source = n/a) and inject included implementations for include (source = uri of guide to include)."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.page.title">
-      <path value="ImplementationGuide.definition.page.title"/>
-      <short value="Short title shown for navigational assistance"/>
-      <definition value="A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.page.generation">
-      <path value="ImplementationGuide.definition.page.generation"/>
-      <short value="html | markdown | xml | generated"/>
-      <definition value="A code that indicates how the page is generated."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="GuidePageGeneration"/>
-        </extension>
-        <strength value="required"/>
-        <description value="A code that indicates how the page is generated."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/guide-page-generation"/>
-      </binding>
-    </element>
-    <element id="ImplementationGuide.definition.page.page">
-      <path value="ImplementationGuide.definition.page.page"/>
-      <short value="Nested Pages / Sections"/>
-      <definition value="Nested Pages/Sections under this page."/>
-      <comment value="The implementation guide breadcrumbs may be generated from this structure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#ImplementationGuide.definition.page"/>
-    </element>
-    <element id="ImplementationGuide.definition.parameter">
-      <path value="ImplementationGuide.definition.parameter"/>
-      <short value="Defines how IG is built by tools"/>
-      <definition value="A set of parameters that defines how the implementation guide is built. The parameters are defined by the relevant tools that build the implementation guides."/>
-      <comment value="see [confluence](https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters) for the parameters defined by the HL7 IG publisher."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.parameter.code">
-      <path value="ImplementationGuide.definition.parameter.code"/>
-      <short value="Code that identifies parameter"/>
-      <definition value="Code that identifies parameter."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.parameter.value">
-      <path value="ImplementationGuide.definition.parameter.value"/>
-      <short value="Value for named type"/>
-      <definition value="Value for named type."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.template">
-      <path value="ImplementationGuide.definition.template"/>
-      <short value="A template for building resources"/>
-      <definition value="A template for building resources."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.template.code">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
-        <valueBoolean value="true"/>
-      </extension>
-      <path value="ImplementationGuide.definition.template.code"/>
-      <short value="Type of template specified"/>
-      <definition value="Type of template specified."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.template.source">
-      <path value="ImplementationGuide.definition.template.source"/>
-      <short value="The source location for the template"/>
-      <definition value="The source location for the template."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.definition.template.scope">
-      <path value="ImplementationGuide.definition.template.scope"/>
-      <short value="The scope in which the template applies"/>
-      <definition value="The scope in which the template applies."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest">
-      <path value="ImplementationGuide.manifest"/>
-      <short value="Information about an assembled IG"/>
-      <definition value="Information about an assembled implementation guide, created by the publication tooling."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.rendering">
-      <path value="ImplementationGuide.manifest.rendering"/>
-      <short value="Location of rendered implementation guide"/>
-      <definition value="A pointer to official web page, PDF or other rendering of the implementation guide."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.manifest.resource">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ManifestResource"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,220"/>
-      </extension>
-      <path value="ImplementationGuide.manifest.resource"/>
-      <short value="Resource in the implementation guide"/>
-      <definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
-      <min value="1"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.manifest.resource.reference">
-      <path value="ImplementationGuide.manifest.resource.reference"/>
-      <short value="Location of the resource"/>
-      <definition value="Where this resource is found."/>
-      <comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="ImplementationGuide.manifest.resource.example[x]">
-      <path value="ImplementationGuide.manifest.resource.example[x]"/>
-      <short value="Is an example/What is this an example of?"/>
-      <definition value="If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile."/>
-      <comment value="Typically, conformance resources and knowledge resources are directly part of the implementation guide, with their normal meaning, and patient linked resources are usually examples. However this is not always true."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.resource.relativePath">
-      <path value="ImplementationGuide.manifest.resource.relativePath"/>
-      <short value="Relative path for page in IG"/>
-      <definition value="The relative path for primary page for this resource within the IG."/>
-      <comment value="Appending &#39;rendering&#39; + &quot;/&quot; + this should resolve to the resource page."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="url"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.page">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ManifestPage"/>
-      </extension>
-      <path value="ImplementationGuide.manifest.page"/>
-      <short value="HTML page within the parent IG"/>
-      <definition value="Information about a page within the IG."/>
-      <requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.page.name">
-      <path value="ImplementationGuide.manifest.page.name"/>
-      <short value="HTML page name"/>
-      <definition value="Relative path to the page."/>
-      <comment value="Appending &#39;rendering&#39; + &quot;/&quot; + this should resolve to the page."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.page.title">
-      <path value="ImplementationGuide.manifest.page.title"/>
-      <short value="Title of the page, for references"/>
-      <definition value="Label for the page intended for human display."/>
-      <requirements value="Allows generation of labels for markdown-generated hyperlinks."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.page.anchor">
-      <path value="ImplementationGuide.manifest.page.anchor"/>
-      <short value="Anchor available on the page"/>
-      <definition value="The name of an anchor available on the page."/>
-      <comment value="Appending &#39;rendering&#39; + &quot;/&quot; + page.name + &quot;#&quot; + page.anchor should resolve to the anchor."/>
-      <requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.image">
-      <path value="ImplementationGuide.manifest.image"/>
-      <short value="Image within the IG"/>
-      <definition value="Indicates a relative path to an image that exists within the IG."/>
-      <requirements value="Allows validation of image links from a derived IG to this IG without a local copy of the IG."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ImplementationGuide.manifest.other">
-      <path value="ImplementationGuide.manifest.other"/>
-      <short value="Additional linkable file in IG"/>
-      <definition value="Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG."/>
-      <requirements value="Allows validation of links from a derived IG to this IG without a local copy of the IG."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-  </differential>
+		<element id="ImplementationGuide.name">
+			<path value="ImplementationGuide.name"/>
+			<short value="Name for this implementation guide (computer friendly)"/>
+			<definition value="A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+			<requirements value="Support human navigation and code generation."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<condition value="cnl-0"/>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.title">
+			<path value="ImplementationGuide.title"/>
+			<short value="Name for this implementation guide (human friendly)"/>
+			<definition value="A short, descriptive, user-friendly title for the implementation guide."/>
+			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.title"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.status">
+			<path value="ImplementationGuide.status"/>
+			<short value="draft | active | retired | unknown"/>
+			<definition value="The status of this implementation guide. Enables tracking the life-cycle of the content."/>
+			<comment value="Allows filtering of implementation guides that are appropriate for use versus not."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isModifier value="true"/>
+			<isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="PublicationStatus"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The lifecycle status of an artifact."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.status"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.status"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.experimental">
+			<path value="ImplementationGuide.experimental"/>
+			<short value="For testing purposes, not real usage"/>
+			<definition value="A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+			<comment value="Allows filtering of implementation guides that are appropriate for use versus not."/>
+			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level implementation guide."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.experimental"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.class"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.date">
+			<path value="ImplementationGuide.date"/>
+			<short value="Date last changed"/>
+			<definition value="The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes."/>
+			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the implementation guide. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<alias value="Revision Date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="dateTime"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.recorded"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.publisher">
+			<path value="ImplementationGuide.publisher"/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide."/>
+			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the implementation guide is the organization or individual primarily responsible for the maintenance and upkeep of the implementation guide. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the implementation guide. This item SHOULD be populated unless the information is available from context."/>
+			<requirements value="Helps establish the &#34;authority/credibility&#34; of the implementation guide.  May also allow for contact."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.publisher"/>
+			</mapping>
+			<mapping>
+				<identity value="w5"/>
+				<map value="FiveWs.witness"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.contact">
+			<path value="ImplementationGuide.contact"/>
+			<short value="Contact details for the publisher"/>
+			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+			<comment value="May be a web site, an email address, a telephone number, etc."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="ContactDetail"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.contact"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.description">
+			<path value="ImplementationGuide.description"/>
+			<short value="Natural language description of the implementation guide"/>
+			<definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
+			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.description"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.useContext">
+			<path value="ImplementationGuide.useContext"/>
+			<short value="The context that the content is intended to support"/>
+			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate implementation guide instances."/>
+			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+			<requirements value="Assist in searching for appropriate content."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="UsageContext"/>
+			</type>
+			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.useContext"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.jurisdiction">
+			<path value="ImplementationGuide.jurisdiction"/>
+			<short value="Intended jurisdiction for implementation guide (if applicable)"/>
+			<definition value="A legal or geographic region in which the implementation guide is intended to be used."/>
+			<comment value="It may be possible for the implementation guide to be used in jurisdictions other than those for which it was originally designed or intended."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="CodeableConcept"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="Jurisdiction"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="extensible"/>
+				<description value="Countries and regions within which this artifact is targeted for use."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+			</binding>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.jurisdiction"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.copyright">
+			<path value="ImplementationGuide.copyright"/>
+			<short value="Use and/or publishing restrictions"/>
+			<definition value="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide."/>
+			<requirements value="Consumers must be able to determine any legal restrictions on the use of the implementation guide and/or its content."/>
+			<alias value="License"/>
+			<alias value="Restrictions"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.copyright"/>
+			</mapping>
+			<mapping>
+				<identity value="objimpl"/>
+				<map value="no-gen-base"/>
+			</mapping>
+		</element>
+		<element id="ImplementationGuide.packageId">
+			<path value="ImplementationGuide.packageId"/>
+			<short value="NPM Package name for IG"/>
+			<definition value="The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care."/>
+			<comment value="Many (if not all) IG publishing tools will require that this element be present. For implementation guides published through HL7 or the FHIR foundation, the FHIR product director assigns package IDs."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.license">
+			<path value="ImplementationGuide.license"/>
+			<short value="SPDX license code for this IG (or not-open-source)"/>
+			<definition value="The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="SPDXLicense"/>
+				</extension>
+				<strength value="required"/>
+				<description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/spdx-license"/>
+			</binding>
+		</element>
+		<element id="ImplementationGuide.fhirVersion">
+			<path value="ImplementationGuide.fhirVersion"/>
+			<short value="FHIR Version(s) this Implementation Guide targets"/>
+			<definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version."/>
+			<comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRVersion"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="All published FHIR Versions."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
+			</binding>
+		</element>
+		<element id="ImplementationGuide.dependsOn">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="-20,80"/>
+			</extension>
+			<path value="ImplementationGuide.dependsOn"/>
+			<short value="Another Implementation guide this depends on"/>
+			<definition value="Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.dependsOn.uri">
+			<path value="ImplementationGuide.dependsOn.uri"/>
+			<short value="Identity of the IG that this depends on"/>
+			<definition value="A canonical reference to the Implementation guide for the dependency."/>
+			<comment value="Usually, A canonical reference to the implementation guide is the same as the master location at which the implementation guide is published."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.dependsOn.packageId">
+			<path value="ImplementationGuide.dependsOn.packageId"/>
+			<short value="NPM Package name for IG this depends on"/>
+			<definition value="The NPM package name for the Implementation Guide that this IG depends on."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.dependsOn.version">
+			<path value="ImplementationGuide.dependsOn.version"/>
+			<short value="Version of the IG"/>
+			<definition value="The version of the IG that is depended on, when the correct version is required to understand the IG correctly."/>
+			<comment value="This follows the syntax of the NPM packaging version field - see [[reference]]."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.global">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="250,300"/>
+			</extension>
+			<path value="ImplementationGuide.global"/>
+			<short value="Profiles that apply globally"/>
+			<definition value="A set of profiles that all resources covered by this implementation guide must conform to."/>
+			<comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.global.type">
+			<path value="ImplementationGuide.global.type"/>
+			<short value="Type this profile applies to"/>
+			<definition value="The type of resource that all instances must conform to."/>
+			<comment value="The type must match that of the profile that is referred to but is made explicit here as a denormalization so that a system processing the implementation guide resource knows which resources the profile applies to even if the profile itself is not available."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<isSummary value="true"/>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="ResourceType"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="One of the resource types defined as part of this version of FHIR."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+			</binding>
+		</element>
+		<element id="ImplementationGuide.global.profile">
+			<path value="ImplementationGuide.global.profile"/>
+			<short value="Profile that all resources must conform to"/>
+			<definition value="A reference to the profile that all instances must conform to."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.definition">
+			<path value="ImplementationGuide.definition"/>
+			<short value="Information needed to build the IG"/>
+			<definition value="The information needed by an IG publisher tool to publish the whole implementation guide."/>
+			<comment value="Principally, this consists of information abuot source resource and file locations, and build parameters and templates."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="ig-1"/>
+				<severity value="error"/>
+				<human value="If a resource has a groupingId, it must refer to a grouping defined in the Implementation Guide"/>
+				<expression value="resource.groupingId.all(%context.grouping.id contains $this)"/>
+				<xpath value="count(for $id in (f:resource/f:groupingId) return $id[not(ancestor::f:grouping/@id=$id/@value)])=0"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
+			</constraint>
+		</element>
+		<element id="ImplementationGuide.definition.grouping">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="600,80"/>
+			</extension>
+			<path value="ImplementationGuide.definition.grouping"/>
+			<short value="Grouping used to present related resources in the IG"/>
+			<definition value="A logical group of resources. Logical groups can be used when building pages."/>
+			<comment value="Groupings are arbitrary sub-divisions of content. Typically, they are used to help build Table of Contents automatically."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.grouping.name">
+			<path value="ImplementationGuide.definition.grouping.name"/>
+			<short value="Descriptive name for the package"/>
+			<definition value="The human-readable title to display for the package of resources when rendering the implementation guide."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.grouping.description">
+			<path value="ImplementationGuide.definition.grouping.description"/>
+			<short value="Human readable text describing the package"/>
+			<definition value="Human readable text describing the package."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="550,220"/>
+			</extension>
+			<path value="ImplementationGuide.definition.resource"/>
+			<short value="Resource in the implementation guide"/>
+			<definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.reference">
+			<path value="ImplementationGuide.definition.resource.reference"/>
+			<short value="Location of the resource"/>
+			<definition value="Where this resource is found."/>
+			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.fhirVersion">
+			<path value="ImplementationGuide.definition.resource.fhirVersion"/>
+			<short value="Versions this applies to (if different to IG)"/>
+			<definition value="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion."/>
+			<comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [applicable-version](extension-structuredefinition-applicable-version.html) extension."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="FHIRVersion"/>
+				</extension>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+					<valueBoolean value="true"/>
+				</extension>
+				<strength value="required"/>
+				<description value="All published FHIR Versions."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/FHIR-version"/>
+			</binding>
+		</element>
+		<element id="ImplementationGuide.definition.resource.name">
+			<path value="ImplementationGuide.definition.resource.name"/>
+			<short value="Human readable name for the resource"/>
+			<definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.description">
+			<path value="ImplementationGuide.definition.resource.description"/>
+			<short value="Reason why included in guide"/>
+			<definition value="A description of the reason that a resource has been included in the implementation guide."/>
+			<comment value="This is mostly used with examples to explain why it is present (though they can have extensive comments in the examples)."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.isExample">
+			<path value="ImplementationGuide.definition.resource.isExample"/>
+			<short value="Is this an example"/>
+			<definition value="If true, indicates the resource is an example instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.profile">
+			<path value="ImplementationGuide.definition.resource.profile"/>
+			<short value="Profile(s) this is an example of"/>
+			<definition value="If present, indicates profile(s) the instance is valid against."/>
+			<comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.resource.groupingId">
+			<path value="ImplementationGuide.definition.resource.groupingId"/>
+			<short value="Grouping this is part of"/>
+			<definition value="Reference to the id of the grouping this resource appears in."/>
+			<comment value="This must correspond to a group.id element within this implementation guide."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="id"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.page">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="0,180"/>
+			</extension>
+			<path value="ImplementationGuide.definition.page"/>
+			<short value="Page/Section in the Guide"/>
+			<definition value="A page / section in the implementation guide. The root page is the implementation guide home page."/>
+			<comment value="Pages automatically become sections if they have sub-pages. By convention, the home page is called index.html."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<constraint>
+				<key value="ig-3"/>
+				<severity value="error"/>
+				<human value="Source must be absent if 'generated' is generated"/>
+				<expression value="generated='generated' implies source.empty()"/>
+				<xpath value="not(f:generated/@value='generated') or not(exists(f:source))"/>
+			</constraint>
+		</element>
+		<element id="ImplementationGuide.definition.page.source[x]">
+			<path value="ImplementationGuide.definition.page.source[x]"/>
+			<short value="Source for page"/>
+			<definition value="Indicates the URL or the actual content to provide for the page."/>
+			<comment value="If absent and the page isn't a generated page, this may be inferred from the page name by checking input locations.  String is used for XHTML content - sent as an escaped string.  FHIR tooling can't support 'direct' XHTML anywhere other than in narrative."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+			<type>
+				<code value="string"/>
+			</type>
+			<type>
+				<code value="markdown"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.page.name">
+			<path value="ImplementationGuide.definition.page.name"/>
+			<short value="Name of the page when published"/>
+			<definition value="The url by which the page should be known when published."/>
+			<comment value="This SHALL be a local reference, expressed with respect to the root of the IG output folder.  No suffix is required.  If no suffix is specified, .html will be appended."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.page.title">
+			<path value="ImplementationGuide.definition.page.title"/>
+			<short value="Short title shown for navigational assistance"/>
+			<definition value="A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.page.generation">
+			<path value="ImplementationGuide.definition.page.generation"/>
+			<short value="html | markdown | xml | generated"/>
+			<definition value="A code that indicates how the page is generated."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+			<binding>
+				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+					<valueString value="GuidePageGeneration"/>
+				</extension>
+				<strength value="required"/>
+				<description value="A code that indicates how the page is generated."/>
+				<valueSet value="http://hl7.org/fhir/ValueSet/guide-page-generation"/>
+			</binding>
+		</element>
+		<element id="ImplementationGuide.definition.page.page">
+			<path value="ImplementationGuide.definition.page.page"/>
+			<short value="Nested Pages / Sections"/>
+			<definition value="Nested Pages/Sections under this page."/>
+			<comment value="The implementation guide breadcrumbs may be generated from this structure."/>
+			<min value="0"/>
+			<max value="*"/>
+			<contentReference value="#ImplementationGuide.definition.page"/>
+		</element>
+		<element id="ImplementationGuide.definition.parameter">
+			<path value="ImplementationGuide.definition.parameter"/>
+			<short value="Defines how IG is built by tools"/>
+			<definition value="A set of parameters that defines how the implementation guide is built. The parameters are defined by the relevant tools that build the implementation guides."/>
+			<comment value="see [confluence](https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters) for the parameters defined by the HL7 IG publisher."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.parameter.code">
+			<path value="ImplementationGuide.definition.parameter.code"/>
+			<short value="Code that identifies parameter"/>
+			<definition value="Code that identifies parameter."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.parameter.value">
+			<path value="ImplementationGuide.definition.parameter.value"/>
+			<short value="Value for named type"/>
+			<definition value="Value for named type."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.template">
+			<path value="ImplementationGuide.definition.template"/>
+			<short value="A template for building resources"/>
+			<definition value="A template for building resources."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.template.code">
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+				<valueBoolean value="true"/>
+			</extension>
+			<path value="ImplementationGuide.definition.template.code"/>
+			<short value="Type of template specified"/>
+			<definition value="Type of template specified."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="code"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.template.source">
+			<path value="ImplementationGuide.definition.template.source"/>
+			<short value="The source location for the template"/>
+			<definition value="The source location for the template."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.definition.template.scope">
+			<path value="ImplementationGuide.definition.template.scope"/>
+			<short value="The scope in which the template applies"/>
+			<definition value="The scope in which the template applies."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest">
+			<path value="ImplementationGuide.manifest"/>
+			<short value="Information about an assembled IG"/>
+			<definition value="Information about an assembled implementation guide, created by the publication tooling."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.rendering">
+			<path value="ImplementationGuide.manifest.rendering"/>
+			<short value="Location of rendered implementation guide"/>
+			<definition value="A pointer to official web page, PDF or other rendering of the implementation guide."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.manifest.resource">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="ManifestResource"/>
+			</extension>
+			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+				<valueCode value="550,220"/>
+			</extension>
+			<path value="ImplementationGuide.manifest.resource"/>
+			<short value="Resource in the implementation guide"/>
+			<definition value="A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource."/>
+			<min value="1"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.manifest.resource.reference">
+			<path value="ImplementationGuide.manifest.resource.reference"/>
+			<short value="Location of the resource"/>
+			<definition value="Where this resource is found."/>
+			<comment value="Usually this is a relative URL that locates the resource within the implementation guide. If you authoring an implementation guide, and will publish it using the FHIR publication tooling, use a URI that may point to a resource, or to one of various alternative representations (e.g. spreadsheet). The tooling will convert this when it publishes it."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="Reference"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+			</type>
+			<isSummary value="true"/>
+		</element>
+		<element id="ImplementationGuide.manifest.resource.isExample">
+			<path value="ImplementationGuide.manifest.resource.isExample"/>
+			<short value="Is this an example"/>
+			<definition value="If true, indicates the resource is an example instance."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.resource.profile">
+			<path value="ImplementationGuide.manifest.resource.profile"/>
+			<short value="Profile(s) this is an example of"/>
+			<definition value="If present, indicates profile(s) the instance is valid against."/>
+			<comment value="Examples: &#xA;&#xA;* StructureDefinition -&gt; Any &#xA;* ValueSet -&gt; expansion &#xA;* OperationDefinition -&gt; Parameters &#xA;* Questionnaire -&gt; QuestionnaireResponse."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.resource.relativePath">
+			<path value="ImplementationGuide.manifest.resource.relativePath"/>
+			<short value="Relative path for page in IG"/>
+			<definition value="The relative path for primary page for this resource within the IG."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the resource page."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.page">
+			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+				<valueString value="ManifestPage"/>
+			</extension>
+			<path value="ImplementationGuide.manifest.page"/>
+			<short value="HTML page within the parent IG"/>
+			<definition value="Information about a page within the IG."/>
+			<requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="BackboneElement"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.page.name">
+			<path value="ImplementationGuide.manifest.page.name"/>
+			<short value="HTML page name"/>
+			<definition value="Relative path to the page."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the page."/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.page.title">
+			<path value="ImplementationGuide.manifest.page.title"/>
+			<short value="Title of the page, for references"/>
+			<definition value="Label for the page intended for human display."/>
+			<requirements value="Allows generation of labels for markdown-generated hyperlinks."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.page.anchor">
+			<path value="ImplementationGuide.manifest.page.anchor"/>
+			<short value="Anchor available on the page"/>
+			<definition value="The name of an anchor available on the page."/>
+			<comment value="Appending 'rendering' + &#34;/&#34; + page.name + &#34;#&#34; + page.anchor should resolve to the anchor."/>
+			<requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.image">
+			<path value="ImplementationGuide.manifest.image"/>
+			<short value="Image within the IG"/>
+			<definition value="Indicates a relative path to an image that exists within the IG."/>
+			<requirements value="Allows validation of image links from a derived IG to this IG without a local copy of the IG."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="ImplementationGuide.manifest.other">
+			<path value="ImplementationGuide.manifest.other"/>
+			<short value="Additional linkable file in IG"/>
+			<definition value="Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG."/>
+			<requirements value="Allows validation of links from a derived IG to this IG without a local copy of the IG."/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+	</differential>
 </StructureDefinition>

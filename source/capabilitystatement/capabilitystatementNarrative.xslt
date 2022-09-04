@@ -3,7 +3,7 @@
   <xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 <!--  <xsl:variable name="fhirpath" select="'[%fhir-path%]'"/>  TODO: Put this back once validation doesn't choke on it -->
   <xsl:variable name="fhirpath" select="'{{site.data.fhir.path}}'"/>
-  <xsl:variable name="expectation-extension" select="('http://hl7.org/fhir/StructureDefinition/conformance-expectation', 'http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation')"/>
+  <xsl:variable name="expectation-extension" select="('http://terminology.hl7.org/ValueSet/conformance-expectation.', 'http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation')"/>
 <!--  <xsl:variable name="fhirpath" select="'../'"/>-->
   <xsl:template match="@*|node()">
     <xsl:copy>

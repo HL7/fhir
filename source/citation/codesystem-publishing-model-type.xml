@@ -1,101 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="publishing-model-type"/>
-  <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/publishing-model-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Print
-            
-            <a name="publishing-model-type-Print"> </a>
-          
-          </td>
-          
-          <td>Print</td>
-          
-          <td>Journal in print only (see https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#article).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Print-Electronic
-            
-            <a name="publishing-model-type-Print-Electronic"> </a>
-          
-          </td>
-          
-          <td>Print-Electronic</td>
-          
-          <td>Journal in print and electronic formats (see https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#article).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Electronic
-            
-            <a name="publishing-model-type-Electronic"> </a>
-          
-          </td>
-          
-          <td>Electronic</td>
-          
-          <td>Journal in electronic format only (see https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#article).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Eletronic-eCollection
-            
-            <a name="publishing-model-type-Eletronic-eCollection"> </a>
-          
-          </td>
-          
-          <td>Eletronic-eCollection</td>
-          
-          <td>Electronic-only journal that publishes individual articles then later collects with issue date (see https://www.nlm.nih.gov/bsd/licensee/elements_descriptions.html#article).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -108,7 +12,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/publishing-model-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1487"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1883"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="PublishingModelType"/>

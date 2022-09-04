@@ -1,14 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="example-extensional"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="example"/>
 	<meta>
 		<!--   shareable value sets are fully described, and can be put in the HL7 registry   -->
 		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
 	</meta>
 	<text>
-		<status value="generated"/>
+		<status value="additional"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
-			<p>Value set &quot;LOINC Codes for Cholesterol&quot;: This is an example value set that includes 
+			<p>Value set "LOINC Codes for Cholesterol": This is an example value set that includes 
         all the  codes for serum cholesterol from LOINC v2.36.</p>
 			<p>Developed by: FHIR project team (example)</p>
 			<p>Published for testing on 13-June 2012</p>
@@ -30,10 +29,14 @@
 		it has its own identifier. This is the identifier for this set of codes, and that doesn't 
 		change the codes.
     -->
-	<url value="http://hl7.org/fhir/ValueSet/example-extensional"/>
+	<url value="http://hl7.org/fhir/ValueSet/example"/>
 	<!--   an imaginary identifier. This is a non FHIR identifier - might be used in a 
 	  v2 context (though you always need to translate namespaces for v2)   -->
 	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3292"/>
+  </identifier>
+  <identifier>
 		<system value="http://acme.com/identifiers/valuesets"/>
 		<value value="loinc-cholesterol-int"/>
 	</identifier>

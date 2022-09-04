@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Schedule"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".active = false"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Schedule"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1060"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Schedule"/>
   <status value="draft"/>
@@ -198,7 +200,7 @@
       <path value="Schedule.name"/>
       <short value="Human-readable label"/>
       <definition value="Further description of the schedule as it would be presented to a consumer while searching."/>
-      <comment value="This MAY be used to describe what the schedule is for where it is clearer than just the name of the single actor." />
+      <comment value="This MAY be used to describe what the schedule is for where it is clearer than just the name of the single actor."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -208,7 +210,7 @@
     </element>
     <element id="Schedule.actor">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn&#39;t have other meanings and is applicable for people, services, locations and devices, also this has been updated to support multiple actors for a single schedule where they are not managed seperately (e.g. context where a practitioner and location are not available alone)."/>
+        <valueString value="Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn't have other meanings and is applicable for people, services, locations and devices, also this has been updated to support multiple actors for a single schedule where they are not managed seperately (e.g. context where a practitioner and location are not available alone)."/>
       </extension>
       <path value="Schedule.actor"/>
       <short value="Resource(s) that availability information is being provided for"/>
@@ -244,7 +246,7 @@
     <element id="Schedule.planningHorizon">
       <path value="Schedule.planningHorizon"/>
       <short value="Period of time covered by schedule"/>
-      <definition value="The period of time that the slots that reference this Schedule resource cover (even if none exist). These  cover the amount of time that an organization&#39;s planning horizon; the interval for which they are currently accepting appointments. This does not define a &quot;template&quot; for planning outside these dates."/>
+      <definition value="The period of time that the slots that reference this Schedule resource cover (even if none exist). These  cover the amount of time that an organization's planning horizon; the interval for which they are currently accepting appointments. This does not define a &#34;template&#34; for planning outside these dates."/>
       <min value="0"/>
       <max value="1"/>
       <type>

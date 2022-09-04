@@ -1,141 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="shareableplandefinition"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/shareableplandefinition"/>
-  <version value="5.0.0"/>
-  <name value="Shareable PlanDefinition"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions"/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="PlanDefinition"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-  <derivation value="constraint"/>
-  <differential>
-    <element id="PlanDefinition">
-      <path value="PlanDefinition"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="PlanDefinition.url">
-      <path value="PlanDefinition.url"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.identifier">
-      <path value="PlanDefinition.identifier"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.version">
-      <path value="PlanDefinition.version"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.name">
-      <path value="PlanDefinition.name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.title">
-      <path value="PlanDefinition.title"/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.experimental">
-      <path value="PlanDefinition.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.date">
-      <path value="PlanDefinition.date"/>
-      <min value="0"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.publisher">
-      <path value="PlanDefinition.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.contact">
-      <path value="PlanDefinition.contact"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.description">
-      <path value="PlanDefinition.description"/>
-      <alias value="scope"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.useContext">
-      <path value="PlanDefinition.useContext"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.jurisdiction">
-      <path value="PlanDefinition.jurisdiction"/>
-      <mustSupport value="true"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="shareableplandefinition"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="3"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="cds"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/shareableplandefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1077"/>
+  </identifier>
+	<version value="5.0.0"/>
+	<name value="Shareable PlanDefinition"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2020-12-28T16:55:11+11:00"/>
+	<publisher value="HL7"/>
+	<description value="Enforces the minimum information set for the plan definition metadata required by HL7 and other organizations that share and publish plan definitions"/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="PlanDefinition"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="PlanDefinition">
+			<path value="PlanDefinition"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element id="PlanDefinition.url">
+			<path value="PlanDefinition.url"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="uri"/>
+			</type>
+		</element>
+		<element id="PlanDefinition.identifier">
+			<path value="PlanDefinition.identifier"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.version">
+			<path value="PlanDefinition.version"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="PlanDefinition.name">
+			<path value="PlanDefinition.name"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="PlanDefinition.title">
+			<path value="PlanDefinition.title"/>
+			<min value="0"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.experimental">
+			<path value="PlanDefinition.experimental"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="boolean"/>
+			</type>
+		</element>
+		<element id="PlanDefinition.date">
+			<path value="PlanDefinition.date"/>
+			<min value="0"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.publisher">
+			<path value="PlanDefinition.publisher"/>
+			<alias value="steward"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="string"/>
+			</type>
+		</element>
+		<element id="PlanDefinition.contact">
+			<path value="PlanDefinition.contact"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.description">
+			<path value="PlanDefinition.description"/>
+			<alias value="scope"/>
+			<min value="1"/>
+			<max value="1"/>
+			<type>
+				<code value="markdown"/>
+			</type>
+			<mapping>
+				<identity value="rim"/>
+				<map value="N/A"/>
+			</mapping>
+		</element>
+		<element id="PlanDefinition.useContext">
+			<path value="PlanDefinition.useContext"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.jurisdiction">
+			<path value="PlanDefinition.jurisdiction"/>
+			<mustSupport value="true"/>
+		</element>
+	</differential>
 </StructureDefinition>

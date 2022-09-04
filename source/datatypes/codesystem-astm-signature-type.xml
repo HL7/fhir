@@ -1,6 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <url value="urn:iso-astm:E1762-95:2013"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.64"/>
+  </identifier>
   <name value="ASTMSignatureTypeCodes"/>
   <title value="ASTM Signature Type Codes"/>
   <status value="active"/>
@@ -12,17 +15,17 @@
   <content value="complete"/>
   <concept>
     <code value="1.2.840.10065.1.12.1.1"/>
-    <display value="Author&#39;s Signature"/>
+    <display value="Author's Signature"/>
     <definition value="the signature of the primary or sole author of a health information document. There can be only one primary author of a health information document."/>
   </concept>
   <concept>
     <code value="1.2.840.10065.1.12.1.2"/>
-    <display value="Coauthor&#39;s Signature"/>
+    <display value="Coauthor's Signature"/>
     <definition value="the signature of a health information document coauthor. There can be multiple coauthors of a health information document."/>
   </concept>
   <concept>
     <code value="1.2.840.10065.1.12.1.3"/>
-    <display value="Co-participant&#39;s Signature"/>
+    <display value="Co-participant's Signature"/>
     <definition value="the signature of an individual who is a participant in the health information document but is not an author or coauthor. (Example a surgeon who is required by institutional, regulatory, or legal rules to sign an operative report, but who was not involved in the authorship of that report.)"/>
   </concept>
   <concept>
@@ -38,7 +41,7 @@
   <concept>
     <code value="1.2.840.10065.1.12.1.6"/>
     <display value="Validation Signature"/>
-    <definition value="a signature validating a health information document for inclusion in the patient record. (Example a medical student or resident is credentialed to perform history or physical examinations and to write progress notes. The attending physician signs the history and physical examination to validate the entry for inclusion in the patient&#39;s medical record.)"/>
+    <definition value="a signature validating a health information document for inclusion in the patient record. (Example a medical student or resident is credentialed to perform history or physical examinations and to write progress notes. The attending physician signs the history and physical examination to validate the entry for inclusion in the patient's medical record.)"/>
   </concept>
   <concept>
     <code value="1.2.840.10065.1.12.1.7"/>

@@ -1,87 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="participantrequired"/>
-  <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/participantrequired defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">required
-            
-            <a name="participantrequired-required"> </a>
-          
-          </td>
-          
-          <td>Required</td>
-          
-          <td>The participant is required to attend the appointment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">optional
-            
-            <a name="participantrequired-optional"> </a>
-          
-          </td>
-          
-          <td>Optional</td>
-          
-          <td>The participant may optionally attend the appointment.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">information-only
-            
-            <a name="participantrequired-information-only"> </a>
-          
-          </td>
-          
-          <td>Information Only</td>
-          
-          <td>The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient&#39;s test).</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -94,7 +12,7 @@
   <url value="http://hl7.org/fhir/participantrequired"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.489"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.489"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ParticipantRequired"/>
@@ -130,6 +48,6 @@
   <concept>
     <code value="information-only"/>
     <display value="Information Only"/>
-    <definition value="The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient&#39;s test)."/>
+    <definition value="The participant is excluded from the appointment, and might not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test)."/>
   </concept>
 </CodeSystem>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="CoverageEligibilityResponse"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1437"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CoverageEligibilityResponse"/>
   <status value="draft"/>
@@ -406,7 +408,7 @@
         <severity value="error"/>
         <human value="SHALL contain a category or a billcode but not both."/>
         <expression value="category.exists() xor productOrService.exists()"/>
-        <xpath value="exists(f:category) or exists(f:productOrService)"/>
+        <xpath value="exists(f:category) != exists(f:productOrService)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
       </constraint>
     </element>

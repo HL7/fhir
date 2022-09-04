@@ -64,8 +64,16 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
           <valueString value="A Clinical Quality Language identifier, typically the name of a top-level definition within a library"/>
         </extension>
-        <code value="text/cql.identifier"/>
+        <code value="text/cql-identifier"/>
         <display value="CQL Identifier"/>
+      </concept>
+	  
+      <concept>
+        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
+          <valueString value="A Clinical Quality Language expression,"/>
+        </extension>
+        <code value="text/cql-expression"/>
+        <display value="CQL Expression"/>
       </concept>
     </include>
   </compose>

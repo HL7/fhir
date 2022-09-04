@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ResearchStudy"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ResearchStudy"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1099"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudy"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  A ResearchStudy involves the gathering of information about human or animal subjects."/>
+  <description value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
@@ -80,7 +82,7 @@
       </extension>
       <path value="ResearchStudy"/>
       <short value="Investigation to increase healthcare-related patient-independent knowledge"/>
-      <definition value="A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques. A ResearchStudy involves the gathering of information about human or animal subjects or stability data about drug products or drug substances."/>
+      <definition value="A scientific study of nature that sometimes includes processes involved in health and disease. For example, clinical trials are research studies that involve people. These studies may be related to new ways to screen, prevent, diagnose, and treat disease. They may also study certain outcomes and certain groups of people by looking at data collected in the past or future."/>
       <comment value="Need to make sure we encompass public health studies."/>
       <alias value="Clinical Trial"/>
       <alias value="Study"/>
@@ -126,7 +128,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="clinicaltrials-gov"/>
-        <map value="Organization&#39;s Unique Protocol ID; Secondary IDs"/>
+        <map value="Organization's Unique Protocol ID; Secondary IDs"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -486,7 +488,7 @@
     <element id="ResearchStudy.condition">
       <path value="ResearchStudy.condition"/>
       <short value="Condition being studied"/>
-      <definition value="The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion &quot;healthy volunteer&quot;, but the target condition code would be a Lupus SNOMED code."/>
+      <definition value="The condition that is the focus of the study.  For example, In a study to examine risk factors for Lupus, might have as an inclusion criterion &#34;healthy volunteer&#34;, but the target condition code would be a Lupus SNOMED code."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,10 +543,10 @@
         <map value="DocumentVersion.keywordCode; DocumentVersion.keywordText"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.location">
-      <path value="ResearchStudy.location"/>
-      <short value="Geographic region(s) for study"/>
-      <definition value="Indicates a country, state or other region where the study is taking place."/>
+    <element id="ResearchStudy.region">
+      <path value="ResearchStudy.region"/>
+      <short value="Geographic area for the study"/>
+      <definition value="A country, state or other area where the study is taking place rather than its precise geographic location or address."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -670,7 +672,7 @@
     <element id="ResearchStudy.classifier">
       <path value="ResearchStudy.classifier"/>
       <short value="Classification for the study"/>
-      <definition value="Additional grouping mechanism or categorization of a research study. Example: type of blinding, type of randomization, etc. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
+      <definition value="Additional grouping mechanism or categorization of a research study. Example: FDA regulated device, FDA regulated drug, MPG Paragraph 23b (a German legal requirement), IRB-exempt, etc. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -694,7 +696,7 @@
       <path value="ResearchStudy.associatedParty"/>
       <short value="Sponsors, collaborators, and other parties"/>
       <definition value="Sponsors, collaborators, and other parties."/>
-      <comment value="For a Sponsor or a PrincipalInvestigator use the dedicated attributes provided." />
+      <comment value="For a Sponsor or a PrincipalInvestigator use the dedicated attributes provided."/>
       <requirements value="While there are explicit attributes for a Sponsor and a PrincipalInvestigator many trial record a range of other organizations and individuals in key roles."/>
       <min value="0"/>
       <max value="*"/>
@@ -734,7 +736,7 @@
       <path value="ResearchStudy.associatedParty.period"/>
       <short value="When active in the role"/>
       <definition value="Identifies the start date and the end date of the associated party in the role."/>
-	  <comment value="The cardinality is 0..* due to the fact that an associated party may be intermittently active in a given role over multiple time periods." />
+	  <comment value="The cardinality is 0..* due to the fact that an associated party may be intermittently active in a given role over multiple time periods."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -743,8 +745,8 @@
     </element>
     <element id="ResearchStudy.associatedParty.classifier">
       <path value="ResearchStudy.associatedParty.classifier"/>
-      <short value="nih | fda"/>
-      <definition value="Organisational type of association."/>
+      <short value="nih | fda | government | nonprofit | academic | industry"/>
+      <definition value="A categorization other than role for the associated party."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -763,7 +765,7 @@
       <path value="ResearchStudy.associatedParty.party"/>
       <short value="Individual or organization associated with study (use practitionerRole to specify their organisation)"/>
       <definition value="Individual or organization associated with study (use practitionerRole to specify their organisation)."/>
-      <comment value="Suggestions of a better attribute name are appreciated" />
+      <comment value="Suggestions of a better attribute name are appreciated"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -874,7 +876,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="clinicaltrials-gov"/>
-        <map value="Enrollment; Number of Groups/Cohorts (= number of &quot;enrollment&quot; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
+        <map value="Enrollment; Number of Groups/Cohorts (= number of &#34;enrollment&#34; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -938,7 +940,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="clinicaltrials-gov"/>
-        <map value="Enrollment; Number of Groups/Cohorts (= number of &quot;enrollment&quot; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
+        <map value="Enrollment; Number of Groups/Cohorts (= number of &#34;enrollment&#34; instances); Groups (Group/Cohort Label = Group.name; Group/Cohort Description = Group.description); Eligibility (Group criteria)"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -966,8 +968,8 @@
       <path value="ResearchStudy.comparisonGroup"/>
       <short value="Defined path through the study for a subject"/>
       <definition value="Describes an expected sequence of events for one of the participants of a study.  E.g. Exposure to drug A, wash-out, exposure to drug B, wash-out, follow-up."/>
-      <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups." />
-      <alias value="arm" />
+      <comment value="In many clinical trials this is refered to as the ARM of the study, but such a term is not used in other sorts of trials even when there is a comparison between two or more groups."/>
+      <alias value="arm"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1251,7 +1253,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="	ArtifactUrlClassifier"/>
+          <valueString value=" ArtifactUrlClassifier"/>
         </extension>
         <strength value="example"/>
         <description value="defn."/>

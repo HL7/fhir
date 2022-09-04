@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="General Condition Example"/>
+      <valueString value="General Terminology Capability Example"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="terminologycapabilities-example"/>
@@ -14,6 +14,18 @@
     <item>
       <reference value="TerminologyCapabilities/example"/>
       <display value="General"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Terminology Server Base TerminologyCapabilities"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="terminologycapabilities-terminology-server"/>
+    </extension>
+    <item>
+      <reference value="TerminologyCapabilities/example-terminology-server"/>
+      <display value="TerminologyServer"/>
     </item>
   </entry>
 </List>

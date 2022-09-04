@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="location-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/location-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="location-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>The location is operational.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">suspended
-            
-            <a name="location-status-suspended"> </a>
-          
-          </td>
-          
-          <td>Suspended</td>
-          
-          <td>The location is temporarily closed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">inactive
-            
-            <a name="location-status-inactive"> </a>
-          
-          </td>
-          
-          <td>Inactive</td>
-          
-          <td>The location is no longer used.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://hl7.org/fhir/location-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.333"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.333"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LocationStatus"/>
   <title value="LocationStatus"/>
   <status value="draft"/>

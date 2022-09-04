@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="GenomicStudy"/>
   <title value="Genomic Study"/>
   <meta>
@@ -25,6 +23,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/GenomicStudy"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1109"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="GenomicStudy"/>
   <status value="draft"/>
@@ -133,13 +135,21 @@
     </element>
     <element id="GenomicStudy.type">
       <path value="GenomicStudy.type"/>
-      <short value="The type of the study"/>
-      <definition value="The type of the study."/>
+      <short value="The type of the study (e.g., Familial variant segregation, Functional variation detection, or Gene expression profiling)"/>
+      <definition value="The type of the study, e.g., Familial variant segregation, Functional variation detection, or Gene expression profiling."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type relevant to GenomicStudy."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
+      </binding>
     </element>
     <element id="GenomicStudy.subject">
       <path value="GenomicStudy.subject"/>
@@ -298,23 +308,39 @@
     </element>
     <element id="GenomicStudy.analysis.methodType">
       <path value="GenomicStudy.analysis.methodType"/>
-      <short value="Type of the methods used in the analysis"/>
-      <definition value="Type of the methods used in the analysis."/>
+      <short value="Type of the methods used in the analysis (e.g., FISH, Karyotyping, MSI)"/>
+      <definition value="Type of the methods used in the analysis, e.g., Fluorescence in situ hybridization (FISH), Karyotyping, or Microsatellite instability testing (MSI)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyMethodType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The method type of the GenomicStudy analysis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.changeType">
       <path value="GenomicStudy.analysis.changeType"/>
-      <short value="Type of the genomic changes studied in the analysis"/>
-      <definition value="Type of the genomic changes studied in the analysis such as insertion, inversion, or deletion."/>
+      <short value="Type of the genomic changes studied in the analysis (e.g., DNA, RNA, or AA change)"/>
+      <definition value="Type of the genomic changes studied in the analysis, e.g., DNA, RNA, or amino acid change."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyChangeType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The change type relevant to GenomicStudy analysis."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-changetype"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.genomeBuild"> <!-- Genome build -->
     <path value="GenomicStudy.analysis.genomeBuild"/>
@@ -480,13 +506,21 @@
     </element>
     <element id="GenomicStudy.analysis.input.type">
       <path value="GenomicStudy.analysis.input.type"/>
-      <short value="Type of input data"/>
-      <definition value="Type input data."/>
+      <short value="Type of input data (e.g., BAM, CRAM, or FASTA)"/>
+      <definition value="Type of input data, e.g., BAM, CRAM, or FASTA."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyDataFormat"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The data format of the data file."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.input.generatedBy[x]">
       <path value="GenomicStudy.analysis.input.generatedBy[x]"/>
@@ -546,13 +580,21 @@
     </element>
     <element id="GenomicStudy.analysis.output.type">
       <path value="GenomicStudy.analysis.output.type"/>
-      <short value="Type of output data"/>
-      <definition value="Type output data."/>
+      <short value="Type of output data (e.g., VCF, MAF, or BAM)"/>
+      <definition value="Type of output data, e.g., VCF, MAF, or BAM."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenomicStudyDataFormat"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The data format of the data file."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+      </binding>
     </element>
     <element id="GenomicStudy.analysis.performer">
       <path value="GenomicStudy.analysis.performer"/>

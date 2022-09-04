@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-trusted-expansion"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-trusted-expansion"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1210"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="trusted-expansion"/>
   <status value="draft"/>
@@ -35,7 +37,7 @@
       <path value="Extension"/>
       <short value="Reference to a trusted expansion"/>
       <definition value="Indicates an authoritative source for performing value set expansions."/>
-      <comment value="If the designated &quot;authoritative source&quot; (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates an alternate authoritative source where the value set expansion may be performed. The alternate authoritative source url must reference a FHIR terminology server endpoint (the [base] url of the FHIR server)."/>
+      <comment value="If the designated &#34;authoritative source&#34; (as specified in the valueset-authoritativeSource extension, if present) is unable to provide a valid expansion, this extension indicates an alternate authoritative source where the value set expansion may be performed. The alternate authoritative source url must reference a FHIR terminology server endpoint (the [base] url of the FHIR server)."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>

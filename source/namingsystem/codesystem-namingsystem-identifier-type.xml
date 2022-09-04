@@ -1,117 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="namingsystem-identifier-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/namingsystem-identifier-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">oid
-            
-            <a name="namingsystem-identifier-type-oid"> </a>
-          
-          </td>
-          
-          <td>OID</td>
-          
-          <td>An ISO object identifier; e.g. 1.2.3.4.5.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">uuid
-            
-            <a name="namingsystem-identifier-type-uuid"> </a>
-          
-          </td>
-          
-          <td>UUID</td>
-          
-          <td>A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">uri
-            
-            <a name="namingsystem-identifier-type-uri"> </a>
-          
-          </td>
-          
-          <td>URI</td>
-          
-          <td>A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.</td>
-        
-        </tr>
-		
-		<tr>
-          
-          <td style="white-space:nowrap">v2csmnemonic
-            
-            <a name="namingsystem-identifier-type-v2csmnemonic"> </a>
-          
-          </td>
-          
-          <td>V2CSMNemonic</td>
-          
-          <td>A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">other
-            
-            <a name="namingsystem-identifier-type-other"> </a>
-          
-          </td>
-          
-          <td>Other</td>
-          
-          <td>Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="fhir"/>
+    <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -122,9 +15,9 @@
   <url value="http://hl7.org/fhir/namingsystem-identifier-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.493"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.493"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="NamingSystemIdentifierType"/>
   <title value="NamingSystemIdentifierType"/>
   <status value="draft"/>

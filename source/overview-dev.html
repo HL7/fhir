@@ -95,9 +95,7 @@ This is an example of how a <a href="patient.html">patient</a> is represented as
 <code>  ],</code>
 <code>  "name": [</code>
 <code>    {</code>
-<code>      "family": [</code>
-<code>        "Levin"</code>
-<code>      ],</code>
+<code>      "family": "Levin",</code>
 <code>      "given": [</code>
 <code>        "Henry"</code>
 <code>      ],</code>
@@ -496,7 +494,7 @@ Notes:
   <li><b>total</b> (line 13) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 14) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>entry</b> (line 23) - Actual resources in this set of results</li>
-	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the <code>entry.resource.id</code> must be <a href="bundle.html#bundle-unique">unique in the bundle</a></li>
+	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the compination of the resource type and <code>entry.resource.id</code> must be <a href="bundle.html#bundle-unique">unique in the bundle</a></li>
   <li>The search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 

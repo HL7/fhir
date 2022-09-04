@@ -1,157 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="focus-characteristic-code"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/focus-characteristic-code defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">citation
-            
-            <a name="focus-characteristic-code-citation"> </a>
-          
-          </td>
-          
-          <td>Citation</td>
-          
-          <td>Used to reference a specific article.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">clinical-outcomes-observed
-            
-            <a name="focus-characteristic-code-clinical-outcomes-observed"> </a>
-          
-          </td>
-          
-          <td>Observed outcomes are clinical outcomes</td>
-          
-          <td>Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a &quot;clinical outcome&quot; (patient-important outcome such as mortality, symptoms, function or quality of life).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">population
-            
-            <a name="focus-characteristic-code-population"> </a>
-          
-          </td>
-          
-          <td>Population</td>
-          
-          <td>The population of interest.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">exposure
-            
-            <a name="focus-characteristic-code-exposure"> </a>
-          
-          </td>
-          
-          <td>Exposure</td>
-          
-          <td>The exposure of interest, such as an intervention.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">comparator
-            
-            <a name="focus-characteristic-code-comparator"> </a>
-          
-          </td>
-          
-          <td>Comparator</td>
-          
-          <td>The comparator (intervention or control state) of interest.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">outcome
-            
-            <a name="focus-characteristic-code-outcome"> </a>
-          
-          </td>
-          
-          <td>Outcome</td>
-          
-          <td>the outcome of interest.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">medication-exposures
-            
-            <a name="focus-characteristic-code-medication-exposures"> </a>
-          
-          </td>
-          
-          <td>Medication exposures</td>
-          
-          <td>Any medication exposures. A subset of exposures or interventions that are medications.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">study-type
-            
-            <a name="focus-characteristic-code-study-type"> </a>
-          
-          </td>
-          
-          <td>Study type</td>
-          
-          <td>Type of research study, such as randomized trial or case-control study.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -164,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/focus-characteristic-code"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1960"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="FocusCharacteristicCode"/>
   <title value="FocusCharacteristicCode"/>
   <status value="draft"/>
@@ -195,7 +46,7 @@
   <concept>
     <code value="clinical-outcomes-observed"/>
     <display value="Observed outcomes are clinical outcomes"/>
-    <definition value="Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a &quot;clinical outcome&quot; (patient-important outcome such as mortality, symptoms, function or quality of life)."/>
+    <definition value="Used to denote a focus on clinical outcomes, ie evidence variable in role of outcome (measured variable) as observed is considered a &#34;clinical outcome&#34; (patient-important outcome such as mortality, symptoms, function or quality of life)."/>
   </concept>
   <concept>
     <code value="population"/>

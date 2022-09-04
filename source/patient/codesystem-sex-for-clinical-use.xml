@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="sex-for-clinical-use"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.983"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2038"/>
   </identifier>
   <name value="sexForClinicalUseCS"/>
   <title value="Sex For Clinical Use"/>

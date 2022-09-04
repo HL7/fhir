@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/medicationrequest-category"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1322"/>
+  </identifier>
+  <name value="medicationRequest Category Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="MedicationRequest Category Codes"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+    </include>
+  </compose>
+</ValueSet>

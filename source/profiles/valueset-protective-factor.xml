@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="protective-factor"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/protective-factor"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3220"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="Protective Factor"/>
+  <title value="Protective Factor"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Example codes indicating protective factors. Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="413325006"/>
+      </concept>
+      <concept>
+        <code value="386229000"/>
+      </concept>
+      <concept>
+        <code value="406546002"/>
+      </concept>
+	  <concept>
+        <code value="1149080001"/>
+      </concept>
+      <concept>
+        <code value="224190007"/>
+      </concept>
+      <concept>
+        <code value="1137434003"/>
+      </concept>
+	  <concept>
+        <code value="86808004"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

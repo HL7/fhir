@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Citation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/citation.xsd">
     <id value="citation-example-systematic-meta-review"/>
 	<contained>
 		<Organization>
@@ -387,6 +386,10 @@
 	</contained>
 	<url value="http://hl7.org/fhir/Citation/citation-example-systematic-meta-review"/>
 	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.8.1"/>
+  </identifier>
+  <identifier>
 		<type>
 			<text value="FEvIR Object Identifier"/>
 		</type>
@@ -433,7 +436,7 @@
 		</type>
 		<classifier>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+				<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 				<code value="project-specific"/>
 				<display value="Project Specific"/>
 			</coding>
@@ -461,7 +464,7 @@
 		<type value="derived-from"/>
 		<classifier>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+				<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 				<code value="fhir-resource"/>
 				<display value="FHIR Resource"/>
 			</coding>
@@ -533,13 +536,13 @@
 					<display value="Primary human use"/>
 				</coding>
 			</type>
-			<text value="&lt;AbstractText Label=&quot;Importance&quot;&gt;Effective therapies for patients with coronavirus disease 2019 (COVID-19) are needed, and clinical trial data have demonstrated that low-dose dexamethasone reduced mortality in hospitalized patients with COVID-19 who required respiratory support.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Objective&quot;&gt;To estimate the association between administration of corticosteroids compared with usual care or placebo and 28-day all-cause mortality.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Design, Setting, and Participants&quot;&gt;Prospective meta-analysis that pooled data from 7 randomized clinical trials that evaluated the efficacy of corticosteroids in 1703 critically ill patients with COVID-19. The trials were conducted in 12 countries from February 26, 2020, to June 9, 2020, and the date of final follow-up was July 6, 2020. Pooled data were aggregated from the individual trials, overall, and in predefined subgroups. Risk of bias was assessed using the Cochrane Risk of Bias Assessment Tool. Inconsistency among trial results was assessed using the I2 statistic. The primary analysis was an inverse variance-weighted fixed-effect meta-analysis of overall mortality, with the association between the intervention and mortality quantified using odds ratios (ORs). Random-effects meta-analyses also were conducted (with the Paule-Mandel estimate of heterogeneity and the Hartung-Knapp adjustment) and an inverse variance-weighted fixed-effect analysis using risk ratios.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Exposures&quot;&gt;Patients had been randomized to receive systemic dexamethasone, hydrocortisone, or methylprednisolone (678 patients) or to receive usual care or placebo (1025 patients).&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Main Outcomes and Measures&quot;&gt;The primary outcome measure was all-cause mortality at 28 days after randomization. A secondary outcome was investigator-defined serious adverse events.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Results&quot;&gt;A total of 1703 patients (median age, 60 years [interquartile range, 52-68 years]; 488 [29%] women) were included in the analysis. Risk of bias was assessed as &quot;low&quot; for 6 of the 7 mortality results and as &quot;some concerns&quot; in 1 trial because of the randomization method. Five trials reported mortality at 28 days, 1 trial at 21 days, and 1 trial at 30 days. There were 222 deaths among the 678 patients randomized to corticosteroids and 425 deaths among the 1025 patients randomized to usual care or placebo (summary OR, 0.66 [95% CI, 0.53-0.82]; P &lt; .001 based on a fixed-effect meta-analysis). There was little inconsistency between the trial results (I2 = 15.6%; P = .31 for heterogeneity) and the summary OR was 0.70 (95% CI, 0.48-1.01; P = .053) based on the random-effects meta-analysis. The fixed-effect summary OR for the association with mortality was 0.64 (95% CI, 0.50-0.82; P &lt; .001) for dexamethasone compared with usual care or placebo (3 trials, 1282 patients, and 527 deaths), the OR was 0.69 (95% CI, 0.43-1.12; P = .13) for hydrocortisone (3 trials, 374 patients, and 94 deaths), and the OR was 0.91 (95% CI, 0.29-2.87; P = .87) for methylprednisolone (1 trial, 47 patients, and 26 deaths). Among the 6 trials that reported serious adverse events, 64 events occurred among 354 patients randomized to corticosteroids and 80 events occurred among 342 patients randomized to usual care or placebo.&lt;/AbstractText&gt;&lt;AbstractText Label=&quot;Conclusions and Relevance&quot;&gt;In this prospective meta-analysis of clinical trials of critically ill patients with COVID-19, administration of systemic corticosteroids, compared with usual care or placebo, was associated with lower 28-day all-cause mortality.&lt;/AbstractText&gt;"/>
+			<text value="&lt;AbstractText Label=&#34;Importance&#34;&gt;Effective therapies for patients with coronavirus disease 2019 (COVID-19) are needed, and clinical trial data have demonstrated that low-dose dexamethasone reduced mortality in hospitalized patients with COVID-19 who required respiratory support.&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Objective&#34;&gt;To estimate the association between administration of corticosteroids compared with usual care or placebo and 28-day all-cause mortality.&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Design, Setting, and Participants&#34;&gt;Prospective meta-analysis that pooled data from 7 randomized clinical trials that evaluated the efficacy of corticosteroids in 1703 critically ill patients with COVID-19. The trials were conducted in 12 countries from February 26, 2020, to June 9, 2020, and the date of final follow-up was July 6, 2020. Pooled data were aggregated from the individual trials, overall, and in predefined subgroups. Risk of bias was assessed using the Cochrane Risk of Bias Assessment Tool. Inconsistency among trial results was assessed using the I2 statistic. The primary analysis was an inverse variance-weighted fixed-effect meta-analysis of overall mortality, with the association between the intervention and mortality quantified using odds ratios (ORs). Random-effects meta-analyses also were conducted (with the Paule-Mandel estimate of heterogeneity and the Hartung-Knapp adjustment) and an inverse variance-weighted fixed-effect analysis using risk ratios.&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Exposures&#34;&gt;Patients had been randomized to receive systemic dexamethasone, hydrocortisone, or methylprednisolone (678 patients) or to receive usual care or placebo (1025 patients).&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Main Outcomes and Measures&#34;&gt;The primary outcome measure was all-cause mortality at 28 days after randomization. A secondary outcome was investigator-defined serious adverse events.&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Results&#34;&gt;A total of 1703 patients (median age, 60 years [interquartile range, 52-68 years]; 488 [29%] women) were included in the analysis. Risk of bias was assessed as &#34;low&#34; for 6 of the 7 mortality results and as &#34;some concerns&#34; in 1 trial because of the randomization method. Five trials reported mortality at 28 days, 1 trial at 21 days, and 1 trial at 30 days. There were 222 deaths among the 678 patients randomized to corticosteroids and 425 deaths among the 1025 patients randomized to usual care or placebo (summary OR, 0.66 [95% CI, 0.53-0.82]; P &lt; .001 based on a fixed-effect meta-analysis). There was little inconsistency between the trial results (I2 = 15.6%; P = .31 for heterogeneity) and the summary OR was 0.70 (95% CI, 0.48-1.01; P = .053) based on the random-effects meta-analysis. The fixed-effect summary OR for the association with mortality was 0.64 (95% CI, 0.50-0.82; P &lt; .001) for dexamethasone compared with usual care or placebo (3 trials, 1282 patients, and 527 deaths), the OR was 0.69 (95% CI, 0.43-1.12; P = .13) for hydrocortisone (3 trials, 374 patients, and 94 deaths), and the OR was 0.91 (95% CI, 0.29-2.87; P = .87) for methylprednisolone (1 trial, 47 patients, and 26 deaths). Among the 6 trials that reported serious adverse events, 64 events occurred among 354 patients randomized to corticosteroids and 80 events occurred among 342 patients randomized to usual care or placebo.&lt;/AbstractText&gt;&lt;AbstractText Label=&#34;Conclusions and Relevance&#34;&gt;In this prospective meta-analysis of clinical trials of critically ill patients with COVID-19, administration of systemic corticosteroids, compared with usual care or placebo, was associated with lower 28-day all-cause mortality.&lt;/AbstractText&gt;"/>
 		</abstract>
 		<relatesTo>
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -562,7 +565,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -585,7 +588,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -608,7 +611,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -631,7 +634,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -654,7 +657,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -677,7 +680,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -700,7 +703,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -723,7 +726,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -746,7 +749,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -769,7 +772,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -792,7 +795,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -815,7 +818,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -838,7 +841,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -861,7 +864,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -884,7 +887,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -907,7 +910,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -930,7 +933,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -953,7 +956,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -976,7 +979,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -999,7 +1002,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -1022,7 +1025,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -1045,7 +1048,7 @@
 			<type value="cites"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -1068,7 +1071,7 @@
 			<type value="comment-in"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016420"/>
 					<display value="Comment"/>
 					<userSelected value="false"/>
@@ -1092,7 +1095,7 @@
 			<type value="comment-in"/>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016420"/>
 					<display value="Comment"/>
 					<userSelected value="false"/>
@@ -1260,7 +1263,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="D016428"/>
 					<display value="Journal Article"/>
 				</coding>
@@ -1276,7 +1279,7 @@
 			</type>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/citation-artifact-classifier"/>
+					<system value="http://hl7.org/fhir/citation-artifact-classifier"/>
 					<code value="Print"/>
 					<display value="Print"/>
 				</coding>
@@ -1377,7 +1380,7 @@
 				<coding>
 					<system value="https://meshb.nlm.nih.gov/"/>
 					<code value="D013485"/>
-					<display value="Research Support, Non-U.S. Gov&apos;t"/>
+					<display value="Research Support, Non-U.S. Gov't"/>
 				</coding>
 			</classifier>
 		</classification>

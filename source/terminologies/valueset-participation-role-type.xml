@@ -1,20 +1,17 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="participation-role-type"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"> This value set includes agent participation types. </div>
-  </text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
-
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.54"/>
+  </identifier>
   <version value="1.9.0"/>
   <name value="ParticipationRoleType"/>
-
   <status value="draft"/>
   <experimental value="false"/>
-
   <date value="2021-12-06T18:00:00+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -27,28 +24,18 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-
-  <description
-        value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes refered to the agent functional-role relative to the activity."/>
-
-  <copyright
-        value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013) 
-		Some codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
-
+  <description value="This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes refered to the agent functional-role relative to the activity."/>
+  <copyright value="This is an example FHIR value set based on ASTM Standard, E1762-95 (2013)    Some codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <compose>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/provenance-agent-type"/>
-	</include>
+    </include>
     <include>
-	<!-- DICOM codes for AuditEvent agent type -->
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-	  <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html" />
+      <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_402.html"/>
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/extra-security-role-type"/>
     </include>
-
-	</compose>
-
+  </compose>
 </ValueSet>
-

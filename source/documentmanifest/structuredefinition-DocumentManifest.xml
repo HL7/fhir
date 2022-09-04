@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DocumentManifest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DocumentManifest"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1445"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DocumentManifest"/>
   <status value="draft"/>
@@ -380,8 +382,8 @@
     <element id="DocumentManifest.description">
       <path value="DocumentManifest.description"/>
       <short value="Human-readable description (title)"/>
-      <definition value="Human-readable description of the source document. This is sometimes known as the &quot;title&quot;."/>
-      <comment value="What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a &quot;consultation&quot; or &quot;progress note&quot;)."/>
+      <definition value="Human-readable description of the source document. This is sometimes known as the &#34;title&#34;."/>
+      <comment value="What the document is about, rather than a terse summary of the document. It is commonly the case that records do not have a title and are collectively referred to by the display name of Record code (e.g. a &#34;consultation&#34; or &#34;progress note&#34;)."/>
       <requirements value="Helps humans to assess whether the document is of interest."/>
       <min value="0"/>
       <max value="1"/>
@@ -402,7 +404,7 @@
       <path value="DocumentManifest.content"/>
       <short value="Items in manifest"/>
       <definition value="The list of Resources that consist of the parts of this manifest."/>
-      <comment value="When used for XDS the intended focus of the DocumentManifest is for the reference to target to be a set of DocumentReference Resources. The reference is to &quot;Any&quot; to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources."/>
+      <comment value="When used for XDS the intended focus of the DocumentManifest is for the reference to target to be a set of DocumentReference Resources. The reference is to &#34;Any&#34; to support EN 13606 usage, where an extract is DocumentManifest that references  List and Composition resources."/>
       <requirements value="Any Resources are allowed to be grouped in a Manifest. The manifest brings context to the group."/>
       <min value="1"/>
       <max value="*"/>

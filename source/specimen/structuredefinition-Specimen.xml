@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Specimen"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -25,6 +23,10 @@
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/proposed-order"/>
   <url value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1406"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Specimen"/>
   <status value="draft"/>
@@ -611,7 +613,7 @@
       <path value="Specimen.collection.fastingStatus[x]"/>
       <short value="Whether or how long patient abstained from food and/or drink"/>
       <definition value="Abstinence or reduction from some or all food, drink, or both, for a period of time prior to sample collection."/>
-      <comment value="Representing fasting status using this element is preferred to representing it with an observation using a &#39;pre-coordinated code&#39;  such as  LOINC 2005-7 (Calcium [Moles/&#x200B;time] in 2 hour Urine --12 hours fasting), or  using  a component observation ` such as `Observation.component code`  = LOINC 49541-6 (Fasting status - Reported)."/>
+      <comment value="Representing fasting status using this element is preferred to representing it with an observation using a 'pre-coordinated code'  such as  LOINC 2005-7 (Calcium [Moles/​time] in 2 hour Urine --12 hours fasting), or  using  a component observation ` such as `Observation.component code`  = LOINC 49541-6 (Fasting status - Reported)."/>
       <requirements value="Many diagnostic tests require fasting  to facilitate accurate interpretation."/>
       <min value="0"/>
       <max value="1"/>
@@ -744,7 +746,7 @@
     <element id="Specimen.container.device">
        <path value="Specimen.container.device"/>
       <short value="Device resource for the container"/>
-      <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device." />
+      <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -798,7 +800,7 @@
       <path value="Specimen.condition"/>
       <short value="State of the specimen"/>
       <definition value="A mode or state of being that describes the nature of the specimen."/>
-      <comment value="Specimen condition is an observation made about the specimen.  It&#39;s a point-in-time assessment.  It can be used to assess its quality or appropriateness for a specific test."/>
+      <comment value="Specimen condition is an observation made about the specimen.  It's a point-in-time assessment.  It can be used to assess its quality or appropriateness for a specific test."/>
       <requirements value="The specimen condition can be used to assess its quality or appropriateness for a specific test."/>
       <min value="0"/>
       <max value="*"/>
@@ -834,7 +836,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
       </mapping>
     </element>
   </differential>

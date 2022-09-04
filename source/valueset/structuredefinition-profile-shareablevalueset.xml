@@ -1,124 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="shareablevalueset"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="5"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  <version value="5.0.0"/>
-  <name value="ShareableValueSet"/>
-  <title value="Shareable ValueSet"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets"/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="ValueSet"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-  <derivation value="constraint"/>
-  <differential>
-    <element id="ValueSet">
-      <path value="ValueSet"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="ValueSet.extension:knowledgeRepresentationLevel">
-      <path value="ValueSet.extension"/>
-      <sliceName value="knowledgeRepresentationLevel"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.extension:authoritativeSource">
-      <path value="ValueSet.extension"/>
-      <sliceName value="authoritativeSource"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.url">
-      <path value="ValueSet.url"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.version">
-      <path value="ValueSet.version"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.name">
-      <path value="ValueSet.name"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.title">
-      <path value="ValueSet.title"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.status">
-      <path value="ValueSet.status"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.experimental">
-      <path value="ValueSet.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.publisher">
-      <path value="ValueSet.publisher"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ValueSet.description">
-      <path value="ValueSet.description"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="shareablevalueset"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+		<valueMarkdown value="**mustSupport**&#xA;&#xA;When this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="5"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="vocab"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
+		<valueString value="**mustSupport**&#xA;&#xA;When this profile has defined an element as mustSupport, the sender must provide the element value when available, and the receiver must accept the element value, persist the value and when appropriate, provide function as defined in the profile. When mustSupport is defined at a complex element level, all sub-elements inherit mustSupport."/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1192"/>
+  </identifier>
+	<version value="5.0.0"/>
+	<name value="ShareableValueSet"/>
+	<title value="Shareable ValueSet"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2020-12-28T16:55:11+11:00"/>
+	<publisher value="HL7"/>
+	<description value="Enforces the minimum information set for the value set metadata required by HL7 and other organizations that share and publish value sets"/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="ValueSet"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="ValueSet">
+			<path value="ValueSet"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element id="ValueSet.extension:knowledgeRepresentationLevel">
+			<path value="ValueSet.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.extension:authoritativeSource">
+			<path value="ValueSet.extension"/>
+			<sliceName value="authoritativeSource"/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.url">
+			<path value="ValueSet.url"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.version">
+			<path value="ValueSet.version"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.name">
+			<path value="ValueSet.name"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.title">
+			<path value="ValueSet.title"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.status">
+			<path value="ValueSet.status"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.experimental">
+			<path value="ValueSet.experimental"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.publisher">
+			<path value="ValueSet.publisher"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ValueSet.description">
+			<path value="ValueSet.description"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+	</differential>
 </StructureDefinition>

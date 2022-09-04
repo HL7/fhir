@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="explanationofbenefit-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/explanationofbenefit-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">active
-            
-            <a name="explanationofbenefit-status-active"> </a>
-          
-          </td>
-          
-          <td>Active</td>
-          
-          <td>The resource instance is currently in-force.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="explanationofbenefit-status-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The resource instance is withdrawn, rescinded or reversed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">draft
-            
-            <a name="explanationofbenefit-status-draft"> </a>
-          
-          </td>
-          
-          <td>Draft</td>
-          
-          <td>A new resource instance the contents of which is not complete.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="explanationofbenefit-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered In Error</td>
-          
-          <td>The resource instance was entered in error.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://hl7.org/fhir/explanationofbenefit-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.619"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.619"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ExplanationOfBenefitStatus"/>
   <title value="ExplanationOfBenefitStatus"/>
   <status value="draft"/>

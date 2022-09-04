@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="testscript-scope-phase-codes"/>
   <meta>
-    <lastUpdated value="2021-01-25T17:01:24-04:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/testscript-scope-phase-codes defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">response
-            
-            <a name="assert-direction-codes-response"> </a>
-          
-          </td>
-          
-          <td>unit</td>
-          
-          <td>The development or implementation phase.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">request
-            
-            <a name="assert-direction-codes-request"> </a>
-          
-          </td>
-          
-          <td>integration</td>
-          
-          <td>The internal system to system phase.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">request
-            
-            <a name="assert-direction-codes-request"> </a>
-          
-          </td>
-          
-          <td>production</td>
-          
-          <td>The live production phase. Warning: PHI/PII will be present.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/testscript-scope-phase-codes"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1537"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1950"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="TestScriptScopePhaseType"/>
   <title value="TestScriptScopePhaseType"/>
   <status value="draft"/>

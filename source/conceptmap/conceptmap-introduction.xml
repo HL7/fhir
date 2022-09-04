@@ -16,6 +16,13 @@ Note that all code systems (explicit or implicit) represented in FHIR have URI i
 <p>
 Each mapping from a source concept to a target concept includes a <a href="valueset-concept-map-relationship.html">relationship</a> 
 element describing the semantic correspondence between the two (or, in some cases, that there is no valid mapping).
+If none of the relationships in <a href="valueset-concept-map-relationship.html">ConceptMapRelationship</a> is precise enough, then a <code>ConceptMap.group.element.target.product</code>
+data element can be used with a child <code>property</code> value of <code>http://hl7.org/fhir/conceptmap-properties#relationshipRefinement</code> 
+(from the <a href="codesystem-conceptmap-properties.html">ConceptMap Properties</a> code system) and a child <code>valueCode</code> or 
+<code>valueCoding</code> value to indicate the precise relationship. In this case, well-known relationships, such as those from the 
+<a href="https://www.w3.org/TR/skos-reference/#mapping">Simple Knowledge Organization System (SKOS)</a>, should be used where possible.
+</p>
+<p>
 There can be an <code>element</code> for each concept or field in the <code>sourceScope</code> value set or <code>group.source</code> code system that needs to be mapped.
 Each source concept may have multiple targets:
 </p>

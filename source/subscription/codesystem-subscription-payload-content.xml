@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscription-payload-content"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/subscription-payload-content defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">empty
-            
-            <a name="subscription-payload-content-empty"> </a>
-          
-          </td>
-          
-          <td>empty</td>
-          
-          <td>No resource content is transacted in the notification payload.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">id-only
-            
-            <a name="subscription-payload-content-id-only"> </a>
-          
-          </td>
-          
-          <td>id-only</td>
-          
-          <td>Only the resource id is transacted in the notification payload.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">full-resource
-            
-            <a name="subscription-payload-content-full-resource"> </a>
-          
-          </td>
-          
-          <td>full-resource</td>
-          
-          <td>The entire resource is transacted in the notification payload.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://hl7.org/fhir/subscription-payload-content"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1436"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2021"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SubscriptionPayloadContent"/>
   <title value="SubscriptionPayloadContent"/>
   <status value="draft"/>

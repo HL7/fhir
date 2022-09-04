@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-subject-milestone"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/research-subject-milestone defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">SignedUp
-            
-            <a name="research-subject-milestone-SignedUp"> </a>
-          
-          </td>
-          
-          <td>Signed up</td>
-          
-          <td>A person has expressed an interest in being in a study but has not yet been through any assessment or consent processes.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Screened
-            
-            <a name="research-subject-milestone-Screened"> </a>
-          
-          </td>
-          
-          <td>Screened</td>
-          
-          <td>A potential subject has been screened for suitability.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">Randomized
-            
-            <a name="research-subject-milestone-Randomized"> </a>
-          
-          </td>
-          
-          <td>Randomized</td>
-          
-          <td>A subject has been allocated to an arm of the study.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/research-subject-milestone"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1475"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2006"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ResearchSubjectMilestone"/>
   <title value="ResearchSubjectMilestone"/>
   <status value="draft"/>

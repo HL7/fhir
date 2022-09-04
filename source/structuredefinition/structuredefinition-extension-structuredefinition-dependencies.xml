@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="structuredefinition-dependencies"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-dependencies"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1038"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="dependencies"/>
   <title value="Dependent Profiles"/>
@@ -42,7 +44,7 @@
       <path value="Extension"/>
       <short value="Dependent Profiles - must be valid against these too"/>
       <definition value="Instances can only be valid against this StructureDefinition, if they also sucessfully validate against the dependent profile identified in this extension."/>
-      <comment value="Ideally, a profile will restate the constraints of it&#39;s base profile and all it&#39;s dependent profiles, but this can get pretty complicated once slicing enters the picture. Tools SHOULD not assume that this profile includes all the constraints from the dependent profile."/>
+      <comment value="Ideally, a profile will restate the constraints of it's base profile and all it's dependent profiles, but this can get pretty complicated once slicing enters the picture. Tools SHOULD not assume that this profile includes all the constraints from the dependent profile."/>
       <min value="0"/>
       <max value="*"/>
     </element>

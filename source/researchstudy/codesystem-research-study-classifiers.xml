@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
 	<id value="research-study-classifiers"/>
 	<meta>
     	<lastUpdated value="2022-05-15T16:55:11.085+11:00"/>
@@ -18,7 +16,7 @@
 	<url value="http://hl7.org/fhir/research-study-classifiers"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.1.1686"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.4.1967"/>
 	</identifier>
 	<version value="5.0.0"/>
 	<name value="ResearchStudyClassifiers"/>
@@ -63,7 +61,7 @@
 		<concept>
 			<code value="supportive-care"/>
 			<display value="Supportive Care"/>
-			<definition value="One or more interventions are evaluated for maximizing comfort, minimizing side effects, or mitigating against a decline in the participant&apos;s health or function."/>
+			<definition value="One or more interventions are evaluated for maximizing comfort, minimizing side effects, or mitigating against a decline in the participant's health or function."/>
 		</concept>
 		<concept>
 			<code value="screening"/>
@@ -97,7 +95,7 @@
 		<concept>
 			<code value="early-phase-1"/>
 			<display value="Early Phase 1"/>
-			<definition value="Designation for optional exploratory trials conducted in accordance with the United States Food and Drug Administration&apos;s (FDA) 2006 Guidance on Exploratory Investigational New Drug (IND) Studies. Formerly called Phase 0."/>
+			<definition value="Designation for optional exploratory trials conducted in accordance with the United States Food and Drug Administration's (FDA) 2006 Guidance on Exploratory Investigational New Drug (IND) Studies. Formerly called Phase 0."/>
 		</concept>
 		<concept>
 			<code value="phase-1"/>
@@ -127,35 +125,55 @@
 		<concept>
 			<code value="phase-4"/>
 			<display value="Phase 4"/>
-			<definition value="Studies of FDA-approved drugs to delineate additional information including the drug&apos;s risks, benefits, and optimal use."/>
+			<definition value="Studies of FDA-approved drugs to delineate additional information including the drug's risks, benefits, and optimal use."/>
+		</concept>
+	</concept>
+	<concept>
+		<code value="research-study-focus-type"/>
+		<display value="Research Study Focus Type"/>
+		<concept>
+			<code value="medication"/>
+			<display value="Medication"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="device"/>
+			<display value="Device"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="intervention"/>
+			<display value="Intervention"/>
+			<definition value=""/>
+		</concept>
+		<concept>
+			<code value="factor"/>
+			<display value="Factor"/>
+			<definition value=""/>
 		</concept>
 	</concept>
 	<concept>
 		<code value="research-study-classifier"/>
 		<display value="Research Study Classifier"/>
 		<concept>
-			<code value="research-study-focus-type"/>
-			<display value="Research Study Focus Type"/>
-			<concept>
-				<code value="medication"/>
-				<display value="Medication"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="device"/>
-				<display value="Device"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="intervention"/>
-				<display value="Intervention"/>
-				<definition value=""/>
-			</concept>
-			<concept>
-				<code value="factor"/>
-				<display value="Factor"/>
-				<definition value=""/>
-			</concept>
+			<code value="fda-regulated-drug"/>
+			<display value="FDA regulated drug"/>
+			<definition value="A medication regulated by the U.S. Food and Drug Administration."/>
+		</concept>
+		<concept>
+			<code value="fda-regulated-device"/>
+			<display value="FDA regulated device"/>
+			<definition value="A medical device regulated by the U.S. Food and Drug Administration."/>
+		</concept>
+		<concept>
+			<code value="mpg-paragraph-23b"/>
+			<display value="MPG Paragraph 23b"/>
+			<definition value="Research regulated by a specific German legal requirement (Medizinproduktegesetz MPG Paragraph 23b)."/>
+		</concept>
+		<concept>
+			<code value="irb-exempt"/>
+			<display value="IRB-exempt"/>
+			<definition value="Human subjects research that is excempt from oversight and monitoring by an institutional review board (IRB)."/>
 		</concept>
 	</concept>
 	<concept>
@@ -168,6 +186,22 @@
 		<concept>
 			<code value="fda"/>
 			<display value="FDA"/>
+		</concept>
+		<concept>
+			<code value="government"/>
+			<display value="Government"/>
+		</concept>
+		<concept>
+			<code value="nonprofit"/>
+			<display value="Nonprofit"/>
+		</concept>
+		<concept>
+			<code value="academic"/>
+			<display value="Academic"/>
+		</concept>
+		<concept>
+			<code value="industry"/>
+			<display value="Industry"/>
 		</concept>
 	</concept>
 	<concept>
@@ -357,7 +391,7 @@
 		</concept>
 		<concept>
 			<code value="update-submission"/>
-			<display value="Update submission	"/>
+			<display value="Update submission "/>
 		</concept>
 		<concept>
 			<code value="update-posting"/>
@@ -1337,7 +1371,7 @@
 		<concept>
 			<code value="SEVCO:01053"/>
 			<display value="Includes patient-centered outcome"/>
-			<definition value="A study design feature in which one or more measures are outcomes that patients directly care about, i.e. outcomes that are directly related to patients&apos; experience of their life."/>
+			<definition value="A study design feature in which one or more measures are outcomes that patients directly care about, i.e. outcomes that are directly related to patients' experience of their life."/>
 			<designation>
 				<use>
 					<display value="Alternative term"/>

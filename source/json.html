@@ -26,7 +26,7 @@ The JSON representation for a resource is based on the <a href="https://www.rfc-
   "resourceType" : "<a title="The resource type being referenced" class="dict" href="resourcelist.html"><b>[Resource Type]</b></a>",
   // from <a href="json.html">Source</a>: <a href="json.html">property0</a>
   "<a title="long description" class="dict" href="json.html">property1</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html">[primitive]</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
-  "<a title="long description" class="dict" href="json.html">property2</a>" : { <span style="color: darkgreen"><a href="datatypes.html">[Data Type]</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
+  "<a title="long description" class="dict" href="json.html">property2</a>" : { <span style="color: darkgreen"><a href="datatypes.html">[Datatype]</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">short description</span>
   "<a title="long description" class="dict" href="json.html">property3</a>" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Short Description</span>
     "<a title="long description" class="dict" href="json.html">propertyA</a>" : { <span style="color: darkgreen"><a href="datatypes.html#CodeableConcept">CodeableConcept</a></span> }, <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"><a style="color: navy; opacity: 0.8" href="json.html">Short Description</a> (<a style="color: navy; opacity: 0.8" href="terminologies.html#example">Example</a>)</span>
   },
@@ -43,8 +43,8 @@ Using this format:
    as described by the type rules and content description found in the property value for each element</li>
  <li>In this example:
    <ol>
-     <li><code>property1</code> has a primitive data type; the value of the property will be as described for the stated type</li>
-     <li><code>property2</code> has a complex data type; the value of the property is an object that has the content as described for the stated type</li>
+     <li><code>property1</code> has a primitive datatype; the value of the property will be as described for the stated type</li>
+     <li><code>property2</code> has a complex datatype; the value of the property is an object that has the content as described for the stated type</li>
      <li><code>property3</code> is an object property that contains additional properties (e.g. propertyA; the allowable properties are listed (but also include extensions as appropriate)</li>
      <li><code>property4</code> is an array property that contains items which are objects themselves. The items may have any of the types already encountered in points 1-3</li>
      <li><code>propertyA</code> is an example of an object property that has a binding to a value set - the Short description is a link to the value set. In addition, the binding strength is shown </li>
@@ -128,7 +128,7 @@ XML for comparison:
 <a name="primitive"></a>
 <h3>JSON representation of primitive elements</h3>
 <p>
-FHIR elements with primitive data types are represented in two parts:
+FHIR elements with primitive datatypes are represented in two parts:
 </p>
 <ul>
  <li>A JSON property with the name of the element, which has a JSON type of number, boolean, or string</li>
@@ -138,7 +138,7 @@ FHIR elements with primitive data types are represented in two parts:
 The FHIR types <a href="datatypes.html#integer">integer</a>, <a href="datatypes.html#unsignedInt">unsignedInt</a>, 
 <a href="datatypes.html#positiveInt">positiveInt</a> and <a href="datatypes.html#decimal">decimal</a> are represented 
 as a JSON number, the FHIR type <a href="datatypes.html#boolean">boolean</a>
-as a JSON boolean, and all other types (including <a href="datatypes.html#integer64">integer64</a>) are represented as a JSON string which has the same content as that specified for the relevant data type. Whitespace is always significant
+as a JSON boolean, and all other types (including <a href="datatypes.html#integer64">integer64</a>) are represented as a JSON string which has the same content as that specified for the relevant datatype. Whitespace is always significant
 (i.e. no leading and trailing spaces for non-strings).</p>
 <pre class="json">
  "code" : "abc",
@@ -159,7 +159,7 @@ as a JSON boolean, and all other types (including <a href="datatypes.html#intege
 <p>
 When using a JavaScript JSON.parse() implementation, note that JavaScript natively supports only one numeric datatype, which is a floating point number.
 This can cause loss of precision for FHIR numbers. In particular, trailing 0s after a decimal point will be lost e.g. 2.00 will be converted to 2.
-The FHIR decimal data type is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
+The FHIR decimal datatype is defined such that precision, including trailing zeros, is preserved for presentation purposes, and this
 is widely regarded as critical for correct presentation of clinical measurements. Implementations should consider using a custom parser and big number library
 (e.g. <a href="https://github.com/jtobey/javascript-bignum">https://github.com/jtobey/javascript-bignum</a>) to meet these requirements.
 See also <a href="extension-quantity-precision.html">the precision extension</a>.
@@ -227,20 +227,20 @@ implementations SHOULD omit it entirely.
 </p>
 
 [%impl-note%]
-The representation of primitive data types has been
+The representation of primitive datatypes has been
 split into two parts like this in order to simplify the representation
 of simple primitive values without id or extensions. This does have the cost of making the
 representation of the id attribute and extensions more ungainly, but these are both
-rarely used with primitive data types.
+rarely used with primitive datatypes.
 [%end-note%]
 
 <a name="complex"></a>
 
-<h3>JSON representation of Complex Data types and XHTML</h3>
+<h3>JSON representation of Complex Datatypes and XHTML</h3>
 
 <p>
 Complex <a href="datatypes.html">datatypes</a> (types that contain named elements of other types) are represented using
-a JSON object that contains a property for each element in the datatype. Complex data types can have ids, which are
+a JSON object that contains a property for each element in the datatype. Complex datatypes can have ids, which are
 converted to JSON properties, in the same manner as described for primitives. For example:</p>
  <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
@@ -330,7 +330,7 @@ JSON. The signed set of fragments SHALL be transformed such that:
 <ul>
  <li>No whitespace other than single spaces in property values and in the xhtml in the <a href="narrative.html">Narrative</a></li>
  <li>Properties are ordered alphabetically within each object</li>
- <li>Multiple fragments are concatenated with no intervening white-space in the order defined by the element with the <a href="datatypes.html#Signature">Signature</a> data type</li>
+ <li>Multiple fragments are concatenated with no intervening white-space in the order defined by the element with the <a href="datatypes.html#Signature">Signature</a> datatype</li>
 </ul>
 <p>
 This canonicalization method is identified by the URI <code>http://hl7.org/fhir/canonicalization/json</code>. The

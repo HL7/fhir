@@ -1,44 +1,55 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir">
-	<id value="provenance-activity-type"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">  This is a value set of representative Activity Type codes. </div>
-	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
-
-	<url value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
-	<version value="2.0.0"/>
-	<name value="ProvenanceActivityType"/>
-    <title value="ValueSet of sample of representative activity type codes."/>
-	<status value="draft"/>
-	<experimental value="false"/>
-
-	<date value="2022-05-10T18:00:00+01:00"/>
-	<publisher value="HL7 Security Work Group"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-		<telecom>
-			<system value="email"/>
-			<value value="fhir@lists.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="Some potential code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DocumentCompletion.html)&#xA;- [v3-DataOperation](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DataOperation.html)&#xA;- [v3-ActCode](http://hl7.org/fhir/v3/ActCode/cs.html)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)"/>
-
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
-			<concept><code value="amend"/></concept>
-			<concept><code value="originate"/></concept>
-			<concept><code value="merge"/></concept>
-			<concept><code value="deidentify"/></concept>
-			<concept><code value="receive"/></concept>
-			<concept><code value="transform"/></concept>
-			<concept><code value="verify"/></concept>
-		</include>
-		</compose>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="provenance-activity-type"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/provenance-activity-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.438"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ProvenanceActivityType"/>
+  <title value="ValueSet of sample of representative activity type codes."/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-05-10T18:00:00+01:00"/>
+  <publisher value="HL7 Security Work Group"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Some potential code systems are:&#xA;- [v3-DocumentCompletion](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DocumentCompletion.html)&#xA;- [v3-DataOperation](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DataOperation.html)&#xA;- [v3-ActCode](http://hl7.org/fhir/v3/ActCode/cs.html)&#xA;- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"/>
+      <concept>
+        <code value="amend"/>
+      </concept>
+      <concept>
+        <code value="originate"/>
+      </concept>
+      <concept>
+        <code value="merge"/>
+      </concept>
+      <concept>
+        <code value="deidentify"/>
+      </concept>
+      <concept>
+        <code value="receive"/>
+      </concept>
+      <concept>
+        <code value="transform"/>
+      </concept>
+      <concept>
+        <code value="verify"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

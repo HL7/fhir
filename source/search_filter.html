@@ -19,8 +19,11 @@
 <h4>Introduction</h4>
 <p>
 <code>_filter</code> is a parameter that can be used with the <a href="search.html">Search Operation</a>.
-It uses the same set of standard parameters defined for the resources, and provides a syntax
-for expressing a set of query expressions on the underlying resources.
+Filter requests have access to the same set of search parameters that are available to the search operation
+in that resource context on the server
+(e.g., <a href="search.html#standard">standard parameters</a>, 
+<a href="search.html#parameters">parameters for each resource</a>, etc.).  The <code>_filter</code> parameter 
+provides a syntax for expressing a set of query expressions on the underlying resources.
 </p>
 
 <p>Examples of filters:</p>
@@ -280,72 +283,6 @@ For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see
 <ul>
 <li>For token, the format is the same as the existing search parameter.</li>
 <li>For convenience, the codes "loinc", "snomed", "rxnorm" and "ucum" are predefined and can be used in place of their associated full namespace.</li>
-</ul>
-
-<a name="params"></a>
-<h4>Additional Parameters</h4>
-
-<p>
-Some additional parameters are defined for the filter parameter (<i>to do: move these into the standard parameters</i>):
-</p>
-
-<table class="list">
-<tbody>
-<tr>
-<td>Resource Type</td>
-<td>Parameter Name</td>
-<td>Children</td>
-</tr>
-<tr>
-<td>Observation</td>
-<td>related</td>
-<td><p>target = related-target</p>
-<p>Type = related-type</p></td>
-</tr>
-<tr>
-<td>Group</td>
-<td>characteristic</td>
-<td><p>value = value</p>
-<p>code = characteristic</p></td>
-</tr>
-<tr>
-<td>DocumentReference</td>
-<td>relatesTo</td>
-<td><p>code = relation</p>
-<p>target = relatesTo</p></td>
-</tr>
-<tr>
-<td>ServiceRequest</td>
-<td>event</td>
-<td><p>status = event-status<br />
-date = event-date</p></td>
-</tr>
-<tr>
-<td>ServiceRequest</td>
-<td>item</td>
-<td><p>status = item-status</p>
-<p>code = item-code</p>
-<p>site = bodysite</p>
-<p>event = item-event</p></td>
-</tr>
-<tr>
-<td>ServiceRequest</td>
-<td>item-event</td>
-<td><p>status = item-past-status<br />
-date = item-date<br />
-actor = actor</p></td>
-</tr>
-</tbody>
-</table>
-
-<p>Note:</p>
-<ul>
-<li>Any time these names are used in a parameter, they must have a filter and a chained name under them.</li>
-<li>The first column is the resource type against which this name can be used.</li>
-<li>The second column is the parameter name that is used.</li>
-<li>The third column defines the names that can be used in the chained parameter, and in the filter, and shows which existing search parameters they equate to.</li>
-<li>For example, you could search on Observation for '_filter=related[type eq has-component].target re url'. "type" refers to the
-search parameter "related-type", and "target" to the search parameter "related-target".</li>
 </ul>
 
 [%file newfooter%]

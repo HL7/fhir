@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="codesystem-hierarchy-meaning"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/codesystem-hierarchy-meaning defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">grouped-by
-            
-            <a name="codesystem-hierarchy-meaning-grouped-by"> </a>
-          
-          </td>
-          
-          <td>Grouped By</td>
-          
-          <td>No particular relationship between the concepts can be assumed, except what can be determined by inspection of the definitions of the elements (possible reasons to use this: importing from a source where this is not defined, or where various parts of the hierarchy have different meanings).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">is-a
-            
-            <a name="codesystem-hierarchy-meaning-is-a"> </a>
-          
-          </td>
-          
-          <td>Is-A</td>
-          
-          <td>A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">part-of
-            
-            <a name="codesystem-hierarchy-meaning-part-of"> </a>
-          
-          </td>
-          
-          <td>Part Of</td>
-          
-          <td>Child elements list the individual parts of a composite whole (e.g. body site).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">classified-with
-            
-            <a name="codesystem-hierarchy-meaning-classified-with"> </a>
-          
-          </td>
-          
-          <td>Classified With</td>
-          
-          <td>Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a &quot;closed world&quot; meaning all things must be in the hierarchy. This results in concepts such as &quot;not otherwise classified.&quot;.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
   </extension>
@@ -111,9 +18,9 @@
   <url value="http://hl7.org/fhir/codesystem-hierarchy-meaning"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.785"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.785"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CodeSystemHierarchyMeaning"/>
   <title value="CodeSystemHierarchyMeaning"/>
   <status value="active"/>
@@ -142,7 +49,7 @@
   <concept>
     <code value="is-a"/>
     <display value="Is-A"/>
-    <definition value="A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts. Not that is-a is a property of the concepts, so additional subsumption relationships may be defined using properties or the [subsumes](extension-codesystem-subsumes.html) extension."/>
+    <definition value="A hierarchy where the child concepts have an IS-A relationship with the parents - that is, all the properties of the parent are also true for its child concepts. Not that is-a is a property of the concepts, so additional subsumption relationships may be defined using properties."/>
   </concept>
   <concept>
     <code value="part-of"/>
@@ -152,6 +59,6 @@
   <concept>
     <code value="classified-with"/>
     <display value="Classified With"/>
-    <definition value="Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a &quot;closed world&quot; meaning all things must be in the hierarchy. This results in concepts such as &quot;not otherwise classified.&quot;."/>
+    <definition value="Child concepts in the hierarchy may have only one parent, and there is a presumption that the code system is a &#34;closed world&#34; meaning all things must be in the hierarchy. This results in concepts such as &#34;not otherwise classified.&#34;."/>
   </concept>
 </CodeSystem>

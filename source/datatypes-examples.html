@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-[%settitle Data Type Examples%]
+[%settitle Datatype Examples%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 [%file newheader%]
@@ -11,10 +11,10 @@
 
 
 <%dtheader examples%>
-<h2>Data Type Examples</h2>
+<h2>Datatype Examples</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
-<p>This page includes additional examples of the data types, based on common usages and questions</p>
+<p>This page includes additional examples of the datatypes, based on common usages and questions</p>
 
 <p><b>Table of Contents</b></p>
 <div class="row">
@@ -602,6 +602,29 @@ See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datat
    &lt;/denominator&gt;
   &lt;/charge&gt;
 </pre>
+<p>Range of strengths</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;result&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="10" /&gt;
+	 &lt;unit value="milliliter" /&gt;
+	 &lt;code value="mL" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="15" /&gt;
+	 &lt;unit value="milliliter" /&gt;
+	 &lt;code value="mL" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="100" /&gt;
+	 &lt;unit value="gram" /&gt;
+	 &lt;code value="g" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
+</pre>
 </div>
 <a name="Period"></a>
 <a name="period"></a>
@@ -1177,6 +1200,29 @@ on the structured data elements of the address.
    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
+<p>HL7 office's address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="IN"/&gt;
+     &lt;/extension>
+   &lt;/state&gt;	 
+   &lt;postalCode value="46240" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;country value="United States"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="US"/&gt;
+     &lt;/extension>
+	 &lt;/country&gt;
+  &lt;/address&gt;
+</pre>
 <p>A UK example address, with the county 'HUDDERSFIELD'.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
@@ -1196,6 +1242,20 @@ on the structured data elements of the address.
     &lt;line value=&quot;PO Box 31445&quot;/&gt;
     &lt;city value=&quot;Erewhon&quot;/&gt;
     &lt;postalCode value=&quot;0001&quot;/&gt;
+  &lt;/address&gt;
+</pre>
+
+<p>An example of an address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
 
@@ -1374,7 +1434,7 @@ See also <a href="datatypes.html#ContactPoint">Base Definition</a>, <a href="dat
 </div>
 
 <p>
-In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL data type requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax. 
+In ISO 21090, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> and other <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> specifications, the TEL datatype requires that the telephone number be represented as a formal URI in <a href="http://www.ietf.org/rfc/rfc3966.txt">RFC 3166</a> syntax. 
 Many CDA documents violate this rule, since the telephone numbers are not collected from the user in conformance with the underlying rules (particularly around extensions, notes about use, etc.), so
 the base FHIR type does not require the phone number to be conformant. An ISO 21090 extension can be used to convey this if desired:
 </p>

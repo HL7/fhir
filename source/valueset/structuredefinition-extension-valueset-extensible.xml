@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-extensible"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-extensible"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1191"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="extensible"/>
   <status value="draft"/>
@@ -33,7 +35,7 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Intended to be used with an extensible binding (e.g. &#39;open&#39;)"/>
+      <short value="Intended to be used with an extensible binding (e.g. 'open')"/>
       <definition value="Whether this is intended to be used with an extensible binding or not."/>
       <comment value="Value sets intended for extensible bindings often are more selective about the concepts they include."/>
       <min value="0"/>

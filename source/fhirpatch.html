@@ -39,7 +39,7 @@ This table documents the FHIR Patch operations that may be used to specify chang
   <td>add</td>
   <td>Path at which to add the content</td>
   <td>Name of the property to add</td>
-  <td>Data type to add at nominated place</td>
+  <td>Datatype to add at nominated place</td>
   <td></td>
   <td></td>
   <td></td>
@@ -49,7 +49,7 @@ This table documents the FHIR Patch operations that may be used to specify chang
   <td>insert</td>
   <td>Path of the collection in which to insert the content</td>
   <td></td>
-  <td>value (Data type) to add at nominated place</td>
+  <td>value (Datatype) to add at nominated place</td>
   <td>index at which to insert</td>
   <td></td>
   <td></td>
@@ -70,7 +70,7 @@ This table documents the FHIR Patch operations that may be used to specify chang
   <td>replace</td>
   <td>Path of the element to replace</td>
   <td></td>
-  <td>value (Data type) to replace it with</td>
+  <td>value (Datatype) to replace it with</td>
   <td></td>
   <td></td>
   <td></td>
@@ -180,7 +180,7 @@ Here is an example of adding an element:
 <a name="anonymous"></a>
 <h4>Anonymous Types</h4>
 <p>
-Only some named data types (see <a href="datatypes.html#open">the list</a>) are allowed to be used
+Only some named datatypes (see <a href="datatypes.html#open">the list</a>) are allowed to be used
 directly in parameters. In order to add or insert other kinds of types - including anonymous
 elements (e.g. Observation.component, Timing.repeat), the content is defined by defining
 the name as described above, and instead of providing a value, a set of parts that are values

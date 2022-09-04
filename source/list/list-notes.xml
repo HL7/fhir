@@ -232,4 +232,19 @@ For operations to assist in adding to, removing from, or filtering contents of l
 </p>
 
 
+<a name="membership"> </a>
+<h3>Membership</h3>
+<p>
+Membership testing is used to test for <b>active</b> members of a List.  Active 
+entities in a list are entities: 
+<ul>
+  <li>listed in <code>List.entry.item</code> and</li>
+  <li>that do not have <code>List.entry.deleted</code> with a value of <code>true</code>.</li>
+</ul>
+</p>
+<p>
+Servers MAY impose additional membership constraints (e.g. based on modifier extensions).
+</p>
+
+
 </div>

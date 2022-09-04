@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="genomicstudy-dataformat"/>
+  <meta>
+    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      
+      
+      <ul>
+        
+        
+        <li>Include major genomic data file format as described by Broad Institue 
+          
+          
+          <a href="http://hl7.org/fhir/genomicstudy-dataformat">
+            
+            
+            <code>http://hl7.org/fhir/genomicstudy-dataformat</code>
+          
+          
+          </a>
+        
+        
+        </li>
+      
+      
+      </ul>
+    
+    
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3084"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="GenomicStudyDataFormat"/>
+  <title value="GenomicStudyDataFormat"/>
+  <status value="draft"/>
+  <date value="2022-08-17T15:02:11-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The data formats relevant to Genomic Study analysis."/>
+  <immutable value="false"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/genomicstudy-dataformat"/>
+    </include>
+  </compose>
+</ValueSet>

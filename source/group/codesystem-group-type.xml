@@ -1,143 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="group-type"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/group-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">person
-            
-            <a name="group-type-person"> </a>
-          
-          </td>
-          
-          <td>Person</td>
-          
-          <td>Group contains &quot;person&quot; Patient resources.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">animal
-            
-            <a name="group-type-animal"> </a>
-          
-          </td>
-          
-          <td>Animal</td>
-          
-          <td>Group contains &quot;animal&quot; Patient resources.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">practitioner
-            
-            <a name="group-type-practitioner"> </a>
-          
-          </td>
-          
-          <td>Practitioner</td>
-          
-          <td>Group contains healthcare practitioner resources (Practitioner or PractitionerRole).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">device
-            
-            <a name="group-type-device"> </a>
-          
-          </td>
-          
-          <td>Device</td>
-          
-          <td>Group contains Device resources.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">medication
-            
-            <a name="group-type-medication"> </a>
-          
-          </td>
-          
-          <td>Medication</td>
-          
-          <td>Group contains Medication resources.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">substance
-            
-            <a name="group-type-substance"> </a>
-          
-          </td>
-          
-          <td>Substance</td>
-          
-          <td>Group contains Substance resources.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">bodystructure
-            
-            <a name="group-type-substance"> </a>
-          
-          </td>
-          
-          <td>BodyStructure</td>
-          
-          <td>Group contains BodyStructure resources.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -150,9 +15,9 @@
   <url value="http://hl7.org/fhir/group-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.285"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.285"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="GroupType"/>
   <title value="GroupType"/>
   <status value="draft"/>
@@ -176,12 +41,12 @@
   <concept>
     <code value="person"/>
     <display value="Person"/>
-    <definition value="Group contains &quot;person&quot; Patient resources."/>
+    <definition value="Group contains &#34;person&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="animal"/>
     <display value="Animal"/>
-    <definition value="Group contains &quot;animal&quot; Patient resources."/>
+    <definition value="Group contains &#34;animal&#34; Patient resources."/>
   </concept>
   <concept>
     <code value="practitioner"/>
@@ -194,18 +59,33 @@
     <definition value="Group contains Device resources."/>
   </concept>
   <concept>
-    <code value="medication"/>
-    <display value="Medication"/>
-    <definition value="Group contains Medication resources."/>
+    <code value="careteam"/>
+    <display value="CareTeam"/>
+    <definition value="Group contains CareTeam resources."/>
   </concept>
   <concept>
-    <code value="substance"/>
-    <display value="Substance"/>
-    <definition value="Group contains Substance resources."/>
+    <code value="healthcareservice"/>
+    <display value="HealthcareService"/>
+    <definition value="Group contains HealthcareService resources."/>
   </concept>
   <concept>
-    <code value="bodystructure"/>
-    <display value="BodyStructure"/>
-    <definition value="Group contains BodyStructure resources."/>
+    <code value="location"/>
+    <display value="Location"/>
+    <definition value="Group contains Location resources."/>
+  </concept>
+  <concept>
+    <code value="organization"/>
+    <display value="Organization"/>
+    <definition value="Group contains Organization resources."/>
+  </concept>
+  <concept>
+    <code value="relatedperson"/>
+    <display value="RelatedPerson"/>
+    <definition value="Group contains RelatedPerson resources."/>
+  </concept>
+  <concept>
+    <code value="specimen"/>
+    <display value="Specimen"/>
+    <definition value="Group contains Specimen resources."/>
   </concept>
 </CodeSystem>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ChargeItem"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ChargeItem"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1384"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ChargeItem"/>
   <status value="draft"/>
@@ -171,7 +173,7 @@
       <path value="ChargeItem.status"/>
       <short value="planned | billable | not-billable | aborted | billed | entered-in-error | unknown"/>
       <definition value="The current state of the ChargeItem."/>
-      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
+      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that marks the charge item as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>

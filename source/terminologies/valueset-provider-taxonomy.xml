@@ -2,18 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="provider-taxonomy"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>
-        This value set includes all possible NUCC Health Care Provider Taxonomy codes.
-      </p>
-      <p> 
-        The NUCC Health Care Provider Taxonomy codes are copyright © 2017, American Medical Association.
-     </p>
-    
-    </div>
-  </text>
   <name value="Provider Taxonomy Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
