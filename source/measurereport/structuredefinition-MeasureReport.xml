@@ -357,6 +357,23 @@
         <map value="effectiveTime"/>
       </mapping>
     </element>
+    <element id="MeasureReport.inputParameters">
+      <path value="MeasureReport.inputParameters"/>
+      <short value="What parameters were provided to the report"/>
+      <definition value="A reference to a Parameters resource (typically represented using a contained resource) that represents any input parameters that were provided to the operation that generated the report."/>
+      <requirement value="Consumers of a measure report need to understand the parameters that were given to produce the report"/>
+      <comment value="Whenever an operation returns a MeasureReport, the IN parameters from that operation can be returned to the caller of the operation using MeasureReport.inputParameters. Operations include but are not limited to $evaluate-measure, $care-gaps, $data-requirements, and $collect-data. The inputParameters can also be used in a MeasureReport used to define a test case (i.e., not as a result of an operation)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.scoring">
       <path value="MeasureReport.scoring"/>
       <short value="What scoring method (e.g. proportion, ratio, continuous-variable)"/>
