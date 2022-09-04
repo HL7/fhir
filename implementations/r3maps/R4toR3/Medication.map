@@ -10,7 +10,7 @@ group Medication(source src : Medication, target tgt : MedicationR3) extends Dom
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.status' then {
     e.value -> tgt.status;
   };
-  src.extension as e where url = 'hhttp://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand' then {
+  src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-Medication.isBrand' then {
     e.value -> tgt.isBrand;
   };
   src.extension as e where url = 'http://hl7.org/fhir/3.0/StructureDefinition/extension-MedicationOTC' then {

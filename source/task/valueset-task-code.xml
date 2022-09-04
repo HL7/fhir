@@ -28,7 +28,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/task-code"/>
-      <version value="3.6.0"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="concept-properties"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/> 
@@ -12,6 +10,10 @@
     <valueInteger value="4"/> 
   </extension> 
   <url value="http://hl7.org/fhir/concept-properties"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1826"/>
+  </identifier>
   <name value="ConceptProperties"/>
   <title value="FHIR Defined Concept Properties"/>
   <status value="draft"/>
@@ -20,6 +22,12 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
+  <property>
+    <code value="status"/>
+    <uri value="http://hl7.org/fhir/concept-properties#status"/>
+    <description value="A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired"/>
+    <type value="code"/>
+  </property>
   <concept>
     <code value="status"/>
     <display value="Status"/>
@@ -31,14 +39,28 @@
     <definition value="True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive"/>
   </concept>
   <concept>
-    <code value="deprecated"/>
-    <display value="Deprecated"/>
-    <definition value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated"/>
-  </concept>
-  <concept>
     <code value="effectiveDate"/>
     <display value="effectiveDate"/>
     <definition value="The date at which the concept was status was last changed"/>
+  </concept>
+  <concept>
+    <code value="deprecated"/>
+    <display value="Deprecated"/>
+    <definition value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated"/>
+    <property>
+      <code value="status"/>
+      <valueCode value="deprecated"/>
+    </property>
+  </concept>
+  <concept>
+    <code value="deprecationDate"/>
+    <display value="Deprecation Date"/>
+    <definition value="The date at which a concept was deprecated. Concepts that are deprecated but not inactive can still be used, but their use is discouraged, and they should be expected to be made inactive in a future release. Property type is dateTime. Note that the status property may also be used to indicate that a concept is deprecated"/>
+  </concept>
+  <concept>
+    <code value="retirementDate"/>
+    <display value="Retirement Date"/>
+    <definition value="The date at which a concept was retired"/>
   </concept>
   <concept>
     <code value="notSelectable"/>
@@ -58,7 +80,7 @@
   <concept>
     <code value="partOf"/>
     <display value="Part Of"/>
-    <definition value="The concept identified in this property (by it's code) contains this concept as a component (i.e.. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm"/>
+    <definition value="The concept identified in this property (by it's code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm"/>
   </concept>
   <concept>
     <code value="synonym"/>
@@ -68,6 +90,6 @@
   <concept>
     <code value="comment"/>
     <display value="Comment"/>
-    <definition value="A strng that provides additional detail pertinent to the use or understanding of the concept"/>
+    <definition value="A string that provides additional detail pertinent to the use or understanding of the concept"/>
   </concept>
 </CodeSystem>

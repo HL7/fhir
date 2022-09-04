@@ -1,11 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<TestScript xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example-readtest"/>
   <url value="http://hl7.org/fhir/TestScript/testscript-example-readtest"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9879"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.2"/>
   </identifier>
   <version value="1.0"/>
   <name value="TestScript Example Read Test"/>
@@ -30,7 +28,7 @@
     </coding>
   </jurisdiction>
   <purpose value="Patient Read Operation"/>
-  <copyright value="&#xA9; HL7.org 2011+"/>
+  <copyright value="© HL7.org 2011+"/>
   <metadata>
     <link>
       <url value="http://hl7.org/fhir/patient.html"/>
@@ -138,7 +136,7 @@
           <code value="read"/>
         </type>
         <resource value="Patient"/>
-        <description value="Attempt to read the Parameters resource type. What we really want here is an illegal type but the build process won&#39;t allow that. Parameters is a valid resource which doesn&#39;t have an end-point so, this should fail."/>
+        <description value="Attempt to read the Parameters resource type. What we really want here is an illegal type but the build process won't allow that. Parameters is a valid resource which doesn't have an end-point so, this should fail."/>
         <accept value="xml"/>
         <encodeRequestUrl value="true"/>
         <params value="/1"/>

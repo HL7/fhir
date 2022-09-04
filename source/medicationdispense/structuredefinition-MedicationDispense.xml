@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationDispense"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1106"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MedicationDispense"/>
   <status value="draft"/>
@@ -266,7 +268,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;type of medication dispense&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;type of medication dispense&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationDispense.medication">
@@ -360,13 +362,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&#34;type of encounter or episode&#34;]"/>
       </mapping>
     </element>
     <element id="MedicationDispense.supportingInformation">
       <path value="MedicationDispense.supportingInformation"/>
       <short value="Information that supports the dispensing of the medication"/>
-      <definition value="Additional information that supports the medication being dispensed.  For example, there may be requirements that a specific lab test has been completed prior to dispensing or the patient&#39;s weight at the time of dispensing is documented."/>
+      <definition value="Additional information that supports the medication being dispensed.  For example, there may be requirements that a specific lab test has been completed prior to dispensing or the patient's weight at the time of dispensing is documented."/>
       <min value="0"/>
       <max value="*"/>
       <type>

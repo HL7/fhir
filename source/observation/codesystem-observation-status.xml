@@ -1,181 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="observation-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/observation-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td>
-            
-            <b>Lvl</b>
-          
-          </td>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">registered
-            
-            <a name="observation-status-registered"> </a>
-          
-          </td>
-          
-          <td>Registered</td>
-          
-          <td>The existence of the observation is registered, but there is no result yet available.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">preliminary
-            
-            <a name="observation-status-preliminary"> </a>
-          
-          </td>
-          
-          <td>Preliminary</td>
-          
-          <td>This is an initial or interim observation: data may be incomplete or unverified.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">final
-            
-            <a name="observation-status-final"> </a>
-          
-          </td>
-          
-          <td>Final</td>
-          
-          <td>The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">amended
-            
-            <a name="observation-status-amended"> </a>
-          
-          </td>
-          
-          <td>Amended</td>
-          
-          <td>Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>2</td>
-          
-          <td style="white-space:nowrap">  corrected
-            
-            <a name="observation-status-corrected"> </a>
-          
-          </td>
-          
-          <td>Corrected</td>
-          
-          <td>Subsequent to being Final, the observation has been modified to correct an error in the test result.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="observation-status-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="observation-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td>1</td>
-          
-          <td style="white-space:nowrap">unknown
-            
-            <a name="observation-status-unknown"> </a>
-          
-          </td>
-          
-          <td>Unknown</td>
-          
-          <td>The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="cds"/>
+    <valueCode value="oo"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
@@ -189,9 +18,9 @@
   <url value="http://hl7.org/fhir/observation-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.401"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.401"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ObservationStatus"/>
   <title value="ObservationStatus"/>
   <status value="active"/>
@@ -226,7 +55,7 @@
   <concept>
     <code value="final"/>
     <display value="Final"/>
-    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
+    <definition value="The observation is complete and there are no further actions needed. Additional information such &#34;released&#34;, &#34;signed&#34;, etc would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
   </concept>
   <concept>
     <code value="amended"/>
@@ -241,16 +70,16 @@
   <concept>
     <code value="cancelled"/>
     <display value="Cancelled"/>
-    <definition value="The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;)."/>
+    <definition value="The observation is unavailable because the measurement was not started or not completed (also sometimes called &#34;aborted&#34;)."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &#34;cancelled&#34; rather than &#34;entered-in-error&#34;.)."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this observation. Note: This concept is not to be used for &#34;other&#34; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
   </concept>
 </CodeSystem>

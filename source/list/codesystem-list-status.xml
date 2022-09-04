@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="list-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/list-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">current
-            
-            <a name="list-status-current"> </a>
-          
-          </td>
-          
-          <td>Current</td>
-          
-          <td>The list is considered to be an active part of the patient&#39;s record.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">retired
-            
-            <a name="list-status-retired"> </a>
-          
-          </td>
-          
-          <td>Retired</td>
-          
-          <td>The list is &quot;old&quot; and should no longer be considered accurate or relevant.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="list-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered In Error</td>
-          
-          <td>The list was never accurate.  It is retained for medico-legal purposes only.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://hl7.org/fhir/list-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.327"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.327"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ListStatus"/>
   <title value="ListStatus"/>
   <status value="draft"/>
@@ -120,12 +41,12 @@
   <concept>
     <code value="current"/>
     <display value="Current"/>
-    <definition value="The list is considered to be an active part of the patient&#39;s record."/>
+    <definition value="The list is considered to be an active part of the patient's record."/>
   </concept>
   <concept>
     <code value="retired"/>
     <display value="Retired"/>
-    <definition value="The list is &quot;old&quot; and should no longer be considered accurate or relevant."/>
+    <definition value="The list is &#34;old&#34; and should no longer be considered accurate or relevant."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="event-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/event-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.110"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="EventStatus"/>
   <concept>
@@ -21,7 +23,7 @@
   <concept>
     <code value="not-done"/>
     <display value="Not Done"/>
-    <definition value="The event was terminated prior to any activity beyond preparation.  I.e. The &#39;main&#39; activity has not yet begun.  The boundary between preparatory and the &#39;main&#39; activity is context-specific."/>
+    <definition value="The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific."/>
   </concept>
   <concept>
     <code value="on-hold"/>
@@ -31,7 +33,7 @@
   <concept>
     <code value="stopped"/>
     <display value="Stopped"/>
-    <definition value="The event was terminated prior to the full completion of the intended activity but after at least some of the &#39;main&#39; activity (beyond preparation) has occurred."/>
+    <definition value="The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred."/>
   </concept>
   <concept>
     <code value="completed"/>
@@ -41,11 +43,11 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &quot;stopped&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &#34;stopped&#34; rather than &#34;entered-in-error&#34;.)."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring/source system does not know which of the status values currently applies for this event.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which."/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this event.  Note: This concept is not to be used for &#34;other&#34; - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which."/>
   </concept>
 </CodeSystem>

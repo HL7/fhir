@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-religion"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -9,13 +7,17 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-religion"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1344"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="religion"/>
   <title value="religion"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="The patient&#39;s professed religious affiliations."/>
+  <description value="The patient's professed religious affiliations."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -34,8 +36,8 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="The patient&#39;s professed religious affiliations"/>
-      <definition value="The patient&#39;s professed religious affiliations."/>
+      <short value="The patient's professed religious affiliations"/>
+      <definition value="The patient's professed religious affiliations."/>
       <min value="0"/>
       <max value="*"/>
     </element>

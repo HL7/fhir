@@ -1,20 +1,17 @@
-﻿<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="security-role-type"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"> This valueset contains various security role codes. </div>
-  </text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
-
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
   <url value="http://hl7.org/fhir/ValueSet/security-role-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.978"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SecurityRoleType"/>
-
   <status value="draft"/>
   <experimental value="false"/>
-
   <date value="2017-07-28T18:00:00+01:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -27,18 +24,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-
-  <description
-        value="This value set contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions."/>
-
-  <copyright
-        value="This is an example FHIR value set with sample codes derived from ISO-21298 - Functional and Structural Roles."/>
-
-   <compose>
+  <description value="This value set contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions."/>
+  <copyright value="This is an example FHIR value set with sample codes derived from ISO-21298 - Functional and Structural Roles."/>
+  <compose>
     <include>
       <system value="sample-security-structural-roles"/>
     </include>
-
-	</compose>
-
+  </compose>
 </ValueSet>

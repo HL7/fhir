@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="task-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,7 +9,7 @@
   <url value="http://hl7.org/fhir/CodeSystem/task-code"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1397"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1397"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="TaskCode"/>
@@ -25,17 +23,17 @@
   <concept>
     <code value="approve"/>
     <display value="Activate/approve the focal resource"/>
-    <definition value="Take what actions are needed to transition the focus resource from &#39;draft&#39; to &#39;active&#39; or &#39;in-progress&#39;, as appropriate for the resource type.  This may involve additing additional content, approval, validation, etc."/>
+    <definition value="Take what actions are needed to transition the focus resource from 'draft' to 'active' or 'in-progress', as appropriate for the resource type.  This may involve additing additional content, approval, validation, etc."/>
   </concept>
   <concept>
     <code value="fulfill"/>
     <display value="Fulfill the focal request"/>
-    <definition value="Act to perform the actions described in the focus request.  This might result in a &#39;more assertive&#39; request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  The degree of fulfillment requested might be limited by Task.restriction."/>
+    <definition value="Act to perform the actions described in the focus request.  This might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  The degree of fulfillment requested might be limited by Task.restriction."/>
   </concept>
   <concept>
     <code value="instantiate"/>
     <display value="Instantiate the focal definition"/>
-    <definition value="Act to perform the actions defined in the focus definition resource (ActivityDefinition, PlanDefinition, Questionnaire, etc.)  For PlanDefinition or ActivityDefinition, this might result in a &#39;more assertive&#39; request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  For Questionnaire, this would result in a QuestionnaireResponse - and possibly resources constructed using data extracted from the response.  The degree of fulfillment requested might be limited by Task.restriction."/>
+    <definition value="Act to perform the actions defined in the focus definition resource (ActivityDefinition, PlanDefinition, Questionnaire, etc.)  For PlanDefinition or ActivityDefinition, this might result in a 'more assertive' request (order for a plan or proposal, filler order for a placer order), but is intend to eventually result in events.  For Questionnaire, this would result in a QuestionnaireResponse - and possibly resources constructed using data extracted from the response.  The degree of fulfillment requested might be limited by Task.restriction."/>
   </concept>
   <concept>
     <code value="abort"/>
@@ -55,11 +53,11 @@
   <concept>
     <code value="suspend"/>
     <display value="Suspend the focal resource"/>
-    <definition value="Transition the focal resource from &#39;active&#39; or &#39;in-progress&#39; to &#39;suspended&#39;"/>
+    <definition value="Transition the focal resource from 'active' or 'in-progress' to 'suspended'"/>
   </concept>
   <concept>
     <code value="resume"/>
     <display value="Re-activate the focal resource"/>
-    <definition value="Transition the focal resource from &#39;suspended&#39; to &#39;active&#39; or &#39;in-progress&#39; as appropriate for the resource type."/>
+    <definition value="Transition the focal resource from 'suspended' to 'active' or 'in-progress' as appropriate for the resource type."/>
   </concept>
 </CodeSystem>

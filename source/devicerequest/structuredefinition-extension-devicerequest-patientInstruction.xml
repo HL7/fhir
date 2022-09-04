@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="devicerequest-patientInstruction"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/devicerequest-patientInstruction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1094"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="patientInstruction"/>
   <title value="Directions"/>
@@ -21,7 +23,7 @@
       <value value="HL7"/>
     </telecom>
   </contact>
-  <description value="Simple concise instructions to be read by the patient.  For example  &#x201C;twice a day&#x201D; rather than &#x201C;BID.&#x201D;."/>
+  <description value="Simple concise instructions to be read by the patient.  For example  “twice a day” rather than “BID.”."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -41,7 +43,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Patient Friendly Insructions"/>
-      <definition value="Simple concise instructions to be read by the patient.  For example  &#x201C;twice a day&#x201D; rather than &#x201C;BID.&#x201D;."/>
+      <definition value="Simple concise instructions to be read by the patient.  For example  “twice a day” rather than “BID.”."/>
       <comment value="Should use only common terms and sentences.  Use of unfamiliar words and jargon should be avoided."/>
       <min value="0"/>
       <max value="*"/>

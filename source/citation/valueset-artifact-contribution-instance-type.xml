@@ -1,31 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="artifact-contribution-instance-type"/>
   <meta>
-    <lastUpdated value="2021-03-11T10:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <ul>
-        
-        <li>Include all codes defined in 
-          
-          <a href="codesystem-artifact-contribution-instance-type.html">
-            
-            <code>http://terminology.hl7.org/CodeSystem/artifact-contribution-instance-type</code>
-          
-          </a>
-        
-        </li>
-      
-      </ul>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -38,9 +15,9 @@
   <url value="http://hl7.org/fhir/ValueSet/artifact-contribution-instance-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2963"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ArtifactContributionInstanceType"/>
   <title value="ArtifactContributionInstanceType"/>
   <status value="draft"/>

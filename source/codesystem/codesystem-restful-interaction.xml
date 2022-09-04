@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="restful-interaction"/>
   <url value="http://hl7.org/fhir/restful-interaction"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1823"/>
+  </identifier>
   <name value="FHIR Restful Interactions"/>
   <status value="draft"/>
   <publisher value="FHIR Project"/>

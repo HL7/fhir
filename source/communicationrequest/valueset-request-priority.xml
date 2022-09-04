@@ -2,35 +2,6 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="request-priority"/>
-  <meta>
-    <lastUpdated value="2016-07-17T18:04:27.272+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-			
-      <h2>RequestPriority</h2>
-			
-      <div>
-				
-        <p>The clinical priority of a diagnostic order.</p>
-			
-      </div>
-			
-      <p>This value set includes codes from the following code systems:</p>
-			
-      <ul>
-				
-        <li>Include all codes defined in 
-          <a href="codesystem-request-priority.html">http://hl7.org/fhir/request-priority</a>
-				
-        </li>
-			
-      </ul>
-		
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>

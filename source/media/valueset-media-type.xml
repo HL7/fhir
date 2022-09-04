@@ -1,8 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
 	<id value="media-type"/>
 	<url value="http://hl7.org/fhir/ValueSet/media-category"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3272"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="MediaType"/>
 	<title value="Media Type"/>
 	<status value="draft"/>

@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="specimen-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/specimen-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">available
-            
-            <a name="specimen-status-available"> </a>
-          
-          </td>
-          
-          <td>Available</td>
-          
-          <td>The physical specimen is present and in good condition.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unavailable
-            
-            <a name="specimen-status-unavailable"> </a>
-          
-          </td>
-          
-          <td>Unavailable</td>
-          
-          <td>There is no physical specimen because it is either lost, destroyed or consumed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">unsatisfactory
-            
-            <a name="specimen-status-unsatisfactory"> </a>
-          
-          </td>
-          
-          <td>Unsatisfactory</td>
-          
-          <td>The specimen cannot be used because of a quality issue such as a broken container, contamination, or too old.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="specimen-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>The specimen was entered in error and therefore nullified.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://hl7.org/fhir/specimen-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.472"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.472"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SpecimenStatus"/>
   <title value="SpecimenStatus"/>
   <status value="draft"/>

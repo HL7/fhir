@@ -1,138 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="contributor-role"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/contributor-role defines the following codes:</p>
-      
-      
-      <table class="codes">
-        
-
-        <tr>
-          
-          <td style="white-space:nowrap">publisher
-            
-            <a name="contributor-role-publisher"> </a>
-          
-          </td>
-          
-          <td>Publisher</td>
-          
-          <td>Entity that makes the content available for public use</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">author
-            
-            <a name="contributor-role-author"> </a>
-          
-          </td>
-          
-          <td>Author/Creator</td>
-          
-          <td>An entity primarily responsible for making the resource, often called author or creator</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">reviewer
-            
-            <a name="contributor-role-reviewer"> </a>
-          
-          </td>
-          
-          <td>Reviewer</td>
-          
-          <td>Entity that examines the content, formally or informally, and suggests revisions or comments</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">endorser
-            
-            <a name="contributor-role-endorser"> </a>
-          
-          </td>
-          
-          <td>Endorser</td>
-          
-          <td>Entity that supports, approves, or advocates for the content</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">editor
-            
-            <a name="contributor-role-editor"> </a>
-          
-          </td>
-          
-          <td>Editor</td>
-          
-          <td>Entity that revises or has authority to control the content</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">informant
-            
-            <a name="contributor-role-informant"> </a>
-          
-          </td>
-          
-          <td>Informant</td>
-          
-          <td>Entity that supplies information</td>
-        
-        </tr>
-
-
-
-        <tr>
-          
-          <td style="white-space:nowrap">funder
-            
-            <a name="contributor-role-funder"> </a>
-          
-          </td>
-          
-          <td>Funder</td>
-          
-          <td>Entity that supplies financial support</td>
-        
-        </tr>
-      
-      
-      </table>
-    
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -145,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/contributor-role"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1880"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ContributorRole"/>
   <title value="ContributorRole"/>
   <status value="draft"/>

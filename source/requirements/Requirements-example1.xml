@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Requirements xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?><Requirements xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="example1"/>
 	<url value="http://hl7.org/fhir/Requirements/example1"/>
-	<name value="ExampleRequirements1"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.18.1"/>
+  </identifier>
+  <name value="ExampleRequirements1"/>
 	<title value="Example Requirements Set 1"/>
 	<status value="active"/>
 	<date value="2021-11-02T14:31:30.239Z"/>

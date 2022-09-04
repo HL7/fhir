@@ -1,87 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="reaction-event-severity"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/reaction-event-severity defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">mild
-            
-            <a name="reaction-event-severity-mild"> </a>
-          
-          </td>
-          
-          <td>Mild</td>
-          
-          <td>Causes mild physiological effects.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">moderate
-            
-            <a name="reaction-event-severity-moderate"> </a>
-          
-          </td>
-          
-          <td>Moderate</td>
-          
-          <td>Causes moderate physiological effects.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">severe
-            
-            <a name="reaction-event-severity-severe"> </a>
-          
-          </td>
-          
-          <td>Severe</td>
-          
-          <td>Causes severe physiological effects.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -94,9 +15,9 @@
   <url value="http://hl7.org/fhir/reaction-event-severity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.136"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.136"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="AllergyIntoleranceSeverity"/>
   <title value="AllergyIntoleranceSeverity"/>
   <status value="draft"/>

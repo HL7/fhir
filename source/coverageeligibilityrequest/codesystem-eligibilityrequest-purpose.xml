@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="eligibilityrequest-purpose"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/eligibilityrequest-purpose defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">auth-requirements
-            
-            <a name="eligibilityrequest-purpose-auth-requirements"> </a>
-          
-          </td>
-          
-          <td>Coverage auth-requirements</td>
-          
-          <td>The prior authorization requirements for the listed, or discovered if specified, converages for the categories of service and/or specifed biling codes are requested.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">benefits
-            
-            <a name="eligibilityrequest-purpose-benefits"> </a>
-          
-          </td>
-          
-          <td>Coverage benefits</td>
-          
-          <td>The plan benefits and optionally benefits consumed  for the listed, or discovered if specified, converages are requested.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">discovery
-            
-            <a name="eligibilityrequest-purpose-discovery"> </a>
-          
-          </td>
-          
-          <td>Coverage Discovery</td>
-          
-          <td>The insurer is requested to report on any coverages which they are aware of in addition to any specifed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">validation
-            
-            <a name="eligibilityrequest-purpose-validation"> </a>
-          
-          </td>
-          
-          <td>Coverage Validation</td>
-          
-          <td>A check that the specified coverages are in-force is requested.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://hl7.org/fhir/eligibilityrequest-purpose"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1183"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1183"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="EligibilityRequestPurpose"/>
   <title value="EligibilityRequestPurpose"/>
   <status value="draft"/>

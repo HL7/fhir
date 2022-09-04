@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ManufacturedItemDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ManufacturedItemDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1073"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ManufacturedItemDefinition"/>
   <status value="draft"/>
@@ -112,7 +114,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -174,8 +176,8 @@
     </element>
     <element id="ManufacturedItemDefinition.unitOfPresentation">
       <path value="ManufacturedItemDefinition.unitOfPresentation"/>
-      <short value="The &#x201C;real world&#x201D; units in which the quantity of the item is described"/>
-      <definition value="The &#x201C;real world&#x201D; units in which the quantity of the manufactured item is described."/>
+      <short value="The “real world” units in which the quantity of the item is described"/>
+      <definition value="The “real world” units in which the quantity of the manufactured item is described."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -315,7 +317,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Physical Characteristics, attribute&#39;s value"/>
+        <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
 

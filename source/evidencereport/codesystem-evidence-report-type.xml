@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="evidence-report-type"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/evidence-report-type defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">classification
-            
-            <a name="evidence-report-type-classification"> </a>
-          
-          </td>
-          
-          <td>Classification</td>
-          
-          <td>The report is primarily a listing of classifiers about the report subject.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">search-results
-            
-            <a name="evidence-report-type-search-results"> </a>
-          
-          </td>
-          
-          <td>Search Results</td>
-          
-          <td>The report is a composition of results generated in response to a search query.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">resources-compiled
-            
-            <a name="evidence-report-type-resources-compiled"> </a>
-          
-          </td>
-          
-          <td>Resource Compilation</td>
-          
-          <td>The report is a composition containing one or more FHIR resources in the content.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">text-structured
-            
-            <a name="evidence-report-type-text-structured"> </a>
-          
-          </td>
-          
-          <td>Structured Text</td>
-          
-          <td>The report is a structured representation of text.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/evidence-report-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1957"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="EvidenceReportType"/>
   <title value="EvidenceReportType"/>
   <status value="draft"/>

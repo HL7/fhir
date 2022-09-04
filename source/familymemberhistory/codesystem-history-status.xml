@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="history-status"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/history-status defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">partial
-            
-            <a name="history-status-partial"> </a>
-          
-          </td>
-          
-          <td>Partial</td>
-          
-          <td>Some health information is known and captured, but not complete - see notes for details.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">completed
-            
-            <a name="history-status-completed"> </a>
-          
-          </td>
-          
-          <td>Completed</td>
-          
-          <td>All available related health information is captured as of the date (and possibly time) when the family member history was taken.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="history-status-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in Error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">health-unknown
-            
-            <a name="history-status-health-unknown"> </a>
-          
-          </td>
-          
-          <td>Health Unknown</td>
-          
-          <td>Health information for this family member is unavailable/unknown.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://hl7.org/fhir/history-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.268"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.268"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="FamilyHistoryStatus"/>
   <title value="FamilyHistoryStatus"/>
   <status value="draft"/>
@@ -144,7 +51,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
   <concept>
     <code value="health-unknown"/>

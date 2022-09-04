@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
 	<text>
 		<status value="generated"/>
@@ -20,7 +19,7 @@
     The identifier should be globally unique - a UUID, an OID, or a URL/URI
     -->
 	<url value="urn:uuid:68d043b5-9ecf-4559-a57a-396e0d452311"/>
-	<version value="20130510"/>
+  <version value="20130510"/>
 	<name value="ACME-EHR"/>
 	<title value="ACME EHR capability statement"/>
 	<status value="draft"/>

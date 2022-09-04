@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="capabilitystatement-expectation"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1049"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="expectation"/>
   <title value="Conformance expectation"/>
@@ -175,7 +177,7 @@
       <path value="Extension"/>
       <short value="SHALL | SHOULD | MAY |SHOULD-NOT"/>
       <definition value="Defines the level of expectation associated with a given system capability."/>
-      <comment value="If &quot;SHALL NOT&quot; is desired, use the &quot;prohibited&quot; modifier extension.  This extension should only be used with CapabilityStatements documenting requirements, not those documenting actual system capabilities."/>
+      <comment value="If &#34;SHALL NOT&#34; is desired, use the &#34;prohibited&#34; modifier extension.  This extension should only be used with CapabilityStatements documenting requirements, not those documenting actual system capabilities."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>

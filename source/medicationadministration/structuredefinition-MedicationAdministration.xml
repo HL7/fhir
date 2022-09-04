@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MedicationAdministration"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1126"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MedicationAdministration"/>
   <status value="draft"/>
@@ -251,7 +253,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&quot;reason not given&quot;].value"/>
+        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&#34;reason not given&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationAdministration.category">
@@ -273,7 +275,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;type of medication usage&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;type of medication usage&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationAdministration.medication">
@@ -370,13 +372,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&#34;type of encounter or episode&#34;]"/>
       </mapping>
     </element>
     <element id="MedicationAdministration.supportingInformation">
       <path value="MedicationAdministration.supportingInformation"/>
       <short value="Additional information to support administration"/>
-      <definition value="Additional information (for example, patient height and weight) that supports the administration of the medication.  This attribute can be used to provide documentation of specific characteristics of the patient present at the time of administration.  For example, if the dose says &quot;give &quot;x&quot; if the heartrate exceeds &quot;y&quot;&quot;, then the heart rate can be included using this attribute."/>
+      <definition value="Additional information (for example, patient height and weight) that supports the administration of the medication.  This attribute can be used to provide documentation of specific characteristics of the patient present at the time of administration.  For example, if the dose says &#34;give &#34;x&#34; if the heartrate exceeds &#34;y&#34;&#34;, then the heart rate can be included using this attribute."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -639,7 +641,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&#34;annotation&#34;].value"/>
       </mapping>
     </element>
     <element id="MedicationAdministration.dosage">
@@ -687,7 +689,7 @@
     <element id="MedicationAdministration.dosage.site">
       <path value="MedicationAdministration.dosage.site"/>
       <short value="Body site administered to"/>
-      <definition value="A coded specification of the anatomic site where the medication first entered the body.  For example, &quot;left arm&quot;."/>
+      <definition value="A coded specification of the anatomic site where the medication first entered the body.  For example, &#34;left arm&#34;."/>
       <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="1"/>

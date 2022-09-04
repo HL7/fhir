@@ -1,113 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="shareableconceptmap"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
-  </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/>
-  </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
-  <version value="5.0.0"/>
-  <name value="ShareableConceptMap"/>
-  <title value="Shareable ConceptMap"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
-  <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the concept map metadata required by HL7 and other organizations that share and publish concept maps"/>
-  <fhirVersion value="5.0.0"/>
-  <mapping>
-    <identity value="rim"/>
-    <uri value="http://hl7.org/v3"/>
-    <name value="RIM Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="workflow"/>
-    <uri value="http://hl7.org/fhir/workflow"/>
-    <name value="Workflow Pattern"/>
-  </mapping>
-  <mapping>
-    <identity value="w5"/>
-    <uri value="http://hl7.org/fhir/fivews"/>
-    <name value="FiveWs Pattern Mapping"/>
-  </mapping>
-  <mapping>
-    <identity value="objimpl"/>
-    <uri value="http://hl7.org/fhir/object-implementation"/>
-    <name value="Object Implementation Information"/>
-  </mapping>
-  <kind value="resource"/>
-  <abstract value="false"/>
-  <type value="ConceptMap"/>
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
-  <derivation value="constraint"/>
-  <differential>
-    <element id="ConceptMap">
-      <path value="ConceptMap"/>
-      <min value="1"/>
-      <max value="1"/>
-    </element>
-    <element id="ConceptMap.extension:knowledgeRepresentationLevel">
-      <path value="ConceptMap.extension"/>
-      <sliceName value="knowledgeRepresentationLevel"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Extension"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
-      </type>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.url">
-      <path value="ConceptMap.url"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.version">
-      <path value="ConceptMap.version"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.name">
-      <path value="ConceptMap.name"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.title">
-      <path value="ConceptMap.title"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.status">
-      <path value="ConceptMap.status"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.experimental">
-      <path value="ConceptMap.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.publisher">
-      <path value="ConceptMap.publisher"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ConceptMap.description">
-      <path value="ConceptMap.description"/>
-      <min value="1"/>
-      <max value="1"/>
-      <mustSupport value="true"/>
-    </element>
-  </differential>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+	<id value="shareableconceptmap"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+	</text>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+		<valueInteger value="1"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="vocab"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+		<valueCode value="trial-use"/>
+	</extension>
+	<url value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1115"/>
+  </identifier>
+	<version value="5.0.0"/>
+	<name value="ShareableConceptMap"/>
+	<title value="Shareable ConceptMap"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<date value="2020-12-28T16:55:11+11:00"/>
+	<publisher value="HL7"/>
+	<description value="Enforces the minimum information set for the concept map metadata required by HL7 and other organizations that share and publish concept maps"/>
+	<fhirVersion value="5.0.0"/>
+	<mapping>
+		<identity value="rim"/>
+		<uri value="http://hl7.org/v3"/>
+		<name value="RIM Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="workflow"/>
+		<uri value="http://hl7.org/fhir/workflow"/>
+		<name value="Workflow Pattern"/>
+	</mapping>
+	<mapping>
+		<identity value="w5"/>
+		<uri value="http://hl7.org/fhir/fivews"/>
+		<name value="FiveWs Pattern Mapping"/>
+	</mapping>
+	<mapping>
+		<identity value="objimpl"/>
+		<uri value="http://hl7.org/fhir/object-implementation"/>
+		<name value="Object Implementation Information"/>
+	</mapping>
+	<kind value="resource"/>
+	<abstract value="false"/>
+	<type value="ConceptMap"/>
+	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
+	<derivation value="constraint"/>
+	<differential>
+		<element id="ConceptMap">
+			<path value="ConceptMap"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element id="ConceptMap.extension:knowledgeRepresentationLevel">
+			<path value="ConceptMap.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.url">
+			<path value="ConceptMap.url"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.version">
+			<path value="ConceptMap.version"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.name">
+			<path value="ConceptMap.name"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.title">
+			<path value="ConceptMap.title"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.status">
+			<path value="ConceptMap.status"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.experimental">
+			<path value="ConceptMap.experimental"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.publisher">
+			<path value="ConceptMap.publisher"/>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ConceptMap.description">
+			<path value="ConceptMap.description"/>
+			<min value="1"/>
+			<max value="1"/>
+			<mustSupport value="true"/>
+		</element>
+	</differential>
 </StructureDefinition>

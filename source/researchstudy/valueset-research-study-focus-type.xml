@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="research-study-focus-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -23,7 +21,7 @@
   <url value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.828"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3076"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyFocusType"/>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="genomicstudy-changetype"/>
+  <meta>
+    <lastUpdated value="2022-08-17T15:47:24.148-05:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cg"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/genomicstudy-changetype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1977"/>
+  </identifier>
+  <version value="5.0.0-cibuild"/>
+  <name value="GenomicStudyChangeType"/>
+  <title value="GenomicStudyChangeType"/>
+  <status value="draft"/>
+  <date value="2022-08-17T15:48:24-05:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The change type relevant to GenomicStudy analysis."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-changetype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="DNA"/>
+    <display value="DNA change"/>
+    <definition  value="Change that involves Deoxyribonucleic acid (DNA) sequences."/>
+  </concept>
+  <concept>
+    <code value="RNA"/>
+    <display value="RNA change"/>
+    <definition  value="Change that involves Ribonucleic Acid (RNA) sequences."/>
+  </concept>
+  <concept>
+    <code value="AA"/>
+    <display value="Protein/amino Acids change "/>
+    <definition  value="Change that involves Amino Acid (AA) or protein sequences."/>
+  </concept>
+  <concept>
+    <code value="CHR"/>
+    <display value="Chromosomal changes"/>
+    <definition  value="Change that involves number or strcture of chromosomes."/>
+  </concept>
+  <concept>
+    <code value="CNV"/>
+    <display value="Copy number variations"/>
+    <definition  value="Change that involves copy number variations among various genomes."/>
+  </concept>
+</CodeSystem>

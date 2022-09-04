@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="List"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/List"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1357"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="List"/>
   <status value="draft"/>
@@ -145,7 +147,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="If set to &quot;changes&quot;, the list is considered incomplete, while the other two codes indicate the list is complete, which changes the understanding of the elements listed"/>
+      <isModifierReason value="If set to &#34;changes&#34;, the list is considered incomplete, while the other two codes indicate the list is complete, which changes the understanding of the elements listed"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -161,7 +163,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&#34;].value"/>
       </mapping>
     </element>
     <element id="List.title">
@@ -176,7 +178,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueString value="Dr. Jane&#39;s Patients"/>
+        <valueString value="Dr. Jane's Patients"/>
       </example>
       <isSummary value="true"/>
       <mapping>
@@ -227,6 +229,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -264,7 +268,7 @@
     <element id="List.date">
       <path value="List.date"/>
       <short value="When the list was prepared"/>
-      <definition value="The date that the list was prepared."/>
+      <definition value="Date list was last reviewed/revised and determined to be 'current'."/>
       <comment value="The actual important date is the date of currency of the resources that were summarized, but it is usually assumed that these are current when the preparation occurs."/>
       <requirements value="Identifies how current the list is which affects relevance."/>
       <min value="0"/>
@@ -390,7 +394,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&#34;].value"/>
       </mapping>
     </element>
     <element id="List.entry.deleted">
@@ -398,19 +402,18 @@
       <short value="If this item is actually marked as deleted"/>
       <definition value="True if this item is marked as deleted in the list."/>
       <comment value="If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list."/>
-      <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &quot;deleted&quot;."/>
+      <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &#34;deleted&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is &#39;changes&#39;"/>
-      <condition value="lst-2"/>
+      <meaningWhenMissing value="List items are generally only treated as deleted when this element explicitly carries a value of true. Systems SHOULD always populate this value when mode is 'changes'"/>
       <isModifier value="true"/>
-      <isModifierReason value="If deleted is true, then the item included in the list isn&#39;t actually part of the list anymore"/>
+      <isModifierReason value="If deleted is true, then the item included in the list isn't actually part of the list anymore"/>
       <mapping>
         <identity value="rim"/>
-        <map value="added: .updateMode=(&quot;A&quot;,&quot;AR&quot;)  retained: .updateMode=&quot;NC&quot;  updated: .updateMode=&quot;R&quot;  deleted: .updateMode=&quot;D&quot;"/>
+        <map value="added: .updateMode=(&#34;A&#34;,&#34;AR&#34;)  retained: .updateMode=&#34;NC&#34;  updated: .updateMode=&#34;R&#34;  deleted: .updateMode=&#34;D&#34;"/>
       </mapping>
     </element>
     <element id="List.entry.date">
@@ -448,7 +451,7 @@
       <short value="Why list is empty"/>
       <definition value="If the list is empty, why the list is empty."/>
       <comment value="The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
-      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
+      <requirements value="Allows capturing things like &#34;none exist&#34; or &#34;not asked&#34; which can be important for most lists."/>
       <min value="0"/>
       <max value="1"/>
       <type>

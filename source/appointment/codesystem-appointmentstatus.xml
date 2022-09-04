@@ -1,186 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="appointmentstatus"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/appointmentstatus defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">proposed
-            
-            <a name="appointmentstatus-proposed"> </a>
-          
-          </td>
-          
-          <td>Proposed</td>
-          
-          <td>None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time might not be set yet.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">pending
-            
-            <a name="appointmentstatus-pending"> </a>
-          
-          </td>
-          
-          <td>Pending</td>
-          
-          <td>Some or all of the participant(s) have not finalized their acceptance of the appointment request.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">booked
-            
-            <a name="appointmentstatus-booked"> </a>
-          
-          </td>
-          
-          <td>Booked</td>
-          
-          <td>All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">arrived
-            
-            <a name="appointmentstatus-arrived"> </a>
-          
-          </td>
-          
-          <td>Arrived</td>
-          
-          <td>The patient/patients has/have arrived and is/are waiting to be seen.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">fulfilled
-            
-            <a name="appointmentstatus-fulfilled"> </a>
-          
-          </td>
-          
-          <td>Fulfilled</td>
-          
-          <td>The planning stages of the appointment are now complete, the encounter resource will exist and will track further status changes. Note that an encounter may exist before the appointment status is fulfilled for many reasons.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">cancelled
-            
-            <a name="appointmentstatus-cancelled"> </a>
-          
-          </td>
-          
-          <td>Cancelled</td>
-          
-          <td>The appointment has been cancelled.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">noshow
-            
-            <a name="appointmentstatus-noshow"> </a>
-          
-          </td>
-          
-          <td>No Show</td>
-          
-          <td>Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">entered-in-error
-            
-            <a name="appointmentstatus-entered-in-error"> </a>
-          
-          </td>
-          
-          <td>Entered in error</td>
-          
-          <td>This instance should not have been part of this patient&#39;s medical record.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">checked-in
-            
-            <a name="appointmentstatus-checked-in"> </a>
-          
-          </td>
-          
-          <td>Checked In</td>
-          
-          <td>When checked in, all pre-encounter administrative work is complete, and the encounter may begin. (where multiple patients are involved, they are all present).</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">waitlist
-            
-            <a name="appointmentstatus-waitlist"> </a>
-          
-          </td>
-          
-          <td>Waitlisted</td>
-          
-          <td>The appointment has been placed on a waitlist, to be scheduled/confirmed in the future when a slot/service is available.
-A specific time might or might not be pre-allocated.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
@@ -193,9 +15,9 @@ A specific time might or might not be pre-allocated.</td>
   <url value="http://hl7.org/fhir/appointmentstatus"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.485"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.485"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="AppointmentStatus"/>
   <title value="AppointmentStatus"/>
   <status value="draft"/>
@@ -254,7 +76,7 @@ A specific time might or might not be pre-allocated.</td>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
   <concept>
     <code value="checked-in"/>

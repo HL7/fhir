@@ -1,22 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="substance-weight-method"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <ul>
-        <li>Include all codes defined in 
-          <a href="codesystem-substance-weight-method.html">
-            <code>http://hl7.org/fhir/substance-weight-method</code>
-          </a>
-        </li>
-      </ul>http://hl7.org/fhir/ValueSet/substance-weight-method
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
   </extension>
@@ -29,9 +15,9 @@
   <url value="http://hl7.org/fhir/ValueSet/substance-weight-method"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1614"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3263"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="WeightMethod"/>
   <title value="WeightMethod"/>
   <status value="draft"/>

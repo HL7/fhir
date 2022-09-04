@@ -1,9 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example-supplement"/>
   <text>
-    <status value="generated"/>
+    <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>A supplement pack for <code>http://hl7.org/fhir/CodeSystem/example</code> that defines the administrative property 'legacy' for whether the test is currently performed </p>
       <table class="grid">
@@ -32,6 +30,10 @@
   </text>
   
   <url value="http://hl7.org/fhir/CodeSystem/example-supplement"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1820"/>
+  </identifier>
   <version value="201801103"/>
   <name value="CholCodeLegacyStatus"/>
   <status value="draft"/>

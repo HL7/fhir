@@ -1,144 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-participant-function"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-
-      
-      <p>This code system http://hl7.org/fhir/action-participant-function defines the following codes:</p>
-
-      
-      <table class="codes">
-
-        
-        <tr>
-
-          
-          <td style="white-space:nowrap">
-
-            
-            <b>Code</b>
-
-          
-          </td>
-
-          
-          <td>
-
-            
-            <b>Display</b>
-
-          
-          </td>
-
-          
-          <td>
-
-            
-            <b>Definition</b>
-
-          
-          </td>
-
-        
-        </tr>
-
-        
-        <tr>
-
-          
-          <td style="white-space:nowrap">patient
-
-            
-            <a name="action-participant-type-patient"> </a>
-
-          
-          </td>
-
-          
-          <td>Patient</td>
-
-          
-          <td>The participant is the patient under evaluation.</td>
-
-        
-        </tr>
-
-        
-        <tr>
-
-          
-          <td style="white-space:nowrap">practitioner
-
-            
-            <a name="action-participant-type-practitioner"> </a>
-
-          
-          </td>
-
-          
-          <td>Practitioner</td>
-
-          
-          <td>The participant is a practitioner involved in the patient&#39;s care.</td>
-
-        
-        </tr>
-
-        
-        <tr>
-
-          
-          <td style="white-space:nowrap">related-person
-
-            
-            <a name="action-participant-type-related-person"> </a>
-
-          
-          </td>
-
-          
-          <td>Related Person</td>
-
-          
-          <td>The participant is a person related to the patient.</td>
-
-        
-        </tr>
-
-        
-        <tr>
-
-          
-          <td style="white-space:nowrap">device
-
-            
-            <a name="action-participant-type-device"> </a>
-
-          
-          </td>
-
-          
-          <td>Device</td>
-
-          
-          <td>The participant is a system or device used in the care of the patient.</td>
-
-        
-        </tr>
-
-      
-      </table>
-
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -151,9 +15,9 @@
   <url value="http://hl7.org/fhir/action-participant-function"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1946"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ActionParticipantFunction"/>
   <title value="ActionParticipantFunction"/>
   <status value="draft"/>

@@ -1,171 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-code"/>
   <meta>
-    <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://terminology.hl7.org/CodeSystem/action-code defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">send-message
-            
-            <a name="action-code-send-message"> </a>
-          
-          </td>
-          
-          <td>Send a message</td>
-          
-          <td>The action indicates that a particular message should be sent to a participant in the process.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">collect-information
-            
-            <a name="action-code-collect-information"> </a>
-          
-          </td>
-          
-          <td>Collect information</td>
-          
-          <td>The action indicates that information should be collected from a participant in the process.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">prescribe-medication
-            
-            <a name="action-code-prescribe-medication"> </a>
-          
-          </td>
-          
-          <td>Prescribe a medication</td>
-          
-          <td>The action indicates that a particular medication should be prescribed to the patient.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">recommend-immunization
-            
-            <a name="action-code-recommend-immunization"> </a>
-          
-          </td>
-          
-          <td>Recommend an immunization</td>
-          
-          <td>The action indicates that a particular immunization should be performed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">order-service
-            
-            <a name="action-code-order-service"> </a>
-          
-          </td>
-          
-          <td>Order a service</td>
-          
-          <td>The action indicates that a particular service should be provided.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">propose-diagnosis
-            
-            <a name="action-code-propose-diagnosis"> </a>
-          
-          </td>
-          
-          <td>Propose a diagnosis</td>
-          
-          <td>The action indicates that a particular diagnosis should be proposed.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">record-detected-issue
-            
-            <a name="action-code-record-detected-issue"> </a>
-          
-          </td>
-          
-          <td>Record a detected issue</td>
-          
-          <td>The action indicates that a particular detected issue should be recorded.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">record-inference
-            
-            <a name="action-code-record-inference"> </a>
-          
-          </td>
-          
-          <td>Record an inference</td>
-          
-          <td>The action indicates that a particular inference should be recorded.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">report-flag
-            
-            <a name="action-code-report-flag"> </a>
-          
-          </td>
-          
-          <td>Report a flag</td>
-          
-          <td>The action indicates that a particular flag should be reported.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
@@ -178,9 +15,9 @@
   <url value="http://terminology.hl7.org/CodeSystem/action-code"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1944"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="ActionCode"/>
   <title value="ActionCode"/>
   <status value="draft"/>

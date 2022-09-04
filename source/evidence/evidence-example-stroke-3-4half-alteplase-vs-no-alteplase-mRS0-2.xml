@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
   <id value="example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
-        &quot;Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior&quot; is a comparative effect estimate.
+        "Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior" is a comparative effect estimate.
       </p>
 	</div>
   </text>
   <url value="http://hl7.org/fhir/Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.10.3"/>
+  </identifier>
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatedArtifact>

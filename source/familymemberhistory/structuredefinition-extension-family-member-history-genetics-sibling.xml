@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="family-member-history-genetics-sibling"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -9,6 +7,10 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1223"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="sibling"/>
   <status value="draft"/>
@@ -41,7 +43,7 @@
       <path value="Extension"/>
       <short value="natural brother(s) &amp; natural sister(s) - genetic &amp; other"/>
       <definition value="Identifies a sibling of the relative."/>
-      <comment value="Some cases may have complex inner-pedigree-tree relationship. For instance, double cousin relationship need two extra link with In pedigree tree itself. This can&#39;t be revealed by relationship to subject."/>
+      <comment value="Some cases may have complex inner-pedigree-tree relationship. For instance, double cousin relationship need two extra link with In pedigree tree itself. This can't be revealed by relationship to subject."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>
@@ -50,7 +52,7 @@
       <path value="Extension.extension"/>
       <sliceName value="type"/>
       <short value="sibling | brother | sister | etc."/>
-      <definition value="Distinguishes between different types of sibling relationships with varying granularity to support capturing the relationship &quot;to the degree known&quot;."/>
+      <definition value="Distinguishes between different types of sibling relationships with varying granularity to support capturing the relationship &#34;to the degree known&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

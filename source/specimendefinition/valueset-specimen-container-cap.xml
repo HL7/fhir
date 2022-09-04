@@ -1,7 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="specimen-container-cap"/>
 	<url value="http://hl7.org/fhir/ValueSet/specimen-container-cap"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3033"/>
+  </identifier>
   <name value="SpecimenContainerCap"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AdverseEvent"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/AdverseEvent"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1444"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="AdverseEvent"/>
   <status value="draft"/>
@@ -110,7 +112,7 @@
       <path value="AdverseEvent.status"/>
       <short value="in-progress | completed | entered-in-error | unknown"/>
       <definition value="The current state of the adverse event or potential adverse event."/>
-      <comment value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient&#39;s condition."/>
+      <comment value="This is not the reporting of the event to any regulatory or quality organization.  This is not the outcome of the patient's condition."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -143,7 +145,7 @@
       <path value="AdverseEvent.actuality"/>
       <short value="actual | potential"/>
       <definition value="Whether the event actually happened or was a near miss. Note that this is independent of whether anyone was affected or harmed or how severely."/>
-      <comment value="AllergyIntolerance should be used for the initial capture or recording of the individual&#39;s propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
+      <comment value="AllergyIntolerance should be used for the initial capture or recording of the individual's propensity to an adverse reaction to a substance.  If an AllergyIntolerance does not exist, then an adverse reaction should be recorded as an AllergyIntolerance. If an AllergyIntolerance does exist and the substance was given, then an adverse reaction should be recorded as an AdverseEvent due to the aberrant workflow."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -810,7 +812,7 @@
       </extension>
       <path value="AdverseEvent.supportingInfo.item[x]"/>
       <short value="Subject medical history or document relevant to this adverse event"/>
-      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a pencillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject&#39;s medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
+      <definition value="Relevant past history for the subject. In a clinical care context, an example being a patient had an adverse event following a pencillin administration and the patient had a previously documented penicillin allergy. In a clinical trials context, an example is a bunion or rash that was present prior to the study. Additionally, the supporting item can be a document that is relevant to this instance of the adverse event that is not part of the subject's medical history. For example, a clinical note, staff list, or material safety data sheet (MSDS).  Supporting information is not a contributing factor, preventive action, or mitigating action."/>
       <min value="1"/>
       <max value="1"/>
       <type>

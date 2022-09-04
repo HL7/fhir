@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="fhir-types"/> 
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-special-status">
-    <valueString value="This Code System is normative - it is generated based on the information defined in this
-     specification. The definition will remain fixed  across versions, but the actual contents
-     will change from version to version"/> 
+    <valueString value="This Code System is normative - it is generated based on the information defined in this      specification. The definition will remain fixed  across versions, but the actual contents      will change from version to version"/> 
   </extension> 
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/> 
@@ -19,6 +16,10 @@
     <valueCode value="fhir"/> 
   </extension> 
   <url value="http://hl7.org/fhir/fhir-types"/> 
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1802"/>
+  </identifier>
   <version value="5.0.0-cibuild"/> 
   <name value="FHIRTypes"/> 
   <title value="All FHIR Types"/> 
@@ -55,4 +56,4 @@
     <type value="boolean"/> 
   </property> 
   <!-- filled in by the build -->
-</CodeSystem> 
+</CodeSystem>

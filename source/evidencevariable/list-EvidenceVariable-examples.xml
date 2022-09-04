@@ -124,4 +124,40 @@
       <display value="Stroke Thrombolysis Trialists&#x2019; 2014-2016 IPD-MA Cohort"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-eligibility-criteria-diabetes-surgery"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-eligibility-criteria-diabetes-surgery"/>
+      <display value="StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-eligibility-criteria-ada-rec-bariatric"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-eligibility-criteria-ada-rec-bariatric"/>
+      <display value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="evidencevariable-example-eligibility-criteria-adults-with-obesity"/>
+    </extension>
+    <item>
+      <reference value="EvidenceVariable/example-eligibility-criteria-adults-with-obesity"/>
+      <display value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
+    </item>
+  </entry>
 </List>

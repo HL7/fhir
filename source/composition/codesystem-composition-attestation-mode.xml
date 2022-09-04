@@ -1,101 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="composition-attestation-mode"/>
   <meta>
-    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>This code system http://hl7.org/fhir/composition-attestation-mode defines the following codes:</p>
-      
-      <table class="codes">
-        
-        <tr>
-          
-          <td style="white-space:nowrap">
-            
-            <b>Code</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Display</b>
-          
-          </td>
-          
-          <td>
-            
-            <b>Definition</b>
-          
-          </td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">personal
-            
-            <a name="composition-attestation-mode-personal"> </a>
-          
-          </td>
-          
-          <td>Personal</td>
-          
-          <td>The person authenticated the content in their personal capacity.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">professional
-            
-            <a name="composition-attestation-mode-professional"> </a>
-          
-          </td>
-          
-          <td>Professional</td>
-          
-          <td>The person authenticated the content in their professional capacity.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">legal
-            
-            <a name="composition-attestation-mode-legal"> </a>
-          
-          </td>
-          
-          <td>Legal</td>
-          
-          <td>The person authenticated the content and accepted legal responsibility for its content.</td>
-        
-        </tr>
-        
-        <tr>
-          
-          <td style="white-space:nowrap">official
-            
-            <a name="composition-attestation-mode-official"> </a>
-          
-          </td>
-          
-          <td>Official</td>
-          
-          <td>The organization authenticated the content as consistent with their policies and procedures.</td>
-        
-        </tr>
-      
-      </table>
-    
-    </div>
-  </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sd"/>
   </extension>
@@ -108,9 +15,9 @@
   <url value="http://hl7.org/fhir/composition-attestation-mode"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.239"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.239"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-cibuild"/>
   <name value="CompositionAttestationMode"/>
   <title value="CompositionAttestationMode"/>
   <status value="draft"/>
