@@ -196,7 +196,7 @@
         </extension>
         <strength value="required"/>
         <description value="Indicates the progression of a study subject through a study."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-progress"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-subject-state"/>
       </binding>
       <mapping>
         <identity value="w5"/>
