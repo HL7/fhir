@@ -15,6 +15,7 @@
   <version value="5.0.0"/>
   <name value="GuideParameterCode"/>
   <status value="draft"/>
+  <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="apply"/>
