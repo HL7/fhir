@@ -15,6 +15,7 @@
   <name value="MeasureReportStratifierValueExample"/>
   <title value="MeasureReportStratifierValueExample"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Example Measure Stratification Value for MeasureReports Resource."/>
   <compose>

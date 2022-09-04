@@ -15,7 +15,7 @@
   <name value="MeasureReportStratifierValueExample"/>
   <title value="MeasureReportStratifierValueExample"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Example Region Value Measure Groups for the Measure Resource."/>
   <caseSensitive value="true"/>
