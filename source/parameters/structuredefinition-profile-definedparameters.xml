@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="definedparameters"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/definedparameters"/>
+  <version value="5.0.0"/>
+  <name value="DefinedParameters"/>
+  <title value="Defined Parameters"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2019-06-06"/>
+  <publisher value="Health Level Seven, Inc. - CDS WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/DSS"/>
+    </telecom>
+  </contact>
+  <description value="The defined parameters profile allows parameter definitions to be provided in the case that a parameter has no value"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Parameters"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Parameters">
+      <path value="Parameters"/>
+      <mustSupport value="false"/>
+    </element>
+    <element id="Parameters.parameter">
+      <path value="Parameters.parameter"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Parameters.parameter.extension:definition">
+      <path value="Parameters.parameter.extension"/>
+      <sliceName value="definition"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/parameters-definition"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

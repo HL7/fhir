@@ -106,5 +106,28 @@ that is intended to define an executional transform between structures, not a co
 model.
 </p>
 
-
+<a name="implicit-cm"></a>
+<h2>Implicit Concept Maps</h2>
+  <p>
+    Implicit concept maps are those whose specification can be predicted based on the grammar and/or content of 
+    the underlying code system, and the known structure of the URL that identifies them. This allows a single 
+    URL to serve as a concept map definition that defines a mapping between two sets of concepts, and which can 
+    serve as the basis for the <a href="conceptmap-operation-translate.html">$translate</a> operation. If 
+    any ConceptMap resources exist with an identifier that conforms to the specified implicit concept map URL 
+    patterns, the content of the resource must conform to the template provided. Canonical references to 
+    ConceptMap resource instances are made using their URI.
+  </p>
+  <p>
+  Currently implicit concept map url patterns have been defined and documented for use with FHIR
+  terminology services for only the SNOMED CT code system.  Particular FHIR terminology servers might or might 
+  not support any or all of these URL patterns.
+  </p>
+  <p>
+    The following link describes the currently defined FHIR implicit concept map URL patterns for SNOMED CT:
+    <ul>
+      <li>
+        <a href="https://terminology.hl7.org/SNOMEDCT.html#implicit-cm">Using SNOMED CT with HL7 Standards: Implicit Concept Maps</a><br/>
+      </li>
+    </ul>
+  </p>
 </div>
