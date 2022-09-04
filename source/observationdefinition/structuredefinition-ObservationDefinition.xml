@@ -141,8 +141,8 @@
 			</type>
 			<isSummary value="true"/>
 			<mapping>
-				<identity value="workflow.identifier"/>
-				<map value="Definition"/>
+				<identity value="workflow"/>
+				<map value="Definition.identifier"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.version">
@@ -157,8 +157,8 @@
 			</type>
 			<isSummary value="true"/>
 			<mapping>
-				<identity value="version"/>
-				<map value="Definition"/>
+				<identity value="workflow"/>
+				<map value="Definition.version"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.name">
@@ -250,8 +250,8 @@
 			</type>
 			<isSummary value="true"/>
 			<mapping>
-				<identity value="workflow.date"/>
-				<map value="Definition"/>
+				<identity value="workflow"/>
+				<map value="Definition.date"/>
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.publisher">
