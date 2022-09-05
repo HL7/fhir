@@ -2,6 +2,12 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Provenance-core"/>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+		<valueString value="provenance-relevant-history-introduction.xml"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+		<valueString value="provenance-relevant-history-notes.xml"/>
+	</extension>
   <version value="2016-10"/>
   <name value="Provenance Relevant History"/>
   <title value="Provenance Relevant History"/>

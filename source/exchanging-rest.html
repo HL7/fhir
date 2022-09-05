@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+
+[%settitle Exchanging with FHIR REST%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Exchanging with FHIR REST</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    This page summarizes all of the FHIR simple RESTful actions that are not covered by <a href="exchanging-search.html">search</a> or <a href="exchanging-operation.html">operation</a> pages.  There are three primary patterns for simple RESTful interactions - the <a href="#pull">pull pattern</a>, the <a href="#push">push pattern</a> and the <a href="#async">asynchronous pattern</a>.  Each RESTful action will support either push or pull and might also support asynchronous.
+  </p>
+  <p>This specification is focused only on managing requesting information and/or pushing information.  It is not intended to cover all data exchange scenarios (e.g. it does not deal with requests for action such as fulfillment of a request/order)</p>
+  <a name="pull"> </a>
+  <h3>pull</h3>
+  <p>
+    In this mode, the <i>data consumer</i> is the initiator.  It executes a GET HTTP command against a specified endpoint on the <i>data source</i>.  The data source then returns the requested data.  The main difference between this pattern and <a href="exchanging-search.html">search</a> is that this simple pattern only returns a single matching resource, rather than a <a href="bundle.html">Bundle</a> of possible matches.
+  </p>
+  <p>
+    {% include rest-read.svg %}
+  </p>
+  <p>
+    If successful, the response is an HTTP 200, along with the requested resource instance.  If there is a failure, an appropriate HTTP error code will be provided, along with an optional <a href="operationoutcome.html">OperationOutcome</a>.
+  </p>
+
+  <a name="push"> </a>
+  <h3>push</h3>
+  <p>
+    There are many RESTful actions that follow this same basic pattern.  A resource of some type (or a set of deltas from an existing resource) is transmitted from <i>data source</i> to <i>data consumer</i> using a simple REST command and the appropriate endpoint.  The <i>data consumer</i> either stores the data as requested (and acknowledges that success with an appropriate HTTP code) or it rejects the request.  If accepted, a new 'version' of the resource is persisted at the specified endpoint and can potentially be referenced by other resources or subsequently queried or further manipulated.  This basic pattern is shown in the diagram below:
+  </p>
+  <p>
+    {% include rest.svg %}
+  </p>
+
+  <a name="async"> </a>
+  <h3>async</h3>
+  <p>
+    This pattern is used for a subset of the <a href="#push">push</a> scenarios.  The request goes from the <i>data source</i> to the <i>data consumer</i>, but the requested action does not complete immediately.  Instead, the <i>data consumer</i> delivers the response later.  The <i>data source</i> polls to see what the results are.  This will be most commonly used with the <a href="bundle.html">Bundle</a>-based actions which are processing multiple actions at once and may take longer than the HTTP time-out window allows.  (Note: In theory, it would be possible to use async for <a href="#pull">pull</a> transactions like <a href="#read">read</a> or <a href="#vread">vread</a>.  However no known use case exists for these simple operations to happen asynchronously.
+  </p>
+  <p>
+    {% include rest-async.svg %}
+  </p>
+  <a name="async-1"> </a>
+  <p>
+    <b>Step 1:</b> The invocation of the RESTful action asynchronously is identical to synchronous invocation, with the exception that the <code>Prefer</code> header is set to "respond-async".  (Note that the server is not obligated to respect the client's stated preference - it could still respond synchronously.)  The response includes a location-header that identifies where to monitor for the progress of the asynchronous request.
+  </p>
+  <a name="async-2"> </a>
+  <p>
+    <b>Step 2:</b> The <i>data source</i> <a href="exchanging-polling.html">polls</a> the location specified in step 1 to see if the operation is complete.  So long as it is not, it gets back a 202 Accepted HTTP response, possibly with a message indicating the degree of progress.  (Note: At any point, the <i>data source</i> could also <a href="async.html#3.1.6.3">cancel</a> the action, though cancellation of a state-changing action is not guaranteed).
+  </p>
+  <a name="async-3"> </a>
+  <p>
+    <b>Step 3:</b> Once the action is complete, the response to the <i>data source</i>'s polling request changes to a 200 and conveys other information, including URLs to the location of the file (or files) that contain the results of the action.
+  </p>
+  <a name="async-4"> </a>
+  <p>
+    <b>Step 4:</b> The <i>data source</i> retrieves the identified file or files from the <i>data consumer</i>, giving it confirmation of whether the requested action was successful.
+  </p>
+
+  <a name="actions"> </a>
+  <h3>Actions</h3>
+  <p>
+    The following sections describe the different RESTful actions and indicate which pattern (or patterns) they follow.
+  </p>
+
+  <a name="read"> </a>
+  <h4>RESTful read</h4>
+  <p>
+    <a href="http.html#read">read</a> follows the <a href="#pull">pull</a> pattern and uses a GET of the form <code>[base]/[resourceType]/[id]</code>.  If successful, the <i>data consumer</i> will receive the current version of the specified resource from the <i>data source</i>.  Asynchronous is not expected to be relevant.
+  </p>
+
+  <a name="vread"> </a>
+  <h4>Version-specific read (vread)</h4>
+  <p>
+    <a href="http.html#vread">vread</a> also follows the <a href="#pull">pull</a> pattern and uses a GET of the form <code>[base]/[resourceType]/[id]/_history/[version]</code>.  If successful, the <i>data consumer</i> will receive the specified version of the resource with the specified id from the <i>data source</i>.  Asynchronous is not expected to be relevant.
+  </p>
+
+  <a name="create"> </a>
+  <h4>RESTful create</h4>
+  <p>
+    A <a href="http.html#create">create</a> follows the <a href="#push">push</a> pattern and uses the POST HTTP command to the <code>[base]/[resourceType]</code> endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i>.   If successful, the requested record will be persisted at the RESTful endpoint with a reliable id, potentially allowing it to be queried or referenced in subsequent exchanges.  The creation can be made conditional on the absence of specified data using the <a href="http.html#ccreate">If-none-exist</a> header.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for a create to take so long that synchronous operation was not possible.
+  </p>
+
+  <a name="update"> </a>
+  <h4>RESTful update</h4>
+  <p>
+    A <a href="http.html#update">update</a> follows the <a href="#push">push</a> pattern and uses the PUT HTTP command to the <code>[base]/[resourceType]/[id]</code> endpoint to transmit a single resource from the <i>data source</i>, causing it to be stored on the <i>data consumer</i> with the specified resource id.  This is typically done to replace an existing version of the resource, but it can <a href="http.html#upsert">also be used</a> to create a brand new record if there was no prior resource at that location and the <i>data consumer</i> permits.  Some servers might also support <a href="http.html#cupdate">conditional update</a> using the <code>[base]/[resourceType]?[search parameters]</code> URL to create or update a resource where the id is unknown.
+   </p>
+   <p>If successful, the requested record will be persisted at the RESTful endpoint with the specified id, potentially available to be queried or referenced in subsequent exchanges.  The response might include a copy of what was actually stored (which could be different than what was transmitted), an <a href="operationoutcome.html">OperationOutcome</a> with any warning or information messages, or just the metadata indicating id and the version created by the update. The update can be made conditional on the specified id being unchanged since last accessed, using the <a href="http.html#concurrency">If-match</a> header.  While <a href="#async">asynchronous</a> use is theoretically possible, it would be uncommon for an update to take so long that synchronous operation was not possible.
+  </p>
+  <p>
+    The workflow for update may be a bit more complex with a <a href="exchanging-search.html">search</a> happening prior to the update, particularly if conditional updates aren't supported.
+  </p>
+
+  <a name="patch"> </a>
+  <h4>Using Patch</h4>
+  <p>
+    <a href="http.html#patch">Patch</a> works identically to <a href="#update">update</a>, with the exception that rather than sending the whole resource as the body, the <i>data source</i> only sends a differential with what is believed to be the current version of the resource.  The content transmitted is either a <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a>, <a href="http://tools.ietf.org/html/rfc5261">XMLPatch</a> or <a href="fhirpatch.html">FHIRPath Patch</a>.  The pattern, URLs, and supported headers, as well as the potential responses are the same as for Update.
+  </p>
+
+  <a name="batch"> </a>
+  <h4>Executing batches</h4>
+  <p>
+    Processing a <a href="http.html#transaction">batch</a> follows the <a href="#push">Push</a> pattern, though the <a href="#async">Asynchronous</a> pattern is also appropriate in some cases.  The <a href="bundle.html">Bundle</a> with type 'batch' is POSTed to the <code>[base]</code> endpoint.  The response will also be a Bundle, this time with a type of 'batch-response'.  There is no paging capability for batches, though obviously a <i>data source</i> could choose to transmit multiple small batches rather than a single 'big' batch.  Because there are no dependencies between elements within a batch, size can be adjusted as need-be.  (Though if actions are dependent on prior results, those would have to be sent in a separate batch - one where the previous results can be determined before submitting the second batch.)
+  </p>
+
+  <a name="batch-search"> </a>
+  <h4>Executing batch searches</h4>
+  <p>
+    A 'search' batch is the same as any other type of <a href="#batch">batch</a>.  It is just that in a search batch, all the requested actions are different types of <a href="exchanging-search.html">search</a>.  Each entry in the batch-response will itself be a search-set Bundle.  It is possible to do paging on the search-set responses within the Bundle, but paging is on a per search-set basis, not on a Bundle basis.  (It is however possible to submit a new batch where each of the entries are a request for the 'next' set of results from some or all the previous queries.)
+  </p>
+  <p>
+    There is nothing to stop someone from submitting a transaction of searches, but there is little point because, by definition, a search cannot be interdependent on other resources and there is nothing to roll back in the event of a failure.  Thus, using transaction incurs needless cost.
+  </p>
+
+  <a name="transaction"> </a>
+  <h4>Executing transactions</h4>
+  <p>
+    Processing a <a href="http.html#transaction">transaction</a> is much the same as processing a <a href="#batch">batch</a>.  The main differences are that the input must be a 'transaction' <a href="bundle.html">Bundle</a> and the response will be a 'transaction-response'.  The behavior is the same - the primary difference is giving guidance to the server on what sort of processing to perform, and the fact that a transaction response cannot contain failure entries.
+  </p>
+
+  <a name="document"> </a>
+  <h4>Sharing documents</h4>
+  <p>
+    When manipulated RESTfully, creating or updating a document simply uses the <a href="#create">create</a> or <a href="#update">update</a> process with a base endpoint using the <a href="bundle.html">Bundle</a> endpoint.  There main difference is that the Bundle must adhere to the rules for a <a href="documents.html">FHIR document</a>.  However, in addition to being stored RESTfully, FHIR documents can be transported other ways - by email, FTP, USB stick, etc.  In some environments they might also be persisted as a <a href="binary.html">Binary</a> if they are being stored alongside PDFs and other non-FHIR documents.  In such cases, a <a href="documentreference.html">DocumentReference</a> might be created alongside the Binary to provide searchable metadata to help locate the document.  (DocumentReference can also be used when the document is stored as a Bundle rather than a Binary.)
+  </p>
+
+  <a name="collection"> </a>
+  <h4>Sharing collections</h4>
+  <p>
+    Like <a href="#document">documents</a>, creating or updating a collection simply uses the <a href="#create">create</a> or <a href="#update">update</a> process with a base endpoint using the <a href="bundle.html">Bundle</a> endpoint.  (Documents and collections are stored in the same place).  However, unlike documents, which can be queried by chaining into their <a href="composition.html">Composition</a> resource, there are limited mechanisms to search on the content of a 'collection' Bundle without defining custom search parameters.  Also, like documents, FHIR collections can also be transported in other ways such as email, FTP, USB stick, etc.  They are not, however, typically stored as <a href="binary.html">Binary</a> instances or referenced by <a href="documentreference.html">DocumentReference</a>, though such uses are not prohibited.
+  </p>
+
+[%file newfooter%]
+</body>
+</html>

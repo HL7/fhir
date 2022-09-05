@@ -1,0 +1,7 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+Consumer -> Source: 1a. GET url
+Consumer <-- Source: 1b. response containing requested resource/versionb
+@enduml

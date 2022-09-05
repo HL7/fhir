@@ -1,0 +1,967 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Approaches to Exchanging FHIR Data%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Approaches to Exchanging FHIR Data</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    FHIR offers numerous architectural approaches for sharing data between systems.  Each approach has pros and cons.  The most appropriate approach depends on the circumstances under which data is exchanged.  This page provides an overview of each approach, with pros, cons and a decision tree to help guide choices about which approach best suits a specific set of circumstances.
+  </p>
+  <p>
+    The recommendations expressed here reflect the general beliefs of the community based on experience to date.  Even so, there are other considerations that impact implementation choices, including legacy infrastructure, the existing capabilities of communication partners, etc.  Following the guidance here is not required to claim FHIR conformance but adhering to these recommendations is likely to result in lower long-term implementation costs, more interoperability partners, etc..
+  </p>
+  <p>
+    Not all the options listed here were defined in early versions of FHIR and it is likely that new exchange alternatives will continue to be identified by the FHIR community over time.  As these approaches become more broadly used, more standardized and experience accumulates within the community this documentation will continue to be updated.  Feedback on the advice offered here is welcome - simply use the <a href="http://hl7.org/fhir-issues">Propose a Change</a> button at the bottom of any FHIR specification page.
+  </p>
+  <a name="about"> </a>
+  <h3>About this section</h3>
+  <p>
+    This page focuses on data access mechanisms that are either defined within the core FHIR specification or are otherwise implementable using the interfaces defined by the FHIR specification without requiring any additional standardization.  Additional access mechanisms may be defined in other FHIR implementation guides or within other specifications.  There is, for example, a community effort outside the HL7 standardization process to allow a relational query interface to access FHIR information (see <a href="https://github.com/FHIR/sql-on-fhir">SQL-on-FHIR</a>).
+  </p>
+  <p>
+    To encourage consistency across implementation guides, each guide should identify the path(s) taken when navigating the tree to support their choices. This will also provide a basis for justifying situations where approaches vary. 
+  </p>
+  <p>
+    Note: Implementation guides SHOULD provide an explanation of the considerations (whether drawn from this document or otherwise) that drove the selection of the interoperability approach chosen for the guide and the use cases it is trying to solve.
+  </p>
+  <p>
+    The guidance provided in this section is focused on the choice of technical exchange mechanism.  It does not cover higher level design decisions, such as what sorts of exchanges should occur, what parties they should occur between, what points in the workflow the exchange should happen in, etc.  These decisions should be made prior to trying to apply the guidance here. Also, Implementation guides SHOULD provide an explanation of the considerations (whether drawn from this document or otherwise) that drove the selection of the interoperability approach chosen for the guide and the use cases it is trying to solve.
+  </p>
+  <p>
+  This section focuses on the technical alternatives that enable exchange between data sources and data consumers.  All such exchanges, and the decisions about the mechanisms used, will also need to take into account the creation of and adherence to regulations, contracts, business arrangements and other conventions and ensure that the information shared is 'appropriate' to the use-case.  Implementers and designers may want to consult legal counsel as part of their design process.
+  </p>
+  <p>
+  This section does not address expectations around security or authentication (except where specific exchange mechanisms have specific tradeoffs around what security or authentication mechanisms are possible).  Designs will need to ensure that appropriate security mechanisms are in place for whatever data is shared.  (Refer to the [security checklist] for additional considerations in this space.)
+  </p>
+  <p>
+  This section is also intended to have international scope and the terminology used here is used in its traditional English usage, not necessarily as it might be defined in particular jurisdictions.  For example, the term 'sensitive data' in some jurisdictions has a specific legal meaning.  When used here, it simply means that the data may need some additional level of protection, whether for privacy, business or other reasons.
+  </p>
+  <p>
+    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 v2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
+  </p>
+  <a name="organization"> </a>
+  <h3>Organization of this section</h3>
+  <p>
+    This section is broken into several components:
+  </p>
+  <ul>
+    <li>This page starts with an <a href="#approaches">Overview of exchange approaches</a> which lists all of the many ways that data can be
+shared in FHIR</li>
+    <li>It is followed by a <a href="#tree">decision-tree</a> that provides guidance on how to choose among them</li>
+    <li>Beneath that are detailed descriptions of the <a href="#criteria">decision criteria</a>, expanding on the decision points in the diagram</li>
+    <li>Finally, there are some <a href="#considerations">additional considerations</a> beyond simply choosing an architectural approach to exchange</li>
+    <li>Following this page are several sub-pages linked to by both the overview and decision-tree that provide details on each of the exchange options and the workflows involved in using them.  The different exchange options are grouped into pages which have similar or identical workflows (Note: Some exchange options are prefixed with FHIR because there also non-FHIR approaches to using those mechanisms, but the guidance in the following page and decision tree are FHIR-specific.):
+      <ul>
+        <li>
+          <a href="exchanging-search.html">Exchanging with FHIR search</a>
+        </li>
+        <li>
+          <a href="exchanging-rest.html">Exchanging with FHIR REST</a>
+        </li>
+        <li>
+          <a href="exchanging-subscription.html">Exchanging with FHIR subscription</a>
+        </li>
+        <li>
+          <a href="exchanging-polling.html">Exchanging with polling</a>
+        </li>
+        <li>
+          <a href="exchanging-operation.html">Exchanging with FHIR operations</a>
+        </li>
+        <li>
+          <a href="exchanging-messaging.html">Exchanging with messaging</a>
+        </li>
+        <li>
+          <a href="exchanging-request.html">Exchanges allowing human intervention</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <a name="general"> </a>
+  <h3>General Considerations</h3>
+  <p>The guidance provided here focuses on specific architectural trade-offs between different FHIR exchange approaches and provides guidance on what approaches are best used in particular circumstances, all other things being equal.  However, the reality is that it is rare for "all other things" to be equal.  Designers will need to take into account other factors, including:</p>
+  <ul>
+    <li>What approach(es) fall within the reasonable technical capabilities and development capacity of the systems that will be participating?</li>
+    <li>What legacy solutions already exist and how easy will it be to migrate those solutions to the specified approach?</li>
+    <li>Are there regulations, business policies, or privacy and/or security concerns that mandate or prohibit particular approaches?</li>
+    <li>What impact does the proposed solution have on performance/response time?</li>
+    <li>Will the exchange mechanism allow appropriate constraint on data retrieved (whether enforced by data source, data consumer or both)?</li>
+    <li>etc.</li>
+  </ul>
+  <a name="approaches"> </a>
+  <h3>Overview of approaches</h3>
+  <p>
+    The following table provides an overview of several different approaches to data exchange.  Each approach includes a short description and a link to a page providing more detail about the  approach, including an interaction diagram demonstrating the flow pattern between the different systems.  Each approach also includes a rating that reflects the degree of community support for the approach and the long-term reusability associated with implementing the approach.  Both are ranked as either 'low', 'medium' or 'high'.
+  </p>
+  <ol>
+    <li>
+      Re-use indicates the amount of reusability is likely to be achieved from implementing a specific interoperability solution, where:
+      <ol style="list-style-type: lower-roman">
+        <li>
+          'High' indicates that the approach is likely to be applicable to a broad set of use-cases with minimal/no redevelopment and little/no negotiation required to establish a functional interopreable interface.
+        </li>
+        <li>
+          'Medium' indicates that the approach has a reasonable chance of utility for at least some other use-cases, though additional development and/or negotiation or configuration may be required.
+        </li>
+        <li>
+          'Low' indicates that the solution is generally use-case specific and support for additional use-cases using the same mechanism is almost certain to require additional development.		   
+        Negotiation will be required to define what data will be sent and how it will be requested.  Note: 'negotiation' means that technical discussion and agreement will be required but does not necessarily imply a need for contractual agreement.
+      
+        </li>
+      </ol>
+     
+    </li>
+    <li>
+      Adoption indicates whether or not systems that have implemented FHIR for data exhange are likely to support the approach, where:
+      <ol style="list-style-type: lower-roman">
+        <li>
+          'High' indicates that many/most systems that support data exchange will support the approach.
+        </li>
+        <li>
+          'Medium' indicates that there are a reasonable number of implementations of the capability, but support is not widespread.
+        </li>
+        <li>
+          'Low' indicates that few systems other than some of the reference implementations are known to have production support for the mechanism.
+        </li>
+      </ol>
+      <p>
+        Rankings are approximate and might not hold in all environments.  Also, in environments where FHIR adoption is low, even a 'high' ranking might not result in much support in that implementation space.
+      </p>
+    </li>
+  </ol>
+  <p>Assertions around the degree of re-usability and community adoption are not country-specific and are not based on formal measures, but rather from an informal subjective evaluation based on what's been observed in the area of implementation, questions, global and regional IGs and feedback from implementers.  There are no formal measures of these characteristics available (as yet).  There may be variability in terms of adoption within specific subsets of the FHIR community and adoption patterns may change over time.  These considerations are intended to inform, but not constrain design decisions of individual implementation guides.</p>
+  <p>
+    As a rule, use of less re-useable and/or less adopted communication mechanisms will require more negotiation to achieve interoperability, and therefore the costs associated with the solution are likely to be greater.  That does not mean that architectural circumstances will not make these approaches necessary (and justify the increased cost), merely that if there is a choice between equally viable architectural alternatives, consideration should generally be given to the one with lowest overall long-term cost to the interoperability community.  Reducing overall cost to industry (payers, providers, patients and care-givers, etc.) is expected to be beneficial to most, if not all participants in the long term.
+  </p>
+  <p>The table below is ordered first by those that maximize long-term re-use and then by those that are most supported in real production systems.  All things being equal, those appearing earlier in the table are likely to be better choices.  However, all things aren't equal, <b>so consider the ratings in the table in parallel with the decision tree found <a href="#decision-tree">following the table</a></b>, i.e. a 'High/High' rating does not imply that the solution will be the best option for a particular use-case.  However, if after evaluating the options based on the decision tree, there are multiple possible options, their respective adoption and re-usability ratings may help to choose between them.
+  </p>
+  <p>
+    The size of the list of approaches (and the size of the decision tree diagram following) may seem overwhelming.  Remember that there is no need to support all these approaches or even most of them.  All of them are appropriate for use for <b>some</b> use cases.  However, systems (and implementation guides) only need to worry about the approaches relevant for their own needs.  Hopefully, this document will provide the necessary overview and guidance to allow the selection of the approach(es) that will best fit your implementation needs.
+  </p>
+
+  <a name="approach-summary"> </a>
+  <table class="grid">
+    <thead>
+      <tr>
+        <th>Approach</th>
+        <th>Re-use</th>
+        <th>Adoption</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#read">read</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>
+          The <i>data consumer</i> uses the FHIR <a href="http.html#read">read</a> operation to retrieve the current record of a resource with a known 'id'.
+        </td>
+        <td>
+          A payer has received a prior authorization request that includes a reference to a <a href="practitioner.html">Practitioner</a> resource that the payer does not have a local copy of.  The payer executes a read to retrieve the referenced record.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#search">RESTful search</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>
+          The <i>data consumer</i> uses the FHIR <a href="search.html">search</a> to describe the desired data and, using <a href="search.html#include">_include</a> and <a href="search.html#revinclude">_revinclude</a>, the desired resources and the <i>data source</i> returns the requested information if available.
+        </td>
+        <td>
+          A SMART app is guiding the completion of a questionnaire.  It executes a query for recent patient medications to provide options for the user when filling out the form.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#batch-search">batch search</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data consumer</i> sends a FHIR <a href="http.html#transaction">batch</a> request to the <i>data source</i> containing multiple <a href="exchanging-search.html#search">search</a>, <a href="exchanging-search.html#filter">_filter</a>, <a href="exchanging-search.html#query">query</a> and/or <a href="exchanging-operation.html">operation</a> requests.  All the requests are executed, and the responses are returned in a batch response.</td>
+        <td>
+          A payer system evaluating a claim needs specific information about specific lab results and medications, with different time periods relevant for different lab results.  To save time, rather than executing separate searches for the medications and each category of lab information, it packages all the queries into a batch and transmits them in a single operation.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-polling.html">Polling</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data consumer</i> queries the <i>data source</i> at regular intervals checking to see if there is new data that matches a specific set of criteria.</td>
+        <td>
+          An imaging center has submitted a prior authorization request and the initial response was 'pended'.  The <i>data consumer</i> is now checking back on a regular basis to see if a decision has been made, and if so, what the answer is.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#create">REST create</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data source</i> POSTs a single resource instance to the RESTful endpoint of the <i>data consumer</i>.</td>
+        <td>
+          A payer places a new <a href="insuranceplan.html">Insurance Plan</a> in a central registry available to EHRs.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#update">REST update</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data source</i> PUTs a single resource instance to the RESTful endpoint of the <i>data consumer</i>.</td>
+        <td>An EHR updates demographic information about a specific <a href="practitioner.html">Practitioner</a> on a shared registry.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#batch">Batch Bundle</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data source</i> creates a 'batch' <a href="bundle.html">Bundle</a> requesting the creation and/or updating of various resources and posts it to the RESTful endpoint of the <i>data consumer</i>.</td>
+        <td>An EHR has a collection of updates and new providers they want to communicate to a registry.  Each provider record is independent of the others.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#transaction">Transaction Bundle</a>
+        </th>
+        <td>High</td>
+        <td>High</td>
+        <td>The <i>data source</i> creates a 'transaction' <a href="bundle.html">Bundle</a> requesting the creation and/or updating of various resources and posts it to the RESTful endpoint of the <i>data consumer</i>.</td>
+        <td>A payer wishes to post a <a href="practitioner.html">Practitioner</a> and all of their associated <a href="practitionerrole.html">PractitionerRole</a> instances to a registry.  The PractitionerRoles point to the Practitioner.  The payer does not want any of the records to be created unless they all are.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#vread">vread</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>
+          The <i>data consumer</i> uses the FHIR <a href="http.html#vread">vread</a> operation to retrieve a specific version of a resource with a known 'id'.
+        </td>
+        <td>
+          A payer has received an <a href="encounter.html">Encounter</a> containing a version-specific reference to a <a href="condition.html">Condition</a> as the 'reason for admission'.  The payer retrieves that specific version because they need to understand "what was known/believed at the time of admission" and the current Condition record may have subsequently evolved.
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#history">history</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>
+          The <i>data consumer</i> uses the FHIR <a href="http.html#history">history</a> operation to retrieve a list of all (or a filtered subset) of the versions of a resource with a known 'id'.
+        </td>
+        <td>A payer is synchronizing their local practitioner registry with a centralized registry.  They regularly query to retrieve all updates that have occurred in the last hour.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="https://cds-hooks.hl7.org">CDS Hooks</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>The <i>data source</i> makes a CDS Hooks request to the <i>data consumer</i> who is acting as a CDS Hooks Service.  The service than returns 0..* cards containing decision support content.</td>
+        <td>A provider is creating a new lab order.  The EHR uses CDS Hooks to check whether prior authorization might be required for any of the ordered tests.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#cql">CQL search</a>
+        </th>
+        <td>High</td>
+        <td>Low</td>
+        <td>The <i>data consumer</i> invokes an operation specifying CQL to be invoked on the <i>data source</i> that will select and return a set of desired data and receives back a search Bundle.</td>
+        <td>An EHR retrieves CQL that describes information to include when submitting a prior authorization.  The EHR executes the CQL and, after review for accuracy, includes the package of information as part of the prior authorization request.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#filter">_filter search</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> uses the FHIR <a href="search.html">search</a>, <a href="search_filter.html">_filter</a> or <a href="graphql.html">GraphQL</a> mechanisms to describe the desired data and the desired data and the <i>data source</i> returns the requested information - if available.
+        </td>
+        <td>A payer is querying observations from an EHR.  Minimum necessary rules mean that to filter to only receive the information to which they are entitled, the query must include complex logic of nested 'and' and 'or' clauses.  <code>_filter</code> allows the desired data to be retrieved in a single call rather than multiple consecutive calls.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-subscription.html">Subscription</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> configures a subscription on the <i>data source</i> describing the type of data of interest and the events that should cause notification.  When the described event type(s) are triggered on the <i>data source</i> system, the <i>data source</i> pushes a notification to the <i>data consumer</i> either containing the desired data or prompting for the <i>data consumer</i> to query for the desired data.</td>
+        <td>A payer has submitted a rquest to a provider for data in support of a claim.  The payer creates a subscription on the provider's EHR that will notify the payer when the submitted Task has been updated - either with new status information or a link to the requested data.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-request.html#task">Task</a>
+        </th>
+        <td>High</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> creates a Task either on the <i>data source's</i> system or a system monitored by the <i>data source</i> requesting the sharing of data.  The <i>data source</i> then updates the Task with agreement to perform, progress status, and eventually a link to the requested data.  The <i>data consumer</i> monitors the Task by <a href="exchanging-subscription.html">subscription</a> or <a href="exchanging-polling.html">polling</a>.</td>
+        <td>A payer needs the clinical data that 'supports' an emergency surgery.  The payer does not know where the relevant supporting information is stored or in what form it might take (lab results, radiology reports, PDFs, etc.)  To avoid looking at irrelevant data, the payer submits a Task to the EHR asking a clinician or administrator to locate and return the relevant documentation.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#graphql">GraphQL search</a>
+        </th>
+        <td>High</td>
+        <td>Low</td>
+        <td>The <i>data consumer</i> uses GraphQL to filter data from a resource instance, a RESTful query or an operation outcome, including information from related resources and selecting the specific elements desired and optionally flattening structures.</td>
+        <td>A web-based member-facing application needs to provide a summary of recent claims.  It uses a GraphQL API to retrieve only needed elements organized in a manner tuned to the web page's layout, minimizing complexity in the design of the web client.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#patch">REST patch</a>
+        </th>
+        <td>High</td>
+        <td>Low</td>
+        <td>The <i>data source</i> uses PATCH to revise the information in a single resource instance via the RESTful endpoint of the <i>data consumer</i>.</td>
+        <td>A payer maintains a List resource containing the patient's current problem list (as understood from the payer perspective).  (They have many other Condition resources they maintain for other reasons, so the List is necessary to provide a filtered 'problem list' view.  A patient submits a request to adjust one of the items on the List.  The request comes as a differential rather than a complete replacement of the entire list.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#sparql">SPARQL search</a>
+        </th>
+        <td>High</td>
+        <td>Low</td>
+        <td>The <i>data consumer</i> uses a local SPARQL engine to manipulate triples accessed by hitting a <i>data source's</i> RDF endpoint</td>
+        <td>A payer has a knowledge repository that, together with various ontologies, allows the payer to reason about patients who would likely benefit from (and have better outcomes/long-term costs) if they were on a new treatment.  The payer uses SPARQL to access the EHR's clinical data to identify such patients and make recommendations to the patient's capitated care provider (Note: This is an example of how this data exchange mechanism could theoretically be used. It is not intended to define how any particular IG will define data access.).</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#document">FHIR Document</a>
+        </th>
+        <td>Moderate</td>
+        <td>Moderate</td>
+        <td>The <i>data source</i> assembles a collection of FHIR resources into a human-readable <a href="documents.html">document</a> and transmits it to the <i>data consumer</i>.</td>
+        <td>A member has shifted their coverage to a new payer.  The new payer wants to retrieve a list of active treatments from the old payer.  The old payer provides a 'transition of coverage' document that organizes relevant aspects of the patient's current claims, treatments, and other information in a contextual way to help the new payer maintain continuity of care.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-rest.html#collection">Collection Bundle</a>
+        </th>
+        <td>Moderate</td>
+        <td>Moderate</td>
+        <td>The <i>data source</i> assembles a collection of related resources into a 'collection' <a href="bundle.html">Bundle</a> and creates or updates it on the <i>data consumer's</i> Batch endpoint</td>
+        <td>A payer has a collection of information that has been provided as part of an X12 claims submission.  Internally, they wish to store the information as FHIR, but they want to retain the information in a 'package' representing all the information that came in a single submission.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-request.html#request">CommunicationRequest</a>
+        </th>
+        <td>Moderate</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> creates a formal CommunicationRequest order and uses one of the <a href="workflow-communications.html">workflow communication patterns</a> to ask the <i>data source </i> to fulfill the order.  The results are then returned using one of the <a href="#configured">push</a> mechanisms.</td>
+        <td>A provider creates a formal order authorizing (on a patient's behalf) the disclosure of clinical information from a third party to a payer.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-search.html#query">Query search</a>
+        </th>
+        <td>Low</td>
+        <td>Low</td>
+        <td>The <i>data consumer</i> invokes a custom query operation on the <i>data source</i> and receives back a search Bundle.</td>
+        <td>A group of payers wish to expose their claims data to patient applications, but their back ends do not support a full RESTful query interface.  Only certain parameters can be used and only in specific combinations.  The group defines a standard _query operation that allows retrieval of a collection of information related to a claim, with only a limited set of parameters.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-operation.html#retrieval">FHIR Retrieval Operation</a>
+        </th>
+        <td>Low</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> invokes a custom operation on the <i>data source</i> requesting information by parameters on the URL and/or in the body and the response to the operation (synchronous or asynchronous) contains the requested data.</td>
+        <td>A payer wishes to receive a summary of average inpatient stay durations for a particular type of service.  It invokes the operation and the EHR calculates the current average for the past year and returns the result.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-operation.html#process">FHIR 'Process' Operation</a>
+        </th>
+        <td>Low</td>
+        <td>Moderate</td>
+        <td>The <i>data source</i> invokes a custom operation on the <i>data consumer</i> passing information it wishes to convey in the body of the operation or as references, asking the consumer to 'process' the information.  Processing might or might not result in some or all of the information being stored or otherwise consumed and acted upon.</td>
+        <td>An EHR wishes to submit a prior authorization via FHIR, but regulations require that the payer receive the information over X12.  The EHR invokes an operation on an intermediary that passes relevant prior authorization resources to an intermediary that takes care of the X12 conversion</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-messaging.html#query">FHIR Messaging Queries</a>
+        </th>
+        <td>Low</td>
+        <td>Moderate</td>
+        <td>The <i>data consumer</i> sends a FHIR message to the <i>data source</i> requesting information and the data source responds (synchronously or asynchronously) with a message containing the requested data.</td>
+        <td>A payer is interacting with an EHR financial system that uses a v2 interface.  Data is converted from v2 into a FHIR message to ensure the data flows to the payer in a familiar form.</td>
+      </tr>
+      <tr>
+        <th>
+          <a href="exchanging-messaging.html#notify">FHIR Messaging Notifications</a>
+        </th>
+        <td>Low</td>
+        <td>Moderate</td>
+        <td>The <i>data source</i> sends a FHIR message to the <i>data consumer</i> providing information related to some sort of event that has occurred.</td>
+        <td>An EHR notifies a payer that a patient has been admitted and provides additional information, such as patient condition, etc.</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- TODO - create ExampleScenarios showing each of the workflows -->
+
+  <a name="decision-tree"> </a>
+  <h3>Decision points</h3>
+  <p>
+    With so many possible approaches to exchanging data, implementers need guidance on how to choose the appropriate choice for a given use-case.  In practice, the choice will be influenced by existing infrastructure, architectural preference, and other considerations.  However, the following diagram and associated descriptions aim to provide "best practice" guidance about what approach to use in which circumstances.  Adhering to the recommendations here will help reduce long-term implementation effort and cost across the full data sharing community.  It will also help increase the likelihood that FHIR solutions that are designed independently will land on the same architectural approach.  In all cases, if you're uncertain of the best architectural approach for a given exchange, raise your questions on the <a href="https://chat.fhir.org/#narrow/stream/179166-implementers">chat.fhir.org implementer's forum</a>.  The community will often be able to provide additional considerations, guidance about what solutions already exist in the space, and nudge you toward the solution that is most likely to successfully meet your requirements and integrate with other solutions.
+  </p>
+  <p>
+    The following diagram provides a decision tree to help guide the selection of a data exchange approach.  Each decision branch includes a hyperlink to a section further below that provides a detailed description of the considerations in making the choice for the decision point.  Each "exchange option" will link to a web page that provides a detailed walkthrough of the interoperability pattern and further guidance on its use - as well as pointing to the relevant portions of the FHIR spec that describe how to implement the approach.  While it is possible to use the decision tree while only paying attention to the branches 'relevant' for your specific use-case, readers are encouraged to familiarize themselves with all the content so they can be sure they're not excluding options that may be relevant to their requirements.
+  </p>
+  <a name="tree"> </a>
+  <div style="margin: auto;">
+    {% include fhir-exchanges.svg %}
+    <b>FHIR exchange decision tree</b>
+  </div>
+  <a name="criteria"> </a>
+  <a name="pull"> </a>
+  <h4>Consumer initiates?</h4>
+  <p>
+    The first consideration is whether the desired data should be 'pulled' or 'pushed'.  In the <i>data consumer</i>-initiating 'pull' scenario, the event that initiates the exchange of data occurs in the <i>data consumer</i> system.  This might be a user clicking a button, or some sort of internal event that triggers a need for data.  The <i>data consumer</i> system is then responsible for determining what data to retrieve and when it should be returned as well as for initiating the flow by communicating with the <i>data source</i>.
+  </p>
+  <p>
+    In the <i>data source</i>-initiating (or 'push') exchange, the event that determines the need for data to flow occurs in the system that owns the data.  This might be driven by human action, the creation or change of the data to be shared, or some other system event that makes it necessary to make the <i>data consumer</i> aware of a specific set of data.
+  </p>
+  <p>
+    Notes:
+  </p>
+  <ul>
+    <li>
+      <i>Data source</i>-initiated data flows may include expectation for behavior on the part of the receiver, while <i>data consumer</i>-initiated flows generally don’t impose any such expectations - the consumer decides what to do with the data they have asked for.</li>
+    <li>Some <i>data consumers</i> may be reluctant/unable to initiate data transfer for legal/policy reasons. I.e. It is deemed acceptable to be pushed data, but not to pull it.  Typically, this stems from right of access/permissions concerns where only the <i>data source</i> is deemed to have authority as to what information should be shared and when.</li>
+  </ul>
+  <p>If the <i>data consumer</i> will initiate, the next choice is whether there is a <a href="#connect-pull">direct connection</a> between source and consumer.  If the trigger for exchange will be driven by the <i>data source</i>, the next decision is whether the need to share the data is <a href="#configured">configurable by the <i>data consumer</i>
+    </a>.</p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="connect-pull"> </a>
+  <h4>Direct connection? (pull)</h4>
+  <p>
+    The next question is whether the <i>data consumer</i> and <i>data source</i> can talk to each other directly.  In some interoperability environments the two systems might not have any means of knowing the network address of the other and all communication must happen through an intermediary.  In some cases, the communication can happen via a network proxy where a request is automatically forwarded to a secondary location (potentially determined by the content of the request).  In some environments, there may even be multiple levels of proxying, though this can limit the ability of the system to perform in a <a href="#synchronous">synchronous</a> manner.  From the perspective of this decision tree, proxied connections are still treated as a 'direct' connection.  Both direct and proxied communications proceed through the tree to the next decision point of whether <a href="#human">human intervention might be required</a>.
+  </p>
+  <p>
+    However, in other environments, information exchanges are 'routed'.  The initiator of a communication specifies a logical identifier of the desired target system and passes the communication into a network of intermediaries which then route the communication so that it eventually reaches the appropriate network address.  In this routed form of exchange, the only option for exchange is <a href="exchanging-messaging.html#query">query-based messaging</a>.
+  </p>
+  <p>
+    NOTE: There is work underway as part of the U.S. FAST initiative to define an additional layer on top of FHIR RESTful interfaces that will support indirect delivery over RESTful interfaces.  More about the project can be found <a href="https://confluence.hl7.org/display/FHIRI/FHIR+at+Scale+%28FAST%29%3A+Exchange+with+or+without+Intermediaries">here</a>.  This may reduce the need for message-based approaches in the future.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="human"> </a>
+  <h4>Allows Human intervention?</h4>
+  <p>
+    When a <i>data consumer</i> asks for information from a <i>data source</i>, the next question is whether the request is purely at a system-to-system level where the request will be exclusively processed by software or whether there is the potential for humans to be involved in the preparation of the response.  Human involvement means that the request must arrive in a form that can be persisted until a human can look at it and with sufficient contextual and descriptive information for a human to understand what is needed.  Human involvement in responding to a request for data might occur for many reasons:
+  </p>
+  <ul>
+    <li>The data might not exist in queryable electronic form.  It might only exist on paper, in someone's head or in some non-integrated third-party system.</li>
+    <li>The data might not exist in a predictable location.  For example, different systems might store the relevant information in different resources, using different codes or categories, etc.  This means that the <i>data consumer</i> would not know the appropriate system-to-system query to use.  However, a human being at that specific location/organization would be aware of the organizational conventions and have a much better idea of how to find the data.  (Obviously, this need is minimized as standards impose tighter conventions for data representation and coding.  However, gaining consensus on and getting implementation of those standards can take considerable time.)</li>
+    <li>The <i>data source</i> might not have the ability to filter the available data down to what is needed in a situation where it would be impractical or inappropriate to share all the candidate data.  A human who knows the system, on the other hand, might have access to local tools/knowledge that would allow the appropriate record(s) to be found and/or filtered.</li>
+    <li>The description of the data to be returned and/or the description of the context that justifies the sharing of the data might not be amenable to expression in a computable form, therefore requiring interpretation/evaluation by a person familiar with the <i>data source</i> to 'execute' the request.  For example, "Please provide all data that supports the decision to order surgery X" would not necessarily be something that could be resolved merely by traversing links in the data.</li>
+    <li>There may be a need to organize, synthesize, and/or filter the data in a way that requires human cognition.  For standardized frequent queries, automation is often possible, but in some cases, automating all the possibilities is impractical.</li>
+    <li>There may be a lack of trust between the <i>data consumer</i> and the <i>data source</i>, such that the <i>data source</i> wishes to have human review of any data provided to ensure that the sharing is appropriate, necessary redaction is applied, appropriate approvals are in order, etc.</li>
+    <li>There may be differences in regulatory expectations around data that is queried directly vs. information that is 'pushed' in response to a human-mediated request, such that the latter is more practical/cost-effective overall.  (Though with this argument, care should be taken that the distribution of costs is equitable, rather than simply being offloaded from the <i>data consumer</i> to the <i>data source</i>.)</li>
+  </ul>
+  <p>
+    Allowance for human intervention does not necessarily mean there will always <b>be</b> human intervention.  It is possible that some <i>data sources</i> will have an ability to handle certain requests in an automated fashion while others will be delegated to humans.  It is also possible that a <i>data source</i> will evolve to be capable of handling certain requests automatically that it could not in the past.  The key thing is that the interface is designed to allow for human intervention.
+  </p>
+  <p>
+    Interfaces that allow for human intervention are intrinsically asynchronous, though in some cases the asynchronous response may come quickly.  In general, automated interfaces are preferred to those allowing for human intervention.  First, if human intervention is required, that has a significant cost due to the expense of human time.  Second, human-intervention mechanisms involve more technical overhead (more layers, more data structures) which creates higher implementation and testing costs.  Finally, the lack of support for synchronous access means the solution is not a good fit for certain use-cases, which may force multiple parallel access mechanisms (one for synchronous with no human intervention and one asynchronous with human intervention).
+  </p>
+  <p>If the exchange will potentially require human intervention, the next decision is whether or not <a href="#formal">formal authorization is required</a>.  If the exchange will be fully automated, the next decision is whether <a href="#hooks">CDS Hooks is a candidate</a>.</p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="hooks"> </a>
+  <h4>CDS Hooks? (E)</h4>
+  <p>
+    The <a href="https://cds-hooks.hl7.org">CDS Hooks</a> specification should be used if the driver for the exchange is a user action within the <i>data consumer</i> where the user is visually interacting with that system and the desired results will be clinical decision support guidance from the <i>data source</i> about that current action.  The specific requests and responses are not expressed as FHIR, but the data describing the current action and additional contextual information generally will be.  CDS Hooks also allows the <i>data source</i> to access contextual information from the <i>data consumer</i> to provide information necessary for the decision support logic.  This internal data retrieval by the decision support engine would use <a href="#rest-search">RESTful search</a> or possibly one of the search alternatives beneath it.
+  </p>
+  <p>
+    If hooks are to be used, the <a href="https://cds-hooks.hl7.org">CDS Hooks spec</a> provides details on the flow.  The hook service (<i>data source</i>) may take on the role of <i>data consumer</i> and use <a href="#pre-exists">automated</a> means of retrieving data to support the decision support it provides. If CDS Hooks is not a good fit, the next question to consider is whether the data to be retrieved is <a href="#pre-exists">pre-existing</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="pre-exists"> </a>
+  <h4>Is data pre-existing? (A)</h4>
+  <p>
+    When requesting data to come back as resources, there are two possibilities - the <i>data consumer</i> is seeking data that is already available as existing records in the <i>data source's</i> system; or the <i>data consumer</i> is asking the <i>data source</i> to generate net new records - though potentially based on existing information.  For example, retrieving previously recorded blood pressures for a patient would be "existing records", while asking for the average blood pressure for the last 24 hours would typically involve generating a record.  (It is unlikely the system would already have a stored record for the average as of 'now'.)  The first case is a type of query and can generally be handled by relatively 'standard' mechanisms in FHIR.  The latter will require a custom operation or message and will typically mean writing code specifically to generate the desired data.
+  </p>
+  <p>
+    If searching for pre-existing data, the next decision point is whether the search mechanism will be <a href="#resources">returning resources</a>.  Otherwise, the choice is whether <a href="#message">messaging is appropriate</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="resources"> </a>
+  <h4>Return resources? (B)</h4>
+  <p>
+    In FHIR, data is represented using resources and, in most cases, when data is exchanged, it will be transferred as collections of those resources.  Generally, the complete resource is transmitted, and the same data is shared with all systems. This approach of sharing the full resource ensures that the contextual meaning of all the data elements is retained and provides a consistent framework for validating, parsing, and consuming the shared data. However, in some cases, information may be filtered out of the resources for reasons of state or federal privacy regulations, an individual’s own privacy preferences, or more efficient communication. In other cases, the use-case may call for returning an arbitrary collection of elements of interest, potentially joining content across multiple resources, with no need/desire to retain context. This latter is less interoperable - it will not be possible for downstream systems to consume the data as FHIR, nor for it to be persisted in a FHIR-based repository without treating it as a <a href="binary.html">Binary</a>.  In general, the search mechanisms that return resources are more widely supported and will require less negotiation/modification of systems than those that return independent elements, so if either approach could work, it is best to take the 'return resources' branch in the decision tree.
+  </p>
+  <p>
+    If the data to be returned should be a resource or collection of resources, the next decision point is whether the retrieval is <a href="#onlyone">only a single identified resource</a>.  Otherwise, the next consideration is <a href="#hooks">CDS Hooks</a>
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="onlyone"> </a>
+  <h4>Single resource? (C)</h4>
+  <p>
+    In some cases, the retrieval process is straightforward - the <i>data consumer</i> knows the <code>id</code> of the resource it needs, and it only needs that specific resource.  FHIR has specific mechanisms for doing this that are widely supported and very efficient to execute.  The id might be known because the <i>data consumer</i> has previously retrieved a copy of the resource and is only looking for the most recent changes.  Alternatively, the <i>data consumer</i> might be retrieving a resource that was referenced by another resource it has a copy of.
+  </p>
+  <p>
+    Obviously, if the <i>data consumer</i> needs more than one resource - even if it just wants a resource with a known <code>id</code> as well as certain related resources, these special mechanisms will not work.  They also will not work if the <code>id</code> of the resource on the target server is not known.
+  </p>
+  <p>
+    If only a single resource with known <code>id</code> needs to be retrieved, the next consideration is whether the retrieval is the <a href="#current">current version</a>.  Otherwise, the next approach to evaluate is <a href="#history">Resource history</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="formal"> </a>
+  <h4>Formal authorization required?</h4>
+  <p>
+    There are two main mechanisms in FHIR for requesting data from a human being (or potentially from a human being): <a href="communicationrequest.html">CommunicationRequest</a> and <a href="task.html">Task</a>.
+  </p>
+  <p>
+    CommunicationRequest is used to represent proposals, plans and formal authorizations (orders) for data to be exchanged.  A CommunicationRequest would be appropriate for use when there is a need for a formal order, along the same lines as a prescription, lab order, referral, etc., but in this case indicating that certain information must flow to a <i>data consumer</i>.  CommunicationRequest, like other <a href="request.html">Request</a> resources cannot ask for action on its own.  Instead, it must leverage one of the FHIR <a href="workflow-communications.html">workflow communication patterns</a> to seek fulfillment of the specified request
+  </p>
+  <p>
+    Task is used to explicitly ask for an action to be performed.  Sometimes it is used together with a Request resource, however it can also be used on its own to ask for execution of a simple action - such as requesting someone fill out a form or return a specified piece of information.  Because Task can be used to ask for an action to be performed and can, itself, track acceptance or rejection of the request, progress status of the request and eventually be updated to point to the 'output' of the request, it saves on overhead compared with using CommunicationRequest which (for any of the afore-mentioned functions) would need to be paired with Task.  As such, Task is generally preferred when there is not a need for a formal authorization and when the capabilities of Task to describe the data requested are as sufficient as those available on CommunicationRequest.  Even when authorization is needed, Task may still be relevant as the authorization may span multiple exchanges covering a broad set of data, while Task allows initiation of a single transfer of very specific information.
+  </p>
+  <p>
+    Note that an authorization (e.g. CommunicationRequest) by itself is not sufficient for information to flow, and in some cases, a single authorization may be associated with numerous folows over an extended period of time.  The trigger for actual exchange will some form of <a href="workflow-communications.html">workflow initiation mechanism</a>.  Frequently, that will be Task, meaning that CommunicationRequest may end up being used in conjuction with Task.
+  </p>
+  <p>
+    Details on using Task can be found <a href="exchanging-request.html#task">here</a>.  Details on using CommunicationRequest can be found <a href="exchanging-request.html#request">here</a>.  Note that, regardless of whether Task or CommunicationRequest are selected, the asynchronous response providing the requested data (or some of the requested data or an outright refusal to deliver the requested data) will be handled as a <a href="#configured">Data source-initiated (Push)</a> event and the architectural approach for that delivery will also need to be selected.  (Generally, the mechanism will be one of the <a href="#configured">Configured by consumer</a> options as the <i>data consumer</i> is the system that truly initiated the transfer and therefore should decide what happens to the data.  However, if an operation or message is used to transmit the Task or CommunicationRequest, then the response would come back as a <a href="exchanging-messaging.html">message</a> or an <a href="exchanging-operation.html">operation response</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="current"> </a>
+  <h4>Current version?</h4>
+  <p>
+    When retrieving a single resource by a known identifier, there are two options.  The <a href="http.html#read">read</a> operation retrieves the current version of the resource.  The <a href="http.html#vread">Version-specific read</a> (vread) operation returns a specifically identified version of the resource (which might be the current version or could be a historical snapshot of the resource).  The latter approach obviously involves knowing the specific version to be retrieved - generally because of a version-specific reference.  It also means that the <i>data source</i> must support accessing historical versions.  (Many systems, especially legacy systems, do not.)
+  </p>
+  <p>
+    Details about the data exchange ramifications of the 'read' operation are <a href="exchanging-rest.html#read">here</a>.  Details about 'vread' are <a href="exchanging-rest.html#vread">here</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="history"> </a>
+  <h4>Resource History?</h4>
+  <p>
+    Unlike <a href="exchanging-rest.html#vread">version-specific read</a>, the <a href="http.html#history">history</a> operation returns a <a href="bundle.html">Bundle</a> containing a collection of versions - either all of them, or those since a specified date.  History can be reported for a single resource id, for a specific resource type, or for all resources on an entire server.  The first is useful if the <i>data consumer</i> needs to know what is happened with a specific resource over time.  The other two allow complete synchronizing of the server held on the <i>data consumer</i> with the changes that have occurred on the <i>data source</i> - either for a single resource or for all resources.
+  </p>
+  <p>
+    Details about the data flow for performing <code>history</code> are <a href="exchanging-search.html#history">here</a>.  If history is appropriate the next question is to whether to use <a href="#synchronous">synchronous or asynchronous search</a>.  The latter may be necessary for large volumes.  If history is not appropriate, the next option to consider is whether an <a href="#adhoc">ad-hoc query</a> is needed.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="adhoc"> </a>
+  <h4>Ad-hoc query?</h4>
+  <p>
+    In an ad-hoc query, the <i>data source</i> allows the <i>data consumer</i> to combine the search parameters or use a search expression language to filter the set of data they get back.  The <i>data source</i> may have a few rules about certain minimum query expectations or disallowed parameter combinations, but in general the <i>data consumer</i> is free to construct their queries as needed to support their use-case.  The benefit of this approach is that the same query interface can be used by <i>data consumers</i> to support a wide variety of use-cases.  There is significantly less need to modify existing interfaces or stand up new interfaces when a new use-case arises.
+  </p>
+  <p>
+    However, ad-hoc query means that the <i>data source</i> must have a security model that allows arbitrary queries against data.  That does not mean they must allow all <i>data consumers</i> to query whatever they like.  However, it does mean that the <i>data source</i> must be able to evaluate a given ad-hoc query and determine whether it is "allowed" for that <i>data consumer</i> and if not, either reject the query or add additional filters to make it acceptable prior to execution.  Also, because ad-hoc queries are use-case independent, the <i>data source</i> must make access control decisions without knowing the 'purpose' for which the data is being retrieved.  (Though in some cases, the authorization layer might allow capturing an overall reason for whatever actions are taken within a given authorized session.)
+  </p>
+  <p>
+    If the <i>data consumer</i> does not have the security or technical abilities to perform ad-hoc queries, it might still be worth the investment to develop them, given that the cost can be defrayed over multiple use-cases.  When designing the interoperability solution, an evaluation of the long-term costs of building a generic, re-useable query mechanism vs. building and maintaining multiple purpose-specific mechanisms should be evaluated.  A focus on short-term costs may result in larger overall costs.
+  </p>
+  <p>
+    An additional consideration is that ad-hoc queries can create performance concerns for <i>data sources</i>.  Allowing arbitrary search expressions means that it is possible that some queries will perform poorly or will overly tax the <i>data source</i>, potentially impacting performance of other services.  And obviously, running ad-hoc queries means that the <i>data source</i> must have a data access layer that can execute ad-hoc queries.  Systems that provide a facade over top of a non-FHIR system, that integrate data from numerous systems or have limited control over the indexing of their data source might not be appropriate for ad-hoc query interfaces.
+  </p>
+  <p>
+    A final consideration is whether the data desired can reasonably be described by a querying on specific properties of the relevant information.  In some cases, the relevant information may require a complex site-specific algorithm or even human intervention to identify the record(s) desired, meaning that ad-hoc query would not meet the requirement.
+  </p>
+  <p>
+    If ad-hoc queries are appropriate, the next decision point is whether <a href="#rest-search">RESTful search</a> is a good fit.  If not, then the <a href="#query">_query</a> mechanism should be evaluated.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="rest-search"> </a>
+  <h4>REST searchable?</h4>
+  <p>
+    The most widely implemented search mechanism in FHIR is the RESTful <a href="search.html">search</a> mechanism.  It defines mechanisms for retrieving resources along with related resources, filtering what resources are returned, ordering the result-set, and allowing data to be returned in individual pages.  It is a generic mechanism that is use-case independent.  As such, once a <i>data source</i> can respond to a query, it may (if it wishes) provide that data to any <i>data consumer</i>, regardless of the purpose for which the information is needed.
+  </p>
+  <p>
+    Details on performing exchange using REST search are found <a href="exchanging-search.html#search">here</a>.  If REST search is appropriate the next question is to whether to support <a href="#synchronous">synchronous or asynchronous search</a>.  Otherwise the next option to evaluate is <a href="#search-batch">batch search</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="search-batch"> </a>
+  <h4>Batch searchable?</h4>
+  <p>
+    In some cases, an individual RESTful query is inappropriate because resources need to be retrieved from multiple resource endpoints and the search criteria for each endpoint must be different, so that a generic search against the base endpoint would be inappropriate.  In other cases, even when hitting the same endpoint, different subsets of resources need to be retrieved using distinct combinations of search parameters.  While <a href="#filter">_filter</a> could potentially be used to specify various bracketed clauses to express all the constraints in a single filter, it may be easier (and more widely supported) to simply submit several independent queries.  These <b>can</b> be done as independent calls; however, it can be more efficient to submit all of them at once.  This can be done using a <a href="http.html#transaction">batch</a>
+    <a href="bundle.html">Bundle</a> to invoke multiple queries simultaneously, and return a corresponding batch-response Bundle containing the results of each search.  Note that if performing all queries simultaneously, the search parameters of the queries must be independent.  It is not possible to base the parameters of one search on the results of a previous search.  If this sort of dependency is needed, the searches will have to be invoked independently, with the second search launched only after the results of the first are back.
+  </p>
+  <p>
+    If batch searching is appropriate, details on the process can be found <a href="exchanging-rest.html#batch-search">here</a>.  As well, the design needs to consider which <a href="#resources">resource retrieval mechanisms</a> will be used to populate the batch.  Finally, a decision is necessary about whether the Batch search should be <a href="#synchronous">synchronous or asynchronous</a>.  If batch not appropriate, the next architectural approach to consider is using <a href="#filter">_filter</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="filter"> </a>
+  <h4>_filter searchable?</h4>
+  <p>
+    The <a href="search_filter.html">_filter</a> search mechanism provides additional capabilities beyond what can be expressed using basic <a href="#rest-search">REST search</a>.  Specifically, it provides full nested logical expression capabilities (and/or/not/parenthesis) and allows arbitrary filtering of chained parameters (e.g. Observations for patients where the legal name starts with 'Bob').  It also supports a slightly broader set of comparison operations (e.g. "ends with").  _filter can be used together with base REST search capabilities, meaning that <a href="search.html#include">_include</a>, <a href="search.html#revinclude">_revinclude</a>, <a href="search.html#sort">_sort</a>, etc.  This mechanism is treated as 'separate' from basic REST search because support for _filter tends to be less than other REST search parameters.  Unlike other REST search parameters (for which support is defined on a per parameter basis), if _filter is supported, the expectation is that the full _filter expression language is available and supported.
+  </p>
+  <p>
+    If _filter searching is appropriate, details on the process can be found <a href="exchanging-search.html#filter">here</a>.  Like any other search mechanisms, implementers must also determine whether to invoke the request as <a href="#synchronous">synchronous or asynchronous</a>.  If _filter is not a good fit, the next architectural approach to consider is using <a href="#cql">CQL</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="cql"> </a>
+  <h4>CQL searchable?</h4>
+  <p>
+    <a href="https://cql.hl7.org">CQL</a> stands for Clinical Quality Language.  It is a high-level language that supports manipulation of healthcare data.  CQL is a full-blown Turing-complete programming language that allows filtering and generation of data structures.  It is not tightly bound to FHIR, though it does rely on FHIR data types.  It includes the ability to execute sub-queries, define modules and functions, import external libraries, etc.  However, it is a language specifically designed to manipulate data structures and includes rich terminology support.  It builds on the <a href="http://hl7.org/fhirpath">FHIRPath</a> language to allow easy navigation, filtering, and execution of mathematical and collection-based operations on hierarchical and linked data structures.  Because it is a 'complete' programming language and has an internal capacity to execute sub-queries, it allows the definition of arbitrarily complex data searches.
+  </p>
+  <p>
+    The primary downside of CQL is its complexity.  It is closer to using Java to retrieve data than SQL, though far more tuned for data manipulation than Java is.  Because of its complexity, it is not widely supported in the FHIR implementation space, though it is supported by some of the FHIR reference implementations.  Also, as a programming language, it can raise the risk of performance issues for systems that choose to allow execution of arbitrary CQL against their repositories.  It is also much harder to analyze the 'safety' of a specific ad-hoc query in terms of whether it violates access permissions associated with a user's privileges.
+  </p>
+  <p>
+    At present, the only way to invoke a CQL search is by using operations.  This can be done either by passing the CQL directly (the <a href="http://hl7.org/fhir/uv/cpg/2019Sep/OperationDefinition-cpg-cql.html">cpg-cql</a> operation) or by referencing a library that contains the relevant CQL (the <a href="http://hl7.org/fhir/uv/cpg/2019Sep//OperationDefinition-cpg-library-evaluate.html">cpg-library-evaluate</a>).  The latter is more useful when the CQL is complex.
+  </p>
+  <p>
+    CQL appears in both the 'full resource' and 'individual data elements' side of this decision tree because it can return results in either form.  If CQL is appropriate, discussion on its use can be found <a href="exchanging-search.html#cql">here</a>.  The CQL operations can be invoked using either a <a href="#synchronous">synchronous or asynchronous</a> approach.  If CQL is not appropriate, the next option to explore if returning resources is <a href="#query">_query</a> and <a href="#sparql">SPARQL</a> if returning individual data elements.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="query"> </a>
+  <h4>_query searchable? (D)</h4>
+  <p>
+    The <a href="search.html#query">_query</a> search is an alternate way of invoking a custom operation.  That operation inherits the general RESTful search capabilities in terms of paging and returning a search Bundle and thus can piggy-back on top of generic <a href="#rest-search">RESTful search</a> infrastructure.  However, the parameters used by the search are defined by a custom <a href="operationdefinition.html">OperationDefinition</a>.  This approach is not as wide open as using the <a href="exchanging-operation.html">generic operation</a> approach to data retrieval because all parameters must be expressible as URL parameters and the operation cannot be one that <a href="operationdefinition-definitions.html#OperationDefinition.affectsState">affects state</a>.
+  </p>
+  <p>
+    However, beyond those constraints, the search can do anything the author can imagine so long as the result is a search-set.  The downside of using 'query' is that the query operations are 'custom'.  They will only be supported by implementers that add custom code to enable that specific query.  Changes to the query definition need to be coordinated to with implementers and new requirements are likely to result in the need for a distinct 'query' - which again will require negotiation with and custom coding by other implementers.  As a result, this approach offers limited re-use and scalability.
+  </p>
+  <p>
+    If a query operation will meet the need, details on the process can be found <a href="exchanging-search.html#query">here</a>.  Using query also requires a decision on whether to use <a href="#synchronous">synchronous or asynchronous search</a>.  If query is not a good fit, the next option to evaluate is <a href="#message">messaging vs. operations</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+
+
+  <a name="graphql"> </a>
+  <h4>GraphQL searchable?</h4>
+  <p>
+    <a href="graphql.html">GraphQL</a> is a query mechanism that returns a custom JSON structure that contains specific data elements of interest from a resource or set of related resources.  It can be more efficient than a standard RESTful query response because it does not need to include the full resource structure, mandatory elements or have the overhead of a Bundle resource.  It also allows data structures to be 'flattened', which can be useful for JSON used to drive user interfaces or statistical processes.  Finally, it gives greater control over references allowing direct tracing across the specific references to include rather than relying on <code>:iterate</code> to include referenced resources that might occur along multiple paths.
+  </p>
+  <p>The downside of GraphQL is that it is still experimental (in FHIR) and is not widely implemented.  As well, the result-set from a GraphQL query is not standard FHIR and cannot subsequently be stored or shared as a standard FHIR resource.  In some cases, key meaning may be lost (e.g. failing to return status and failing to exclude 'entered-in-error' records).  Because filters can be <a href="http://hl7.org/fhirpath">FHIRPath</a>, indexing requirements are not as locked down as RESTful query where allowed search parameters are defined in advance.
+  </p>
+  <p>
+    If GraphQL is appropriate, details on its use are <a href="exchanging-search.html#graphql">here</a>.  If using GraphQL, the underlying server would typically also use FHIR's <a href="exchanging-rest.html#read">read</a>, <a href="exchanging-search.html#search">search</a> or <a href="exchanging-operation.html">operation</a> capabilities to select the base resource(s) against which the Graph will be evaluated.  As well, consideration will need to be given to whether the GraphQL calls should be <a href="#synchronous">synchronous or asynchronous.</a>  If GraphQL will not meet the need, the next option to explore is <a href="#cql">CQL</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="sparql"> </a>
+  <h4>SPARQL searchable?</h4>
+  <p>
+    <a href="https://www.w3.org/TR/rdf-sparql-query">SPARQL</a> is a general-purpose query language for accessing data expressed in RDF (as tuples).  Its primary benefit is that it can query across data using multiple ontologies - so rather than just relying on FHIR structures, the query language can rely on types and inferences from terminologies such as SNOMED and rules or knowledge sources that assert meanings to specific combinations of data.  Properly designed, SPARQL queries can be exceptionally powerful.  However, such powerful queries can rely on data being <a href="rdf.html#ontologies">monotonic</a> and consistent, which is not necessarily typical in the way FHIR exposes data or in the healthcare space in general.  Also, SPARQL requires data to be expressed in RDF/Turtle, which is not as widely supported as XML and JSON.  Finally, SPARQL skills are not widespread and support for SPARQL in existing FHIR interfaces is low to non-existent.
+  </p>
+  <p>
+    If SPARQL is appropriate, discussion on its use can be found <a href="exchanging-search.html#sparql">here</a>.  Otherwise, the next options to explore are <a href="#message">operations and messages</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="configured"> </a>
+  <h4>Configured by consumer?</h4>
+  <p>
+    If data is going to be 'pushed' from <i>data source</i> to <i>data consumer</i>, the next question is whether the <i>consumer</i> can use FHIR-based mechanisms to control what sorts of data will be shared and in what circumstances.  <i>Data consumer</i> control adds complexity for both systems, but eliminates the need to hard-code rules for what data should be shared with whom or for human intervention to configure the <i>data source</i> to supply new data or to stop supplying old data.  This elimination of human intervention allows <i>data consumers</i> to be more adaptive in their behavior.  They might subscribe to special topics of rare interest because they can, where it would not make sense to contact the <i>data source</i> to configure a specific feed.  Alternatively, the <i>data consumer</i> might adjust polling frequency for different types of data based on application or user priorities.
+  </p>
+  <p>
+    Another consideration is that all the consumer-configured data sharing approaches give the <i>data consumer</i> full control over what happens to the data once received (i.e. what, if anything, gets persisted and where).  However, most of the sharing mechanisms that do not provide consumer control leave the decision of what data is persisted by the <i>data consumer</i> up to the <i>data source</i>.
+  </p>
+  <p>
+    If the pushed data will be configured by the <i>data consumer</i>, the next question is whether <a href="#subscription">subscription</a> is viable.  If the <i>data consumer</i> will not be involved in determining what data gets pushed, the next question is whether there is a <a href="#connect-push">direct connection</a> between <i>data source</i> and <i>data consumer</i>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="connect-push"> </a>
+  <h4>Direct connection? (push)</h4>
+  <p>
+    This consideration is similar to the one for <a href="#connect-pull">pull</a> interactions - can the <i>data consumer</i> and <i>data source</i> talk to each other directly.  The decsion points are the same, however, the outcome of the choices is sligtly different.  If direct or proxied communications are possible, the next consideration is whether the <i>data source</i> will <a href="#source-persist">direct persistence</a>.  If communications must be routed, the only option for exchange is <a href="exchanging-messaging.html#notify">notification-based messaging</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+
+  <a name="subscription"> </a>
+  <h4>Subscription capability?</h4>
+  <p>
+    <i>Data consumer</i>-configured exchanges can take one of two forms - subscription or polling.  Subscription offers several benefits:
+  </p>
+  <ul>
+    <li>It uses less bandwidth and processing power because there is only an interaction between <i>data source</i> and <i>data consumer</i> when data is ready to flow, while polling requires regular interactions, even when there is nothing to send</li>
+    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more manageable than responding to regular polling queries from 100+ systems</li>
+    <li>Subscription offers the potential of more immediate notification when an event occurs.  With polling, the average time to receive a notification is half the polling interval and the maximum time to receive a notification is the full polling interval.  (With shorter polling intervals negatively affecting bandwidth and processing load.)</li>
+  </ul>
+  <p>
+    However, subscription requires more sophisticated infrastructure on the part of both the <i>data source</i> and <i>data consumer</i>.  The <i>data source</i> must expose a <a href="subscription.html">subscription</a> end-point and must build in an event-detection mechanism into its processing or persistence layer such that it can trigger notifications when an event of interest occurs.
+  </p>
+  <p>
+    Subscription also involves an enhancement of the <i>data source</i>'s security model because the authorization that is in place at the time the subscription is established will not necessarily be the same as what is in place when the subscription triggers a notification.  For example, if a subscription is established with patient consent conveyed via an OAuth token, it is unlikely that the OAuth token will still be valid during the subsequent time-period when event notifications are triggered by the subscription.  Consents may have changed, user privileges may have changed, etc.  Also, the subscription notifications will be directed to a 'system', not necessarily a 'user'.  The security design of the <i>data source</i> will have to take these differences into account.
+  </p>
+  <p>
+    On the <i>data consumer</i> side, the system must be able to receive notifications at any time.  This imposes an availability and 'interrupt' capability that not all systems will possess.  The system must also be able to route the received information to the appropriate user/module for the information to be used.
+  </p>
+  <p>
+    If subscriptions are appropriate, the next choice is whether the subscription notifications should <a href="#subscription-push">include data</a>.  If subscriptions are not viable, the appropriate solution is polling, which is described <a href="exchanging-polling.html">here</a>.  If polling is used the <i>data consumer</i> must use one of the <a href="#onlyone">existing resource</a> retrieval mechanisms to actually perform the polling.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="subscription-push"> </a>
+  <h4>Push notifications?</h4>
+  <p>
+    There are three models of subscription behavior once an event that meets the criteria of the subscription has occurred:
+  </p>
+  <ol>
+    <li>The data can be transmitted directly from <i>data source</i> to <i>data consumer</i>
+    </li>
+    <li>The resource id of the relevant record(s) can be transmitted, but not the actual resource(s)</li>
+    <li>No data at all is exchanged beyond a notification that "new data meets the subscription criteria"</li>
+  </ol>
+  <p>(In all cases the notification indicates the subscription topic the notification is for and how many new events have occurred since the last notification and other metadata such as whether there have been errors.)</p>
+  <p>
+    The first approach is most efficient because no subsequent action is required by the <i>data consumer</i> to retrieve the data.  It is received directly.  However, this approach comes with a few challenges:
+  </p>
+  <ul>
+    <li>Because the actual (and potentially sensitive data) is shared at a time when no specific user is asking for it, <i>data source</i> must determine the 'permission' of the <i>data consumer</i> to access the data without a user token and outside the bounds of the usual query mechanism.</li>
+    <li>The <i>data consumer</i> gets the 'default' set of information (typically the bare resource without any related resource) with no ability to refine the data shared.</li>
+    <li>The channel used to convey the subscription response would typically need to be a secure one, unless the architects of the exchange have concluded that exposing the data to manipulation or disclosure by an intermediary would not result in negative consequences.</li>
+    <li>The <i>data consumer</i> must be capable of receiving and processing the data at an arbitrary time - even when the application is busy doing other things.  This requires a greater degree of application sophistication.</li>
+  </ul>
+  <p>
+    The second approach means that the <i>data consumer</i> will have to perform a <a href="#current">read or search</a> to retrieve the actual record.  This adds an extra interaction to the exchange, but - if the search mechanism is used - gives the consumer greater control of the data returned by using _elements, _include and/or _revinclude.  It keeps the load on the <i>data source</i> low because the subsequent read/query is by id which imposes minimum retrieval costs.  Because only the id is exposed, security requirements are much less - no personally identifying or sensitive health information is exposed.
+  </p>
+  <p>
+    The final approach is the least work for the <i>data source</i> initially - it does not even have to identify the impacted records, only that something has happened.  However, it is more work subsequently as the <i>data consumer</i> must use appropriate query parameters to find the relevant data - it cannot search by id.  Other benefits are like the second approach.
+  </p>
+  <p>
+    Details on how to use subscriptions with push notifications are <a href="exchanging-subscription.html#push">here</a>.  Subscriptions where the initial notification must be followed by a query (whether the notification was a resource id or nothing at all) are described <a href="exchanging-subscription.html#pull">here</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="source-persist"> </a>
+  <h4>Data source directs consumer persistence? (G)</h4>
+  <p>
+    When data is pushed from a <i>data source</i> to a <i>data consumer</i>, there are two possible modes of sharing.  Either the <i>data source</i> specifically instructs the <i>data consumer</i> to create, update, or sometimes delete records; or the data is provided to the <i>data consumer</i> with no expectation as to what information, if any, the system will persist or where.
+  </p>
+  <p>
+    To be able to direct persistence, the <i>data source</i> needs to have a sense of what data is already persisted in the <i>data consumer</i> so that decisions as to whether to create or update can be made.  For updates, the <i>data source</i> may also need to know the <a href="http.html#versioning">etags</a> associated with the existing records to avoid collision control.  In some cases, this knowledge will exist because the <i>data source</i> is the sole source of information for the <i>data consumer</i> and thus the source can track what information the consumer has - and where.  Mechanisms such as <a href="http.html#ccreate">conditional create</a> and <a href="http.html#cupdate">conditional update</a> can handle some aspects of this as well.  In other cases, the <i>data source</i> will need to query the <i>data consumer</i> to see what data exists.
+  </p>
+  <p>
+    In addition to an awareness of the existing data, the <i>data source</i> would also need a degree of authority to decide what information the <i>data consumer</i> should store and where.  While the <i>data consumer</i> can always refuse a create or update request, this means that essentially the <i>data source</i> determines what gets created/updated or the <i>data consumer</i> does not get the data.  Whether this is appropriate is dependent on the relationship between <i>data source</i> and <i>data consumer</i>.
+  </p>
+  <ul>
+    <li>The <i>data source</i> explicitly instructs the <i>data consumer</i> to create or update specific records.  </li>
+  </ul>
+  <p>
+    If the <i>data source</i> will direct persistence in the <i>data consumer</i>, the next question is whether the data will be <a href="#group-store">stored as a group</a>.  If the <i>data source</i> will not be directing persistence, then the next decision point is evaluating the appropriateness of <a href="#message">messaging vs. operations</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="group-store"> </a>
+  <h4>Persist as a group?</h4>
+  <p>
+    In most cases, FHIR resources are managed and stored independently.  This allows the resources to be queried, aggregated into documents or messages, and otherwise used to support a variety of use-cases.  Reference elements refer to other resources that are independently stored (potentially on different servers).  Clients traverse the references via query to access the information they happen to care about.  However, in some cases, there is a need to 'package' a set of resources together and store it as a collection.  This ensures that modifications are always done in the context of the collection and that a specific related set of resources are always accessed 'together.
+  </p>
+  <p>
+    Persisted collections tend to be use-case-specific because the decision about what resources should fall within the collection vs. what should be handled as external references is dictated by the nature of the use cases.  Storing resources independently allows them to be used in whatever manner any arbitrary use-case requires.
+  </p>
+  <p>
+    If the need is for resources to be stored as a group, the next question is whether there is a need to support <a href="#story">presentation and/or story-telling</a>.  If the resources will be stored individually, the next question is whether there is a need to <a href="#group-transmit">transmit resources as a group</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="group-transmit"> </a>
+  <h4>Group transmission?</h4>
+  <p>
+    Even when the expectation is that resources will be stored and potentially accessed independently, FHIR defines mechanisms for transmitting multiple resource actions (creates, updates, patches, deletes, operations, etc.) as a collection.  This can reduce the amount of back-and-forth traffic between the <i>data consumer</i> and <i>data source</i> and reduce some of the communication overhead.  The impact on bandwidth will be slight as the volume of 'resource' data will be the same (and in fact, slightly increased, due to the additional size  of the <a href="bundle.html">Bundle</a> resource needed to package the various requests) and there will be a reduction in repeated transmission of HTTP headers, security tokens etc.  The primary savings is in the communication overhead associated with processing requirements that happen once for each transmission (e.g. authorization verification, SSL handshakes, etc.)  This savings can be significant.
+  </p>
+  <p>
+    Obviously, sending multiple actions in a single Bundle can only happen if the use-case requires the transmission of multiple requests.  However, each of the actions must be reasonably independent.  Depending on the mechanism, it can be possible for resources to reference other resources contained within the same Bundle, but it is not possible to have conditional actions that depend on the results of other actions performed within the same Bundle - separate RESTful calls must be done and the <i>data consumer</i> must evaluate the first and decide what to do in a subsequent request.
+  </p>
+  <p>
+    One final consideration is that batch and transaction processing require additional technical capabilities, particularly transaction - which requires treating multiple actions as a single unit of work.  As a result, support for batch and transaction is lower than support for individual RESTful actions.
+  </p>
+  <p>
+    If group transmission is needed, the next question is whether <a href="#transaction">transactional behavior</a> is required.  If there is no need for group transmission, then the next decision is whether the <a href="#rest">record will be new</a> to the <i>data consumer</i>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="rest"> </a>
+  <h4>New record for consumer?</h4>
+  <p>
+    When doing simple REST actions (on their own or as part of a <a href="exchanging-rest.html#batch">batch</a> or <a href="exchanging-rest.html#transaction">transaction</a>, the <i>data source</i> needs to figure out whether the appropriate action is a <a href="http.html#create">create</a> or <a href="http.html#update">update</a>.  That is driven by whether the data to be shared already exists as a record on the target system.  In some cases, the <i>data source</i> will know this automatically (e.g. because the information in question is brand new and there is no chance the <i>data consumer</i> could have a copy; or because the <i>data source</i> is the <i>data consumer</i>'s only source of information and the <i>data source</i> has not previously sent the record in question. In other situations, the <i>data source</i> may need to query the <i>data consumer</i> to see if the record is already present (and if so, what its identifier is).
+  </p>
+  <p>If the record does not already exist and the <i>data source</i> does not need to assign the resource identifier, the <i>data source</i> will use <code>POST</code> to create the record.  Details on 'create' are found <a href="exchanging-rest.html#create">here.</a>
+  </p>
+  <p>
+    If the record already exists or the <i>data source</i> will be assigning the resource id, the next choice is whether to transmit the <a href="#whole">whole resource</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="whole"> </a>
+  <h4>Share whole resource?</h4>
+  <p>
+    Normally when transmitting an update (to revise a resource or create the resource with a specified id), the entire content is transmitted.  However, if updating an existing resource, it is also possible to transmit only the changes made using <a href="http.html#patch">patch</a>.  This could use considerably less bandwidth if the changes made are small in comparison with the overall size of the resource.  Depending on the type of information changed, may also result in less processing by the <i>data consumer</i>.  However, the 'patch' mechanism is less widely supported than update, so it may be necessary to fall back on 'update'.
+  </p>
+  <p>
+    Details on 'update' are found <a href="exchanging-rest.html#update">here.</a>  Details on 'patch are found <a href="exchanging-rest.html#patch">here</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="transaction"> </a>
+  <h4>Transactional?</h4>
+  <p>
+    When performing a group of transactions, HL7 defines two mechanisms: <a href="http.html#transaction">batch and transaction</a>:
+  </p>
+  <ul>
+    <li>With a <a href="http.html#brules">batch</a>, all the operations are considered to be independent.  Some might succeed, others might fail.  There cannot be any references between resources manipulated in different Bundle entries such that failure of one action would cause a different action to be invalid.  There should be no dependency to the order in which the actions are performed.</li>
+    <li>With a <a href="http.html#trules">transaction</a>, if any of the actions fail, all of them will fail and none will have an effect on the repository.  The actions must be performed in a specific order based on type of action.  Resources are permitted to reference each other.</li>
+  </ul>
+  <p>
+    If transactional behavior is required, then the exchange will use FHIR transactions, which are defined <a href="exchanging-rest.html#transaction">here</a>.  Otherwise, exchange will use FHIR batch, which is described <a href="exchanging-rest.html#batch">here</a>.  In either case, the <i>data source</i> will need to determine what <a href="#source-persist">actions</a> to include within the <a href="bundle.html">Bundle</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="story"> </a>
+  <h4>Focus on presentation/storytelling?</h4>
+  <p>
+    When a group of resources needs to be stored in FHIR, this is always done using the <a href="bundle.html">Bundle</a> resource.  There are two types of Bundle that are intended to allow a group of resources to be persisted together: collection and document.
+  </p>
+  <p>
+    A collection is quite flexible.  It can store any arbitrary set of resources with no required organization and no semantic other than "this is a bunch of stuff someone decided to store together".  It might be used to store a collection of examples, test cases, implementation guide source or any other set of resources that needs to be persisted as a group.
+  </p>
+  <p>
+    FHIR documents are different.  The contents of the Bundle must adhere to a <a href="documents.html">specific set of rules</a>, both in terms of how they're constructed and how they should be handled when received.  One of the main differences is that a FHIR document provides specific information about how the information should be presented to a human, including in what order.  This is important when there is a need to "tell a story" - i.e. where a human reader needs to consume information in a specific way in order to have a consistent (and complete) understanding of what the collection of information represents.  This is commonly found in artifacts such as pathology reports and discharge summaries.  While it is possible to jump right to the 'recommendations' part of the document, those recommendations will not necessarily make much sense unless the reader had first gone through the content that comes before.
+  </p>
+  <p>
+    If there is a need to control presentation or provide storytelling, then the exchange will be using FHIR documents, the process for which is described <a href="exchanging-rest.html#document">here</a>.  Otherwise, the exchange will use 'collection' bundles and the process for that is described <a href="exchanging-rest.html#collection">here</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="message"> </a>
+  <h4>Is message-like? (H)</h4>
+  <p>
+    The 'bottom' of most parts of the decision tree is a choice between <a href="exchanging-operation.html">operations</a> and <a href="exchanging-messaging.html">messaging</a>.  Both approaches rely on defining custom request structures that are passed in response to a specific event and responded to with a corresponding custom response.  The requests and responses can be FHIR resources, or - through the use of the <a href="parameters.html">Parameters</a> resource, individual data elements.  These options fall lowest on the decision tree because they require custom development by both <i>data consumer</i> and <i>data source</i>.  However, there are still use-cases for which they are most appropriate.
+  </p>
+  <p>
+    Messaging and operations are functionally equivalent.  I.e. Both mechanisms can be used to accomplish identical functions.  However, there are small differences that may make one more appealing than the other in specific architectural circumstances:
+  </p>
+  <ul>
+    <li>Messaging provides explicit support for routing (the initial recipient of the message might not be the intended <i>data consumer/source</i> - and the message may pass through multiple systems before it reaches the intended recipient)</li>
+    <li>There may be standard operations defined in the core specification (e.g. Bulk Data with $everything), in which case they should be used preferentially to messaging.  So far, the FHIR community has shown little interest in standardizing messages at the international level, which itself suggests an implementer preference for operations</li>
+    <li>Operations are slightly lighter weight (no need for MessageHeader)</li>
+    <li>Messaging allows multiple operations to be communicated with a single endpoint, so if there is a cost to establishing distinct endpoints, messaging might have an advantage.</li>
+    <li>FHIR Messaging may integrate more easily with back-end systems that are messaging-based</li>
+    <li>Some regulatory environments may mandate an architectural approach</li>
+    <li>Asynchronous delivery of operation results requires polling, whereas messaging does not necessarily</li>
+  </ul>
+  <p>
+    Note: It’s possible to replicate a messaging approach using a custom operation (i.e. passing in a Bundle of linked resources and getting back a Bundle of linked resources where one of the resources indicates what the 'event' of the operation is.  This is discouraged as it essentially creates a ‘custom’ mechanism to do something where there is already a standard operation ($process-message).
+  </p>
+  <p>
+    If the principle reason for using messaging is to gain access to the routing behavior (because the <i>data consumer</i> and <i>data source</i> cannot talk to each other directly), it is possible to define custom messages that emulate the behaviors of the other exchange mechanisms, wrapped in the messaging infrastructure to allow routed delivery.  I.e. If messaging is selected only for routing purposes, it may be relevant to loop through the tree again to determine an interoperability approach that should be wrapped by the messaging exchange mechanism.
+  </p>
+  <p>
+    There are separate pages that describe <a href="exchanging-operation.html">operations</a> and <a href="exchanging-messaging.html">messaging</a>, however there are also sections within those that are related specifically to the use of operations and messaging in 'pull' vs. 'push' situations:
+  </p>
+  <ul>
+    <li>Pull operations or 'retrieval' operations are described <a href="exchanging-operation.html#retrieval">here</a>, while query-type messaging is described <a href="exchanging-messaging.html#query">here</a></li>
+    <li>Push operations or 'processing' operations are described <a href="exchanging-operation.html#process">here</a>, while notification-type messaging is described <a href="exchanging-messaging.html#notify">here</a></li>
+  </ul>
+  <p>
+    Note: With both messaging and operations there is also a need to determine whether support will be <a href="#synchronous">synchronous or asynchronous</a>.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="synchronous"> </a>
+  <h4>Is synchronous (I)</h4>
+  <p>
+    In synchronous queries, the results are determined and returned within the HTTP timeout period of the initiating GET.  The <i/> will typically block and wait for a response before continuing with its action.  While it is possible to have very long timeout periods (100 seconds plus), typically the intention with synchronous responses is to return in tens of milliseconds to a few seconds at most to ensure appropriate system performance and user experience.  In cases where a search may take longer than this, the FHIR <a href="#synchronous">asynchronous</a> search mechanism can be used to allow a query to be initiated and subsequently monitored until a response is available - even if this takes minutes, hours, or potentially even days.  This may be necessary if the search is extremely complex or is slow for other reasons (e.g. if it involves accessing data sources with high latency or limited availability).
+  </p>
+  <p>
+    Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small differences - such as who initiates the process.
+  </p>
+  <p>
+    <a style="color:gray" href="#tree">Return to diagram</a>
+  </p>
+  <a name="considerations"> </a>
+  <h3>Additional Considerations</h3>
+  <p>
+    All these approaches have additional pre-requisites to their successful use:
+  </p>
+  <ul>
+    <li>
+      <p>
+        The <i>data consumer</i> and <i>data source</i> must know each other exist and have a means of connecting.  For most FHIR interactions, this means that at least one of the two systems must know the base URL of the other.  In some cases (where the data flow involves initiation on both sides), both will need the base URL of the other.  Even if using messaging or proxies where a direct web connection is not necessary, the initiator needs to know a) that an appropriate recipient exists; and b) where to initiate the action necessary to cause the intended recipient to receive it.
+      </p>
+      <p>
+        This awareness could be created through manual configuration, a registry of <a href="endpoint.html">EndPoint</a> or <a href="capabilitystatement.html">CapabilityStatement</a> instances, or by a user providing the information directly
+      </p>
+    </li>
+    <li>
+      In addition to mere awareness of each other's existence, the <i>data source</i> and <i>data consumer</i> need to have a sufficient trust relationship to share data.  Specifically, both the systems and their relevant end users must have the necessary permissions to perform whatever actions the exchange workflow demands on each other's systems.  Frequently, this will be predicated on the existence of legal agreements between the respective organizations - especially if the information to be exchanged is sensitive.
+    </li>
+    <li>
+      The necessary security steps to authenticate the systems to each other, authenticate any users involved, authorize both users and systems, and protect the data while in transit will all need to be in place.  In some cases, <a href="consent.html">Consent</a> may also need to exist.  Authorization rules may vary by patient, by type of data and by tags or information within the record.  Discussion about general expectations around security, privacy and consent can be found <a href="security.html">here</a>.  Note that not all data needs to be secured.  Some data might not be legally protected and there might not be significant risk if it is accessed or even modified in transit. Implementers are strongly encouraged to consult with the legal and compliance divisions of their organizations to ensure appropriate security and authentication measures are put in place prior to data exchange.
+    </li>
+    <li>
+      In at most situations, there needs to be agreement between the <i>data consumer</i> and <i>data source</i> about how a specific type of exchange should happen.  Even if the relevant party provides permission for an exchange to happen a specific way, if they aren't <b>expecting</b> that mechanism to be used, the workflow might not be in place to ensure the request or data gets exposed or processed in the right way.  Typically, these agreements will come in the form of mutually adopted FHIR implementation guides.  However, site-specific agreements are also possible, especially for new or experimental functionality.
+    </li>
+    <li>
+      The <i>data source</i> needs to have the needed data in a way that will allow the selected mechanism to retrieve it.  In the healthcare system, this is not guaranteed.  Interoperability solutions should always consider the possibility of data being unavailable and have fallback processes in place.
+    </li>
+  </ul>
+  <p>
+    This page does not provide guidance about when <a href="http://hl7.org/fhir/smart-app-launch/index.html">SMART on FHIR</a> would be appropriate for use because SMART on FHIR is about user interface integration and access control.  The data exchange mechanisms it uses are those already described in this specification.  However, implementers who are not familiar with SMART should certainly review its capabilities and decide if/where it is appropriate for use in their product(s).
+  </p>
+  
+[%file newfooter%]
+</body>
+</html>

@@ -1,0 +1,22 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+Consumer -> Source: [[#task1 1.]] POST Task [t1] (self-describing desired data)
+...
+opt
+  Source -> Source: [[#task2 2.]] PUT Task [t1]\n update status
+  ...
+  Consumer <-> Source: [[#task3 3.]] Poll/Subscribe to see [t1] status
+end
+...
+Source -> Source: [[#task4 4.]] POST [requested data]
+...
+Source -> Source: [[#task5 5.]] PUT Task [t1]\n link to [requested data]
+...
+Consumer <-> Source: [[#task6 6.]] Poll/Subscribe to see [t1] status
+opt
+  Consumer -> Source: [[#task7 7a.]] Query to retrieve [requested data] based on reference from [t1]
+  Consumer <-- Source: [[#task7 7b.]] Query response containing [requested data]
+end
+@enduml

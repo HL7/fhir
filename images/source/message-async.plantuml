@@ -1,0 +1,17 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+
+Consumer -> Source: 1a. Request message
+Consumer <-- Source: 1b. Optional ack response
+
+group Status Check
+Consumer -> Source: 2a. Status request message
+Consumer <-- Source: 2b. Status response
+end
+
+...At some later point...
+
+Consumer <- Source: 3. Response message (with data)
+@enduml

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Exchanging with Messaging%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Exchanging with Messaging</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    <a href="messaging.html">Messaging</a> involves transmitting FHIR Bundles of resources from one system to another with a <a href="messageheader.html">MessageHeader</a> instance that defines the action (if any) the receiving system is expected to take.  The characteristics that determine that messaging is a more appropriate choice than a FHIR <a href="exchanging-operation.html">operation</a> are described <a href="exchanging.html#message">here</a>.  Like operations, they are used only when other mechanisms cannot meet the use-case because messaging support tends to require more negotiation and custom development to support a use-case than more re-useable REST capabilities.  Messaging is most found when back-end infrastructure is already organized in a messaging architecture or when routing is required to connect the <i>data consumer</i> and the <i>data source</i>.
+  </p>
+  <p>
+    There are two different mechanisms to exchange information using messaging - <a href="#query">Messaging-based query</a> and <a href="#notify">Messaging-based notifications</a>.  As well, messaging can have two different behavior flows - <a href="#sync">synchronous</a> or <a href="#async">asynchronous</a>.  Unlike operations, the <i>data consumer</i> cannot influence which behavior occurs (unless the <i>data source</i> uses different messaging events for different behavior).  When a message is received, the <i>data source</i> determines whether it will respond synchronously or asynchronously.
+  </p>
+  <a name="query"> </a>
+  <h3>Message-based Queries</h3>
+  <p>
+    In this scenario, a message is used to describe the information that is desired and is transmitted from <i>data consumer</i> to <i>data source</i>.  The <i>data source</i> then (hopefully) assembles the desired information and sends a response message containing that information.  These exchanges can either be <a href="#sync">synchronous</a> or <a href="#async">asynchronous</a>
+  </p>
+  <p>
+    As with operations, the payload of a message that solicits data from a <i>data source</i> <b>could</b> be a resource such as <a href="communicationrequest.html">CommunicationRequest</a> or <a href="task.html">Task</a>.  It could also be any arbitrary resource or set of resources if the intended behavior were to 'match' characteristics of the specified resource(s).  It can also be an instance of <a href="parameters.html">Parameters</a> allowing passing arbitrary data elements.  (If sending multiple resources, they will all need to be linked either through a direct reference from <code>MessageHeader.focus</code> or through relationships between each other.)  With messaging, it is also possible to not have a payload at all, but instead to have the desired data implicitly defined in the MessageHeader event code.  The response message containing the requested data could be a collection of resources (and resources with a relationship path to those resources), but could also be a bundled <a href="bundle.html#searchset">search-set</a> <a href="bundle.html">Bundle</a> or even a <a href="parameters.html">Parameters</a> instance containing a single data element or an arbitrary operation-specific collection of data elements.
+  </p>
+  <p>
+    Also, like operations, message pairs to gather data can be very narrow in scope, tuned to ask a very specific question, or they can be very broad allowing a wide variety of parameters or even strings expressing queries in some formal language to be executed.  Narrow definitions mean that each new type of data will require a new set of messages - and custom code written for all applications that support it.  Broad definitions mean that the bar is relatively high to declare support for the message type - as there is no good way in FHIR to declare 'partial' support for a message.
+  </p>
+  <a name="notify"> </a>
+  <h3>Message-based Notifications</h3>
+  <p>
+    In this pattern, the <i>data source</i> packages up a set of information related to an event (e.g. a patient admission, an order creation, etc.) and pushes it to the <i>data consumer</i>.  The consumer then acknowledges receipt and stores or processes the data as it sees fit.  Some notifications might be logged and then ignored.  Others might involve storing and or forwarding some of the information and discarding the rest.  It is up to the recipient to determine what information it deems relevant.  Typically there is no response message beyond a simple acknowledgement of receipt.  (Note that messages can also be used to drive behavior rather than merely delivering information, but that is outside the scope of this section - further information on using messaging to drive workflow can be found <a href="workflow-management.html#optionj">here</a>.)
+  </p>
+  <p>
+    The set of information conveyed is up to the design of the message.  There could be a single focal resource or many, along with other related resources that may be relevant to the receiver.  Quite often the same notification payload may be sent to a variety of systems, each of which may extract different sets of inforamtion.  As with queries, notifications can be generic or specific.  However, because the conformance expectations on receipt of a notification are light ("acknowledge receipt and do with the information as you will"), conformance implications for generic events are typically lower than for queries.
+  </p>
+  <p>
+    Because the response to notification messages is generally just an acknowledgement of receipt, notification mesage exchanges are typically <a href="#sync">synchronous</a>.
+  </p>
+  <a name="sync"> </a>
+  <h3>Synchronous messaging</h3>
+  <p>
+    Synchronous messages are evaluated in 'real time', with the body of the initial 'acknowledgement' response containing the result of performing the message event.  If the message is transmitted using HTTP, the response message will be in the body of the HTTP response.  Typically, this means a response time on the order of milliseconds or seconds, though the specific response time expectations will be driven by the messaging technology and partner agreement.  It is possible that routing can occur for synchronous messaging, but there would be limits to the number of hops achievable while still falling within timing constraints.
+  </p>
+  <p>
+    {% include message-sync.svg %}
+  </p>
+
+  <a name="async"> </a>
+  <h3>Asynchronous messaging</h3>
+  <p>
+    With asynchronous, the <i>data consumer</i> transmits the request message to the <i>data source</i>, which optionally acknowledges it.  At some later point, the <i>data source</i> transmits a message to the <i>data consumer</i> containing the requested data.  The response is linked to the request using <code>MessageHeader.response.identifier</code>.  The <i>data source</i> could also support a 'status check' message event that allows a synchronous response indicating progress/timeline to response.
+  </p>
+  <p>
+    {% include message-async.svg %}
+  </p>
+
+[%file newfooter%]
+</body>
+</html>

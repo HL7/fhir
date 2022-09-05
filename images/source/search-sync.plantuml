@@ -1,0 +1,23 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+alt No updates
+  Consumer -> Source: [[#sync-1 1a.]] GET [query URL]
+else
+  Consumer -> Source:[[#sync-1 1b.]] POST [base query URL] with 
+end
+
+alt No updates
+  Consumer <-- Source:[[#sync-2 2a.]] search-response Bundle with new records\n(use most recent meta.lastUpdated in filter for subsequent polls)
+else 
+  Consumer <-- Source:[[#sync-2 2b.]] Empty search-response bundle
+end
+
+opt
+  loop
+    Consumer -> Source:[[#sync-3 3a.]] GET [next URL]
+    Consumer <-- Source:[[#sync-3 3b.]] search-response with Bundle of next results
+  end
+end
+@enduml
