@@ -17,7 +17,7 @@
             but is a report by a patient, significant other or a clinician that one or more of the
             prescribe, dispense or administer actions has occurred, resulting is a belief that the
             patient is, has, or will be using a particular medication. </p>
-        <p>The MedicationUsage resource was previously known as MedicationStatement.</p>
+        <p>MedicationUsage includes an adherence element.  Note that this adherence is specific to that instance of MedicationUsage.  If MedicationUsage.adherence is being tracked over time, then instances of MedicationUsage would report adherence for the interval noted in effectivePeriod.</p>
         <p>MedicationUsage is an event resource from a FHIR workflow perspective - see <a
                 href="workflow.html#event">Workflow Event</a></p>
     </div>
