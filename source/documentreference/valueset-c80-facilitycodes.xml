@@ -19,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-ballot"/>
   <name value="FacilityTypeCodeValueSet"/>
   <title value="Facility Type Code Value Set"/>
   <status value="active"/>

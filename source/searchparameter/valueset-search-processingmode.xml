@@ -15,7 +15,7 @@
     <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-ballot"/>
   <name value="SearchProcessingModeType"/>
   <title value="SearchProcessingModeType"/>
   <status value="draft"/>
