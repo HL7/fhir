@@ -31,15 +31,24 @@
 					<a href="<%level%>index.html" class="navbar-brand hidden">FHIR</a>
 					<div class="nav-collapse collapse navbar-inverse-collapse">
 						<ul class="nav navbar-nav">
-              <li><a href="<%level%>./index.html">Home</a></li>
-              <li><a href="<%level%>./modules.html">Getting Started</a></li>
-              <li><a href="<%level%>./documentation.html">Documentation</a></li>
-              <li><a href="<%level%>./patterns.html">Patterns</a></li>
-              <li><a href="<%level%>./resourcelist.html"><span style="color: yellow">Resource Types</span></a></li>
-              <li><a href="<%level%>./profilelist.html">Profiles</a></li>
-              <li><a href="<%level%>./extensibility-registry.html">Extensions</a></li>
-              <li><a href="<%level%>./operationslist.html">Operations</a></li>
-              <li><a href="<%level%>./terminologies-systems.html">Terminologies</a></li>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./modules.html">Getting Started</a></li>
+              <li><a href="./documentation.html">Documentation</a></li>
+              <li><a href="./datatypes.html">Data Types</a></li>
+              <li><a href="./resourcelist.html"><b><i>Resource Types</i></b></a></li>
+              <li><a href="./terminologies-systems.html">Terminologies</a></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifacts<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="./extensibility-registry.html">Extensions</a></li>
+                  <li><a href="./operationslist.html">Operations</a></li>
+                  <li><a href="./patterns.html">Patterns</a></li>
+                  <li><a href="./profilelist.html">Profiles</a></li>
+                  <li><a href="./searchparameter-registry.html">Search Parameters</a></li>
+                  <li><a href="http://registry.fhir.org">Artifact Registry</a></li>
+                </ul>    
+              </li>
+              <li><a href="http://fhir.org/guides/registry">Implementation Guides</a></li>
 						</ul>
 					</div><!-- /.nav-collapse -->
 				</div><!-- /.container -->
