@@ -3,7 +3,13 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-
+[%stu-note%]
+<p>Notes to balloters. The following are potentially breaking changes:</p>
+<ul>
+  <li>Bundle.link.relationship has changed from type string to type code and now has a required binding to the codes in http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1</li>
+  <li>The 'outcome' code in Bundle.search.code is now deprecated in favor of the new Bundle.issues element.</li>
+</ul>
+[%end-note%]
 <p>
 One common operation performed with resources is to gather a collection of resources into a single instance
 with containing context. In FHIR this is referred to as "bundling" the resources together. These resource bundles are useful for a variety of different reasons, including:
