@@ -631,7 +631,7 @@
         </extension>
         <strength value="example"/>
         <description value="The code value for the role of the supporting information in the diagnostic report."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosticreport-supportinginfo-type"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0936"/>
       </binding>
     </element>
     <element id="DiagnosticReport.supportingInfo.reference">
