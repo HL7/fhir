@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Immunization"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -199,7 +201,7 @@
       <path value="Immunization.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Indicates the reason the immunization event was not performed."/>
-      <comment value="This is generally only used for the status of &#34;not-done&#34;. The reason for performing the immunization event is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for the status of &quot;not-done&quot;. The reason for performing the immunization event is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>

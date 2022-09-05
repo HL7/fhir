@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-09-02T21:34:36Z</LastSaved>
+  <LastSaved>2022-09-05T06:09:33Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,8 +18,7 @@
   
   
   <TabRatio>780</TabRatio>
-  <MaxChange>0.0001</MaxChange>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -476,7 +475,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
   <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="53" x:FullColumns="1" x:FullRows="1">
@@ -1190,16 +1189,15 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="54" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Span="1" ss:StyleID="s100" ss:Width="63.0"/>
-   <Column ss:Index="4" ss:StyleID="s100" ss:Width="39.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s100" ss:Width="104.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s100" ss:Width="63.0"/>
+   <Column ss:StyleID="s100" ss:Width="39.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="323.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s102">
@@ -1562,9 +1560,9 @@
    </Row>
    <Row>
     <Cell><Data ss:Type="Number">53</Data></Cell>
-    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-ballot</Data></Cell>
     <Cell><Data ss:Type="String">5.0.0</Data></Cell>
-    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-ballot</Data></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Ballot</Data></Cell>
    </Row>
   </Table>
@@ -1579,7 +1577,9 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <TopRowVisible>7</TopRowVisible>
+   <Selected/>
+   <TopRowVisible>24</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
@@ -5582,7 +5582,7 @@
  <Worksheet ss:Name="binding-strength">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='binding-strength'!R1C1:R1C9"/>
-   <NamedRange ss:Name="Invariantids" ss:RefersTo="='Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
+   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\datatypes\[elementdefinition.xml]Invariants'!R2C1:R50C1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" ss:StyleID="s122" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s122" ss:Width="80.0"/>

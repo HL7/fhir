@@ -77,7 +77,7 @@ signatures.html
         <page title="NPM Packages" filename="packages.html"/>
         <page title="Version History" filename="history.html"/>
         <page title="Differences from Release 3" filename="diff.html"/>
-        <page title="Release 2/3 Transforms" filename="r3maps.html"/>
+        <page title="Release 4/5 Transforms" filename="r4maps.html"/>
         <page title="Logical models" filename="logical.html"/>
 
         <page title="Introduction" filename="overview.html"/>
@@ -96,41 +96,40 @@ signatures.html
           <page title="Detailed Descriptions" filename="types-definitions.html"/>
           <page title="Profiles and Extensions" filename="types-extras.html"/>
           <page title="Mappings" filename="types-mappings.html"/>
-          <page title="R3 Conversions" filename="types-version-maps.html"/>
+          <page title="R4 Conversions" filename="types-version-maps.html"/>
+          <page type="resource" resource="Resource">
+            <page title="Definitions" filename="resource-definitions.html"/>
+          </page>
+          <page type="resource" resource="DomainResource"/>
+          <page type="resource" resource="CanonicalResource"/>
+          <page type="resource" resource="MetadataResource"/>
         </page>
-        <page title="Data Types" filename="datatypes.html">
+        <page title="DataTypes" filename="datatypes.html">
           <page title="Examples" filename="datatypes-examples.html"/>
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
           <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
           <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
-        </page>
-        <page title="MetaData Types" filename="metadatatypes.html">
-          <page title="Examples" filename="metadatatypes-examples.html"/>
-          <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
-          <page title="Mappings" filename="metadatatypes-mappings.html"/>
+          <page title="MetaData Types" filename="metadatatypes.html">
+            <page title="Examples" filename="metadatatypes-examples.html"/>
+            <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
+            <page title="Mappings" filename="metadatatypes-mappings.html"/>
+          </page>
+          <page title="ElementDefinition" filename="elementdefinition.html">
+            <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
+            <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
+            <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
+            <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
+          </page>
         </page>
         <page title="Resource Guide" filename="resourceguide.html"/>
         <page title="5Ws Pattern" filename="fivews.html"/>
         <page title="FMG Process Page" filename="fmg.html"/>
       </page>
-      <page type="resource" resource="Resource">
-        <page title="Definitions" filename="resource-definitions.html"/>
-      </page>
-      <page type="resource" resource="DomainResource"/>
-      <page type="resource" resource="CanonicalResource"/>
-      <page type="resource" resource="MetadataResource"/>
-      <page title="ElementDefinition" filename="elementdefinition.html">
-        <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
-        <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
-        <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
-        <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
-      </page>
       <!-- infrastructure resources -->
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
-
 
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
