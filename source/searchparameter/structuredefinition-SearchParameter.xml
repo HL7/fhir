@@ -466,8 +466,9 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="spd-1"/>
     </element>
-    <element id="SearchParameter.xpath">
+<!--    <element id="SearchParameter.xpath">
       <path value="SearchParameter.xpath"/>
       <short value="XPath that extracts the values"/>
       <definition value="An XPath expression that returns a set of elements for the search parameter."/>
@@ -477,8 +478,8 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="spd-1"/>
     </element>
+    -->
     <element id="SearchParameter.processingMode">
       <path value="SearchParameter.processingMode"/>
       <short value="normal | phonetic | other"/>

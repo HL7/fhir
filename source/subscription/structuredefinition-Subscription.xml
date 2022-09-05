@@ -182,6 +182,28 @@
         <map value="FiveWs.done[x]"/>
       </mapping>
     </element>
+    <element id="Subscription.managingEntity">
+      <path value="Subscription.managingEntity"/>
+      <short value="Entity responsible for Subscription changes"/>
+      <definition value="Entity with authorization to make subsequent revisions to the Subscription and also determines what data the subscription is authorized to disclose."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.author"/>
+      </mapping>
+    </element>    
     <element id="Subscription.reason">
       <path value="Subscription.reason"/>
       <short value="Description of why this subscription was created"/>
