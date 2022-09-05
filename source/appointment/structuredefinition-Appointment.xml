@@ -256,7 +256,7 @@
         </extension>
         <strength value="preferred"/>
         <description value="Classification of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/EncounterClass"/>
       </binding>
       <mapping>
         <identity value="w5"/>
