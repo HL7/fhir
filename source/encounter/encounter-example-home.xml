@@ -27,6 +27,12 @@
 		<reference value="Patient/example"/>
 	</subject>
 	<participant>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+				<code value="PPRF"/>
+			</coding>
+		</type>
 		<period>
 			<start value="2015-01-17T16:00:00+10:00"/>
 			<end value="2015-01-17T16:30:00+10:00"/>
@@ -34,6 +40,11 @@
 		<actor>
 			<reference value="Practitioner/example"/>
 			<display value="Dr Adam Careful"/>
+		</actor>
+	</participant>
+	<participant>
+		<actor>
+			<reference value="Patient/example"/>
 		</actor>
 	</participant>
 	<actualPeriod>

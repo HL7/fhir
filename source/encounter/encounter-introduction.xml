@@ -58,7 +58,9 @@ There is no direct indication purely by the status field as to whether an encoun
 The context of the encounter and business practices/policies/workflows/types can influence this definition.
 (e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).<br/>
 Statuses of "arrived", "triaged" or "in progress" could be considered the start of the admission, and also have the 
-presence of the admission sub-component entered.
+presence of the admission sub-component entered.<br/>
+The "discharged" status can be used when the patient care is complete but the encounter itself is not yet completed,
+such as while collating required information for billing or other purposes, or could be skipped and go direct to "completed".
 </p>
 <p>
 The "on leave" status might or might not be a part of the admission, for example if the patient 

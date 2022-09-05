@@ -123,8 +123,8 @@
     </element>
     <element id="Encounter.status">
       <path value="Encounter.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -182,8 +182,8 @@
     </element>
     <element id="Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -576,6 +576,7 @@
       <path value="Encounter.participant"/>
       <short value="List of participants involved in the encounter"/>
       <definition value="The list of people responsible for providing the service."/>
+      <comment value="Any Patient or Group present in the participation.actor must also be the subject, though the subject may be absent from the participation.actor for cases where the patient (or group) is not present, such as during a case review conference."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -586,6 +587,13 @@
         <severity value="error"/>
         <human value="A type must be provided when no explicit actor is specified"/>
         <expression value="actor.exists() or type.exists()"/>
+        <xpath value="'true' // going to be deleted anyway"/>
+      </constraint>
+      <constraint>
+        <key value="enc-2"/>
+        <severity value="error"/>
+        <human value="A type cannot be provided for a patient or group participant"/>
+        <expression value="actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()"/>
         <xpath value="'true' // going to be deleted anyway"/>
       </constraint>
       <isSummary value="true"/>
