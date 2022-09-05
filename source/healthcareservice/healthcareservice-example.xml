@@ -12,12 +12,12 @@
 			<id value="DenBurg"/>
 			<description value="Greater Denburg area"/>
 			<mode value="instance"/>
-			<physicalType>
+			<form>
 				<coding>
 					<code value="area"/>
 					<display value="Area"/>
 				</coding>
-			</physicalType>
+			</form>
 		</Location>
 	</contained>
   <identifier>
