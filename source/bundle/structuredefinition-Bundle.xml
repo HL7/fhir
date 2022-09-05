@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../FHIRTransforms/schemas/FHIR/R5/fhir-all.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="Bundle"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -200,6 +202,18 @@
           ) or count(f:entry) = (count(f:entry/f:fullUrl) + count(f:entry[not(f:fullUrl)]/f:request/f:method/@value='POST'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
+      <constraint>
+        <key value="bdl-16"/>
+        <severity value="error"/>
+        <human value="Issue.severity for all issues within the OperationOutcome must be either 'information' or 'warning'."/>
+        <expression value="Bundle.issues.exists() implies (Bundle.issues.OperationOutcome.issue.severity = 'information' or Bundle.issues.OperationOutcome.issue.severity = 'warning')"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-17"/>
+        <severity value="error"/>
+        <human value="Use and meaning of Bundle.issues for documents has not been validated because the content will not be rendered in the document."/>
+        <expression value="type = 'document' implies Bundle.issues.empty()"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
@@ -291,7 +305,7 @@
       <path value="Bundle.total"/>
       <short value="If search, the total number of matches"/>
       <definition
-        value="If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
+        value="If a set of search matches, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
       <comment
         value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
       <min value="0"/>
@@ -327,15 +341,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
       <isSummary value="true"/>
-      <!--
       <binding>
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/iana-link-relations"/>
       </binding>
-      -->
     </element>
     <element id="Bundle.link.url">
       <path value="Bundle.link.url"/>
@@ -664,6 +676,25 @@
       <type>
         <code value="Signature"/>
       </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Bundle.issues">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Bundle.issues"/>
+      <short value="Issues with the Bundle"/>
+      <definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
+      <comment
+        value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+      <min value="0"/>
+      <max value="1"/>
+      
+      <type>
+        <code value="Resource"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"></profile>
+      </type>
+      
       <isSummary value="true"/>
     </element>
   </differential>

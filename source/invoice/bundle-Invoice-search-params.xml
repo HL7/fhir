@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Invoice.account"/>
         <xpath value="f:Invoice/f:account"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="Invoice.date"/>
         <xpath value="f:Invoice/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Invoice.identifier"/>
         <xpath value="f:Invoice/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="Invoice.issuer"/>
         <xpath value="f:Invoice/f:issuer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Invoice.participant.actor"/>
         <xpath value="f:Invoice/f:participant/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="token"/>
         <expression value="Invoice.participant.role"/>
         <xpath value="f:Invoice/f:participant/f:role"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="reference"/>
         <expression value="Invoice.subject.where(resolve() is Patient)"/>
         <xpath value="f:Invoice/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -159,7 +159,7 @@
         <type value="reference"/>
         <expression value="Invoice.recipient"/>
         <xpath value="f:Invoice/f:recipient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="token"/>
         <expression value="Invoice.status"/>
         <xpath value="f:Invoice/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,7 +199,7 @@
         <type value="reference"/>
         <expression value="Invoice.subject"/>
         <xpath value="f:Invoice/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -219,7 +219,7 @@
         <type value="quantity"/>
         <expression value="Invoice.totalGross"/>
         <xpath value="f:Invoice/f:totalGross"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -239,7 +239,7 @@
         <type value="quantity"/>
         <expression value="Invoice.totalNet"/>
         <xpath value="f:Invoice/f:totalNet"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -259,7 +259,7 @@
         <type value="token"/>
         <expression value="Invoice.type"/>
         <xpath value="f:Invoice/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

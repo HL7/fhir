@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.account"/>
         <xpath value="f:ChargeItem/f:account"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="ChargeItem.code"/>
         <xpath value="f:ChargeItem/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.encounter"/>
         <xpath value="f:ChargeItem/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="date"/>
         <expression value="ChargeItem.enteredDate"/>
         <xpath value="f:ChargeItem/f:enteredDate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.enterer"/>
         <xpath value="f:ChargeItem/f:enterer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="number"/>
         <expression value="ChargeItem.totalPriceComponent.factor"/>
         <xpath value="f:ChargeItem/f:totalPriceComponent/f:factor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="ChargeItem.identifier"/>
         <xpath value="f:ChargeItem/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="date"/>
         <expression value="ChargeItem.occurrence"/>
         <xpath value="f:ChargeItem/f:occurrenceDateTime | f:ChargeItem/f:occurrencePeriod | f:ChargeItem/f:occurrenceTiming"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.subject.where(resolve() is Patient)"/>
         <xpath value="f:ChargeItem/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -199,7 +199,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.performer.actor"/>
         <xpath value="f:ChargeItem/f:performer/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -219,7 +219,7 @@
         <type value="token"/>
         <expression value="ChargeItem.performer.function"/>
         <xpath value="f:ChargeItem/f:performer/f:function"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -239,7 +239,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.performingOrganization"/>
         <xpath value="f:ChargeItem/f:performingOrganization"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -259,7 +259,7 @@
         <type value="quantity"/>
         <expression value="ChargeItem.totalPriceComponent.amount"/>
         <xpath value="f:ChargeItem/f:totalPriceComponent/f:amount"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -279,7 +279,7 @@
         <type value="quantity"/>
         <expression value="ChargeItem.quantity"/>
         <xpath value="f:ChargeItem/f:quantity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -299,7 +299,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.requestingOrganization"/>
         <xpath value="f:ChargeItem/f:requestingOrganization"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,7 +319,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.service.reference"/>
         <xpath value="f:ChargeItem/f:service/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -339,7 +339,7 @@
         <type value="reference"/>
         <expression value="ChargeItem.subject"/>
         <xpath value="f:ChargeItem/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

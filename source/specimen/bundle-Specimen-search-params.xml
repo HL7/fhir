@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Specimen.accessionIdentifier"/>
         <xpath value="f:Specimen/f:accessionIdentifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="Specimen.collection.bodySite.reference"/>
         <xpath value="f:Specimen/f:collection/f:bodySite/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="date"/>
         <expression value="Specimen.collection.collected"/>
         <xpath value="f:Specimen/f:collection/f:collectedDateTime | f:Specimen/f:collection/f:collectedPeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="Specimen.collection.collector"/>
         <xpath value="f:Specimen/f:collection/f:collector"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Specimen.collection.procedure"/>
         <xpath value="f:Specimen/f:collection/f:procedure"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Specimen.container.device.where(resolve() is Device)"/>
         <xpath value="f:Specimen/f:container/f:device"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Device"/>
       </SearchParameter>
     </resource>
@@ -139,7 +139,7 @@
         <type value="token"/>
         <expression value="Specimen.identifier"/>
         <xpath value="f:Specimen/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,7 +159,7 @@
         <type value="reference"/>
         <expression value="Specimen.parent"/>
         <xpath value="f:Specimen/f:parent"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="reference"/>
         <expression value="Specimen.subject.where(resolve() is Patient)"/>
         <xpath value="f:Specimen/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -200,7 +200,7 @@
         <type value="token"/>
         <expression value="Specimen.status"/>
         <xpath value="f:Specimen/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -220,7 +220,7 @@
         <type value="reference"/>
         <expression value="Specimen.subject"/>
         <xpath value="f:Specimen/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -240,7 +240,7 @@
         <type value="token"/>
         <expression value="Specimen.type"/>
         <xpath value="f:Specimen/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

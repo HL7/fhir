@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="(ActorDefinition.useContext.value as CodeableConcept)"/>
         <xpath value="f:ActorDefinition/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="quantity"/>
         <expression value="(ActorDefinition.useContext.value as Quantity) | (ActorDefinition.useContext.value as Range)"/>
         <xpath value="f:ActorDefinition/f:useContext/f:valueQuantity | f:ActorDefinition/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.useContext.code"/>
         <xpath value="f:ActorDefinition/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="ActorDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="ActorDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -126,7 +126,7 @@
         <type value="date"/>
         <expression value="ActorDefinition.date"/>
         <xpath value="f:ActorDefinition/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="string"/>
         <expression value="ActorDefinition.description"/>
         <xpath value="f:ActorDefinition/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.identifier"/>
         <xpath value="f:ActorDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.jurisdiction"/>
         <xpath value="f:ActorDefinition/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="string"/>
         <expression value="ActorDefinition.publisher"/>
         <xpath value="f:ActorDefinition/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.status"/>
         <xpath value="f:ActorDefinition/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="string"/>
         <expression value="ActorDefinition.title"/>
         <xpath value="f:ActorDefinition/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="uri"/>
         <expression value="ActorDefinition.url"/>
         <xpath value="f:ActorDefinition/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.version"/>
         <xpath value="f:ActorDefinition/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -307,7 +307,7 @@
         <type value="token"/>
         <expression value="ActorDefinition.type"/>
         <xpath value="f:ActorDefinition/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

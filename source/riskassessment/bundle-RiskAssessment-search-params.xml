@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="RiskAssessment.condition"/>
         <xpath value="f:RiskAssessment/f:condition"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="(RiskAssessment.occurrence as dateTime)"/>
         <xpath value="f:RiskAssessment/f:occurrenceDateTime"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="RiskAssessment.encounter"/>
         <xpath value="f:RiskAssessment/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="RiskAssessment.identifier"/>
         <xpath value="f:RiskAssessment/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="RiskAssessment.method"/>
         <xpath value="f:RiskAssessment/f:method"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="RiskAssessment.subject.where(resolve() is Patient)"/>
         <xpath value="f:RiskAssessment/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -139,7 +139,7 @@
         <type value="reference"/>
         <expression value="RiskAssessment.performer"/>
         <xpath value="f:RiskAssessment/f:performer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -159,7 +159,7 @@
         <type value="number"/>
         <expression value="RiskAssessment.prediction.probability"/>
         <xpath value="f:RiskAssessment/f:prediction/f:probabilityDecimal | f:RiskAssessment/f:prediction/f:probabilityRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="token"/>
         <expression value="RiskAssessment.prediction.qualitativeRisk"/>
         <xpath value="f:RiskAssessment/f:prediction/f:qualitativeRisk"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,7 +199,7 @@
         <type value="reference"/>
         <expression value="RiskAssessment.subject"/>
         <xpath value="f:RiskAssessment/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

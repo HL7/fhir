@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Claim.careTeam.provider"/>
         <xpath value="f:Claim/f:careTeam/f:provider"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="Claim.created"/>
         <xpath value="f:Claim/f:created"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="Claim.item.detail.udi"/>
         <xpath value="f:Claim/f:item/f:detail/f:udi"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="Claim.item.encounter"/>
         <xpath value="f:Claim/f:item/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Claim.enterer"/>
         <xpath value="f:Claim/f:enterer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Claim.facility"/>
         <xpath value="f:Claim/f:facility"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="Claim.identifier"/>
         <xpath value="f:Claim/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="reference"/>
         <expression value="Claim.insurer"/>
         <xpath value="f:Claim/f:insurer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="Claim.item.udi"/>
         <xpath value="f:Claim/f:item/f:udi"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="reference"/>
         <expression value="Claim.patient"/>
         <xpath value="f:Claim/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <type value="reference"/>
         <expression value="Claim.payee.party"/>
         <xpath value="f:Claim/f:payee/f:party"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -238,7 +238,7 @@
         <type value="token"/>
         <expression value="Claim.priority"/>
         <xpath value="f:Claim/f:priority"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -258,7 +258,7 @@
         <type value="reference"/>
         <expression value="Claim.procedure.udi"/>
         <xpath value="f:Claim/f:procedure/f:udi"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -278,7 +278,7 @@
         <type value="reference"/>
         <expression value="Claim.provider"/>
         <xpath value="f:Claim/f:provider"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -298,7 +298,7 @@
         <type value="token"/>
         <expression value="Claim.status"/>
         <xpath value="f:Claim/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -318,7 +318,7 @@
         <type value="reference"/>
         <expression value="Claim.item.detail.subDetail.udi"/>
         <xpath value="f:Claim/f:item/f:detail/f:subDetail/f:udi"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -338,7 +338,7 @@
         <type value="token"/>
         <expression value="Claim.use"/>
         <xpath value="f:Claim/f:use"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

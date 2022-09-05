@@ -13,7 +13,7 @@
         <description value="Search on the narrative of the resource"/>
         <code value="_text"/>
         <type value="special"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -48,13 +48,13 @@
       <country value="USA"/>
     </address>  
   </contact>
-  <physicalType>
-	<coding>
-		<system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
-		<code value="bu"/>
-	<display value="Building" />
+  <form>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
+      <code value="bu"/>
+    <display value="Building" />
 	</coding>
-  </physicalType>
+  </form>
   <position>
 	<longitude value="42.256500"/>
 	<latitude value="-83.694710"/>

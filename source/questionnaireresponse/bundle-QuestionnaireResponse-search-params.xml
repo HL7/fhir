@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.author"/>
         <xpath value="f:QuestionnaireResponse/f:author"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="QuestionnaireResponse.authored"/>
         <xpath value="f:QuestionnaireResponse/f:authored"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.basedOn"/>
         <xpath value="f:QuestionnaireResponse/f:basedOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.encounter"/>
         <xpath value="f:QuestionnaireResponse/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="QuestionnaireResponse.identifier"/>
         <xpath value="f:QuestionnaireResponse/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.partOf"/>
         <xpath value="f:QuestionnaireResponse/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.subject.where(resolve() is Patient)"/>
         <xpath value="f:QuestionnaireResponse/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -159,7 +159,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.questionnaire"/>
         <xpath value="f:QuestionnaireResponse/f:questionnaire"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -179,7 +179,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.source"/>
         <xpath value="f:QuestionnaireResponse/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -199,7 +199,7 @@
         <type value="token"/>
         <expression value="QuestionnaireResponse.status"/>
         <xpath value="f:QuestionnaireResponse/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -219,7 +219,7 @@
         <type value="reference"/>
         <expression value="QuestionnaireResponse.subject"/>
         <xpath value="f:QuestionnaireResponse/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,7 +237,7 @@
         <base value="QuestionnaireResponse"/>
         <type value="reference"/>
         <expression value="QuestionnaireResponse.item.where(extension('http://hl7.org/fhir/StructureDefinition/questionnaireresponse-isSubject').exists()).answer.value.ofType(Reference)"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

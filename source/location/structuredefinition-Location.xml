@@ -316,10 +316,10 @@
         <map value="ParticipantContactable.address"/>
       </mapping>
     </element>
-    <element id="Location.physicalType">
-      <path value="Location.physicalType"/>
+    <element id="Location.form">
+      <path value="Location.form"/>
       <short value="Physical form of the location"/>
-      <definition value="Physical form of the location, e.g. building, room, vehicle, road."/>
+      <definition value="Physical form of the location, e.g. building, room, vehicle, road, virtual."/>
       <requirements value="For purposes of showing relevant locations in queries, we need to categorize locations."/>
       <min value="0"/>
       <max value="1"/>
@@ -329,11 +329,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PhysicalType"/>
+          <valueString value="LocationForm"/>
         </extension>
         <strength value="example"/>
         <description value="Physical form of the location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
       </binding>
       <mapping>
         <identity value="w5"/>

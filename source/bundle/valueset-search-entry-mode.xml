@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
+<ValueSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../git/FHIRTransforms/schemas/FHIR/R5/fhir-all.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="search-entry-mode"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -44,6 +46,19 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/search-entry-mode"/>
+      <concept>
+        <code value="match"/>
+      </concept>
+      <concept>
+        <code value="include"/>
+      </concept>
+      <concept>
+        <extension xmlns="http://hl7.org/fhir"
+          url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated" >
+          <valueBoolean value="true"/>
+        </extension>
+        <code value="outcome"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

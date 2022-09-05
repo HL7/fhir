@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="MolecularSequence.identifier"/>
         <xpath value="f:MolecularSequence/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="MolecularSequence.subject"/>
         <xpath value="f:MolecularSequence/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="MolecularSequence.subject"/>
         <xpath value="f:MolecularSequence/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="MolecularSequence.type"/>
         <xpath value="f:MolecularSequence/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

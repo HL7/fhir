@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Linkage.author"/>
         <xpath value="f:Linkage/f:author"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="Linkage.item.resource"/>
         <xpath value="f:Linkage/f:item/f:resource"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="Linkage.item.resource"/>
         <xpath value="f:Linkage/f:item/f:resource"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

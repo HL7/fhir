@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.medicineClassification.classification"/>
         <xpath value="f:MedicationKnowledge/f:medicineClassification/f:classification"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.medicineClassification.type"/>
         <xpath value="f:MedicationKnowledge/f:medicineClassification/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.code"/>
         <xpath value="f:MedicationKnowledge/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.definitional.doseForm"/>
         <xpath value="f:MedicationKnowledge/f:definitional/f:doseForm"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.identifier"/>
         <xpath value="f:MedicationKnowledge/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="MedicationKnowledge.definitional.ingredient.item.reference"/>
         <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.definitional.ingredient.item.concept"/>
         <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.monitoringProgram.name"/>
         <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.monitoringProgram.type"/>
         <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="reference"/>
         <expression value="MedicationKnowledge.monograph.source"/>
         <xpath value="f:MedicationKnowledge/f:monograph/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.monograph.type"/>
         <xpath value="f:MedicationKnowledge/f:monograph/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -233,7 +233,7 @@
         <description value="The cost of the packaged medication, if the cost is Money"/>
         <code value="packaging-cost"/>
         <type value="quantity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -248,7 +248,7 @@
         <description value="The cost of the packaged medication, if the cost is a CodeableConcept"/>
         <code value="packaging-cost-concept"/>
         <type value="token"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -268,7 +268,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.productType"/>
         <xpath value="f:MedicationKnowledge/f:productType"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -288,7 +288,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.cost.source"/>
         <xpath value="f:MedicationKnowledge/f:cost/f:source"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -308,7 +308,7 @@
         <type value="token"/>
         <expression value="MedicationKnowledge.status"/>
         <xpath value="f:MedicationKnowledge/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

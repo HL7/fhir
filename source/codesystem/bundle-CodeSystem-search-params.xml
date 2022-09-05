@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="CodeSystem.concept.code"/>
         <xpath value="f:CodeSystem/f:concept/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="CodeSystem.content"/>
         <xpath value="f:CodeSystem/f:content"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="(CodeSystem.useContext.value as CodeableConcept)"/>
         <xpath value="f:CodeSystem/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="quantity"/>
         <expression value="(CodeSystem.useContext.value as Quantity) | (CodeSystem.useContext.value as Range)"/>
         <xpath value="f:CodeSystem/f:useContext/f:valueQuantity | f:CodeSystem/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="CodeSystem.useContext.code"/>
         <xpath value="f:CodeSystem/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -114,7 +114,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="CodeSystem.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -138,7 +138,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="CodeSystem.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -166,7 +166,7 @@
         <type value="date"/>
         <expression value="CodeSystem.date"/>
         <xpath value="f:CodeSystem/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="string"/>
         <expression value="CodeSystem.description"/>
         <xpath value="f:CodeSystem/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="token"/>
         <expression value="CodeSystem.identifier"/>
         <xpath value="f:CodeSystem/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="token"/>
         <expression value="CodeSystem.jurisdiction"/>
         <xpath value="f:CodeSystem/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="token"/>
         <expression value="CodeSystem.concept.designation.language"/>
         <xpath value="f:CodeSystem/f:concept/f:designation/f:language"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="string"/>
         <expression value="CodeSystem.name"/>
         <xpath value="f:CodeSystem/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="string"/>
         <expression value="CodeSystem.publisher"/>
         <xpath value="f:CodeSystem/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="token"/>
         <expression value="CodeSystem.status"/>
         <xpath value="f:CodeSystem/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -326,7 +326,7 @@
         <type value="reference"/>
         <expression value="CodeSystem.supplements"/>
         <xpath value="f:CodeSystem/f:supplements"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -346,7 +346,7 @@
         <type value="uri"/>
         <expression value="CodeSystem.url"/>
         <xpath value="f:CodeSystem/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -366,7 +366,7 @@
         <type value="string"/>
         <expression value="CodeSystem.title"/>
         <xpath value="f:CodeSystem/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -386,7 +386,7 @@
         <type value="uri"/>
         <expression value="CodeSystem.url"/>
         <xpath value="f:CodeSystem/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -406,7 +406,7 @@
         <type value="token"/>
         <expression value="CodeSystem.version"/>
         <xpath value="f:CodeSystem/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -426,7 +426,7 @@
         <type value="date"/>
         <expression value="CodeSystem.effectivePeriod"/>
         <xpath value="f:CodeSystem/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Procedure.basedOn"/>
         <xpath value="f:Procedure/f:basedOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Procedure.category"/>
         <xpath value="f:Procedure/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Procedure.code"/>
         <xpath value="f:Procedure/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="date"/>
         <expression value="Procedure.occurrence"/>
         <xpath value="f:Procedure/f:occurrenceDateTime | f:Procedure/f:occurrencePeriod | f:Procedure/f:occurrenceString | f:Procedure/f:occurrenceAge | f:Procedure/f:occurrenceRange | f:Procedure/f:occurrenceTiming"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Procedure.encounter"/>
         <xpath value="f:Procedure/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="token"/>
         <expression value="Procedure.identifier"/>
         <xpath value="f:Procedure/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="reference"/>
         <expression value="Procedure.instantiatesCanonical"/>
         <xpath value="f:Procedure/f:instantiatesCanonical"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="uri"/>
         <expression value="Procedure.instantiatesUri"/>
         <xpath value="f:Procedure/f:instantiatesUri"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="Procedure.location"/>
         <xpath value="f:Procedure/f:location"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="reference"/>
         <expression value="Procedure.partOf"/>
         <xpath value="f:Procedure/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <type value="reference"/>
         <expression value="Procedure.subject.where(resolve() is Patient)"/>
         <xpath value="f:Procedure/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -239,7 +239,7 @@
         <type value="reference"/>
         <expression value="Procedure.performer.actor"/>
         <xpath value="f:Procedure/f:performer/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -259,7 +259,7 @@
         <type value="token"/>
         <expression value="Procedure.reason.concept"/>
         <xpath value="f:Procedure/f:reason/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -279,7 +279,7 @@
         <type value="reference"/>
         <expression value="Procedure.reason.reference"/>
         <xpath value="f:Procedure/f:reason/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -299,7 +299,7 @@
         <type value="reference"/>
         <expression value="Procedure.report"/>
         <xpath value="f:Procedure/f:report"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,7 +319,7 @@
         <type value="token"/>
         <expression value="Procedure.status"/>
         <xpath value="f:Procedure/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -339,7 +339,7 @@
         <type value="reference"/>
         <expression value="Procedure.subject"/>
         <xpath value="f:Procedure/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
