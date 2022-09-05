@@ -615,5 +615,29 @@
       <reference value="Observation/abdo-tender"/>
       <display value="abdo-tender"/>
     </item>
+  </entry>  
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Observation example demonstrating internationalization (Korean)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="krcore-observation-labresult-example-01"/>
+    </extension>
+    <item>
+      <reference value="Observation/krcore-observation-labresult-example-01"/>
+      <display value="krcore-observation-labresult-example-01"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Observation example demonstrating internationalization (Arabic)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="observation-example-body-weight-with-arabic-code"/>
+    </extension>
+    <item>
+      <reference value="Observation/body-weight-with-arabic-code"/>
+      <display value="body-weight-with-arabic-code"/>
+    </item>
   </entry>
 </List>
