@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../FHIRTransforms/schemas/FHIR/R5/fhir-all.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="Bundle"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -664,6 +666,25 @@
       <type>
         <code value="Signature"/>
       </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Bundle.issues">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Bundle.issues"/>
+      <short value="issues"/>
+      <definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
+      <comment
+        value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+      <min value="0"/>
+      <max value="1"/>
+      
+      <type>
+        <code value="Resource"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"></profile>
+      </type>
+      
       <isSummary value="true"/>
     </element>
   </differential>
