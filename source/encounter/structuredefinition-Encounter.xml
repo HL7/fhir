@@ -220,8 +220,8 @@
       <path value="Encounter.class"/>
       <short value="Classification of patient encounter"/>
       <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -230,7 +230,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Classification of the encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
       </binding>
@@ -280,7 +280,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Classification of the encounter."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
       </binding>
