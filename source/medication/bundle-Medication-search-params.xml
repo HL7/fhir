@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Medication.code"/>
         <xpath value="f:Medication/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="date"/>
         <expression value="Medication.batch.expirationDate"/>
         <xpath value="f:Medication/f:batch/f:expirationDate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -53,7 +53,7 @@
         <description value="Returns medications for a specific dose form"/>
         <code value="form"/>
         <type value="token"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -73,7 +73,7 @@
         <type value="token"/>
         <expression value="Medication.identifier"/>
         <xpath value="f:Medication/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -93,7 +93,7 @@
         <type value="reference"/>
         <expression value="Medication.ingredient.item.reference"/>
         <xpath value="f:Medication/f:ingredient/f:item/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -113,7 +113,7 @@
         <type value="token"/>
         <expression value="Medication.ingredient.item.concept"/>
         <xpath value="f:Medication/f:ingredient/f:item/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -133,7 +133,7 @@
         <type value="token"/>
         <expression value="Medication.batch.lotNumber"/>
         <xpath value="f:Medication/f:batch/f:lotNumber"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -167,7 +167,7 @@
         <type value="token"/>
         <expression value="Medication.status"/>
         <xpath value="f:Medication/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

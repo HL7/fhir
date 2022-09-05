@@ -32,7 +32,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.category"/>
         <xpath value="f:AllergyIntolerance/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -52,7 +52,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.clinicalStatus"/>
         <xpath value="f:AllergyIntolerance/f:clinicalStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -72,7 +72,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.code | AllergyIntolerance.reaction.substance"/>
         <xpath value="f:AllergyIntolerance/f:code | f:AllergyIntolerance/f:reaction/f:substance"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -92,7 +92,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.criticality"/>
         <xpath value="f:AllergyIntolerance/f:criticality"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -112,7 +112,7 @@
         <type value="date"/>
         <expression value="AllergyIntolerance.recordedDate"/>
         <xpath value="f:AllergyIntolerance/f:recordedDate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -132,7 +132,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.identifier"/>
         <xpath value="f:AllergyIntolerance/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -152,7 +152,7 @@
         <type value="date"/>
         <expression value="AllergyIntolerance.lastOccurrence"/>
         <xpath value="f:AllergyIntolerance/f:lastOccurrence"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -200,7 +200,7 @@
         <type value="reference"/>
         <expression value="AllergyIntolerance.patient"/>
         <xpath value="f:AllergyIntolerance/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -220,7 +220,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.reaction.exposureRoute"/>
         <xpath value="f:AllergyIntolerance/f:reaction/f:exposureRoute"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -240,7 +240,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.reaction.severity"/>
         <xpath value="f:AllergyIntolerance/f:reaction/f:severity"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -260,7 +260,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.type"/>
         <xpath value="f:AllergyIntolerance/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -280,7 +280,7 @@
         <type value="token"/>
         <expression value="AllergyIntolerance.verificationStatus"/>
         <xpath value="f:AllergyIntolerance/f:verificationStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

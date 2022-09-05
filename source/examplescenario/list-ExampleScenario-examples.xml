@@ -16,4 +16,16 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of examplescenario - Lab order tracking with Task"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="examplescenario-example-laborder"/>
+    </extension>
+    <item>
+      <reference value="ExampleScenario/example-laborder"/>
+      <display value="Lab order tracking with Task"/>
+    </item>
+  </entry>
 </List>

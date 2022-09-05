@@ -4,7 +4,7 @@
 <h3>Notes about Bundle</h3>
 <ul>
   <li>Conceptually, a bundle is a list of resources with some context (named links, and status on the entries)</li>
-  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels</li>
+  <li>Since a Bundle is itself a <a href="resource.html">Resource</a> it has the same common metadata as all resources, including profile assertions, tags, and security labels. Note that the values in Bundle.meta.security will generally be influenced by the meta.security values of the entries within the Bundle; see http://hl7.org/fhir/security.html</li>
   <li>Although there are no extensions on the Bundle itself, <code>link</code>, <code>entry</code>, and <code>search</code>/<code>request</code>/<code>response</code> can all have extensions. See <a href="patient.html#match">Patient</a> and <a href="location.html#positional">Location</a> for examples on search</li>
   <li>Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. <a href="http://en.wikipedia.org/wiki/HATEOAS">HATEOAS</a>). 
     Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was <a href="http.html#read">read</a> directly.
@@ -57,6 +57,9 @@ for further information.
 In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
 used to return the total number of resources that match the search, and that may be 
 returned by following the "next" <a href="bundle-definitions.html#Bundle.link">link</a>.
+This total MAY be an estimate.  Full iteration of the search set or using 
+_total=accurate are the only mechanisms to reliably determine an exact count against 
+an arbitrary system.
 </p>
 <p>
 For each entry, a search set can also contain two specific pieces of search related
@@ -300,9 +303,19 @@ GET /[base]/Bundle/[location] will return the same resource.
 The Bundle end point does have two special search parameters - <code>composition</code> and <code>message</code>,
 which allow for chained search into the first (special) entries in document and message resources.
 </p>
+  
+<p>
+  All elements in Bundle are marked as summary because Bundle resources need to be 
+  fully populated when doing a search, and most use cases for retrieving summaries
+  of documents or other types of bundles are not well suited by the standard isSummary
+  mechanism and are better handles by operations or other mechanisms. 
+</p>
 <p>
 [%stu-note%]
-If an element marked as 'summary' is itself a nested resource (i.e. type is Resource), then the expectation is that the conveyed resource will also be expressed in its summary form.  The typical place this applies is Bundle.entry.resource. This statement is left as STU because there is not yet significant implementer experience on its ramifications.
+If an element marked as 'summary' is itself a nested resource (i.e. type is Resource), 
+then the expectation is that the conveyed resource will also be expressed in its summary form.  
+The typical place this applies is Bundle.entry.resource. This statement is left as STU because 
+there is not yet significant implementer experience on its ramifications.
 [%end-note%]
 </p>
 

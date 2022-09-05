@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="EnrollmentRequest.identifier"/>
         <xpath value="f:EnrollmentRequest/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="EnrollmentRequest.candidate"/>
         <xpath value="f:EnrollmentRequest/f:candidate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="EnrollmentRequest.status"/>
         <xpath value="f:EnrollmentRequest/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="EnrollmentRequest.candidate"/>
         <xpath value="f:EnrollmentRequest/f:candidate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

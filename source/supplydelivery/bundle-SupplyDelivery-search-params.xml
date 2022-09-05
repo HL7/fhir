@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="SupplyDelivery.identifier"/>
         <xpath value="f:SupplyDelivery/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="SupplyDelivery.patient"/>
         <xpath value="f:SupplyDelivery/f:patient"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="reference"/>
         <expression value="SupplyDelivery.receiver"/>
         <xpath value="f:SupplyDelivery/f:receiver"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="SupplyDelivery.status"/>
         <xpath value="f:SupplyDelivery/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="SupplyDelivery.supplier"/>
         <xpath value="f:SupplyDelivery/f:supplier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

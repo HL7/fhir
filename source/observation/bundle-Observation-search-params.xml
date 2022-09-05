@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Observation.basedOn"/>
         <xpath value="f:Observation/f:basedOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Observation.category"/>
         <xpath value="f:Observation/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Observation.code"/>
         <xpath value="f:Observation/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="code-value-concept"/>
         <type value="composite"/>
         <expression value="Observation"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="code"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="code-value-date"/>
         <type value="composite"/>
         <expression value="Observation"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="code"/>
           <expression value="code"/>
@@ -122,7 +122,7 @@
         <code value="code-value-quantity"/>
         <type value="composite"/>
         <expression value="Observation"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="code"/>
           <expression value="code"/>
@@ -146,7 +146,7 @@
         <code value="code-value-string"/>
         <type value="composite"/>
         <expression value="Observation"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="code"/>
           <expression value="code"/>
@@ -174,7 +174,7 @@
         <type value="token"/>
         <expression value="Observation.code | Observation.component.code"/>
         <xpath value="f:Observation/f:code | f:Observation/f:component/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -190,7 +190,7 @@
         <code value="combo-code-value-concept"/>
         <type value="composite"/>
         <expression value="Observation | Observation.component"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="combo-code"/>
           <expression value="code"/>
@@ -214,7 +214,7 @@
         <code value="combo-code-value-quantity"/>
         <type value="composite"/>
         <expression value="Observation | Observation.component"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="combo-code"/>
           <expression value="code"/>
@@ -242,7 +242,7 @@
         <type value="token"/>
         <expression value="Observation.dataAbsentReason | Observation.component.dataAbsentReason"/>
         <xpath value="f:Observation/f:dataAbsentReason | f:Observation/f:component/f:dataAbsentReason"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -262,7 +262,7 @@
         <type value="token"/>
         <expression value="(Observation.value as CodeableConcept) | (Observation.component.value as CodeableConcept)"/>
         <xpath value="f:Observation/f:valueCodeableConcept | f:Observation/f:component/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -282,7 +282,7 @@
         <type value="quantity"/>
         <expression value="(Observation.value as Quantity) | (Observation.value as SampledData) | (Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
         <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -302,7 +302,7 @@
         <type value="token"/>
         <expression value="Observation.component.code"/>
         <xpath value="f:Observation/f:component/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -318,7 +318,7 @@
         <code value="component-code-value-concept"/>
         <type value="composite"/>
         <expression value="Observation.component"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="component-code"/>
           <expression value="code"/>
@@ -342,7 +342,7 @@
         <code value="component-code-value-quantity"/>
         <type value="composite"/>
         <expression value="Observation.component"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="component-code"/>
           <expression value="code"/>
@@ -370,7 +370,7 @@
         <type value="token"/>
         <expression value="Observation.component.dataAbsentReason"/>
         <xpath value="f:Observation/f:component/f:dataAbsentReason"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -390,7 +390,7 @@
         <type value="token"/>
         <expression value="(Observation.component.value as CodeableConcept)"/>
         <xpath value="f:Observation/f:component/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -410,7 +410,7 @@
         <type value="quantity"/>
         <expression value="(Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
         <xpath value="f:Observation/f:component/f:valueQuantity | f:Observation/f:component/f:valueCodeableConcept | f:Observation/f:component/f:valueString | f:Observation/f:component/f:valueBoolean | f:Observation/f:component/f:valueInteger | f:Observation/f:component/f:valueRange | f:Observation/f:component/f:valueRatio | f:Observation/f:component/f:valueSampledData | f:Observation/f:component/f:valueTime | f:Observation/f:component/f:valueDateTime | f:Observation/f:component/f:valuePeriod | f:Observation/f:component/f:valueAttachment"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -430,7 +430,7 @@
         <type value="token"/>
         <expression value="Observation.dataAbsentReason"/>
         <xpath value="f:Observation/f:dataAbsentReason"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -450,7 +450,7 @@
         <type value="date"/>
         <expression value="Observation.effective"/>
         <xpath value="f:Observation/f:effectiveDateTime | f:Observation/f:effectivePeriod | f:Observation/f:effectiveTiming | f:Observation/f:effectiveInstant"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -470,7 +470,7 @@
         <type value="reference"/>
         <expression value="Observation.derivedFrom"/>
         <xpath value="f:Observation/f:derivedFrom"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -490,7 +490,7 @@
         <type value="reference"/>
         <expression value="Observation.device"/>
         <xpath value="f:Observation/f:device"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -510,7 +510,7 @@
         <type value="reference"/>
         <expression value="Observation.encounter"/>
         <xpath value="f:Observation/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -530,7 +530,7 @@
         <type value="reference"/>
         <expression value="Observation.focus"/>
         <xpath value="f:Observation/f:focus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -550,7 +550,7 @@
         <type value="reference"/>
         <expression value="Observation.hasMember"/>
         <xpath value="f:Observation/f:hasMember"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -570,7 +570,7 @@
         <type value="token"/>
         <expression value="Observation.identifier"/>
         <xpath value="f:Observation/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -590,7 +590,7 @@
         <type value="token"/>
         <expression value="Observation.method"/>
         <xpath value="f:Observation/f:method"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -610,7 +610,7 @@
         <type value="reference"/>
         <expression value="Observation.partOf"/>
         <xpath value="f:Observation/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -630,7 +630,7 @@
         <type value="reference"/>
         <expression value="Observation.subject.where(resolve() is Patient)"/>
         <xpath value="f:Observation/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -651,7 +651,7 @@
         <type value="reference"/>
         <expression value="Observation.performer"/>
         <xpath value="f:Observation/f:performer"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -671,7 +671,7 @@
         <type value="reference"/>
         <expression value="Observation.specimen"/>
         <xpath value="f:Observation/f:specimen"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -691,7 +691,7 @@
         <type value="token"/>
         <expression value="Observation.status"/>
         <xpath value="f:Observation/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -711,7 +711,7 @@
         <type value="reference"/>
         <expression value="Observation.subject"/>
         <xpath value="f:Observation/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -731,7 +731,7 @@
         <type value="token"/>
         <expression value="(Observation.value as CodeableConcept)"/>
         <xpath value="f:Observation/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -751,7 +751,7 @@
         <type value="date"/>
         <expression value="(Observation.value as dateTime) | (Observation.value as Period)"/>
         <xpath value="f:Observation/f:valueDateTime | f:Observation/f:valuePeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -771,7 +771,7 @@
         <type value="quantity"/>
         <expression value="(Observation.value as Quantity) | (Observation.value as SampledData)"/>
         <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -791,7 +791,7 @@
         <type value="string"/>
         <expression value="(Observation.value as string) | (Observation.value as CodeableConcept).text"/>
         <xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

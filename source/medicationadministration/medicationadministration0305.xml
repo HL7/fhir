@@ -32,7 +32,7 @@
       
     </Medication>
   </contained>
-  <instantiatesUri value="http://www.bccancer.bc.ca/chemotherapy-protocols-site/Documents/Lymphoma-Myeloma/ULYBRENTUX%20Protocol_1Jun2017.pdf"/>
+  
   <status value="completed"/>
   <medication>
   <reference>

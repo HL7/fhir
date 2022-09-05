@@ -20,18 +20,24 @@
 	<name value="Lab A Location"/>
 	<description value="Physical Location of Example Lab A" />
 	<mode value="instance"/>
-	<telecom>
-    <system value="phone"/>
-    <value value="(+1) 334-272-1000"/>
-  </telecom>
-  <telecom>
-    <system value="fax"/>
-    <value value="(+1) 334-272-1001"/>
-  </telecom>
-  <telecom>
-    <system value="email"/>
-    <value value="lab@labA.com"/>
-  </telecom>
+  <contact>
+    <telecom>
+      <system value="phone"/>
+      <value value="(+1) 334-272-1000"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="fax"/>
+      <value value="(+1) 334-272-1001"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="email"/>
+      <value value="lab@labA.com"/>
+    </telecom>
+  </contact>
   <address>
     <line value="100 Main Street"/>
     <city value="Anytown"/>
@@ -39,11 +45,11 @@
     <postalCode value="36106"/>
     <country value="USA"/>
   </address>  
-  <physicalType>
-	<coding>
-		<system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
-		<code value="bu"/>
-	<display value="Building" />
-	</coding>
-  </physicalType>
+  <form>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
+      <code value="bu"/>
+      <display value="Building" />
+    </coding>
+  </form>
 </Location>

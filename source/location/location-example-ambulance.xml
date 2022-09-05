@@ -25,13 +25,13 @@
       <use value="mobile" />
     </telecom>
   </contact>
-  <physicalType>
+  <form>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
       <code value="ve" />
       <display value="Vehicle" />
     </coding>
-  </physicalType>  
+  </form>  
   <managingOrganization>
     <reference value="Organization/f001" />
   </managingOrganization>

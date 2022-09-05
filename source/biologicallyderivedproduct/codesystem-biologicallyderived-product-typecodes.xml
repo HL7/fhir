@@ -31,7 +31,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Biologically Derived Product Type Codes."/>
+  <description value="Biologically Derived Product Type Codes. This value set can enumerate ISBT 128 Codes&#169; published by ICCBBA as a part of the ISBT 128 standard. These example codes represent data elements defined in ST-027 ISBT 128 Dictionary of Standard Data Elements and are used to define data structure and format expectations for electronic exchange with the ISBT 128 standard."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-typecodes"/>
   <content value="complete"/>

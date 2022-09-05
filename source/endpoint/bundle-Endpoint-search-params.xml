@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Endpoint.connectionType"/>
         <xpath value="f:Endpoint/f:connectionType"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Endpoint.identifier"/>
         <xpath value="f:Endpoint/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="string"/>
         <expression value="Endpoint.name"/>
         <xpath value="f:Endpoint/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="Endpoint.managingOrganization"/>
         <xpath value="f:Endpoint/f:managingOrganization"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="Endpoint.payloadType"/>
         <xpath value="f:Endpoint/f:payloadType"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="token"/>
         <expression value="Endpoint.status"/>
         <xpath value="f:Endpoint/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

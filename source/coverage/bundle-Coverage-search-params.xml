@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="Coverage.beneficiary"/>
         <xpath value="f:Coverage/f:beneficiary"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Coverage.class.type"/>
         <xpath value="f:Coverage/f:class/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Coverage.class.value"/>
         <xpath value="f:Coverage/f:class/f:value"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="string"/>
         <expression value="Coverage.dependent"/>
         <xpath value="f:Coverage/f:dependent"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="token"/>
         <expression value="Coverage.identifier"/>
         <xpath value="f:Coverage/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Coverage.beneficiary"/>
         <xpath value="f:Coverage/f:beneficiary"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="reference"/>
         <expression value="Coverage.policyHolder"/>
         <xpath value="f:Coverage/f:policyHolder"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="token"/>
         <expression value="Coverage.status"/>
         <xpath value="f:Coverage/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="reference"/>
         <expression value="Coverage.subscriber"/>
         <xpath value="f:Coverage/f:subscriber"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -240,7 +240,7 @@
         <type value="token"/>
         <expression value="Coverage.type"/>
         <xpath value="f:Coverage/f:type"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

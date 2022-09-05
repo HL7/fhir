@@ -20,7 +20,7 @@
   <base value="Condition"/>
   <type value="reference"/>
   <expression value="Condition.subject"/>
-  <xpathUsage value="normal"/>
+  <processingMode value="normal"/>
   <target value="Organization"/>
   <modifier value="missing"/>
   <chain value="name"/>
