@@ -18,11 +18,11 @@
       <display value="Pharmacy" />
     </coding>
   </type>
-  <physicalType>
+  <form>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
       <code value="jdn" />
       <display value="Jurisdiction" />
     </coding>
-  </physicalType>  
+  </form>  
 </Location>

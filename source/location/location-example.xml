@@ -47,13 +47,13 @@
           <country value="NLD"/>
     </address>
   </contact>
-  <physicalType>
+  <form>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/location-physical-type" />
       <code value="wi"/>
       <display value="Wing"/>     
     </coding>
-  </physicalType>
+  </form>
   <position>
     <longitude value="-83.6945691"/>
     <latitude value="42.25475478" />

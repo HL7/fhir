@@ -6,6 +6,13 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
 	</text>
 	<status value="booked" />
+	<class>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="AMB"/>
+			<display value="ambulatory"/>
+		</coding>
+	</class>
 	<serviceCategory>
 		<coding>
 			<system value="http://example.org/service-category" />
