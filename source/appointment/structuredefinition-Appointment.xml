@@ -240,6 +240,37 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Appointment.class">
+      <path value="Appointment.class"/>
+      <short value="Classification when becoming an encounter"/>
+      <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterClass"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Classification of the encounter."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code"/>
+      </mapping>
+    </element>
     <element id="Appointment.serviceCategory">
       <path value="Appointment.serviceCategory"/>
       <short value="A broad categorization of the service that is to be performed during this appointment"/>
