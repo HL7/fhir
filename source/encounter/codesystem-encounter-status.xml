@@ -55,6 +55,11 @@
     <definition value="The Encounter has begun, but is currently on hold, e.g. because the patient is temporarily on leave."/>
   </concept>
   <concept>
+    <code value="discharged"/>
+    <display value="Discharged"/>
+    <definition value="The Encounter has been clinically completed, the patient has been discharged from the facility or the visit has ended, and the patient may have departed (refer to subjectStatus). While the encounter is in this status, administrative activities are usually performed, collating all required documentation and charge information before being released for billing, at which point the status will move to completed."/>
+  </concept>
+  <concept>
     <code value="completed"/>
     <display value="Completed"/>
     <definition value="The Encounter has ended."/>
@@ -67,7 +72,7 @@
   <concept>
     <code value="discontinued"/>
     <display value="Discontinued"/>
-    <definition value="The Encounter has started, but was not able to be completed. Futher action may need to be performed, such as rescheduling appointments related to this encounter."/>
+    <definition value="The Encounter has started, but was not able to be completed. Further action may need to be performed, such as rescheduling appointments related to this encounter."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
