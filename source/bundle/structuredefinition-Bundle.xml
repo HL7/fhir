@@ -202,6 +202,18 @@
           ) or count(f:entry) = (count(f:entry/f:fullUrl) + count(f:entry[not(f:fullUrl)]/f:request/f:method/@value='POST'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
+      <constraint>
+        <key value="bdl-16"/>
+        <severity value="error"/>
+        <human value="Issue.severity for all issues within the OperationOutcome must be either 'information' or 'warning'."/>
+        <expression value="Bundle.issues.exists() implies (Bundle.issues.OperationOutcome.issue.severity = 'information' or Bundle.issues.OperationOutcome.issue.severity = 'warning')"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-17"/>
+        <severity value="error"/>
+        <human value="Use and meaning of Bundle.issues for documents has not been validated because the content will not be rendered in the document."/>
+        <expression value="type = 'document' implies Bundle.issues.empty()"/>
+      </constraint>
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
@@ -293,7 +305,7 @@
       <path value="Bundle.total"/>
       <short value="If search, the total number of matches"/>
       <definition
-        value="If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
+        value="If a set of search matches, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
       <comment
         value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
       <min value="0"/>
