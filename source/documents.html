@@ -34,18 +34,17 @@ Applications claiming conformance to this framework claim to be conformant to
 </p>
 <p>
 FHIR documents may be 'clinical' (focused on patient healthcare information) but
-may also serve non-clinical purposes (e.g. FHIR Implementation guides, practice
-guidelines, patient handouts, etc.)
+may also serve non-clinical purposes (e.g. practice guidelines, patient handouts, etc.).
 HL7 will develop profiles in the future giving additional guidance on appropriate
-representation of clinical documents in general as well as specific types of clinical
-documents (e.g. Consolidated CDA).
+representation of clinical documents in general, specific types of clinical
+documents (e.g. Consolidated CDA), and other non-clinical documents.
 </p>
 <p>FHIR documents are not intended to capture unbounded data sets such as a full EHR. Rather, consider the <a href="https://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for such use cases. </p>
 
 <p>
-Note that FHIR defines both this document format and a <a href="documentreference.html">document reference resource</a>.
-FHIR documents are for documents that are authored and assembled in FHIR, while the document reference resource is for
-general references to pre-existing documents.
+Note that FHIR defines both this document format and a <a href="documentreference.html">DocumentReference resource</a>.
+FHIR documents are for documents that are authored and assembled in FHIR, while the DocumentReference resource is for
+general references to documents (which may include FHIR documents as well as PDFs, CDAs, etc.).
 </p>
 <ul>
  <li><a href="document-example-dischargesummary.html">Example discharge summary</a>: <a href="document-example-dischargesummary.xml.html">XML</a> or <a href="document-example-dischargesummary.json.html">JSON</a></li>
