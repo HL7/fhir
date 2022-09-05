@@ -16,7 +16,6 @@
   <base value="Patient"/>
   <type value="reference"/>
   <expression value="DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement').value"/>
-  <xpath value="f:DocumentReference/f:extension[@url='http://example.org/fhir/StructureDefinition/participation-agreement']/f:valueReference"/>
   <processingMode value="normal"/>
   <target value="DocumentReference"/>
 </SearchParameter>

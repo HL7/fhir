@@ -42,6 +42,5 @@
 	<base value="Resource"/>
 	<type value="token"/>
 	<expression value="id"/>
-	<xpath value="f:*/f:id"/>
 	<processingMode value="normal"/>
 </SearchParameter>
