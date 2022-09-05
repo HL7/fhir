@@ -150,6 +150,8 @@ Notes:
  <li>The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification</li>
  <li>All pages in the specification identify their status explicitly. A few pages are Table of contents or other kinds of navigational pages, and are <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
+ <li>When a shared <a href="searchparameter.html">SearchParameter</a> is marked as normative and is used on a non-normative resource, the SearchParameter definition is considered to be normative and its definition is subject
+   to normative inter-version compatibility rules.  However, its use (and path expression) with respect to any informative resources it applies to is still considered to be STU and subject to change as the associated STU resource(s) evolve.</li>
 </ul>
 
 <p>
