@@ -20,12 +20,12 @@
 
     <name value="Washington, DC metro area"/>
 
-    <physicalType> <!-- This location is a collection of buildings or other locations such as a site or a campus -->
+    <form> <!-- This location is a collection of buildings or other locations such as a site or a campus -->
         <coding>
             <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"/>
             <code value="area"/>
             <display value="Area"/>
         </coding>
-    </physicalType>
+    </form>
 
 </Location>
