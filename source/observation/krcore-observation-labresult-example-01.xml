@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="krcore-observation-labresult-example-01"/>
+  <meta>
+    <profile value="https://example.org/fhir/krcore/StructureDefinition/krcore-observation-labresult"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="laboratory"/>
+      <display value="Laboratory"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="https://hira.or.kr/CodeSystem/lab-result-code"/>
+      <code value="FZ811"/>
+      <display value="연속혈당측정검사"/>
+    </coding>
+    <text value="연속혈당측정검사"/>
+  </code>
+  <subject>
+    <reference value="Patient/ch-example"/>
+  </subject>
+  <effectiveDateTime value="2021-01-01"/>
+  <valueQuantity>
+    <value value="76.0"/>
+    <unit value="mg/dL"/>
+    <system value="http://unitsofmeasure.org"/>
+  </valueQuantity>
+  <referenceRange>
+    <low>
+      <value value="40.0"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </low>
+    <high>
+      <value value="109.0"/>
+      <unit value="mg/dL"/>
+      <system value="http://unitsofmeasure.org"/>
+      <code value="mg/dL"/>
+    </high>
+  </referenceRange>
+</Observation>
