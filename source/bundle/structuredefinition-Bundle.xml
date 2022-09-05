@@ -329,15 +329,13 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="code"/>
       </type>
       <isSummary value="true"/>
-      <!--
       <binding>
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/iana-link-relations"/>
       </binding>
-      -->
     </element>
     <element id="Bundle.link.url">
       <path value="Bundle.link.url"/>
@@ -673,7 +671,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="Bundle.issues"/>
-      <short value="issues"/>
+      <short value="Issues with the Bundle"/>
       <definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
       <comment
         value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
