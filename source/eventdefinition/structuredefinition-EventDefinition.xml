@@ -185,6 +185,10 @@
 			</type>
 			<condition value="cnl-0"/>
 			<isSummary value="true"/>
+			<mapping>
+				<identity value="workflow"/>
+				<map value="Definition.name"/>
+			</mapping>
 		</element>
 		<element id="EventDefinition.title">
 			<path value="EventDefinition.title"/>

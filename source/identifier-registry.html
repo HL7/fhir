@@ -17,58 +17,29 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> datatype.
-If a URI is defined here, it SHALL be used in preference to any other identifying mechanism. If an identifier system is not listed
-here, the correct URI may be determined by working through the following list, in order:
+Identifier systems are URIs that may be used in the <i>system</i> element of the <a href="datatypes.html#Identifier">Identifier</a> datatype.  In the past,
+this page included a list of registered URIs approved for use.  However, this content has been migrated to a location that can be maintained more actively.
 </p>
-<ul>
- <li>the HL7 OID Registry</li>
- <li>the documentation associated with the identifier</li>
- <li>consulting the owner of the identifier</li>
- <li>asking on the HL7 vocabulary mailing list</li>
-</ul>
+<p>
+HL7 Terminology (<a href="http://terminology.hl7.org">http://terminology.hl7.org</a>) provides a registry of Identifier systems which are actively curated by HL7 International. 
+If a URI is defined in HL7 Terminology, it <b>SHOULD</b> be used in preference to any other Identifier.system.  If the URI was defined in HL7 Terminology prior to an official release 
+of the FHIR core specification, those URIs <b>SHALL</b> be used in preference to any other Identifier.system.  I.e. all system URIs defined on terminology.hl7.org prior to the
+release of FHIR R5 <b>SHALL</b> be used in systems claiming conformance to FHIR R5.
+</p>
+<p>
+Many identifier systems are 'local', for example the identifiers used for employee numbers, local medical record numbers, local order and encounter numbers, etc.  The system
+URIs for such identifiers are generally determined and managed by the issuing system.  However, 'shared' identifiers that are used across a wide variety of systems, such as
+license numbers, government-assigned identifiers, etc. need to have consistent URIs.  In most cases, the assigners of these identifiers will not have published an official
+URI.
+</p>
+<p>
+If an identifier system for a 'shared' identifier is not listed in HL7 Terminology, implementers <b>SHOULD</b> (and HL7 international published specifications <b>SHALL</b>) follow the
+process for determining Identifier.system URIs defined by the HL7 Terminology Authority, as documented
+<a href="https://confluence.hl7.org/display/TA/Validating+and+Requesting+Identifiers+for+an+External+Code+Systems+and+Identifier+Systems">here</a>.
+</p>
 <p>
 See also the <a href="terminologies-systems.html">list of known coding systems</a> that can be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> datatype.
-Additional identifier systems may be registered on the HL7 FHIR registry at <a href="http://hl7.org/fhir/registry">http://hl7.org/fhir/registry</a>.
 </p>
-[%impl-note%]
-This list of URIs is incomplete and subject to change.
-Some values may be dropped and others will likely be added in the coming months as HL7
-institutes formal processes around URIs in vocabulary.
-[%end-note%]
-
-
-<p>
-The URI column indicates the correct value to use in the <a href="datatypes.html#Identifier">Identifier</a>.<code>system</code>. 
-The OID is provided for compatibility with <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>/<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> based systems.
-Note that any URL in <code>http://example.org</code> is reserved for testing and documentation purposes.
-Type is a code from the <a href="http://terminology.hl7.org/CodeSystem-v2-0203.html">Identifier Type</a> 
-code system that SHALL be used in <a href="datatypes-definitions.html#Identifier.type"><code>Identifier.type</code></a> if <code>Identifier.type</code> is 
-present at all when conveying the specified identifier.
-</p>
-
-<table class="grid">
- <tr>
-   <th>identifier</th>
-   <th>URI</th>
-   <th>OID (for non-FHIR systems)</th>
-   <th>Type</th>
-   <th>Comment</th>
- </tr>
-
- <tr style="border-bottom: 0px">
-   <td>URIs (<a href="http://www.w3.org">W3C</a>): when the identifier is a URI</td>
-   <td>urn:ietf:rfc:3986 <a name="rn:ietf:rfc:3986"></a></td>
-   <td>2.16.840.1.113883.4.873</td>
-   <td></td>
-   <td>As defined by <a href="http://www.ietf.org/rfc/rfc3986.txt">RFC 3986</a> (with many schemes defined in many RFCs). 
-   For OIDs and UUIDs, use the URN form (<a href="http://www.ietf.org/rfc/rfc3001.txt">urn:oid:</a> (note: lowercase) and <a href="http://www.ietf.org/rfc/rfc4122.txt">urn:uuid:</a></td>
- </tr>
- <%identifierlist%>
-
-</table>
-
-
 
 [%file newfooter%]
     

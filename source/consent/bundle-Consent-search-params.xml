@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Consent.provision.action"/>
         <xpath value="f:Consent/f:provision/f:action"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="Consent.provision.actor.reference"/>
         <xpath value="f:Consent/f:provision/f:actor/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Consent.category"/>
         <xpath value="f:Consent/f:category"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="Consent.grantee"/>
         <xpath value="f:Consent/f:grantee"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Consent.controller"/>
         <xpath value="f:Consent/f:controller"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Consent.provision.data.reference"/>
         <xpath value="f:Consent/f:provision/f:data/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="date"/>
         <expression value="Consent.dateTime"/>
         <xpath value="f:Consent/f:dateTime"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="token"/>
         <expression value="Consent.identifier"/>
         <xpath value="f:Consent/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="reference"/>
         <expression value="Consent.manager"/>
         <xpath value="f:Consent/f:manager"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="reference"/>
         <expression value="Consent.subject.where(resolve() is Patient)"/>
         <xpath value="f:Consent/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -219,7 +219,7 @@
         <type value="date"/>
         <expression value="Consent.provision.period"/>
         <xpath value="f:Consent/f:provision/f:period"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -240,7 +240,7 @@
         <type value="uri"/>
         <expression value="Consent.policy.uri"/>
         <xpath value="f:Consent/f:policy/f:uri"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -261,7 +261,7 @@
         <type value="token"/>
         <expression value="Consent.provision.purpose"/>
         <xpath value="f:Consent/f:provision/f:purpose"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -282,7 +282,7 @@
         <type value="token"/>
         <expression value="Consent.provision.securityLabel"/>
         <xpath value="f:Consent/f:provision/f:securityLabel"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -302,7 +302,7 @@
         <type value="reference"/>
         <expression value="Consent.sourceReference"/>
         <xpath value="f:Consent/f:sourceReference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -322,7 +322,7 @@
         <type value="token"/>
         <expression value="Consent.status"/>
         <xpath value="f:Consent/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -342,7 +342,7 @@
         <type value="reference"/>
         <expression value="Consent.subject"/>
         <xpath value="f:Consent/f:subject"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -362,7 +362,7 @@
         <type value="token"/>
         <expression value="Consent.verification.verified"/>
         <xpath value="f:Consent/f:verification/f:verified"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -382,7 +382,7 @@
         <type value="date"/>
         <expression value="Consent.verification.verificationDate"/>
         <xpath value="f:Consent/f:verification/f:verificationDate"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

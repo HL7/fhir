@@ -19,7 +19,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.condition"/>
         <xpath value="f:ResearchStudy/f:condition"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -40,7 +40,7 @@
         <type value="date"/>
         <expression value="ResearchStudy.period"/>
         <xpath value="f:ResearchStudy/f:period"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -60,7 +60,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.focus"/>
         <xpath value="f:ResearchStudy/f:focus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -80,7 +80,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.identifier"/>
         <xpath value="f:ResearchStudy/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -100,7 +100,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.keyword"/>
         <xpath value="f:ResearchStudy/f:keyword"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -120,7 +120,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.region"/>
         <xpath value="f:ResearchStudy/f:region"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -140,7 +140,7 @@
         <type value="reference"/>
         <expression value="ResearchStudy.partOf"/>
         <xpath value="f:ResearchStudy/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -160,7 +160,7 @@
         <type value="reference"/>
         <expression value="ResearchStudy.protocol"/>
         <xpath value="f:ResearchStudy/f:protocol"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -181,7 +181,7 @@
         <type value="number"/>
         <expression value="ResearchStudy.recruitment.actualNumber"/>
         <xpath value="f:ResearchStudy/f:recruitment/f:actualNumber"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -202,7 +202,7 @@
         <type value="number"/>
         <expression value="ResearchStudy.recruitment.targetNumber"/>
         <xpath value="f:ResearchStudy/f:recruitment/f:targetNumber"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -223,7 +223,7 @@
         <type value="reference"/>
         <expression value="ResearchStudy.site"/>
         <xpath value="f:ResearchStudy/f:site"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -243,7 +243,7 @@
         <type value="token"/>
         <expression value="ResearchStudy.status"/>
         <xpath value="f:ResearchStudy/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -263,7 +263,7 @@
         <type value="string"/>
         <expression value="ResearchStudy.title"/>
         <xpath value="f:ResearchStudy/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

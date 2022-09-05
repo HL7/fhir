@@ -109,9 +109,11 @@ example1 action lipid panel -in progress =>. example2 specimen collection subtas
 	</owner>
 	<!--	populate the reason just to demonstrate it use in this example
 -->
-	<reasonCode>
-		<text value="The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"/>
-	</reasonCode>
+	<reason>
+	  <concept>
+      <text value="The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"/>
+	  </concept>
+	</reason>
 	<note>
 		<text value="This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
 	</note>

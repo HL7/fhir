@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="(ImplementationGuide.useContext.value as CodeableConcept)"/>
         <xpath value="f:ImplementationGuide/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="quantity"/>
         <expression value="(ImplementationGuide.useContext.value as Quantity) | (ImplementationGuide.useContext.value as Range)"/>
         <xpath value="f:ImplementationGuide/f:useContext/f:valueQuantity | f:ImplementationGuide/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="ImplementationGuide.useContext.code"/>
         <xpath value="f:ImplementationGuide/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="ImplementationGuide.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="ImplementationGuide.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -126,7 +126,7 @@
         <type value="date"/>
         <expression value="ImplementationGuide.date"/>
         <xpath value="f:ImplementationGuide/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="reference"/>
         <expression value="ImplementationGuide.dependsOn.uri"/>
         <xpath value="f:ImplementationGuide/f:dependsOn/f:uri"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="string"/>
         <expression value="ImplementationGuide.description"/>
         <xpath value="f:ImplementationGuide/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="token"/>
         <expression value="ImplementationGuide.experimental"/>
         <xpath value="f:ImplementationGuide/f:experimental"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="reference"/>
         <expression value="ImplementationGuide.global.profile"/>
         <xpath value="f:ImplementationGuide/f:global/f:profile"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="token"/>
         <expression value="ImplementationGuide.jurisdiction"/>
         <xpath value="f:ImplementationGuide/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="string"/>
         <expression value="ImplementationGuide.name"/>
         <xpath value="f:ImplementationGuide/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="string"/>
         <expression value="ImplementationGuide.publisher"/>
         <xpath value="f:ImplementationGuide/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="reference"/>
         <expression value="ImplementationGuide.definition.resource.reference"/>
         <xpath value="f:ImplementationGuide/f:definition/f:resource/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="token"/>
         <expression value="ImplementationGuide.status"/>
         <xpath value="f:ImplementationGuide/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -326,7 +326,7 @@
         <type value="string"/>
         <expression value="ImplementationGuide.title"/>
         <xpath value="f:ImplementationGuide/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -346,7 +346,7 @@
         <type value="uri"/>
         <expression value="ImplementationGuide.url"/>
         <xpath value="f:ImplementationGuide/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -366,7 +366,7 @@
         <type value="token"/>
         <expression value="ImplementationGuide.version"/>
         <xpath value="f:ImplementationGuide/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

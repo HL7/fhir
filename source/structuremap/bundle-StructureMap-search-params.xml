@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="(StructureMap.useContext.value as CodeableConcept)"/>
         <xpath value="f:StructureMap/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="quantity"/>
         <expression value="(StructureMap.useContext.value as Quantity) | (StructureMap.useContext.value as Range)"/>
         <xpath value="f:StructureMap/f:useContext/f:valueQuantity | f:StructureMap/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="StructureMap.useContext.code"/>
         <xpath value="f:StructureMap/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="StructureMap.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="StructureMap.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -126,7 +126,7 @@
         <type value="date"/>
         <expression value="StructureMap.date"/>
         <xpath value="f:StructureMap/f:date"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -146,7 +146,7 @@
         <type value="string"/>
         <expression value="StructureMap.description"/>
         <xpath value="f:StructureMap/f:description"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,7 +166,7 @@
         <type value="token"/>
         <expression value="StructureMap.identifier"/>
         <xpath value="f:StructureMap/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <type value="token"/>
         <expression value="StructureMap.jurisdiction"/>
         <xpath value="f:StructureMap/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -206,7 +206,7 @@
         <type value="string"/>
         <expression value="StructureMap.name"/>
         <xpath value="f:StructureMap/f:name"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -226,7 +226,7 @@
         <type value="string"/>
         <expression value="StructureMap.publisher"/>
         <xpath value="f:StructureMap/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -246,7 +246,7 @@
         <type value="token"/>
         <expression value="StructureMap.status"/>
         <xpath value="f:StructureMap/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -266,7 +266,7 @@
         <type value="string"/>
         <expression value="StructureMap.title"/>
         <xpath value="f:StructureMap/f:title"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -286,7 +286,7 @@
         <type value="uri"/>
         <expression value="StructureMap.url"/>
         <xpath value="f:StructureMap/f:url"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -306,7 +306,7 @@
         <type value="token"/>
         <expression value="StructureMap.version"/>
         <xpath value="f:StructureMap/f:version"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

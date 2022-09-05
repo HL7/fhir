@@ -11604,6 +11604,14 @@
     <display value="Black-winged bronze turkey"/>
     <display value="Black-winged bronze turkey (organism)"/>
   </concept>
+  <concept id="24028007" display="Right">
+    <display value="Right"/>
+    <display value="Right lateral"/>
+    <display value="Dextro"/>
+    <display value="Right (qualifier value)"/>
+    <display value="Rt - Right"/>
+    <display value="Right side"/>
+  </concept>
   <concept id="240613006" display="Typhus group rickettsial disease">
     <display value="Typhus group rickettsial disease"/>
     <display value="Typhus group rickettsial disease (disorder)"/>
@@ -16753,6 +16761,14 @@
   <concept id="7767003" display="Lamona chicken">
     <display value="Lamona chicken"/>
     <display value="Lamona chicken (organism)"/>
+  </concept>
+  <concept id="7771000" display="Left">
+    <display value="Left"/>
+    <display value="Left lateral"/>
+    <display value="Levo-"/>
+    <display value="Left (qualifier value)"/>
+    <display value="Left side"/>
+    <display value="Lt - Left"/>
   </concept>
   <concept id="77839002" display="Thuringer chicken">
     <display value="Thuringer chicken"/>

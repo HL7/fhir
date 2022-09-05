@@ -18,7 +18,7 @@
         <type value="date"/>
         <expression value="Task.authoredOn"/>
         <xpath value="f:Task/f:authoredOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="Task.basedOn"/>
         <xpath value="f:Task/f:basedOn"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="Task.businessStatus"/>
         <xpath value="f:Task/f:businessStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="token"/>
         <expression value="Task.code"/>
         <xpath value="f:Task/f:code"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -98,7 +98,7 @@
         <type value="reference"/>
         <expression value="Task.encounter"/>
         <xpath value="f:Task/f:encounter"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -118,7 +118,7 @@
         <type value="reference"/>
         <expression value="Task.focus"/>
         <xpath value="f:Task/f:focus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -138,7 +138,7 @@
         <type value="token"/>
         <expression value="Task.groupIdentifier"/>
         <xpath value="f:Task/f:groupIdentifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -158,7 +158,7 @@
         <type value="token"/>
         <expression value="Task.identifier"/>
         <xpath value="f:Task/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -178,7 +178,7 @@
         <type value="token"/>
         <expression value="Task.intent"/>
         <xpath value="f:Task/f:intent"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -198,7 +198,7 @@
         <type value="date"/>
         <expression value="Task.lastModified"/>
         <xpath value="f:Task/f:lastModified"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -218,7 +218,7 @@
         <type value="reference"/>
         <expression value="Task.output"/>
         <xpath value="f:Task/f:output"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -238,7 +238,7 @@
         <type value="reference"/>
         <expression value="Task.owner"/>
         <xpath value="f:Task/f:owner"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -258,7 +258,7 @@
         <type value="reference"/>
         <expression value="Task.partOf"/>
         <xpath value="f:Task/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -278,7 +278,7 @@
         <type value="reference"/>
         <expression value="Task.for.where(resolve() is Patient)"/>
         <xpath value="f:Task/f:for"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -299,7 +299,7 @@
         <type value="token"/>
         <expression value="Task.requestedPerformer.concept"/>
         <xpath value="f:Task/f:requestedPerformer/f:concept"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -319,7 +319,7 @@
         <type value="reference"/>
         <expression value="Task.requestedPerformer.reference"/>
         <xpath value="f:Task/f:requestedPerformer/f:reference"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -339,7 +339,7 @@
         <type value="date"/>
         <expression value="Task.executionPeriod"/>
         <xpath value="f:Task/f:executionPeriod"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -359,7 +359,7 @@
         <type value="token"/>
         <expression value="Task.priority"/>
         <xpath value="f:Task/f:priority"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -379,7 +379,7 @@
         <type value="reference"/>
         <expression value="Task.requester"/>
         <xpath value="f:Task/f:requester"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -399,7 +399,7 @@
         <type value="token"/>
         <expression value="Task.status"/>
         <xpath value="f:Task/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -419,7 +419,7 @@
         <type value="reference"/>
         <expression value="Task.for"/>
         <xpath value="f:Task/f:for"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

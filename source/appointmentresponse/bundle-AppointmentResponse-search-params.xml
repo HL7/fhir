@@ -18,7 +18,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.actor"/>
         <xpath value="f:AppointmentResponse/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.appointment"/>
         <xpath value="f:AppointmentResponse/f:appointment"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -58,7 +58,7 @@
         <type value="token"/>
         <expression value="AppointmentResponse.identifier"/>
         <xpath value="f:AppointmentResponse/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -78,7 +78,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.actor.where(resolve() is Location)"/>
         <xpath value="f:AppointmentResponse/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Location"/>
       </SearchParameter>
     </resource>
@@ -99,7 +99,7 @@
         <type value="token"/>
         <expression value="AppointmentResponse.participantStatus"/>
         <xpath value="f:AppointmentResponse/f:participantStatus"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -119,7 +119,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.actor.where(resolve() is Patient)"/>
         <xpath value="f:AppointmentResponse/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
@@ -140,7 +140,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.actor.where(resolve() is Group)"/>
         <xpath value="f:AppointmentResponse/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Group"/>
       </SearchParameter>
     </resource>
@@ -161,7 +161,7 @@
         <type value="reference"/>
         <expression value="AppointmentResponse.actor.where(resolve() is Practitioner)"/>
         <xpath value="f:AppointmentResponse/f:actor"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <target value="Practitioner"/>
       </SearchParameter>
     </resource>

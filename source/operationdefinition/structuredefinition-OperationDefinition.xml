@@ -207,7 +207,7 @@
 			<isSummary value="true"/>
 			<mapping>
 				<identity value="workflow"/>
-				<map value="Definition.title"/>
+				<map value="Definition.name"/>
 			</mapping>
 		</element>
 		<element id="OperationDefinition.title">

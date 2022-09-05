@@ -94,10 +94,6 @@
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="clinical.general"/>
       </mapping>
@@ -123,10 +119,6 @@
       </constraint>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
@@ -143,10 +135,6 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -167,10 +155,6 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.version"/>
@@ -201,10 +185,6 @@
         <code value="string"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.title"/>
-      </mapping>
     </element>
     <element id="EvidenceVariable.shortTitle">
       <path value="EvidenceVariable.shortTitle"/>
@@ -253,10 +233,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
@@ -285,10 +261,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.date"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.recorded"/>
       </mapping>
@@ -306,10 +278,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
@@ -325,10 +293,6 @@
         <code value="ContactDetail"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
     </element>
     <element id="EvidenceVariable.description">
       <path value="EvidenceVariable.description"/>
@@ -341,10 +305,6 @@
         <code value="markdown"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.description"/>
-      </mapping>
     </element>
     <element id="EvidenceVariable.note">
       <path value="EvidenceVariable.note"/>
@@ -368,10 +328,6 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
     </element>
     <element id="EvidenceVariable.copyright">
       <path value="EvidenceVariable.copyright"/>

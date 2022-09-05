@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Subscription.contact"/>
         <xpath value="f:Subscription/f:contact"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Subscription.identifier"/>
         <xpath value="f:Subscription/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -53,7 +53,7 @@
         <description value="The mime-type of the notification payload"/>
         <code value="payload"/>
         <type value="token"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -73,7 +73,7 @@
         <type value="token"/>
         <expression value="Subscription.status"/>
         <xpath value="f:Subscription/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -88,7 +88,7 @@
         <description value="The type of channel for the sent notifications"/>
         <code value="type"/>
         <type value="token"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -103,7 +103,7 @@
         <description value="The uri that will receive the notifications"/>
         <code value="url"/>
         <type value="uri"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

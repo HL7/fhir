@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="EvidenceReport"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -104,6 +105,9 @@
       <requirements value="Allows the EvidenceReport to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
       <constraint>
         <key value="cnl-1"/>
         <severity value="warning"/>
@@ -112,14 +116,7 @@
         <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
-      <type>
-        <code value="uri"/>
-      </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.url"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -151,10 +148,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.status"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.status"/>
       </mapping>
@@ -171,10 +164,6 @@
         <code value="UsageContext"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.useContext"/>
-      </mapping>
     </element>
     <element id="EvidenceReport.identifier">
       <path value="EvidenceReport.identifier"/>
@@ -188,10 +177,6 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.identifier"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -379,10 +364,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.publisher"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
       </mapping>
@@ -398,10 +379,6 @@
         <code value="ContactDetail"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.contact"/>
-      </mapping>
     </element>
     <element id="EvidenceReport.author">
       <path value="EvidenceReport.author"/>

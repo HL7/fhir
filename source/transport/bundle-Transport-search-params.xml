@@ -18,7 +18,7 @@
         <type value="token"/>
         <expression value="Transport.identifier"/>
         <xpath value="f:Transport/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>   
@@ -38,7 +38,7 @@
         <type value="token"/>
         <expression value="Transport.status"/>
         <xpath value="f:Transport/f:status"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

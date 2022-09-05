@@ -1,27 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains site of administration concepts.</p>
-      <p>Possible sources include:</p>
-      <ul>
-        <li>SNOMED CT - selected children of SCTID:91723000 &quot;anatomical structure&quot; (note: there would need to be considerable selection 
-          of concepts as the full child subset would be too big and too detailed for use)</li>
-        <li>ISO 11239 - Intended site</li>
-        <li>NCIt - selected children of NCIt concept C74444456 &quot;anatomical location&quot; (note: this is the SDTM location concepts; 
-          it would also need subsetting to provide a usable set of medication administration)
-          Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or 
-          route of administration (e.g.  &quot;rub into left hand&quot; where &quot;rub in&quot; is the method or &quot;IV into left subclavian vein&quot; where &quot;IV&quot; is the route) should not be used in this value set</li>
-      </ul>
-      <p>SNOMED CT is being used here as the example terminology.</p>
-      <p>Note: to avoid confusion with other attributes in this resource concepts that are pre-coordinated with method and/or 
-        route of administration (e.g.  &quot;rub into left hand&quot; where &quot;rub in&quot; is the method or &quot;IV into left subclavian vein&quot; where &quot;IV&quot; is the route) should not be used in this value set
-      </p>
-      <p>This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org</p>  
-    </div>
-  </text>
+  
   <name value="SNOMED CT Anatomical Structure for Administration Site Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>

@@ -84,10 +84,6 @@
       <min value="1"/>
       <max value="1"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="conformance.behavior"/>
       </mapping>
@@ -102,10 +98,6 @@
       <type>
         <code value="date"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
       <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
@@ -123,10 +115,6 @@
         <code value="date"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
-      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -143,10 +131,6 @@
         <code value="Period"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
       <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
