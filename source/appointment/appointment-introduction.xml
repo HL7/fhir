@@ -179,8 +179,8 @@
 		defines when it occurs (there is no template).
 	</p>
 
-	[%stu-note%]
-		<b>Note:</b>  We are seeking input from the implementer community on the recurring appointment functionality
+	[%stu-note dstu2%]
+		We are seeking input from the implementer community on the recurring appointment functionality
 		and specifically if there is a need for a "recur forever" or similar flag.
 		</p>
 		<p>

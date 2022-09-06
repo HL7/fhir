@@ -67,15 +67,12 @@
       progress, or time to completion, enabling capture of important task metrics in support of
       optimization and quality improvement. </p>
 
-      <blockquote class="stu-note">
-      <a name="dstu"></a>
-      <p>
-      <b>Note:</b> Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.<br/>
+      [%stu-note dstu%]
+      Currently, task pre-requisites can be represented using Task's `description` element or the <a href="requestorchestration.html">RequestOrchestration</a> resource. We are seeking input from the implementer community in evaluating whether there is need for adding another mechanism to this resource for this purpose.
       </p>
       <p>
       Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
-      </p>
-      </blockquote>
+      [%end-note%]
 
 
 

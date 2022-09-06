@@ -21,8 +21,8 @@ impression that this impression follows.
  <p>An impression is a clinical summation of information and/or an opinion formed, which is the outcome of the clinical assessment process.  The ClinicalImpression may lead to a statement of a Condition about a patient.</p>
   
   <p>In FHIR, an assessment is typically an instrument or tool used to collect information about a patient.</p>
-<a name="dstu"></a>
-[%stu-note%]
+
+[%stu-note dstu%]
 Unlike many other resources, there is little prior art with regard to exchanging records of 
 clinical assessments. For this reason, this resource should be regarded as particularly 
 prone to ongoing revision. In terms of scope and usage, the Patient Care workgroup wishes to

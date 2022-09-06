@@ -8,9 +8,6 @@
 <body>
 [%file newnavbar%]
 
-
-
-
 <h2>Outstanding Issues</h2>
 
 <table class="colsi"><tbody><tr><td id="wg"><a href="http://www.hl7.org/Special/committees/fiwg/index.cfm" _target="blank">FHIR Infrastructure </a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:  <!-- !ns! --><a href="versions.html#std-process">Informative</a></td></tr></tbody></table>
@@ -36,31 +33,44 @@ consideration.
 
 <p>
 In addition, there are a number of specific notes in the specification requesting feedback
-from implementers:
+from implementers, or alerting implementers to open issues:
 </p>
 <a name="todo"></a>
 <ul>
-
-  <li><a href="allergyintolerance.html#dstu0">AllergyIntolerance</a>: new codes needed for certainty?</li>
-  <li><a href="allergyintolerance.html#dstu">AllergyIntolerance</a>: How should "No Known Allergies" be represented?</li>
-  <li><a href="appointment.html#dstu">Appointment</a>: Values for Appointment.priority: how interoperable are they</li>
+  <li><a href="appointment.html#dstu">Appointment</a>: Values for Appointment.priority: how interoperable are they?</li>
+  <li><a href="appointment.html#dstu2">Appointment</a>: Question about recurring appointment functionality</li>
+  <li><a href="basic.html#dstu">Basic</a>: How explicit should the specification be about using Basic for inter-version hacking?</li>
+  <li><a href="bundle.html#dstu">Bundle</a>: Question around summary and nested resources</li>
+  <li><a href="compatibilitystatement.html#reverse">CompatibilityStatement</a>: Question about support for reverse chaining</li>
+  <li><a href="compatibilitystatement.html#search">CompatibilityStatement</a>: General note about support</li>  
   <li><a href="clinicalimpression.html#dstu">ClinicalImpression</a>: General Questions about use</li>
   <li><a href="clinicalreasoning-module.html#crm-feedback">Clinical Reasoning</a>: Multiple questions about implementation and usage</li>
   <li><a href="composition.html#dstu">Composition</a>: Is title different to type? and open questions about document signatures</li>
   <li><a href="condition.html#dstu-1">Condition</a>: How should "No Known Problems" be represented?</li>
   <li><a href="devicerequest.html#dstu">DeviceRequest</a>: Should this be combined with SupplyRequest?</li>
-  <li><a href="exchange-module.html#dstu">Exchange</a>: Should support for ProtocolBuffers be added to the specification?</li>
+  <li><a href="genomicstudy.html#dstu">GenomicStudy</a>: Encouraging feedback</li>
+  <li><a href="conformance-rules.html#must-support">Must-support</a>: Implementer attention is drawn to a proposal to rework must-support</li>
   <li><a href="observation.html#dstu">Observation</a>: What is the best way to group Observations?</li>
   <li><a href="patient.html#dstu">Patient</a>: Should linking/merging affect the RESTful API?</li>
+  <li><a href="permission.html#dstu">Permission</a>: This is a draft resource</li>
+  <li><a href="person.html#advanced">Person</a>: Note about use</li>
+  <li><a href="person.html#linking1">Person</a>: Note about linking patients</li>
+  <li><a href="person.html#system">Person</a>: Note about system support</li>
+  <li><a href="population.html#dstu">Population</a>: This is a draft resource</li>
+  <li><a href="product.html#dstu">Product</a>: This is a draft resource</li>
   <li><a href="profiling.html#dstu">Profiling Resources</a>: Need feedback on using system profiles</li>
   <li><a href="references.html#dstu">References between Resources</a>: Do we need to allow contained resources that reference the container?</li>
   <li><a href="safety.html#dstu0">Safety</a>: Request for comments about further development</li>
   <li><a href="signatures.html#dstu">Security</a>: Feedback about signatures on RESTful interfaces sought</li>
-  <li><a href="subscription.html#dstu">Subscription</a>: messaging details still to be resolved</li>
-
-  <li><a href="supplyrequest.html#dstu">SupplyRequest</a>: Should this be combined with DeviceRequest?</li>
+  <li><a href="subscription.html#ws">Subscription</a>: Websockets needs further development</li>
+  <li><a href="subscription.html#msg">Subscription</a>: Messaging needs further development</li>
+  <li><a href="subscription.html#ch">Subscription</a>: Channels needs further development</li>
+  <li><a href="subscriptiontopic.html#dstu">SubscriptionTopic</a>: This is a draft resource</li>
+  <li><a href="substancepolymer.html#dstu">SubstancePolymer</a>: This is a draft resource</li>
+  <li><a href="substancereferenceinformation.html#dstu">SubstanceReferenceInformation</a>: This is a draft resource</li>
   <li><a href="storage.html#dstu">Persistent Store/Database</a>: Is a standard extension required for resolved links?</li>
   <li><a href="task.html#dstu">Task</a>: Question about pre-requisites</li>
+  <li><a href="testscript.html#dstu">TestScript</a>: Note about use for non-FHIR implementations</li>
   <li><a href="workflow.html#issues">Workflow</a>: several implementation questions</li> 
 </ul>
 [%file newfooter%]

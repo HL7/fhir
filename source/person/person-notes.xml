@@ -21,14 +21,12 @@
   The <i>person.link</i> element is used to relate resources under a common person record. 
   This element supports two primary scenarios where other resources refer to the same person resource.
   </p>
-  <blockquote class="stu-note">
-    <p>
-      <b>Note:</b> In previous versions of the FHIR specification the <i>patient.link</i> element was not able link
+  [%stu-note linking1%]
+      In previous versions of the FHIR specification the <i>patient.link</i> element was not able link
       to RelatedPerson entries, leaving the Person resource to link them. Since STU3 the patient.link property
       was updated to also support RelatedPerson, reducing the need to link using the Person resource, however this
       can still be done.
-    </p>
-  </blockquote>
+  [%end-note%]
 
 <a name="xdomain"></a>
   <h2>
@@ -70,15 +68,13 @@
   that a person may be involved with and may work in the same was as they do inside government.
   The usage of the data into the healthcare environment is not the only use of the register.
 </p>
-<blockquote class="stu-note">
-  <p>
-    <b>Note:</b>  This style of system may use the Person resource without any FHIR references
+[%stu-note system%]
+    This style of system may use the Person resource without any FHIR references
     to Patient or Practitioner resources. In these environments the Master Index is likely to
     have a master identifier that performs this logical linking.<br/>
     This style of usage has fewer security implications, as it doesn’t disclose where the
     information is being used.
-  </p>
-</blockquote>
+[%end-note%]
 
 <a name="portal"></a>
   <h2>

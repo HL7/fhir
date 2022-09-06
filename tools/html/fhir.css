@@ -19,6 +19,13 @@ blockquote.stu-note {
   border-left-color: #ffa0ff;
 }
 
+blockquote.ballot-note {
+	margin: 5px;
+	padding:10px;
+  background-color: #fce4ea;
+  border-left-color: #ffa0a9;
+}
+
 span.stu {
   padding-left: 3px;
   padding-right: 3px;

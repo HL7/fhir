@@ -2,8 +2,8 @@
 	<div style="color:#01538B;">
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		<a name="dstu"></a>
-[%stu-note%]
+
+[%stu-note dstu%]
 In terms of scope and usage, the  Orders and Observations workgroups wish to
 draw the attention of reviewers and implementers to the following issue:
 </p>
