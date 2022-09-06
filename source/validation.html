@@ -117,7 +117,7 @@ described in this specification, and which of the aspects above they can validat
   <td></td> <!-- Business Rules -->
  </tr>
  <tr>
-  <td><a href="#jar">Validator</a></td>
+  <td><a href="#validators">Validator</a></td>
   <td><img src="assets/images/tick.png"/></td> <!-- XML -->
   <td><img src="assets/images/tick.png"/></td> <!-- JSON -->
   <td><img src="assets/images/tick.png"/></td> <!-- RDF -->
@@ -152,8 +152,8 @@ Notes:
  <li>Schematron generated for a profile can test cardinality and invariants, but not bindings, and slicing is not really supported well</li>
  <li>JSON schema generated for a profile can test cardinality, and slicing is partially supported</li>
  <li>ShEx can enforce some bindings for well understood terminologies, but this is an ongoing area of development</li>
- <li>It is at the discretion of the server how much validation to perform, but most servers use the validation jar, 
-   or code derived from it, and offer the same services. Some servers also offer <a href="#web">a web interface</a></li>
+ <li>It is at the discretion of the server how much validation to perform, but most servers offer the same services as or even use the common validators.
+   Some servers also offer <a href="#web">a web interface</a></li>
 </ol>
 
 <p>
@@ -169,8 +169,8 @@ In case of disagreement between these conformance methods, note that:
 </p>
 <ul>
  <li>The schema/schematron is the least capable - mainly because it is not connected to a terminology server</li>
- <li>The java validator is only as good as the underlying definitions, and depends on whether the underlying terminology server supports all the relevant terminologies</li>
- <li>In general, the server validation operations use or derive from the java validation code, so have the same caveats</li>
+ <li>The validators are only as good as the underlying definitions, and depend on whether the underlying terminology servers support all the relevant terminologies</li>
+ <li>In general, the server validation operations use or derive from the validation code in the common validators, so have the same caveats</li>
  <li>The final arbiter is human inspection of the content of the resources, and the relevant implementation guides and base specification</li>
 </ul>
 
@@ -250,61 +250,11 @@ Links:
 </ul>
 
 
-<a name="jar"></a>
-<h3>Using the FHIR Validator</h3>
+<a name="validators"></a>
+<h3>Using FHIR validators</h3>
 
 <p>
-The FHIR Validator is a Java jar that is provided as part of the specification, and that is used 
-during the publication process to validate all the published examples. To 
-execute the FHIR validator, follow the following steps:
-</p>
-<ul>
- <li><a href="downloads.html">Download</a> the FHIR Validator</li>
- <li>Execute the validator, specifying the version, and a reference to the resource to validate</li>
-</ul>
-<p>
-Here is an example windows batch file that demonstrates the process (using the common utilities <a href="http://gnuwin32.sourceforge.net/packages/wget.htm">wget</a> and <a href="http://www.7-zip.org/">7z</a>):
-</p>
-<pre>
-@ECHO OFF
-
- ECHO get the validator and unzip it 
- wget https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&amp;g=ca.uhn.hapi.fhir&amp;a=org.hl7.fhir.validation.cli&amp;v=LATEST&amp;e=jar
- rename *.jar validator.jar
-
- ECHO 1. First example shows how to validate against the base spec:
- ECHO   a. get an example to validate
- wget <%baseURLn%>patient-example.xml -O pat-ex.xml
-
- ECHO   b. validate it against FHIR R3 
- java -jar org.hl7.fhir.validator.jar pat-ex.xml -version 3.0
-
- ECHO 2. Second example shows how to validate against a profile in the spec:
- ECHO   a. get an example to validate
- wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
-
- ECHO   b. validate it
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -version <%version%> -profile http://hl7.org/fhir/StructureDefinition/heartrate
-
- ECHO 3. Third example shows how to validate against a profile in an implementation guide:
- ECHO   a. get an example to validate
- wget <%baseURLn%>observation-example-heart-rate.xml -O obs-ex.xml
-
- ECHO   b. validate it. note that you have to tell the validator where to get the implementation guide information
- java -jar org.hl7.fhir.validator.jar obs-ex.xml -version 3.0 -ig http://hl7.org/fhir/us/core -profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-
- ECHO Press Any Key to Close
- pause
-</pre>
-<p>
-Note that it is not necessary to download the resource first; the http address can be supplied directly:
-</p>
-<pre>
- java -jar org.hl7.fhir.validator.jar <%baseURLn%>/patient-example.html -profile http://hl7.org/fhir/StructureDefinition/Patient
-</pre>
-<p>
-The validator requires an underlying terminology server. By default, this is http://fhir3.healthintersections.com.au. 
-For further details of the parameters supported by the validator, see <a href="https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator">Using the FHIR Validator</a>
+  See the HL7 Confluence for an overview of <a href="https://confluence.hl7.org/display/FHIR/FHIR+Tools+Registry">commonly used tools to help with implementing FHIR, including FHIR validators</a>.
 </p>
 
 <a name="op"></a>
