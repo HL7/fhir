@@ -17,7 +17,7 @@
         <code value="container"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.typeTested.container.type"/>
-        <xpath value="f:SpecimenDefinition/f:typeTested/f:container/f:type"/>
+        <!--<xpath value="f:SpecimenDefinition/f:typeTested/f:container/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.experimental"/>
-        <xpath value="f:SpecimenDefinition/f:experimental"/>
+        <!--<xpath value="f:SpecimenDefinition/f:experimental"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.identifier"/>
-        <xpath value="f:SpecimenDefinition/f:identifier"/>
+        <!--<xpath value="f:SpecimenDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="is-derived"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.typeTested.isDerived"/>
-        <xpath value="f:SpecimenDefinition/f:typeTested/f:isDerived"/>
+        <!--<xpath value="f:SpecimenDefinition/f:typeTested/f:isDerived"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.status"/>
-        <xpath value="f:SpecimenDefinition/f:status"/>
+        <!--<xpath value="f:SpecimenDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="SpecimenDefinition.title"/>
-        <xpath value="f:SpecimenDefinition/f:title"/>
+        <!--<xpath value="f:SpecimenDefinition/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.typeCollected"/>
-        <xpath value="f:SpecimenDefinition/f:typeCollected"/>
+        <!--<xpath value="f:SpecimenDefinition/f:typeCollected"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="type-tested"/>
         <type value="token"/>
         <expression value="SpecimenDefinition.typeTested.type"/>
-        <xpath value="f:SpecimenDefinition/f:typeTested/f:type"/>
+        <!--<xpath value="f:SpecimenDefinition/f:typeTested/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="SpecimenDefinition.url"/>
-        <xpath value="f:SpecimenDefinition/f:url"/>
+        <!--<xpath value="f:SpecimenDefinition/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

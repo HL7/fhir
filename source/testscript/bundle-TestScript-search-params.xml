@@ -17,7 +17,7 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(TestScript.useContext.value as CodeableConcept)"/>
-        <xpath value="f:TestScript/f:useContext/f:valueCodeableConcept"/>
+        <!--<xpath value="f:TestScript/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(TestScript.useContext.value as Quantity) | (TestScript.useContext.value as Range)"/>
-        <xpath value="f:TestScript/f:useContext/f:valueQuantity | f:TestScript/f:useContext/f:valueRange"/>
+        <!--<xpath value="f:TestScript/f:useContext/f:valueQuantity | f:TestScript/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="TestScript.useContext.code"/>
-        <xpath value="f:TestScript/f:useContext/f:code"/>
+        <!--<xpath value="f:TestScript/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="TestScript.date"/>
-        <xpath value="f:TestScript/f:date"/>
+        <!--<xpath value="f:TestScript/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +145,7 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="TestScript.description"/>
-        <xpath value="f:TestScript/f:description"/>
+        <!--<xpath value="f:TestScript/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="TestScript.identifier"/>
-        <xpath value="f:TestScript/f:identifier"/>
+        <!--<xpath value="f:TestScript/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="TestScript.jurisdiction"/>
-        <xpath value="f:TestScript/f:jurisdiction"/>
+        <!--<xpath value="f:TestScript/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +205,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="TestScript.name"/>
-        <xpath value="f:TestScript/f:name"/>
+        <!--<xpath value="f:TestScript/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +225,7 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="TestScript.publisher"/>
-        <xpath value="f:TestScript/f:publisher"/>
+        <!--<xpath value="f:TestScript/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <code value="scope-artifact"/>
         <type value="reference"/>
         <expression value="TestScript.scope.artifact"/>
-        <xpath value="f:TestScript/f:scope/f:artifact"/>
+        <!--<xpath value="f:TestScript/f:scope/f:artifact"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -313,7 +313,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="TestScript.status"/>
-        <xpath value="f:TestScript/f:status"/>
+        <!--<xpath value="f:TestScript/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -333,7 +333,7 @@
         <code value="testscript-capability"/>
         <type value="string"/>
         <expression value="TestScript.metadata.capability.description"/>
-        <xpath value="f:TestScript/f:metadata/f:capability/f:description"/>
+        <!--<xpath value="f:TestScript/f:metadata/f:capability/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -353,7 +353,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="TestScript.title"/>
-        <xpath value="f:TestScript/f:title"/>
+        <!--<xpath value="f:TestScript/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -373,7 +373,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="TestScript.url"/>
-        <xpath value="f:TestScript/f:url"/>
+        <!--<xpath value="f:TestScript/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -393,7 +393,7 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="TestScript.version"/>
-        <xpath value="f:TestScript/f:version"/>
+        <!--<xpath value="f:TestScript/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

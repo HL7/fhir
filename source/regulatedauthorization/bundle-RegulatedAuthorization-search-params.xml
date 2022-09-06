@@ -17,7 +17,7 @@
         <code value="case"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.case.identifier"/>
-        <xpath value="f:RegulatedAuthorization/f:case/f:identifier"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:case/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="case-type"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.case.type"/>
-        <xpath value="f:RegulatedAuthorization/f:case/f:type"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:case/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="holder"/>
         <type value="reference"/>
         <expression value="RegulatedAuthorization.holder"/>
-        <xpath value="f:RegulatedAuthorization/f:holder"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:holder"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.identifier"/>
-        <xpath value="f:RegulatedAuthorization/f:identifier"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="region"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.region"/>
-        <xpath value="f:RegulatedAuthorization/f:region"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:region"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.status"/>
-        <xpath value="f:RegulatedAuthorization/f:status"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="RegulatedAuthorization.subject"/>
-        <xpath value="f:RegulatedAuthorization/f:subject"/>
+        <!--<xpath value="f:RegulatedAuthorization/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -17,7 +17,7 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ImplementationGuide.useContext.value as CodeableConcept)"/>
-        <xpath value="f:ImplementationGuide/f:useContext/f:valueCodeableConcept"/>
+        <!--<xpath value="f:ImplementationGuide/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ImplementationGuide.useContext.value as Quantity) | (ImplementationGuide.useContext.value as Range)"/>
-        <xpath value="f:ImplementationGuide/f:useContext/f:valueQuantity | f:ImplementationGuide/f:useContext/f:valueRange"/>
+        <!--<xpath value="f:ImplementationGuide/f:useContext/f:valueQuantity | f:ImplementationGuide/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ImplementationGuide.useContext.code"/>
-        <xpath value="f:ImplementationGuide/f:useContext/f:code"/>
+        <!--<xpath value="f:ImplementationGuide/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ImplementationGuide.date"/>
-        <xpath value="f:ImplementationGuide/f:date"/>
+        <!--<xpath value="f:ImplementationGuide/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +145,7 @@
         <code value="depends-on"/>
         <type value="reference"/>
         <expression value="ImplementationGuide.dependsOn.uri"/>
-        <xpath value="f:ImplementationGuide/f:dependsOn/f:uri"/>
+        <!--<xpath value="f:ImplementationGuide/f:dependsOn/f:uri"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="ImplementationGuide.description"/>
-        <xpath value="f:ImplementationGuide/f:description"/>
+        <!--<xpath value="f:ImplementationGuide/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
         <code value="experimental"/>
         <type value="token"/>
         <expression value="ImplementationGuide.experimental"/>
-        <xpath value="f:ImplementationGuide/f:experimental"/>
+        <!--<xpath value="f:ImplementationGuide/f:experimental"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +205,7 @@
         <code value="global"/>
         <type value="reference"/>
         <expression value="ImplementationGuide.global.profile"/>
-        <xpath value="f:ImplementationGuide/f:global/f:profile"/>
+        <!--<xpath value="f:ImplementationGuide/f:global/f:profile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +225,7 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ImplementationGuide.jurisdiction"/>
-        <xpath value="f:ImplementationGuide/f:jurisdiction"/>
+        <!--<xpath value="f:ImplementationGuide/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ImplementationGuide.name"/>
-        <xpath value="f:ImplementationGuide/f:name"/>
+        <!--<xpath value="f:ImplementationGuide/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +265,7 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ImplementationGuide.publisher"/>
-        <xpath value="f:ImplementationGuide/f:publisher"/>
+        <!--<xpath value="f:ImplementationGuide/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +285,7 @@
         <code value="resource"/>
         <type value="reference"/>
         <expression value="ImplementationGuide.definition.resource.reference"/>
-        <xpath value="f:ImplementationGuide/f:definition/f:resource/f:reference"/>
+        <!--<xpath value="f:ImplementationGuide/f:definition/f:resource/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +305,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ImplementationGuide.status"/>
-        <xpath value="f:ImplementationGuide/f:status"/>
+        <!--<xpath value="f:ImplementationGuide/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +325,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="ImplementationGuide.title"/>
-        <xpath value="f:ImplementationGuide/f:title"/>
+        <!--<xpath value="f:ImplementationGuide/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -345,7 +345,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ImplementationGuide.url"/>
-        <xpath value="f:ImplementationGuide/f:url"/>
+        <!--<xpath value="f:ImplementationGuide/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,8 +365,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ImplementationGuide.version"/>
-        <xpath value="f:ImplementationGuide/f:version"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:ImplementationGuide/f:version"/> -->
+        <processingMode value="normal"/> 
       </SearchParameter>
     </resource>
   </entry>

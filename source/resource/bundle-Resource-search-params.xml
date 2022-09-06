@@ -32,7 +32,7 @@
         <code value="_id"/>
         <type value="token"/>
         <expression value="Resource.id"/>
-        <xpath value="f:Resource/f:id"/>
+        <!--<xpath value="f:Resource/f:id"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -52,7 +52,7 @@
         <code value="_in"/>
         <type value="reference"/>
         <expression value="Resource.id"/>
-        <xpath value="f:Resource/f:id"/>
+        <!--<xpath value="f:Resource/f:id"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -72,7 +72,7 @@
         <code value="_language"/>
         <type value="token"/>
         <expression value="Resource.language"/>
-        <xpath value="f:Resource/f:language"/>
+        <!--<xpath value="f:Resource/f:language"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -92,7 +92,7 @@
         <code value="_lastUpdated"/>
         <type value="date"/>
         <expression value="Resource.meta.lastUpdated"/>
-        <xpath value="f:Resource/f:meta/f:lastUpdated"/>
+        <!--<xpath value="f:Resource/f:meta/f:lastUpdated"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -127,7 +127,7 @@
         <code value="_profile"/>
         <type value="reference"/>
         <expression value="Resource.meta.profile"/>
-        <xpath value="f:Resource/f:meta/f:profile"/>
+        <!--<xpath value="f:Resource/f:meta/f:profile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -162,7 +162,7 @@
         <code value="_security"/>
         <type value="token"/>
         <expression value="Resource.meta.security"/>
-        <xpath value="f:Resource/f:meta/f:security"/>
+        <!--<xpath value="f:Resource/f:meta/f:security"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -182,7 +182,7 @@
         <code value="_source"/>
         <type value="uri"/>
         <expression value="Resource.meta.source"/>
-        <xpath value="f:Resource/f:meta/f:source"/>
+        <!--<xpath value="f:Resource/f:meta/f:source"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -202,7 +202,7 @@
         <code value="_tag"/>
         <type value="token"/>
         <expression value="Resource.meta.tag"/>
-        <xpath value="f:Resource/f:meta/f:tag"/>
+        <!--<xpath value="f:Resource/f:meta/f:tag"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

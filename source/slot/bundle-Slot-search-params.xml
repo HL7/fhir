@@ -17,7 +17,7 @@
         <code value="appointment-type"/>
         <type value="token"/>
         <expression value="Slot.appointmentType"/>
-        <xpath value="f:Slot/f:appointmentType"/>
+        <!--<xpath value="f:Slot/f:appointmentType"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Slot.identifier"/>
-        <xpath value="f:Slot/f:identifier"/>
+        <!--<xpath value="f:Slot/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="schedule"/>
         <type value="reference"/>
         <expression value="Slot.schedule"/>
-        <xpath value="f:Slot/f:schedule"/>
+        <!--<xpath value="f:Slot/f:schedule"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="service-category"/>
         <type value="token"/>
         <expression value="Slot.serviceCategory"/>
-        <xpath value="f:Slot/f:serviceCategory"/>
+        <!--<xpath value="f:Slot/f:serviceCategory"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="service-type"/>
         <type value="token"/>
         <expression value="Slot.serviceType.concept"/>
-        <xpath value="f:Slot/f:serviceType/f:concept"/>
+        <!--<xpath value="f:Slot/f:serviceType/f:concept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="service-type-reference"/>
         <type value="reference"/>
         <expression value="Slot.serviceType.reference"/>
-        <xpath value="f:Slot/f:serviceType/f:reference"/>
+        <!--<xpath value="f:Slot/f:serviceType/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="Slot.specialty"/>
-        <xpath value="f:Slot/f:specialty"/>
+        <!--<xpath value="f:Slot/f:specialty"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="start"/>
         <type value="date"/>
         <expression value="Slot.start"/>
-        <xpath value="f:Slot/f:start"/>
+        <!--<xpath value="f:Slot/f:start"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Slot.status"/>
-        <xpath value="f:Slot/f:status"/>
+        <!--<xpath value="f:Slot/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

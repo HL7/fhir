@@ -17,7 +17,7 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="DeviceDispense.device.concept"/>
-        <xpath value="f:DeviceDispense/f:device/f:concept"/>
+        <!--<xpath value="f:DeviceDispense/f:device/f:concept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="DeviceDispense.subject"/>
-        <xpath value="f:DeviceDispense/f:subject"/>
+        <!--<xpath value="f:DeviceDispense/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

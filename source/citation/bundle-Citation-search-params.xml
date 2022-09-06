@@ -17,7 +17,7 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(Citation.useContext.value as CodeableConcept)"/>
-        <xpath value="f:Citation/f:useContext/f:valueCodeableConcept"/>
+        <!--<xpath value="f:Citation/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(Citation.useContext.value as Quantity) | (Citation.useContext.value as Range)"/>
-        <xpath value="f:Citation/f:useContext/f:valueQuantity | f:Citation/f:useContext/f:valueRange"/>
+        <!--<xpath value="f:Citation/f:useContext/f:valueQuantity | f:Citation/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="Citation.useContext.code"/>
-        <xpath value="f:Citation/f:useContext/f:code"/>
+        <!--<xpath value="f:Citation/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="Citation.date"/>
-        <xpath value="f:Citation/f:date"/>
+        <!--<xpath value="f:Citation/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +145,7 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="Citation.description"/>
-        <xpath value="f:Citation/f:description"/>
+        <!--<xpath value="f:Citation/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="Citation.effectivePeriod"/>
-        <xpath value="f:Citation/f:effectivePeriod"/>
+        <!--<xpath value="f:Citation/f:effectivePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Citation.identifier"/>
-        <xpath value="f:Citation/f:identifier"/>
+        <!--<xpath value="f:Citation/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +205,7 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Citation.jurisdiction"/>
-        <xpath value="f:Citation/f:jurisdiction"/>
+        <!--<xpath value="f:Citation/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +225,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Citation.name"/>
-        <xpath value="f:Citation/f:name"/>
+        <!--<xpath value="f:Citation/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="Citation.publisher"/>
-        <xpath value="f:Citation/f:publisher"/>
+        <!--<xpath value="f:Citation/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +265,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Citation.status"/>
-        <xpath value="f:Citation/f:status"/>
+        <!--<xpath value="f:Citation/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +285,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="Citation.title"/>
-        <xpath value="f:Citation/f:title"/>
+        <!--<xpath value="f:Citation/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +305,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="Citation.url"/>
-        <xpath value="f:Citation/f:url"/>
+        <!--<xpath value="f:Citation/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +325,7 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="Citation.version"/>
-        <xpath value="f:Citation/f:version"/>
+        <!--<xpath value="f:Citation/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

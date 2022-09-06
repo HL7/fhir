@@ -17,7 +17,7 @@
         <code value="contraindication"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
-        <xpath value="f:ClinicalUseDefinition/f:contraindication/f:diseaseSymptomProcedure"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:contraindication/f:diseaseSymptomProcedure"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="contraindication-reference"/>
         <type value="reference"/>
         <expression value="ClinicalUseDefinition.contraindication.diseaseSymptomProcedure"/>
-        <xpath value="f:ClinicalUseDefinition/f:contraindication/f:diseaseSymptomProcedure"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:contraindication/f:diseaseSymptomProcedure"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="effect"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
-        <xpath value="f:ClinicalUseDefinition/f:undesirableEffect/f:symptomConditionEffect"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:undesirableEffect/f:symptomConditionEffect"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="effect-reference"/>
         <type value="reference"/>
         <expression value="ClinicalUseDefinition.undesirableEffect.symptomConditionEffect"/>
-        <xpath value="f:ClinicalUseDefinition/f:undesirableEffect/f:symptomConditionEffect"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:undesirableEffect/f:symptomConditionEffect"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.identifier"/>
-        <xpath value="f:ClinicalUseDefinition/f:identifier"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="indication"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
-        <xpath value="f:ClinicalUseDefinition/f:indication/f:diseaseSymptomProcedure"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:indication/f:diseaseSymptomProcedure"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="indication-reference"/>
         <type value="reference"/>
         <expression value="ClinicalUseDefinition.indication.diseaseSymptomProcedure"/>
-        <xpath value="f:ClinicalUseDefinition/f:indication/f:diseaseSymptomProcedure"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:indication/f:diseaseSymptomProcedure"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="interaction"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.interaction.type"/>
-        <xpath value="f:ClinicalUseDefinition/f:interaction/f:type"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:interaction/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="product"/>
         <type value="reference"/>
         <expression value="ClinicalUseDefinition.subject.where(resolve() is MedicinalProductDefinition)"/>
-        <xpath value="f:ClinicalUseDefinition/f:subject"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:subject"/> -->
         <processingMode value="normal"/>
         <target value="MedicinalProductDefinition"/>
       </SearchParameter>
@@ -198,7 +198,7 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="ClinicalUseDefinition.subject"/>
-        <xpath value="f:ClinicalUseDefinition/f:subject"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -218,7 +218,7 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.type"/>
-        <xpath value="f:ClinicalUseDefinition/f:type"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -238,7 +238,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.status"/>
-        <xpath value="f:ClinicalUseDefinition/f:status"/>
+        <!--<xpath value="f:ClinicalUseDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

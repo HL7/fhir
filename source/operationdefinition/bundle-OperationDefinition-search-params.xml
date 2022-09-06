@@ -17,7 +17,7 @@
         <code value="base"/>
         <type value="reference"/>
         <expression value="OperationDefinition.base"/>
-        <xpath value="f:OperationDefinition/f:base"/>
+        <!--<xpath value="f:OperationDefinition/f:base"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="OperationDefinition.code"/>
-        <xpath value="f:OperationDefinition/f:code"/>
+        <!--<xpath value="f:OperationDefinition/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(OperationDefinition.useContext.value as CodeableConcept)"/>
-        <xpath value="f:OperationDefinition/f:useContext/f:valueCodeableConcept"/>
+        <!--<xpath value="f:OperationDefinition/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(OperationDefinition.useContext.value as Quantity) | (OperationDefinition.useContext.value as Range)"/>
-        <xpath value="f:OperationDefinition/f:useContext/f:valueQuantity | f:OperationDefinition/f:useContext/f:valueRange"/>
+        <!--<xpath value="f:OperationDefinition/f:useContext/f:valueQuantity | f:OperationDefinition/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="OperationDefinition.useContext.code"/>
-        <xpath value="f:OperationDefinition/f:useContext/f:code"/>
+        <!--<xpath value="f:OperationDefinition/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="OperationDefinition.date"/>
-        <xpath value="f:OperationDefinition/f:date"/>
+        <!--<xpath value="f:OperationDefinition/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="OperationDefinition.description"/>
-        <xpath value="f:OperationDefinition/f:description"/>
+        <!--<xpath value="f:OperationDefinition/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +205,7 @@
         <code value="input-profile"/>
         <type value="reference"/>
         <expression value="OperationDefinition.inputProfile"/>
-        <xpath value="f:OperationDefinition/f:inputProfile"/>
+        <!--<xpath value="f:OperationDefinition/f:inputProfile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +225,7 @@
         <code value="instance"/>
         <type value="token"/>
         <expression value="OperationDefinition.instance"/>
-        <xpath value="f:OperationDefinition/f:instance"/>
+        <!--<xpath value="f:OperationDefinition/f:instance"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="OperationDefinition.jurisdiction"/>
-        <xpath value="f:OperationDefinition/f:jurisdiction"/>
+        <!--<xpath value="f:OperationDefinition/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +265,7 @@
         <code value="kind"/>
         <type value="token"/>
         <expression value="OperationDefinition.kind"/>
-        <xpath value="f:OperationDefinition/f:kind"/>
+        <!--<xpath value="f:OperationDefinition/f:kind"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +285,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="OperationDefinition.name"/>
-        <xpath value="f:OperationDefinition/f:name"/>
+        <!--<xpath value="f:OperationDefinition/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +305,7 @@
         <code value="output-profile"/>
         <type value="reference"/>
         <expression value="OperationDefinition.outputProfile"/>
-        <xpath value="f:OperationDefinition/f:outputProfile"/>
+        <!--<xpath value="f:OperationDefinition/f:outputProfile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +325,7 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="OperationDefinition.publisher"/>
-        <xpath value="f:OperationDefinition/f:publisher"/>
+        <!--<xpath value="f:OperationDefinition/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -345,7 +345,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="OperationDefinition.status"/>
-        <xpath value="f:OperationDefinition/f:status"/>
+        <!--<xpath value="f:OperationDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,7 +365,7 @@
         <code value="system"/>
         <type value="token"/>
         <expression value="OperationDefinition.system"/>
-        <xpath value="f:OperationDefinition/f:system"/>
+        <!--<xpath value="f:OperationDefinition/f:system"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,7 +385,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="OperationDefinition.title"/>
-        <xpath value="f:OperationDefinition/f:title"/>
+        <!--<xpath value="f:OperationDefinition/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -405,7 +405,7 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="OperationDefinition.type"/>
-        <xpath value="f:OperationDefinition/f:type"/>
+        <!--<xpath value="f:OperationDefinition/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -425,7 +425,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="OperationDefinition.url"/>
-        <xpath value="f:OperationDefinition/f:url"/>
+        <!--<xpath value="f:OperationDefinition/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -445,7 +445,7 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="OperationDefinition.version"/>
-        <xpath value="f:OperationDefinition/f:version"/>
+        <!--<xpath value="f:OperationDefinition/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

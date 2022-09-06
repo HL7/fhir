@@ -10,6 +10,6 @@
   <base value="Patient"/>
   <type value="number"/>
   <expression value="Patient.birthDate"/>
-  <xpath value="f:Patient/f:birthDate"/>
-  <xpathUsage value="normal"/>
+  <!--<xpath value="f:Patient/f:birthDate"/> -->
+  <processingMode value="normal"/>
 </SearchParameter>

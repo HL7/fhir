@@ -17,7 +17,7 @@
         <code value="classification"/>
         <type value="token"/>
         <expression value="SubstanceDefinition.classification"/>
-        <xpath value="f:SubstanceDefinition/f:classification"/>
+        <!--<xpath value="f:SubstanceDefinition/f:classification"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="SubstanceDefinition.code.code"/>
-        <xpath value="f:SubstanceDefinition/f:code/f:code"/>
+        <!--<xpath value="f:SubstanceDefinition/f:code/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="domain"/>
         <type value="token"/>
         <expression value="SubstanceDefinition.domain"/>
-        <xpath value="f:SubstanceDefinition/f:domain"/>
+        <!--<xpath value="f:SubstanceDefinition/f:domain"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="SubstanceDefinition.identifier"/>
-        <xpath value="f:SubstanceDefinition/f:identifier"/>
+        <!--<xpath value="f:SubstanceDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="SubstanceDefinition.name.name"/>
-        <xpath value="f:SubstanceDefinition/f:name/f:name"/>
+        <!--<xpath value="f:SubstanceDefinition/f:name/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

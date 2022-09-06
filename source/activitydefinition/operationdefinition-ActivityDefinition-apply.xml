@@ -150,6 +150,6 @@
     <min value="1"/>
     <max value="1"/>
     <documentation value="The resource that is the result of applying the definition"/>
-    <type value="Any"/>
+    <type value="Resource"/>
   </parameter>
 </OperationDefinition>
