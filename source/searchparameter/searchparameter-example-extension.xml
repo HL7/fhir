@@ -11,11 +11,11 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Search by url for a participation agreement, which is stored in a DocumentReference"/>
+  <description value="Search by url for a participation agreement, which is stored as an extension referencing a DocumentReference"/>
   <code value="part-agree"/>
   <base value="Patient"/>
   <type value="reference"/>
-  <expression value="DocumentReference.extension('http://example.org/fhir/StructureDefinition/participation-agreement').value"/>
+  <expression value="Patient.extension('http://example.org/fhir/StructureDefinition/participation-agreement').value"/>
   <processingMode value="normal"/>
   <target value="DocumentReference"/>
 </SearchParameter>

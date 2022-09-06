@@ -260,7 +260,7 @@
         <description value="The value or component value of the observation, if the value is a CodeableConcept"/>
         <code value="combo-value-concept"/>
         <type value="token"/>
-        <expression value="(Observation.value as CodeableConcept) | (Observation.component.value as CodeableConcept)"/>
+        <expression value="Observation.value.ofType(CodeableConcept) | Observation.component.value.ofType(CodeableConcept)"/>
         <!--<xpath value="f:Observation/f:valueCodeableConcept | f:Observation/f:component/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -280,7 +280,7 @@
         <description value="The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
         <code value="combo-value-quantity"/>
         <type value="quantity"/>
-        <expression value="(Observation.value as Quantity) | (Observation.value as SampledData) | (Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
+        <expression value="Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData) | Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)"/>
         <!--<xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -388,7 +388,7 @@
         <description value="The value of the component observation, if the value is a CodeableConcept"/>
         <code value="component-value-concept"/>
         <type value="token"/>
-        <expression value="(Observation.component.value as CodeableConcept)"/>
+        <expression value="Observation.component.value.ofType(CodeableConcept)"/>
         <!--<xpath value="f:Observation/f:component/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -408,7 +408,7 @@
         <description value="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
         <code value="component-value-quantity"/>
         <type value="quantity"/>
-        <expression value="(Observation.component.value as Quantity) | (Observation.component.value as SampledData)"/>
+        <expression value="Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)"/>
         <!--<xpath value="f:Observation/f:component/f:valueQuantity | f:Observation/f:component/f:valueCodeableConcept | f:Observation/f:component/f:valueString | f:Observation/f:component/f:valueBoolean | f:Observation/f:component/f:valueInteger | f:Observation/f:component/f:valueRange | f:Observation/f:component/f:valueRatio | f:Observation/f:component/f:valueSampledData | f:Observation/f:component/f:valueTime | f:Observation/f:component/f:valueDateTime | f:Observation/f:component/f:valuePeriod | f:Observation/f:component/f:valueAttachment"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -729,7 +729,7 @@
         <description value="The value of the observation, if the value is a CodeableConcept"/>
         <code value="value-concept"/>
         <type value="token"/>
-        <expression value="(Observation.value as CodeableConcept)"/>
+        <expression value="Observation.value.ofType(CodeableConcept)"/>
         <!--<xpath value="f:Observation/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -749,7 +749,7 @@
         <description value="The value of the observation, if the value is a date or period of time"/>
         <code value="value-date"/>
         <type value="date"/>
-        <expression value="(Observation.value as dateTime) | (Observation.value as Period)"/>
+        <expression value="Observation.value.ofType(dateTime) | Observation.value.ofType(Period)"/>
         <!--<xpath value="f:Observation/f:valueDateTime | f:Observation/f:valuePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -769,7 +769,7 @@
         <description value="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)"/>
         <code value="value-quantity"/>
         <type value="quantity"/>
-        <expression value="(Observation.value as Quantity) | (Observation.value as SampledData)"/>
+        <expression value="Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData)"/>
         <!--<xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
@@ -789,7 +789,7 @@
         <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
         <code value="value-string"/>
         <type value="string"/>
-        <expression value="(Observation.value as string) | (Observation.value as CodeableConcept).text"/>
+        <expression value="Observation.value.ofType(string) | Observation.value.ofType(CodeableConcept).text"/>
         <!--<xpath value="f:Observation/f:valueQuantity | f:Observation/f:valueCodeableConcept | f:Observation/f:valueString | f:Observation/f:valueBoolean | f:Observation/f:valueInteger | f:Observation/f:valueRange | f:Observation/f:valueRatio | f:Observation/f:valueSampledData | f:Observation/f:valueTime | f:Observation/f:valueDateTime | f:Observation/f:valuePeriod | f:Observation/f:valueAttachment"/> -->
         <processingMode value="normal"/>
       </SearchParameter>

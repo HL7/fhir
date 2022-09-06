@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Exchanging with FHIR Search%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Exchanging with FHIR Search</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    This page covers the workflows involved with the various 'search' mechanisms defined for use in FHIR.  While the specific URL syntax varies for each of the different query options and, occasionally, the syntax of the response changes, the basics of the workflow is the same regardless of the search mechanism.  There are two options: synchronous and asynchronous.
+  </p>
+
+  <a name="sync"> </a>
+  <h3>Synchronous search flow</h3>
+  <p>
+    The synchronous search flow is similar to that in basic <a href="exchanging-rest.html">FHIR REST</a> operations.  The main difference with search is the introduction of <a href="http.html#paging">paging</a> to allow large result sets to be retrieved in reasonable-sized chunks.
+  </p>
+  <p>
+    {% include search-sync.svg %}
+  </p>
+  <a name="sync-1"> </a>
+  <p>
+    1. The <i>data consumer</i> uses either a GET - where the search URL defines exactly what retrieval is to be invoked, along with any filters; or with POST - in which case the parameters are passed in the body of the HTTP call.  The filters may also include desired page size.  The contents of the URL vary by search mechanism, as will the format of response.  Some of the search mechanisms may limit to only using GET or POST.  The details will be discussed for each approach below.
+  </p>
+  <a name="sync-2"> </a>
+  <p>
+    2. The search response comes back in the body of the HTTP response.  For most search mechanisms, this will be a search-set <a href="bundle.html">Bundle</a> containing the results of the search.  If no results are found, the result set will be empty, and the HTTP response will still be 200.  If the payload is  a search-set, the <code>Bundle.total</code> will be set to 0.  If there was a problem with the format of the search, with permissions or some other error, an appropriate HTTP code will be raised and optionally an <a href="operationoutcome.html">OperationOutcome</a> will be provided.  The search response will also typically include links that allow navigation of the result set.  For search-set Bundles, these will be the 'next', 'previous', 'first' and 'last' URLs conveyed in <code>Bundle.link</code>.  (Note that only relevant links will be provided and not all servers will support all link types - next and previous are commonly supported; first and last, less so.)
+  </p>
+  <a name="sync-3"> </a>
+  <p>
+    3. If navigation links were provided, this optional process allows the <i>data consumer</i> to navigate through the pages of the result set.  Each new response will include links to navigate from that page.
+  </p>
+
+  <a name="async"> </a>
+  <h3>Asynchronous search flow</h3>
+  <p>
+    Asynchronous search is identical to <a href="exchanging-rest.html#async">RESTful</a> and <a href="exchanging-operation.html#async">operation</a> asynchronous flows.  Not all search approaches will support the asynchronous mechanism (this will be noted below in the section on each approach).  Also, not all <i>data sources</i> will support the asynchronous mode, even if it is allowed.  In an asynchronous request, there is no paging - all information is included in the file(s) produced by the asynchronous request
+  </p>
+  <p>
+    {% include rest-async.svg %}
+  </p>
+  <a name="async-1"> </a>
+  <p>
+    <b>Step 1:</b> The invocation of the operation asynchronously is identical to synchronous search invocation, with the exception that the <code>Prefer</code> header is set to "respond-async".  (Note that the server is not obligated to respect the client's stated preference - it could still respond synchronously.).  The response includes a location-header that identifies where to monitor for the progress of the asynchronous operation.
+  </p>
+  <a name="async-2"> </a>
+  <p>
+    <b>Step 2:</b> The <i>data consumer</i> <a href="exchanging-polling.html">polls</a> the location specified in step 1 to see if the search is complete.  So long as it is not, it gets back a 202 Accepted HTTP response, possibly with a message indicating the degree of progress.  (Note: At any point, the <i>data consumer</i> could also <a href="async.html#3.1.6.3">cancel</a> the request.)
+  </p>
+  <a name="async-3"> </a>
+  <p>
+    <b>Step 3:</b> Once the search is complete, the response to the <i>data consumer</i>'s polling request changes to a 200 and conveys other information, including URLs to the location of the file (or files) that contain the results of the operation.
+  </p>
+  <a name="async-4"> </a>
+  <p>
+    <b>Step 4:</b> The <i>data consumer</i> retrieves the identified file or files from the <i>data source</i>, containing the search response.
+  </p>
+  <p>
+    In addition to the <a href="async.html">instructions</a> on asynchronous exchange in the base spec, asynchronous search is described in more detail in the <a href="https://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> implementation guide.  Implementers considering asynchronous communication should be familiar with this guide, as the capabilities it requires are much more likely to be widely implemented.
+  </p>
+
+  <a name="details"> </a>
+  <h3>Approach details</h3>
+  <p>
+    Details about workflow differences for each of the search mechanisms are listed below.
+  </p>
+
+  <a name="history"> </a>
+  <h4>Resource history</h4>
+  <p>
+    A <a href="http.html#history">history</a> search is always invoked using GET.  It can use <code>[base]/_history</code>, <code>[base]/[ResourceType]/_history</code> or <code>[base]/[resourceType]/[id]/_history</code>, depending on whether the desired history is for the whole server, a particular resource type or for a single resource instance.  A limited set of parameters are permitted to filter the set of history entries provided and to control the syntax of the response.  The response is always a <a href="bundle.html">Bundle</a> of type <code>history</code>.  Paging is supported.
+  </p>
+
+  <a name="search"> </a>
+  <h4>RESTful search</h4>
+  <p>
+    A <a href="search.html">RESTful search</a> can be invoked using GET or POST.  In the latter case, the parameters are generally sent in the body as application/x-www-form-urlencoded content.  However, a mixture where some parameters are on the POST URL and others are in the body is permitted.  The base URL for the HTTP call can be either <code>[base]</code> or <code>[base]/[ResourceType]</code> or <code>[base]/[resourceType]/[id]/_history</code> depending on whether the search is across multiple resource types or within a single resource.  HL7 defines an extensive set of search parameters to both filter and extend the output.  Additional filtering search parameters can also be defined by implementers or other specifications.  The response is always a <a href="bundle.html">Bundle</a> of type <code>search-set</code>.  Paging is supported.
+  </p>
+
+  <a name="filter"> </a>
+  <h4>Search using _filter</h4>
+  <p>
+    A <a href="search.html#filter">_filter</a> search is identical to a regular <a href="#search">RESTful search</a>.  The only difference is that one of the search parameters included (in the URL or body) is _filter.
+  </p>
+
+  <a name="graphql"> </a>
+  <h4>Search using GraphQL</h4>
+  <p>
+    <a href="graphql.html">GraphQL</a> works similarly to <a href="#search">RESTful search</a>, but the syntax is different.  Both GET and POST are permitted.  For both GET and POST, the GraphQL <a href="http://graphql.org/learn/serving-over-http">JSON query string</a> can be sent as a parameter in the query URL.  With POST, it can also be sent in the body, with the ContentType set to <code>application/graphql</code>.  When using GraphQL, parameters must be exclusively sent in either the URL or the body - they are not permitted to appear in both locations.  The base URL for the HTTP call can be one of <code>[base]/$graphql</code>, <code>[base]/[ResourceType]/[id]/$graphql</code> or <code>[base]/.../$[operationName]?[parameters]&amp;graphql=...</code>.  The first allows a search against the whole repository.  The second starts the search with a specific resource instance.  The last allows GraphQL to execute against the results returned by the successful invocation of the operation - be it a resource, a <a href="parameters.html">Parameters</a> instance or a search-set Bundle.  The operation itself could be one executed at the base, type, or instance level.
+  </p>
+  <p>
+    The response to the search will be custom JSON - defined by the query itself.  It can include full-blown resource structures, individual data elements or a combination of both.  However, because it is not guaranteed to be FHIR-valid, it is not possible to invoke GraphQL as part of a batch.
+  </p>
+  <p>
+    If the <a href="graphql.html#searching">Connection</a> approach is used, then paging is possible.  Asynchronous behavior is supported as it is for any FHIR <a href="exchanging-operation.html#async">operation</a>.
+  </p>
+
+  <a name="cql"> </a>
+  <h4>Search using CQL</h4>
+  <p>
+    There is not a formal mechanism for using CQL to perform search defined in the core FHIR specification.  However, the draft version of the <a href="http://build.fhir.org/ig/HL7/cqf-recommendations">Clinical Quality Framework (CQF) IG</a> defines a couple of operations allowing data to be retrieved by executing arbitrary CQL.  There are two options.  The <a href="http://build.fhir.org/ig/HL7/cqf-recommendations/OperationDefinition-cpg-cql.html">cpg-cql</a> operation executes CQL passed directly as an argument.  The <a href="http://build.fhir.org/ig/HL7/cqf-recommendations/OperationDefinition-cpg-library-evaluate.html">cpg-library-evaluate</a> operation executes CQL specified in a referenced library.
+
+The cpg-cql operation is invoked at the base URL (<code>[base]/$cql</code>.  It can potentially be invoked using GET if it does not use the <code>parameters</code> parameter but can also use POST.  The cpg-library-evaluate operation is invoked with the URL <code>[base]/Library/[id]/$evaluate</code> can be invoked using GET provided that the <code>parameters</code> parameter is not used.  It can also be invoked with POST (with parameters past using a <a href="parameters.html">Parameters</a> instance).  Neither supports paging as the results aren't expected to come back in a search-set <a href="bundle.html">Bundle</a>.  Asynchronous execution is possible as for any FHIR <a href="exchanging-operation.html#async">operation</a>.
+  </p>
+
+  <a name="sparql"> </a>
+  <h4>Search using SPARQL</h4>
+  <p>
+    There is no FHIR-specific mechanism for invoking a SPARQL query.  The W3C defines a <a href="https://www.w3.org/TR/sparql11-protocol/#query-operation">few</a> ways to invoke a SPARQL query using a RESTful interface.  These mechanisms correspond to the standard GET/POST query flows used for FHIR-defined queries.  Other invocation mechanisms are also possible, including the potential use of a FHIR operation.  (No standard operation has yet been defined.)  Because FHIR search-set <a href="bundle.html">Bundles</a> are not involved, there is no query continuation mechanism.  It is possible that the FHIR async mechanism could be used when invoking SPARQL, but if so, this would be a custom behavior outside the scope of FHIR - as SPARQL invocation itself is outside the scope of FHIR.
+  </p>
+
+  <a name="query"> </a>
+  <h4>Search using _query</h4>
+  <p>
+    The <a href="search.html#query">_query</a> mechanism works in a similar manner to <a href="#search">RESTful search</a>.  It can be invoked either at the <code>[base]?_query=name</code> or <code>[base]/[resourceType]?_query=name</code> level.  Depending on the nature of the parameters defined by the named operation, it may be possible to invoke it using GET.  It can always be invoked using POST - where the body is a <a href="parameters.html">Parameters</a> instance.  The response (if successful) is a search-set <a href="bundle.html">Bundle</a>.  That bundle may include links that support paging.  Asynchronous invocation is supported.
+  </p>
+
+[%file newfooter%]
+</body>
+</html>

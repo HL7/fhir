@@ -1,0 +1,12 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+Consumer -> Source: 1a. POST Subscription
+Consumer <-- Source: 1b. HTTP 201 Created
+loop
+  ...
+  Source --> Source: 2. Relevant event occurs
+  Consumer <- Source: 3. Notification containing relevant data sent
+end
+@enduml

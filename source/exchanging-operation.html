@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Exchanging with FHIR Operations%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Exchanging with FHIR Operations</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    Custom FHIR <a href="operations.html">operations</a> allow a pre-defined set of data to be passed into a function call and a pre-defined set of data to be passed back.  They can be used to exchange information in two ways:
+  </p>
+  <ul>
+    <li><a href="#retrieval">Retrieval operations</a> can be used to solicit information from a <i>data source</i></li>
+    <li><a href="#process">Process operations</a> allow data to be passed to a <i>data consumer</i> for 'processing'</li>
+  </ul>
+  <p>
+    Either type of operation can be invoked in either <a href="#sync">synchronous</a> or <a href="#async">asynchronous</a> mode.
+  </p>
+  <a name="retrieval"> </a>
+  <h3>Retrieval Operations</h3>
+  <p>
+    Retrieval operations allow a <i>data consumer</i> to request information from a <i>data source</i>.  They can be used to specify filters not possible with any of the 'standard' FHIR search languages and can also generate data that does not already exist.  
+  </p>
+  <p>
+  The arguments to an operation that solicits data from a <i>data source</i> <b>could</b> be a resource such as <a href="communicationrequest.html">CommunicationRequest</a> or <a href="task.html">Task</a>.  It could also be any arbitrary resource or set of resources if the intended behavior were to 'match' characteristics of the specified resource(s).  However, more typically, data retrieval operations will just take a series of parameters that determine the data to be found or generated.  The results of such an operation would commonly be a <a href="bundle.html#searchset">search-set</a> <a href="bundle.html">Bundle</a>, however it could be any resource or even a <a href="parameters.html">Parameters</a> instance containing a single data element or an arbitrary operation-specific collection of data elements.
+  </p>
+  <p>
+    Operations to that provide information from a <i>data source</i> to a <i>data consumer</i> will typically have <code>OperationDefinition.affectsState</code> set to 'false'.  However, operations that generate new data and cause that data to be persisted in the <i>data source</i> would be considered to affect state and set the flag to true.  Such operations must be invoked using POST, as must any operations that take parameters of resources or complex types that are not expressible on a URL.  Non-state-affecting searches that can be expressed via the URL can use GET.
+  </p>
+  <p>
+    Operations to gather data can be very narrow in scope, tuned to ask a very specific question, or they can be very broad allowing a wide variety of parameters or even strings expressing queries in some formal language to be executed.  Narrow definitions mean that each new type of data will require a new query - and custom code written for all applications that support it.  Broad definitions mean that the bar is relatively high to declare support for the operation - as there is no good way in FHIR to declare 'partial' support for an operation.
+  </p>
+  <a name="process"> </a>
+  <h3>Process Operations</h3>
+  <p>
+    Process operations involve a <i>data source</i> invoking an operation on a <i>data consumer</i> passing a set of information for the consumer to 'process'.  I.e. consume the information, forward the information or otherwise do useful things with it.  The specific expectations are defined as part of the description of the operation.  The payload of the operation might be a single resource, a Bundle of resources or a Parameters instance with a collection of named parameters which might be resources, individual data elements or a mixture of them.  Such operations will generally have the <code>OperationDefinition.affectsState</code> set to 'true' as processing the same information more than once could potentially result in duplicate storage or delivery of data.  However, in some cases, repeated invocation might not be problematic and affectsState could be 'false'.
+  </p>
+  <p>
+    Because the server processing the operation will need to understand *how* to process the data, these types of operations will tend to be specific rather than generic.  Also, because there's no expectation for a response to the operation other than an HTTP 200 indicating successful receipt of the data (or alternatively an error code potentially accompanied by an OperationOutcome), these operations will typically be <a href="#sync">synchronous</a>.
+  </p>
+  <a name="sync"> </a>
+  <h3>Synchronous operations</h3>
+  <p>
+    Synchronous operations are performed in 'real time', with the body of the HTTP response containing the result of invoking the operation.  Typically, this means a response time in the milliseconds, or at most a few seconds though HTTP timeouts can extend to a minute or longer if the use-case will tolerate that sort of duration.
+  </p>
+  <p>
+    {% include rest-sync.svg %}
+  </p>
+  <p>
+    The operation is invoked by invoking a GET on the operation URL passing parameters in the URL, or by invoking a POST on the operation URL passing either a single resource in the body or a Parameters instance containing various parameters in the body.  The HTTP response could contain a Bundle (typically a search response Bundle), a single resource or a Parameters instance as defined by the operation.  On failure, it would generally contain an <a href="operationoutcome.html">OperationOutcome</a>.
+  </p>
+  
+  <h4>Additional considerations</h4>
+  <ul>
+    <li>
+      Instead of having the operation always return the data, it is also possible to have more sophisticated operations where the operation response just provides pointers to some/all of it.  The data would then be retrieved by a separate query process.  This might be appropriate if the <i>data source</i> is performing an indexing function and the data is stored elsewhere, or if the identified data would be too large to reasonably return in a single synchronous response.
+    </li>
+    <li>
+      It is possible for one of the operations to have a parameter that acts like a 'paging' mechanism, such that multiple calls to the operation that increment the paging parameter (or that pass in a 'next page' value provided as part of the previous response) could allow paging through a large result set.  This capability would need to be built into the definition of the operation.  (And support for it would need to be custom coded in all software implementing the operation.)
+    </li>
+  </ul>
+  
+
+  <a name="async"> </a>
+  <h3>Asynchronous operations</h3>
+  <p>
+    Asynchronous operations are used when there is no expectation that the response will be processed within the HTTP timeout period of the server (or at least within the period the client system is willing to block for).  It allows an operation to be initiated and the results of the operation to subsequently received by polling a temporary location established at the time of operation invocation.  Operations can be invoked asynchronously whether using POST or GET.  Details on the asynchronous process are found in the FHIR specification <a href="async.html">here</a>
+  </p>
+  <p>
+    {% include rest-async.svg %}
+  </p>
+  <a name="async-1"> </a>
+  <p>
+    <b>Step 1:</b> The invocation of the operation asynchronously is identical to synchronous operation invocation, with the exception that the <code>Prefer</code> header is set to "respond-async".  (Note that the server is not obligated to respect the client's stated preference - it could still respond synchronously.).  The response includes a location-header that identifies where to monitor for the progress of the asynchronous operation.
+  </p>
+  <a name="async-2"> </a>
+  <p>
+    <b>Step 2:</b> The <i>data consumer</i> <a href="exchanging-polling.html">polls</a> the location specified in step 1 to see if the operation is complete.  So long as it is not, it gets back a 202 Accepted HTTP response, possibly with a message indicating the degree of progress.  (Note: At any point, the <i>data consumer</i> could also <a href="async.html#3.1.6.3">cancel</a> the request.)
+  </p>
+  <a name="async-3"> </a>
+  <p>
+    <b>Step 3:</b> Once the operation is complete, the response to the <i>data consumer</i>'s polling request changes to a 200 and conveys other information, including URLs to the location of the file (or files) that contain the results of the operation.
+  </p>
+  <a name="async-4"> </a>
+  <p>
+    <b>Step 4:</b> The <i>data consumer</i> retrieves the identified file or files from the <i>data source</i>, giving it the data desired.
+  </p>
+  
+[%file newfooter%]
+</body>
+</html>

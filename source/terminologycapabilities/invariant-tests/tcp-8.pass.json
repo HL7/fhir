@@ -1,0 +1,68 @@
+{
+	"resourceType": "TerminologyCapabilities",
+	"id": "tcp-8-example-fail",
+	"url": "http://example.org/tcp-8-example-fail",
+	"version": "1",
+	"name": "ACME_TX",
+	"title": "Acme Terminology Server terminology capability statement",
+	"status": "draft",
+	"experimental": true,
+	"date": "2022-09-04",
+	"publisher": "ACME Corporation",
+	"contact": [
+		{
+			"name": "System Administrator",
+			"telecom": [
+				{
+					"system": "email",
+					"value": "wile@acme.org"
+				}
+			]
+		}
+	],
+	"description": "This is the FHIR terminology capability statement for the Acme Terminology Server for the private interface - it does not describe the public interface",
+	"kind": "instance",
+	"software": {
+		"name": "TxServer",
+		"version": "0.1.2"
+	},
+	"implementation": {
+		"description": "Acme Terminology Server",
+		"url": "http://acme.org/tx"
+	},
+	"codeSystem": [
+		{
+			"uri": "http://example.org/codesystem1",
+			"version": [
+				{
+					"code": "1",
+					"compositional": true
+				},
+				{
+					"code": "2",
+					"isDefault": true,
+					"compositional": true
+				}
+			],
+			"content": "example",
+			"subsumption": true
+		},
+		{
+			"uri": "http://example.org/codesystem2",
+			"version": [
+				{
+					"code": "1",
+					"compositional": true
+				},
+				{
+					"code": "2",
+					"compositional": true,
+					"isDefault": true
+				}
+			],
+			"content": "example",
+			"subsumption": true
+		}
+	],
+	"codeSearch": "in-compose-or-expansion"
+}

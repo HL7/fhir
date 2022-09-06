@@ -1,0 +1,15 @@
+@startuml
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+opt
+Consumer -> Consumer: [[#cr-post-a1 1.]] POST 'placer order'\nCommunicationRequest [cr1]
+end
+...
+Consumer -> Source: [[#cr-post-a2 2.]] POST 'filler order'\nCommunicationRequest
+...
+Consumer <-- Source: [[#cr-post-a3 3.]] POST [requested data]
+opt
+Consumer <-- Source: [[#cr-post-a4 4.]] POST Communication (referencing [cr1] and [requested data])
+end
+@enduml
