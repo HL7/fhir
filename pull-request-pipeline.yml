@@ -90,11 +90,11 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"'content=PR Build success for branch $(CI_BRANCH_DIRECTORY) :thumbs_up:!
+            -d $"content=PR Build success for branch $(CI_BRANCH_DIRECTORY) :thumbs_up:!
             $COMMIT_INFO
-            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
+            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)'&'view=results)
             Published webpage can be viewed [here](https://build.fhir.org/branches/$(CI_BRANCH_DIRECTORY))
-            '"
+            "
   - task: Bash@3
     condition: failed()
     inputs:
@@ -106,7 +106,7 @@ jobs:
             -d "type=stream" \
             -d "to=$(ZULIP_STREAM_ID_COMMITTERS)" \
             -d "subject=FHIR Build Status" \
-            -d $"'content=Build failed for branch $(CI_BRANCH_DIRECTORY) :thumbs_down:!
+            -d $"content=Build failed for branch $(CI_BRANCH_DIRECTORY) :thumbs_down:!
             $COMMIT_INFO
-            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)&view=results)
-            '"
+            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)'&'view=results)
+            "
