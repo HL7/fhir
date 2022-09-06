@@ -150,6 +150,15 @@ signatures.html
     </page>
 
     <page title="Exchange" filename="exchange-module.html" icon="exchange.png">
+      <page title="Approaches to Exchanging FHIR Data" filename="exchanging.html">
+        <page title="Exchanging with FHIR Search" filename="exchanging-search.html"/>
+        <page title="Exchanging with FHIR REST" filename="exchanging-rest.html"/>
+        <page title="Exchanging with FHIR Subscription" filename="exchanging-subscription.html"/>
+        <page title="Exchanging with Polling" filename="exchanging-polling.html"/>
+        <page title="Exchanging with FHIR Operations" filename="exchanging-operation.html"/>
+        <page title="Exchanging with Messaging" filename="exchanging-messaging.html"/>
+        <page title="Exchanges Allowing Human Intervention" filename="exchanging-request.html"/>
+      </page>
       <page title="RESTful API" filename="http.html">
         <page title="Search" filename="search.html"/>
         <page title="GraphQL" filename="graphql.html"/>

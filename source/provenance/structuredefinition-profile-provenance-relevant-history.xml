@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+		<valueString value="provenance-relevant-history-introduction.xml"/>
+	</extension>
+	<extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+		<valueString value="provenance-relevant-history-notes.xml"/>
+	</extension>
   <id value="provenance-relevant-history"/>
   <text>
     <status value="generated"/>
@@ -8,7 +14,7 @@
     <valueInteger value="3"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="sec"/>
+    <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>

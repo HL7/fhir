@@ -1,0 +1,18 @@
+@startuml
+' NOTE: this diagram is used on both REST and Operation pages
+hide footbox
+participant "Data Consumer" as Consumer
+participant "Data Source" as Source
+Consumer -> Source: [[#async-1 1a.]] Request data (POST/GET) indicating desired info with Prefer=respond-async
+Consumer <-- Source: [[#async-1 1b.]] HTTP 202 Accepted w/ [polling location]
+...
+loop
+  Consumer -> Source: [[#async-2 2a.]] GET [polling location]
+  Consumer <-- Source: [[#async-2 2b.]] 202 Accepted (w/ optional X-Progress header)
+end
+...
+Consumer -> Source: [[#async-3 3a.]] GET [polling location]
+Consumer <-- Source: [[#async-3 3b.]] 200 Ok w/ Json Response object listing [output file locations]
+Consumer -> Source: [[#async-4 4a.]] GET [output file location]
+Consumer <-- Source: [[#async-4 4b.]] [output file]
+@enduml
