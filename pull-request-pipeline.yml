@@ -92,8 +92,7 @@ jobs:
             -d "subject=FHIR Build Status" \
             -d $"content=PR Build success for branch $(CI_BRANCH_DIRECTORY) :thumbs_up:!
             $COMMIT_INFO
-            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId))
-            Published webpage can be viewed [here](https://build.fhir.org/branches/$(CI_BRANCH_DIRECTORY))
+            [build logs](https://dev.azure.com/fhir-pipelines/fhir-publisher/_build/results?buildId=$(Build.BuildId)) | [published webpage](https://build.fhir.org/branches/$(CI_BRANCH_DIRECTORY))
             "
   - task: Bash@3
     condition: failed()
