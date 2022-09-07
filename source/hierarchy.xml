@@ -109,7 +109,7 @@ signatures.html
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
           <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
-          <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
+          <page title="R4 Conversions" filename="datatypes-version-maps.html"/>
           <page title="MetaData Types" filename="metadatatypes.html">
             <page title="Examples" filename="metadatatypes-examples.html"/>
             <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
