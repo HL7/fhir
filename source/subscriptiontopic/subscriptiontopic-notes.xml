@@ -238,7 +238,8 @@
 		<li>Deriving a new SubscriptionTopic to remove an existing canFilterBy parameter is NOT ok.</li>
 		<li>Deriving a new SubscriptionTopic based on a different resource than its parent is NOT ok (e.g., start/end of medication derived from encounter).</li>
 	</ul>
-  [%stu-note%]
+
+  [%stu-note early%]
 	Warning: This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
 	[%end-note%]
 

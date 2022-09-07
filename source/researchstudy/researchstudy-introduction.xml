@@ -3,7 +3,9 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
- <blockquote class="stu-note"><p><b>Ballot Questions:</b>
+
+[%ballot-note stu%]
+<b>Ballot Questions:</b>
 In terms of scope and usage, the BR&amp;R workgroup wish to
 draw the attention of reviewers and implementers to the following topics:
 </p>
@@ -14,7 +16,8 @@ draw the attention of reviewers and implementers to the following topics:
 				</li>
 				<li>WG seeks input in how research study sites should be represented in FHIR. There are two proposals under consideration. Option 1: Develop a ResearchStudySite Profile of ResearchStudy resource, Option 2: Develop a NEW FHIR resource called ResearchStudySite. For now, the WG is doing analysis to see if the profile option (Option 1) would work. All input is welcome.</li>
 			</ol>
-</blockquote>
+<p>
+[%end-note%]
 
 <p>This resource is a <a href="workflow.html#definition">
         <em>definition resource</em>

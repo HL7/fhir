@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Directory of all Versions of FHIR%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -24,7 +23,7 @@ Some important packages for FHIR Implementers:
   <li><code>hl7.terminology</code>: The package that contains all the code systems and value sets maintained by HL7 for all standards it publishes</li>
 </ul>
 
-<h2>FHIR NPM Packages</h2>
+<h3>FHIR NPM Packages</h3>
 <p>
 Each FHIR package is a tarball (tar in gzip) that contains a <code>package</code> folder that 
 contains:
@@ -56,8 +55,8 @@ specification, and defines some additional FHIR specific properties.
 <table class="grid">
   <tr>
     <td>name</td>
-    <td>mandatory</td>
-    <td>A globally unique identifier for the package in the NPM System.
+    <td>required</td>
+    <td>Each package SHALL have globally unique identifier for the package in the NPM System.
       A package name consists of two or more namespaces separated by a dot. Each namespace starts with a lowercase alphabet character followed by zero-or-more lowercase alphanumeric characters or dashes.
       The first part of the namespace should identify the publisher
       for the package. 
@@ -67,7 +66,7 @@ specification, and defines some additional FHIR specific properties.
   </tr>
   <tr>
     <td>version</td>
-    <td>mandatory</td>
+    <td>required</td>
     <td>All packages SHALL have a version that conforms to Semantic Versioning.
       See <a href="versions.html#versions">FHIR Versioning</a> for how 
       semantic versioning works with standards.
@@ -76,8 +75,12 @@ specification, and defines some additional FHIR specific properties.
   <tr>
     <td>dependencies</td>
     <td>required</td>
-    <td>Dependencies they should refer to the whole package version number and not use wildcards, except for the patch version in a semver version reference.
-      This x here means that it should a package resolver should accept the package with the highest found patch number:
+    <td>Any dependencies SHALL be listed her - that is, any other package that 
+      contains resources referred to by the resources in the package. 
+      Packages SHOULD be referred to by the whole package version number and 
+      not use wildcards, except for the patch version in a semver version reference.
+      This x here means that it should a package resolver should accept the package
+      with the highest found patch number:
 <pre class="json">
 "dependencies": {
   "hl7.fhir.r5.core": "5.0.x"
@@ -87,10 +90,20 @@ specification, and defines some additional FHIR specific properties.
    </td>
   </tr>
   <tr>
+    <td>author</td>
+    <td>required</td>
+    <td>Each package SHALL contain the name of the author - an individual or organization who created and/or published the pacakge</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td>required</td>
+    <td>Each package SHALL have a human language description of the contents of the package</td>
+  </tr>
+  <tr>
     <td><b>canonical</b></td>
     <td>required</td>
     <td>The canonical URL for the Implementation guide represented by the package. 
-      This is required if the package is for an Implementation Guide, but not 
+      This SHALL be present if the package is for an Implementation Guide, but not 
       for other packages.
     </td>
   </tr>
@@ -128,9 +141,13 @@ specification, and defines some additional FHIR specific properties.
     <td>An array of the FHIR Versions used by the package. Most packages only use one version. In some older packages, this was named fhir-version-list. The value of this property can be determined by inspecting the package</td>
   </tr>
 </table>
+<p>
+Note: bolded items are introduced by this specification, while 
+other items are those defined by NPM itself.
+</p>
 
 <a name="example-pck"></a>
-<h4>Example Package File</h4>
+<h3>Example Package File</h3>
 
 <p>
 This is the package.json file to the US Core Implementation Guide.
@@ -161,7 +178,7 @@ This is the package.json file to the US Core Implementation Guide.
 
 <h3>.index.json</h3>
 <p>
-This file contains information from the resources in the package
+This optional file contains information from the resources in the package
 folder. The intention of this file is to save tools from loading 
 every resource in the package; they can read the .index.json file 
 and know what resources are in the package and load only the ones
@@ -170,7 +187,7 @@ they need.
 <p>
 Note that there is no independent information in the .index.json file;
 all the information is derived from the resources, and tools can 
-rebuild it at any time.
+rebuild it at any time (or built it and add it if it is not present).
 </p>
 <pre class="json">
 {
@@ -201,19 +218,19 @@ the same name in the resource identified by the filename, irrespective
 of resource type.
 </p>
 
-<h2>FHIR NPM Package Registry</h2>
+<h3>FHIR NPM Package Registry</h3>
 <p>
 For user convenience, tools may choose 
 to use a <a href="https://confluence.hl7.org/display/FHIR/FHIR+Package+Cache">common local cache</a>.
 </p>
 
-<h2>FHIR NPM Package Registry</h2>
+<h3>FHIR NPM Package Registry</h3>
 <p>
 The FHIR packages are all hosted on the registry <a href="http://packages.fhir.org">http://packages.fhir.org</a>.
-Users can search for packages and download them manually, but the 
+Users can <a href="https://registry.fhir.org/">search for packages</a> and download them manually, but the 
 main users of the registry are tools that access the registry 
-using <a href="https://app.swaggerhub.com/apis-docs/firely/Simplifier.net_FHIR_Package_API/1.0.1">the package API</a>.
-There's a secondary package registry at <a href="http://packages2.fhir.org">http://packages2.fhir.org</a>.
+using <a href="https://app.swaggerhub.com/apis-docs/firely/Simplifier.net_FHIR_Package_API">the package API</a>.
+A secondary package registry may be found at <a href="http://packages2.fhir.org">http://packages2.fhir.org</a>.
 </p>
 <p>
 To load a package onto the package servers:

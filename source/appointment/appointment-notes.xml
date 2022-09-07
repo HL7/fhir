@@ -474,8 +474,7 @@
 		</li>
 	</ul>
 
-<a name="dstu"> </a>
-[%stu-note%]
+[%stu-note dstu%]
 Implementer feedback is sought on the values for Appointment.priority and how interoperable they are.
 Using an extension to record a CodeableConcept for named values may be tested at a future Connectathon.<br/>
 Implementer feedback is also sought to clarify desired relationship linkages between ServiceCategory, 

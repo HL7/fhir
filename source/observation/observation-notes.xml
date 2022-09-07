@@ -276,15 +276,13 @@
 			</li>
 			</ol>
 
-			<blockquote class="stu-note">
-			<a name="dstu"></a>
-			<p>
-			<b>Note:</b>We are seeking input from the implementer community in evaluating existing <a href="observation-profiles.html#extensions">Observation Extensions</a> for this purpose<br/>
+     [%stu-note dstu%]
+			We are seeking input from the implementer community in evaluating existing <a href="observation-profiles.html#extensions">Observation Extensions</a> for this purpose<br/>
 			</p>
 			<p>
 			Feedback <a href="https://chat.fhir.org/#narrow/stream/103-Orders-and.20Observation.20WG">here</a>.
-			</p>
-			</blockquote>
+     [%end-note%]
+
 
 			<a name="valuex">
 		</a>

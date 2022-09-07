@@ -52,8 +52,7 @@ case, <code>Composition.subject</code> is omitted, and the extension <a href="ex
 is used on each section to indicate the subject.
 </p>
 
-<a name="dstu"></a>
-[%stu-note%]
+[%stu-note dstu%]
 Feedback is welcome on two issues related to Composition:
 </p>
 <ul>

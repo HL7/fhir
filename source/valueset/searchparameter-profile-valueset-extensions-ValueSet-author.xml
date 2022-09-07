@@ -10,6 +10,6 @@
   <base value="ValueSet"/>
   <type value="string"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-author').value"/>
-  <xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-author']/f:valueReference | /f:#author"/>
-  <xpathUsage value="normal"/>
+  <!--<xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-author']/f:valueReference | /f:#author"/> -->
+  <processingMode value="normal"/>
 </SearchParameter>

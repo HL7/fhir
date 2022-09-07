@@ -4,16 +4,14 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
-<blockquote class="stu-note">
-  <p>
-    <a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appopriate to include in the FHIR specification. 
-    The resource covers domain content that is not considered specific to healthcare, and FMG is 
-    still discussing whether alternative standards organizations exist that should standardise this content, 
-    and whether HL7 does or can have the correct community representation to support standardizing this 
-    content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
-  </p>
-</blockquote>
-[%stu-note%]
+[%ballot-note fmg%]
+<a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appopriate to include in the FHIR specification. 
+The resource covers domain content that is not considered specific to healthcare, and FMG is 
+still discussing whether alternative standards organizations exist that should standardise this content, 
+and whether HL7 does or can have the correct community representation to support standardizing this 
+content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
+</p>
+<p>
 The FHIR Management Group has provisionally approved the Citation Resource with the qualification that we will continue to evaluate its appropriateness as it develops in the community.
 </p>
 			<ul>

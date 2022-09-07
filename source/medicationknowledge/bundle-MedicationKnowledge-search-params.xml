@@ -17,7 +17,7 @@
         <code value="classification"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.medicineClassification.classification"/>
-        <xpath value="f:MedicationKnowledge/f:medicineClassification/f:classification"/>
+        <!--<xpath value="f:MedicationKnowledge/f:medicineClassification/f:classification"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="classification-type"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.medicineClassification.type"/>
-        <xpath value="f:MedicationKnowledge/f:medicineClassification/f:type"/>
+        <!--<xpath value="f:MedicationKnowledge/f:medicineClassification/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.code"/>
-        <xpath value="f:MedicationKnowledge/f:code"/>
+        <!--<xpath value="f:MedicationKnowledge/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="doseform"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.definitional.doseForm"/>
-        <xpath value="f:MedicationKnowledge/f:definitional/f:doseForm"/>
+        <!--<xpath value="f:MedicationKnowledge/f:definitional/f:doseForm"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.identifier"/>
-        <xpath value="f:MedicationKnowledge/f:identifier"/>
+        <!--<xpath value="f:MedicationKnowledge/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="ingredient"/>
         <type value="reference"/>
         <expression value="MedicationKnowledge.definitional.ingredient.item.reference"/>
-        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:reference"/>
+        <!--<xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="ingredient-code"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.definitional.ingredient.item.concept"/>
-        <xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:concept"/>
+        <!--<xpath value="f:MedicationKnowledge/f:definitional/f:ingredient/f:item/f:concept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="monitoring-program-name"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.monitoringProgram.name"/>
-        <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:name"/>
+        <!--<xpath value="f:MedicationKnowledge/f:monitoringProgram/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="monitoring-program-type"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.monitoringProgram.type"/>
-        <xpath value="f:MedicationKnowledge/f:monitoringProgram/f:type"/>
+        <!--<xpath value="f:MedicationKnowledge/f:monitoringProgram/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +197,7 @@
         <code value="monograph"/>
         <type value="reference"/>
         <expression value="MedicationKnowledge.monograph.source"/>
-        <xpath value="f:MedicationKnowledge/f:monograph/f:source"/>
+        <!--<xpath value="f:MedicationKnowledge/f:monograph/f:source"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +217,7 @@
         <code value="monograph-type"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.monograph.type"/>
-        <xpath value="f:MedicationKnowledge/f:monograph/f:type"/>
+        <!--<xpath value="f:MedicationKnowledge/f:monograph/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -267,7 +267,7 @@
         <code value="product-type"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.productType"/>
-        <xpath value="f:MedicationKnowledge/f:productType"/>
+        <!--<xpath value="f:MedicationKnowledge/f:productType"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -287,7 +287,7 @@
         <code value="source-cost"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.cost.source"/>
-        <xpath value="f:MedicationKnowledge/f:cost/f:source"/>
+        <!--<xpath value="f:MedicationKnowledge/f:cost/f:source"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -307,7 +307,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="MedicationKnowledge.status"/>
-        <xpath value="f:MedicationKnowledge/f:status"/>
+        <!--<xpath value="f:MedicationKnowledge/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

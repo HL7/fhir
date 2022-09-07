@@ -7,17 +7,15 @@
 A declarative <a href="security.html#binding">attribute-based access control</a> policy statement to express <a href="security-labels.html#6.1.1.4.0.2">policies, refrains, and obligations</a>.
 The Permission resource may be used to record the access control constraints under which data were collected or shared.
 </p>
-[%stu-note%]
-<a name="dstu"></a>
-<p>
-STU Note: This resource is under-development,
+
+[%stu-note dstu%]
+This resource is under-development,
 consult the <a href="https://confluence.hl7.org/display/SEC/FHIR+Permission">FHIR Permission Confluence page</a> 
 for development details, plans, and use-case analysis.
 </p>
 
 <p>
 The Permission resource may in the future be used as a provision within a <a href="consent.html">Consent</a> resource.
-</p>
 [%end-note%]
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 

@@ -3,9 +3,10 @@
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
-		<blockquote class="stu-note">
-  <a name="dstu"/>
-<strong>This resource is still undergoing development and review by the appropriate Workgroups. At this time, is considered only as a draft resource not suitable for production implementation</strong>
-</blockquote>
+
+[%stu-note dstu%]
+This resource is still undergoing development and review by the appropriate Workgroups. At this time, is considered only as a draft resource not suitable for production implementation.
+[%end-note%]
+
 	</div>
 </div>

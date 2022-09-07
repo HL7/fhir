@@ -11,7 +11,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1045"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
   <name value="search-parameter-use"/>
   <title value="Search Parameter Use"/>
   <status value="draft"/>
@@ -24,7 +24,7 @@
     </telecom>
   </contact>
   <description value="This extension defines if a search parameter is only allowed in certain contexts"/>
-  <fhirVersion value="5.0.0-cibuild"/>
+  <fhirVersion value="5.0.0-ballot"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

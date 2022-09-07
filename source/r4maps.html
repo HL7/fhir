@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+
+[%settitle Differences from DSTU Release 3%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<h2>Transforms between R5 and R5</h2>
+
+[%ballot-note r4r5%]
+The R4 / R5 version comparison information is updated prior to publication
+of the final copy of R5. At this point in time (ballot) it has not been 
+updated. Ballot comments concerning this information are welcome to identify 
+issues, but will not be counted as negative.
+[%end-note%]
+
+<p>
+In addition to a <a href="diff.html">list of all differences between R5 and R5</a>,
+this specification also provides transforms between R5 and R5 for most resources
+that were in R5. These transforms are expressed using the 
+<a href="mapping-language.html">FHIR Mapping Language</a>, and both serve as
+formal documentation of the relationship between the resource structures in R5 and R5, 
+and can also be used to convert between the formats automatically. 
+</p>
+<p>
+The following table summarizes the state of the R5:R5 maps for each resource type.
+</p>
+<p>
+Note the following:
+</p>
+<ul>
+ <li>Transforms are tested using the following method:
+  <ol>
+   <li>For each example resource in the R4 release of the FHIR specification that has a transform to R5</li>
+   <li>apply the transform to R5</li>
+   <li>validate against the R5 specification</li>
+   <li>apply the reverse transform back to R4</li>
+   <li>compare the outcome with the original resource - ideally, it should be identical</li>
+  </ol>
+ </li>
+ <li>
+   All transforms should execute - that is, they should be able to take any R4 resource, represent the content in R5, and then generate an R4 representation for the same content.
+   Note, though, that in a few cases, the differences between R4 and R5 designs are so significant that not all examples can be successfully transformed at all.
+ </li>
+ <li>
+   For some resources, the differences in design between R4 and R5 are sufficiently great that the R4 examples cannot reproduce the same output 
+   after conversion to R5 and then back to R4. For example, the R5 resource may have a different set of status codes with imperfect maps
+ </li>
+ <li>
+   For some resources, the information available in the R4 examples is not enough to generate valid R5 resources, and so the resources generate
+   R5 validation errors. (e.g. R4 resources missing an element that is required in R5)
+ </li>
+ <li>
+   The transform scripts are only tested to the degree that R4 provided example data
+ </li>
+ <li style="background: gold">For all these reasons, the maps provided in the specification are not authoritative; they are provided to help implementers 
+   who need to convert between the R2 and R4 format, but additional revision may be required in an implementation specific context</li>
+ <li>The 
+   maps are subject to ongoing maintenance using the <a href="https://confluence.hl7.org/display/FHIR/NPM+Package+Specification">FHIR NPM Package</a> "<code>fhir.versions.r3r4</code>" which is maintained on <a href="https://github.com/FHIR/packages/tree/master/interversion">GitHub</a>.
+   See also 
+   <a href="https://confluence.hl7.org/display/FHIR/R4-R5+Transformations">FHIR Wiki</a> for other ongoing work to support R4/R5 transformations</li> 
+</ul>
+
+<table class="grid">
+ <tr>
+  <td><b>Resource</b></td>
+  <td title="The number of resource examples defined for this resource type as part of FHIR R4"><b># Tests</b></td>
+  <td title="The % of the tests that result in succesfully producing an R4 resource (R4 to R5, back to R4)"><b>% Execute OK</b></td>
+  <td title="The % of successful tests that produce an identical resource (compare starting example to final example)"><b>% RoundTrip Ok</b></td>
+  <td title="The % of successful test that produce a valid R5 resource"><b>% R5 Valid</b></td>
+  <td title="The total number of R5 validation error messages"><b>R5 Error Count</b></td>
+ </tr>
+[%r3maps-summary%]
+</table>
+[%file newfooter%]
+
+
+</body>
+</html>

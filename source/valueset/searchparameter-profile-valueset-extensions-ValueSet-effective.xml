@@ -10,6 +10,6 @@
   <base value="ValueSet"/>
   <type value="date"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate').value"/>
-  <xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate']/f:valueDateTime | /f:#effectiveDate"/>
-  <xpathUsage value="normal"/>
+  <!--<xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-effectiveDate']/f:valueDateTime | /f:#effectiveDate"/> -->
+  <processingMode value="normal"/>
 </SearchParameter>

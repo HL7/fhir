@@ -258,8 +258,8 @@
     <display value="4.6"/>
     <definition value="R5 Draft Ballot version."/>
     <concept>
-      <code value="4.6.0"/>
-      <display value="4.6.0"/>
+      <code value="5.0.0"/>
+      <display value="5.0.0"/>
       <definition value="R5 Draft Ballot + Connectathon 27 (Virtual)."/>
     </concept>
   </concept>

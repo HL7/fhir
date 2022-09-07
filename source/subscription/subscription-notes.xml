@@ -242,11 +242,10 @@
         <li>When receiving notifications, a connected websocket client has no responsibilities beyond reading the message (e.g., there is no acknowledgement message).</li>
       </ul>
 		</p>
-		<p>
-			[%stu-note%]
+
+			[%stu-note ws%]
 			The Websocket channel type needs more testing and feedback to ensure all requirements are met before finalizing the specification.
 			[%end-note%]
-		</p>
 			
 			<a name="websockets-security"/>
 			<h4>Channel Security Notes</h4>
@@ -373,11 +372,10 @@
 			</li>
 		</ol>
 
-		<p>
-			[%stu-note%]
+			[%stu-note msg%]
 			The Messaging channel type needs more testing and feedback to ensure all requirements are met before finalizing the specification.
 			[%end-note%]
-		</p>
+		
 
 			<a name="message-security" />
 			<h4>Channel Security Notes</h4>
@@ -391,7 +389,8 @@
 	<p>
 		Defining a new channel type requires clear communication to implementers of both clients and servers around requirements and expectations.  Below are some areas which should be considered when creating a channel.  Anyone defining a channel type is encouraged to publish their definition at <a href="https://registry.fhir.org/">registry.fhir.org</a>.
 	</p>
-	[%stu-note%]
+
+	[%stu-note ch%]
 	Warning: This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
 	[%end-note%]
 

@@ -8,7 +8,7 @@
     <valueString value="Foundation.Conformance"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
@@ -70,8 +70,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="Requirements"/>
-      <short value="An application that exchanges data"/>
-      <definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+      <short value="A set of requirements - features of systems that are necessary"/>
+      <definition value="A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -403,7 +403,7 @@
       <path value="Requirements.statement.label"/>
       <short value="Short Human label for this statement"/>
       <definition value="A short human usable label for this statement."/>
-      <comment value="The key is intended for computers, while this is intended for humans. In it's absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
+      <comment value="The key is intended for computers, while this is intended for humans. In its absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -414,9 +414,9 @@
       <path value="Requirements.statement.conformance"/>
       <short value="SHALL | SHOULD | MAY | SHOULD-NOT"/>
       <definition value="A short human usable label for this statement."/>
-      <comment value="The key is intended for computers, while this is intended for humans. In it's absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
+      <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)"/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="code"/>
       </type>
@@ -459,7 +459,7 @@
     </element>
     <element id="Requirements.statement.reference">
       <path value="Requirements.statement.reference"/>
-      <short value="Design artifact that creates this requirement"/>
+      <short value="External artifact (rule/document etc that) created this requirement"/>
       <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc, or external regulation, or business requirements expressed elsewhere."/>
       <min value="0"/>
       <max value="*"/>
@@ -475,8 +475,10 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
+<!--        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+-->        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>

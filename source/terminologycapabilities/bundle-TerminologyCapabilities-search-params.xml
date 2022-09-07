@@ -17,7 +17,7 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(TerminologyCapabilities.useContext.value as CodeableConcept)"/>
-        <xpath value="f:TerminologyCapabilities/f:useContext/f:valueCodeableConcept"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(TerminologyCapabilities.useContext.value as Quantity) | (TerminologyCapabilities.useContext.value as Range)"/>
-        <xpath value="f:TerminologyCapabilities/f:useContext/f:valueQuantity | f:TerminologyCapabilities/f:useContext/f:valueRange"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:useContext/f:valueQuantity | f:TerminologyCapabilities/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.useContext.code"/>
-        <xpath value="f:TerminologyCapabilities/f:useContext/f:code"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +125,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="TerminologyCapabilities.date"/>
-        <xpath value="f:TerminologyCapabilities/f:date"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +145,7 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="TerminologyCapabilities.description"/>
-        <xpath value="f:TerminologyCapabilities/f:description"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +165,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.identifier"/>
-        <xpath value="f:TerminologyCapabilities/f:identifier"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.jurisdiction"/>
-        <xpath value="f:TerminologyCapabilities/f:jurisdiction"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +205,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="TerminologyCapabilities.name"/>
-        <xpath value="f:TerminologyCapabilities/f:name"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +225,7 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="TerminologyCapabilities.publisher"/>
-        <xpath value="f:TerminologyCapabilities/f:publisher"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +245,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.status"/>
-        <xpath value="f:TerminologyCapabilities/f:status"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +265,7 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="TerminologyCapabilities.title"/>
-        <xpath value="f:TerminologyCapabilities/f:title"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +285,7 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="TerminologyCapabilities.url"/>
-        <xpath value="f:TerminologyCapabilities/f:url"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +305,7 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="TerminologyCapabilities.version"/>
-        <xpath value="f:TerminologyCapabilities/f:version"/>
+        <!--<xpath value="f:TerminologyCapabilities/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

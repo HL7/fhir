@@ -26,7 +26,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1320"/>
   </identifier>
-  <version value="4.6.0"/>
+  <version value="5.0.0"/>
     <name value="Consent"/>
     <status value="draft"/>
     <date value="2021-01-02T08:58:31+11:00"/>
@@ -44,7 +44,7 @@
         </telecom>
     </contact>
     <description value="A record of a healthcare consumer’s  choices  or choices made on their behalf by a third party, which permits or denies identified recipient(s) or recipient role(s) to perform one or more actions within a given policy context, for specific purposes and periods of time."/>
-    <fhirVersion value="4.6.0"/>
+    <fhirVersion value="5.0.0"/>
     <mapping>
         <identity value="workflow"/>
         <uri value="http://hl7.org/fhir/workflow"/>

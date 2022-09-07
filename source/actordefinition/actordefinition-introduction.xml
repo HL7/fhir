@@ -4,10 +4,6 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 
-<!-- TODO: Is there a pattern that this resource does fit? Metadata? Artifact?
-<p><strong>This resource is a <em>definition</em> resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>, specifically <a href="workflow.html#definition">Definition</a>.</p>
- -->
-
 <p>The ActorDefinition Resource an actor that can plays the role of a participant in some kind 
 of described process. Generally, in the scope of FHIR, the process is some kind of data 
 exchange, and ActorDefinition is defined for this purpose.</p>
@@ -32,7 +28,7 @@ Actors may also be referenced from <a href="examplescenario.html">ExampleXcenari
 </p>
 
 </div>
-
+<!--
 <div>
 <h2>Background and Context</h2>
 <p>
@@ -40,5 +36,5 @@ To do
 </p>
 
 </div>
-
+-->
 </div>

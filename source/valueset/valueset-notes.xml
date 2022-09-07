@@ -670,14 +670,13 @@ Use cases for the different combinations:
   for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
   or all of these URL patterns.
 </p>
-  <blockquote class="stu-note">
-    <p>
-      <strong>Note: </strong>
-      At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
-      declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
-      regarding whether this capability should be added to the TerminologyCapabilities resource.
-    </p>
-  </blockquote>
+
+[%ballot-note implicit%]
+At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
+declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
+regarding whether this capability should be added to the TerminologyCapabilities resource.
+[%end-note%]
+
 <p>
   The following links describe the currently defined FHIR implicit value set URL patterns for these listed code systems:
   <ul>

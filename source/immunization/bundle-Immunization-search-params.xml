@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="Immunization-search-params"/>
   <entry>
     <resource>
@@ -17,8 +17,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="(Immunization.occurrence as dateTime)"/>
-        <xpath value="f:Immunization/f:occurrenceDateTime"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:occurrenceDateTime"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +36,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Immunization.identifier"/>
-        <xpath value="f:Immunization/f:identifier"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:identifier"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +55,7 @@
         <code value="location"/>
         <type value="reference"/>
         <expression value="Immunization.location"/>
-        <xpath value="f:Immunization/f:location"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:location"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +74,7 @@
         <code value="lot-number"/>
         <type value="string"/>
         <expression value="Immunization.lotNumber"/>
-        <xpath value="f:Immunization/f:lotNumber"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:lotNumber"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +93,7 @@
         <code value="manufacturer"/>
         <type value="reference"/>
         <expression value="Immunization.manufacturer.reference"/>
-        <xpath value="f:Immunization/f:manufacturer.reference"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:manufacturer.reference"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +112,7 @@
         <code value="patient"/>
         <type value="reference"/>
         <expression value="Immunization.patient"/>
-        <xpath value="f:Immunization/f:patient"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:patient"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +131,7 @@
         <code value="performer"/>
         <type value="reference"/>
         <expression value="Immunization.performer.actor"/>
-        <xpath value="f:Immunization/f:performer/f:actor"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:performer/f:actor"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +150,7 @@
         <code value="reaction"/>
         <type value="reference"/>
         <expression value="Immunization.reaction.manifestation.reference"/>
-        <xpath value="f:Immunization/f:reaction/f:manifestation.reference"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:reaction/f:manifestation.reference"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -177,8 +169,7 @@
         <code value="reaction-date"/>
         <type value="date"/>
         <expression value="Immunization.reaction.date"/>
-        <xpath value="f:Immunization/f:reaction/f:date"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:reaction/f:date"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -197,8 +188,7 @@
         <code value="reason-code"/>
         <type value="token"/>
         <expression value="Immunization.reason.concept"/>
-        <xpath value="f:Immunization/f:reason/f:concept"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:reason/f:concept"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -217,8 +207,7 @@
         <code value="reason-reference"/>
         <type value="reference"/>
         <expression value="Immunization.reason.reference"/>
-        <xpath value="f:Immunization/f:reason/f:reference"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:reason/f:reference"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -237,8 +226,7 @@
         <code value="series"/>
         <type value="string"/>
         <expression value="Immunization.protocolApplied.series"/>
-        <xpath value="f:Immunization/f:protocolApplied/f:series"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:protocolApplied/f:series"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -257,8 +245,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Immunization.status"/>
-        <xpath value="f:Immunization/f:status"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:status"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -277,8 +264,7 @@
         <code value="status-reason"/>
         <type value="token"/>
         <expression value="Immunization.statusReason"/>
-        <xpath value="f:Immunization/f:statusReason"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:statusReason"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -297,8 +283,7 @@
         <code value="target-disease"/>
         <type value="token"/>
         <expression value="Immunization.protocolApplied.targetDisease"/>
-        <xpath value="f:Immunization/f:protocolApplied/f:targetDisease"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:protocolApplied/f:targetDisease"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -317,8 +302,7 @@
         <code value="vaccine-code"/>
         <type value="token"/>
         <expression value="Immunization.vaccineCode"/>
-        <xpath value="f:Immunization/f:vaccineCode"/>
-        <processingMode value="normal"/>
+        <!--<xpath value="f:Immunization/f:vaccineCode"/> -->
       </SearchParameter>
     </resource>
   </entry>

@@ -130,7 +130,7 @@ with these kinds of requirements:
 </p>
 <ul>
  <li>When storing resources, store the version of the resource alongside the resource</li>
- <li>Maintain forward (and possibly backwards) conversions for the parts of resources that matter to the application (and see the <a href="r3maps.html">FHIR maintained version transforms</a>)</li>
+ <li>Maintain forward (and possibly backwards) conversions for the parts of resources that matter to the application (and see the <a href="r4maps.html">FHIR maintained version transforms</a>)</li>
  <li>Store resources in both received and transformed state</li>
  <li>Host multiple different end-points for different purposes</li>
 </ul>
@@ -184,15 +184,10 @@ unless a native FHIR extension is used, which might not be the most efficient wa
 to store the resolved link.
 </p>
 
-<blockquote class="stu-note">
-<a name="cfc"></a>
-
-<p>
-<strong>Note to balloters:</strong> Is there enough interest to standardize an
+[%ballot-note cfc%]
+Is there enough interest to standardize an
 extension? Ballot comments are welcome.
-</p>
-
-</blockquote>
+[%end-note%]
 
 [%file newfooter%]
 </body>

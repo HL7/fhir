@@ -17,7 +17,7 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="HealthcareService.active"/>
-        <xpath value="f:HealthcareService/f:active"/>
+        <!--<xpath value="f:HealthcareService/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="characteristic"/>
         <type value="token"/>
         <expression value="HealthcareService.characteristic"/>
-        <xpath value="f:HealthcareService/f:characteristic"/>
+        <!--<xpath value="f:HealthcareService/f:characteristic"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="coverage-area"/>
         <type value="reference"/>
         <expression value="HealthcareService.coverageArea"/>
-        <xpath value="f:HealthcareService/f:coverageArea"/>
+        <!--<xpath value="f:HealthcareService/f:coverageArea"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="endpoint"/>
         <type value="reference"/>
         <expression value="HealthcareService.endpoint"/>
-        <xpath value="f:HealthcareService/f:endpoint"/>
+        <!--<xpath value="f:HealthcareService/f:endpoint"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="offered-in"/>
         <type value="reference"/>
         <expression value="HealthcareService.offeredIn"/>
-        <xpath value="f:HealthcareService/f:offeredIn"/>
+        <!--<xpath value="f:HealthcareService/f:offeredIn"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="HealthcareService.identifier"/>
-        <xpath value="f:HealthcareService/f:identifier"/>
+        <!--<xpath value="f:HealthcareService/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="location"/>
         <type value="reference"/>
         <expression value="HealthcareService.location"/>
-        <xpath value="f:HealthcareService/f:location"/>
+        <!--<xpath value="f:HealthcareService/f:location"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="HealthcareService.name"/>
-        <xpath value="f:HealthcareService/f:name"/>
+        <!--<xpath value="f:HealthcareService/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="organization"/>
         <type value="reference"/>
         <expression value="HealthcareService.providedBy"/>
-        <xpath value="f:HealthcareService/f:providedBy"/>
+        <!--<xpath value="f:HealthcareService/f:providedBy"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +197,7 @@
         <code value="program"/>
         <type value="token"/>
         <expression value="HealthcareService.program"/>
-        <xpath value="f:HealthcareService/f:program"/>
+        <!--<xpath value="f:HealthcareService/f:program"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +217,7 @@
         <code value="service-category"/>
         <type value="token"/>
         <expression value="HealthcareService.category"/>
-        <xpath value="f:HealthcareService/f:category"/>
+        <!--<xpath value="f:HealthcareService/f:category"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +237,7 @@
         <code value="service-type"/>
         <type value="token"/>
         <expression value="HealthcareService.type"/>
-        <xpath value="f:HealthcareService/f:type"/>
+        <!--<xpath value="f:HealthcareService/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +257,7 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="HealthcareService.specialty"/>
-        <xpath value="f:HealthcareService/f:specialty"/>
+        <!--<xpath value="f:HealthcareService/f:specialty"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -17,7 +17,7 @@
         <code value="actuality"/>
         <type value="token"/>
         <expression value="AdverseEvent.actuality"/>
-        <xpath value="f:AdverseEvent/f:actuality"/>
+        <!--<xpath value="f:AdverseEvent/f:actuality"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +37,7 @@
         <code value="category"/>
         <type value="token"/>
         <expression value="AdverseEvent.category"/>
-        <xpath value="f:AdverseEvent/f:category"/>
+        <!--<xpath value="f:AdverseEvent/f:category"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +57,7 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="AdverseEvent.code"/>
-        <xpath value="f:AdverseEvent/f:code"/>
+        <!--<xpath value="f:AdverseEvent/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +77,7 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="AdverseEvent.occurrence"/>
-        <xpath value="f:AdverseEvent/f:occurrenceDateTime | f:AdverseEvent/f:occurrencePeriod | f:AdverseEvent/f:occurrenceTiming"/>
+        <!--<xpath value="f:AdverseEvent/f:occurrenceDateTime | f:AdverseEvent/f:occurrencePeriod | f:AdverseEvent/f:occurrenceTiming"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +97,7 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="AdverseEvent.identifier"/>
-        <xpath value="f:AdverseEvent/f:identifier"/>
+        <!--<xpath value="f:AdverseEvent/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +117,7 @@
         <code value="location"/>
         <type value="reference"/>
         <expression value="AdverseEvent.location"/>
-        <xpath value="f:AdverseEvent/f:location"/>
+        <!--<xpath value="f:AdverseEvent/f:location"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +137,7 @@
         <code value="patient"/>
         <type value="reference"/>
         <expression value="AdverseEvent.subject"/>
-        <xpath value="f:AdverseEvent/f:subject"/>
+        <!--<xpath value="f:AdverseEvent/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +157,7 @@
         <code value="recorder"/>
         <type value="reference"/>
         <expression value="AdverseEvent.recorder"/>
-        <xpath value="f:AdverseEvent/f:recorder"/>
+        <!--<xpath value="f:AdverseEvent/f:recorder"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +177,7 @@
         <code value="resultingcondition"/>
         <type value="reference"/>
         <expression value="AdverseEvent.resultingCondition"/>
-        <xpath value="f:AdverseEvent/f:resultingCondition"/>
+        <!--<xpath value="f:AdverseEvent/f:resultingCondition"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +197,7 @@
         <code value="seriousness"/>
         <type value="token"/>
         <expression value="AdverseEvent.seriousness"/>
-        <xpath value="f:AdverseEvent/f:seriousness"/>
+        <!--<xpath value="f:AdverseEvent/f:seriousness"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +217,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="AdverseEvent.status"/>
-        <xpath value="f:AdverseEvent/f:status"/>
+        <!--<xpath value="f:AdverseEvent/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +237,7 @@
         <code value="study"/>
         <type value="reference"/>
         <expression value="AdverseEvent.study"/>
-        <xpath value="f:AdverseEvent/f:study"/>
+        <!--<xpath value="f:AdverseEvent/f:study"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +257,7 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="AdverseEvent.subject"/>
-        <xpath value="f:AdverseEvent/f:subject"/>
+        <!--<xpath value="f:AdverseEvent/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -277,7 +277,7 @@
         <code value="substance"/>
         <type value="reference"/>
         <expression value="(AdverseEvent.suspectEntity.instance as Reference)"/>
-        <xpath value="f:AdverseEvent/f:suspectEntity/f:instanceReference"/>
+        <!--<xpath value="f:AdverseEvent/f:suspectEntity/f:instanceReference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

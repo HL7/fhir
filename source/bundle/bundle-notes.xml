@@ -310,14 +310,13 @@ which allow for chained search into the first (special) entries in document and 
   of documents or other types of bundles are not well suited by the standard isSummary
   mechanism and are better handles by operations or other mechanisms. 
 </p>
-<p>
-[%stu-note%]
+
+[%stu-note dstu%]
 If an element marked as 'summary' is itself a nested resource (i.e. type is Resource), 
 then the expectation is that the conveyed resource will also be expressed in its summary form.  
 The typical place this applies is Bundle.entry.resource. This statement is left as STU because 
 there is not yet significant implementer experience on its ramifications.
 [%end-note%]
-</p>
 
 <a name="signature"> </a>
 <h3>Signatures</h3>

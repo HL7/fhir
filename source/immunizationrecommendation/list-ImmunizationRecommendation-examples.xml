@@ -24,7 +24,7 @@
       <valueString value="immunizationrecommendation-example-target-disease"/>
     </extension>
     <item>
-      <reference value="ImmunizationRecommendation/example"/>
+      <reference value="ImmunizationRecommendation/example-target-disease"/>
       <display value="General"/>
     </item>
   </entry>
