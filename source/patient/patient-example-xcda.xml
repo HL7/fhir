@@ -2,14 +2,6 @@
 
 <Patient xmlns="http://hl7.org/fhir">
   <id value="xcda"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      
-      <p>Henry Levin the 7th</p>
-    
-    </div>
-  </text>
   <identifier>
     <use value="usual"/>
     <type>

@@ -14,8 +14,7 @@
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>
-Welcome to the FHIR Release 5 (R5) ballot. 
-The R5 release of FHIR has content labeled with different ballot statuses: 
+Welcome to the FHIR Release 5 (R5) ballot. The R5 release of FHIR has content labeled with different ballot statuses: 
 </p>
 <ul>
  <li><span style="background-color: #e6ffe6; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Normative</b></span>: Content that is subject to normative ballot rules. Once passed, <a href="versions.html#change">strict rules</a> are imposed on future change to help ensure inter-version compatibility</li>
@@ -25,12 +24,12 @@ The R5 release of FHIR has content labeled with different ballot statuses:
  <li><span style="background-color: #ffcccc; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>Deprecated</b></span>: Content that is in the process of being removed (see <a href="versions.html#deprecation">deprecation</a>).</li>
  <li><span style="background-color: #e6ffff; border: 1px grey solid; padding-left: 3px; padding-right: 3px;"><b>External</b></span>: Content that is replicated from external standards (e.g. HL7 v2, DICOM) and is not subject to ballot comment. This content is mostly being moved out of the specification now</li>
 </ul>
-<p>
-Note, however, that the entirety of R5 is considered <b>trial-use</b>. Any content introduced 
+[%stu-note overall%]
+That the entirety of R5 is considered <b>trial-use</b>. Any content introduced 
 as part of R5 is subject to revision after implementation experience. If any new content is 
 labelled as normative, this should be understood to mean that the committees intention is that 
 the content will be normative in R6.
-</p>
+[%end-note%]
 <p>
   Other new content labelled trial-use may also be candidate material for normative in R6 by
   the normal rules. Any existing content that was normative in R4 will be subject to normative 
@@ -57,6 +56,8 @@ There are a number of notes requesting input from reviewers as part of this ball
 </ul>
 
 
+comparison ballot 
+
 <a name="process"></a>
 <h3>The FHIR R5 Ballot Process</h3>
 
@@ -66,10 +67,15 @@ ballot.
 </p>
 
 <p>
-This ballot introduces many small but significant changes from the previous draft ballot. For a list,
-see <a href="history.html#r5.0.0-ballot">the version history</a>.
+This ballot introduces many small but significant changes from the previous draft ballot. For a slightly more detailed list,
+see <a href="history.html#r5.0.0-ballot">the version history</a>. Note that there are 
+<a href="https://jira.hl7.org/browse/FHIR-5507?filter=19551">3157 change requests</a> applied to R5, of which 
+<a href="https://jira.hl7.org/browse/FHIR-7612?filter=19552">1486 changes</a> were considered substantive.
 </p>
-
+<p>
+Balloter's attention is drawn to two useful links at the bottom of every page: <img src="compare-links-r5-ballot.png"/>.
+These are very useful when preparing ballot comments.
+</p>
 <p>
 This ballot is using HL7's new <a href="https://confluence.hl7.org/display/HL7/Jira+Ballot+Process">Jira balloting process</a>. As such, ballot comments will need to 
 be submitted in Jira and, in general, balloting spreadsheets will not be used. Some organizational 
