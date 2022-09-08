@@ -383,8 +383,8 @@
     </element>
     <element id="Requirements.statement">
       <path value="Requirements.statement"/>
-      <short value="Statement of requirements"/>
-      <definition value="A statement of requirements."/>
+      <short value="Actual statement as markdown"/>
+      <definition value="The actual statement of requirement, in markdown format."/>
       <min value="0"/>
       <max value="*"/>
     </element>

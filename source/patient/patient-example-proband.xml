@@ -2,17 +2,6 @@
 
 <Patient xmlns="http://hl7.org/fhir">
   <id value="proband"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-
-      <p>
-
-        <b>Annie Proband</b>: Female, born 1966-04-04
-      </p>
-
-    </div>
-  </text>
   <!--
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
   <extension url="ombCategory">
