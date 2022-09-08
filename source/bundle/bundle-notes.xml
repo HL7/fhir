@@ -141,7 +141,7 @@ may be additional contents, as specified by the subscription responsible for gen
 <h2>Resource URL &amp; Uniqueness rules in a bundle</h2>
 
 <p>
-Except for transactions and batches, each entry in a <code>Bundle</code> SHALL must have a <code>fullUrl</code> 
+Except for transactions and batches, each entry in a <code>Bundle</code> SHALL have a <code>fullUrl</code> 
 which is the identity of the resource in the entry. Note that this is not a versioned reference to the resource, but its 
 identity. Where a resource is not assigned a persistent identity that can be used
 in the Bundle, a UUID SHALL be used in fullUrl (urn:uuid:...).
