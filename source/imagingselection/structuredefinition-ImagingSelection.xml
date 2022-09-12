@@ -597,9 +597,12 @@
       </example>
     </element>
     <element id="ImagingSelection.instance.imageRegion">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ImageRegion2D"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+          <valueCode value="right"/>
+      </extension>
       <path value="ImagingSelection.instance.imageRegion"/>
       <short value="A specific 2D region in a DICOM image / frame"/>
       <definition value="Each imaging selection instance or frame list might includes an image region, specified by a region type and a set of 2D coordinates.&#xA;       If the parent imagingSelection.instance contains a subset element of type frame, the image region applies to all frames in the subset list."/>
@@ -653,12 +656,12 @@
       </mapping>
     </element>
     <element id="ImagingSelection.imageRegion">
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-            <valueString value="imageRegion"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+          <valueString value="ImageRegion3D"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+          <valueCode value="right"/>
+      </extension>
       <path value="ImagingSelection.imageRegion"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
       <definition value="Each imaging selection might includes a 3D image region, specified by a region type and a set of 3D coordinates."/>

@@ -138,6 +138,9 @@
       </type>
     </element>
     <element id="DeviceDefinition.udiDeviceIdentifier.marketDistribution">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="UdiDeviceIdentifierMarketDistribution"/>
+      </extension>
       <path value="DeviceDefinition.udiDeviceIdentifier.marketDistribution"/>
       <short value="Indicates whether and when the device is available on the market"/>
       <definition value="Indicates where and when the device is available on the market."/>
@@ -464,6 +467,9 @@
       </type>
     </element>
     <element id="DeviceDefinition.packaging.distributor">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="PackagingDistributor"/>
+      </extension>
       <path value="DeviceDefinition.packaging.distributor"/>
       <short value="An organization that distributes the packaged device"/>
       <definition value="An organization that distributes the packaged device."/>

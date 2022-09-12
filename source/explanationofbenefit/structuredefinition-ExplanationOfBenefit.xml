@@ -1611,7 +1611,7 @@
     </element>
     <element id="ExplanationOfBenefit.item.bodySite">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="BodySite"/>
+        <valueString value="ItemBodySite"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/hint">
         <valueString value="720;600"/>
@@ -2620,7 +2620,7 @@
     </element>
     <element id="ExplanationOfBenefit.addItem.bodySite">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="BodySite"/>
+        <valueString value="AddedItemBodySite"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/hint">
         <valueString value="780;600"/>
