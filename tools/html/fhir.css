@@ -321,7 +321,7 @@ div.example {
 	padding: 5px;
 	margin-bottom: 10px;
 	font-size: 0.75em;
-	width: 670px;
+	width: 800px;
 }
 
 div.sidebar h2{
@@ -373,7 +373,7 @@ pre.spec             {
  	font-size: 11px;
         background: #FFFFE0 ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.json             {
@@ -381,7 +381,7 @@ pre.json             {
  	font-size: 11px;
         background: #EFFFEF ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.liquid             {
@@ -389,7 +389,7 @@ pre.liquid             {
  	font-size: 11px;
         background: #fbf3e3 ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 
@@ -398,7 +398,7 @@ pre.rdf             {
  	font-size: 11px;
         background: #fdedff ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.fhirpath             {
@@ -406,7 +406,7 @@ pre.fhirpath             {
  	font-size: 11px;
   background: #ffeafb ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.graphql             {
@@ -414,7 +414,7 @@ pre.graphql             {
  	font-size: 11px;
         background: #f7e6ff ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.xml              {
@@ -422,7 +422,7 @@ pre.xml              {
  	font-size: 9pt;
         padding: 2px;
         background: #F0FFFF ; 
-	width: 650px;
+	width: 780px;
 }
 
 p.example {
@@ -1043,7 +1043,7 @@ ol.fmmlist li::before {
   border: 1px solid #dcdcdc;
   background: #EFFFEF ; 
   padding: 5px;
-  width: 650px;
+  width: 780px;
 }
 
 .example-format-display-xml {
@@ -1060,5 +1060,5 @@ ol.fmmlist li::before {
   border-radius: 4px;
   padding: 5px;
   background: #F0FFFF ; 
-  width: 650px;
+  width: 780px;
 }

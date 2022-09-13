@@ -297,7 +297,7 @@ div.example {
 	padding: 5px;
 	margin-bottom: 10px;
 	font-size: 0.75em;
-	width: 670px;
+	width: 800px;
 }
 
 div.sidebar h2{
@@ -349,7 +349,7 @@ pre.spec             {
  	font-size: 11px;
         background: #FFFFE0 ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.json             {
@@ -357,7 +357,7 @@ pre.json             {
  	font-size: 11px;
         background: #EFFFEF ; 
 	padding: 5px;
-	width: 650px;
+	width: 780px;
 }
 
 pre.xml              {
@@ -365,7 +365,7 @@ pre.xml              {
  	font-size: 9pt;
         padding: 2px;
         background: #F0FFFF ; 
-	width: 650px;
+	width: 780px;
 }
 
 a.xmltag   {

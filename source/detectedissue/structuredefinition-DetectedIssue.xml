@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="DetectedIssue"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -190,7 +192,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;EVN&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
       </mapping>
     </element>
     <element id="DetectedIssue.code">
@@ -516,7 +518,7 @@
       <path value="DetectedIssue.mitigation.action"/>
       <short value="What mitigation?"/>
       <definition value="Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue."/>
-      <comment value="The &#34;text&#34; component can be used for detail or when no appropriate code exists."/>
+      <comment value="The &quot;text&quot; component can be used for detail or when no appropriate code exists."/>
       <min value="1"/>
       <max value="1"/>
       <type>

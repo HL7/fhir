@@ -24,7 +24,7 @@
     </telecom>
   </contact>
   <description value="This extension defines if a search parameter is only allowed in certain contexts"/>
-  <fhirVersion value="5.0.0-ballot"/>
+  <fhirVersion value="5.0.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
