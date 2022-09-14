@@ -638,6 +638,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.oralDiet.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="OralDietSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
@@ -997,6 +1000,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.supplement.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SupplementSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
@@ -1350,6 +1356,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.enteralFormula.administration.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="EnteralFormulaSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
