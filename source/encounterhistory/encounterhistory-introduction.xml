@@ -1,0 +1,104 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p> 
+A patient encounter is further characterized by the setting in which it takes place. Amongst them are ambulatory,
+ emergency, home health, inpatient and virtual encounters. An Encounter encompasses the lifecycle from pre-admission, 
+ the actual encounter (for ambulatory encounters), and admission, stay and discharge (for inpatient encounters). 
+During the encounter the patient may move from practitioner to practitioner and location to location.
+</p>
+<p>
+Because of the broad scope of Encounter, not all elements will be relevant in all settings. For this reason, 
+admission/discharge related information is kept in a separate admission component within Encounter. 
+The <i>class</i> element is used to distinguish between these settings, which will guide further validation and
+application of business rules.
+</p>
+<p>
+There is also substantial variance from organization to organization (and between jurisdictions and countries) 
+on which business events translate to the start of a new Encounter, or what level of aggregation is used for Encounter. For example, each
+single visit of a practitioner during a hospitalization may lead to a new instance of Encounter, but depending on
+local practice and the systems involved, it may well be that this is aggregated to a single instance for a whole admission.
+Even more aggregation may occur where jurisdictions introduce groups of Encounters for financial or other reasons.
+Encounters can be aggregated or grouped under other Encounters using the <i>partOf</i> element. 
+See <a href="#examples">below</a> for examples.
+</p>
+
+<p>
+Encounter instances may exist before the actual encounter takes place to convey pre-admission information, including
+using Encounters elements to reflect the planned start date or planned encounter locations. In 
+this case the <i>status</i> element is set to 'planned'.
+</p>
+
+<p>
+The admission component is intended to store the extended information relating to a admission event.
+It is always expected to be the same period as the encounter itself. Where the period is different, another
+encounter instance should be used to capture this information as a partOf this encounter instance.
+</p>
+
+<p>
+The Procedure and encounter have references to each other, and these should be to different procedures;
+one for the procedure that was performed during the encounter (stored in Procedure.encounter), and another for cases
+where an encounter is a result of another procedure (stored in Encounter.reason) such as a follow-up encounter to
+resolve complications from an earlier procedure.
+</p>
+
+<h3>Status Management</h3>
+<p>
+During the life-cycle of an encounter it will pass through many statuses. Typically these are in order or the
+organization's workflow: planned, in-progress, finished/cancelled.<br/>
+This status information is often used for other things, and often an analysis of the status history is required.
+This could be done by scanning through all the versions of the encounter, checking the period of each,
+and then doing some form of post processing. To ease the burden of this (or where a system doesn't support resource
+histories) a status history component is included.
+</p>
+<p>
+There is no direct indication purely by the status field as to whether an encounter is considered "admitted".<br/>
+The context of the encounter and business practices/policies/workflows/types can influence this definition.
+(e.g., acute care facility, aged care center, outpatient clinic, emergency department, community-based clinic).<br/>
+Statuses of "arrived", "triaged" or "in progress" could be considered the start of the admission, and also have the 
+presence of the admission sub-component entered.
+</p>
+<p>
+The "on leave" status might or might not be a part of the admission, for example if the patient 
+was permitted to go home for a weekend or some other form of external event.<br/>
+The location is also likely to be filled in with a location status of "active".<br/>
+For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 
+considered to be admitted, hence the encounter doesn't have a fixed definition of admitted.
+At a minimum, we do believe that a patient IS admitted when the status is in-progress.
+</p>
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+<p> 
+The Encounter resource is not to be used to store appointment information, the Appointment resource is intended to be used for that.
+Note that in many systems outpatient encounters (which are in scope for Encounter) and Appointment are used 
+concurrently. In FHIR, Appointment is used for establishing a date for the encounter, while Encounter is 
+applicable to information about the actual Encounter, i.e., the patient showing up.<br/>
+As such, an encounter in the "planned" status is not identical to the appointment that scheduled it,
+but it is the encounter prior to its actual occurrence, with the expectation that encounter will be
+updated as it progresses to completion. Patient arrival at a location does not necessarily mean the
+start of the encounter (e.g. a patient arrives an hour earlier than he is actually seen by a practitioner).
+</p>
+<p>
+An appointment is normally used for the planning stage of an appointment, searching, locating an available time, then
+making the appointment. Once this process is completed and the appointment is about to start, then the appointment
+will be marked as fulfilled, and linked to the newly created encounter.<br/>
+This new encounter may start in an "arrived" status when they are admitted at a location of the facility, and then will
+move to the ward where another part-of encounter may begin.
+</p>
+<p>
+Communication resources are used for a simultaneous interaction between a practitioner and a patient where there is no
+direct contact. Examples include a phone message, or transmission of some correspondence documentation.<br/>
+There is no duration recorded for a communication resource, but it could contain sent and received times.
+</p>
+<p>
+Standard Extension: <b>Associated Encounter</b><br/>
+This extension should be used to reference an encounter where there is no property that already defines this association on the resource.
+</p>
+</div>
+
+</div>

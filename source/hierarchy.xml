@@ -278,6 +278,7 @@ signatures.html
 
       <page type="resource" resource="EpisodeOfCare"/>
       <page type="resource" resource="Encounter"/>
+      <page type="resource" resource="EncounterHistory"/>
       <page type="resource" resource="Account"/>
       <page type="resource" resource="Flag"/>
 
