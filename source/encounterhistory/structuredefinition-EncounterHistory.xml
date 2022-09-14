@@ -88,7 +88,7 @@
     <element id="EncounterHistory.encounter">
       <path value="EncounterHistory.encounter"/>
       <short value="The Encounter associated with this set of historic values"/>
-      <definition value="The Encounter associated with this set of historic values"/>
+      <definition value="The Encounter associated with this set of historic values."/>
       <comment value="This is also used for associating a child's encounter back to the mother's encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
       <min value="0"/>
       <max value="1"/>
@@ -129,8 +129,8 @@
     </element>
     <element id="EncounterHistory.status">
       <path value="EncounterHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -453,7 +453,7 @@
         </extension>
         <strength value="example"/>
         <description value="Physical form of the location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
       </binding>
     </element>
     <element id="EncounterHistory.location.period">
