@@ -14,7 +14,9 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1282"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Implant Status"/>
+  <name value="ImplantStatus"/>
+  <title value="Implant Status"/>
+  <experimental value="true"/>
   <description value="Description Needed Here"/>
   <compose>
     <include>

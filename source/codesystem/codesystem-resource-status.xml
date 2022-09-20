@@ -1,32 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="resource-status"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="trial-use"/> 
-  </extension> 
+    <valueCode value="trial-use"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/> 
-  </extension> 
+    <valueInteger value="3"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="mnm"/> 
-  </extension>   
+    <valueCode value="mnm"/>
+  </extension>
   <url value="http://hl7.org/fhir/resource-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1828"/>
   </identifier>
-  <name value="Canonical Status Codes for FHIR Resources"/>
+  <name value="FHIRCanonicalStatusCodes"/>
+  <title value="Canonical Status Codes for FHIR Resources"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes."/>
+  <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/resource-status"/>
   <hierarchyMeaning value="is-a"/>
-  <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="error"/>
     <display value="error"/>
     <definition value="The resource was created in error, and should not be treated as valid (note: in many cases, for various data integrity related reasons, the information cannot be removed from the record)"/>
-  </concept>	
+  </concept>
   <concept>
     <code value="proposed"/>
     <display value="proposed"/>
@@ -135,7 +139,7 @@
   <concept>
     <code value="partial"/>
     <display value="partial"/>
-    <definition value="This information is still being assembled"/> <!-- draft? -->
+    <definition value="This information is still being assembled"/>
   </concept>
   <concept>
     <code value="busy-unavailable"/>
@@ -150,7 +154,7 @@
   <concept>
     <code value="on-target"/>
     <display value="on-target"/>
-    <definition value="Ready to act"/> <!-- arrived? -->
+    <definition value="Ready to act"/>
   </concept>
   <concept>
     <code value="ahead-of-target"/>
@@ -177,5 +181,4 @@
     <display value="hw-discon"/>
     <definition value="The hardware is disconnected"/>
   </concept>
- 
 </CodeSystem>

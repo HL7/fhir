@@ -16,6 +16,7 @@
   <version value="5.0.0"/>
   <name value="GoalPriority"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>

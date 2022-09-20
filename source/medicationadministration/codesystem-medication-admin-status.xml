@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medication-admin-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -11,9 +13,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2000"/>
   </identifier>
-  <name value="MedicationAdministration Status Codes"/>
+  <name value="MedicationAdministrationStatusCodes"/>
+  <title value="MedicationAdministration Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationAdministration Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-admin-status"/>
   <content value="complete"/>

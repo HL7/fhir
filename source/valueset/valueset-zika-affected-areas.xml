@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="zika-affected-areas"/>
   <url value="http://hl7.org/fhir/ValueSet/zika-affected-areas"/>
   <identifier>
@@ -15,10 +17,12 @@
     <value value="2.16.840.1.114222.4.11.7457"/>
   </identifier>
   <version value="1.0.0"/>
-  <name value="zika-affected-areas"/>
+  <name value="ZikaAffectedAreas"/>
   <title value="Zika Affected Areas"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="PHINVADS"/>
+  <description value="Zika Affected Areas"/>
   <compose>
     <include>
       <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7457"/>

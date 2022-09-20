@@ -5,7 +5,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1821"/>
   </identifier>
-  <name value="Code system summary example for ACME body sites"/>
+  <name value="CodeSystemSummaryExampleACMEBodySites"/>
+  <title value="Code system summary example for ACME body sites"/>
 	<status value="draft"/>
 	<experimental value="true"/>
 	<publisher value="HL7 International"/>

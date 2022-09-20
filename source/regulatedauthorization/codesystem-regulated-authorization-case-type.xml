@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="regulated-authorization-case-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -35,96 +37,96 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value=""/>
+  <description value="RegulatedAuthorizationCaseType"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/regulated-authorization-case-type"/>
   <content value="complete"/>
-   <concept>
-      <code value="InitialMAA"/>
-      <display value="Initial Marketing Authorisation Application"/>
-   </concept>
-   <concept>
-     <code value="Variation"/>
-      <display value="Variation"/>
-   </concept>
-   <concept>
-     <code value="LineExtension"/>
-      <display value="Line Extension"/>
-   </concept>
-   <concept>
-      <code value="PSUR"/>
-      <display value="Periodic Safety Update Report"/>
-   </concept>
-   <concept>
-     <code value="Renewal"/>
-      <display value="Renewal"/>
-   </concept>
-   <concept>
-     <code value="Follow-up"/>
-      <display value="Follow-up Measure"/>
-   </concept>
-   <concept>
-      <code value="100000155699"/>
-      <display value="Specific Obligation"/>
-   </concept>
-   <concept>
-     <code value="AnnualReassessment"/>
-      <display value="Annual Reassessment"/>
-   </concept>
-   <concept>
-     <code value="UrgentSafetyRestriction"/>
-      <display value="Urgent Safety Restriction"/>
-   </concept>
-   <concept>
-     <code value="PaediatricSubmission"/>
-      <display value="Paediatric Submission"/>
-   </concept>
-   <concept>
-     <code value="TransferMA"/>
-      <display value="Transfer of a marketing authorisation"/>
-   </concept>
-   <concept>
-     <code value="LiftingSuspension"/>
-      <display value="Lifting of a Suspension"/>
-   </concept>
-   <concept>
-     <code value="Withdrawal"/>
-      <display value="Withdrawal"/>
-   </concept>
-   <concept>
-     <code value="Reformatting"/>
-      <display value="Reformatting"/>
-   </concept>
-   <concept>
-      <code value="RMP"/>
-      <display value="Risk Management Plan"/>
-   </concept>
-   <concept>
-     <code value="ReviewSuspension"/>
-      <display value="Review of a Suspension of MA"/>
-   </concept>
-   <concept>
-     <code value="SupplementalInformation"/>
-      <display value="Supplemental Information"/>
-   </concept>
-   <concept>
-     <code value="RepeatUse"/>
-      <display value="Repeat Use Procedure"/>
-   </concept>
-   <concept>
-     <code value="SignalDetection"/>
-      <display value="Signal detection"/>
-   </concept>
-   <concept>
-     <code value="FLU"/>
-      <display value="FLU STRAIN UPDATE"/>
-   </concept>
-   <concept>
-     <code value="PANDEMIC"/>
-      <display value="PANDEMIC UPDATE"/>
-   </concept>
-   <concept>
-     <code value="Orphan"/>
-      <display value="Orphan Designation Application"/>
-   </concept>
+  <concept>
+    <code value="InitialMAA"/>
+    <display value="Initial Marketing Authorisation Application"/>
+  </concept>
+  <concept>
+    <code value="Variation"/>
+    <display value="Variation"/>
+  </concept>
+  <concept>
+    <code value="LineExtension"/>
+    <display value="Line Extension"/>
+  </concept>
+  <concept>
+    <code value="PSUR"/>
+    <display value="Periodic Safety Update Report"/>
+  </concept>
+  <concept>
+    <code value="Renewal"/>
+    <display value="Renewal"/>
+  </concept>
+  <concept>
+    <code value="Follow-up"/>
+    <display value="Follow-up Measure"/>
+  </concept>
+  <concept>
+    <code value="100000155699"/>
+    <display value="Specific Obligation"/>
+  </concept>
+  <concept>
+    <code value="AnnualReassessment"/>
+    <display value="Annual Reassessment"/>
+  </concept>
+  <concept>
+    <code value="UrgentSafetyRestriction"/>
+    <display value="Urgent Safety Restriction"/>
+  </concept>
+  <concept>
+    <code value="PaediatricSubmission"/>
+    <display value="Paediatric Submission"/>
+  </concept>
+  <concept>
+    <code value="TransferMA"/>
+    <display value="Transfer of a marketing authorisation"/>
+  </concept>
+  <concept>
+    <code value="LiftingSuspension"/>
+    <display value="Lifting of a Suspension"/>
+  </concept>
+  <concept>
+    <code value="Withdrawal"/>
+    <display value="Withdrawal"/>
+  </concept>
+  <concept>
+    <code value="Reformatting"/>
+    <display value="Reformatting"/>
+  </concept>
+  <concept>
+    <code value="RMP"/>
+    <display value="Risk Management Plan"/>
+  </concept>
+  <concept>
+    <code value="ReviewSuspension"/>
+    <display value="Review of a Suspension of MA"/>
+  </concept>
+  <concept>
+    <code value="SupplementalInformation"/>
+    <display value="Supplemental Information"/>
+  </concept>
+  <concept>
+    <code value="RepeatUse"/>
+    <display value="Repeat Use Procedure"/>
+  </concept>
+  <concept>
+    <code value="SignalDetection"/>
+    <display value="Signal detection"/>
+  </concept>
+  <concept>
+    <code value="FLU"/>
+    <display value="FLU STRAIN UPDATE"/>
+  </concept>
+  <concept>
+    <code value="PANDEMIC"/>
+    <display value="PANDEMIC UPDATE"/>
+  </concept>
+  <concept>
+    <code value="Orphan"/>
+    <display value="Orphan Designation Application"/>
+  </concept>
 </CodeSystem>

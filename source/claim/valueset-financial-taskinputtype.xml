@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -7,6 +7,7 @@
   <name value="FinancialTaskInputTypeCodes"/>
   <title value="Financial Task Input Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/valueset.xsd">
-	<name value="DiagnosticAttachmentType"/>
-	<status value="draft"/>
-	<publisher value="FHIR Project team"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Diagnostic Attachment Type codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 182836005 (Review of medication (procedure)) or is-a 404684003 (Clinical finding (finding))"/>
-	<copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-	<compose>
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<value value="182836005"/>
-			</filter>
-		</include>
-		<include>
-			<system value="http://snomed.info/sct"/>
-			<filter>
-				<property value="concept"/>
-				<op value="is-a"/>
-				<value value="404684003"/>
-			</filter>
-		</include>		
-	</compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="DiagnosticAttachmentType"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Diagnostic Attachment Type codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 182836005 (Review of medication (procedure)) or is-a 404684003 (Clinical finding (finding))"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="182836005"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="404684003"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

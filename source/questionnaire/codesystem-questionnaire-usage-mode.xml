@@ -1,44 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-usage-mode"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<url value="http://hl7.org/fhir/questionnaire-usage-mode"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.4.2017"/>
-	</identifier>
-	<version value="5.0.0"/>
-	<name value="QuestionnaireItemUsageMode"/>
-	<status value="active"/>
-	<caseSensitive value="true"/>
-	<content value="complete"/>
-	<concept>
-		<code value="capture-display"/>
-		<display value="Capture &amp; Display"/>
-		<definition value="Render the item regardless of usage mode."/>
-	</concept>
-	<concept>
-		<code value="capture"/>
-		<display value="Capture Only"/>
-		<definition value="Render the item only when capturing data."/>
-	</concept>
-	<concept>
-		<code value="display"/>
-		<display value="Display Only"/>
-		<definition value="Render the item only when displaying a completed form."/>
-	</concept>
-	<concept>
-		<code value="display-non-empty"/>
-		<display value="Display when Answered"/>
-		<definition value="Render the item only when displaying a completed form and the item has been answered (or has child items that have been answered)."/>
-	</concept>
-	<concept>
-		<code value="capture-display-non-empty"/>
-		<display value="Capture or, if answered, Display"/>
-		<definition value="Render the item when capturing data or when displaying a completed form and the item has been answered (or has child items that have been answered)."/>
-	</concept>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-usage-mode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/questionnaire-usage-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2017"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="QuestionnaireItemUsageMode"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <description value="QuestionnaireItemUsageMode"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="capture-display"/>
+    <display value="Capture &amp; Display"/>
+    <definition value="Render the item regardless of usage mode."/>
+  </concept>
+  <concept>
+    <code value="capture"/>
+    <display value="Capture Only"/>
+    <definition value="Render the item only when capturing data."/>
+  </concept>
+  <concept>
+    <code value="display"/>
+    <display value="Display Only"/>
+    <definition value="Render the item only when displaying a completed form."/>
+  </concept>
+  <concept>
+    <code value="display-non-empty"/>
+    <display value="Display when Answered"/>
+    <definition value="Render the item only when displaying a completed form and the item has been answered (or has child items that have been answered)."/>
+  </concept>
+  <concept>
+    <code value="capture-display-non-empty"/>
+    <display value="Capture or, if answered, Display"/>
+    <definition value="Render the item when capturing data or when displaying a completed form and the item has been answered (or has child items that have been answered)."/>
+  </concept>
 </CodeSystem>

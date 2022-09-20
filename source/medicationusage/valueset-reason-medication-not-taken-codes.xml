@@ -1,53 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  
+<?xml version="1.0" encoding="UTF-8"?>
 
-	<url value="http://hl7.org/fhir/valueset/reason-medication-not-taken-codes"/>
-
-<identifier>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/valueset/reason-medication-not-taken-codes"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3087"/>
   </identifier>
-  <name value="SNOMED CT Drugs not taken/completed Codes"/>
-  
-<status value="draft"/>
-  
-<publisher value="FHIR Project team"/>
-  
-<contact>
+  <name value="SNOMEDCTDrugsNotTakenOrCompletedCodes"/>
+  <title value="SNOMED CT Drugs not taken/completed Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  
-
-<description value="This value set includes some not taken reason codes from SNOMED CT - provided as an exemplar"/>
-  
-
-<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  
-
-<compose>
-    
-	<include>
-      
-		<system value="http://snomed.info/sct"/>
-      
-		<filter>
-      
-			<!--   SNOMED CT - Children of SCTID: 266710000 "Drugs not taken/completed (situation)" "   -->
-        
-			<property value="concept"/>
-        
-			<op value="is-a"/>
-        
-			<value value="266710000"/>
-      
-		</filter>
-    
-	</include>
-  
-</compose>
-
-
+  <description value="This value set includes some not taken reason codes from SNOMED CT - provided as an exemplar"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="266710000"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="industry-cdc-census-2010"/>
   <url value="urn:oid:2.16.840.1.114222.4.5.315"/>
   <identifier>
@@ -6,9 +8,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2010"/>
   </identifier>
   <version value="2010"/>
-  <name value="Industry CDC Census 2010"/>
+  <name value="IndustryCDCCensus2010"/>
   <title value="Industry CDC Census 2010"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="CDC PHIN Vocab and Msg"/>
   <contact>
     <telecom>
@@ -17,7 +20,7 @@
     </telecom>
   </contact>
   <description value="2010 Industry coding system used by CDC (NIOSH &amp; NCHS) for coding industry text. Industry describes an economic/business sector comprised of businesses/ enterprises concerned with the output of a specified category of products or services (e.g., the construction industry or the agriculture industry). This industry code system includes 2007 U.S. Census Bureau industry codes and three additional codes developed by CDC for unpaid workers. The 2010 Census industry categories are based on the 2007 North American Industry Classification System (NAICS). The PH_Occupation_CDC_Census2010 code system should be used in conjunction with this industry code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&amp;O coding at: http://www.cdc.gov/niosh/topics/coding/"/>
- <caseSensitive value="true"/>
- <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187"/>
- <content value="not-present"/>
+  <caseSensitive value="true"/>
+  <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7187"/>
+  <content value="not-present"/>
 </CodeSystem>

@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Intervention Exception Codes"/>
+  <name value="InterventionExceptionCodes"/>
+  <title value="Intervention Exception Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -12,18 +14,4 @@
   </contact>
   <description value="This value set includes sample Intervention Exception codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/intervention-exception"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="E1"/>
-      <display value="Exception-1"/>
-      <definition value="Exception-1"/>
-    </concept>
-    <concept>
-      <code value="E2"/>
-      <display value="Exception-2"/>
-      <definition value="Exception-2"/>
-    </concept>
-  </codeSystem>
 </ValueSet>

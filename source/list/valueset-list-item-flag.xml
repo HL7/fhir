@@ -17,6 +17,7 @@
   <name value="PatientMedicineChangeTypes"/>
   <title value="Patient Medicine Change Types"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="National E-Health Transition Authority Ltd (NEHTA)"/>
   <contact>
     <telecom>
@@ -25,7 +26,7 @@
     </telecom>
   </contact>
   <description value="Example Item Flags for the List Resource. In this case, these are the kind of flags that would be used on a medication list at the end of a consultation."/>
-  <copyright value=" Copyright &#xA9; 2012-2013 National E-Health Transition Authority Ltd : This document contains information which is protected by copyright. All Rights Reserved. No part of this work may be reproduced or used in any form or by any means--graphic, electronic, or mechanical, including photocopying,  recording, taping, or information storage and retrieval systems--without the permission of NEHTA. All copies of this  document must include the copyright and other information contained on this page.  Revision 1  Telephone: 1300 901 001 or email: servicedesk@nehta.gov.au  Disclaimer: The National E-Health Transition Authority Ltd (NEHTA) makes the information and other material (&#39;Information&#39;) in  this document available in good faith but without any representation or warranty as to its accuracy or completeness.  NEHTA cannot accept any responsibility for the consequences of any use of the Information. As the Information is of a  general nature only, it is up to any person using or relying on the Information to ensure that it is accurate, complete  and suitable for the circumstances of its use."/>
+  <copyright value=" Copyright © 2012-2013 National E-Health Transition Authority Ltd : This document contains information which is protected by copyright. All Rights Reserved. No part of this work may be reproduced or used in any form or by any means--graphic, electronic, or mechanical, including photocopying,  recording, taping, or information storage and retrieval systems--without the permission of NEHTA. All copies of this  document must include the copyright and other information contained on this page.  Revision 1  Telephone: 1300 901 001 or email: servicedesk@nehta.gov.au  Disclaimer: The National E-Health Transition Authority Ltd (NEHTA) makes the information and other material ('Information') in  this document available in good faith but without any representation or warranty as to its accuracy or completeness.  NEHTA cannot accept any responsibility for the consequences of any use of the Information. As the Information is of a  general nature only, it is up to any person using or relying on the Information to ensure that it is accurate, complete  and suitable for the circumstances of its use."/>
   <compose>
     <include>
       <system value="urn:oid:1.2.36.1.2001.1001.101.104.16592"/>

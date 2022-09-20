@@ -1,49 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  
+<?xml version="1.0" encoding="UTF-8"?>
 
-<url value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
-
-<identifier>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.96"/>
   </identifier>
   <name value="SNOMEDCTMedicationAsNeededReasonCodes"/>
   <title value="SNOMED CT Medication As Needed Reason Codes"/>
-
-  
-<status value="draft"/>
-  
-<publisher value="FHIR Project team"/>
-  
-<contact>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  
-
-<description value="This value set includes all clinical findings from SNOMED CT - provided as an exemplar value set."/>
-  
-
-<copyright value="This value set includes content from SNOMED CT, which is copyright 2002 International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
-
-
-<compose>
-    
-	<include>
-		<system value="http://snomed.info/sct"/>
-
-		<filter>
-				
-			<!--   SNOMED CT - Children of 404684003 Clinical Finding   -->
-				
-			<property value="concept"/>
-			<op value="is-a"/>
-			<value value="404684003"/>
-		</filter>
-	</include>
-</compose>
-
-
+  <description value="This value set includes all clinical findings from SNOMED CT - provided as an exemplar value set."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright 2002 International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="404684003"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

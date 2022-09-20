@@ -17,6 +17,7 @@
   <name value="BodystructureLocationQualifier"/>
   <title value="Bodystructure Location Qualifier"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Order and Observation Workgroup"/>
   <contact>
     <telecom>
@@ -25,7 +26,7 @@
     </telecom>
   </contact>
   <description value="SNOMED-CT concepts modifying the anatomic location"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright &#xA9; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

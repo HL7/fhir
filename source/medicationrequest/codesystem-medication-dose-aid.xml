@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medication-dose-aid"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -12,9 +14,11 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2075"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication dose aid"/>
+  <name value="MedicationDoseAid"/>
+  <title value="Medication dose aid"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="Medication dose aid"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-dose-aid"/>
   <content value="complete"/>

@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinitionRegulatoryIdentifierType"/>
+  <experimental value="true"/>
   <description value="Regulatory Identifier type"/>
   <compose>
     <include>

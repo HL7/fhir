@@ -16,6 +16,7 @@
   <name value="CarePlanIntent"/>
   <title value="Care Plan Intent"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>

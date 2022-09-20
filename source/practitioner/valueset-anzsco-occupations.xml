@@ -1,11 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
+  <name value="ANZSCOV12"/>
+  <title value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="Australian Bureau of Statistics"/>
   <contact>
     <telecom>

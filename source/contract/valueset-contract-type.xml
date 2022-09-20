@@ -17,6 +17,7 @@
   <name value="ContractTypeCodes"/>
   <title value="Contract Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

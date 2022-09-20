@@ -14,9 +14,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1401"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="verificationresult-communication-method"/>
+  <name value="VerificationresultCommunicationMethod"/>
   <title value="VerificationResult Communication Method"/>
   <status value="active"/>
+  <experimental value="true"/>
   <date value="2018-10-31"/>
   <publisher value="HL7 International"/>
   <contact>
@@ -25,7 +26,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Attested information may be validated by process that are manual or automated. For automated processes it may accomplished by the system of record reaching out through another system&#39;s API or information may be sent to the system of record. This value set defines a set of codes to describing the process, the how, a resource or data element is validated."/>
+  <description value="Attested information may be validated by process that are manual or automated. For automated processes it may accomplished by the system of record reaching out through another system's API or information may be sent to the system of record. This value set defines a set of codes to describing the process, the how, a resource or data element is validated."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/verificationresult-communication-method"/>

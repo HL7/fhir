@@ -19,9 +19,10 @@
   <name value="BodyTemperatureUnits"/>
   <title value="Body Temperature Units"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="UCUM units for recording Body Temperature"/>
-  <copyright value="UCUM is Copyright &#xA9; 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
+  <copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
   <compose>
     <include>
       <system value="http://unitsofmeasure.org"/>

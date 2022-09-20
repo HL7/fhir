@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/birth-sex"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -7,6 +9,7 @@
   <name value="BirthSex"/>
   <title value="Birth Sex"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -15,7 +18,6 @@
     </telecom>
   </contact>
   <description value="Codes describing the sex assigned at birth as documented on the birth registration."/>
-
   <compose>
     <include>
       <system value="http://hl7.org/fhir/administrative-gender"/>

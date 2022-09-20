@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="recorded-sex-or-gender-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -14,6 +16,7 @@
   <name value="recordedSexOrGenderType"/>
   <title value="Recorded Sex Or Gender Type"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -39,7 +42,7 @@
         <display value="Gender identity"/>
       </concept>
     </include>
-	<include>
+    <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="0010,0040"/>

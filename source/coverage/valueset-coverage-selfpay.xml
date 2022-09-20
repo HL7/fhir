@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="CoverageSelfPayCodes"/>
   <title value="Coverage SelfPay Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -15,7 +16,7 @@
   <copyright value="HL7 International."/>
   <compose>
     <include>
-	  <system value="http://terminology.hl7.org/CodeSystem/coverage-selfpay"/>
-	</include>
-  </compose>	
+      <system value="http://terminology.hl7.org/CodeSystem/coverage-selfpay"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="relation-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,6 +12,8 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EntryDefinitionRelationType"/>
+  <experimental value="true"/>
+  <description value="EntryDefinitionRelationType"/>
   <concept>
     <code value="has-input"/>
     <display value="Has Input"/>

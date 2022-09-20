@@ -17,6 +17,7 @@
   <name value="ContractResourceScopeCodes"/>
   <title value="Contract Resource Scope codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

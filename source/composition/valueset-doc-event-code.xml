@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="XDS Connect-a-thon eventCodes"/>
+  <name value="XDSConnectathonEventCodes"/>
+  <title value="XDS Connect-a-thon eventCodes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="IHE"/>
   <contact>
     <telecom>
@@ -12,50 +14,6 @@
   </contact>
   <description value="Example Connectathon Codes from http://ihexds.nist.gov:12080/xdsref/codes/codes.xml"/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  <codeSystem>
-    <system value="urn:uuid:2c6b8cb7-8b2a-4051-b291-b1ae6a575ef4"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.106"/>
-      <display value="OPT-OUT"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.108"/>
-      <display value="OPT-IN"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.111"/>
-      <display value="Authorize Capmed as PHR"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.112"/>
-      <display value="Authorize Care Evolution as PHR"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.113"/>
-      <display value="Authorize Acme as PHR"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.114"/>
-      <display value="Authorize ABC as PHR"/>
-    </concept>
-    <concept>
-      <code value="1.3.6.1.4.1.21367.2006.7.115"/>
-      <display value="Authorize XYZ as PHR"/>
-    </concept>
-    <concept>
-      <code value="Colonoscopy"/>
-      <display value="Colonoscopy"/>
-    </concept>
-    <concept>
-      <code value="Appendectomy"/>
-      <display value="Appendectomy"/>
-    </concept>
-    <concept>
-      <code value="Amputation"/>
-      <display value="Amputation"/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/dicom-cid29"/>
@@ -728,7 +686,7 @@
       </concept>
       <concept>
         <code value="T-49424"/>
-        <display value="Boyd&#39;s perforating vein"/>
+        <display value="Boyd's perforating vein"/>
       </concept>
       <concept>
         <code value="T-47160"/>
@@ -804,7 +762,7 @@
       </concept>
       <concept>
         <code value="T-49429"/>
-        <display value="Dodd&#39;s perforating vein"/>
+        <display value="Dodd's perforating vein"/>
       </concept>
       <concept>
         <code value="T-45200"/>

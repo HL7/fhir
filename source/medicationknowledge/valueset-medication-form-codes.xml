@@ -1,11 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  
   <name value="SNOMEDCTFormCodes"/>
   <title value="SNOMED CT Form Codes"/>
-
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -19,7 +18,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--   SNOMED CT - Children of SCTID: xxxxxxxxxxxxx "route of administration value"   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="736542009"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="clinical-use-definition-category"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -35,21 +37,20 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value=""/>
+  <description value="ClinicalUseDefinitionCategory"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/clinical-use-definition-category"/>
   <content value="complete"/>
-   <concept>
-     <code value="Pregnancy"/>
-     <display value="Pregnancy and Lactation"/>
-   </concept>
-   <concept>
-     <code value="Overdose"/>
-     <display value="Overdose"/>
-   </concept>
-   <concept>
-     <code value="DriveAndMachines"/>
-     <display value="Effects on Ability to Drive and Use Machines"/>
-   </concept>
-
+  <concept>
+    <code value="Pregnancy"/>
+    <display value="Pregnancy and Lactation"/>
+  </concept>
+  <concept>
+    <code value="Overdose"/>
+    <display value="Overdose"/>
+  </concept>
+  <concept>
+    <code value="DriveAndMachines"/>
+    <display value="Effects on Ability to Drive and Use Machines"/>
+  </concept>
 </CodeSystem>

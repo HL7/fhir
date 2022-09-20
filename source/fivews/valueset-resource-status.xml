@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="resource-status"/>
   <url value="http://hl7.org/fhir/ValueSet/resource-status"/>
   <identifier>
@@ -8,6 +10,7 @@
   <name value="CanonicalStatusCodesForFHIRResources"/>
   <title value="Canonical Status Codes for FHIR Resources"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="The master set of status codes used throughout FHIR. All status codes are mapped to one of these codes."/>
   <compose>
