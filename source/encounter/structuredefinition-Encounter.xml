@@ -335,7 +335,7 @@
     </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
-      <short value="Specific type of encounter"/>
+      <short value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)"/>
       <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
       <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
       <min value="0"/>
