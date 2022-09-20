@@ -706,7 +706,7 @@
         <key value="ig-3"/>
         <severity value="error"/>
         <human value="Source must be absent if 'generated' is generated"/>
-        <expression value="generated='generated' implies source.empty()"/>
+        <expression value="generation='generated' implies source.empty()"/>
         <xpath value="not(f:generated/@value='generated') or not(exists(f:source))"/>
       </constraint>
     </element>
