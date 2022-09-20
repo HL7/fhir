@@ -34,7 +34,7 @@
       <display value="general"/>
     </item>
   </entry>
-  <entry>
+  <!-- <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of IHE-IID endpoint"/>
     </extension>
@@ -45,7 +45,7 @@
       <reference value="Endpoint/example-iid"/>
       <display value="ihe-iid"/>
     </item>
-  </entry>
+  </entry> -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of DICOM WADO-RS endpoint"/>
