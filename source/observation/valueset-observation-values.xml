@@ -1,10 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="SNOMED CT Codes"/>
   <status value="draft"/>
-<!--  ObservationValue	 Example SNOMED CT for coded results which includes Organism names, Findings, and Qualifier, Substance, and  Body Structure hierarchies.  This should cover >90% of observation results .	
-  -->
+  <experimental value="true"/>
   <publisher value="HL7 International - Orders and Observations WG"/>
   <contact>
     <telecom>
@@ -17,9 +16,7 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-    <!--   the children of SNOMED CT Concepts from SCTIDs 404684003 Clinical finding (finding), 410607006 Organism (organism),362981000 Qualifier value (qualifier value), 105590001 Substance (substance), and 123037004 Body structure (body structure)..  -->
       <filter>
-      <!--    the children of SNOMED CT Concepts from SCTIDs 404684003 Clinical finding (finding);    -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="404684003"/>
@@ -28,7 +25,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--    the children of SNOMED CT Concepts from SCTID 410607006 Organism (organism)    -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="410607006"/>
@@ -37,7 +33,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--   the children of SNOMED CT Concepts from SCTID 362981000 Qualifier value (qualifier value)   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="362981000"/>
@@ -46,7 +41,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--  the children of SNOMED CT Concepts from SCTID 105590001 Substance (substance)   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="105590001"/>
@@ -55,7 +49,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--    the children of SNOMED CT Concepts from SCTID 123037004 Body structure (body structure).    -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="123037004"/>

@@ -1,12 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="DAF Medication Product Form"/>
-	<identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
-	</identifier>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
+  </identifier>
+  <name value="DAF Medication Product Form"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

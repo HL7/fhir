@@ -17,6 +17,7 @@
   <name value="DetectedIssueCategory"/>
   <title value="Detected Issue Category"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,7 +25,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Kinds of issues or contraindications, such as &#39;drug-drug interaction&#39;, &#39;duplicate therapy&#39;, etc."/>
+  <description value="Kinds of issues or contraindications, such as 'drug-drug interaction', 'duplicate therapy', etc."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

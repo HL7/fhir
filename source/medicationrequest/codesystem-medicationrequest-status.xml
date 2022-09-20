@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -14,6 +16,7 @@
   <name value="MedicationRequest Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationRequest Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-status"/>
   <hierarchyMeaning value="is-a"/>
@@ -28,7 +31,6 @@
     <display value="On Hold"/>
     <definition value="Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called 'suspended'."/>
   </concept>
-  
   <concept>
     <code value="ended"/>
     <display value="Ended"/>
@@ -38,11 +40,11 @@
       <display value="Stopped"/>
       <definition value="Actions implied by the request are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error"/>
     </concept>
-  <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
-    <definition value="All actions that are implied by the request have occurred."/>
-  </concept>
+    <concept>
+      <code value="completed"/>
+      <display value="Completed"/>
+      <definition value="All actions that are implied by the request have occurred."/>
+    </concept>
     <concept>
       <code value="cancelled"/>
       <display value="Cancelled"/>
@@ -54,7 +56,6 @@
     <display value="Entered in Error"/>
     <definition value="The request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication."/>
   </concept>
-  
   <concept>
     <code value="draft"/>
     <display value="Draft"/>

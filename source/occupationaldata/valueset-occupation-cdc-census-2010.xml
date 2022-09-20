@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="occupation-cdc-census-2010"/>
   <url value="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010"/>
   <identifier>
@@ -7,6 +9,7 @@
   </identifier>
   <name value="Occupation CDC Census 2010"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="CDC PHIN VADS"/>
   <contact>
     <telecom>

@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="FHIR Document Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7"/>
   <contact>
     <telecom>
@@ -10,7 +11,7 @@
       <value value="http://hl7.org"/>
     </telecom>
   </contact>
-  <description value="FHIR Document Codes - all LOINC codes where scale_type = &#39;DOC&#39;"/>
+  <description value="FHIR Document Codes - all LOINC codes where scale_type = 'DOC'"/>
   <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>

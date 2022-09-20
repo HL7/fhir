@@ -15,6 +15,7 @@
   </identifier>
   <name value="LanguagePreferenceType"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -22,7 +23,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines the set of codes for describing the type or mode of the patient&#39;s preferred language."/>
+  <description value="This value set defines the set of codes for describing the type or mode of the patient's preferred language."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/language-preference-type"/>

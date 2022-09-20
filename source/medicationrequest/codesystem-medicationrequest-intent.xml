@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationrequest-intent"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -14,6 +16,7 @@
   <name value="MedicationRequest Intent Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationRequest Intent Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-intent"/>
   <hierarchyMeaning value="is-a"/>
@@ -52,7 +55,7 @@
         <definition value="The request represents an instance for the particular order and is used to generate a schedule of requests on a medication administration record (MAR)."/>
       </concept>
     </concept>
-    </concept>
+  </concept>
   <concept>
     <code value="option"/>
     <display value="Option"/>

@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="CommonUCUMCodesForDuration"/>
   <title value="Common UCUM Codes for Duration"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -48,14 +49,6 @@
         <code value="a"/>
         <display value="years"/>
       </concept>
-<!--
-This is the correct filter, but includes all sorts of units that would not be used for age such as /U, mg/kg/s
-      <filter>
-        <property value="canonical"/>
-        <op value="="/>
-        <value value="a"/>
-      </filter>
--->       
     </include>
   </compose>
 </ValueSet>

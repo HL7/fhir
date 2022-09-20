@@ -17,10 +17,11 @@
   <name value="AuditEventSub-Type"/>
   <title value="Audit Event Sub-Type"/>
   <status value="active"/>
+  <experimental value="true"/>
   <date value="2020-08-04"/>
   <publisher value="HL7 (FHIR Project)"/>
   <description value="More detailed code concerning the type of the audit event - defined by DICOM with some additional FHIR, HL7, and other additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -33,27 +34,5 @@
     <include>
       <system value="http://hl7.org/fhir/restful-interaction"/>
     </include>
-	<!-- JFM: want these here, but build does not like a system value like this
-	<include>
-		<system value="urn:ihe:event-type-code" />
-		<concept>
-			<code value="ITI-65" />
-			<display value="Provide Document Bundle" />
-		</concept>
-		<concept>
-			<code value="ITI-66" />
-			<display value="Find Document Lists" />
-		</concept>
-		<concept>
-			<code value="ITI-67" />
-			<display value="Find Document References" />
-		</concept>
-		<concept>
-			<code value="ITI-68" />
-			<display value="Retrieve Document" />
-		</concept>
-
-	</include>
-	-->
   </compose>
 </ValueSet>

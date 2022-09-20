@@ -15,6 +15,7 @@
   </identifier>
   <name value="medicationrequest Status"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -1,42 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="yesnodontknow"/>
-	<url value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="yesnodontknow"/>
+  <url value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3149"/>
   </identifier>
   <name value="Yes/No/Don't Know"/>
-	<status value="draft"/>
-	<description value="For Capturing simple yes-no-don't know answers"/>
-	<compose>
-		<include>
-			<valueSet value="http://terminology.hl7.org/ValueSet/v2-0136"/>
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
-			<concept>
-				<code value="asked-unknown"/>
-				<display value="Don't know"/>
-			</concept>
-		</include>
-	</compose>
-	<expansion>
-		<identifier value="urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4"/>
-		<timestamp value="2015-07-14T10:00:00Z"/>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/v2-0532"/>
-			<code value="Y"/>
-			<display value="Yes"/>
-		</contains>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/v2-0532"/>
-			<code value="N"/>
-			<display value="No"/>
-		</contains>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
-			<code value="asked-unknown"/>
-			<display value="Don't know"/>
-		</contains>
-	</expansion>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="For Capturing simple yes-no-don't know answers"/>
+  <compose>
+    <include>
+      <valueSet value="http://terminology.hl7.org/ValueSet/v2-0136"/>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+      <concept>
+        <code value="asked-unknown"/>
+        <display value="Don't know"/>
+      </concept>
+    </include>
+  </compose>
+  <expansion>
+    <identifier value="urn:uuid:bf99fe50-2c2b-41ad-bd63-bee6919810b4"/>
+    <timestamp value="2015-07-14T10:00:00Z"/>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0532"/>
+      <code value="Y"/>
+      <display value="Yes"/>
+    </contains>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/v2-0532"/>
+      <code value="N"/>
+      <display value="No"/>
+    </contains>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+      <code value="asked-unknown"/>
+      <display value="Don't know"/>
+    </contains>
+  </expansion>
 </ValueSet>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="codesystem-properties-mode"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -13,6 +15,8 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CodeSystemPropertiesMode"/>
+  <experimental value="true"/>
+  <description value="CodeSystemPropertiesMode"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

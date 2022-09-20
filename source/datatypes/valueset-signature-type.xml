@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
@@ -7,8 +7,8 @@
   <name value="SignatureTypeCodes"/>
   <title value="Signature Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 FHIR"/>
-
   <description value="The Digital Signature Purposes, an indication of the reason an entity signs a document. This is included in the signed information and can be used when determining accountability for various actions concerning the document. Examples include: author, transcriptionist/recorder, and witness."/>
   <copyright value="This value set includes contents from ASTM and ETSI which hold their own copyright."/>
   <compose>

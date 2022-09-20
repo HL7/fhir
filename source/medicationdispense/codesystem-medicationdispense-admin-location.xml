@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicationdispense-admin-location"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -15,6 +17,7 @@
   <name value="Medication Dispense Administration Location Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="Medication Dispense Administration Location Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
   <content value="complete"/>

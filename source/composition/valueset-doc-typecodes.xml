@@ -17,6 +17,7 @@
   <name value="FHIRDocumentTypeCodes"/>
   <title value="FHIR Document Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7"/>
   <contact>
     <telecom>
@@ -24,8 +25,8 @@
       <value value="http://hl7.org"/>
     </telecom>
   </contact>
-  <description value="FHIR Document Codes - all LOINC codes where scale type = &#39;DOC&#39;."/>
-  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <description value="FHIR Document Codes - all LOINC codes where scale type = 'DOC'."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

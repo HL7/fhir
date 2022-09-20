@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="HierarchicalRelationshipType"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -11,18 +12,4 @@
     </telecom>
   </contact>
   <description value=" This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/hierarchical-relationship-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="parent"/>
-      <display value="Parent"/>
-      <definition value="The target resource is the parent of the focal specimen resource"/>
-    </concept>
-    <concept>
-      <code value="child"/>
-      <display value="Child"/>
-      <definition value="The target resource is the child of the focal specimen resource"/>
-    </concept>
-  </codeSystem>
 </ValueSet>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="task-stage"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,6 +12,8 @@
   </identifier>
   <name value="Task Stage Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
+  <description value="Task Stage Codes"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

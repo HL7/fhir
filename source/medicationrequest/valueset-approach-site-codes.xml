@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  
   <name value="SNOMED CT Anatomical Structure for Administration Site Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -17,7 +17,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--   SNOMED CT - selected children of SCTID:91723000 "anatomical structure"   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="91723000"/>

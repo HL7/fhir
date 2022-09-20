@@ -3,15 +3,16 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="conceptmap-properties"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/> 
-  </extension> 
+    <valueCode value="vocab"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/> 
-  </extension> 
+    <valueInteger value="1"/>
+  </extension>
   <url value="http://hl7.org/fhir/conceptmap-properties"/>
   <name value="ConceptMap Properties"/>
   <title value="FHIR Defined ConceptMap Properties"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="A set of common concept properties for use on ConceptMap"/>
   <caseSensitive value="true"/>

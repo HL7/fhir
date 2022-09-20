@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/CodeSystem/medicationdispense-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -7,7 +9,7 @@
   <name value="Medication Dispense Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value=""/>
+  <description value="Medication Dispense Category Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-category"/>
   <content value="complete"/>

@@ -11,6 +11,7 @@
   <name value="FHIRSafetyCheckListEntries"/>
   <title value="FHIR Safety CheckList Entries"/>
   <status value="draft"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project"/>
   <description value="The [check list items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/safety-entries"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="template-status-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -14,6 +16,8 @@
   <version value="5.0.0"/>
   <name value="TemplateStatusCode"/>
   <status value="active"/>
+  <experimental value="true"/>
+  <description value="TemplateStatusCode"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
 </CodeSystem>

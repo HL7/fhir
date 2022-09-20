@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="seriousness-criteria"/>
   <meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="phx"/>
@@ -17,11 +19,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1987"/>
   </identifier>
-  <version value="5.0.0"/>
   <version value="0.1.0"/>
   <name value="SeriousnessCriteriaCS"/>
   <title value="Seriousness Criteria Code System"/>
   <status value="active"/>
+  <experimental value="true"/>
   <date value="2022-06-14T10:06:34-06:00"/>
   <publisher value="Vulcan Accelerator"/>
   <contact>

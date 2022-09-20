@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="genomicstudy-methodtype"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -8,19 +10,27 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul>
+        
         
         <li>Include major method category, method category, and primary test methodology codes defined in 
           
+          
           <a href="http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html">
+            
             
             <code>http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html</code>
           
+          
           </a>
+        
         
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -42,6 +52,7 @@
   <name value="GenomicStudyMethodType"/>
   <title value="GenomicStudyMethodType"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2022-08-16T13:55:11-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

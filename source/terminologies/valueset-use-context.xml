@@ -4,6 +4,7 @@
   <id value="use-context"/>
   <name value="Context of Use ValueSet"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -14,12 +15,9 @@
   <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org. This value set includes content from NUCC Health Care Provider Taxonomy Code Set for providers which is copyright © 2016+ American Medical Association. For commercial use, including sales or licensing, a license must be obtained"/>
   <compose>
-  <!--  Practitioner Speciality -->
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v2-0265"/>
     </include>
-    
-  <!--   clinical domains -->
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -28,13 +26,9 @@
         <value value="394733009"/>
       </filter>
     </include>
-    
-  <!--   ISO 2 letter country codes   -->
     <include>
       <system value="urn:iso:std:iso:3166"/>
     </include>
-
-  <!--   ISO region codes   -->
     <include>
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <filter>
@@ -43,13 +37,6 @@
         <value value="region"/>
       </filter>
     </include>
-
-  <!--   states 
-    <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/usps-state"/>
-    </include>  -->
-
-    <!-- species -->
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
@@ -58,43 +45,23 @@
         <value value="387961004"/>
       </filter>
     </include>
-    
-    <!-- gender -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
     </include>
-    
-    <!-- age group -->
-    <!-- Can't resolve MeSH OID
-    <include>
-      <valueSet value="http://terminology.hl7.org/ValueSet/v3-AgeGroupObservationValue"/>
-    </include>
-    -->
-    
-    <!-- clinical focus -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
     </include>
-    
-    <!-- user type -->
     <include>
       <system value="http://nucc.org/provider-taxonomy"/>
     </include>
-    
-    <!-- workflow/venue -->
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
     </include>
-    
-    <!-- task -->
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActTaskCode"/>
     </include>
-    
-    <!-- agreement-scope -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/usage-context-agreement-scope"/>
     </include>
-    
   </compose>
 </ValueSet>

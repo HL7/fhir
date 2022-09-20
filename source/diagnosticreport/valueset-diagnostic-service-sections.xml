@@ -17,6 +17,7 @@
   <name value="DiagnosticServiceSectionCodes"/>
   <title value="Diagnostic Service Section Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

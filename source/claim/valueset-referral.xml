@@ -1,8 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Referral Reason Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -11,73 +12,4 @@
     </telecom>
   </contact>
   <description value="This value set includes the Referral Reason codes."/>
-  <codeSystem>
-    <system value="urn:ISO-3950"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1"/>
-      <display value="Pathological Anomalies"/>
-      <definition value="Pathological Anomalies"/>
-    </concept>
-    <concept>
-      <code value="2"/>
-      <display value="Complexity of Treatment"/>
-      <definition value="Complexity of Treatment"/>
-    </concept>
-    <concept>
-      <code value="3"/>
-      <display value="Seizure Disorders"/>
-      <definition value="Seizure Disorders"/>
-    </concept>
-    <concept>
-      <code value="4"/>
-      <display value="Pathological Anomalies"/>
-      <definition value="Pathological Anomalies"/>
-    </concept>
-    <concept>
-      <code value="5"/>
-      <display value="Extensive Surgerys"/>
-      <definition value="Extensive Surgery"/>
-    </concept>
-    <concept>
-      <code value="6"/>
-      <display value="Surgical Complexity"/>
-      <definition value="Surgical Complexity"/>
-    </concept>
-    <concept>
-      <code value="7"/>
-      <display value="Rampant decay"/>
-      <definition value="Rampant decay"/>
-    </concept>
-    <concept>
-      <code value="8"/>
-      <display value="Medical History (to provide details upon request)"/>
-      <definition value="Medical History (to provide details upon request)"/>
-    </concept>
-    <concept>
-      <code value="9"/>
-      <display value="Temporal Mandibular Joint Anomalies"/>
-      <definition value="Temporal Mandibular Joint Anomalies"/>
-    </concept>
-    <concept>
-      <code value="10"/>
-      <display value="Accidental Injury"/>
-      <definition value="Accidental Injury"/>
-    </concept>
-    <concept>
-      <code value="11"/>
-      <display value="Anaesthesia complications (local or general)"/>
-      <definition value="Anaesthesia complications (local or general)"/>
-    </concept>
-    <concept>
-      <code value="12"/>
-      <display value="Developmental Anomalies"/>
-      <definition value="Developmental Anomalies"/>
-    </concept>
-    <concept>
-      <code value="13"/>
-      <display value="Behavioral Management"/>
-      <definition value="Behavioral Management"/>
-    </concept>
-  </codeSystem>
 </ValueSet>
