@@ -218,7 +218,7 @@
     </element>
     <element id="Encounter.class">
       <path value="Encounter.class"/>
-      <short value="Classification of patient encounter"/>
+      <short value="Classification of patient encounter context - e.g. Inpatient, outpatient"/>
       <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
       <min value="0"/>
       <max value="*"/>
