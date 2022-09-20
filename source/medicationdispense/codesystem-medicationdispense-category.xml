@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1806"/>
   </identifier>
-  <name value="Medication Dispense Category Codes"/>
+  <name value="MedicationDispenseCategoryCodes"/>
+  <title value="Medication Dispense Category Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Medication Dispense Category Codes"/>

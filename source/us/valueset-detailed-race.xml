@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.2989"/>
   </identifier>
-  <name value="US-Core Detailed Race"/>
+  <name value="USCoreDetailedRace"/>
+  <title value="US-Core Detailed Race"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2016-08-30"/>

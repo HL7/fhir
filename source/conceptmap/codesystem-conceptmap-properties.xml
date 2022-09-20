@@ -9,7 +9,7 @@
     <valueInteger value="1"/>
   </extension>
   <url value="http://hl7.org/fhir/conceptmap-properties"/>
-  <name value="ConceptMap Properties"/>
+  <name value="ConceptMapProperties"/>
   <title value="FHIR Defined ConceptMap Properties"/>
   <status value="draft"/>
   <experimental value="true"/>

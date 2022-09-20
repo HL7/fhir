@@ -10,7 +10,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3144"/>
   </identifier>
-  <name value="Common UCUM units"/>
+  <name value="CommonUCUMUnits"/>
+  <title value="Common UCUM units"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>

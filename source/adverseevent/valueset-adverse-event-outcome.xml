@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.836"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="AdverseEvent Outcome"/>
+  <name value="AdverseEventOutcome"/>
   <title value="AdverseEvent Outcome"/>
   <status value="draft"/>
   <experimental value="true"/>

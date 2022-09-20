@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.464"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="AuditEventSub-Type"/>
+  <name value="AuditEventSubType"/>
   <title value="Audit Event Sub-Type"/>
   <status value="active"/>
   <experimental value="true"/>

@@ -4,7 +4,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
     <valueBoolean value="true"/>
   </extension>
-  <name value="Immunization Role Codes"/>
+  <name value="ImmunizationRoleCodes"/>
+  <title value="Immunization Role Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

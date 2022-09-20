@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3138"/>
   </identifier>
-  <name value="All CPT codes"/>
+  <name value="AllCPTCodes"/>
+  <title value="All CPT codes"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2015-03-12"/>

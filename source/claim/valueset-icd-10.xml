@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.531"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ICD-10Codes"/>
+  <name value="ICD10Codes"/>
   <title value="ICD-10 Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

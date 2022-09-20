@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Vaccination Protocol Dose Status codes"/>
+  <name value="VaccinationProtocolDoseStatusCodes"/>
+  <title value="Vaccination Protocol Dose Status codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1953"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication Ingredient Strength Codes"/>
+  <name value="MedicationIngredientStrengthCodes"/>
+  <title value="Medication Ingredient Strength Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

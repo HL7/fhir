@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.431"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ProcedureNotPerformedReason(SNOMED-CT)"/>
+  <name value="ProcedureNotPerformedReasonSNOMEDCT"/>
   <title value="Procedure Not Performed Reason (SNOMED-CT)"/>
   <status value="active"/>
   <experimental value="true"/>

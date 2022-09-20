@@ -5,7 +5,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
   </identifier>
-  <name value="DAF Medication Product Form"/>
+  <name value="DAFMedicationProductForm"/>
+  <title value="DAF Medication Product Form"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

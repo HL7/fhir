@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="valueset-clinical-speciality"/>
   <meta>
     <lastUpdated value="2015-03-17T12:06:30.047+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/valueset-clinical-speciality"/>
-	<identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.3.3276"/>
-	</identifier>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3276"/>
+  </identifier>
   <version value="20091109"/>
-  <name value="Clinical Specialty Value Set"/>
+  <name value="ClinicalSpecialtyValueSet"/>
+  <title value="Clinical Specialty Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="HITSP"/>

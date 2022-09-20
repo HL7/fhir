@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3242"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="medicationRequest Administration Location Codes"/>
+  <name value="MedicationRequestAdministrationLocationCodes"/>
+  <title value="medicationRequest Administration Location Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

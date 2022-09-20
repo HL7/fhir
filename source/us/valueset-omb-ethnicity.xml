@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.2992"/>
   </identifier>
-  <name value="OMB Ethnicity Categories"/>
+  <name value="OMBEthnicityCategories"/>
+  <title value="OMB Ethnicity Categories"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2016-08-30"/>

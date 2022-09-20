@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Example Value Codes"/>
+  <name value="ExampleValueCodes"/>
+  <title value="Example Value Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>

@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3003"/>
   </identifier>
-  <name value="Care Plan Activity"/>
+  <name value="CarePlanActivity"/>
+  <title value="Care Plan Activity"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>

@@ -2,7 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="use-context"/>
-  <name value="Context of Use ValueSet"/>
+  <name value="ContextOfUseValueSet"/>
+  <title value="Context of Use ValueSet"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

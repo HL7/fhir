@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3012"/>
   </identifier>
-  <name value="Performer Function Codes"/>
+  <name value="PerformerFunctionCodes"/>
+  <title value="Performer Function Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Orders and Observations WG"/>

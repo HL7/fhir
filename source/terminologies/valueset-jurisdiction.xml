@@ -2,7 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="jurisdiction"/>
-  <name value="Jurisdiction ValueSet"/>
+  <name value="JurisdictionValueSet"/>
+  <title value="Jurisdiction ValueSet"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

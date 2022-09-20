@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3238"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="AdverseEvent Preventive Action"/>
+  <name value="AdverseEventPreventiveAction"/>
   <title value="AdverseEvent Preventive Action"/>
   <status value="draft"/>
   <experimental value="true"/>

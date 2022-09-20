@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3149"/>
   </identifier>
-  <name value="Yes/No/Don't Know"/>
+  <name value="YesNoDontKnow"/>
+  <title value="Yes/No/Don't Know"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="For Capturing simple yes-no-don't know answers"/>

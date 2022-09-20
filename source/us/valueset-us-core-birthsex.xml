@@ -8,7 +8,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.2990"/>
   </identifier>
   <version value="3.1.0"/>
-  <name value="US Core Birth Sex Value Set"/>
+  <name value="USCoreBirthSexVS"/>
+  <title value="US Core Birth Sex Value Set"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2016-08-10"/>

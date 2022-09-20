@@ -1,15 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="3166-1-N"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-	<version value="5.0.0"/>
-  <name value="Iso3166-1-N"/>
+  <version value="5.0.0"/>
+  <name value="Iso31661N"/>
   <title value="Iso 3166 Part 1: Numeric Codes"/>
   <status value="active"/>
-	<experimental value="false"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

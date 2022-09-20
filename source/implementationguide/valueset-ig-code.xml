@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3186"/>
   </identifier>
-  <name value="Structure Definition Codes"/>
+  <name value="StructureDefinitionCodes"/>
+  <title value="Structure Definition Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

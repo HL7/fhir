@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="ICD-10ProcedureCodes"/>
+  <name value="ICD10ProcedureCodes"/>
   <title value="ICD-10 Procedure Codes"/>
   <status value="draft"/>
   <experimental value="true"/>

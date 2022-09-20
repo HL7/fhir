@@ -17,7 +17,7 @@
     <value value="2.16.840.1.114222.4.11.7457"/>
   </identifier>
   <version value="1.0.0"/>
-  <name value="zika-affected-areas"/>
+  <name value="ZikaAffectedAreas"/>
   <title value="Zika Affected Areas"/>
   <status value="active"/>
   <experimental value="true"/>

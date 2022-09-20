@@ -12,7 +12,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2039"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="International Civil Aviation Organization Sex or Gender"/>
+  <name value="ICAOSexOrGender"/>
+  <title value="International Civil Aviation Organization Sex or Gender"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="The complete set of concepts used for exchange of the 'sex' value as represented in international travel documents as defined by Doc 9303: Machine Readable Travel Documents, Part 7: Machine Readable Visas published by the International Civil Aviation Organization (ICAO). Initially aligned with the Eighth Edition (2021)."/>

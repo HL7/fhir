@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Example Claim SubType Codes"/>
+  <name value="ExampleClaimSubTypeCodes"/>
+  <title value="Example Claim SubType Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>

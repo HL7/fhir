@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3087"/>
   </identifier>
-  <name value="SNOMED CT Drugs not taken/completed Codes"/>
+  <name value="SNOMEDCTDrugsNotTakenOrCompletedCodes"/>
+  <title value="SNOMED CT Drugs not taken/completed Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="XDS Connect-a-thon eventCodes"/>
+  <name value="XDSConnectathonEventCodes"/>
+  <title value="XDS Connect-a-thon eventCodes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="IHE"/>

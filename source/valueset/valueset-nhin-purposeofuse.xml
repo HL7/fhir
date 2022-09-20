@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="nhin-purposeofuse"/>
   <contained>
     <ConceptMap>
       <id value="map"/>
       <name value="NHIN / V3 Mapping"/>
       <status value="draft"/>
-      <sourceCanonical value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
-      <targetCanonical value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
       <group>
         <source value="http://healthit.gov/nhin/purposeofuse"/>
         <target value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
@@ -158,14 +158,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-map">
     <valueCanonical value="#map"/>
   </extension>
-  <!--    set of loinc codes for cholesterol for LONC 2.36    -->
   <url value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3142"/>
   </identifier>
   <version value="2.0"/>
-  <name value="NHIN PurposeOfUse"/>
+  <name value="NHINPurposeOfUse"/>
+  <title value="NHIN PurposeOfUse"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2010-01-29"/>

@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Example Occurrance Codes"/>
+  <name value="ExampleOccurranceCodes"/>
+  <title value="Example Occurrance Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>

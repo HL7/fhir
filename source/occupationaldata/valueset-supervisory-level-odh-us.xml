@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3287"/>
   </identifier>
-  <name value="Supervisory Level (ODH) (US)"/>
+  <name value="ODHSupervisoryLevelUS"/>
+  <title value="Supervisory Level (ODH) (US)"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="CDC PHIN VADS"/>

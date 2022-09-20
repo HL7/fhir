@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1869"/>
   </identifier>
-  <name value="Exception Codes"/>
+  <name value="ExceptionCodes"/>
+  <title value="Exception Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>

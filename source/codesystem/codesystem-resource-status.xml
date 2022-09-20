@@ -16,7 +16,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1828"/>
   </identifier>
-  <name value="Canonical Status Codes for FHIR Resources"/>
+  <name value="FHIRCanonicalStatusCodes"/>
+  <title value="Canonical Status Codes for FHIR Resources"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project"/>

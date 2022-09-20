@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1972"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication Dispense Administration Location Codes"/>
+  <name value="MedDispenseAdminLocationCodes"/>
+  <title value="Medication Dispense Administration Location Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Medication Dispense Administration Location Codes"/>

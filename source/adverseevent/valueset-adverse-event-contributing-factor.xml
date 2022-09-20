@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3237"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="AdverseEvent Contributing Factor"/>
+  <name value="AdverseEventContributingFactor"/>
   <title value="AdverseEvent Contributing Factor"/>
   <status value="draft"/>
   <experimental value="true"/>

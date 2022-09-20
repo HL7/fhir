@@ -4,7 +4,8 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <name value="Benefit SubCategory Codes"/>
+  <name value="BenefitSubCategoryCodes"/>
+  <title value="Benefit SubCategory Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Financial Management"/>

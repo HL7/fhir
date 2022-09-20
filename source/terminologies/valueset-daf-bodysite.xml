@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3278"/>
   </identifier>
-  <name value="Body Site Value Set"/>
+  <name value="BodySiteValueSet"/>
+  <title value="Body Site Value Set"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="PHIN VADS"/>

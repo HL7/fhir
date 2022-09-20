@@ -14,7 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.427"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ProcedureCodes(SNOMEDCT)"/>
+  <name value="ProcedureCodesSNOMEDCT"/>
   <title value="Procedure Codes (SNOMED CT)"/>
   <status value="draft"/>
   <experimental value="true"/>

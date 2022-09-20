@@ -13,7 +13,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.340"/>
   </identifier>
-  <name value="MedicationAdministration Status Codes"/>
+  <name value="MedicationAdministrationStatusCodes"/>
+  <title value="MedicationAdministration Status Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

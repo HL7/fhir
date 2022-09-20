@@ -6,7 +6,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3004"/>
   </identifier>
-  <name value="Activity Reason"/>
+  <name value="ActivityReason"/>
+  <title value="Activity Reason"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>

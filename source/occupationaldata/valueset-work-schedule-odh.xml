@@ -7,7 +7,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3286"/>
   </identifier>
-  <name value="Work Schedule (ODH)"/>
+  <name value="WorkScheduleODH"/>
+  <title value="Work Schedule (ODH)"/>
   <status value="active"/>
   <experimental value="true"/>
   <publisher value="CDC PHIN VADS"/>

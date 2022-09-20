@@ -8,7 +8,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2012"/>
   </identifier>
   <version value="2010"/>
-  <name value="Occupation CDC Census 2010"/>
+  <name value="OccupationCDCCensus2010"/>
   <title value="Occupation CDC Census 2010"/>
   <status value="active"/>
   <experimental value="true"/>

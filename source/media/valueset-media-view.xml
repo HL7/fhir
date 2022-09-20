@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="MediaCollectionView/Projection"/>
+  <name value="MediaCollectionViewProjection"/>
   <title value="Media Collection View/Projection"/>
   <status value="draft"/>
   <experimental value="true"/>

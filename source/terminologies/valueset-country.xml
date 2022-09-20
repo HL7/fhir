@@ -2,7 +2,8 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="country"/>
-  <name value="Country ValueSet"/>
+  <name value="CountryValueSet"/>
+  <title value="Country ValueSet"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

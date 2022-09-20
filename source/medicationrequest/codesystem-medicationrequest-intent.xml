@@ -13,7 +13,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1378"/>
   </identifier>
-  <name value="MedicationRequest Intent Codes"/>
+  <name value="MedicationRequestIntentCodes"/>
+  <title value="MedicationRequest Intent Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="MedicationRequest Intent Codes"/>
