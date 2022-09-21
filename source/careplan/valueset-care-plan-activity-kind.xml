@@ -16,6 +16,7 @@
   <name value="CarePlanActivityKind"/>
   <title value="Care Plan Activity Kind"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>

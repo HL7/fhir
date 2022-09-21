@@ -93,6 +93,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1822"/>
   </identifier>
   <name value="BundleTypeGerman"/>
+  <title value="Bundle Type German"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-12-21T16:40:38+11:00"/>

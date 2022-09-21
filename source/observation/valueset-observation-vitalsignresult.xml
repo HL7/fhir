@@ -16,6 +16,7 @@
   <name value="VitalSigns"/>
   <title value="Vital Signs"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="FHIR project team"/>
   <contact>
     <telecom>
@@ -24,7 +25,7 @@
     </telecom>
   </contact>
   <description value="This value set indicates the allowed vital sign result types.   The LOINC code for Vitals Signs panel (85353-1) is a grouping structure for a set of vital signs and includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP).  The Blood pressure panel (85354-9) is used to group the component observations Systolic blood pressure (8480-6) and Diastolic blood pressure (8462-4)."/>
-  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

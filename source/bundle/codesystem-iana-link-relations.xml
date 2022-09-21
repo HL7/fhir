@@ -12,6 +12,7 @@
    <name value="LinkRelationTypes"/>
    <title value="Link Relation Types"/>
    <status value="active"/>
+   <experimental value="false"/>
    <publisher value="Internet Assigned Numbers Authority (IANA)"/>
    <contact>
       <telecom>

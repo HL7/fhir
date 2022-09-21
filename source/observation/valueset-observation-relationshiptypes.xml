@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Observation Relationship Types"/>
+  <name value="ObservationRelationshipTypes"/>
+  <title value="Observation Relationship Types"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -14,8 +16,6 @@
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
-    <!--   for these codes, we provide an alternative definition. It is consistent with the  
-         underlying act relationship definition, but specific to its use in this case   -->
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/tools-extensions#definition">
           <valueString value="The target observation is a component of this observation (e.g. Systolic and Diastolic Blood Pressure)"/>

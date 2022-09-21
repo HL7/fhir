@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="formularyitem-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -12,9 +14,11 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1988"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="FormularyItem Status Codes"/>
+  <name value="FormularyItemStatusCodes"/>
+  <title value="FormularyItem Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="FormularyItem Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/formularyitem-status"/>
   <content value="complete"/>

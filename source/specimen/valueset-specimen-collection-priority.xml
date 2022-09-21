@@ -15,6 +15,7 @@
   </identifier>
   <name value="SpecimenCollectionPriority"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

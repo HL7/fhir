@@ -1,12 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="work-schedule-odh"/>
   <url value="http://hl7.org/fhir/ValueSet/work-schedule-odh"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3286"/>
   </identifier>
-  <name value="Work Schedule (ODH)"/>
+  <name value="WorkScheduleODH"/>
+  <title value="Work Schedule (ODH)"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="CDC PHIN VADS"/>
   <contact>
     <telecom>

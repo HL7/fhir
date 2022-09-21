@@ -10,7 +10,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3205"/>
   </identifier>
-  <name value="Parameter Types used in Operation Definitions"/>
+  <name value="ParameterTypesForOperationDefinitions"/>
+  <title value="Parameter Types used in Operation Definitions"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2014-07-22"/>

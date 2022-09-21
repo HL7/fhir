@@ -20,6 +20,7 @@
   <name value="ImmunizationFunctionCodes"/>
   <title value="Immunization Function Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="probability-distribution-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,4 +12,6 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProbabilityDistributionType"/>
+  <experimental value="true"/>
+  <description value="ProbabilityDistributionType"/>
 </CodeSystem>

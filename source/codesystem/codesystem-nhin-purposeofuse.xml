@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="nhin-purposeofuse"/>
   <url value="http://healthit.gov/nhin/purposeofuse"/>
   <identifier>
@@ -6,9 +8,11 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1825"/>
   </identifier>
   <version value="2.0"/>
-  <name value="NHIN PurposeOfUse"/>
+  <name value="NHINPurposeOfUse"/>
+  <title value="NHIN PurposeOfUse"/>
   <status value="active"/>
   <experimental value="false"/>
+  <date value="2010-01-29"/>
   <publisher value="Nationwide Health Information Network (NHIN)"/>
   <contact>
     <telecom>
@@ -16,10 +20,9 @@
       <value value="https://www.healthit.gov/sites/default/files/nhin-authorization-framework-production-specification-v2.0-1.pdf"/>
     </telecom>
   </contact>
-  <date value="2010-01-29"/>
   <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system."/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
   <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
   <content value="complete"/>
   <concept>
     <code value="TREATMENT"/>

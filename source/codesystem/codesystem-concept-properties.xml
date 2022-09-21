@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="concept-properties"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/> 
-  </extension> 
+    <valueCode value="vocab"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="normative"/> 
-  </extension> 
+    <valueCode value="normative"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="4"/> 
-  </extension> 
+    <valueInteger value="4"/>
+  </extension>
   <url value="http://hl7.org/fhir/concept-properties"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -17,10 +19,11 @@
   <name value="ConceptProperties"/>
   <title value="FHIR Defined Concept Properties"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="A set of common concept properties for use on coded systems throughout the FHIR eco-system."/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
   <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/concept-properties"/>
   <content value="complete"/>
   <property>
     <code value="status"/>

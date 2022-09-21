@@ -14,8 +14,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.349"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="MedicationAdministration Performer Function Codes"/>
+  <name value="MedicationAdministrationPerformerFunctionCodes"/>
+  <title value="MedicationAdministration Performer Function Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

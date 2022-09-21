@@ -16,6 +16,7 @@
   <name value="FinancialResourceStatusCodes"/>
   <title value="Financial Resource Status Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

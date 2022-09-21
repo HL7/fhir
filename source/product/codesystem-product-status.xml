@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="product-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -10,6 +12,8 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProductStatus"/>
+  <experimental value="true"/>
+  <description value="ProductStatus"/>
   <concept>
     <code value="active"/>
     <display value="Active"/>
@@ -18,6 +22,6 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &#34;cancelled&#34; rather than &#34;entered-in-error&#34;.)."/>
+    <definition value="This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
 </CodeSystem>

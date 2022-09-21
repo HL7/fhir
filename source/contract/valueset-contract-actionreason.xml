@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Contract Type Codes"/>
+  <name value="ContractTypeCodes"/>
+  <title value="Contract Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -12,14 +14,4 @@
   </contact>
   <description value="This value set includes sample Contract Action Reason codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://terminology.hl7.org/CodeSystem/contractactionreason"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="reason-1"/>
-    </concept>
-    <concept>
-      <code value="reason-2"/>
-    </concept>
-  </codeSystem>
 </ValueSet>

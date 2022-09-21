@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.896"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="can-push-updates"/>
+  <name value="CanPushUpdates"/>
+  <title value="can-push-updates"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-06-05T14:06:02+00:00"/>

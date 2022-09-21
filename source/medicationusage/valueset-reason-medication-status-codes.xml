@@ -17,6 +17,7 @@
   <name value="SNOMEDCTDrugTherapyStatusCodes"/>
   <title value="SNOMED CT Drug Therapy Status codes "/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -25,7 +26,7 @@
     </telecom>
   </contact>
   <description value="This value set includes some taken and not taken reason codes from SNOMED CT - provided as an exemplar"/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright &#xA9; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

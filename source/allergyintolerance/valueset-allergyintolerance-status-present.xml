@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/allergy-intolerance-status-present"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -6,6 +8,7 @@
   </identifier>
   <name value="AllergyIntoleranceStatusPresent"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2014-11-13T16:57:44.799+00:00"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
   <contact>

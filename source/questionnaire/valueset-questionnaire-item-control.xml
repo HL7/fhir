@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-item-control"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<url value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.3.931"/>
-	</identifier>
-	<name value="QuestionnaireItemUIControlCodes"/>
-	<title value="Questionnaire Item UI Control Codes"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare"/>
-		</telecom>
-	</contact>
-	<description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/questionnaire-item-control"/>
-		</include>
-	</compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-item-control"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.931"/>
+  </identifier>
+  <name value="QuestionnaireItemUIControlCodes"/>
+  <title value="Questionnaire Item UI Control Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare"/>
+    </telecom>
+  </contact>
+  <description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/questionnaire-item-control"/>
+    </include>
+  </compose>
 </ValueSet>

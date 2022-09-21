@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="USCLS Codes"/>
+  <name value="USCLSCodes"/>
+  <title value="USCLS Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -11,65 +13,4 @@
     </telecom>
   </contact>
   <description value="This value set includes a smattering of  USCLS codes"/>
-  <codeSystem>
-    <system value="urn:USCLS"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1101"/>
-    </concept>
-    <concept>
-      <code value="1102"/>
-    </concept>
-    <concept>
-      <code value="1103"/>
-    </concept>
-    <concept>
-      <code value="1201"/>
-    </concept>
-    <concept>
-      <code value="1205"/>
-    </concept>
-    <concept>
-      <code value="2101"/>
-    </concept>
-    <concept>
-      <code value="2102"/>
-    </concept>
-    <concept>
-      <code value="2141"/>
-    </concept>
-    <concept>
-      <code value="2601"/>
-    </concept>
-    <concept>
-      <code value="11101"/>
-    </concept>
-    <concept>
-      <code value="11102"/>
-    </concept>
-    <concept>
-      <code value="11103"/>
-    </concept>
-    <concept>
-      <code value="11104"/>
-    </concept>
-    <concept>
-      <code value="21211"/>
-    </concept>
-    <concept>
-      <code value="21212"/>
-    </concept>
-    <concept>
-      <code value="27211"/>
-    </concept>
-    <concept>
-      <code value="99111"/>
-    </concept>
-    <concept>
-      <code value="99333"/>
-    </concept>
-    <concept>
-      <code value="99555"/>
-    </concept>
-  </codeSystem>
 </ValueSet>

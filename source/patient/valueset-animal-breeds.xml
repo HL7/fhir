@@ -16,6 +16,7 @@
   <version value="5.0.0"/>
   <name value="AnimalBreeds"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,7 +25,7 @@
     </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate breeds of species."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
@@ -270,7 +271,7 @@
       </concept>
       <concept>
         <code value="131611004"/>
-        <display value="Proven&#xE7;ale goat breed (organism)"/>
+        <display value="Provençale goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131612006"/>
@@ -314,7 +315,7 @@
       </concept>
       <concept>
         <code value="131622000"/>
-        <display value="Moxot&#xF3; goat breed (organism)"/>
+        <display value="Moxotó goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131623005"/>
@@ -430,7 +431,7 @@
       </concept>
       <concept>
         <code value="131651001"/>
-        <display value="Canind&#xE9; goat breed (organism)"/>
+        <display value="Canindé goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131652008"/>
@@ -458,7 +459,7 @@
       </concept>
       <concept>
         <code value="131658007"/>
-        <display value="Cr&#xE9;ole Antilles goat breed (organism)"/>
+        <display value="Créole Antilles goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131659004"/>
@@ -530,7 +531,7 @@
       </concept>
       <concept>
         <code value="131676000"/>
-        <display value="Malague&#xF1;a goat breed (organism)"/>
+        <display value="Malagueña goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131677009"/>
@@ -546,7 +547,7 @@
       </concept>
       <concept>
         <code value="131680005"/>
-        <display value="B&#xFC;ndner goat breed (organism)"/>
+        <display value="Bündner goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131681009"/>
@@ -586,7 +587,7 @@
       </concept>
       <concept>
         <code value="131690002"/>
-        <display value="Des Fosses (Communes de l&#39;Ouest) goat breed (organism)"/>
+        <display value="Des Fosses (Communes de l'Ouest) goat breed (organism)"/>
       </concept>
       <concept>
         <code value="131691003"/>
@@ -622,7 +623,7 @@
       </concept>
       <concept>
         <code value="131699001"/>
-        <display value="B&#xFC;ndner Oberland sheep breed (organism)"/>
+        <display value="Bündner Oberland sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="131700000"/>
@@ -1214,7 +1215,7 @@
       </concept>
       <concept>
         <code value="131914009"/>
-        <display value="Vend&#xE9;en sheep breed (organism)"/>
+        <display value="Vendéen sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="131918007"/>
@@ -1370,7 +1371,7 @@
       </concept>
       <concept>
         <code value="132784009"/>
-        <display value="Santa In&#xEA;s sheep breed (organism)"/>
+        <display value="Santa Inês sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="132785005"/>
@@ -1390,7 +1391,7 @@
       </concept>
       <concept>
         <code value="132789004"/>
-        <display value="Rouge de l&#39;Quest sheep breed (organism)"/>
+        <display value="Rouge de l'Quest sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="132790008"/>
@@ -1406,7 +1407,7 @@
       </concept>
       <concept>
         <code value="132793005"/>
-        <display value="Sp&#xE6;lsau sheep breed (organism)"/>
+        <display value="Spælsau sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="132794004"/>
@@ -1442,7 +1443,7 @@
       </concept>
       <concept>
         <code value="132802000"/>
-        <display value="Pelib&#xFC;ey sheep breed (organism)"/>
+        <display value="Pelibüey sheep breed (organism)"/>
       </concept>
       <concept>
         <code value="132803005"/>
@@ -1750,7 +1751,7 @@
       </concept>
       <concept>
         <code value="133802009"/>
-        <display value="Gambian N&#39;Dama cattle breed (organism)"/>
+        <display value="Gambian N'Dama cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133803004"/>
@@ -2762,7 +2763,7 @@
       </concept>
       <concept>
         <code value="133024008"/>
-        <display value="D&#xF8;le horse breed (organism)"/>
+        <display value="Døle horse breed (organism)"/>
       </concept>
       <concept>
         <code value="133025009"/>
@@ -2786,7 +2787,7 @@
       </concept>
       <concept>
         <code value="133034004"/>
-        <display value="M&#39;Bayar horse breed (organism)"/>
+        <display value="M'Bayar horse breed (organism)"/>
       </concept>
       <concept>
         <code value="133035003"/>
@@ -3646,7 +3647,7 @@
       </concept>
       <concept>
         <code value="396488006"/>
-        <display value="Ari&#xE9;geois pony breed (organism)"/>
+        <display value="Ariégeois pony breed (organism)"/>
       </concept>
       <concept>
         <code value="131819000"/>
@@ -3726,7 +3727,7 @@
       </concept>
       <concept>
         <code value="131555000"/>
-        <display value="Alb&#xE8;res cattle breed (organism)"/>
+        <display value="Albères cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131556004"/>
@@ -4302,7 +4303,7 @@
       </concept>
       <concept>
         <code value="131587002"/>
-        <display value="Coste&#xF1;o con Cuernos cattle breed (organism)"/>
+        <display value="Costeño con Cuernos cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131588007"/>
@@ -4318,7 +4319,7 @@
       </concept>
       <concept>
         <code value="131591007"/>
-        <display value="D&#xF8;lafe cattle breed (organism)"/>
+        <display value="Dølafe cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131592000"/>
@@ -4338,7 +4339,7 @@
       </concept>
       <concept>
         <code value="131596002"/>
-        <display value="Evol&#xE8;ne cattle breed (organism)"/>
+        <display value="Evolène cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131597006"/>
@@ -4718,7 +4719,7 @@
       </concept>
       <concept>
         <code value="131498004"/>
-        <display value="Mauritius Cr&#xE9;ole cattle breed (organism)"/>
+        <display value="Mauritius Créole cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131499007"/>
@@ -4746,7 +4747,7 @@
       </concept>
       <concept>
         <code value="131505008"/>
-        <display value="N&#39;Dama Sanga cattle breed (organism)"/>
+        <display value="N'Dama Sanga cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="131506009"/>
@@ -4790,7 +4791,7 @@
       </concept>
       <concept>
         <code value="131606001"/>
-        <display value="Hart&#xF3;n cattle breed (organism)"/>
+        <display value="Hartón cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133231000"/>
@@ -4882,7 +4883,7 @@
       </concept>
       <concept>
         <code value="133253003"/>
-        <display value="N&#39;dama cattle breed (organism)"/>
+        <display value="N'dama cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133254009"/>
@@ -5166,7 +5167,7 @@
       </concept>
       <concept>
         <code value="133534009"/>
-        <display value="N&#39;Gabou cattle breed (organism)"/>
+        <display value="N'Gabou cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133535005"/>
@@ -5394,7 +5395,7 @@
       </concept>
       <concept>
         <code value="133257002"/>
-        <display value="R&#xE4;tien Gray cattle breed (organism)"/>
+        <display value="Rätien Gray cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133258007"/>
@@ -5402,7 +5403,7 @@
       </concept>
       <concept>
         <code value="133260009"/>
-        <display value="Red Polled &#xD8;stland cattle breed (organism)"/>
+        <display value="Red Polled Østland cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133261008"/>
@@ -5494,7 +5495,7 @@
       </concept>
       <concept>
         <code value="133284001"/>
-        <display value="White C&#xE1;ceres cattle breed (organism)"/>
+        <display value="White Cáceres cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133285000"/>
@@ -5526,7 +5527,7 @@
       </concept>
       <concept>
         <code value="133403007"/>
-        <display value="Pie Rouge de l&#39;Est cattle breed (organism)"/>
+        <display value="Pie Rouge de l'Est cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133404001"/>
@@ -5974,7 +5975,7 @@
       </concept>
       <concept>
         <code value="132753007"/>
-        <display value="Svart H&#xF6;na chicken breed (organism)"/>
+        <display value="Svart Höna chicken breed (organism)"/>
       </concept>
       <concept>
         <code value="132754001"/>
@@ -5998,7 +5999,7 @@
       </concept>
       <concept>
         <code value="132818006"/>
-        <display value="&#xC5;sbos chicken breed (organism)"/>
+        <display value="Åsbos chicken breed (organism)"/>
       </concept>
       <concept>
         <code value="132819003"/>
@@ -6058,7 +6059,7 @@
       </concept>
       <concept>
         <code value="132834009"/>
-        <display value="&#xD8;land chicken breed (organism)"/>
+        <display value="Øland chicken breed (organism)"/>
       </concept>
       <concept>
         <code value="132836006"/>
@@ -6518,7 +6519,7 @@
       </concept>
       <concept>
         <code value="132835005"/>
-        <display value="&#xD6;lansk Bantam chicken breed (organism)"/>
+        <display value="Ölansk Bantam chicken breed (organism)"/>
       </concept>
       <concept>
         <code value="132839004"/>
@@ -7262,7 +7263,7 @@
       </concept>
       <concept>
         <code value="132032009"/>
-        <display value="Guadeloupe Cr&#xE9;ole pig breed (organism)"/>
+        <display value="Guadeloupe Créole pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132033004"/>
@@ -7322,23 +7323,23 @@
       </concept>
       <concept>
         <code value="132059001"/>
-        <display value="Canastr&#xE3;o, Junqueira pig breed (organism)"/>
+        <display value="Canastrão, Junqueira pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132060006"/>
-        <display value="Canastr&#xE3;o, Capit&#xE3;o Chico pig breed (organism)"/>
+        <display value="Canastrão, Capitão Chico pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132061005"/>
-        <display value="Canastr&#xE3;o, Zabumba pig breed (organism)"/>
+        <display value="Canastrão, Zabumba pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132062003"/>
-        <display value="Canastr&#xE3;o, Cabano pig breed (organism)"/>
+        <display value="Canastrão, Cabano pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132063008"/>
-        <display value="Canastr&#xE3;o, Vermelho pig breed (organism)"/>
+        <display value="Canastrão, Vermelho pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132064002"/>
@@ -7434,7 +7435,7 @@
       </concept>
       <concept>
         <code value="132327001"/>
-        <display value="&#xCD; pig breed (organism)"/>
+        <display value="Í pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132328006"/>
@@ -7562,7 +7563,7 @@
       </concept>
       <concept>
         <code value="132359008"/>
-        <display value="G&#xF6;ttingen Miniature pig breed (organism)"/>
+        <display value="Göttingen Miniature pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132360003"/>
@@ -7862,7 +7863,7 @@
       </concept>
       <concept>
         <code value="132009005"/>
-        <display value="Haiti Cr&#xE9;ole pig breed (organism)"/>
+        <display value="Haiti Créole pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132010000"/>
@@ -7950,7 +7951,7 @@
       </concept>
       <concept>
         <code value="132058009"/>
-        <display value="Canastr&#xE3;o pig breed (organism)"/>
+        <display value="Canastrão pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132072000"/>
@@ -8490,7 +8491,7 @@
       </concept>
       <concept>
         <code value="132100006"/>
-        <display value="G&#xFC;ssing Forest Pig pig breed (organism)"/>
+        <display value="Güssing Forest Pig pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132101005"/>
@@ -8562,7 +8563,7 @@
       </concept>
       <concept>
         <code value="132118009"/>
-        <display value="Aksa&#xEE; Black Pied pig breed (organism)"/>
+        <display value="Aksaî Black Pied pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132119001"/>
@@ -8586,11 +8587,11 @@
       </concept>
       <concept>
         <code value="132124003"/>
-        <display value="Cr&#xE9;ole pig breed (organism)"/>
+        <display value="Créole pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132169009"/>
-        <display value="Pel&#xF3;n pig breed (organism)"/>
+        <display value="Pelón pig breed (organism)"/>
       </concept>
       <concept>
         <code value="132178003"/>
@@ -8634,7 +8635,7 @@
       </concept>
       <concept>
         <code value="62153005"/>
-        <display value="Blonde d&#39;Aquitaine (organism)"/>
+        <display value="Blonde d'Aquitaine (organism)"/>
       </concept>
       <concept>
         <code value="65344003"/>
@@ -9306,7 +9307,7 @@
       </concept>
       <concept>
         <code value="133742008"/>
-        <display value="N&#39;Gaoundere cattle breed (organism)"/>
+        <display value="N'Gaoundere cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133743003"/>
@@ -9334,7 +9335,7 @@
       </concept>
       <concept>
         <code value="133755009"/>
-        <display value="Pul-M&#39;bor cattle breed (organism)"/>
+        <display value="Pul-M'bor cattle breed (organism)"/>
       </concept>
       <concept>
         <code value="133756005"/>

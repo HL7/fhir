@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="identifier-type"/>
@@ -8,7 +8,8 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
     <valueMarkdown value="Types are for general categories of identifiers. See [the identifier registry](identifier-registry.html) for a list of common identifier systems"/>
   </extension>
-  <name value="Identifier Type Codes"/>
+  <name value="IdentifierTypeCodes"/>
+  <title value="Identifier Type Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 (FHIR Project)"/>
@@ -58,24 +59,24 @@
       <concept>
         <code value="ACSN"/>
       </concept>
-			<concept>
-				<code value="UDI"/>
-			</concept>
-			<concept>
-				<code value="SNO"/>
-			</concept>
-			<concept>
-				<code value="SB"/>
-			</concept>
-			<concept>
-				<code value="PLAC"/>
-			</concept>
-			<concept>
-				<code value="FILL"/>
-			</concept>
-			<concept>
-				<code value="JHN"/>
-			</concept>
+      <concept>
+        <code value="UDI"/>
+      </concept>
+      <concept>
+        <code value="SNO"/>
+      </concept>
+      <concept>
+        <code value="SB"/>
+      </concept>
+      <concept>
+        <code value="PLAC"/>
+      </concept>
+      <concept>
+        <code value="FILL"/>
+      </concept>
+      <concept>
+        <code value="JHN"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

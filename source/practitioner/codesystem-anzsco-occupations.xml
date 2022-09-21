@@ -4,7 +4,8 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1805"/>
   </identifier>
-  <name value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
+  <name value="ANZSCOV12"/>
+  <title value="ANZSCO -- Australian and New Zealand Standard Classification of Occupations, 2013, Version 1.2"/>
   <status value="active"/>
   <experimental value="false"/>
   <description value="Developed for use in the collection, analysis and dissemination of occupation statistics in Australia and New Zealand."/>

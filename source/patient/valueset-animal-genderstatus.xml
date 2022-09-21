@@ -16,6 +16,7 @@
   <version value="5.0.0"/>
   <name value="GenderStatus"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -23,7 +24,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This example value set defines a set of codes that can be used to indicate the current state of the animal&#39;s reproductive organs."/>
+  <description value="This example value set defines a set of codes that can be used to indicate the current state of the animal's reproductive organs."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/animal-genderstatus"/>

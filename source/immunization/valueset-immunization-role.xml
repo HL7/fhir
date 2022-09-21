@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
-	  <valueBoolean value="true"/>
-	</extension>
-  <name value="Immunization Role Codes"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+    <valueBoolean value="true"/>
+  </extension>
+  <name value="ImmunizationRoleCodes"/>
+  <title value="Immunization Role Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -23,6 +25,6 @@
       <concept>
         <code value="AP"/>
       </concept>
-	</include>
+    </include>
   </compose>
 </ValueSet>

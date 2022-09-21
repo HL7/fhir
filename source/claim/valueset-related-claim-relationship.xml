@@ -17,6 +17,7 @@
   <name value="ExampleRelatedClaimRelationshipCodes"/>
   <title value="Example Related Claim Relationship Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
