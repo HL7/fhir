@@ -653,64 +653,7 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-    <element id="Transport.reasonCode">
-      <path value="Transport.reasonCode"/>
-      <short value="Why transport is needed"/>
-      <definition value="A description or code indicating why this transport needs to be performed."/>
-      <comment value="This should only be included if there is no focus or if it differs from the reason indicated on the focus."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TransportReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.location"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="EVN.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode"/>
-      </mapping>
-    </element>
-    <element id="Transport.reasonReference">
-      <path value="Transport.reasonReference"/>
-      <short value="Why transport is needed"/>
-      <definition value="A resource reference indicating why this transport needs to be performed."/>
-      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-      </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.reasonReference, Event.reasonReference"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].target"/>
-      </mapping>
-    </element>
+  
     <element id="Transport.insurance">
       <path value="Transport.insurance"/>
       <short value="Associated insurance coverage"/>
@@ -1286,7 +1229,7 @@
     </element>
     <element id="Transport.currentLocation">
       <path value="Transport.currentLocation"/>
-      <short value="The current location"/>
+      <short value="The entity current location"/>
       <definition value="The current location for the entity to be transported."/>
       <min value="1"/>
       <max value="1"/>
@@ -1306,6 +1249,64 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.reasonCode">
+      <path value="Transport.reasonCode"/>
+      <short value="Why transport is needed"/>
+      <definition value="A description or code indicating why this transport needs to be performed."/>
+      <comment value="This should only be included if there is no focus or if it differs from the reason indicated on the focus."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="EVN.7"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode"/>
+      </mapping>
+    </element>
+      <element id="Transport.reasonReference">
+      <path value="Transport.reasonReference"/>
+      <short value="Why transport is needed"/>
+      <definition value="A resource reference indicating why this transport needs to be performed."/>
+      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.reasonReference, Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=RSON].target"/>
       </mapping>
     </element>
     <element id="Transport.history">
