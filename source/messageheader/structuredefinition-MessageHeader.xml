@@ -558,8 +558,8 @@
     </element>
     <element id="MessageHeader.response.identifier">
       <path value="MessageHeader.response.identifier"/>
-      <short value="Id of original message"/>
-      <definition value="The MessageHeader.id of the message to which this message is a response."/>
+      <short value="Bundle.identifier of original message"/>
+      <definition value="The Bundle.identifier of the message to which this message is a response."/>
       <requirements value="Allows receiver to know what message is being responded to."/>
       <min value="1"/>
       <max value="1"/>
