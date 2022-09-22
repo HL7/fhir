@@ -570,7 +570,7 @@
     <Cell><Data ss:Type="String">ElementDefinitionTypes</Data></Cell>
     <Cell><Data ss:Type="String">List of all Types for ElementDefinition.type.code</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
     <Cell><Data ss:Type="String">valueset-elementdefinition-types</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s67"/>
    </Row>
