@@ -4555,7 +4555,7 @@
     <Cell><Data ss:Type="String">order</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Order</Data></Cell>
-    <Cell><Data ss:Type="String">The request represents a request/demand and authorization for action by a Practitioner</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents a request/demand and authorization for action by the requestor</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActMood.RQO</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="135">
