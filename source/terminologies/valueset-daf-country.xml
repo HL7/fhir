@@ -1,14 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="daf-country"/>
   <url value="http://hl7.org/fhir/ValueSet/daf-country"/>
-	<identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.3.88.12.80.63"/>
-	</identifier>
-  <name value="Country Value Set"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3279"/>
+  </identifier>
+  <name value="CountryValueSet"/>
+  <title value="Country Value Set"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="HL7 FHIR"/>
   <contact>
     <telecom>
@@ -19,7 +21,6 @@
   <description value="A value set of codes for the representation of names of countries, territories and areas of geographical interest"/>
   <compose>
     <include>
-    <!--   all 2 letter codes form ISO 3166   -->
       <system value="urn:iso:std:iso:3166"/>
       <filter>
         <property value="code"/>

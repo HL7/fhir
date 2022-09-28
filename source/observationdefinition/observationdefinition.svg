@@ -1,58 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n404"
+   id="n838"
    version="1.1"
-   width="560.27509"
-   height="305.24681"
+   width="1233.3836000000001"
+   height="708.0"
    sodipodi:docname="observationdefinition.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata188">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview372"
      pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     id="namedview186"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.50689386"
-     inkscape:cx="-40.442394"
-     inkscape:cy="152.6234"
-     inkscape:window-x="2552"
-     inkscape:window-y="1090"
+     inkscape:zoom="0.66666667"
+     inkscape:cx="629.25"
+     inkscape:cy="362.25"
+     inkscape:window-width="1728"
+     inkscape:window-height="902"
+     inkscape:window-x="1145"
+     inkscape:window-y="-7"
      inkscape:window-maximized="1"
-     inkscape:current-layer="n404" />
+     inkscape:current-layer="n838" />
   <defs
      id="defs11">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.023164335"
+       y="-0.0828125"
+       width="1.0594406"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
@@ -78,590 +63,930 @@
     </filter>
   </defs>
   <g
-     id="n405"
-     transform="translate(629.32307,7.8911984)">
+     id="n839"
+     transform="translate(-96,-156)">
     <rect
        id="ObservationDefinition"
-       x="-314.79251"
-       y="7.2247801"
+       x="330"
+       y="200"
        rx="4"
        ry="4"
-       width="272.79999"
-       height="190"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="316.79999"
+       height="498"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n406"
-       x1="-314.79251"
-       y1="35.224781"
-       x2="-41.9925"
-       y2="35.224781"
+       id="n840"
+       x1="330"
+       y1="228"
+       x2="646.79999"
+       y2="228"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n407"
-       x="-178.3925"
-       y="27.224779"
-       class="diagram-class-title  diagram-class-resource"
-       style="fill:#000000">ObservationDefinition<tspan
+       id="n841"
+       x="488.39999"
+       y="220"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">ObservationDefinition<tspan
    class="diagram-class-title-link"
-   id="tspan16">(<a
-   xlink:href="domainresource.html"
-   id="n408"
-   class="diagram-class-reference">DomainResource</a>
-)</tspan>
-</text>
+   id="tspan17">(<a
+   id="n842"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n843"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
     <text
-       id="n409"
-       x="-308.79251"
-       y="49.224781"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.category"
-   id="n410"><title
-   id="title19">A code that classifies the general type of observation</title>
-
-category</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n411">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-observation-category.html"
-   id="n412"><title
-   id="n413">Codes for high level observation categories. (Strength=Example)</title>
-
-ObservationCategoryCodes</a>
-?? »</text>
+       id="n844"
+       x="336"
+       y="242"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n845"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.url"><title
+   id="title20">An absolute URL that is used to identify this ObservationDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this ObservationDefinition is (or will be) published. The URL SHOULD include the major version of the ObservationDefinition. For more information see Technical and Business Versions</title>url</a> : <a
+   id="n846"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
     <text
-       id="n419"
-       x="-308.79251"
-       y="63.224781"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.code"
-   id="n420"><title
-   id="title26">Describes what will be observed. Sometimes this is called the observation &quot;name&quot;</title>
-
-code</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n421">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-observation-codes.html"
-   id="n422"><title
-   id="n423">Codes identifying names of simple observations. (Strength=Example)</title>
-
-LOINCCodes</a>
-?? »</text>
+       id="n850"
+       x="336"
+       y="256"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n851"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.identifier"><title
+   id="title25">Business identifiers assigned to this ObservationDefinition. by the performer and/or other systems. These identifiers remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n852"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
     <text
-       id="n429"
-       x="-308.79251"
-       y="77.224777"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.identifier"
-   id="n430"><title
-   id="title33">A unique identifier assigned to this ObservationDefinition artifact</title>
-
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n431">Identifier</a>
- [0..*]</text>
+       id="n856"
+       x="336"
+       y="270"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n857"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.version"><title
+   id="title30">The identifier that is used to identify this version of the ObservationDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ObservationDefinition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable</title>version</a> : <a
+   id="n858"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n435"
-       x="-308.79251"
-       y="91.224777"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.permittedDataType"
-   id="n436"><title
-   id="title38">The data types allowed for the value element of the instance observations conforming to this ObservationDefinition</title>
-
-permittedDataType</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n437">code</a>
- [0..*] « <a
-   xlink:href="valueset-permitted-data-type.html"
-   id="n438"><title
-   id="n439">Permitted data type for observation value. (Strength=Required)</title>
-
-ObservationDataType</a>
-! »</text>
+       id="n862"
+       x="336"
+       y="284"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n863"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.name"><title
+   id="title35">A natural language name identifying the ObservationDefinition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n864"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n865"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n866">This element has or is affected by some invariants</title>C</a> »</text>
     <text
-       id="n445"
-       x="-308.79251"
-       y="105.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.multipleResultsAllowed"
-   id="n446"><title
-   id="title45">Multiple results allowed for observations conforming to this ObservationDefinition</title>
-
-multipleResultsAllowed</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n447">boolean</a>
- [0..1]</text>
+       id="n872"
+       x="336"
+       y="298"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n873"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.title"><title
+   id="title42">A short, descriptive, user-friendly title for the ObservationDefinition</title>title</a> : <a
+   id="n874"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n451"
-       x="-308.79251"
-       y="119.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.method"
-   id="n452"><title
-   id="title50">The method or technique used to perform the observation</title>
-
-method</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n453">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-observation-methods.html"
-   id="n454"><title
-   id="n455">Methods for simple observations. (Strength=Example)</title>
-
-ObservationMethods</a>
-?? »</text>
+       id="n878"
+       x="336"
+       y="312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n879"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.status"><title
+   id="title47">The current state of the ObservationDefinition (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n880"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n881"
+   xlink:href="valueset-publication-status.html"><title
+   id="n882">null (Strength=Required)</title>PublicationStatus</a>! »</text>
     <text
-       id="n461"
-       x="-308.79251"
-       y="133.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.preferredReportName"
-   id="n462"><title
-   id="title57">The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition</title>
-
-preferredReportName</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n463">string</a>
- [0..1]</text>
+       id="n888"
+       x="336"
+       y="326"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n889"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.experimental"><title
+   id="title54">A flag to indicate that this ObservationDefinition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage (this element modifies the meaning of other elements)</title>experimental</a> : <a
+   id="n890"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n467"
-       x="-308.79251"
-       y="147.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.validCodedValueSet"
-   id="n468"><title
-   id="title62">The set of valid coded results for the observations  conforming to this ObservationDefinition</title>
-
-validCodedValueSet</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n469">Reference</a>
- [0..1] « <a
-   xlink:href="valueset.html#ValueSet"
-   id="n470">ValueSet</a>
- »</text>
+       id="n894"
+       x="336"
+       y="340"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n895"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.date"><title
+   id="title59">The date (and optionally time) when the ObservationDefinition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ObservationDefinition changes</title>date</a> : <a
+   id="n896"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
     <text
-       id="n475"
-       x="-308.79251"
-       y="161.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.normalCodedValueSet"
-   id="n476"><title
-   id="title68">The set of normal coded results for the observations conforming to this ObservationDefinition</title>
-
-normalCodedValueSet</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n477">Reference</a>
- [0..1] « <a
-   xlink:href="valueset.html#ValueSet"
-   id="n478">ValueSet</a>
- »</text>
+       id="n900"
+       x="336"
+       y="354"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n901"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.publisher"><title
+   id="title64">Helps establish the &quot;authority/credibility&quot; of the ObservationDefinition. May also allow for contact</title>publisher</a> : <a
+   id="n902"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n903"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n904"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n483"
-       x="-308.79251"
-       y="175.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.abnormalCodedValueSet"
-   id="n484"><title
-   id="title74">The set of abnormal coded results for the observation conforming to this ObservationDefinition</title>
-
-abnormalCodedValueSet</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n485">Reference</a>
- [0..1] « <a
-   xlink:href="valueset.html#ValueSet"
-   id="n486">ValueSet</a>
- »</text>
+       id="n905"
+       x="356"
+       y="368"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n906"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n491"
-       x="-308.79251"
-       y="189.22478"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.criticalCodedValueSet"
-   id="n492"><title
-   id="title80">The set of critical coded results for the observation conforming to this ObservationDefinition</title>
-
-criticalCodedValueSet</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n493">Reference</a>
- [0..1] « <a
-   xlink:href="valueset.html#ValueSet"
-   id="n494">ValueSet</a>
- »</text>
+       id="n914"
+       x="336"
+       y="382"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n915"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.contact"><title
+   id="title73">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n916"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n920"
+       x="336"
+       y="396"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n921"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.description"><title
+   id="title78">A free text natural language description of the ObservationDefinition from the consumer's perspective</title>description</a> : <a
+   id="n922"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n926"
+       x="336"
+       y="410"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n927"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.useContext"><title
+   id="title83">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate ObservationDefinition instances</title>useContext</a> : <a
+   id="n928"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n932"
+       x="336"
+       y="424"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n933"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.jurisdiction"><title
+   id="title88">A jurisdiction in which the ObservationDefinition is intended to be used</title>jurisdiction</a> : <a
+   id="n934"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n935"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n936">null (Strength=Extensible)</title>Jurisdiction ValueSet</a>+ »</text>
+    <text
+       id="n942"
+       x="336"
+       y="438"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n943"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.purpose"><title
+   id="title95">Explains why this ObservationDefinition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n944"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n948"
+       x="336"
+       y="452"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n949"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.copyright"><title
+   id="title100">Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the ObservationDefinition</title>copyright</a> : <a
+   id="n950"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n954"
+       x="336"
+       y="466"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n955"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.approvalDate"><title
+   id="title105">The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n956"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n960"
+       x="336"
+       y="480"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n961"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.lastReviewDate"><title
+   id="title110">The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date</title>lastReviewDate</a> : <a
+   id="n962"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n966"
+       x="336"
+       y="494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n967"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.effectivePeriod"><title
+   id="title115">The period during which the ObservationDefinition content was or is planned to be effective</title>effectivePeriod</a> : <a
+   id="n968"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n972"
+       x="336"
+       y="508"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n973"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.derivedFromCanonical"><title
+   id="title120">The canonical URL pointing to another FHIR-defined ObservationDefinition that is adhered to in whole or in part by this definition</title>derivedFromCanonical</a> : <a
+   id="n974"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n975"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a> »</text>
+    <text
+       id="n980"
+       x="336"
+       y="522"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n981"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.derivedFromUri"><title
+   id="title126">The URL pointing to an externally-defined observation definition, guideline or other definition that is adhered to in whole or in part by this definition</title>derivedFromUri</a> : <a
+   id="n982"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n986"
+       x="336"
+       y="536"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n987"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.subject"><title
+   id="title131">A code that describes the intended kind of subject of Observation instances conforming to this ObservationDefinition</title>subject</a> : <a
+   id="n988"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n992"
+       x="336"
+       y="550"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n993"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.performerType"><title
+   id="title136">The type of individual/organization/device that is expected to act upon instances of this definition</title>performerType</a> : <a
+   id="n994"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n998"
+       x="336"
+       y="564"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n999"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.category"><title
+   id="title141">A code that classifies the general type of observation</title>category</a> : <a
+   id="n1000"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1001"
+   xlink:href="valueset-observation-category.html"><title
+   id="n1002">null (Strength=Example)</title>ObservationCategoryCodes</a>?? »</text>
+    <text
+       id="n1008"
+       x="336"
+       y="578"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1009"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.code"><title
+   id="title148">Describes what will be observed. Sometimes this is called the observation &quot;name&quot;</title>code</a> : <a
+   id="n1010"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1011"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n1012">null (Strength=Example)</title>LOINCCodes</a>?? »</text>
+    <text
+       id="n1018"
+       x="336"
+       y="592"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1019"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.permittedDataType"><title
+   id="title155">The data types allowed for the value element of the instance observations conforming to this ObservationDefinition</title>permittedDataType</a> : <a
+   id="n1020"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1021"
+   xlink:href="valueset-permitted-data-type.html"><title
+   id="n1022">null (Strength=Required)</title>ObservationDataType</a>! »</text>
+    <text
+       id="n1028"
+       x="336"
+       y="606"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1029"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.multipleResultsAllowed"><title
+   id="title162">Multiple results allowed for observations conforming to this ObservationDefinition</title>multipleResultsAllowed</a> : <a
+   id="n1030"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1034"
+       x="336"
+       y="620"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1035"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.bodySite"><title
+   id="title167">The site on the subject's body where the  observation is to be made</title>bodySite</a> : <a
+   id="n1036"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1037"
+   xlink:href="valueset-body-site.html"><title
+   id="n1038">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n1044"
+       x="336"
+       y="634"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1045"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.method"><title
+   id="title174">The method or technique used to perform the observation</title>method</a> : <a
+   id="n1046"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1047"
+   xlink:href="valueset-observation-methods.html"><title
+   id="n1048">null (Strength=Example)</title>ObservationMethods</a>?? »</text>
+    <text
+       id="n1054"
+       x="336"
+       y="648"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1055"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.specimen"><title
+   id="title181">The kind of specimen that this type of observation is produced on</title>specimen</a> : <a
+   id="n1056"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1057"
+   xlink:href="specimendefinition.html#SpecimenDefinition">SpecimenDefinition</a> »</text>
+    <text
+       id="n1062"
+       x="336"
+       y="662"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1063"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.device"><title
+   id="title187">The measurement model of device or actual device used to produce observations of this type</title>device</a> : <a
+   id="n1064"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1065"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n1066"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n1072"
+       x="336"
+       y="676"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1073"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.preferredReportName"><title
+   id="title194">The preferred name to be used when reporting the results of observations conforming to this ObservationDefinition</title>preferredReportName</a> : <a
+   id="n1074"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1078"
+       x="336"
+       y="690"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1079"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.hasMember"><title
+   id="title199">This ObservationDefinition defines a group  observation (e.g. a battery, a panel of tests, a set of vital sign measurements) that includes the target as a member of the group</title>hasMember</a> : <a
+   id="n1080"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1081"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>|<a
+   id="n1082"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a> »</text>
   </g>
   <g
-     id="n499"
-     transform="translate(629.32307,7.8911984)">
+     id="n1088"
+     transform="translate(-96,-156)">
     <rect
        id="ObservationDefinition.quantitativeDetails"
-       x="52.731731"
-       y="193.24681"
+       x="730.79486"
+       y="200.46477"
        rx="4"
        ry="4"
        width="228.8"
        height="92"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n500"
-       x1="52.731731"
-       y1="221.24681"
-       x2="281.53174"
-       y2="221.24681"
+       id="n1089"
+       x1="730.79486"
+       y1="228.46477"
+       x2="959.59485"
+       y2="228.46477"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n501"
-       x="167.13173"
-       y="213.24681"
-       class="diagram-class-title"
-       style="fill:#000000">QuantitativeDetails</text>
+       id="n1090"
+       x="845.19489"
+       y="220.46477"
+       fill="#000000"
+       class="diagram-class-title">QuantitativeDetails</text>
     <text
-       id="n502"
-       x="58.731731"
-       y="235.24681"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.customaryUnit"
-   id="n503"><title
-   id="title90">Customary unit used to report quantitative results of observations conforming to this ObservationDefinition</title>
-
-customaryUnit</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n504">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-ucum-units.html"
-   id="n505"><title
-   id="n506">Codes identifying units of measure. (Strength=Extensible)</title>
-
-UCUMCodes</a>
-+ »</text>
+       id="n1091"
+       x="736.79486"
+       y="242.46477"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1092"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.unit"><title
+   id="title210">Primary unit used to report quantitative results of observations conforming to this ObservationDefinition</title>unit</a> : <a
+   id="n1093"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1094"
+   xlink:href="valueset-ucum-units.html"><title
+   id="n1095">null (Strength=Extensible)</title>UCUMCodes</a>+ »</text>
     <text
-       id="n512"
-       x="58.731731"
-       y="249.24681"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.unit"
-   id="n513"><title
-   id="title97">SI unit used to report quantitative results of observations conforming to this ObservationDefinition</title>
-
-unit</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n514">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-ucum-units.html"
-   id="n515"><title
-   id="n516">Codes identifying units of measure. (Strength=Extensible)</title>
-
-UCUMCodes</a>
-+ »</text>
+       id="n1101"
+       x="736.79486"
+       y="256.46478"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1102"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.customaryUnit"><title
+   id="title217">Secondary unit used to report quantitative results of observations conforming to this ObservationDefinition</title>customaryUnit</a> : <a
+   id="n1103"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1104"
+   xlink:href="valueset-ucum-units.html"><title
+   id="n1105">null (Strength=Extensible)</title>UCUMCodes</a>+ »</text>
     <text
-       id="n522"
-       x="58.731731"
-       y="263.2468"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.conversionFactor"
-   id="n523"><title
-   id="title104">Factor for converting value expressed with SI unit to value expressed with customary unit</title>
-
-conversionFactor</a>
- : <a
-   xlink:href="datatypes.html#decimal"
-   id="n524">decimal</a>
- [0..1]</text>
+       id="n1111"
+       x="736.79486"
+       y="270.46478"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1112"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.conversionFactor"><title
+   id="title224">Factor for converting value expressed with primary unit to value expressed with secondary unit</title>conversionFactor</a> : <a
+   id="n1113"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
     <text
-       id="n528"
-       x="58.731731"
-       y="277.2468"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.decimalPrecision"
-   id="n529"><title
-   id="title109">Number of digits after decimal separator when the results of such observations are of type Quantity</title>
-
-decimalPrecision</a>
- : <a
-   xlink:href="datatypes.html#integer"
-   id="n530">integer</a>
- [0..1]</text>
+       id="n1117"
+       x="736.79486"
+       y="284.46478"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1118"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails.decimalPrecision"><title
+   id="title229">Number of digits after decimal separator when the results of such observations are of type Quantity</title>decimalPrecision</a> : <a
+   id="n1119"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
   </g>
   <g
-     id="n534"
-     transform="translate(629.32307,7.8911984)">
+     id="n1123"
+     transform="translate(-96,-156)">
     <rect
-       id="ObservationDefinition.qualifiedInterval"
-       x="56.675091"
-       y="4.8643699"
+       id="ObservationDefinition.qualifiedValue"
+       x="729.54596"
+       y="451.84122"
        rx="4"
        ry="4"
        width="303.60001"
-       height="162"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       height="218"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n535"
-       x1="56.675091"
-       y1="32.864368"
-       x2="360.27509"
-       y2="32.864368"
+       id="n1124"
+       x1="729.54596"
+       y1="479.84122"
+       x2="1033.146"
+       y2="479.84122"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n536"
-       x="208.47508"
-       y="24.86437"
-       class="diagram-class-title"
-       style="fill:#000000">QualifiedInterval</text>
+       id="n1125"
+       x="881.34595"
+       y="471.84122"
+       fill="#000000"
+       class="diagram-class-title">QualifiedValue</text>
     <text
-       id="n537"
-       x="62.675091"
-       y="46.864368"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.category"
-   id="n538"><title
-   id="title118">The category of interval of values for continuous or ordinal observations conforming to this ObservationDefinition</title>
-
-category</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n539">code</a>
- [0..1] « <a
-   xlink:href="valueset-observation-range-category.html"
-   id="n540"><title
-   id="n541">Codes identifying the category of observation range. (Strength=Required)</title>
-
-ObservationRangeCategory</a>
-! »</text>
+       id="n1126"
+       x="735.54596"
+       y="493.84122"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1127"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.context"><title
+   id="title238">A concept defining the context for this set of qualified values</title>context</a> : <a
+   id="n1128"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1129"
+   xlink:href="valueset-referencerange-meaning.html"><title
+   id="n1130">null (Strength=Extensible)</title>ObservationReferenceRangeMean...</a>+ »</text>
     <text
-       id="n547"
-       x="62.675091"
-       y="60.864368"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.range"
-   id="n548"><title
-   id="title125">The low and high values determining the interval. There may be only one of the two</title>
-
-range</a>
- : <a
-   xlink:href="datatypes.html#Range"
-   id="n549">Range</a>
- [0..1]</text>
+       id="n1136"
+       x="735.54596"
+       y="507.84122"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1137"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.appliesTo"><title
+   id="title245">The target population this  set of qualified values applies to</title>appliesTo</a> : <a
+   id="n1138"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1139"
+   xlink:href="valueset-referencerange-appliesto.html"><title
+     id="n1140">null (Strength=Example)</title></a></text>
     <text
-       id="n553"
-       x="62.675091"
-       y="74.864372"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.context"
-   id="n554"><title
-   id="title130">Codes to indicate the health context the range applies to. For example, the normal or therapeutic range</title>
-
-context</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n555">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-referencerange-meaning.html"
-   id="n556"><title
-   id="n557">Code identifying the health context of a range. (Strength=Extensible)</title>
-
-ObservationReferenceRangeMean...</a>
-+ »</text>
+       id="n1141"
+       x="755.54596"
+       y="521.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1142"
+   xlink:href="valueset-referencerange-appliesto.html">ObservationReferenceRangeAppl...</a>?? »</text>
     <text
-       id="n563"
-       x="62.675091"
-       y="88.864372"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.appliesTo"
-   id="n564"><title
-   id="title137">Codes to indicate the target population this reference range applies to</title>
-
-appliesTo</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n565">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-referencerange-appliesto.html"
-   id="n566">
-  <title
-     id="n567">Codes identifying the population the reference range applies to. (Strength=Example)</title>
-</a>
-</text>
+       id="n1150"
+       x="735.54596"
+       y="535.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1151"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.gender"><title
+   id="title254">The gender this  set of qualified values applies to</title>gender</a> : <a
+   id="n1152"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1153"
+   xlink:href="valueset-administrative-gender.html"><title
+   id="n1154">null (Strength=Required)</title>AdministrativeGender</a>! »</text>
     <text
-       id="n568"
-       x="82.675087"
-       y="102.86437"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-referencerange-appliesto.html"
-   id="n569">ObservationReferenceRangeAppl...</a>
-?? »</text>
+       id="n1160"
+       x="735.54596"
+       y="549.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1161"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.age"><title
+   id="title261">The age range this  set of qualified values applies to</title>age</a> : <a
+   id="n1162"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
     <text
-       id="n577"
-       x="62.675091"
-       y="116.86437"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.gender"
-   id="n578"><title
-   id="title146">Sex of the population the range applies to</title>
-
-gender</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n579">code</a>
- [0..1] « <a
-   xlink:href="valueset-administrative-gender.html"
-   id="n580"><title
-   id="n581">The gender of a person used for administrative purposes. (Strength=Required)</title>
-
-AdministrativeGender</a>
-! »</text>
+       id="n1166"
+       x="735.54596"
+       y="563.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1167"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.gestationalAge"><title
+   id="title266">The gestational age this  set of qualified values applies to</title>gestationalAge</a> : <a
+   id="n1168"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
     <text
-       id="n587"
-       x="62.675091"
-       y="130.86436"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.age"
-   id="n588"><title
-   id="title153">The age at which this reference range is applicable. This is a neonatal age (e.g. number of weeks at term) if the meaning says so</title>
-
-age</a>
- : <a
-   xlink:href="datatypes.html#Range"
-   id="n589">Range</a>
- [0..1]</text>
+       id="n1172"
+       x="735.54596"
+       y="577.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1173"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.condition"><title
+   id="title271">Text based condition for which the the set of qualified values is valid</title>condition</a> : <a
+   id="n1174"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n593"
-       x="62.675091"
-       y="144.86436"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.gestationalAge"
-   id="n594"><title
-   id="title158">The gestational age to which this reference range is applicable, in the context of pregnancy</title>
-
-gestationalAge</a>
- : <a
-   xlink:href="datatypes.html#Range"
-   id="n595">Range</a>
- [0..1]</text>
+       id="n1178"
+       x="735.54596"
+       y="591.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1179"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.rangeCategory"><title
+   id="title276">The category of range of values for continuous or ordinal observations that match the criteria of this set of qualified values</title>rangeCategory</a> : <a
+   id="n1180"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1181"
+   xlink:href="valueset-observation-range-category.html"><title
+   id="n1182">null (Strength=Required)</title>ObservationRangeCategory</a>! »</text>
     <text
-       id="n599"
-       x="62.675091"
-       y="158.86436"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval.condition"
-   id="n600"><title
-   id="title163">Text based condition for which the reference range is valid</title>
-
-condition</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n601">string</a>
- [0..1]</text>
+       id="n1188"
+       x="735.54596"
+       y="605.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1189"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.range"><title
+   id="title283">The range of values defined for continuous or ordinal observations that match the criteria of this set of qualified values</title>range</a> : <a
+   id="n1190"
+   xlink:href="datatypes.html#Range">Range</a> [0..1]</text>
+    <text
+       id="n1194"
+       x="735.54596"
+       y="619.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1195"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.validCodedValueSet"><title
+   id="title288">The set of valid coded results for qualitative observations  that match the criteria of this set of qualified values</title>validCodedValueSet</a> : <a
+   id="n1196"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1197"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> »</text>
+    <text
+       id="n1202"
+       x="735.54596"
+       y="633.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1203"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.normalCodedValueSet"><title
+   id="title294">The set of normal coded results for qualitative observations  that match the criteria of this set of qualified values</title>normalCodedValueSet</a> : <a
+   id="n1204"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1205"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> »</text>
+    <text
+       id="n1210"
+       x="735.54596"
+       y="647.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1211"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.abnormalCodedValueSet"><title
+   id="title300">The set of abnormal coded results for qualitative observations  that match the criteria of this set of qualified values</title>abnormalCodedValueSet</a> : <a
+   id="n1212"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1213"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> »</text>
+    <text
+       id="n1218"
+       x="735.54596"
+       y="661.84125"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1219"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue.criticalCodedValueSet"><title
+   id="title306">The set of critical coded results for qualitative observations  that match the criteria of this set of qualified values</title>criticalCodedValueSet</a> : <a
+   id="n1220"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1221"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> »</text>
+  </g>
+  <g
+     id="n1226"
+     transform="translate(-96,-156)">
+    <rect
+       id="ObservationDefinition.component"
+       x="791.38361"
+       y="338.35059"
+       rx="4"
+       ry="4"
+       width="242"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1227"
+       x1="791.38361"
+       y1="366.35059"
+       x2="1033.3835"
+       y2="366.35059"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1228"
+       x="912.38361"
+       y="358.35059"
+       fill="#000000"
+       class="diagram-class-title">Component</text>
+    <text
+       id="n1229"
+       x="797.38361"
+       y="380.35059"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1230"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.component.code"><title
+   id="title316">Describes what will be observed</title>code</a> : <a
+   id="n1231"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1232"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n1233">null (Strength=Example)</title>LOINCCodes</a>?? »</text>
+    <text
+       id="n1239"
+       x="797.38361"
+       y="394.35059"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1240"
+   xlink:href="observationdefinition-definitions.html#ObservationDefinition.component.permittedDataType"><title
+   id="title323">The data types allowed for the value element of the instance of this component observations</title>permittedDataType</a> : <a
+   id="n1241"
+   xlink:href="datatypes.html#code">code</a> [0..*] « <a
+   id="n1242"
+   xlink:href="valueset-permitted-data-type.html"><title
+   id="n1243">null (Strength=Required)</title>ObservationDataType</a>! »</text>
   </g>
   <line
-     id="n605"
-     x1="587.33057"
-     y1="164.20714"
-     x2="682.05481"
-     y2="201.77124"
-     style="stroke:#000080;stroke-width:1" />
+     id="n1249"
+     x1="646.8"
+     y1="359.08396132164006"
+     x2="764.1592616006494"
+     y2="292.46477000000016"
+     style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n606"
-     points="-29.9925,156.31594 -35.9925,152.31594 -41.9925,156.31594 -35.9925,160.31594 "
-     style="fill:#000080;stroke:#000080;stroke-width:1"
-     transform="rotate(21.631431,252.01626,1807.3205)" />
+     id="n1250"
+     points="646.8,359.08396132164006 652.8,363.08396132164006 658.8,359.08396132164006 652.8,355.08396132164006 646.8,359.08396132164006"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-29.58148707268316 646.8 359.08396132164006)" />
   <rect
-     id="n607"
-     x="592.82306"
-     y="175.8912"
+     id="n1251"
+     x="663.5"
+     y="318.0"
+     width="83.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1252"
+     x="705.0"
+     y="328.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1253"
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails"><title
+   id="title334">Characteristics for quantitative results of observations conforming to this ObservationDefinition</title>quantitativeDetails</a></text>
+  <text
+     id="n1254"
+     x="764.1592616006494"
+     y="306.46477000000016"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1255"
+     x1="646.8"
+     y1="494.0841934016596"
+     x2="729.5459417"
+     y2="517.6355446567431"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1256"
+     points="646.8,494.0841934016596 652.8,498.0841934016596 658.8,494.0841934016596 652.8,490.0841934016596 646.8,494.0841934016596"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(15.887542087371747 646.8 494.0841934016596)" />
+  <rect
+     id="n1257"
+     x="657.5"
+     y="498.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1258"
+     x="688.0"
+     y="508.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1259"
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedValue"><title
+   id="title342">A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations</title>qualifiedValue</a></text>
+  <text
+     id="n1260"
+     x="709.5459417"
+     y="513.6355446567431"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1261"
+     x1="895.0285911180316"
+     y1="338.3506"
+     x2="870.1426852678292"
+     y2="292.46477000000027"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1262"
+     points="895.0285911180316,338.3506 901.0285911180316,342.3506 907.0285911180316,338.3506 901.0285911180316,334.3506 895.0285911180316,338.3506"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-118.4729261714442 895.0285911180316 338.3506)" />
+  <rect
+     id="n1263"
+     x="861.5"
+     y="311"
      width="83"
      height="18"
      style="fill:#ffffff;stroke:#000000;stroke-width:0" />
   <text
-     id="n608"
-     x="634.32306"
-     y="185.8912"
-     class="diagram-class-linkage"
-     style="fill:#000000">
-    <a
-       xlink:href="observationdefinition-definitions.html#ObservationDefinition.quantitativeDetails"
-       id="n609"><title
-   id="title172">Characteristics for quantitative results of this observation</title>
-
-quantitativeDetails</a>
-  </text>
+     id="n1264"
+     x="882.0"
+     y="318.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1265"
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.component.quantitativeDetails"><title
+   id="title350">Characteristics for quantitative results of this observation</title>quantitativeDetails</a></text>
   <text
-     id="n610"
-     x="662.05481"
-     y="197.77124"
-     class="diagram-class-linkage"
-     style="fill:#000000">[0..1]</text>
+     id="n1266"
+     x="870.1426852678292"
+     y="306.46477000000027"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n611"
-     x1="587.33057"
-     y1="104.3477"
-     x2="685.99817"
-     y2="100.1751"
-     style="stroke:#000080;stroke-width:1" />
+     id="n1267"
+     x1="907.1696686606999"
+     y1="402.35059999999976"
+     x2="899.1058953244905"
+     y2="451.84123"
+     style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n612"
-     points="-29.9925,96.456502 -35.9925,92.456502 -41.9925,96.456502 -35.9925,100.4565 "
-     style="fill:#000080;stroke:#000080;stroke-width:1"
-     transform="rotate(-2.421563,459.35221,-14787.581)" />
+     id="n1268"
+     points="907.1696686606999,402.35059999999976 913.1696686606999,406.35059999999976 919.1696686606999,402.35059999999976 913.1696686606999,398.35059999999976 907.1696686606999,402.35059999999976"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(99.25418680345832 907.1696686606999 402.35059999999976)" />
   <rect
-     id="n613"
-     x="599.32306"
-     y="94.891197"
-     width="74"
-     height="18"
-     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+     id="n1269"
+     x="872.5"
+     y="420.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n614"
-     x="636.32306"
-     y="104.8912"
-     class="diagram-class-linkage"
-     style="fill:#000000">
-    <a
-       xlink:href="observationdefinition-definitions.html#ObservationDefinition.qualifiedInterval"
-       id="n615"><title
-   id="title180">Multiple  ranges of results qualified by different contexts for ordinal or continuous observations conforming to this ObservationDefinition</title>
-
-qualifiedInterval</a>
-  </text>
+     id="n1270"
+     x="903.0"
+     y="430.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1271"
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.component.qualifiedValue"><title
+   id="title358">A set of qualified values associated with a context and a set of conditions -  provides a range for quantitative and ordinal observations and a collection of value sets for qualitative observations</title>qualifiedValue</a></text>
   <text
-     id="n616"
-     x="665.99817"
-     y="96.175102"
-     class="diagram-class-linkage"
-     style="fill:#000000">[0..*]</text>
+     id="n1272"
+     x="899.1058953244905"
+     y="447.84123"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1273"
+     x1="646.8"
+     y1="419.6166347943647"
+     x2="791.3836"
+     y2="392.7962261987492"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1274"
+     points="646.8,419.6166347943647 652.8,423.6166347943647 658.8,419.6166347943647 652.8,415.6166347943647 646.8,419.6166347943647"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-10.50897329633602 646.8 419.6166347943647)" />
+  <rect
+     id="n1275"
+     x="699.5"
+     y="399.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1276"
+     x="719.0"
+     y="409.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1277"
+       xlink:href="observationdefinition-definitions.html#ObservationDefinition.component"><title
+   id="title366">Some observations have multiple component observations, expressed as separate code value pairs</title>component</a></text>
+  <text
+     id="n1278"
+     x="771.3836"
+     y="388.7962261987492"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
 </svg>

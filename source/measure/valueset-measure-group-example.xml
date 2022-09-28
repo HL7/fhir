@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="measure-group-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,12 +9,13 @@
   <url value="http://hl7.org/fhir/ValueSet/measure-group-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3191"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="MeasureGroupExample"/>
   <title value="MeasureGroupExample"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>
   <description value="Example Measure Groups for the Measure Resource."/>
   <compose>

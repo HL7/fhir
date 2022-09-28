@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="RequestOrchestration"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +23,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1378"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="RequestOrchestration"/>
   <status value="draft"/>
@@ -41,7 +44,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
+  <description value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &#34;give this medication after that one&#34;."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -70,7 +73,7 @@
       </extension>
       <path value="RequestOrchestration"/>
       <short value="A set of related requests"/>
-      <definition value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &quot;give this medication after that one&quot;."/>
+      <definition value="A set of related requests that can be used to capture intended activities that have inter-dependencies such as &#34;give this medication after that one&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -173,8 +176,8 @@
       <path value="RequestOrchestration.groupIdentifier"/>
       <short value="Composite request this is part of"/>
       <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
-      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
-      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
+      <comment value="Requests are linked either by a &#34;basedOn&#34; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &#34;prescription&#34; or &#34;requisition&#34; for billing or other purposes."/>
       <alias value="grouperid"/>
       <alias value="requisition"/>
       <min value="0"/>
@@ -229,7 +232,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -278,7 +281,7 @@
     </element>
     <element id="RequestOrchestration.code">
       <path value="RequestOrchestration.code"/>
-      <short value="What&#39;s being requested/ordered"/>
+      <short value="What's being requested/ordered"/>
       <definition value="A code that identifies what the overall request orchestration is."/>
       <comment value="This element can be used to provide a code that captures the meaning of the request orchestration as a whole, as opposed to the code of the action element, which captures the meaning of the individual actions within the request orchestration."/>
       <min value="0"/>
@@ -778,7 +781,7 @@
       </extension>
       <path value="RequestOrchestration.action.relatedAction"/>
       <short value="Relationship to another action"/>
-      <definition value="A relationship to another action such as &quot;before&quot; or &quot;30-60 minutes after start of&quot;."/>
+      <definition value="A relationship to another action such as &#34;before&#34; or &#34;30-60 minutes after start of&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1143,7 +1146,7 @@
       <path value="RequestOrchestration.action.resource"/>
       <short value="The target of the action"/>
       <definition value="The resource that is the target of the action (e.g. CommunicationRequest)."/>
-      <comment value="The target resource SHALL be a [Request](request.html) resource with a Request.intent set to &quot;option&quot;."/>
+      <comment value="The target resource SHALL be a [Request](request.html) resource with a Request.intent set to &#34;option&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1171,10 +1174,6 @@
         <code value="uri"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
@@ -1201,7 +1200,7 @@
       </extension>
       <path value="RequestOrchestration.action.dynamicValue"/>
       <short value="Dynamic aspects of the definition"/>
-      <definition value="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient&#39;s weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result."/>
+      <definition value="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result."/>
       <comment value="Dynamic values are applied in the order in which they are defined in the RequestOrchestration resource. Note that when dynamic values are also specified by a referenced ActivityDefinition, the dynamicValues from the ActivityDefinition are applied first, followed by the dynamicValues specified here. In addition, if both a transform and dynamic values are specific, the dynamic values are applied to the result of the transform."/>
       <min value="0"/>
       <max value="*"/>

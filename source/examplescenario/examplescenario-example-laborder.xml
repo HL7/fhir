@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExampleScenario xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+  <id value="example-laborder"/>
+  <text>
+    <status value="additional"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><p> <b> ExampleScenario - Lab order tracking with Task</b> <a name="example-laborder"> </a> </p> <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource ExampleScenario &quot;example-laborder&quot; </p> </div> <p> <b> status</b> : draft</p> <p> <b> purpose</b> : Purpose: this serves to demonstrate a scenario that uses service requests and Task resources to establish a handshake for order tracking.</p> 
+     <img src="./examplescenario-example-laborder.png" alt="ExampleScenario diagram - IHE MMA example"></img></div>
+  </text>
+  <title value="Lab order tracking with Task"/>
+  <status value="draft"/>
+  <description value="In this example, the clinician creates an order in the CPOE. Then a Task is created and updated by both the CPOE and the Lab system..."/>
+  <purpose value="Purpose: this serves to demonstrate a scenario that uses service requests and Task resources to establish a handshake for order tracking."/>
+  <actor>
+    <key value="Clin"/>
+    <type value="person"/>
+    <title value="Clinician"/>
+    <description value="Clinician"/>
+  </actor>
+  <actor>
+    <key value="CPOE"/>
+    <type value="system"/>
+    <title value="CPOE"/>
+    <description value="CPOE"/>
+  </actor>
+  <actor>
+    <key value="EMR"/>
+    <type value="system"/>
+    <title value="EMR"/>
+    <description value="EMR"/>
+  </actor>
+  <actor>
+    <key value="LabMan"/>
+    <type value="person"/>
+    <title value="Lab Man"/>
+    <description value="Lab Person"/>
+  </actor>
+  <actor>
+    <key value="Lab"/>
+    <type value="system"/>
+    <title value="Lab"/>
+    <description value="Lab"/>
+  </actor>
+  <instance>
+    <key value="req1"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="ServiceRequest"/>
+    </structureType>
+    <title value="Request for a lab procedure"/>
+    <description value="Bla"/>
+    <version>
+      <key value="req1-v1"/>
+      <description value="Initial order"/>
+    </version>
+    <version>
+      <key value="req1-v2"/>
+      <description value="Order in progress"/>
+    </version>
+    <version>
+      <key value="req1-v3"/>
+      <description value="Order completed"/>
+    </version>
+  </instance>
+  <instance>
+    <key value="task1"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="Task"/>
+    </structureType>
+    <title value="Task"/>
+    <description value="The task that handles the status updates..."/>
+    <version>
+      <key value="task1-v1"/>
+      <description value="Initially created"/>
+    </version>
+    <version>
+      <key value="task1-v2"/>
+      <description value="Accepted"/>
+    </version>
+    <version>
+      <key value="task1-v3"/>
+      <description value="In progress"/>
+    </version>
+    <version>
+      <key value="task1-v4"/>
+      <description value="Completed"/>
+    </version>
+  </instance>
+  <instance>
+    <key value="req.lab1"/>
+    <structureType>
+      <system value="http://hl7.org/fhir/fhir-types"/>
+      <code value="ServiceRequest"/>
+    </structureType>
+    <title value="Internal lab request"/>
+    <description value="Lab's internal request for the procedure"/>
+    <version>
+      <key value="req.lab1-v1"/>
+      <description value="Order in progress"/>
+    </version>
+    <version>
+      <key value="req.lab1-v2"/>
+      <description value="Order in progress"/>
+    </version>
+    <version>
+      <key value="req.lab1-v3"/>
+      <description value="Order completed"/>
+    </version>
+  </instance>
+  <process>
+    <title value="Lab order tracking with Task"/>
+    <description value="Lab order, status updates handled with Task between CPOE, EMR and Lab systems"/>
+    <step>
+      <number value="1"/>
+      <process>
+        <title value="Create order"/>
+        <description value="New lab order"/>
+        <step>
+          <number value="1.1"/>
+          <operation>
+            <title value="Make a call"/>
+            <initiator value="Clin"/>
+            <receiver value="LabMan"/>
+          </operation>
+        </step>
+        <step>
+          <number value="1.2"/>
+          <operation>
+            <title value="Create new EMR order"/>
+            <initiator value="Clin"/>
+            <receiver value="CPOE"/>
+          </operation>
+        </step>
+        <step>
+          <number value="1.3"/>
+          <operation>
+            <title value="Submit order to EMR"/>
+            <initiator value="CPOE"/>
+            <receiver value="EMR"/>
+            <request>
+              <instanceReference value="req1"/>
+              <versionReference value="req1-v1"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="1.3"/>
+          <operation>
+            <title value="Create new task "/>
+            <initiator value="EMR"/>
+            <receiver value="EMR"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v1"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="1.4"/>
+          <operation>
+            <title value="Send task to Lab"/>
+            <initiator value="EMR"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v1"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+      <pause value="true"/>
+    </step>
+    <step>
+      <number value="2"/>
+      <process>
+        <title value="Accept order"/>
+        <description value="New task for handling order tracking"/>
+        <step>
+          <number value="2.1"/>
+          <operation>
+            <title value="Accept task"/>
+            <initiator value="LabMan"/>
+            <receiver value="Lab"/>
+          </operation>
+        </step>
+        <step>
+          <number value="2.2"/>
+          <operation>
+            <title value="Task status = accepted"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v2"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="2.3"/>
+          <operation>
+            <title value="Create internal lab request"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="req.lab1"/>
+              <versionReference value="req.lab1-v1"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="2.4"/>
+          <operation>
+            <title value="Send Task to EMR"/>
+            <initiator value="Lab"/>
+            <receiver value="EMR"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v2"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="2.5"/>
+          <operation>
+            <title value="Inform CPOE of Task status"/>
+            <initiator value="EMR"/>
+            <receiver value="CPOE"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v2"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+    <step>
+      <number value="3"/>
+      <process>
+        <title value="Initiate procedure"/>
+        <description value="Procedure is initiated at the lab"/>
+        <step>
+          <number value="3.1"/>
+          <operation>
+            <title value="Begin procedure"/>
+            <initiator value="LabMan"/>
+            <receiver value="Lab"/>
+          </operation>
+        </step>
+        <step>
+          <number value="3.2"/>
+          <operation>
+            <title value="Task status: in-progress"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v3"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.3"/>
+          <operation>
+            <title value="Internal lab request: in-progress"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="req.lab1"/>
+              <versionReference value="req.lab1-v2"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.4"/>
+          <operation>
+            <title value="Send updated Task to EMR"/>
+            <initiator value="Lab"/>
+            <receiver value="EMR"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v3"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.5"/>
+          <operation>
+            <title value="Inform CPOE of Task status"/>
+            <initiator value="EMR"/>
+            <receiver value="CPOE"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v4"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.5"/>
+          <operation>
+            <title value="Order status: in-progress"/>
+            <initiator value="CPOE"/>
+            <receiver value="CPOE"/>
+            <request>
+              <instanceReference value="req1"/>
+              <versionReference value="req1-v2"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+    <step>
+      <number value="4"/>
+      <process>
+        <title value="Finish procedure"/>
+        <description value="Procedure is finished"/>
+        <step>
+          <number value="4.1"/>
+          <operation>
+            <title value="Finish procedure"/>
+            <initiator value="LabMan"/>
+            <receiver value="Lab"/>
+          </operation>
+        </step>
+        <step>
+          <number value="4.2"/>
+          <operation>
+            <title value="Task status = completed"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v2"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.3"/>
+          <operation>
+            <title value="Internal lab request: complete"/>
+            <initiator value="Lab"/>
+            <receiver value="Lab"/>
+            <request>
+              <instanceReference value="req.lab1"/>
+              <versionReference value="req.lab1-v2"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.4"/>
+          <operation>
+            <title value="Send updated Task to EMR"/>
+            <initiator value="Lab"/>
+            <receiver value="EMR"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v4"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.5"/>
+          <operation>
+            <title value="Inform CPOE of Task status"/>
+            <initiator value="EMR"/>
+            <receiver value="CPOE"/>
+            <request>
+              <instanceReference value="task1"/>
+              <versionReference value="task1-v4"/>
+            </request>
+          </operation>
+        </step>
+        <step>
+          <number value="4.5"/>
+          <operation>
+            <title value="Order status = completed"/>
+            <initiator value="CPOE"/>
+            <receiver value="CPOE"/>
+            <request>
+              <instanceReference value="req1"/>
+              <versionReference value="req1-v3"/>
+            </request>
+          </operation>
+        </step>
+      </process>
+    </step>
+  </process>
+</ExampleScenario>

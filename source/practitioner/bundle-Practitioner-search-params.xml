@@ -17,8 +17,8 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="Practitioner.active"/>
-        <xpath value="f:Practitioner/f:active"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:active"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="address"/>
         <type value="string"/>
         <expression value="Practitioner.address"/>
-        <xpath value="f:Practitioner/f:address"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="address-city"/>
         <type value="string"/>
         <expression value="Practitioner.address.city"/>
-        <xpath value="f:Practitioner/f:address/f:city"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address/f:city"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="address-country"/>
         <type value="string"/>
         <expression value="Practitioner.address.country"/>
-        <xpath value="f:Practitioner/f:address/f:country"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address/f:country"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="address-postalcode"/>
         <type value="string"/>
         <expression value="Practitioner.address.postalCode"/>
-        <xpath value="f:Practitioner/f:address/f:postalCode"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address/f:postalCode"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="address-state"/>
         <type value="string"/>
         <expression value="Practitioner.address.state"/>
-        <xpath value="f:Practitioner/f:address/f:state"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address/f:state"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="address-use"/>
         <type value="token"/>
         <expression value="Practitioner.address.use"/>
-        <xpath value="f:Practitioner/f:address/f:use"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:address/f:use"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="communication"/>
         <type value="token"/>
         <expression value="Practitioner.communication"/>
-        <xpath value="f:Practitioner/f:communication"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:communication"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -177,8 +177,8 @@
         <code value="email"/>
         <type value="token"/>
         <expression value="Practitioner.telecom.where(system=&#39;email&#39;)"/>
-        <xpath value="f:Practitioner/f:telecom[system/@value=&#39;email&#39;]"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:telecom[system/@value=&#39;email&#39;]"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -197,8 +197,8 @@
         <code value="family"/>
         <type value="string"/>
         <expression value="Practitioner.name.family"/>
-        <xpath value="f:Practitioner/f:name/f:family"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:name/f:family"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -217,8 +217,8 @@
         <code value="gender"/>
         <type value="token"/>
         <expression value="Practitioner.gender"/>
-        <xpath value="f:Practitioner/f:gender"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:gender"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,8 +237,8 @@
         <code value="given"/>
         <type value="string"/>
         <expression value="Practitioner.name.given"/>
-        <xpath value="f:Practitioner/f:name/f:given"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:name/f:given"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -257,8 +257,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Practitioner.identifier | Practitioner.qualification.identifier"/>
-        <xpath value="f:Practitioner/f:identifier | Practitioner/f:qualification/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:identifier | Practitioner/f:qualification/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -277,8 +277,8 @@
         <code value="qualification-period"/>
         <type value="date"/>
         <expression value="Practitioner.qualification.period"/>
-        <xpath value="f:Practitioner/f:qualification/f:period"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:qualification/f:period"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -297,8 +297,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Practitioner.name"/>
-        <xpath value="f:Practitioner/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -317,8 +317,8 @@
         <code value="phone"/>
         <type value="token"/>
         <expression value="Practitioner.telecom.where(system=&#39;phone&#39;)"/>
-        <xpath value="f:Practitioner/f:telecom[system/@value=&#39;phone&#39;]"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:telecom[system/@value=&#39;phone&#39;]"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -337,8 +337,8 @@
         <code value="phonetic"/>
         <type value="string"/>
         <expression value="Practitioner.name"/>
-        <xpath value="f:Practitioner/f:name"/>
-        <xpathUsage value="phonetic"/>
+        <!--<xpath value="f:Practitioner/f:name"/> -->
+        <processingMode value="phonetic"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -357,8 +357,8 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="Practitioner.telecom"/>
-        <xpath value="f:Practitioner/f:telecom"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:telecom"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -377,8 +377,8 @@
         <code value="death-date"/>
         <type value="date"/>
         <expression value="(Practitioner.deceased as dateTime)"/>
-        <xpath value="f:Practitioner/f:deceasedDateTime"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:deceasedDateTime"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -397,8 +397,8 @@
         <code value="deceased"/>
         <type value="token"/>
         <expression value="Practitioner.deceased.exists() and Practitioner.deceased != false"/>
-        <xpath value="f:Practitioner/f:deceasedBoolean | f:Practitioner/f:deceasedDateTime"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Practitioner/f:deceasedBoolean | f:Practitioner/f:deceasedDateTime"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

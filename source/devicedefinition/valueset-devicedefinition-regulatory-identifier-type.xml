@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="devicedefinition-regulatory-identifier-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3311"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="DeviceDefinitionRegulatoryIdentifierType"/>
+  <experimental value="true"/>
+  <description value="Regulatory Identifier type"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/devicedefinition-regulatory-identifier-type"/>
+    </include>
+  </compose>
+</ValueSet>

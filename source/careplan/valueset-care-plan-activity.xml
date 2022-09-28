@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity"/>
-  <name value="Care Plan Activity"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3003"/>
+  </identifier>
+  <name value="CarePlanActivity"/>
+  <title value="Care Plan Activity"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project"/>
   <description value="Example Codes for types of activities that can appear in a care plan."/>
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
@@ -13,7 +19,6 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <!--Procedure (procedure)-->
         <value value="71388002"/>
       </filter>
     </include>

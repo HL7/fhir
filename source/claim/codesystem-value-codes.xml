@@ -1,8 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-claimvalue"/>
-  <name value="Example Value Codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1872"/>
+  </identifier>
+  <name value="ExampleValueCodes"/>
+  <title value="Example Value Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Value codes."/>

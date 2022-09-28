@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="questionnaire-itemControl"/>
 	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
 		<valueCode value="fhir"/>
@@ -8,7 +7,11 @@
 		<valueInteger value="1"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1239"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="itemControl"/>
 	<status value="draft"/>
 	<date value="2013-07-04"/>
@@ -19,11 +22,7 @@
 			<value value="http://www.hl7.org"/>
 		</telecom>
 	</contact>
-	<description value="The type of data entry control or structure that should be used to render the item.
-
-Certain item controls only make sense for certain types of items.  For example, a radio button doesn't make sense for a question where repeats=true; few systems will know how to implement a 'slider' control if the question type is 'Attachment', etc.  Form fillers are allowed to ignore item controls that don't make sense (or that they don't know how to handle) for the type of item the extension appears on.  If the extension is ignored, the form filler will use whatever display control it supports that works best for the type of item present.
-
-Similarly, form authoring tools may raise validation issues or prohibit the selection of certain control types based on the characteristics of the item."/>
+	<description value="The type of data entry control or structure that should be used to render the item.  Certain item controls only make sense for certain types of items.  For example, a radio button doesn't make sense for a question where repeats=true; few systems will know how to implement a 'slider' control if the question type is 'Attachment', etc.  Form fillers are allowed to ignore item controls that don't make sense (or that they don't know how to handle) for the type of item the extension appears on.  If the extension is ignored, the form filler will use whatever display control it supports that works best for the type of item present.  Similarly, form authoring tools may raise validation issues or prohibit the selection of certain control types based on the characteristics of the item."/>
 	<fhirVersion value="5.0.0"/>
 	<mapping>
 		<identity value="rim"/>

@@ -11,12 +11,14 @@
   <url value="http://hl7.org/fhir/CodeSystem/medication-usage-adherence"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1981"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="MedicationUsage Adherence Codes"/>
+  <name value="MedicationUsageAdherenceCodes"/>
+  <title value="MedicationUsage Adherence Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationUsage Adherence Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-adherence"/>
   <hierarchyMeaning value="is-a"/>

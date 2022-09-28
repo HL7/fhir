@@ -11,11 +11,12 @@
   <url value="http://hl7.org/fhir/ValueSet/interaction-trigger"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1460"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3173"/>
   </identifier>
   <name value="InteractionTrigger"/>
   <title value="Interaction Trigger"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

@@ -3,8 +3,8 @@
 <div>
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
-		<a name="dstu"></a>
-[%stu-note%]
+
+[%stu-note dstu%]
 			The Orders and Observations workgroups wants to make the balloter aware than observations that require the attachment data types are represented by the Media resource instead of Observation.  There have been several significant changes to  the Media resource in order to align it with <a href="observation.html">Observation</a> and the workflow <a href="event.html">event</a> pattern including:</p>
 			<ol>
 				<li>The addition of the <a href="media-definitions.html#Media.partOf">partOf</a> and <a href="media-definitions.html#issued">issued</a> elements.</li>

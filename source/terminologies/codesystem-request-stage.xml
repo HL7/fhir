@@ -1,36 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
-	<id value="request-stage"/>
-	<url value="http://hl7.org/fhir/request-stage"/>
-	<name value="RequestStage"/>
-	<status value="draft"/>
-	<description value="The kind of request."/>
-	<caseSensitive value="true"/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/request-stage"/>
-	<content value="complete"/>
-	<concept>
-		<code value="proposal"/>
-		<display value="Proposal"/>
-		<definition value="The request is a proposal"/>
-	</concept>
-	<concept>
-		<code value="plan"/>
-		<display value="Plan"/>
-		<definition value="The request is a plan"/>
-	</concept>
-	<concept>
-		<code value="original-order"/>
-		<display value="Original Order"/>
-		<definition value="The request is an order."/>
-	</concept>
-	<concept>
-		<code value="encoded"/>
-		<display value="Encoded"/>
-		<definition value="Represents an order created by a fulfiller as a representation of the specific action(s) they intend to take to fulfill the original order.  Typically these orders are more fully encoded than the original placer order."/>
-	</concept>
-	<concept>
-		<code value="reflex-order"/>
-		<display value="Reflex Order"/>
-		<definition value="Represents a separate order created by a fulfiller as result of fulfilment of an order."/>
-	</concept>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="request-stage"/>
+  <url value="http://hl7.org/fhir/request-stage"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1804"/>
+  </identifier>
+  <name value="RequestStage"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="The kind of request."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/request-stage"/>
+  <content value="complete"/>
+  <concept>
+    <code value="proposal"/>
+    <display value="Proposal"/>
+    <definition value="The request is a proposal"/>
+  </concept>
+  <concept>
+    <code value="plan"/>
+    <display value="Plan"/>
+    <definition value="The request is a plan"/>
+  </concept>
+  <concept>
+    <code value="original-order"/>
+    <display value="Original Order"/>
+    <definition value="The request is an order."/>
+  </concept>
+  <concept>
+    <code value="encoded"/>
+    <display value="Encoded"/>
+    <definition value="Represents an order created by a fulfiller as a representation of the specific action(s) they intend to take to fulfill the original order.  Typically these orders are more fully encoded than the original placer order."/>
+  </concept>
+  <concept>
+    <code value="reflex-order"/>
+    <display value="Reflex Order"/>
+    <definition value="Represents a separate order created by a fulfiller as result of fulfilment of an order."/>
+  </concept>
 </CodeSystem>

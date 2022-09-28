@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="RiskAssessment"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1167"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="RiskAssessment"/>
   <status value="draft"/>
@@ -91,7 +93,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Observation[classCode=OBS, moodCode=EVN, code=&quot;Risk Assessment&quot;]"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN, code=&#34;Risk Assessment&#34;]"/>
       </mapping>
       <mapping>
         <identity value="openehr"/>
@@ -473,13 +475,13 @@
         <key value="ras-1"/>
         <severity value="error"/>
         <human value="low and high must be percentages, if present"/>
-        <expression value="(low.empty() or ((low.code = &#39;%&#39;) and (low.system = %ucum))) and (high.empty() or ((high.code = &#39;%&#39;) and (high.system = %ucum)))"/>
-        <xpath value="(not(f:low) or f:low[f:code/@value=&#39;%&#39; and f:system/@value=&#39;http://unitsofmeasure.org&#39;]) and (not(f:high) or f:high[f:code/@value=&#39;%&#39; and f:system/@value=&#39;http://unitsofmeasure.org&#39;])"/>
+        <expression value="(low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))"/>
+        <xpath value="(not(f:low) or f:low[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org']) and (not(f:high) or f:high[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org'])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;probability&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;probability&#34;].value"/>
       </mapping>
       <mapping>
         <identity value="openehr"/>
@@ -516,14 +518,14 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;relative risk&quot;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;relative risk&#34;].value"/>
       </mapping>
     </element>
     <element id="RiskAssessment.prediction.when[x]">
       <path value="RiskAssessment.prediction.when[x]"/>
       <short value="Timeframe or age range"/>
       <definition value="Indicates the period of time or age range of the subject to which the specified probability applies."/>
-      <comment value="If not specified, the risk applies &quot;over the subject&#39;s lifespan&quot;."/>
+      <comment value="If not specified, the risk applies &#34;over the subject's lifespan&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -534,7 +536,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age&quot;].value"/>
+        <map value=".effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;age&#34;].value"/>
       </mapping>
     </element>
     <element id="RiskAssessment.prediction.rationale">

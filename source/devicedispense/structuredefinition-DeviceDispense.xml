@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
 	<id value="DeviceDispense"/>
 	<meta>
 		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -23,7 +22,11 @@
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/DeviceDispense"/>
-	<version value="4.5.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1257"/>
+  </identifier>
+  <version value="4.5.0"/>
 	<name value="DeviceDispense"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
@@ -196,7 +199,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&quot;not done reason&quot;].value"/>
+        <map value=".outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=&#34;not done reason&#34;].value"/>
       </mapping>
     </element>
 
@@ -286,7 +289,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&#34;type of encounter or episode&#34;]"/>
       </mapping>
     </element>
     <element id="DeviceDispense.supportingInformation">
@@ -502,7 +505,7 @@
       <path value="DeviceDispense.eventHistory"/>
       <short value="A list of relevant lifecycle events"/>
       <definition value="A summary of the events of interest that have occurred, such as when the dispense was verified."/>
-      <comment value="This might not include provenances for all versions of the request &#x2013; only those deemed &#x201C;relevant&#x201D; or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a &#x201C;relevant&#x201D; change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

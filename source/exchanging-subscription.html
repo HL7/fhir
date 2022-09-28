@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+[%settitle Exchanging with FHIR Subscription%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+<h2>Exchanging with FHIR Subscription</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    Subscriptions allow a <i>data source</i> to notify interested <i>data consumers</i> when a specific event occurs.  This might be the creation of a record or the update of a record to match a specific set of criteria.  Using <a href="subscription.html">Subscription</a> requires that the <i>data source</i> has the infrastructure to support <i>consumer</i> subscribing and can detect events as they occur and send out notifications.  However, it is significantly less resource-intensive overall than <a href="exchanging-polling.html">polling</a>.
+  </p>
+  <p>
+    Subscription can have two slightly different business flows. In both cases the <i>data consumer</i> POSTs (or updates) a Subscription instance on the <i>data source</i> indicating the type(s) of data it wants to receive.  At some point, an event happens within the <i>data source</i> that falls within the criteria set by the subscription.  At that point, the subscription will either <a href="#push">pass the data directly</a> or it will <a href="#pull">simply send a notification</a>.
+  </p>
+
+  <a name="push"> </a>
+  <h3>Subscription notifications with data</h3>
+  <p>
+    This approach is the simplest workflow because the data flows to the <i>data consumer</i> immediately, however it requires that the notification process be appropriately secure - and it means that any security rules governing permissions, consent or other access restrictions must be able to apply not only in the context of queries, but also in the context of the subscription mechanism - which may be in a completely different portion of the application.
+  </p>
+  <p>
+    {% include subscription-push.svg %}
+  </p>
+
+  <a name="pull"> </a>
+  <h3>Subscription notifications with query</h3>
+  <p>
+    In this mode, the initial notification simply indicates that 'data is available' or possibly the record ids of the relevant records.  It does not expose the data itself.  Because the shared information does not expose any healthcare or personally identifying information, the security expectations for the notifications are lower.  The <i>data source</i> can subsequently query to retrieve the data at its convenience and all the <i>data source</i>'s typical mechanism for authorizing the user, performing audit, ensuring permissions and consent, etc. can take place as they would for any query.
+  </p>
+  <p>
+    {% include subscription-pull.svg %}
+  </p>
+
+[%file newfooter%]
+</body>
+</html>

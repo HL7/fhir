@@ -1,39 +1,95 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="example-supplement"/>
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>A supplement pack for <code>http://hl7.org/fhir/CodeSystem/example</code> that defines the administrative property 'legacy' for whether the test is currently performed </p>
+      
+      
+      <p>A supplement pack for 
+        
+        <code>http://hl7.org/fhir/CodeSystem/example</code> that defines the administrative property 'legacy' for whether the test is currently performed 
+      
+      </p>
+      
+      
       <table class="grid">
+        
+        
         <tr>
+          
+          
           <td>
+            
+            
             <b>Code</b>
+          
+          
           </td>
+          
+          
           <td>
+            
+            
             <b>Legacy</b>
+          
+          
           </td>
+        
+        
         </tr>
+        
+        
         <tr>
+          
+          
           <td>chol-mmol</td>
+          
+          
           <td>false</td>
+        
+        
         </tr>
+        
+        
         <tr>
+          
+          
           <td>chol-mass</td>
+          
+          
           <td>true</td>
+        
+        
         </tr>
+        
+        
         <tr>
+          
+          
           <td>chol</td>
+          
+          
           <td>true</td>
+        
+        
         </tr>
+      
+      
       </table>
+    
+    
     </div>
   </text>
-  
   <url value="http://hl7.org/fhir/CodeSystem/example-supplement"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1820"/>
+  </identifier>
   <version value="201801103"/>
   <name value="CholCodeLegacyStatus"/>
+  <title value="Cholesterol Code Legacy Status"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2016-01-28"/>
@@ -45,11 +101,9 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  
-  <!-- the key elements that make it a supplement -->
+  <description value="CholCodeLegacyStatus"/>
   <content value="supplement"/>
   <supplements value="http://hl7.org/fhir/CodeSystem/example"/>
-  
   <property>
     <code value="legacy"/>
     <description value="hether the test is currently performed"/>
@@ -57,21 +111,21 @@
   </property>
   <concept>
     <code value="chol-mmol"/>
-    <property>  
+    <property>
       <code value="legacy"/>
       <valueBoolean value="false"/>
     </property>
   </concept>
   <concept>
     <code value="chol-mass"/>
-    <property>  
+    <property>
       <code value="legacy"/>
       <valueBoolean value="true"/>
     </property>
   </concept>
   <concept>
     <code value="chol"/>
-    <property>  
+    <property>
       <code value="legacy"/>
       <valueBoolean value="true"/>
     </property>

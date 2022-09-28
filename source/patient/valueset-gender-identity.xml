@@ -11,11 +11,12 @@
   <url value="http://terminology.hl7.org/ValueSet/gender-identity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.11.19754"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3291"/>
   </identifier>
   <name value="genderIdentity"/>
   <title value="Gender Identity"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -23,13 +24,13 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Codes that indicate a individual&#39;s gender identity."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <description value="Codes that indicate a individual's gender identity."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-	  <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.106"/>
-	</include>
-	<include>
+      <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.106"/>
+    </include>
+    <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
         <code value="UNK"/>

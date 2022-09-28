@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-prim-purp-type"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -18,7 +16,7 @@
   <url value="http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1250"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1250"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyPrimaryPurposeType"/>
@@ -59,7 +57,7 @@
   <concept>
     <code value="supportive-care"/>
     <display value="Supportive Care"/>
-    <definition value="One or more interventions are evaluated for maximizing comfort, minimizing side effects, or mitigating against a decline in the participant&#39;s health or function."/>
+    <definition value="One or more interventions are evaluated for maximizing comfort, minimizing side effects, or mitigating against a decline in the participant's health or function."/>
   </concept>
   <concept>
     <code value="screening"/>

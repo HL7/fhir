@@ -17,8 +17,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.identifier"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>   
@@ -37,8 +37,8 @@
         <code value="biological-source-event"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.biologicalSourceEvent"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:biologicalSourceEvent"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:biologicalSourceEvent"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="product-category"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.productCategory"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:productCategory"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:productCategory"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="product-code"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.productCode"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:productCode"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:productCode"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="product-status"/>
         <type value="token"/>
         <expression value="BiologicallyDerivedProduct.productStatus"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:productStatus"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:productStatus"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="request"/>
         <type value="reference"/>
         <expression value="BiologicallyDerivedProduct.request"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:request"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:request"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="collector"/>
         <type value="reference"/>
         <expression value="BiologicallyDerivedProduct.collection.collector"/>
-        <xpath value="f:BiologicallyDerivedProduct/f:collection/f:collector"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:BiologicallyDerivedProduct/f:collection/f:collector"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

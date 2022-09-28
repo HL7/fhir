@@ -17,8 +17,8 @@
         <code value="category"/>
         <type value="token"/>
         <expression value="Substance.category"/>
-        <xpath value="f:Substance/f:category"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:category"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="Substance.code.concept | (Substance.ingredient.substance as CodeableConcept)"/>
-        <xpath value="f:Substance/f:code/f:concept | f:Substance/f:ingredient/f:substanceCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:code/f:concept | f:Substance/f:ingredient/f:substanceCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="code-reference"/>
         <type value="reference"/>
         <expression value="Substance.code.reference"/>
-        <xpath value="f:Substance/f:code/f:reference"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:code/f:reference"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="expiry"/>
         <type value="date"/>
         <expression value="Substance.expiry"/>
-        <xpath value="f:Substance/f:expiry"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:expiry"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Substance.identifier"/>
-        <xpath value="f:Substance/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="quantity"/>
         <type value="quantity"/>
         <expression value="Substance.quantity"/>
-        <xpath value="f:Substance/f:quantity"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:quantity"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Substance.status"/>
-        <xpath value="f:Substance/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="substance-reference"/>
         <type value="reference"/>
         <expression value="(Substance.ingredient.substance as Reference)"/>
-        <xpath value="f:Substance/f:ingredient/f:substanceReference"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Substance/f:ingredient/f:substanceReference"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

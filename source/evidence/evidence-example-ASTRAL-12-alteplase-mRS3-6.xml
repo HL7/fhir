@@ -1,16 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
   <id value="example-ASTRAL-12-alteplase-mRS3-6"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>
-        &quot;Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12&quot; is a univariate risk estimate.
+        "Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12" is a univariate risk estimate.
       </p>
 	</div>
   </text>
 	<url value="http://hl7.org/fhir/Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
-	<title value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.10.2"/>
+  </identifier>
+  <title value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
 	<status value="draft"/>
 	<relatedArtifact>
 		<type value="citation"/>
@@ -109,7 +112,7 @@
 				<code value="C44256"/>
 				<display value="Proportion"/>
 			</coding>
-			<text value="derived proportion" />
+			<text value="derived proportion"/>
 		</statisticType>
 		<quantity>
 			<value value="0.0525"/>

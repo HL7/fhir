@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Immunization"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +24,10 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1273"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Immunization"/>
   <status value="draft"/>
@@ -494,7 +498,7 @@
       <path value="Immunization.primarySource"/>
       <short value="Indicates context the data was captured in"/>
       <definition value="Indicates whether the data contained in the resource was captured by the individual/organization which was responsible for the administration of the vaccine rather than as 'secondary reported' data documented by a third party. A value of 'true' means this data originated with the individual/organization which was responsible for the administration of the vaccine."/>
-      <comment value="Reflects the &#x201C;reliability&#x201D; of the content."/>
+      <comment value="Reflects the “reliability” of the content."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -846,7 +850,7 @@
       </type>
       <meaningWhenMissing value="By default, a dose should be considered to be potent."/>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because an immunization event with a subpotent vaccine doesn&#39;t protect the patient the same way as a potent dose."/>
+      <isModifierReason value="This element is labeled as a modifier because an immunization event with a subpotent vaccine doesn't protect the patient the same way as a potent dose."/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -888,7 +892,7 @@
       </extension>
       <path value="Immunization.programEligibility"/>
       <short value="Patient eligibility for a specific vaccination program"/>
-      <definition value="Indicates a patient&#39;s eligibility for a funding program."/>
+      <definition value="Indicates a patient's eligibility for a funding program."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -948,7 +952,7 @@
           <valueString value="ProgramEligibility"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The patient&#39;s eligibility for a vaccation program."/>
+          <valueString value="The patient's eligibility for a vaccation program."/>
         </extension>
         <strength value="example"/>
         <description value="x"/>
@@ -1057,7 +1061,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="(HL7 v2 doesn&#39;t seem to provide for this)"/>
+        <map value="(HL7 v2 doesn't seem to provide for this)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

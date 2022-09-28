@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ConceptMap xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir">
   <id value="cm-composition-status-v3"/> 
   <url value="http://hl7.org/fhir/ConceptMap/cm-composition-status-v3"/> 
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.14.9"/>
+  </identifier>
   <version value="5.0.0"/> 
   <name value="v3.CompositionStatus"/> 
   <title value="v3 map for CompositionStatus"/> 
@@ -43,4 +45,4 @@
       </target> 
     </element> 
   </group> 
-</ConceptMap> 
+</ConceptMap>

@@ -21,6 +21,7 @@
   <name value="DeviceMetricAndComponentTypes"/>
   <title value="Device Metric and Component Types"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 Health Care Devices Workgroup"/>
   <contact>
     <telecom>
@@ -29,7 +30,7 @@
     </telecom>
   </contact>
   <description value="Codes used to identify health care device metric types and units and component types as part of the ISO/IEEE 11073-10101 Medical Device Communication Nomenclature."/>
-  <copyright value="This value set is available IEEE (https://standards.ieee.org/findstds/standard/11073-10101a-2015.html) as well as at https://rtmms.nist.gov/rtmms/index.htm#!hrosetta through NIST&#39;s Rosetta Terminology Mapping Management System which has a Royalty Free Agreement with IEEE to make the terminology [specifically five attributes: Reference ID, Terminology Code, Description, Systematic Name, and Common Term] available for development of IEEE 11073 compliant products."/>
+  <copyright value="This value set is available IEEE (https://standards.ieee.org/findstds/standard/11073-10101a-2015.html) as well as at https://rtmms.nist.gov/rtmms/index.htm#!hrosetta through NIST's Rosetta Terminology Mapping Management System which has a Royalty Free Agreement with IEEE to make the terminology [specifically five attributes: Reference ID, Terminology Code, Description, Systematic Name, and Common Term] available for development of IEEE 11073 compliant products."/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>

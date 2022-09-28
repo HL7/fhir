@@ -17,8 +17,8 @@
         <code value="created"/>
         <type value="date"/>
         <expression value="PaymentNotice.created"/>
-        <xpath value="f:PaymentNotice/f:created"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:created"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="PaymentNotice.identifier"/>
-        <xpath value="f:PaymentNotice/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="payment-status"/>
         <type value="token"/>
         <expression value="PaymentNotice.paymentStatus"/>
-        <xpath value="f:PaymentNotice/f:paymentStatus"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:paymentStatus"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="provider"/>
         <type value="reference"/>
         <expression value="PaymentNotice.provider"/>
-        <xpath value="f:PaymentNotice/f:provider"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:provider"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="request"/>
         <type value="reference"/>
         <expression value="PaymentNotice.request"/>
-        <xpath value="f:PaymentNotice/f:request"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:request"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="response"/>
         <type value="reference"/>
         <expression value="PaymentNotice.response"/>
-        <xpath value="f:PaymentNotice/f:response"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:response"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="PaymentNotice.status"/>
-        <xpath value="f:PaymentNotice/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentNotice/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

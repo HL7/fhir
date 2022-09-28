@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CapabilityStatement-conforms"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +37,7 @@
   <url value="http://hl7.org/fhir/build/OperationDefinition/CapabilityStatement-conforms"/>
   <version value="5.0.0"/>
   <name value="conforms"/>
-  <title value="Test if a server implements a client&#39;s required operations"/>
+  <title value="Test if a server implements a client's required operations"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -67,7 +65,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A canonical reference to the left-hand system&#39;s capability statement"/>
+    <documentation value="A canonical reference to the left-hand system's capability statement"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -75,7 +73,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A canonical reference to the right-hand system&#39;s capability statement"/>
+    <documentation value="A canonical reference to the right-hand system's capability statement"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -83,7 +81,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="What kind of comparison to perform - server to server, or client to server (use the codes &#39;server/server&#39; or &#39;client/server&#39;)"/>
+    <documentation value="What kind of comparison to perform - server to server, or client to server (use the codes 'server/server' or 'client/server')"/>
     <type value="code"/>
   </parameter>
   <parameter>

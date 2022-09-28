@@ -6,8 +6,12 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/protective-factor"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3220"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="Protective Factor"/>
+  <name value="ProtectiveFactor"/>
   <title value="Protective Factor"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -25,7 +29,7 @@
       <concept>
         <code value="406546002"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="1149080001"/>
       </concept>
       <concept>
@@ -34,7 +38,7 @@
       <concept>
         <code value="1137434003"/>
       </concept>
-	  <concept>
+      <concept>
         <code value="86808004"/>
       </concept>
     </include>

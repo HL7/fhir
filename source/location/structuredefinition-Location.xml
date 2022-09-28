@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Location"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status = inactive"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Location"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1103"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Location"/>
   <status value="draft"/>
@@ -283,7 +285,7 @@
       <short value="Official contact details for the location"/>
       <definition value="The contact details of communication devices available at the location. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
-      <comment value="The address/telecom use code &#39;home&#39; are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the organization&#39;s contacts."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the organization's contacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -314,10 +316,10 @@
         <map value="ParticipantContactable.address"/>
       </mapping>
     </element>
-    <element id="Location.physicalType">
-      <path value="Location.physicalType"/>
+    <element id="Location.form">
+      <path value="Location.form"/>
       <short value="Physical form of the location"/>
-      <definition value="Physical form of the location, e.g. building, room, vehicle, road."/>
+      <definition value="Physical form of the location, e.g. building, room, vehicle, road, virtual."/>
       <requirements value="For purposes of showing relevant locations in queries, we need to categorize locations."/>
       <min value="0"/>
       <max value="1"/>
@@ -327,11 +329,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PhysicalType"/>
+          <valueString value="LocationForm"/>
         </extension>
         <strength value="example"/>
         <description value="Physical form of the location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -467,7 +469,7 @@
       <path value="Location.hoursOfOperation"/>
       <short value="What days/times during a week is this location usually open (including exceptions)"/>
       <definition value="What days/times during a week is this location usually open, and any exceptions where the location is not available."/>
-      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &quot;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&quot; as would be implied by two availableTime repetitions, an application could render this information as &quot;Mon-Fri 9-12am and 1-5pm&quot;.&#xD;&#xD;The availableStartTime is the opening time, and the availableEndTime is the closing time."/>
+      <comment value="This type of information is commonly found published in directories and on websites informing customers when the facility is available.&#xA;&#xA;Specific services within the location may have their own hours which could be shorter (or longer) than the locations hours.&#xA;&#xA;Systems may choose to render availability differently than it is exchanged on the interface. For example, rather than &#34;Mon, Tue, Wed, Thur, Fri from 9am-12am; Mon, Tue, Wed, Thur, Fri from 1pm-5pm&#34; as would be implied by two availableTime repetitions, an application could render this information as &#34;Mon-Fri 9-12am and 1-5pm&#34;.&#xD;&#xD;The availableStartTime is the opening time, and the availableEndTime is the closing time."/>
       <min value="0"/>
       <max value="*"/>
       <type>

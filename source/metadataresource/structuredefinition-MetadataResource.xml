@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MetadataResource"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -27,6 +25,10 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1374"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MetadataResource"/>
   <status value="active"/>
@@ -82,10 +84,6 @@
       <min value="1"/>
       <max value="1"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="conformance.behavior"/>
       </mapping>
@@ -101,10 +99,6 @@
         <code value="date"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.approvalDate"/>
-      </mapping>
-      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -114,16 +108,12 @@
       <short value="When the {{title}} was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="date"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.lastReviewDate"/>
-      </mapping>
       <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
@@ -141,10 +131,6 @@
         <code value="Period"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.effectivePeriod"/>
-      </mapping>
       <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>

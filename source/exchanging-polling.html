@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Exchanging with Polling%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+
+[%file newnavbar%]
+
+
+
+<h2>Exchanging with Polling</h2>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+  <p>
+    Polling is a mechanism for conveying new data to a <i>data consumer</i> as (or shortly after) the data is created or updated without requiring the <i>data source</i> to be aware of the specific needs of the <i>data consumer</i>.  This is accomplished by the <i>data consumer</i> repeatedly querying the <i>data source</i> to see if there is new data.  The queries occur at period intervals of an agreed frequency.  The frequency needs to be often enough that the time between when the relevant data is created and when the <i>data consumer</i> receives it is sufficiently short for the <i>data consumer</i>'s needs.  However, it needs to be infrequent enough that the <i>data source</i>'s resources are not over-taxed by the repeated queries.  In addition to being narrowly tuned to only include the specific resources that are of interest to the <i>data consumer</i>, the queries will generally also filter to only retrieve data if it has been created or changed since the previous query was run.  Provided the relevant tables are indexed by _lastUpdated, this should also dramatically increase the efficiency of performing the query and minimize the bandwidth consumed.
+  </p>
+  <p>
+    Polling is generally only used when <a href="exchanging-subscription.html">Subscription</a> is not available or feasible.  Guidance on whether to use polling or subscription can be found <a href="exchanging.html#subscription">here</a>
+  </p>
+  <p>
+    There are two principle ways to poll for data - <a href="#read">polling a single record</a> or <a href="#query">polling across records</a>.
+  </p>
+
+  <a name="read"> </a>
+  <h3>Polling a single record</h3>
+  <p>
+    This approach is used when the <i>data consumer</i> is only interested in a single resource that already exists.  For example, when monitoring a Task for progress or to see if it is complete (e.g. for <a href="exchanging-request.html#task">Task-based exchanges</a>).  Rather than performing a search, the <i>data consumer</i> simply executes a <code>read</code>.  To be more efficient, it uses the <code>If-modified-since</code> header specifying the <code>_lastUpdated</code> value of the most recent version it has retrieved.  This ensures that no data will be returned at all if the record has not changed since it was last looked at.
+  </p>
+  <p>
+    {% include polling-read.svg %}
+  </p>
+  <p>
+    Note that while the 'read' mechanism is extremely efficient, separate requests must be made for each record being monitored.  If the <i>data consumer</i> is tracking numerous records on the <i>data source</i>, it might be more efficient for both systems to use the <a href="#query">query polling mechanism</a> instead.
+  </p>
+
+  <a name="query"> </a>
+  <h3>Polling across records</h3>
+  <p>
+    This approach uses a search mechanism to find the relevant records.  It can be used when monitoring for the creation of new records, when the ids of the records that are relevant might not be known in advance (because changes to values such as status might cause records to fall into or out of the relevant pool), or when the number of relevant records is simply too large for the <a href="#read">single-record</a> polling approach to be feasible.  Typically the "across-record" approach will use the standard <a href="exchanging-search.html#search">search</a> query mechanism.  However, any search mechanism that returns existing could potentially be used.  Guidance on selecting the appropriate one can be found <a href="exchanging.html#rest-search">here</a>.  It can be possible to execute multiple polling queries simultaneously using the <a href="exchanging-rest.html#batch-search">batch</a> approach.  Whatever query mechanism is used, when polling only <a href="exchanging-search.html#sync">synchronous</a> queries are appropriate.
+  </p>
+  <p>
+    <code>If-modified-since</code> is not available when performing queries.  Instead, whatever query mechanism is used, it should include the filter of <code>&amp;_lastUpdated=gt[sometimestamp]</code> where [sometimestamp] is the most recent <code>meta.lastUpdated</code> value retrieved in previous poll requests.
+  </p>
+  <p>
+    {% include polling-query.svg %}
+  </p>
+
+[%file newfooter%]
+</body>
+</html>

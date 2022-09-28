@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<CompartmentDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CompartmentDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://hl7.org/fhir/CompartmentDefinition/example"/>
   <name value="EXAMPLE"/>
@@ -44,5 +42,3 @@
     <documentation value="The device used as the message sender and recipient"/>
   </resource>
 </CompartmentDefinition>
-
-

@@ -6,8 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/request-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.112"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="RequestStatus"/>
+  <experimental value="true"/>
+  <description value="RequestStatus"/>
   <concept>
     <code value="draft"/>
     <display value="Draft"/>
@@ -36,7 +42,7 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This request should never have existed and should be considered &#39;void&#39;.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be &quot;revoked&quot; rather than &quot;entered-in-error&quot;.)."/>
+    <definition value="This request should never have existed and should be considered 'void'.  (It is possible that real-world decisions were based on it.  If real-world activity has occurred, the status should be &quot;revoked&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
   <concept>
     <code value="unknown"/>

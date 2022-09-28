@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Substance Quantity Mode"/>
+  <name value="SubstanceQuantityMode"/>
+  <title value="Substance Quantity Mode"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -11,18 +13,4 @@
     </telecom>
   </contact>
   <description value="This value sets indicates whether a given quantity is absolute or relative"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/substance-quantity-mode"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="abs"/>
-      <display value="Absolute"/>
-      <definition value="Quantity values are absolute."/>
-    </concept>
-    <concept>
-      <code value="rel"/>
-      <display value="Relative"/>
-      <definition value="Quantity values are relative to each other."/>
-    </concept>
-  </codeSystem>
 </ValueSet>

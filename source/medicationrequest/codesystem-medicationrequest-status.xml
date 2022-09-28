@@ -11,11 +11,13 @@
   <url value="http://hl7.org/fhir/CodeSystem/medicationrequest-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1377"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1377"/>
   </identifier>
-  <name value="MedicationRequest Status Codes"/>
+  <name value="MedicationRequestStatusCodes"/>
+  <title value="MedicationRequest Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationRequest Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationrequest-status"/>
   <hierarchyMeaning value="is-a"/>
@@ -23,14 +25,13 @@
   <concept>
     <code value="active"/>
     <display value="Active"/>
-    <definition value="The request is &#39;actionable&#39;, but not all actions that are implied by it have occurred yet."/>
+    <definition value="The request is 'actionable', but not all actions that are implied by it have occurred yet."/>
   </concept>
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called &#39;suspended&#39;."/>
+    <definition value="Actions implied by the request are to be temporarily halted. The request might or might not be resumed. May also be called 'suspended'."/>
   </concept>
-  
   <concept>
     <code value="ended"/>
     <display value="Ended"/>
@@ -40,11 +41,11 @@
       <display value="Stopped"/>
       <definition value="Actions implied by the request are to be permanently halted, before all of the administrations occurred. This should not be used if the original order was entered in error"/>
     </concept>
-  <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
-    <definition value="All actions that are implied by the request have occurred."/>
-  </concept>
+    <concept>
+      <code value="completed"/>
+      <display value="Completed"/>
+      <definition value="All actions that are implied by the request have occurred."/>
+    </concept>
     <concept>
       <code value="cancelled"/>
       <display value="Cancelled"/>
@@ -56,15 +57,14 @@
     <display value="Entered in Error"/>
     <definition value="The request was recorded against the wrong patient or for some reason should not have been recorded (e.g. wrong medication, wrong dose, etc). Some of the actions that are implied by the medication request may have occurred. For example, the medication may have been dispensed and the patient may have taken some of the medication."/>
   </concept>
-  
   <concept>
     <code value="draft"/>
     <display value="Draft"/>
-    <definition value="The request is not yet &#39;actionable&#39;, e.g. it is a work in progress, requires sign-off, verification&#xA0;or&#xA0;needs to be run through decision support process."/>
+    <definition value="The request is not yet 'actionable', e.g. it is a work in progress, requires sign-off, verification or needs to be run through decision support process."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &#39;other&#39; - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
+    <definition value="The authoring/source system does not know which of the status values currently applies for this request. Note: This concept is not to be used for 'other' - one of the listed statuses is presumed to apply, but the authoring/source system does not know which."/>
   </concept>
 </CodeSystem>

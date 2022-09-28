@@ -16,6 +16,7 @@
   <name value="ProcedureProgressStatusCodes"/>
   <title value="Procedure Progress Status Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

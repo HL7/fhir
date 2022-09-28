@@ -18,12 +18,13 @@
   <url value="http://hl7.org/fhir/genomicstudy-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1975"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyType"/>
   <title value="GenomicStudyType"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2022-08-17T16:19:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -40,64 +41,64 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-type"/>
   <content value="complete"/>
-<concept>
-  <code value="alt-splc"/>
-  <display value="Alternative splicing detection"/>
-  <definition  value="Identification of multiple different processed mRNA transcripts from the same DNA template"/>
-</concept>
-<concept>
-  <code value="chromatin"/>
-  <display value="Chromatin conformation"/>
-  <definition  value="Analysis of the spacial organization of chromatin within a cell"/>
-</concept>
-<concept>
-  <code value="cnv"/>
-  <display value="CNV detection"/>
-  <definition  value="Detection of a change in the number of copies of a defined region of genomic DNA sequence resulting in structural variation when compared to the reference sequence"/>
-</concept>
-<concept>
-  <code value="epi-alt-hist"/>
-  <display value="Epigenetic Alterations - histone modifications"/>
-  <definition  value="Detection of biochemical modifications covalently bound to the N-terminal tail of a histone protein. These modifications may alter chromatin compaction and gene expression"/>
-</concept>
-<concept>
-  <code value="epi-alt-dna"/>
-  <display value="Epigenetic Alterations -DNA methylation"/>
-  <definition  value="Detection of the presence of an additional methyl group on a DNA nucleobase, which may alter gene transcription"/>
-</concept>
-<concept>
-  <code value="fam-var-segr"/>
-  <display value="Familial variant segregation"/>
-  <definition  value="Determining if a variant identified in an individual is present in other family members"/>
-</concept>
-<concept>
-  <code value="func-var"/>
-  <display value="Functional variation detection"/>
-  <definition  value="Detection of sequence variants which may alter gene expression or gene product function when compared to the reference sequence"/>
-</concept>
-<concept>
-  <code value="gene-expression"/>
-  <display value="Gene expression profiling"/>
-  <definition  value="Measurement and characterization of activity from all gene products"/>
-</concept>
-<concept>
-  <code value="post-trans-mod"/>
-  <display value="Post-translational Modification Identification"/>
-  <definition  value="Detection of biochemical modifications covalently bound to the amino acid monomers of a processed protein"/>
-</concept>
-<concept>
-  <code value="snp"/>
-  <display value="SNP Detection"/>
-  <definition  value="Determination of which nucleotide is base present at a known variable location of the genomic sequence"/>
-</concept>
-<concept>
-  <code value="str"/>
-  <display value="STR count"/>
-  <definition  value="Quantification of the number of sequential microsatellite units in a repetitive sequence region"/>
-</concept>
-<concept>
-  <code value="struc-var"/>
-  <display value="Structural variation detection"/>
-  <definition  value="Detection of deletions, insertions, or rearrangements of DNA segments compared to the reference sequence"/>
-</concept>
+  <concept>
+    <code value="alt-splc"/>
+    <display value="Alternative splicing detection"/>
+    <definition value="Identification of multiple different processed mRNA transcripts from the same DNA template"/>
+  </concept>
+  <concept>
+    <code value="chromatin"/>
+    <display value="Chromatin conformation"/>
+    <definition value="Analysis of the spacial organization of chromatin within a cell"/>
+  </concept>
+  <concept>
+    <code value="cnv"/>
+    <display value="CNV detection"/>
+    <definition value="Detection of a change in the number of copies of a defined region of genomic DNA sequence resulting in structural variation when compared to the reference sequence"/>
+  </concept>
+  <concept>
+    <code value="epi-alt-hist"/>
+    <display value="Epigenetic Alterations - histone modifications"/>
+    <definition value="Detection of biochemical modifications covalently bound to the N-terminal tail of a histone protein. These modifications may alter chromatin compaction and gene expression"/>
+  </concept>
+  <concept>
+    <code value="epi-alt-dna"/>
+    <display value="Epigenetic Alterations -DNA methylation"/>
+    <definition value="Detection of the presence of an additional methyl group on a DNA nucleobase, which may alter gene transcription"/>
+  </concept>
+  <concept>
+    <code value="fam-var-segr"/>
+    <display value="Familial variant segregation"/>
+    <definition value="Determining if a variant identified in an individual is present in other family members"/>
+  </concept>
+  <concept>
+    <code value="func-var"/>
+    <display value="Functional variation detection"/>
+    <definition value="Detection of sequence variants which may alter gene expression or gene product function when compared to the reference sequence"/>
+  </concept>
+  <concept>
+    <code value="gene-expression"/>
+    <display value="Gene expression profiling"/>
+    <definition value="Measurement and characterization of activity from all gene products"/>
+  </concept>
+  <concept>
+    <code value="post-trans-mod"/>
+    <display value="Post-translational Modification Identification"/>
+    <definition value="Detection of biochemical modifications covalently bound to the amino acid monomers of a processed protein"/>
+  </concept>
+  <concept>
+    <code value="snp"/>
+    <display value="SNP Detection"/>
+    <definition value="Determination of which nucleotide is base present at a known variable location of the genomic sequence"/>
+  </concept>
+  <concept>
+    <code value="str"/>
+    <display value="STR count"/>
+    <definition value="Quantification of the number of sequential microsatellite units in a repetitive sequence region"/>
+  </concept>
+  <concept>
+    <code value="struc-var"/>
+    <display value="Structural variation detection"/>
+    <definition value="Detection of deletions, insertions, or rearrangements of DNA segments compared to the reference sequence"/>
+  </concept>
 </CodeSystem>

@@ -1,527 +1,489 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="Requirements"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Foundation.Conformance"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="draft"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="0"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir-i"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="CanonicalResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-	<version value="5.0.0"/>
-	<name value="Requirements"/>
-	<status value="active"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (Vocabulary)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="Requirements"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="Requirements">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="0,0"/>
-			</extension>
-			<path value="Requirements"/>
-			<short value="An application that exchanges data"/>
-			<definition value="Describes an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-			</constraint>
-			<mapping>
-				<identity value="w5"/>
-				<map value="conformance.content"/>
-			</mapping>
-		</element>
-		<element id="Requirements.url">
-			<path value="Requirements.url"/>
-			<short value="Canonical identifier for this Requirements, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this Requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Requirements is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-			<requirements value="Allows the Requirements to be referenced by a single globally unique identifier."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-		</element>
-		<element id="Requirements.identifier">
-			<path value="Requirements.identifier"/>
-			<short value="Additional identifier for the Requirements (business identifier)"/>
-			<definition value="A formal identifier that is used to identify this Requirements when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-		</element>
-		<element id="Requirements.version">
-			<path value="Requirements.version"/>
-			<short value="Business version of the Requirements"/>
-			<definition value="The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different Requirements instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Requirements with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-		</element>
-		<element id="Requirements.name">
-			<path value="Requirements.name"/>
-			<short value="Name for this Requirements (computer friendly)"/>
-			<definition value="A natural language name identifying the Requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-		</element>
-		<element id="Requirements.title">
-			<path value="Requirements.title"/>
-			<short value="Name for this Requirements (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the Requirements."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-		</element>
-		<element id="Requirements.status">
-			<path value="Requirements.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this Requirements. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of Requirements that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because designs and applications should not use a retired Requirements without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The lifecycle status of an artifact."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.status"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.status"/>
-			</mapping>
-		</element>
-		<element id="Requirements.experimental">
-			<path value="Requirements.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of Requirements that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Requirements."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-		</element>
-		<element id="Requirements.date">
-			<path value="Requirements.date"/>
-			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-		</element>
-		<element id="Requirements.publisher">
-			<path value="Requirements.publisher"/>
-			<short value="Name of the publisher (organization or individual)"/>
-			<definition value="The name of the organization or individual that published the Requirements."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the Requirements is the organization or individual primarily responsible for the maintenance and upkeep of the Requirements. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Requirements. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the Requirements.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-		</element>
-		<element id="Requirements.contact">
-			<path value="Requirements.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-		</element>
-		<element id="Requirements.description">
-			<path value="Requirements.description"/>
-			<short value="Natural language description of the actor"/>
-			<definition value="A free text natural language description of the actor."/>
-			<comment value="This description can be used for a general description of the actor, and which covers why it was defined."/>
-			<alias value="Scope"/>
-			<alias value="Purpose"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-		</element>
-		<element id="Requirements.useContext">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
-			<path value="Requirements.useContext"/>
-			<short value="The context that the content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Requirements instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-		</element>
-		<element id="Requirements.jurisdiction">
-			<path value="Requirements.jurisdiction"/>
-			<short value="Intended jurisdiction for Requirements (if applicable)"/>
-			<definition value="A legal or geographic region in which the Requirements is intended to be used."/>
-			<comment value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.jurisdiction"/>
-			</mapping>
-		</element>
-		<element id="Requirements.purpose">
-			<path value="Requirements.purpose"/>
-			<short value="Why this Requirements is defined"/>
-			<definition value="Explanation of why this Requirements is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the Requirements. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Requirements."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-		</element>
-		<element id="Requirements.copyright">
-			<path value="Requirements.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the Requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Requirements."/>
-			<comment value="..."/>
-			<requirements value="Consumers must be able to determine any legal restrictions on the use of the Requirements."/>
-			<alias value="License"/>
-			<alias value="Restrictions"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.copyright"/>
-			</mapping>
-		</element>
-		<element id="Requirements.derivedFrom">
-			<path value="Requirements.derivedFrom"/>
-			<short value="Other set of Requirements this builds on"/>
-			<definition value="Another set of Requirements that this set of Requirements builds on and updates."/>
-			<comment value="Existing statements (by key) may be narrowed or clarified, and additional statements added."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="Requirements.actor">
-			<path value="Requirements.actor"/>
-			<short value="Actor for these requirements"/>
-			<definition value="An actor these requirements are in regard to."/>
-			<comment value="If more than one actor is specified, then it's up to the statements to describe in narrative if they don't apply to all actors."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
-			</type>
-		</element>
-		<element id="Requirements.statement">
-			<path value="Requirements.statement"/>
-			<short value="Statement of requirements"/>
-			<definition value="A statement of requirements."/>
-			<min value="0"/>
-			<max value="*"/>
-		</element>
-		<element id="Requirements.statement.key">
-			<path value="Requirements.statement.key"/>
-			<short value="Key that identifies this statement"/>
-			<definition value="Key that identifies this statement (unique within this resource)."/>
-			<comment value="Refer directly to the statement by {url}#{key}"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="id"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.label">
-			<path value="Requirements.statement.label"/>
-			<short value="Short Human label for this statement"/>
-			<definition value="A short human usable label for this statement."/>
-			<comment value="The key is intended for computers, while this is intended for humans. In it's absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.conformance">
-			<path value="Requirements.statement.conformance"/>
-			<short value="SHALL | SHOULD | MAY | SHOULD-NOT"/>
-			<definition value="A short human usable label for this statement."/>
-			<comment value="The key is intended for computers, while this is intended for humans. In it's absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<strength value="required"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/conformance-expectation"/>
-			</binding>
-		</element>
-		<element id="Requirements.statement.requirement">
-			<path value="Requirements.statement.requirement"/>
-			<short value="The actual requirement"/>
-			<definition value="The actual requirement for human consumption."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.derivedFrom">
-			<path value="Requirements.statement.derivedFrom"/>
-			<short value="Another statement this clarifies/restricts ([url#]key)"/>
-			<definition value="Another statement on one of the requirements that this requirement clarifies or restricts."/>
-			<comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. if there is more than one, it should be in the format ```url#key```"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.satisfiedBy">
-			<path value="Requirements.statement.satisfiedBy"/>
-			<short value="Design artifact that satisfies this requirement"/>
-			<definition value="A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
-			<comment value="This is for use when the requirement is met be an pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="url"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.reference">
-			<path value="Requirements.statement.reference"/>
-			<short value="Design artifact that creates this requirement"/>
-			<definition value="A reference to another artifact that created this requirement. This could be a Profile, etc, or external regulation, or business requirements expressed elsewhere."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="url"/>
-			</type>
-		</element>
-		<element id="Requirements.statement.source">
-			<path value="Requirements.statement.source"/>
-			<short value="Who asked for this statement"/>
-			<definition value="Who asked for this statement to be a requirement. By default, it's assumed that the publisher knows who it is if it matters."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-			</type>
-		</element>
-	</differential>
+  <id value="Requirements"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Foundation.Conformance"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir-i"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="CanonicalResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1169"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="Requirements"/>
+  <status value="active"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Vocabulary)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Requirements"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Requirements">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="Requirements"/>
+      <short value="A set of requirements - features of systems that are necessary"/>
+      <definition value="A set of requirements - a list of features or behaviors of designed systems that are necessary to achieve organizational or regulatory goals."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </constraint>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.content"/>
+      </mapping>
+    </element>
+    <element id="Requirements.url">
+      <path value="Requirements.url"/>
+      <short value="Canonical identifier for this Requirements, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this Requirements when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this Requirements is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the Requirements is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the Requirements to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Requirements.identifier">
+      <path value="Requirements.identifier"/>
+      <short value="Additional identifier for the Requirements (business identifier)"/>
+      <definition value="A formal identifier that is used to identify this Requirements when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+    </element>
+    <element id="Requirements.version">
+      <path value="Requirements.version"/>
+      <short value="Business version of the Requirements"/>
+      <definition value="The identifier that is used to identify this version of the Requirements when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the Requirements author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different Requirements instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the Requirements with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
+    <element id="Requirements.name">
+      <path value="Requirements.name"/>
+      <short value="Name for this Requirements (computer friendly)"/>
+      <definition value="A natural language name identifying the Requirements. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.title">
+      <path value="Requirements.title"/>
+      <short value="Name for this Requirements (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the Requirements."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.status">
+      <path value="Requirements.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this Requirements. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of Requirements that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because designs and applications should not use a retired Requirements without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+    </element>
+    <element id="Requirements.experimental">
+      <path value="Requirements.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this Requirements is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of Requirements that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level Requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
+    <element id="Requirements.date">
+      <path value="Requirements.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+    </element>
+    <element id="Requirements.publisher">
+      <path value="Requirements.publisher"/>
+			<short value="Name of the publisher/steward (organization or individual)"/>
+			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the Requirements is the organization or individual primarily responsible for the maintenance and upkeep of the Requirements. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Requirements. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the Requirements.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+    </element>
+    <element id="Requirements.contact">
+      <path value="Requirements.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.description">
+      <path value="Requirements.description"/>
+      <short value="Natural language description of the actor"/>
+      <definition value="A free text natural language description of the actor."/>
+      <comment value="This description can be used for a general description of the actor, and which covers why it was defined."/>
+      <alias value="Scope"/>
+      <alias value="Purpose"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Requirements.useContext">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Requirements.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Requirements instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.jurisdiction">
+      <path value="Requirements.jurisdiction"/>
+      <short value="Intended jurisdiction for Requirements (if applicable)"/>
+      <definition value="A legal or geographic region in which the Requirements is intended to be used."/>
+      <comment value="It may be possible for the Requirements to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+    </element>
+    <element id="Requirements.purpose">
+      <path value="Requirements.purpose"/>
+      <short value="Why this Requirements is defined"/>
+      <definition value="Explanation of why this Requirements is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the Requirements. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Requirements."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
+    <element id="Requirements.copyright">
+      <path value="Requirements.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the Requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Requirements."/>
+      <comment value="..."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the Requirements."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Requirements.copyrightLabel">
+      <path value="Requirements.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Requirements.derivedFrom">
+      <path value="Requirements.derivedFrom"/>
+      <short value="Other set of Requirements this builds on"/>
+      <definition value="Another set of Requirements that this set of Requirements builds on and updates."/>
+      <comment value="Existing statements (by key) may be narrowed or clarified, and additional statements added."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Requirements.actor">
+      <path value="Requirements.actor"/>
+      <short value="Actor for these requirements"/>
+      <definition value="An actor these requirements are in regard to."/>
+      <comment value="If more than one actor is specified, then it's up to the statements to describe in narrative if they don't apply to all actors."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
+      </type>
+    </element>
+    <element id="Requirements.statement">
+      <path value="Requirements.statement"/>
+      <short value="Actual statement as markdown"/>
+      <definition value="The actual statement of requirement, in markdown format."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Requirements.statement.key">
+      <path value="Requirements.statement.key"/>
+      <short value="Key that identifies this statement"/>
+      <definition value="Key that identifies this statement (unique within this resource)."/>
+      <comment value="Refer directly to the statement by {url}#{key}"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.label">
+      <path value="Requirements.statement.label"/>
+      <short value="Short Human label for this statement"/>
+      <definition value="A short human usable label for this statement."/>
+      <comment value="The key is intended for computers, while this is intended for humans. In its absence, the key should be convenient for a human to say (e.g. not a UUID)"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.conformance">
+      <path value="Requirements.statement.conformance"/>
+      <short value="SHALL | SHOULD | MAY | SHOULD-NOT"/>
+      <definition value="A short human usable label for this statement."/>
+      <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conformance-expectation"/>
+      </binding>
+    </element>
+    <element id="Requirements.statement.requirement">
+      <path value="Requirements.statement.requirement"/>
+      <short value="The actual requirement"/>
+      <definition value="The actual requirement for human consumption."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.derivedFrom">
+      <path value="Requirements.statement.derivedFrom"/>
+      <short value="Another statement this clarifies/restricts ([url#]key)"/>
+      <definition value="Another statement on one of the requirements that this requirement clarifies or restricts."/>
+      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. if there is more than one, it should be in the format ```url#key```"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.satisfiedBy">
+      <path value="Requirements.statement.satisfiedBy"/>
+      <short value="Design artifact that satisfies this requirement"/>
+      <definition value="A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
+      <comment value="This is for use when the requirement is met be an pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.reference">
+      <path value="Requirements.statement.reference"/>
+      <short value="External artifact (rule/document etc that) created this requirement"/>
+      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc, or external regulation, or business requirements expressed elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
+    </element>
+    <element id="Requirements.statement.source">
+      <path value="Requirements.statement.source"/>
+      <short value="Who asked for this statement"/>
+      <definition value="Who asked for this statement to be a requirement. By default, it's assumed that the publisher knows who it is if it matters."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+<!--        
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+-->        
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

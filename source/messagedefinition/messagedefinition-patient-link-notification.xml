@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<MessageDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><MessageDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-link-notification"/>
   <text>
     <status value="generated"/>
@@ -8,7 +7,7 @@
   <url value="http://hl7.org/fhir/MessageDefinition/patient-link-notification"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.15.2"/>
   </identifier>
   <version value="1"/>
   <name value="PATIENT-LINK-NOTIFICATION"/>
@@ -45,7 +44,7 @@
   </jurisdiction>
   <purpose value="Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual"/>
   <copyright value="� HL7.org 2011+"/>
-  <base value="http://hl7.org/fhir/MessageDefinition/example" />
+  <base value="http://hl7.org/fhir/MessageDefinition/example"/>
   <eventCoding>
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
@@ -53,13 +52,13 @@
   <category value="notification"/>
   <focus>
     <code value="Patient"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/example" />
+    <profile value="http://hl7.org/fhir/StructureDefinition/example"/>
     <min value="2"/>
     <max value="2"/>
   </focus>
 
   <allowedResponse>
-    <message value="http://hl7.org/fhir/MessageDefinition/patient-link-response" />
+    <message value="http://hl7.org/fhir/MessageDefinition/patient-link-response"/>
     <situation value="Optional response message that may provide additional information"/>
   </allowedResponse>
 </MessageDefinition>

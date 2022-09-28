@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ClinicalUseDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1120"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ClinicalUseDefinition"/>
   <status value="draft"/>
@@ -134,8 +136,8 @@
     </element>
     <element id="ClinicalUseDefinition.category">
       <path value="ClinicalUseDefinition.category"/>
-      <short value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy&quot;, &quot;Overdose&quot;"/>
-      <definition value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy and Lactation&quot;, &quot;Overdose&quot;, &quot;Effects on Ability to Drive and Use Machines&quot;."/>
+      <short value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &#34;Pregnancy&#34;, &#34;Overdose&#34;"/>
+      <definition value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &#34;Pregnancy and Lactation&#34;, &#34;Overdose&#34;, &#34;Effects on Ability to Drive and Use Machines&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -239,13 +241,13 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
+        <map value="Contraindication.Contraindications as &#34;Disease / Symptom / Procedure&#34; and Contraindication.Contraindications Text"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
       <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the contraindication"/>
-      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
+      <definition value="The status of the disease or symptom for the contraindication, for example &#34;chronic&#34; or &#34;metastatic&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -414,13 +416,13 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Therapeutic Indication.Indication as &quot;Disease / Symptom / Procedure&quot;, and Therapeutic Indication.Indication Text"/>
+        <map value="Therapeutic Indication.Indication as &#34;Disease / Symptom / Procedure&#34;, and Therapeutic Indication.Indication Text"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.indication.diseaseStatus">
       <path value="ClinicalUseDefinition.indication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the indication"/>
-      <definition value="The status of the disease or symptom for the indication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
+      <definition value="The status of the disease or symptom for the indication, for example &#34;chronic&#34; or &#34;metastatic&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -627,8 +629,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.effect">
       <path value="ClinicalUseDefinition.interaction.effect"/>
-      <short value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;"/>
-      <definition value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;."/>
+      <short value="The effect of the interaction, for example &#34;reduced gastric absorption of primary medication&#34;"/>
+      <definition value="The effect of the interaction, for example &#34;reduced gastric absorption of primary medication&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -713,7 +715,7 @@
     </element>
     <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,425"/>
+        <valueCode value="420,435"/>
       </extension>
       <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -750,7 +752,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
+        <map value="Undesirable Effects.Undesirable Effect as &#34;Symptom / Condition / Effect&#34;"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.undesirableEffect.classification">
@@ -803,7 +805,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,555"/>
+        <valueCode value="420,565"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>

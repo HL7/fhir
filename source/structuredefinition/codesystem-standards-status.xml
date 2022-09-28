@@ -11,10 +11,12 @@
   <url value="http://hl7.org/fhir/standards-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1898"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="StandardsStatus"/>
+  <experimental value="true"/>
+  <description value="StandardsStatus"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
@@ -25,7 +27,7 @@
   <concept>
     <code value="normative"/>
     <display value="Normative"/>
-    <definition value="This content has been subject to review and production implementation in a wide variety of environments. The content is considered to be stable and has been &#39;locked&#39;, subjecting it to FHIR Inter-version Compatibility Rules. While changes are possible, they are expected to be infrequent and are tightly constrained. Compatibility Rules."/>
+    <definition value="This content has been subject to review and production implementation in a wide variety of environments. The content is considered to be stable and has been 'locked', subjecting it to FHIR Inter-version Compatibility Rules. While changes are possible, they are expected to be infrequent and are tightly constrained. Compatibility Rules."/>
   </concept>
   <concept>
     <code value="trial-use"/>

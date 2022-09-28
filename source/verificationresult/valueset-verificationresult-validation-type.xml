@@ -14,7 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.886"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="validation-type"/>
+  <name value="ValidationType"/>
+  <title value="validation-type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-06-05T14:06:02+00:00"/>

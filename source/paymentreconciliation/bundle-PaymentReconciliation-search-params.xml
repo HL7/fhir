@@ -17,8 +17,8 @@
         <code value="created"/>
         <type value="date"/>
         <expression value="PaymentReconciliation.created"/>
-        <xpath value="f:PaymentReconciliation/f:created"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:created"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="disposition"/>
         <type value="string"/>
         <expression value="PaymentReconciliation.disposition"/>
-        <xpath value="f:PaymentReconciliation/f:disposition"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:disposition"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="PaymentReconciliation.identifier"/>
-        <xpath value="f:PaymentReconciliation/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="outcome"/>
         <type value="token"/>
         <expression value="PaymentReconciliation.outcome"/>
-        <xpath value="f:PaymentReconciliation/f:outcome"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:outcome"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="payment-issuer"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.paymentIssuer"/>
-        <xpath value="f:PaymentReconciliation/f:paymentIssuer"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:paymentIssuer"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="request"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.request"/>
-        <xpath value="f:PaymentReconciliation/f:request"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:request"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="requestor"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.requestor"/>
-        <xpath value="f:PaymentReconciliation/f:requestor"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:requestor"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="PaymentReconciliation.status"/>
-        <xpath value="f:PaymentReconciliation/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:PaymentReconciliation/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -172,7 +172,7 @@
         <code value="allocation-encounter"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.allocation.encounter"/>
-        <xpath value="f:PaymentReconciliation/f:allocation/f:encounter"/>
+        <!--<xpath value="f:PaymentReconciliation/f:allocation/f:encounter"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -186,7 +186,7 @@
         <code value="allocation-account"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.allocation.account"/>
-        <xpath value="f:PaymentReconciliation/f:allocation/f:account"/>
+        <!--<xpath value="f:PaymentReconciliation/f:allocation/f:account"/> -->
       </SearchParameter>
     </resource>
   </entry>

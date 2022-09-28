@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="encounter-status"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -18,7 +16,7 @@
   <url value="http://hl7.org/fhir/encounter-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.247"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.247"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="EncounterStatus"/>
@@ -57,6 +55,11 @@
     <definition value="The Encounter has begun, but is currently on hold, e.g. because the patient is temporarily on leave."/>
   </concept>
   <concept>
+    <code value="discharged"/>
+    <display value="Discharged"/>
+    <definition value="The Encounter has been clinically completed, the patient has been discharged from the facility or the visit has ended, and the patient may have departed (refer to subjectStatus). While the encounter is in this status, administrative activities are usually performed, collating all required documentation and charge information before being released for billing, at which point the status will move to completed."/>
+  </concept>
+  <concept>
     <code value="completed"/>
     <display value="Completed"/>
     <definition value="The Encounter has ended."/>
@@ -69,16 +72,16 @@
   <concept>
     <code value="discontinued"/>
     <display value="Discontinued"/>
-    <definition value="The Encounter has started, but was not able to be completed. Futher action may need to be performed, such as rescheduling appointments related to this encounter."/>
+    <definition value="The Encounter has started, but was not able to be completed. Further action may need to be performed, such as rescheduling appointments related to this encounter."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="This instance should not have been part of this patient&#39;s medical record."/>
+    <definition value="This instance should not have been part of this patient's medical record."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The encounter status is unknown. Note that &quot;unknown&quot; is a value of last resort and every attempt should be made to provide a meaningful value other than &quot;unknown&quot;."/>
+    <definition value="The encounter status is unknown. Note that &#34;unknown&#34; is a value of last resort and every attempt should be made to provide a meaningful value other than &#34;unknown&#34;."/>
   </concept>
 </CodeSystem>

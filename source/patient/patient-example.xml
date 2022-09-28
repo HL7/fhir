@@ -1,33 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
 	<id value="example"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<table>
-				<tbody>
-					<tr>
-						<td>Name</td>
-						<td>Peter James 
-              <b>Chalmers</b> (&quot;Jim&quot;)
-            </td>
-					</tr>
-					<tr>
-						<td>Address</td>
-						<td>534 Erewhon, Pleasantville, Vic, 3999</td>
-					</tr>
-					<tr>
-						<td>Contacts</td>
-						<td>Home: unknown. Work: (03) 5555 6473</td>
-					</tr>
-					<tr>
-						<td>Id</td>
-						<td>MRN: 12345 (Acme Healthcare)</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</text>
 	<!--  MRN assigned by ACME healthcare on 6-May 2001  -->
 	<identifier>
 		<use value="usual"/>

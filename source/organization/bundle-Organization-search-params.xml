@@ -17,8 +17,8 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="Organization.active"/>
-        <xpath value="f:Organization/f:active"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:active"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="address"/>
         <type value="string"/>
         <expression value="Organization.contact.address"/>
-        <xpath value="f:Organization/f:contact/f:address"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="address-city"/>
         <type value="string"/>
         <expression value="Organization.contact.address.city"/>
-        <xpath value="f:Organization/f:contact/f:address/f:city"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address/f:city"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="address-country"/>
         <type value="string"/>
         <expression value="Organization.contact.address.country"/>
-        <xpath value="f:Organization/f:contact/f:address/f:country"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address/f:country"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="address-postalcode"/>
         <type value="string"/>
         <expression value="Organization.contact.address.postalCode"/>
-        <xpath value="f:Organization/f:contact/f:address/f:postalCode"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address/f:postalCode"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="address-state"/>
         <type value="string"/>
         <expression value="Organization.contact.address.state"/>
-        <xpath value="f:Organization/f:contact/f:address/f:state"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address/f:state"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="address-use"/>
         <type value="token"/>
         <expression value="Organization.contact.address.use"/>
-        <xpath value="f:Organization/f:contact/f:address/f:use"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:contact/f:address/f:use"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="endpoint"/>
         <type value="reference"/>
         <expression value="Organization.endpoint"/>
-        <xpath value="f:Organization/f:endpoint"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:endpoint"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -177,8 +177,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Organization.identifier | Organization.qualification.identifier"/>
-        <xpath value="f:Organization/f:identifier | f:Organization/f:qualification/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:identifier | f:Organization/f:qualification/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -197,8 +197,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Organization.name | Organization.alias"/>
-        <xpath value="f:Organization/f:name | f:Organization/f:alias"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:name | f:Organization/f:alias"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -217,8 +217,8 @@
         <code value="partof"/>
         <type value="reference"/>
         <expression value="Organization.partOf"/>
-        <xpath value="f:Organization/f:partOf"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:partOf"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,8 +237,8 @@
         <code value="phonetic"/>
         <type value="string"/>
         <expression value="Organization.name"/>
-        <xpath value="f:Organization/f:name"/>
-        <xpathUsage value="phonetic"/>
+        <!--<xpath value="f:Organization/f:name"/> -->
+        <processingMode value="phonetic"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -257,8 +257,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="Organization.type"/>
-        <xpath value="f:Organization/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Organization/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

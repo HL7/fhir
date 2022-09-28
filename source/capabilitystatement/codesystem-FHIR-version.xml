@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="FHIR-version"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -17,7 +15,7 @@
   <url value="http://hl7.org/fhir/FHIR-version"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1310"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1310"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRVersion"/>
@@ -260,8 +258,8 @@
     <display value="4.6"/>
     <definition value="R5 Draft Ballot version."/>
     <concept>
-      <code value="4.6.0"/>
-      <display value="4.6.0"/>
+      <code value="5.0.0"/>
+      <display value="5.0.0"/>
       <definition value="R5 Draft Ballot + Connectathon 27 (Virtual)."/>
     </concept>
   </concept>

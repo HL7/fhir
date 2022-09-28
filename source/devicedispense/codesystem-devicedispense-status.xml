@@ -11,12 +11,14 @@
   <url value="http://terminology.hl7.org/CodeSystem/devicedispense-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2020"/>
   </identifier>
   <version value="4.5.0"/>
-  <name value="DeviceDispense Status Codes"/>
+  <name value="DeviceDispenseStatusCodes"/>
+  <title value="DeviceDispense Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="DeviceDispense Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/devicedispense-status"/>
   <content value="complete"/>
@@ -63,6 +65,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring system does not know which of the status values applies for this dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it&#39;s just now known which one."/>
+    <definition value="The authoring system does not know which of the status values applies for this dispense.  Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just now known which one."/>
   </concept>
 </CodeSystem>

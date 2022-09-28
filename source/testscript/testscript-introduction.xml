@@ -29,15 +29,9 @@ The purpose of the TestScript is to encode in an executable representation tests
 It might not be possible to fully automate the latter goal (especially with regards to business rules that might ride on top of different implementations), however the tests should be able to determine whether two servers support the operations, value sets, profiles, and extensions to exchange FHIR Resources; for example, the request sent and response returned from a <a href="operation-patient-everything.html">Patient $everything operation</a>.
 </p>
 
-<blockquote class="stu-note">
-<p>
-<strong>Note to implementers:</strong> At this time the scope and usage of TestScript resources is focused on the FHIR specification. The TestScript resource scope and usage may expand in the future to include support for other HL7 specifications such as C-CDA and V2 as HL7 aligns these specifications with FHIR-based nomenclature and definitions. Future support may also additionally include non-HL7 specifications that leverage the FHIR specification such as IHE profiles.
-</p>
-</blockquote>
-
-<p>
-
-</p>
+[%stu-note dstu%]
+At this time the scope and usage of TestScript resources is focused on the FHIR specification. The TestScript resource scope and usage may expand in the future to include support for other HL7 specifications such as C-CDA and V2 as HL7 aligns these specifications with FHIR-based nomenclature and definitions. Future support may also additionally include non-HL7 specifications that leverage the FHIR specification such as IHE profiles.
+[%end-note%]
 </div>
 
 <div>

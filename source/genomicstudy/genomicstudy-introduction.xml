@@ -2,10 +2,10 @@
 
 <div>
 
-  [%stu-note%]
-  <p>
+  [%stu-note dstu%]
+
     The material on this page is currently undergoing work to be refactored in a future release as further analysis is done. Reviewers are encouraged to provide their comments and feedback about the example codes for terminology binding purposes.
-  </p>
+
   [%end-note%]
 
 <a name="scope"></a>

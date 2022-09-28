@@ -17,8 +17,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(Citation.useContext.value as CodeableConcept)"/>
-        <xpath value="f:Citation/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(Citation.useContext.value as Quantity) | (Citation.useContext.value as Range)"/>
-        <xpath value="f:Citation/f:useContext/f:valueQuantity | f:Citation/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:useContext/f:valueQuantity | f:Citation/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="Citation.useContext.code"/>
-        <xpath value="f:Citation/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="Citation.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="Citation.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -125,8 +125,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="Citation.date"/>
-        <xpath value="f:Citation/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -145,8 +145,8 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="Citation.description"/>
-        <xpath value="f:Citation/f:description"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:description"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +165,8 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="Citation.effectivePeriod"/>
-        <xpath value="f:Citation/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:effectivePeriod"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Citation.identifier"/>
-        <xpath value="f:Citation/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Citation.jurisdiction"/>
-        <xpath value="f:Citation/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:jurisdiction"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Citation.name"/>
-        <xpath value="f:Citation/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="Citation.publisher"/>
-        <xpath value="f:Citation/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Citation.status"/>
-        <xpath value="f:Citation/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -285,8 +285,8 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="Citation.title"/>
-        <xpath value="f:Citation/f:title"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:title"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -305,8 +305,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="Citation.url"/>
-        <xpath value="f:Citation/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,8 +325,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="Citation.version"/>
-        <xpath value="f:Citation/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Citation/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

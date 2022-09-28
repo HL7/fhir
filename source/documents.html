@@ -21,12 +21,8 @@ Outstanding issues:
 <h1>FHIR Documents</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
-<p>
-FHIR resources can be used to build documents that represent a composition:
-a coherent set of information that is a statement of healthcare information, including clinical observations and services.
-A document is an immutable set of resources with a fixed presentation
-that is authored and/or attested by humans, organizations and devices.
-</p>
+<p>FHIR resources can be used to build documents that represent a composition: a coherent set of information that is a statement of healthcare information, including clinical observations and services. A document is a frozen set of resources with a fixed presentation that is authored and/or attested by humans, organizations and devices.</p>
+<p>A document instance contains specific frozen versions of other resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  Implementations SHOULD have policies around when documents can be 'updated' (new version of the same instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal documents, clinical documents, etc.)   Strict limitations on document change are sometimes referred to as 'document immutability'.</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
 persisted in document storage and management systems, including systems such as IHE
@@ -38,17 +34,17 @@ Applications claiming conformance to this framework claim to be conformant to
 </p>
 <p>
 FHIR documents may be 'clinical' (focused on patient healthcare information) but
-may also serve non-clinical purposes (e.g. FHIR Implementation guides, practice
-guidelines, patient handouts, etc.)
+may also serve non-clinical purposes (e.g. practice guidelines, patient handouts, etc.).
 HL7 will develop profiles in the future giving additional guidance on appropriate
-representation of clinical documents in general as well as specific types of clinical
-documents (e.g. Consolidated CDA).
+representation of clinical documents in general, specific types of clinical
+documents (e.g. Consolidated CDA), and other non-clinical documents.
 </p>
+<p>FHIR documents are not intended to capture unbounded data sets such as a full EHR. Rather, consider the <a href="https://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for such use cases. </p>
 
 <p>
-Note that FHIR defines both this document format and a <a href="documentreference.html">document reference resource</a>.
-FHIR documents are for documents that are authored and assembled in FHIR, while the document reference resource is for
-general references to pre-existing documents.
+Note that FHIR defines both this document format and a <a href="documentreference.html">DocumentReference resource</a>.
+FHIR documents are for documents that are authored and assembled in FHIR, while the DocumentReference resource is for
+general references to documents (which may include FHIR documents as well as PDFs, CDAs, etc.).
 </p>
 <ul>
  <li><a href="document-example-dischargesummary.html">Example discharge summary</a>: <a href="document-example-dischargesummary.xml.html">XML</a> or <a href="document-example-dischargesummary.json.html">JSON</a></li>
@@ -125,14 +121,7 @@ The signature SHOULD be provided by a listed attester of the document and the si
 SHOULD contain a <a href="http://www.w3.org/TR/xmldsig-core/#sec-KeyInfo" target="_blank">KeyInfo
 element</a> that contains a KeyName element whose value is a URI that matches the <a href="bundle-definitions.html#Bundle.entry.fullUri">fullUri</a> for the matching attester resource.
 </p>
-<p>
-Once assembled into a bundle, the document is immutable - its content can never be changed,
-and the document id can never be reused. Note that the document may be represented in either
-XML or JSON and interconverted between these or have its character encoding changed, all
-the while remaining the same document. However, the directly referenced content within the
-document and the presentation of the document cannot change substantially (such that it changes the clinical meaning of the content). Any additional
-documents derived from the same composition SHALL have a different document id.
-</p>
+<p>Note that the document may be represented in either XML or JSON and interconverted between these or have its character encoding changed, all the while remaining the same document.  Any additional documents derived from the same Composition SHALL have a different Bundle.identifier.</p>
 
 <a name="presentation"></a>
 <h3>Document Presentation</h3>

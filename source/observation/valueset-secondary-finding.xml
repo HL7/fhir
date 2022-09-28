@@ -16,6 +16,7 @@
   <name value="GeneticObservationSecondaryFindings"/>
   <title value="Genetic Observation Secondary Findings"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

@@ -5,8 +5,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/medication-admin-category"/>
-  <name value="MedicationAdministration Category Codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.347"/>
+  </identifier>
+  <name value="MedicationAdministrationCategoryCodes"/>
+  <title value="MedicationAdministration Category Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

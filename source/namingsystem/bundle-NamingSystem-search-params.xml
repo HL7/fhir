@@ -17,8 +17,8 @@
         <code value="contact"/>
         <type value="string"/>
         <expression value="NamingSystem.contact.name"/>
-        <xpath value="f:NamingSystem/f:contact/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:contact/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(NamingSystem.useContext.value as CodeableConcept)"/>
-        <xpath value="f:NamingSystem/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(NamingSystem.useContext.value as Quantity) | (NamingSystem.useContext.value as Range)"/>
-        <xpath value="f:NamingSystem/f:useContext/f:valueQuantity | f:NamingSystem/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:useContext/f:valueQuantity | f:NamingSystem/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="NamingSystem.useContext.code"/>
-        <xpath value="f:NamingSystem/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,7 +94,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="NamingSystem.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -118,7 +118,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="NamingSystem.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -145,8 +145,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="NamingSystem.date"/>
-        <xpath value="f:NamingSystem/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +165,8 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="NamingSystem.description"/>
-        <xpath value="f:NamingSystem/f:description"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:description"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="NamingSystem.identifier"/>
-        <xpath value="f:NamingSystem/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="id-type"/>
         <type value="token"/>
         <expression value="NamingSystem.uniqueId.type"/>
-        <xpath value="f:NamingSystem/f:uniqueId/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:uniqueId/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="NamingSystem.jurisdiction"/>
-        <xpath value="f:NamingSystem/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:jurisdiction"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="kind"/>
         <type value="token"/>
         <expression value="NamingSystem.kind"/>
-        <xpath value="f:NamingSystem/f:kind"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:kind"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="NamingSystem.name"/>
-        <xpath value="f:NamingSystem/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -285,8 +285,8 @@
         <code value="period"/>
         <type value="date"/>
         <expression value="NamingSystem.uniqueId.period"/>
-        <xpath value="f:NamingSystem/f:uniqueId/f:period"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:uniqueId/f:period"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -305,8 +305,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="NamingSystem.publisher"/>
-        <xpath value="f:NamingSystem/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,8 +325,8 @@
         <code value="responsible"/>
         <type value="string"/>
         <expression value="NamingSystem.responsible"/>
-        <xpath value="f:NamingSystem/f:responsible"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:responsible"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -345,8 +345,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="NamingSystem.status"/>
-        <xpath value="f:NamingSystem/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -365,8 +365,8 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="NamingSystem.contact.telecom"/>
-        <xpath value="f:NamingSystem/f:contact/f:telecom"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:contact/f:telecom"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -385,8 +385,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="NamingSystem.type"/>
-        <xpath value="f:NamingSystem/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -405,8 +405,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="NamingSystem.url"/>
-        <xpath value="f:NamingSystem/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -425,8 +425,8 @@
         <code value="value"/>
         <type value="string"/>
         <expression value="NamingSystem.uniqueId.value"/>
-        <xpath value="f:NamingSystem/f:uniqueId/f:value"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:uniqueId/f:value"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -445,8 +445,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="NamingSystem.version"/>
-        <xpath value="f:NamingSystem/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -465,8 +465,8 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="NamingSystem.effectivePeriod"/>
-        <xpath value="f:NamingSystem/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:NamingSystem/f:effectivePeriod"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -480,7 +480,7 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="NamingSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
+        <!--<xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -494,7 +494,7 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="NamingSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
+        <!--<xpath value="f:NamingSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -508,7 +508,7 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="NamingSystem.topic"/>
-        <xpath value="f:NamingSystem/f:topic"/>
+        <!--<xpath value="f:NamingSystem/f:topic"/> -->
       </SearchParameter>
     </resource>
   </entry>

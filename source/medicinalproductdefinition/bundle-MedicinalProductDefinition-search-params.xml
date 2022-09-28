@@ -17,8 +17,8 @@
         <code value="characteristic"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.characteristic.value"/>
-        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:value"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:characteristic/f:value"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="characteristic-type"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.characteristic.type"/>
-        <xpath value="f:MedicinalProductDefinition/f:characteristic/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:characteristic/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="contact"/>
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.contact.contact"/>
-        <xpath value="f:MedicinalProductDefinition/f:contact/f:contact"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:contact/f:contact"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="domain"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.domain"/>
-        <xpath value="f:MedicinalProductDefinition/f:domain"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:domain"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.identifier"/>
-        <xpath value="f:MedicinalProductDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="ingredient"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.ingredient"/>
-        <xpath value="f:MedicinalProductDefinition/f:ingredient"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:ingredient"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="master-file"/>
         <type value="reference"/>
         <expression value="MedicinalProductDefinition.masterFile"/>
-        <xpath value="f:MedicinalProductDefinition/f:masterFile"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:masterFile"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="MedicinalProductDefinition.name.productName"/>
-        <xpath value="f:MedicinalProductDefinition/f:name/f:productName"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:name/f:productName"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -177,8 +177,8 @@
         <code value="name-language"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.name.usage.language"/>
-        <xpath value="f:MedicinalProductDefinition/f:name/f:usage/f:language"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:name/f:usage/f:language"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -197,8 +197,8 @@
         <code value="product-classification"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.classification"/>
-        <xpath value="f:MedicinalProductDefinition/f:classification"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:classification"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -217,8 +217,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.status"/>
-        <xpath value="f:MedicinalProductDefinition/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,8 +237,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="MedicinalProductDefinition.type"/>
-        <xpath value="f:MedicinalProductDefinition/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MedicinalProductDefinition/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

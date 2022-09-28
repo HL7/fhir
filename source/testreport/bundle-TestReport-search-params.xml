@@ -17,8 +17,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="TestReport.identifier"/>
-        <xpath value="f:TestReport/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="issued"/>
         <type value="date"/>
         <expression value="TestReport.issued"/>
-        <xpath value="f:TestReport/f:issued"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:issued"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="participant"/>
         <type value="uri"/>
         <expression value="TestReport.participant.uri"/>
-        <xpath value="f:TestReport/f:participant/f:uri"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:participant/f:uri"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="result"/>
         <type value="token"/>
         <expression value="TestReport.result"/>
-        <xpath value="f:TestReport/f:result"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:result"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="tester"/>
         <type value="string"/>
         <expression value="TestReport.tester"/>
-        <xpath value="f:TestReport/f:tester"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:tester"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="testscript"/>
         <type value="reference"/>
         <expression value="TestReport.testScript"/>
-        <xpath value="f:TestReport/f:testScript"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:TestReport/f:testScript"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -15,5 +15,17 @@
         <reference value="StructureDefinition/parameters-fullUrl"/>
       </reference>
     </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/parameters-definition"/>
+      </reference>
+    </resource>
+    <!-- Results in an indexOutOfBounds exception in the publisher, I'm guessing because extensions haven't been loaded yet?
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/definedparameters"/>
+      </reference>
+    </resource>
+    -->
   </definition>
 </ImplementationGuide>

@@ -37,17 +37,14 @@
   <i>e.g. A mobile phone application storing references to the hospitals they have access to</i></li>
   </ul>
 
-  <blockquote class="stu-note">
-    <a name="advanced"></a>
-    <p>
-    <b>Note:</b>  The Person resource is an advanced feature.  Many systems don’t have a way
+  [%stu-note advanced%]
+    The Person resource is an advanced feature.  Many systems don’t have a way
     to relate information across resource types, or systems, especially from Patient to
     Practitioner, and therefore might not implement this functionality. Some do have ways
     of relating the Patient and RelatedPerson resource types. FHIR is also able to do this
     without the Person resource, utilizing the Patient.link property
     <a href="patient.html#maternity">(as shown in the Mother and newborn relationship example)</a>
-    </p>
-  </blockquote>
+  [%end-note%]
 </div>
 
 <div>

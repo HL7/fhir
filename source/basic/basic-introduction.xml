@@ -29,7 +29,7 @@ queried and analyzed by other conformant systems.
 Implementers don't need to be concerned with which of the three categories their desired resource fits within. If they need a resource and it clearly doesn't fit one of the ones currently defined, they should use Basic.
 </p>
 
-[%stu-note%]
+[%stu-note dstu%]
 That the <a href="versions.html#extensions">inter-version extension mechanism</a> 
 might be used to allow <code>Basic</code> to represent resources that don't exist 
 in the FHIR version being used for exchange, but no specific guidance is provided.  

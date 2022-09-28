@@ -32,8 +32,7 @@ a value - instead, the value must be understood from the Condition.code.
   <p>Also note that care should be used when adding new Condition resources to a list to ensure that any negation statements that are voided by the addition of a new record are removed from the list.  E.g. If the list contains a "no known problems" record and you add a "diabetes" condition record, then be sure that you remove the "no known problems" record.
   </p>
 
-<a name="dstu-1"></a>
-[%stu-note%]
+[%stu-note dstu-1%]
 There are two primary ways of reporting "no known problems" in the current specification: using the CodeableConcept,
 as described above, or using the <a href="list.html">List</a> resource with emptyReason. During the STU period, <a href="http://hl7.org/fhir-issues">feedback</a> is sought regarding the preferred approach.
 </p>

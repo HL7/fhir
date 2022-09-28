@@ -11,11 +11,12 @@
   <url value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.11.19757"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3289"/>
   </identifier>
   <name value="recordedSexOrGenderType"/>
   <title value="Recorded Sex Or Gender Type"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,7 +25,7 @@
     </telecom>
   </contact>
   <description value="Codes that represent the type of the recorded sex and gender."/>
-  <copyright value="This content from LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
+  <copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
   <compose>
     <include>
       <system value="http://loinc.org"/>
@@ -41,7 +42,7 @@
         <display value="Gender identity"/>
       </concept>
     </include>
-	<include>
+    <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
       <concept>
         <code value="0010,0040"/>

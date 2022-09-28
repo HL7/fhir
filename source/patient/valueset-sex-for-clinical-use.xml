@@ -11,11 +11,12 @@
   <url value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.982"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3181"/>
   </identifier>
   <name value="sexForClinicalUse"/>
   <title value="Sex for Clincal Use"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

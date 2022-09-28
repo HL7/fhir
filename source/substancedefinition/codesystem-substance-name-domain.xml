@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="substance-name-domain"/>
   <meta>
@@ -17,7 +18,7 @@
   <url value="http://hl7.org/fhir/substance-name-domain"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1633"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2089"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceNameDomain"/>
@@ -36,7 +37,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value=""/>
+  <description value="SubstanceNameDomain"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/substance-name-domain"/>
   <content value="complete"/>

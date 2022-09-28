@@ -1,11 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<TestScript xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example"/>
   <url value="http://hl7.org/fhir/TestScript/testscript-example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9876"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.12.4"/>
   </identifier>
   <version value="1.0"/>
   <name value="TestScript Example"/>
@@ -41,10 +39,10 @@
     </code>
     <valueRange>
       <low>
-        <value value="2018" />
-        <unit value="year" />
-        <system value="http://unitsofmeasure.org" />
-        <code value="a" />
+        <value value="2018"/>
+        <unit value="year"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="a"/>
       </low>
     </valueRange>
   </useContext>
@@ -56,7 +54,7 @@
     </coding>
   </jurisdiction>
   <purpose value="Patient Conditional Create (Update), Read and Delete Operations"/>
-  <copyright value="&#xA9; HL7.org 2011+"/>
+  <copyright value="© HL7.org 2011+"/>
   <metadata>
     <link>
       <url value="http://hl7.org/fhir/patient.html"/>
@@ -169,7 +167,7 @@
     </action>
     <action>
       <assert>
-        <description value="Confirm that the returned Patient contains the expected family name &#39;Chalmers&#39;. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient."/>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient."/>
         <compareToSourceId value="fixture-patient-create"/>
         <compareToSourceExpression value="Patient.name.first().family"/>
         <operator value="equals"/>
@@ -232,7 +230,7 @@
     </action>
     <action>
       <assert>
-        <description value="Confirm that the returned Patient contains the expected family name &#39;Chalmers&#39;. Uses explicit sourceId reference to read responseId fixture."/>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit sourceId reference to read responseId fixture."/>
         <operator value="equals"/>
         <path value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <sourceId value="fixture-patient-read"/>
@@ -243,7 +241,7 @@
     </action>
     <action>
       <assert>
-        <description value="Confirm that the returned Patient contains the expected given name &#39;Peter&#39;. Uses explicit sourceId reference to read responseId fixture."/>
+        <description value="Confirm that the returned Patient contains the expected given name 'Peter'. Uses explicit sourceId reference to read responseId fixture."/>
         <operator value="equals"/>
         <path value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <sourceId value="fixture-patient-read"/>
@@ -254,7 +252,7 @@
     </action>
     <action>
       <assert>
-        <description value="Confirm that the returned Patient contains the expected family name &#39;Chalmers&#39;. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload."/>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and implicit reference to read response payload."/>
         <compareToSourceId value="fixture-patient-create"/>
         <compareToSourcePath value="fhir:Patient/fhir:name/fhir:family/@value"/>
         <operator value="equals"/>
@@ -265,7 +263,7 @@
     </action>
     <action>
       <assert>
-        <description value="Confirm that the returned Patient contains the expected family name &#39;Chalmers&#39;. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of &#39;equals&#39;."/>
+        <description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient and explicit reference to read response payload and default operator of 'equals'."/>
         <compareToSourceId value="fixture-patient-create"/>
         <compareToSourcePath value="fhir:Patient/fhir:name/fhir:given/@value"/>
         <path value="fhir:Patient/fhir:name/fhir:given/@value"/>

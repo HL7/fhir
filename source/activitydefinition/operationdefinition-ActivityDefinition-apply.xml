@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ActivityDefinition-apply"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -152,6 +150,6 @@
     <min value="1"/>
     <max value="1"/>
     <documentation value="The resource that is the result of applying the definition"/>
-    <type value="Any"/>
+    <type value="Resource"/>
   </parameter>
 </OperationDefinition>

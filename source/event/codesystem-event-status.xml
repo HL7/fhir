@@ -6,8 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/event-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.110"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="EventStatus"/>
+  <experimental value="true"/>
+  <description value="EventStatus"/>
   <concept>
     <code value="preparation"/>
     <display value="Preparation"/>
@@ -21,7 +27,7 @@
   <concept>
     <code value="not-done"/>
     <display value="Not Done"/>
-    <definition value="The event was terminated prior to any activity beyond preparation.  I.e. The &#39;main&#39; activity has not yet begun.  The boundary between preparatory and the &#39;main&#39; activity is context-specific."/>
+    <definition value="The event was terminated prior to any activity beyond preparation.  I.e. The 'main' activity has not yet begun.  The boundary between preparatory and the 'main' activity is context-specific."/>
   </concept>
   <concept>
     <code value="on-hold"/>
@@ -31,7 +37,7 @@
   <concept>
     <code value="stopped"/>
     <display value="Stopped"/>
-    <definition value="The event was terminated prior to the full completion of the intended activity but after at least some of the &#39;main&#39; activity (beyond preparation) has occurred."/>
+    <definition value="The event was terminated prior to the full completion of the intended activity but after at least some of the 'main' activity (beyond preparation) has occurred."/>
   </concept>
   <concept>
     <code value="completed"/>

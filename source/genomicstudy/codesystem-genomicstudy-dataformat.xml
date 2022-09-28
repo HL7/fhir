@@ -18,12 +18,13 @@
   <url value="http://hl7.org/fhir/genomicstudy-dataformat"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1978"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyDataFormat"/>
   <title value="GenomicStudyDataFormat"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2022-08-17T14:49:24-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
@@ -39,7 +40,7 @@
   <description value="The data format relevant to genomics. These formats and relevant codes were pulled from [Integrative Genomics Viewer Documentation](https://software.broadinstitute.org/software/igv/FileFormats) by Broad Institute."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/genomicstudy-dataformat"/>
-   <content value="complete"/>
+  <content value="complete"/>
   <concept>
     <code value="bam"/>
     <display value="BAM"/>

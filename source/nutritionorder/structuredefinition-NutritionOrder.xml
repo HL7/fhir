@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NutritionOrder"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -25,6 +23,10 @@
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/proposed-order"/>
   <url value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1363"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="NutritionOrder"/>
   <status value="draft"/>
@@ -236,7 +238,7 @@
       <path value="NutritionOrder.status"/>
       <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
       <definition value="The workflow status of the nutrition order/request."/>
-      <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="Typically the system placing the order sets the status to &#34;requested&#34;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -277,7 +279,7 @@
       <path value="NutritionOrder.intent"/>
       <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain."/>
-      <comment value="When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+      <comment value="When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &#34;proposal, plan or order&#34;.  Can have multiple codes that map to one of these.  E.g. &#34;original order&#34;, &#34;encoded order&#34;, &#34;reflex order&#34; would all map to &#34;order&#34;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <alias value="category"/>
       <min value="1"/>
@@ -286,7 +288,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -316,8 +318,7 @@
     <element id="NutritionOrder.priority">
       <path value="NutritionOrder.priority"/> 
       <short value="routine | urgent | asap | stat"/> 
-      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other
-       requests."/> 
+      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other        requests."/> 
       <min value="0"/> 
       <max value="1"/> 
       <type> 
@@ -407,8 +408,7 @@
     <element id="NutritionOrder.supportingInformation">
       <path value="NutritionOrder.supportingInformation"/> 
       <short value="Information to support fulfilling of the nutrition order"/> 
-      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the nutrition,
-       for example, patient height and weight)."/>
+      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the nutrition,        for example, patient height and weight)."/>
       <min value="0"/> 
       <max value="*"/> 
       <type> 
@@ -493,9 +493,9 @@
         <valueString value="resource reference."/>
       </extension>
       <path value="NutritionOrder.allergyIntolerance"/>
-      <short value="List of the patient&#39;s food and nutrition-related allergies and intolerances"/>
+      <short value="List of the patient's food and nutrition-related allergies and intolerances"/>
       <definition value="A link to a record of allergies or intolerances  which should be included in the nutrition order."/>
-      <comment value="Information on a patient&#39;s food allergies and intolerances to inform healthcare personnel about the type of foods that the patient shouldn&#39;t receive or consume."/>
+      <comment value="Information on a patient's food allergies and intolerances to inform healthcare personnel about the type of foods that the patient shouldn't receive or consume."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -514,7 +514,7 @@
       <path value="NutritionOrder.foodPreferenceModifier"/>
       <short value="Order-specific modifier about the type of food that should be given"/>
       <definition value="This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
-      <comment value="Information on a patient&#39;s food preferences that inform healthcare personnel about the food that the patient should receive or consume."/>
+      <comment value="Information on a patient's food preferences that inform healthcare personnel about the food that the patient should receive or consume."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -530,7 +530,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &quot;P&quot;,ODS-3"/>
+        <map value="ODS-1 Value = &#34;P&#34;,ODS-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -543,8 +543,8 @@
       </extension>
       <path value="NutritionOrder.excludeFoodModifier"/>
       <short value="Order-specific modifier about the type of food that should not be given"/>
-      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient&#x2019;s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
-      <comment value="Information on a patient&#39;s food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn&#39;t receive or consume."/>
+      <definition value="This modifier is used to convey Order-specific modifier about the type of oral food or oral fluids that should not be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings."/>
+      <comment value="Information on a patient's food allergies, intolerances and preferences to inform healthcare personnel about the type  of foods that the patient shouldn't receive or consume."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -592,7 +592,7 @@
       <condition value="nor-1"/>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &quot;D&quot;"/>
+        <map value="ODS-1 Value = &#34;D&#34;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -638,6 +638,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.oralDiet.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="OralDietSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
@@ -694,8 +697,7 @@
       </type>
 			<binding> 
 				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
-						consuming a nutrition product."/> 
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a nutrition product."/> 
 					</extension> 
 					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 						<valueString value="OralDietAsNeededReason"/> 
@@ -924,7 +926,7 @@
       </extension>
       <path value="NutritionOrder.supplement"/>
       <short value="Supplement components"/>
-      <definition value="Oral nutritional products given in order to add further nutritional value to the patient&#39;s diet."/>
+      <definition value="Oral nutritional products given in order to add further nutritional value to the patient's diet."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -933,7 +935,7 @@
       <condition value="nor-1"/>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &quot;P&quot;"/>
+        <map value="ODS-1 Value = &#34;P&#34;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -982,7 +984,7 @@
       </extension>
       <path value="NutritionOrder.supplement.productName"/>
       <short value="Product or brand name of the nutritional supplement"/>
-      <definition value="The product or brand name of the nutritional supplement such as &quot;Acme Protein Shake&quot;."/>
+      <definition value="The product or brand name of the nutritional supplement such as &#34;Acme Protein Shake&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -998,6 +1000,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.supplement.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="SupplementSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
@@ -1054,8 +1059,7 @@
       </type>
 			<binding> 
 				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
-						consuming a supplement."/> 
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a supplement."/> 
 					</extension> 
 					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 						<valueString value="SupplementAsNeededReason"/> 
@@ -1174,7 +1178,7 @@
       </extension>
       <path value="NutritionOrder.enteralFormula.baseFormulaProductName"/>
       <short value="Product or brand name of the enteral or infant formula"/>
-      <definition value="The product or brand name of the enteral or infant formula product such as &quot;ACME Adult Standard Formula&quot;."/>
+      <definition value="The product or brand name of the enteral or infant formula product such as &#34;ACME Adult Standard Formula&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1302,8 +1306,8 @@
     </element>
     <element id="NutritionOrder.enteralFormula.routeOfAdministration">
       <path value="NutritionOrder.enteralFormula.routeOfAdministration"/>
-      <short value="How the formula should enter the patient&#39;s gastrointestinal tract"/>
-      <definition value="The route or physiological path of administration into the patient&#39;s gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
+      <short value="How the formula should enter the patient's gastrointestinal tract"/>
+      <definition value="The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1352,6 +1356,9 @@
       </mapping>
     </element>
     <element id="NutritionOrder.enteralFormula.administration.schedule">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="EnteralFormulaSchedule"/>
+      </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
       </extension>
@@ -1408,8 +1415,7 @@
       </type>
 			<binding> 
 				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to
-						consuming a enteral formula."/> 
+					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a enteral formula."/> 
 					</extension> 
 					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
 						<valueString value="EnteralFormulaAsNeededReason"/> 
@@ -1447,7 +1453,7 @@
       <path value="NutritionOrder.enteralFormula.administration.rate[x]"/>
       <short value="Speed with which the formula is provided per period of time"/>
       <definition value="The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule."/>
-      <comment value="Ratio is used when the quantity value in the denominator is not &quot;1&quot;, otherwise use Quantity. For example, the Ratio datatype is used for &quot;200 mL/4 hrs&quot; versus the Quantity datatype for &quot;50 mL/hr&quot;."/>
+      <comment value="Ratio is used when the quantity value in the denominator is not &#34;1&#34;, otherwise use Quantity. For example, the Ratio datatype is used for &#34;200 mL/4 hrs&#34; versus the Quantity datatype for &#34;50 mL/hr&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

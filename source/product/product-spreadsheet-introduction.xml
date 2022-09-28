@@ -16,11 +16,9 @@ A "Healthcare Product" represents any type of product, manufactured or not, regu
 The Product pattern provides an abstraction with the common characteristics of Healthcare Products. 
 </p>
 
-<blockquote class="stu-note">
-  <a name="dstu"/>
-<strong>The Product pattern is being developed. The committee is looking for feedback on this pattern as well as its applicability to the different product resources - Medication, Device, BiologicallyDerivedProduct, Substance, etc.</strong>
-
-</blockquote>
+[%stu-note dstu%]
+The Product pattern is being developed. The committee is looking for feedback on this pattern as well as its applicability to the different product resources - Medication, Device, BiologicallyDerivedProduct, Substance, etc.
+[%end-note%]
 
 </div>
 

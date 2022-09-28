@@ -17,8 +17,8 @@
         <code value="composed-of"/>
         <type value="reference"/>
         <expression value="Library.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
-        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="content-type"/>
         <type value="token"/>
         <expression value="Library.content.contentType"/>
-        <xpath value="f:Library/f:content/f:contentType"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:content/f:contentType"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(Library.useContext.value as CodeableConcept)"/>
-        <xpath value="f:Library/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(Library.useContext.value as Quantity) | (Library.useContext.value as Range)"/>
-        <xpath value="f:Library/f:useContext/f:valueQuantity | f:Library/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:useContext/f:valueQuantity | f:Library/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="Library.useContext.code"/>
-        <xpath value="f:Library/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -114,7 +114,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="Library.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -138,7 +138,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="Library.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -165,8 +165,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="Library.date"/>
-        <xpath value="f:Library/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="depends-on"/>
         <type value="reference"/>
         <expression value="Library.relatedArtifact.where(type=&#39;depends-on&#39;).resource"/>
-        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="Library.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="Library.description"/>
-        <xpath value="f:Library/f:description"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:description"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="Library.effectivePeriod"/>
-        <xpath value="f:Library/f:effectivePeriod"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:effectivePeriod"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Library.identifier"/>
-        <xpath value="f:Library/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -285,8 +285,8 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="Library.jurisdiction"/>
-        <xpath value="f:Library/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:jurisdiction"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -305,8 +305,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Library.name"/>
-        <xpath value="f:Library/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,8 +325,8 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="Library.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -345,8 +345,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="Library.publisher"/>
-        <xpath value="f:Library/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -365,8 +365,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Library.status"/>
-        <xpath value="f:Library/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -385,8 +385,8 @@
         <code value="successor"/>
         <type value="reference"/>
         <expression value="Library.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -405,8 +405,8 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="Library.title"/>
-        <xpath value="f:Library/f:title"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:title"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -425,8 +425,8 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="Library.topic"/>
-        <xpath value="f:Library/f:topic"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:topic"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -445,8 +445,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="Library.type"/>
-        <xpath value="f:Library/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -465,8 +465,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="Library.url"/>
-        <xpath value="f:Library/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -485,8 +485,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="Library.version"/>
-        <xpath value="f:Library/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Library/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

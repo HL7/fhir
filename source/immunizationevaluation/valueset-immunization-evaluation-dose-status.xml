@@ -17,6 +17,7 @@
   <name value="ImmunizationEvaluationDoseStatusCodes"/>
   <title value="Immunization Evaluation Dose Status codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

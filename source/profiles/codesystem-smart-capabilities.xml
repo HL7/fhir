@@ -6,42 +6,48 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/smart-capabilities"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1858"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SmartCapabilities"/>
+  <experimental value="true"/>
+  <description value="SmartCapabilities"/>
   <concept>
     <code value="launch-ehr"/>
     <display value="EHR Launch Mode"/>
-    <definition value="support for SMART&#x2019;s EHR Launch mode."/>
+    <definition value="support for SMART’s EHR Launch mode."/>
   </concept>
   <concept>
     <code value="launch-standalone"/>
     <display value="Standalone Launch Mode"/>
-    <definition value="support for SMART&#x2019;s Standalone Launch mode."/>
+    <definition value="support for SMART’s Standalone Launch mode."/>
   </concept>
   <concept>
     <code value="client-public"/>
     <display value="Public Client Profile"/>
-    <definition value="support for SMART&#x2019;s public client profile (no client authentication)."/>
+    <definition value="support for SMART’s public client profile (no client authentication)."/>
   </concept>
   <concept>
     <code value="client-confidential-symmetric"/>
     <display value="Confidential Client Profile"/>
-    <definition value="support for SMART&#x2019;s confidential client profile (symmetric client secret authentication)."/>
+    <definition value="support for SMART’s confidential client profile (symmetric client secret authentication)."/>
   </concept>
   <concept>
     <code value="sso-openid-connect"/>
     <display value="Supports OpenID Connect"/>
-    <definition value="support for SMART&#x2019;s OpenID Connect profile."/>
+    <definition value="support for SMART’s OpenID Connect profile."/>
   </concept>
   <concept>
     <code value="context-passthrough-banner"/>
     <display value="Allows &quot;Need Patient Banner&quot;"/>
-    <definition value="support for &#x201C;need patient banner&#x201D; launch context (conveyed via need_patient_banner token parameter)."/>
+    <definition value="support for “need patient banner” launch context (conveyed via need_patient_banner token parameter)."/>
   </concept>
   <concept>
     <code value="context-passthrough-style"/>
     <display value="Allows &quot;Smart Style Style&quot;"/>
-    <definition value="support for &#x201C;SMART style URL&#x201D; launch context (conveyed via smart_style_url token parameter)."/>
+    <definition value="support for “SMART style URL” launch context (conveyed via smart_style_url token parameter)."/>
   </concept>
   <concept>
     <code value="context-ehr-patient"/>

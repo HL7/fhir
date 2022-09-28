@@ -4,6 +4,14 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
+[%ballot-note breaking%]
+The following are potentially breaking changes:</p>
+<ul>
+  <li>Bundle.link.relationship has changed from type string to type code and now has a required binding to the codes in http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1</li>
+  <li>The 'outcome' code in Bundle.search.code is now deprecated in favor of the new Bundle.issues element.</li>
+</ul>
+[%end-note-np%]
+
 <p>
 One common operation performed with resources is to gather a collection of resources into a single instance
 with containing context. In FHIR this is referred to as "bundling" the resources together. These resource bundles are useful for a variety of different reasons, including:
@@ -60,7 +68,7 @@ often reference Lists as the focus of particular sections.
 <p>
 These three resources represent meaningful groupings of the resources they refer to (e.g. a discharge medication List, a Group of 
 participants for a clinical trial, a set of resources that form a signed document), while a Bundle is merely is a container for 
-resources used for transfer and storage. This list is not exhaustive; other resources also provde grouping functionality.
+resources used for transfer and storage. This list is not exhaustive; other resources also provide grouping functionality.
 </p>
 
 </div>

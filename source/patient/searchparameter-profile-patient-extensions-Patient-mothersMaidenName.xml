@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
   <id value="patient-extensions-Patient-mothersMaidenName"/>
   <url value="http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName"/>
   <version value="5.0.0"/>
   <name value="mothersMaidenName"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <description value="Search based on patient&#39;s mother&#39;s maiden name"/>
+  <description value="Search based on patient's mother's maiden name"/>
   <code value="mothersMaidenName"/>
   <base value="Patient"/>
   <type value="string"/>
-  <expression value="Patient.extension(&#39;http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName&#39;).value"/>
-  <xpathUsage value="normal"/>
+  <expression value="Patient.extension('http://hl7.org/fhir/StructureDefinition/patient-mothersMaidenName').value"/>
+  <processingMode value="normal"/>
 </SearchParameter>

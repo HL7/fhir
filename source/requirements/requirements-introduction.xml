@@ -48,7 +48,7 @@ statement has:
 <h2>Boundaries and Relationships</h2>
 
 <p>
-Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisifed</a> extension.
+Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisfied</a> extension.
 Generally, this extension will be found in the <a href="canonicalresource.html">Canonical Resources</a> but this is 
 not a hard rule.
 </p>
@@ -71,7 +71,7 @@ and the source of the statements. Additional provenance information should be ca
 <h2>Background and Context</h2>
 <p>
 A number of stakeholders publishing FHIR implementation guides wish to do formal 
-requirements traacing. This resource exists for them.
+requirements tracing. This resource exists for them.
 </p>
 </div>
 

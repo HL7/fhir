@@ -2,17 +2,14 @@
 
 <div>
 
-<blockquote class="stu-note">
-<p>
+[%ballot-note retirement%]
 DocumentManifest will be retired in R5 of FHIR as the functionality has been taken over by other resources such as <a href="list.html">List</a>. Those that require DocumentManifest should look to other resources, or provide Change Requests justifying the need for DocumentManifest.
 </p>
 <p>
 DocumentManifest resources was initially used in document indexing systems, such as <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html">IHE XDS</a>.
 Such as profiled in <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to Health Documents</a>.
 The <a href="https://profiles.ihe.net/ITI/MHD/index.html">IHE Mobile access to Health Documents</a> has moved away from DocumentManifest toward the use of the <a href="list.html">List</a> resource.
-</p>
-</blockquote>
-
+[%end-note%]
 
 <a name="scope"></a>
 <h2>Scope and Usage</h2>

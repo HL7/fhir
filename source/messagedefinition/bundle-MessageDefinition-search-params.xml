@@ -17,8 +17,8 @@
         <code value="category"/>
         <type value="token"/>
         <expression value="MessageDefinition.category"/>
-        <xpath value="f:MessageDefinition/f:category"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:category"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(MessageDefinition.useContext.value as CodeableConcept)"/>
-        <xpath value="f:MessageDefinition/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(MessageDefinition.useContext.value as Quantity) | (MessageDefinition.useContext.value as Range)"/>
-        <xpath value="f:MessageDefinition/f:useContext/f:valueQuantity | f:MessageDefinition/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:useContext/f:valueQuantity | f:MessageDefinition/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="MessageDefinition.useContext.code"/>
-        <xpath value="f:MessageDefinition/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,7 +94,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="MessageDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -118,7 +118,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="MessageDefinition.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -145,8 +145,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="MessageDefinition.date"/>
-        <xpath value="f:MessageDefinition/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +165,8 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="MessageDefinition.description"/>
-        <xpath value="f:MessageDefinition/f:description"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:description"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="event"/>
         <type value="token"/>
         <expression value="MessageDefinition.event"/>
-        <xpath value="f:MessageDefinition/f:eventCoding | f:MessageDefinition/f:eventUri"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:eventCoding | f:MessageDefinition/f:eventUri"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="focus"/>
         <type value="token"/>
         <expression value="MessageDefinition.focus.code"/>
-        <xpath value="f:MessageDefinition/f:focus/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:focus/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="MessageDefinition.identifier"/>
-        <xpath value="f:MessageDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="MessageDefinition.jurisdiction"/>
-        <xpath value="f:MessageDefinition/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:jurisdiction"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="MessageDefinition.name"/>
-        <xpath value="f:MessageDefinition/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -285,8 +285,8 @@
         <code value="parent"/>
         <type value="reference"/>
         <expression value="MessageDefinition.parent"/>
-        <xpath value="f:MessageDefinition/f:parent"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:parent"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -305,8 +305,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="MessageDefinition.publisher"/>
-        <xpath value="f:MessageDefinition/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,8 +325,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="MessageDefinition.status"/>
-        <xpath value="f:MessageDefinition/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -345,8 +345,8 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="MessageDefinition.title"/>
-        <xpath value="f:MessageDefinition/f:title"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:title"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -365,8 +365,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="MessageDefinition.url"/>
-        <xpath value="f:MessageDefinition/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -385,8 +385,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="MessageDefinition.version"/>
-        <xpath value="f:MessageDefinition/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageDefinition/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

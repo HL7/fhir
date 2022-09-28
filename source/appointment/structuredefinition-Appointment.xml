@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Appointment"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1054"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Appointment"/>
   <status value="draft"/>
@@ -178,7 +180,7 @@
       <path value="Appointment.status"/>
       <short value="proposed | pending | booked | arrived | fulfilled | cancelled | noshow | entered-in-error | checked-in | waitlist"/>
       <definition value="The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status."/>
-      <comment value="If the Appointment's status is &quot;cancelled&quot; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
+      <comment value="If the Appointment's status is &#34;cancelled&#34; then all participants are expected to have their calendars released for the appointment period, and as such any Slots that were marked as BUSY can be re-set to FREE.&#xA;&#xA;This element is labeled as a modifier because the status contains the code entered-in-error that mark the Appointment as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -238,6 +240,37 @@
         <map value="n/a"/>
       </mapping>
     </element>
+    <element id="Appointment.class">
+      <path value="Appointment.class"/>
+      <short value="Classification when becoming an encounter"/>
+      <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterClass"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Classification of the encounter."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/EncounterClass"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-2"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code"/>
+      </mapping>
+    </element>
     <element id="Appointment.serviceCategory">
       <path value="Appointment.serviceCategory"/>
       <short value="A broad categorization of the service that is to be performed during this appointment"/>
@@ -268,7 +301,7 @@
       <path value="Appointment.serviceType"/>
       <short value="The specific service that is to be performed during this appointment"/>
       <definition value="The specific service that is to be performed during this appointment."/>
-      <comment value="For a provider to provider appointment the code &quot;FOLLOWUP&quot; may be appropriate, as this is expected to be discussing some patient that was seen in the past."/>
+      <comment value="For a provider to provider appointment the code &#34;FOLLOWUP&#34; may be appropriate, as this is expected to be discussing some patient that was seen in the past."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -703,7 +736,7 @@
       <path value="Appointment.note"/>
       <short value="Additional comments"/>
       <definition value="Additional notes/comments about the appointment."/>
-      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &quot;patient should proceed immediately to infusion room upon arrival&quot;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#xD;&#xD;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
+      <comment value="Additional text to aid in facilitating the appointment. For instance, a note might be, &#34;patient should proceed immediately to infusion room upon arrival&#34;&#xD;&#xD;Where this is a planned appointment and the start/end dates are not set then this field can be used to provide additional guidance on the details of the appointment request, including any restrictions on when to book it.&#xD;&#xD;Typically only the concept.text will be used, however occasionally a reference to some generic documentation (or specific) and also supports coded instructions if/when they are required."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -916,7 +949,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not &quot;information-only&quot;"/>
+        <map value="ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not &#34;information-only&#34;"/>
       </mapping>
     </element>
     <element id="Appointment.participant.required">
@@ -967,7 +1000,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="ATTENDEE;CN=&quot;John Doe&quot;;RSVP=TRUE:mailto:john@doe.com (rsvpparam | partstatparam)"/>
+        <map value="ATTENDEE;CN=&#34;John Doe&#34;;RSVP=TRUE:mailto:john@doe.com (rsvpparam | partstatparam)"/>
       </mapping>
     </element>
     <element id="Appointment.requestedPeriod">

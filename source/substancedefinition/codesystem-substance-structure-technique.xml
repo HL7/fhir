@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="substance-structure-technique"/>
   <meta>
@@ -17,7 +18,7 @@
   <url value="http://hl7.org/fhir/substance-structure-technique"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1623"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2082"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceStructureTechnique"/>
@@ -36,7 +37,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value=""/>
+  <description value="SubstanceStructureTechnique"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
   <content value="complete"/>
@@ -60,4 +61,4 @@
     <code value="LigandBindingAssay"/>
     <display value="Ligand binding assay"/>
   </concept>
- </CodeSystem>
+</CodeSystem>

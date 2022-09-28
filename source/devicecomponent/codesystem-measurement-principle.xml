@@ -6,12 +6,18 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/measurement-principle"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1817"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="MeasurementPrinciple"/>
+  <experimental value="true"/>
+  <description value="MeasurementPrinciple"/>
   <concept>
     <code value="other"/>
     <display value="MSP Other"/>
-    <definition value="Measurement principle isn&#39;t in the list."/>
+    <definition value="Measurement principle isn't in the list."/>
   </concept>
   <concept>
     <code value="chemical"/>

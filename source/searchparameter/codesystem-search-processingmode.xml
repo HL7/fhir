@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="search-processingmode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/search-processingmode"/>
+  <version value="5.0.0-cibuild"/>
+  <name value="SearchProcessingModeType"/>
+  <title value="SearchProcessingModeType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="How a search parameter relates to the set of elements returned by evaluating its expression query."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/search-processingmode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="normal"/>
+    <display value="Normal"/>
+    <definition value="The search parameter is derived directly from the selected nodes based on the type definitions."/>
+  </concept>
+  <concept>
+    <code value="phonetic"/>
+    <display value="Phonetic"/>
+    <definition value="The search parameter is derived by a phonetic transform from the selected nodes."/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="The interpretation of the xpath statement is unknown (and can't be automated)."/>
+  </concept>
+</CodeSystem>

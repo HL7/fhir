@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Encounter"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1268"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="Encounter"/>
   <status value="draft"/>
@@ -85,7 +87,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="PatientEncounter[@moodCode=&#39;EVN&#39;]"/>
+        <map value="PatientEncounter[@moodCode='EVN']"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -121,8 +123,8 @@
     </element>
     <element id="Encounter.status">
       <path value="Encounter.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -180,8 +182,8 @@
     </element>
     <element id="Encounter.statusHistory.status">
       <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | onhold | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <short value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <definition value="planned | in-progress | onhold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -216,10 +218,10 @@
     </element>
     <element id="Encounter.class">
       <path value="Encounter.class"/>
-      <short value="Classification of patient encounter"/>
+      <short value="Classification of patient encounter context - e.g. Inpatient, outpatient"/>
       <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -228,9 +230,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Classification of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/EncounterClass"/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -278,9 +280,9 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EncounterClass"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="preferred"/>
         <description value="Classification of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/EncounterClass"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -333,7 +335,7 @@
     </element>
     <element id="Encounter.type">
       <path value="Encounter.type"/>
-      <short value="Specific type of encounter"/>
+      <short value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, ...)"/>
       <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
       <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
       <min value="0"/>
@@ -440,7 +442,7 @@
     <element id="Encounter.subjectStatus">
       <path value="Encounter.subjectStatus"/>
       <short value="The current status of the subject in relation to the Encounter"/>
-      <definition value="The subjectStatus value can be used to track the patient&#39;s status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -525,7 +527,7 @@
       <path value="Encounter.partOf"/>
       <short value="Another Encounter this encounter is part of"/>
       <definition value="Another Encounter of which this encounter is a part of (administratively or in time)."/>
-      <comment value="This is also used for associating a child&#39;s encounter back to the mother&#39;s encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
+      <comment value="This is also used for associating a child's encounter back to the mother's encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -547,7 +549,7 @@
     <element id="Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter&#39;s services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -574,6 +576,7 @@
       <path value="Encounter.participant"/>
       <short value="List of participants involved in the encounter"/>
       <definition value="The list of people responsible for providing the service."/>
+      <comment value="Any Patient or Group present in the participation.actor must also be the subject, though the subject may be absent from the participation.actor for cases where the patient (or group) is not present, such as during a case review conference."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -584,6 +587,13 @@
         <severity value="error"/>
         <human value="A type must be provided when no explicit actor is specified"/>
         <expression value="actor.exists() or type.exists()"/>
+        <xpath value="'true' // going to be deleted anyway"/>
+      </constraint>
+      <constraint>
+        <key value="enc-2"/>
+        <severity value="error"/>
+        <human value="A type cannot be provided for a patient or group participant"/>
+        <expression value="actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()"/>
         <xpath value="'true' // going to be deleted anyway"/>
       </constraint>
       <isSummary value="true"/>
@@ -635,7 +645,7 @@
     <element id="Encounter.participant.period">
       <path value="Encounter.participant.period"/>
       <short value="Period of time during the encounter that the participant participated"/>
-      <definition value="The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter&#39;s period."/>
+      <definition value="The period of time that the specified participant participated in the encounter. These can overlap or be sub-sets of the overall encounter's period."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -780,9 +790,9 @@
     </element>
     <element id="Encounter.length">
       <path value="Encounter.length"/>
-      <short value="Quantity of time the encounter lasted (less time absent)"/>
-      <definition value="Quantity of time the encounter lasted. This excludes the time during leaves of absence."/>
-      <comment value="May differ from the time the Encounter.period lasted because of leave of absence."/>
+      <short value="Actual quantity of time the encounter lasted (less time absent)"/>
+      <definition value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#xD;&#xD;When missing it is the time in between the start and end values."/>
+      <comment value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -794,7 +804,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="(PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes"/>
+        <map value="(PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes or PV2-11 (which is actual length in days)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -898,8 +908,8 @@
     </element>
     <element id="Encounter.diagnosis.use">
       <path value="Encounter.diagnosis.use"/>
-      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge &#x2026;)"/>
-      <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge &#x2026;)."/>
+      <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)"/>
+      <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1039,7 +1049,7 @@
     </element>
     <element id="Encounter.admission.reAdmission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This concept doesn&#x2019;t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
+        <valueString value="This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
       <path value="Encounter.admission.reAdmission"/>
       <short value="The type of re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
@@ -1071,7 +1081,7 @@
       <short value="Diet preferences reported by the patient"/>
       <definition value="Diet preferences reported by the patient."/>
       <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
-      <requirements value="Used to track patient&#39;s diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
+      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1091,7 +1101,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&#34;diet&#34;]"/>
       </mapping>
     </element>
     <element id="Encounter.admission.specialCourtesy">
@@ -1199,7 +1209,7 @@
       <path value="Encounter.location"/>
       <short value="List of locations where the patient has been"/>
       <definition value="List of locations where  the patient has been during this encounter."/>
-      <comment value="Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &quot;kind&quot; such as &quot;client&#39;s home&quot; and an encounter.class = &quot;virtual&quot;."/>
+      <comment value="Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &#34;kind&#34; such as &#34;client's home&#34; and an encounter.class = &#34;virtual&#34;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1240,7 +1250,7 @@
     <element id="Encounter.location.status">
       <path value="Encounter.location.status"/>
       <short value="planned | active | reserved | completed"/>
-      <definition value="The status of the participants&#39; presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time."/>
+      <definition value="The status of the participants' presence at the specified location during the period specified. If the participant is no longer at the location, then the period will have an end date/time."/>
       <comment value="When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed."/>
       <min value="0"/>
       <max value="1"/>
@@ -1260,9 +1270,9 @@
         <map value=".role.statusCode"/>
       </mapping>
     </element>
-    <element id="Encounter.location.physicalType">
-      <path value="Encounter.location.physicalType"/>
-      <short value="The physical type of the location (usually the level in the location hierachy - bed room ward etc.)"/>
+    <element id="Encounter.location.form">
+      <path value="Encounter.location.form"/>
+      <short value="The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"/>
       <definition value="This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query."/>
       <comment value="This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.&#xA;&#xA;There may be many levels in the hierachy, and this may only pic specific levels that are required for a specific usage scenario."/>
       <min value="0"/>
@@ -1272,11 +1282,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PhysicalType"/>
+          <valueString value="LocationForm"/>
         </extension>
         <strength value="example"/>
         <description value="Physical form of the location."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/location-physical-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
       </binding>
     </element>
     <element id="Encounter.location.period">

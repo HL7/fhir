@@ -1,13 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="occupation-cdc-census-2010"/>
   <url value="http://hl7.org/fhir/ValueSet/occupation-cdc-census-2010"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.114222.4.11.7186"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3283"/>
   </identifier>
-  <name value="Occupation CDC Census 2010"/>
+  <name value="OccupationCDCCensus2010"/>
+  <title value="Occupation CDC Census 2010"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="CDC PHIN VADS"/>
   <contact>
     <telecom>
@@ -15,8 +18,7 @@
       <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186"/>
     </telecom>
   </contact>
-  <description
-    value="A value set consisting of all codes from the 2010 Occupation coding system used by CDC (NIOSH &amp; NCHS) for coding a person&apos;s type of work. Occupation describes a set of activities or tasks that an individual is paid to perform or, if unpaid, define the person&apos;s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation."/>
+  <description value="A value set consisting of all codes from the 2010 Occupation coding system used by CDC (NIOSH &amp; NCHS) for coding a person's type of work. Occupation describes a set of activities or tasks that an individual is paid to perform or, if unpaid, define the person's contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation."/>
   <compose>
     <include>
       <system value="urn:oid:2.16.840.1.114222.4.5.314"/>

@@ -1,14 +1,17 @@
-<?xml version='1.0' encoding='UTF-8'?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
   <id value="safety-entries"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown">
     <valueBoolean value="true"/>
   </extension>
   <url value="http://hl7.org/fhir/safety-entries"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1819"/>
+  </identifier>
   <name value="FHIRSafetyCheckListEntries"/>
   <title value="FHIR Safety CheckList Entries"/>
   <status value="draft"/>
+  <experimental value="false"/>
   <publisher value="FHIR Project"/>
   <description value="The [check list items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/safety-entries"/>

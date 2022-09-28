@@ -14,8 +14,10 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.1316"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="MedicationDispense Status Reason Codes"/>
+  <name value="MedicationDispenseStatusReasonCodes"/>
+  <title value="MedicationDispense Status Reason Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

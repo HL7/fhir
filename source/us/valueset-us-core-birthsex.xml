@@ -1,37 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="us-core-birthsex"/>
-	<url value="http://hl7.org/fhir/ValueSet/us-core-birthsex"/>
-	<version value="3.1.0"/>
-	<name value="US Core Birth Sex Value Set"/>
-	<status value="active"/>
-	<date value="2016-08-10"/>
-	<publisher value="US Realm Steering Committee"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<description value="Codes for assigning sex at birth as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc)"/>
-	<compose>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"/>
-			<concept>
-				<code value="F"/>
-				<display value="Female"/>
-			</concept>
-			<concept>
-				<code value="M"/>
-				<display value="Male"/>
-			</concept>
-		</include>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
-			<concept>
-				<code value="UNK"/>
-				<display value="Unknown"/>
-			</concept>
-		</include>
-	</compose>
+  <id value="us-core-birthsex"/>
+  <url value="http://hl7.org/fhir/ValueSet/us-core-birthsex"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2990"/>
+  </identifier>
+  <version value="3.1.0"/>
+  <name value="USCoreBirthSexVS"/>
+  <title value="US Core Birth Sex Value Set"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2016-08-10"/>
+  <publisher value="US Realm Steering Committee"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Codes for assigning sex at birth as specified by the [Office of the National Coordinator for Health IT (ONC)](https://www.healthit.gov/newsroom/about-onc)"/>
+  <compose>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender"/>
+      <concept>
+        <code value="F"/>
+        <display value="Female"/>
+      </concept>
+      <concept>
+        <code value="M"/>
+        <display value="Male"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
+    </include>
+  </compose>
 </ValueSet>

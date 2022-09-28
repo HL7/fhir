@@ -11,11 +11,13 @@
   <url value="http://hl7.org/fhir/ValueSet/medication-cost-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3230"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication Cost Category Codes"/>
+  <name value="MedicationCostCategoryCodes"/>
+  <title value="Medication Cost Category Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

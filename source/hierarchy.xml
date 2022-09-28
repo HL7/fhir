@@ -29,6 +29,7 @@ signatures.html
       <page title="OID List" filename="oids.html"/>
       <page title="Workgroup List" filename="wglist.html"/>
       <page title="Getting Started" filename="modules.html"/>
+      <page title="Broken Link Page" filename="broken-link.html"/>
       <page title="ANSI Documentation" filename="ansi.html">
       <!---
         <page title="ANSI FHIR Infrastructure Standard" filename="ansi-infrastructure.html"/>
@@ -77,7 +78,7 @@ signatures.html
         <page title="NPM Packages" filename="packages.html"/>
         <page title="Version History" filename="history.html"/>
         <page title="Differences from Release 3" filename="diff.html"/>
-        <page title="Release 2/3 Transforms" filename="r3maps.html"/>
+        <page title="Release 4/5 Transforms" filename="r4maps.html"/>
         <page title="Logical models" filename="logical.html"/>
 
         <page title="Introduction" filename="overview.html"/>
@@ -96,41 +97,40 @@ signatures.html
           <page title="Detailed Descriptions" filename="types-definitions.html"/>
           <page title="Profiles and Extensions" filename="types-extras.html"/>
           <page title="Mappings" filename="types-mappings.html"/>
-          <page title="R3 Conversions" filename="types-version-maps.html"/>
+          <page title="R4 Conversions" filename="types-version-maps.html"/>
+          <page type="resource" resource="Resource">
+            <page title="Definitions" filename="resource-definitions.html"/>
+          </page>
+          <page type="resource" resource="DomainResource"/>
+          <page type="resource" resource="CanonicalResource"/>
+          <page type="resource" resource="MetadataResource"/>
         </page>
-        <page title="Data Types" filename="datatypes.html">
+        <page title="DataTypes" filename="datatypes.html">
           <page title="Examples" filename="datatypes-examples.html"/>
           <page title="Detailed Descriptions" filename="datatypes-definitions.html"/>
           <page title="Mappings" filename="datatypes-mappings.html"/>
           <page title="Profiles and Extensions" filename="datatypes-extras.html"/>
-          <page title="R3 Conversions" filename="datatypes-version-maps.html"/>
-        </page>
-        <page title="MetaData Types" filename="metadatatypes.html">
-          <page title="Examples" filename="metadatatypes-examples.html"/>
-          <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
-          <page title="Mappings" filename="metadatatypes-mappings.html"/>
+          <page title="R4 Conversions" filename="datatypes-version-maps.html"/>
+          <page title="MetaData Types" filename="metadatatypes.html">
+            <page title="Examples" filename="metadatatypes-examples.html"/>
+            <page title="Detailed Descriptions" filename="metadatatypes-definitions.html"/>
+            <page title="Mappings" filename="metadatatypes-mappings.html"/>
+          </page>
+          <page title="ElementDefinition" filename="elementdefinition.html">
+            <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
+            <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
+            <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
+            <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
+          </page>
         </page>
         <page title="Resource Guide" filename="resourceguide.html"/>
         <page title="5Ws Pattern" filename="fivews.html"/>
         <page title="FMG Process Page" filename="fmg.html"/>
       </page>
-      <page type="resource" resource="Resource">
-        <page title="Definitions" filename="resource-definitions.html"/>
-      </page>
-      <page type="resource" resource="DomainResource"/>
-      <page type="resource" resource="CanonicalResource"/>
-      <page type="resource" resource="MetadataResource"/>
-      <page title="ElementDefinition" filename="elementdefinition.html">
-        <page title="ElementDefinition Examples" filename="elementdefinition-examples.html"/>
-        <page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
-        <page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
-        <page title="Profiles and Extensions" filename="elementdefinition-extras.html"/>
-      </page>
       <!-- infrastructure resources -->
       <page type="resource" resource="Basic"/>
       <page type="resource" resource="Binary"/>
       <page type="resource" resource="Bundle"/>
-
 
       <page type="resource" resource="Questionnaire"/>
       <page type="resource" resource="QuestionnaireResponse"/>
@@ -150,6 +150,15 @@ signatures.html
     </page>
 
     <page title="Exchange" filename="exchange-module.html" icon="exchange.png">
+      <page title="Approaches to Exchanging FHIR Data" filename="exchanging.html">
+        <page title="Exchanging with FHIR Search" filename="exchanging-search.html"/>
+        <page title="Exchanging with FHIR REST" filename="exchanging-rest.html"/>
+        <page title="Exchanging with FHIR Subscription" filename="exchanging-subscription.html"/>
+        <page title="Exchanging with Polling" filename="exchanging-polling.html"/>
+        <page title="Exchanging with FHIR Operations" filename="exchanging-operation.html"/>
+        <page title="Exchanging with Messaging" filename="exchanging-messaging.html"/>
+        <page title="Exchanges Allowing Human Intervention" filename="exchanging-request.html"/>
+      </page>
       <page title="RESTful API" filename="http.html">
         <page title="Search" filename="search.html"/>
         <page title="GraphQL" filename="graphql.html"/>

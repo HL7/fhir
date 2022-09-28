@@ -11,12 +11,14 @@
   <url value="http://hl7.org/fhir/CodeSystem/medicationdispense-status-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1317"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1973"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication Dispense Status Reason Codes"/>
+  <name value="MedicationDispenseStatusReasonCodes"/>
+  <title value="Medication Dispense Status Reason Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="Medication Dispense Status Reason Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"/>
   <content value="complete"/>
@@ -63,7 +65,7 @@
   <concept>
     <code value="drughigh"/>
     <display value="Drug level too high"/>
-    <definition value="The current level of the medication in the patient&#39;s system is too high. The medication is suspended to allow the level to subside to a safer level."/>
+    <definition value="The current level of the medication in the patient's system is too high. The medication is suspended to allow the level to subside to a safer level."/>
   </concept>
   <concept>
     <code value="hospadm"/>

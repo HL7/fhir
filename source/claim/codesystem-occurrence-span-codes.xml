@@ -1,8 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-claimoccurrancespan"/>
-  <name value="Example Occurrance Span Codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1873"/>
+  </identifier>
+  <name value="ExampleOccurranceSpanCodes"/>
+  <title value="Example Occurrance Span Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="This value set includes sample Occurrance Span codes."/>

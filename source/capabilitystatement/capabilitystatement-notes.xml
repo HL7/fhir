@@ -63,7 +63,7 @@ a server supports or a client uses. The search can specify the following things:
  to the original definition of the search parameter)</li>
  <li>Systems can also make statements about their use or support for system wide search (not associated with a particular resource type)</li>
 </ul>
-[%stu-note%]
+[%stu-note reverse%]
 It is useful to support discovery of which reverse chaining values a server supports. Clients should not assume that servers support reverse chaining everywhere they support forward chaining. This will require a new field somewhere (e.g., in CapabilityStatement or in SearchParameter). Will review with FHIR-I, re: the best place to put this.
 </p>
 <p>
@@ -86,7 +86,7 @@ Open question #2: concern is that the possibility space is so broad that it migh
 [%end-note%]
 
 
-[%stu-note%]
+[%stu-note search%]
 There is no way for a server to communicate how it supports search at this time. 
 FHIR-I plans to address this and other search issues for R6.
 [%end-note%]

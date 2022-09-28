@@ -17,6 +17,7 @@
   <name value="USCLSCodes"/>
   <title value="USCLS Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

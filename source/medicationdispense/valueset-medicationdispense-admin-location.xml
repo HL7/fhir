@@ -11,11 +11,13 @@
   <url value="http://hl7.org/fhir/ValueSet/medicationdispense-admin-location"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1512"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3080"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="MedicationDispense Administration Location Codes"/>
+  <name value="MedicationDispenseAdministrationLocationCodes"/>
+  <title value="MedicationDispense Administration Location Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

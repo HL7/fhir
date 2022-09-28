@@ -17,8 +17,8 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="FormularyItem.code"/>
-        <xpath value="f:FormularyItem/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:FormularyItem/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="FormularyItem.identifier"/>
-        <xpath value="f:FormularyItem/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:FormularyItem/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

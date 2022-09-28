@@ -11,16 +11,17 @@
   <url value="http://hl7.org/fhir/ValueSet/audit-media-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2982"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="AuditMediaType"/>
   <title value="Audit Agent Media Type"/>
   <status value="active"/>
+  <experimental value="true"/>
   <date value="2020-08-04"/>
   <publisher value="HL7 (FHIR Project)"/>
   <description value="Agent Media Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>

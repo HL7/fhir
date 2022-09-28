@@ -16,9 +16,9 @@
         <description value="The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to search its contents"/>
         <code value="composition"/>
         <type value="reference"/>
-        <expression value="Bundle.entry[0].resource"/>
-        <xpath value="f:Bundle/f:entry[0]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <expression value="Bundle.entry[0].resource as Composition"/>
+        <!--<xpath value="f:Bundle/f:entry[0]/f:resource[f:Composition]"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Bundle.identifier"/>
-        <xpath value="f:Bundle/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Bundle/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -56,9 +56,9 @@
         <description value="The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents"/>
         <code value="message"/>
         <type value="reference"/>
-        <expression value="Bundle.entry[0].resource"/>
-        <xpath value="f:Bundle/f:entry[0]/f:resource"/>
-        <xpathUsage value="normal"/>
+        <expression value="Bundle.entry[0].resource as MessageHeader"/>
+        <!--<xpath value="f:Bundle/f:entry[0]/f:resource[f:MessageHeader]"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="timestamp"/>
         <type value="date"/>
         <expression value="Bundle.timestamp"/>
-        <xpath value="f:Bundle/f:timestamp"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Bundle/f:timestamp"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="Bundle.type"/>
-        <xpath value="f:Bundle/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:Bundle/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

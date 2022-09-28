@@ -17,8 +17,8 @@
         <code value="category"/>
         <type value="token"/>
         <expression value="SupplyRequest.category"/>
-        <xpath value="f:SupplyRequest/f:category"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:category"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="SupplyRequest.authoredOn"/>
-        <xpath value="f:SupplyRequest/f:authoredOn"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:authoredOn"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="SupplyRequest.identifier"/>
-        <xpath value="f:SupplyRequest/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="requester"/>
         <type value="reference"/>
         <expression value="SupplyRequest.requester"/>
-        <xpath value="f:SupplyRequest/f:requester"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:requester"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="SupplyRequest.status"/>
-        <xpath value="f:SupplyRequest/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="SupplyRequest.deliverTo"/>
-        <xpath value="f:SupplyRequest/f:deliverTo"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:deliverTo"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="supplier"/>
         <type value="reference"/>
         <expression value="SupplyRequest.supplier"/>
-        <xpath value="f:SupplyRequest/f:supplier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:SupplyRequest/f:supplier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

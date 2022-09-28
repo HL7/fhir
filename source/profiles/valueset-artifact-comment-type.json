@@ -7,7 +7,11 @@
     ]
   },
   "url": "http://hl7.org/fhir/ValueSet/artifact-comment-type",
-  "version": "4.6.0",
+  "identifier" : [{
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:2.16.840.1.113883.4.642.3.1464"
+  }],
+  "version": "5.0.0",
   "name": "ArtifactCommentType",
   "status": "active",
   "experimental": false,

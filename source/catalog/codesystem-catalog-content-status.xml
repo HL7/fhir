@@ -6,8 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/catalog-content-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1810"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="CatalogContentStatus"/>
+  <experimental value="false"/>
+  <description value="CatalogContentStatus"/>
   <concept>
     <code value="approved"/>
     <display value="Approved"/>

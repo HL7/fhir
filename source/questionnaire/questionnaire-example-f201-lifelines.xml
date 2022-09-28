@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
+<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
   <id value="f201"/>
   <text>
     <status value="generated"/>
@@ -17,6 +16,10 @@
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/f201"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.20.6"/>
+  </identifier>
   <status value="active"/>
   <subjectType value="Patient"/>
   <date value="2010"/>

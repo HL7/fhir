@@ -83,7 +83,7 @@ in order to support consistent definitions for schema and UML derived code.
 	</thead>
 	<tbody>
 		<tr><td><a href="activitydefinition.html">ActivityDefinition</a></td><td>A resource to represent definitional resources.</td></tr>
-		<tr><td><a href="metadatatypes.html#datarequirement.html">DataRequirement</a></td><td>A datatype that represents a general data requirement for a knowledge asset such as a decision support rule or quality measure.</td></tr>
+		<tr><td><a href="metadatatypes.html#DataRequirement.html">DataRequirement</a></td><td>A datatype that represents a general data requirement for a knowledge asset such as a decision support rule or quality measure.</td></tr>
 		<tr><td><a href="guidanceresponse.html">GuidanceResponse</a></td><td>Represents the result from invoking a decision support service.</td></tr>
 		<tr><td><a href="library.html">Library</a></td><td>Provides a container for knowledge artifacts that includes logic libraries, model definitions, and asset collections.</td></tr>
 		<tr><td><a href="measure.html">Measure</a></td><td>Represents a clinical quality measure and provides evaluation through the $evaluate-measure operation.</td></tr>
@@ -118,6 +118,7 @@ in order to support consistent definitions for schema and UML derived code.
 		<tr><td><a href="extension-cqf-contributiontime.html">contributionTime</a></td><td>An extension that can be applied to a ContactDetail to indicate the time when a contributor made their contribution.</td></tr>
 		<tr><td><a href="extension-cqf-parameterdefinition.html">parameterDefinition</a></td><td>An extension that can be applied to a TriggerDefinition to indicate a parameter that is supplied to the event handler for the trigger.</td></tr>
 		<tr><td><a href="extension-cqf-parameterdefinition.html">isPrefetchToken</a></td><td>An extension that can be applied to a ParameterDefinition to indicate whether the parameter may be used to parameterize prefetch queries.</td></tr>
+		<tr><td><a href="extension-cqf-supportedcqlversion.html">supportedCqlVersion</a></td><td>An extension that can be applied to a CapabilityStatement to indicate what versions of CQL a server supports processing.</td></tr>
 	</tbody>
 </table>
 
@@ -238,8 +239,7 @@ in order to support consistent definitions for schema and UML derived code.
 
 <p>The goals of the module over the next year are to provide a stable basis for implementation of the sharing use case, as well as unification with the CDS Hooks specification in support of the evaluation use case. The Clinical Quality Framework Initiative will use these resources as the basis for implementation projects, targeting an FMM level of 3 or 4 for all module resources within a year.</p>
 
-<a name="crm-feedback"></a>
-[%stu-note%]
+[%stu-note crm-feedback%]
 We are actively seeking comments on all areas of the module, with particular focus on supporting the following scenarios:
 </p>
 <ul>

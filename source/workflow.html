@@ -294,12 +294,23 @@ in order to support consistent definitions for schema and UML derived code.
             elements typically present on all definition resources.
         </p>
 
+        <a name="extensions"></a>
+        <h4>Pattern extensions</h4>
+        <p>
+          Not all elements listed in the patterns will necessarily be included as elements in the resources that adhere to the patterns.  In some cases, the elements simply aren't relevant for the resource.  However, in other cases, the elements might
+          be relevant, but are not widely supported by existing systems.  In these cases, extensions may be used.  This specification defines a number of 'common' extensions that correspond to standard workflow elements found in the patterns and, in a
+          few cases, elements that were candidates for inclusion in the patterns but were not common enough for inclusion in any of the resources but were still felt to be useful.  These extensions are found in three collections:
+        </p>
+        <ul>
+          <li><a href="event-extensions.html">Event pattern extensions</a> are focused on extensions that only apply to 'event' resources</li>
+          <li><a href="request-extensions.html">Request pattern extensions</a> are focused on extensions that only apply to 'request' resources</li>
+          <li><a href="workflow-extensions.html">Workflow pattern extensions</a> apply to a variety of workflow patterns</li>
+        </ul>
 
-        <a name="issues"></a>
+
         <h3>Open Issues</h3>
-        <blockquote class="stu-note">
-            <p>
-                <b>STU Notes:</b>
+        [%stu-note issues%]
+                <b>Workflow Issues</b>
             </p>
             <ul>
                 <li>It is possible to replace some portions of the <a href="messageheader.html">MessageHeader</a> with a reference to the <a href="task.html">Task</a> resource. Doing so would mean consistency in how asynchronous requests are represented using
@@ -315,8 +326,7 @@ in order to support consistent definitions for schema and UML derived code.
             </ul>
             <p>
                 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
-            </p>
-        </blockquote>
+        [%end-note%]
 
     [%file newfooter%]
 </body>

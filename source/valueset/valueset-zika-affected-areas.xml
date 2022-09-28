@@ -4,6 +4,10 @@
   <id value="zika-affected-areas"/>
   <url value="http://hl7.org/fhir/ValueSet/zika-affected-areas"/>
   <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3140"/>
+  </identifier>
+  <identifier>
     <use value="usual"/>
     <value value="Zika Affected Areas"/>
   </identifier>
@@ -13,10 +17,12 @@
     <value value="2.16.840.1.114222.4.11.7457"/>
   </identifier>
   <version value="1.0.0"/>
-  <name value="zika-affected-areas"/>
+  <name value="ZikaAffectedAreas"/>
   <title value="Zika Affected Areas"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="PHINVADS"/>
+  <description value="Zika Affected Areas"/>
   <compose>
     <include>
       <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7457"/>

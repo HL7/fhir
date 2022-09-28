@@ -1,8 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Document Reference Service Types"/>
+  <name value="DocumentReferenceServiceTypes"/>
+  <title value="Document Reference Service Types"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 FHIR"/>
   <contact>
     <telecom>
@@ -11,16 +13,4 @@
     </telecom>
   </contact>
   <description value="Known Service types that can be referred to from a Document Reference"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/document-reference-service-types"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="XDS"/>
-      <display value="IHE XDS"/>
-    </concept>
-    <concept>
-      <code value="RLUS"/>
-      <display value="OMG RLUS"/>
-    </concept>
-  </codeSystem>
 </ValueSet>

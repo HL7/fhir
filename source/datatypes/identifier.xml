@@ -837,7 +837,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">An identifier intended for computation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Need to be able to identify things with confidence and be sure that the identification is not subject to misinterpretation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">The rules of the identifier.type  determine if a check digit is part of the ID value or sent separately, such as through the checkDigit extension.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">II - The Identifier class is a little looser than the v3 type II because it allows URIs as well as registered OIDs or GUIDs.  Also maps to Role[classCode=IDENT]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">CX / EI (occasionally, more often EI maps to a resource id or a URL)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3509,7 +3509,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6265,7 +6265,7 @@
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Usual</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">The identifier recommended for display and use in real-world interactions.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The identifier recommended for display and use in real-world interactions which should be used when such identifier is different from the "official" identifier.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s140"/>

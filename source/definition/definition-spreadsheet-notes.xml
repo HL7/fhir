@@ -1,5 +1,14 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+  <a name="extensions"> </a>
+  <h2>Definition extensions</h2>
+  <p>
+    Not all resources that adhere to the Definition pattern will necessarily include all pattern elements as 'core' elements.  This guide defines
+    extensions for certain pattern elements that may be relevant but are not supported widely enough for direct inclusion in some resources.
+    The extensions relevant for 'definition' resources can be found in the <a href="workflow-extensions.html">Workflow pattern extensions</a> section 
+    of this specification.
+  </p>
+
   <a name="statemachine"></a>
   <h2>State Machine</h2>
   <p>

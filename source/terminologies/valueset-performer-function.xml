@@ -1,9 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="perfomer-function"/>
-	<url value="http://hl7.org/fhir/ValueSet/performer-function"/>
-  <name value="Performer Function Codes"/>
+  <url value="http://hl7.org/fhir/ValueSet/performer-function"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3012"/>
+  </identifier>
+  <name value="PerformerFunctionCodes"/>
+  <title value="Performer Function Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Orders and Observations WG"/>
   <contact>
     <telecom>
@@ -16,60 +23,46 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
       <concept>
-        <code value="TRANS">
-        </code>
+        <code value="TRANS"/>
       </concept>
       <concept>
-        <code value="PART">
-        </code>
+        <code value="PART"/>
       </concept>
       <concept>
-        <code value="ATND">
-        </code>
+        <code value="ATND"/>
       </concept>
       <concept>
-        <code value="CON">
-        </code>
+        <code value="CON"/>
       </concept>
       <concept>
-        <code value="AUT">
-        </code>
+        <code value="AUT"/>
       </concept>
       <concept>
-        <code value="INF">
-        </code>
+        <code value="INF"/>
       </concept>
       <concept>
-        <code value="ENT">
-        </code>
+        <code value="ENT"/>
       </concept>
       <concept>
-        <code value="WIT">
-        </code>
+        <code value="WIT"/>
       </concept>
       <concept>
-        <code value="PPRF">
-        </code>
+        <code value="PPRF"/>
       </concept>
       <concept>
-        <code value="SPRF">
-        </code>
+        <code value="SPRF"/>
       </concept>
       <concept>
-        <code value="RESP">
-        </code>
+        <code value="RESP"/>
       </concept>
       <concept>
-        <code value="VRF">
-        </code>
+        <code value="VRF"/>
       </concept>
       <concept>
-        <code value="AUTHEN">
-        </code>
+        <code value="AUTHEN"/>
       </concept>
       <concept>
-        <code value="LA">
-        </code>
+        <code value="LA"/>
       </concept>
     </include>
   </compose>

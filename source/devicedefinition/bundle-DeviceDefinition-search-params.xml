@@ -17,8 +17,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="DeviceDefinition.identifier"/>
-        <xpath value="f:DeviceDefinition/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:DeviceDefinition/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="parent"/>
         <type value="reference"/>
         <expression value="DeviceDefinition.parentDevice"/>
-        <xpath value="f:DeviceDefinition/f:parentDevice"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:DeviceDefinition/f:parentDevice"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="DeviceDefinition.classification.type"/>
-        <xpath value="f:DeviceDefinition/f:classification/f:type"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:DeviceDefinition/f:classification/f:type"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

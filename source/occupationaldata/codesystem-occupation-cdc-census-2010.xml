@@ -1,15 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/codesystem.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="occupation-cdc-census-2010"/>
   <url value="urn:oid:2.16.840.1.114222.4.5.314"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.114222.4.5.314"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2012"/>
   </identifier>
   <version value="2010"/>
-  <name value="Occupation CDC Census 2010"/>
+  <name value="OccupationCDCCensus2010"/>
   <title value="Occupation CDC Census 2010"/>
   <status value="active"/>
+  <experimental value="true"/>
   <publisher value="CDC PHIN Vocab and Msg"/>
   <contact>
     <telecom>
@@ -18,7 +20,7 @@
     </telecom>
   </contact>
   <description value="2010 Occupation coding system used by CDC (NIOSH &amp; NCHS) for coding occupation text. Occupation describes a set of activities or tasks that individuals are paid to perform or, if unpaid, define a person’s contribution to a household/family business/community. This code system includes 2010 U.S. Census Bureau occupation codes with modifications made by CDC for unpaid workers and military occupations. The 2010 Census occupation categories are based on the 2010 BLS Standard Occupational Classification (SOC) system. The PH_Industry_CDC_Census2010 code system should be used in conjunction with this occupation code system when coding both industry and occupation. For more information and instructions on using this coding system, see the instruction manual for CDC-Census I&amp;O coding at: http://www.cdc.gov/niosh/topics/coding/"/>
- <caseSensitive value="true"/>
- <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186"/>
- <content value="not-present"/>
+  <caseSensitive value="true"/>
+  <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186"/>
+  <content value="not-present"/>
 </CodeSystem>

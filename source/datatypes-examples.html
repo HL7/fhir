@@ -12,21 +12,20 @@
 
 <%dtheader examples%>
 <h2>Datatype Examples</h2>
-<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg mnm%]">[%wgt mnm%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
 
 <p>This page includes additional examples of the datatypes, based on common usages and questions</p>
 
-<p><b>Table of Contents</b></p>
+<p><b>Datatypes Index</b></p>
 <div class="row">
-    <div class="col-6" style="width: auto"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1%]</div>
-    <div class="col-6" style="width: auto; padding-right: 0px; margin-right: -25px;"><b>Complex Types</b><br />[%diagram datatypes/alltypes.diagram 2%]</div>
+  <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1dt%]</div>
+  <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>General-Purpose Datatypes</b><br />[%diagram datatypes/alltypes.diagram 2dt%]</div>
 </div>
-<!--<table class="grid">
- <tr>
-  <td><b>Primitive Types</b><br/>[%diagram datatypes/allprimitivetypes.diagram 1%]</td>
-  <td><b>Complex Types</b><br/>[%diagram datatypes/alltypes.diagram 2%]</td>
- </tr>
-</table>-->
+<div class="row">
+  <div class="col-6" style="width: auto; border: #efefef 1px solid"><b>Metadata Types</b><br />[%diagram datatypes/metadatatypes.diagram 3dt%]</div>
+  <div class="col-6" style="width: auto; border: #efefef 1px solid; padding-right: 0px; margin-right: -25px;"><b>Special Purpose Datatypes</b><br />[%diagram datatypes/specialtypes.diagram 4dt%]</div>
+</div>
+
 
 
 <a name="primitive"></a>
@@ -601,6 +600,29 @@ See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datat
      &lt;system value="http://unitsofmeasure.org" /&gt;
    &lt;/denominator&gt;
   &lt;/charge&gt;
+</pre>
+<p>Range of strengths</p>
+<pre class="xml" fragment="RatioRange">
+  &lt;result&gt;
+   &lt;lowNumerator&gt;
+     &lt;value value="10" /&gt;
+	 &lt;unit value="milliliter" /&gt;
+	 &lt;code value="mL" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/lowNumerator&gt;
+   &lt;highNumerator&gt;
+     &lt;value value="15" /&gt;
+	 &lt;unit value="milliliter" /&gt;
+	 &lt;code value="mL" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/highNumerator&gt;
+   &lt;denominator&gt;
+     &lt;value value="100" /&gt;
+	 &lt;unit value="gram" /&gt;
+	 &lt;code value="g" /&gt;
+	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+   &lt;/denominator&gt;
+  &lt;/result&gt;
 </pre>
 </div>
 <a name="Period"></a>
@@ -1177,6 +1199,29 @@ on the structured data elements of the address.
    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
+<p>HL7 office's address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="IN"/&gt;
+     &lt;/extension>
+   &lt;/state&gt;	 
+   &lt;postalCode value="46240" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;country value="United States"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+       &lt;valueCoding value="US"/&gt;
+     &lt;/extension>
+	 &lt;/country&gt;
+  &lt;/address&gt;
+</pre>
 <p>A UK example address, with the county 'HUDDERSFIELD'.</p>
 <pre class="xml" fragment="Address">
   &lt;address&gt;
@@ -1196,6 +1241,20 @@ on the structured data elements of the address.
     &lt;line value=&quot;PO Box 31445&quot;/&gt;
     &lt;city value=&quot;Erewhon&quot;/&gt;
     &lt;postalCode value=&quot;0001&quot;/&gt;
+  &lt;/address&gt;
+</pre>
+
+<p>An example of an address with the codedString extension present</p>
+<pre class="xml" fragment="Address">
+  &lt;address&gt;
+   &lt;use value="work" /&gt;
+   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+         5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
+   &lt;line value="1050 W Wishard Blvd" /&gt;
+   &lt;line value="RG 5th floor" /&gt;
+   &lt;city value="Indianapolis" /&gt;
+   &lt;state value="IN" /&gt;
+   &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
 

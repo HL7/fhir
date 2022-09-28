@@ -16,6 +16,7 @@
   <name value="ContractResourcePublicationStatusCodes"/>
   <title value="Contract Resource Publication Status codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>

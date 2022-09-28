@@ -11,38 +11,35 @@
   <url value="http://hl7.org/fhir/CodeSystem/performer-role"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2073"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Medication Intended Performer Role"/>
+  <name value="MedicationIntendedPerformerRole"/>
+  <title value="Medication Intended Performer Role"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="Medication Intended Performer Role"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/performer-role"/>
   <content value="complete"/>
   <concept>
     <code value="registerednurse"/>
     <display value="Registered Nurse"/>
-
   </concept>
   <concept>
     <code value="oncologynurse"/>
     <display value="Oncology Nurse"/>
-
   </concept>
   <concept>
     <code value="paincontrolnurse"/>
     <display value="Pain Control Nurse"/>
-
   </concept>
   <concept>
     <code value="physician"/>
     <display value="Physician"/>
-
   </concept>
   <concept>
     <code value="pharmacist"/>
     <display value="Pharmacist"/>
-
   </concept>
 </CodeSystem>

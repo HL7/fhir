@@ -392,17 +392,24 @@ the latest version. In principle, the server chooses based on the following info
 resources:
 </p>
 <ul>
-  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices</li>
+  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
   <li>Publication Date</li>
   <li>Status</li>
 </ul>
 <p>
 Canonical resources are not required to use <code>Semver</code>, though HL7 recommends using 
-it, and follows SemVer for it's own content. However, other publishers of canonical resources 
+it, and follows SemVer for its own content. However, other publishers of canonical resources 
 follow other practices, and some kind of date based versioning schemes are not unsual.
 Servers may have access to additional information or policy guidance that determines which 
 resource to choose as the default, and additional knowledge about how to reason with 
 the versioning scheme in use.
+</p>
+<p>
+Because determining the 'current' version when the algorithm is unknown is problematic, canonical resources
+SHOULD declare the <a href="canonicalresource-definitions.html#CanonicalResource.versionAlgorithm_x_">versionAlgorithm[x]</a>
+element to instruct servers on what altorithm to use for comparison.  In the absence of this element,
+servers MAY choose to guess the algorithm or use their own default logic to determine which
+resource to return in the event there are multiple candidate instances with the same canonical URL.
 </p>
 
 <a name="canonical-fragments"></a>
@@ -651,15 +658,12 @@ For a resource that references the container, the reference is "#", like this:
 &lt;/Patient&gt;
 </pre>
 
-<blockquote class="stu-note">
-<a name="dstu2"></a>
-<p>
+[%stu-note dstu2%]
 There is no way to search for contained resources that reference their container. Is this a problem?
 </p>
 <p>
 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
-</p>
-</blockquote>
+[%end-note%]
 
 <a name="contained-examples"></a>
 <h4>Examples of contained Resources</h4>

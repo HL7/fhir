@@ -11,11 +11,13 @@
   <url value="http://hl7.org/fhir/CodeSystem/medication-usage-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1423"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1980"/>
   </identifier>
-  <name value="MedicationUsage Status Codes"/>
+  <name value="MedicationUsageStatusCodes"/>
+  <title value="MedicationUsage Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <description value="MedicationUsage Status Codes"/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medication-usage-status"/>
   <content value="complete"/>

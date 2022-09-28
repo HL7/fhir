@@ -30,11 +30,11 @@
       </coding>
     </flag>
     <item>
-      <reference value="Endpoint/b0a5e4277-83c4-4adb-87e2-e3efe3369b6f"/>
+      <reference value="Endpoint/b5711af0a-d678-46d1-86e9-66e454cf1522"/>
       <display value="general"/>
     </item>
   </entry>
-  <entry>
+  <!-- <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of IHE-IID endpoint"/>
     </extension>
@@ -45,7 +45,7 @@
       <reference value="Endpoint/example-iid"/>
       <display value="ihe-iid"/>
     </item>
-  </entry>
+  </entry> -->
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example of DICOM WADO-RS endpoint"/>

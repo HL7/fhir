@@ -10,19 +10,27 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <ul>
+        
         
         <li>Include major method category, method category, and primary test methodology codes defined in 
           
+          
           <a href="http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html">
+            
             
             <code>http://terminology.hl7.org/3.1.0/CodeSystem-GTR.html</code>
           
+          
           </a>
+        
         
         </li>
       
+      
       </ul>
+    
     
     </div>
   </text>
@@ -38,12 +46,13 @@
   <url value="http://hl7.org/fhir/ValueSet/genomicstudy-methodtype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3085"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyMethodType"/>
   <title value="GenomicStudyMethodType"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2022-08-16T13:55:11-05:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

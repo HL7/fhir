@@ -17,12 +17,13 @@
   <url value="http://hl7.org/fhir/genomicstudy-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1976"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="GenomicStudyStatus"/>
   <title value="GenomicStudyStatus"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

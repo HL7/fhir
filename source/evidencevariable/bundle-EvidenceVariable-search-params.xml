@@ -17,8 +17,8 @@
         <code value="composed-of"/>
         <type value="reference"/>
         <expression value="EvidenceVariable.relatedArtifact.where(type='composed-of').resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='composed-of']/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='composed-of']/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(EvidenceVariable.useContext.value as CodeableConcept)"/>
-        <xpath value="f:EvidenceVariable/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(EvidenceVariable.useContext.value as Quantity) | (EvidenceVariable.useContext.value as Range)"/>
-        <xpath value="f:EvidenceVariable/f:useContext/f:valueQuantity | f:EvidenceVariable/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:useContext/f:valueQuantity | f:EvidenceVariable/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="EvidenceVariable.useContext.code"/>
-        <xpath value="f:EvidenceVariable/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -94,7 +94,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="EvidenceVariable.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -118,7 +118,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="EvidenceVariable.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -145,8 +145,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="EvidenceVariable.date"/>
-        <xpath value="f:EvidenceVariable/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +165,8 @@
         <code value="depends-on"/>
         <type value="reference"/>
         <expression value="EvidenceVariable.relatedArtifact.where(type='depends-on').resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='depends-on']/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='depends-on']/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="EvidenceVariable.relatedArtifact.where(type='derived-from').resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='derived-from']/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='derived-from']/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="EvidenceVariable.description"/>
-        <xpath value="f:EvidenceVariable/f:description"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:description"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="EvidenceVariable.identifier"/>
-        <xpath value="f:EvidenceVariable/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="EvidenceVariable.name"/>
-        <xpath value="f:EvidenceVariable/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="EvidenceVariable.relatedArtifact.where(type='predecessor').resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='predecessor']/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='predecessor']/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -285,8 +285,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="EvidenceVariable.publisher"/>
-        <xpath value="f:EvidenceVariable/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -305,8 +305,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="EvidenceVariable.status"/>
-        <xpath value="f:EvidenceVariable/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -325,8 +325,8 @@
         <code value="successor"/>
         <type value="reference"/>
         <expression value="EvidenceVariable.relatedArtifact.where(type='successor').resource"/>
-        <xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='successor']/f:resource"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:relatedArtifact[f:type/@value='successor']/f:resource"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -345,8 +345,8 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="EvidenceVariable.title"/>
-        <xpath value="f:EvidenceVariable/f:title"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:title"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -361,7 +361,7 @@
         <description value="Topics associated with the EvidenceVariable"/>
         <code value="topic"/>
         <type value="token"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -380,8 +380,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="EvidenceVariable.url"/>
-        <xpath value="f:EvidenceVariable/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -400,8 +400,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="EvidenceVariable.version"/>
-        <xpath value="f:EvidenceVariable/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:EvidenceVariable/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

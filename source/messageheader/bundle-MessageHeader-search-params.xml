@@ -17,8 +17,8 @@
         <code value="author"/>
         <type value="reference"/>
         <expression value="MessageHeader.author"/>
-        <xpath value="f:MessageHeader/f:author"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:author"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="MessageHeader.response.code"/>
-        <xpath value="f:MessageHeader/f:response/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:response/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="destination"/>
         <type value="string"/>
         <expression value="MessageHeader.destination.name"/>
-        <xpath value="f:MessageHeader/f:destination/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:destination/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -77,8 +77,8 @@
         <code value="destination-uri"/>
         <type value="uri"/>
         <expression value="MessageHeader.destination.endpoint"/>
-        <xpath value="f:MessageHeader/f:destination/f:endpoint"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:destination/f:endpoint"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -97,8 +97,8 @@
         <code value="enterer"/>
         <type value="reference"/>
         <expression value="MessageHeader.enterer"/>
-        <xpath value="f:MessageHeader/f:enterer"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:enterer"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -117,8 +117,8 @@
         <code value="event"/>
         <type value="token"/>
         <expression value="MessageHeader.event"/>
-        <xpath value="f:MessageHeader/f:eventCoding | f:MessageHeader/f:eventUri"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:eventCoding | f:MessageHeader/f:eventUri"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -137,8 +137,8 @@
         <code value="focus"/>
         <type value="reference"/>
         <expression value="MessageHeader.focus"/>
-        <xpath value="f:MessageHeader/f:focus"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:focus"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -157,8 +157,8 @@
         <code value="receiver"/>
         <type value="reference"/>
         <expression value="MessageHeader.destination.receiver"/>
-        <xpath value="f:MessageHeader/f:destination/f:receiver"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:destination/f:receiver"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -177,8 +177,8 @@
         <code value="response-id"/>
         <type value="token"/>
         <expression value="MessageHeader.response.identifier"/>
-        <xpath value="f:MessageHeader/f:response/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:response/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -197,8 +197,8 @@
         <code value="responsible"/>
         <type value="reference"/>
         <expression value="MessageHeader.responsible"/>
-        <xpath value="f:MessageHeader/f:responsible"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:responsible"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -217,8 +217,8 @@
         <code value="sender"/>
         <type value="reference"/>
         <expression value="MessageHeader.sender"/>
-        <xpath value="f:MessageHeader/f:sender"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:sender"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -237,8 +237,8 @@
         <code value="source"/>
         <type value="string"/>
         <expression value="MessageHeader.source.name"/>
-        <xpath value="f:MessageHeader/f:source/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:source/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -257,8 +257,8 @@
         <code value="source-uri"/>
         <type value="uri"/>
         <expression value="MessageHeader.source.endpoint"/>
-        <xpath value="f:MessageHeader/f:source/f:endpoint"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:source/f:endpoint"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -277,8 +277,8 @@
         <code value="target"/>
         <type value="reference"/>
         <expression value="MessageHeader.destination.target"/>
-        <xpath value="f:MessageHeader/f:destination/f:target"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:MessageHeader/f:destination/f:target"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

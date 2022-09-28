@@ -17,8 +17,8 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ExampleScenario.useContext.value as CodeableConcept)"/>
-        <xpath value="f:ExampleScenario/f:useContext/f:valueCodeableConcept"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:useContext/f:valueCodeableConcept"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -37,8 +37,8 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ExampleScenario.useContext.value as Quantity) | (ExampleScenario.useContext.value as Range)"/>
-        <xpath value="f:ExampleScenario/f:useContext/f:valueQuantity | f:ExampleScenario/f:useContext/f:valueRange"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:useContext/f:valueQuantity | f:ExampleScenario/f:useContext/f:valueRange"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -57,8 +57,8 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ExampleScenario.useContext.code"/>
-        <xpath value="f:ExampleScenario/f:useContext/f:code"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:useContext/f:code"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +74,7 @@
         <code value="context-type-quantity"/>
         <type value="composite"/>
         <expression value="ExampleScenario.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -98,7 +98,7 @@
         <code value="context-type-value"/>
         <type value="composite"/>
         <expression value="ExampleScenario.useContext"/>
-        <xpathUsage value="normal"/>
+        <processingMode value="normal"/>
         <component>
           <definition value="context-type"/>
           <expression value="code"/>
@@ -125,8 +125,8 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ExampleScenario.date"/>
-        <xpath value="f:ExampleScenario/f:date"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:date"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -145,8 +145,8 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ExampleScenario.identifier"/>
-        <xpath value="f:ExampleScenario/f:identifier"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:identifier"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -165,8 +165,8 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ExampleScenario.jurisdiction"/>
-        <xpath value="f:ExampleScenario/f:jurisdiction"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:jurisdiction"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -185,8 +185,8 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ExampleScenario.name"/>
-        <xpath value="f:ExampleScenario/f:name"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:name"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -205,8 +205,8 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ExampleScenario.publisher"/>
-        <xpath value="f:ExampleScenario/f:publisher"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:publisher"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -225,8 +225,8 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ExampleScenario.status"/>
-        <xpath value="f:ExampleScenario/f:status"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:status"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -245,8 +245,8 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ExampleScenario.url"/>
-        <xpath value="f:ExampleScenario/f:url"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:url"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -265,8 +265,8 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ExampleScenario.version"/>
-        <xpath value="f:ExampleScenario/f:version"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:ExampleScenario/f:version"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -2,8 +2,13 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-status-present"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3172"/>
+  </identifier>
   <name value="ConditionStatusPresent"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <date value="2014-10-28T18:09:16.978+10:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>

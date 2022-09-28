@@ -17,8 +17,8 @@
         <code value="target"/>
         <type value="reference"/>
         <expression value="VerificationResult.target"/>
-        <xpath value="f:VerificationResult/f:target"/>
-        <xpathUsage value="normal"/>
+        <!--<xpath value="f:VerificationResult/f:target"/> -->
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-absent"/>
-  <name value="Condition/Diagnosis Certainty"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3169"/>
+  </identifier>
+  <name value="ConditionDiagnosisCertainty"/>
+  <title value="Condition/Diagnosis Certainty"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="QICore Project team"/>
   <contact>
     <telecom>
@@ -25,15 +31,12 @@
       <concept>
         <code value="410516002"/>
       </concept>
-    <!--   Known absent (qualifier value)   -->
       <concept>
         <code value="410593006"/>
       </concept>
-    <!--   Probably NOT present (qualifier value)   -->
       <concept>
         <code value="428263003"/>
       </concept>
-    <!--   NOT suspected (qualifier value)   -->
       <concept>
         <code value="410594000"/>
       </concept>

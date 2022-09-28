@@ -11,11 +11,12 @@
   <url value="http://hl7.org/fhir/ValueSet/adverse-event-status"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1444"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3236"/>
   </identifier>
   <name value="AdverseEventStatus"/>
   <title value="Adverse Event Status"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>

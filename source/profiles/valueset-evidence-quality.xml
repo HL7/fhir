@@ -6,8 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/evidence-quality"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.1020"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="QualityOfEvidenceRating"/>
+  <experimental value="true"/>
+  <description value="QualityOfEvidenceRating"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/evidence-quality"/>

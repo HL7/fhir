@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="body-weight-with-arabic-code"/>
+    <status value="final"/>
+    <category>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+            <code value="vital-signs"/>
+            <display value="Vital Signs"/>
+        </coding>
+    </category>
+    <code>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="29463-7"/> <!-- more generic methodless LOINC -->
+            <display value="Body Weight"/>
+        </coding>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="3141-9"/> <!-- translation is more specific method = measured LOINC -->
+            <display value="Body weight Measured"/>
+        </coding>
+        <!-- SNOMED CT Codes - becoming more common -->
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="27113001"/>
+            <display value="Body weight"/>
+        </coding>
+        <!-- Also, a local code specific to the source system -->
+        <coding>
+            <system value="http://acme.org/devices/clinical-codes"/>
+            <code value="body-weight"/>
+            <display value="Body Weight"/>
+        </coding>
+        <!-- Plus, a local code and display for body weight in Arabic -->
+        <coding>
+            <system value="http://i18n.example/rtl-code/"/>
+            <code value="وزن-الجسم"/>
+            <display value="وزن الجسم"/>
+        </coding>
+    </code>
+    <subject>
+        <reference value="Patient/example"/>
+    </subject>
+    <encounter>
+        <reference value="Encounter/example"/>
+    </encounter>
+    <effectiveDateTime value="2016-03-28"/>
+    <valueQuantity>
+        <value value="185"/>
+        <unit value="lbs"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="[lb_av]"/>
+    </valueQuantity>
+</Observation>

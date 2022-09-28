@@ -1,50 +1,56 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="inactive"/>
-	<url value="http://hl7.org/fhir/ValueSet/inactive"/>
-	<name value="Example-inactive"/>
-	<title value="Example with inactive codes"/>
-	<status value="draft"/>
-	<description value="HL7 v3 ActMood Predicate codes, including inactive codes"/>
-	<compose>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="inactive"/>
+  <url value="http://hl7.org/fhir/ValueSet/inactive"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3146"/>
+  </identifier>
+  <name value="ExampleInactive"/>
+  <title value="Example with inactive codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="HL7 v3 ActMood Predicate codes, including inactive codes"/>
+  <compose>
     <inactive value="true"/>
-		<include>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
-			<filter>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
+      <filter>
         <property value="concept"/>
         <op value="descendent-of"/>
         <value value="_ActMoodPredicate"/>
       </filter>
-		</include>
-	</compose>
-	<expansion>
-		<identifier value="urn:uuid:46c00b3f-003a-4f31-9d4b-ea2de58b2a99"/>
-		<timestamp value="2017-02-26T10:00:00Z"/>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
+    </include>
+  </compose>
+  <expansion>
+    <identifier value="urn:uuid:46c00b3f-003a-4f31-9d4b-ea2de58b2a99"/>
+    <timestamp value="2017-02-26T10:00:00Z"/>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
       <inactive value="true"/>
-			<code value="CRT"/>
-			<display value="criterion"/>
-		</contains>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
-			<code value="EXPEC"/>
-			<display value="expectation"/>
-			<contains>
+      <code value="CRT"/>
+      <display value="criterion"/>
+    </contains>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
+      <code value="EXPEC"/>
+      <display value="expectation"/>
+      <contains>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
         <code value="GOL"/>
         <display value="goal"/>
-			</contains>
-			<contains>
+      </contains>
+      <contains>
         <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
         <code value="RSK"/>
         <display value="risk"/>
-			</contains>
-		</contains>
-		<contains>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
-			<code value="OPT"/>
-			<display value="option"/>
-		</contains>
-	</expansion>
+      </contains>
+    </contains>
+    <contains>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActMood"/>
+      <code value="OPT"/>
+      <display value="option"/>
+    </contains>
+  </expansion>
 </ValueSet>

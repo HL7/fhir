@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
   <id value="device-versiontype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -11,12 +9,14 @@
   <url value="http://hl7.org/fhir/ValueSet/device-versiontype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.0"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3202"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="DeviceVersionType"/>
+  <title value="Device Version Type"/>
+  <status value="draft"/>
   <experimental value="false"/>
-  <description value="Description Needed Here"/>
+  <description value="Describes the type of version"/>
   <compose>
     <include>
       <system value="urn:iso:std:iso:11073:10101"/>

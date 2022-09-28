@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/condition-certainty-present"/>
-  <name value="Condition/Diagnosis Certainty"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3170"/>
+  </identifier>
+  <name value="ConditionDiagnosisCertainty"/>
+  <title value="Condition/Diagnosis Certainty"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="QICore Project team"/>
   <contact>
     <telecom>
@@ -25,23 +31,18 @@
       <concept>
         <code value="410515003"/>
       </concept>
-    <!--   Known present (qualifier value)   -->
       <concept>
         <code value="410591008"/>
       </concept>
-    <!--   Definitely present (qualifier value)   -->
       <concept>
         <code value="410605003"/>
       </concept>
-    <!--   Confirmed present (qualifier value)   -->
       <concept>
         <code value="410590009"/>
       </concept>
-    <!--   Known possible (qualifier value)   -->
       <concept>
         <code value="410592001"/>
       </concept>
-    <!--   Probably present (qualifier value)   -->
       <concept>
         <code value="415684004"/>
       </concept>

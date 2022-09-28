@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="specimen-container-cap"/>
-	<url value="http://hl7.org/fhir/ValueSet/specimen-container-cap"/>
+  <url value="http://hl7.org/fhir/ValueSet/specimen-container-cap"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3033"/>
+  </identifier>
   <name value="SpecimenContainerCap"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -15,50 +21,50 @@
   <copyright value="TBD"/>
   <compose>
     <include>
-      <system value="urn:iso:std:iso:6710:2017"/> <!-- This urn may need to be fixed with the proper syntax -->
+      <system value="urn:iso:std:iso:6710:2017"/>
       <concept>
         <code value="yellow"/>
-				<display value="yellow cap"/>
+        <display value="yellow cap"/>
       </concept>
       <concept>
         <code value="dark-yellow"/>
-				<display value="dark yellow cap"/>
+        <display value="dark yellow cap"/>
       </concept>
       <concept>
         <code value="grey"/>
-				<display value="grey cap"/>
+        <display value="grey cap"/>
       </concept>
       <concept>
         <code value="light blue"/>
-				<display value="light blue cap"/>
+        <display value="light blue cap"/>
       </concept>
       <concept>
         <code value="black"/>
-				<display value="black cap"/>
+        <display value="black cap"/>
       </concept>
       <concept>
         <code value="green"/>
-				<display value="green cap"/>
+        <display value="green cap"/>
       </concept>
       <concept>
         <code value="light-green"/>
-				<display value="light green cap"/>
+        <display value="light green cap"/>
       </concept>
       <concept>
         <code value="lavender"/>
-				<display value="lavender cap"/>
+        <display value="lavender cap"/>
       </concept>
       <concept>
         <code value="brown"/>
-				<display value="brown cap"/>
+        <display value="brown cap"/>
       </concept>
       <concept>
         <code value="white"/>
-				<display value="white cap"/>
+        <display value="white cap"/>
       </concept>
       <concept>
         <code value="pink"/>
-				<display value="pink cap"/>
+        <display value="pink cap"/>
       </concept>
     </include>
   </compose>

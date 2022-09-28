@@ -1,9 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ValueSet/investigation-sets"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.157"/>
+  </identifier>
   <name value="InvestigationType"/>
   <title value="Investigation Type"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -16,7 +22,6 @@
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
-    <!--   todo: this needs a lot of work   -->
       <concept>
         <code value="271336007"/>
         <display value="Examination / signs"/>

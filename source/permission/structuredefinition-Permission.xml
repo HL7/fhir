@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
 	<id value="Permission"/>
 	<meta>
 		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -23,7 +22,11 @@
 		<valueCode value=".status = entered-in-error"/>
 	</extension>
 	<url value="http://hl7.org/fhir/StructureDefinition/Permission"/>
-	<version value="5.0.0"/>
+	<identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1436"/>
+  </identifier>
+  <version value="5.0.0"/>
 	<name value="Permission"/>
 	<status value="draft"/>
 	<date value="2021-01-02T08:58:31+11:00"/>
@@ -65,8 +68,8 @@
 			<min value="0"/>
 			<max value="*"/>
             <mapping>
-                <identity value="w5" />
-                <map value="infrastructure.information" />
+                <identity value="w5"/>
+                <map value="infrastructure.information"/>
             </mapping>
 		</element>
 		<element id="Permission.status">
@@ -223,21 +226,21 @@
 		</element>
     <element id="Permission.rule">
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-            <valueString value="rule" />
+            <valueString value="rule"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down" />
+            <valueCode value="down"/>
         </extension>
-        <path value="Permission.rule" />
-        <short value="Constraints to the Permission" />
-        <definition value="A set of rules." />
-        <min value="0" />
-        <max value="*" />
+        <path value="Permission.rule"/>
+        <short value="Constraints to the Permission"/>
+        <definition value="A set of rules."/>
+        <min value="0"/>
+        <max value="*"/>
         <type>
-            <code value="BackboneElement" />
+            <code value="BackboneElement"/>
         </type>
 		<orderMeaning value="The order of the rules processing is defined in rule-combining"/>
-        <isSummary value="true" />
+        <isSummary value="true"/>
     </element>
 		<element id="Permission.rule.type">
 			<path value="Permission.rule.type"/>
@@ -297,42 +300,42 @@
 			</mapping>
 		</element>
         <element id="Permission.rule.data.resource.meaning">
-            <path value="Permission.rule.data.resource.meaning" />
-            <short value="instance | related | dependents | authoredby" />
-            <definition value="How the resource reference is interpreted when testing consent restrictions." />
-            <min value="1" />
-            <max value="1" />
+            <path value="Permission.rule.data.resource.meaning"/>
+            <short value="instance | related | dependents | authoredby"/>
+            <definition value="How the resource reference is interpreted when testing consent restrictions."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
-                <code value="code" />
+                <code value="code"/>
             </type>
-            <isSummary value="true" />
+            <isSummary value="true"/>
             <binding>
                 <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ConsentDataMeaning" />
+                    <valueString value="ConsentDataMeaning"/>
                 </extension>
-                <strength value="required" />
-                <description value="How a resource reference is interpreted when testing consent restrictions." />
-                <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning" />
+                <strength value="required"/>
+                <description value="How a resource reference is interpreted when testing consent restrictions."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/consent-data-meaning"/>
             </binding>
         </element>
         <element id="Permission.rule.data.resource.reference">
-            <path value="Permission.rule.data.resource.reference" />
-            <short value="The actual data reference" />
-            <definition value="A reference to a specific resource that defines which resources are covered by this consent." />
-            <min value="1" />
-            <max value="1" />
+            <path value="Permission.rule.data.resource.reference"/>
+            <short value="The actual data reference"/>
+            <definition value="A reference to a specific resource that defines which resources are covered by this consent."/>
+            <min value="1"/>
+            <max value="1"/>
             <type>
-                <code value="Reference" />
-                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource" />
+                <code value="Reference"/>
+                <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
             </type>
-            <isSummary value="true" />
+            <isSummary value="true"/>
         </element>
 
 		<element id="Permission.rule.data.security">
 			<path value="Permission.rule.data.security"/>
 			<short value="Security tag code on .meta.security"/>
 			<definition value="The data in scope are those with the given codes present in that data .meta.security element."/>
-            <comment value="Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of &quot;R&quot; then it applies to all resources that are labeled &quot;R&quot; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict." />
+            <comment value="Note the ConfidentialityCode vocabulary indicates the highest value, thus a security label of &#34;R&#34; then it applies to all resources that are labeled &#34;R&#34; or lower. E.g. for Confidentiality, it's a high water mark. For other kinds of security labels, subsumption logic applies. When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>
@@ -347,8 +350,8 @@
 		<element id="Permission.rule.data.period">
 			<path value="Permission.rule.data.period"/>
 			<short value="Timeframe encompasing data create/update"/>
-            <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this rule." />
-            <comment value="This has a different sense to the .validity." />
+            <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this rule."/>
+            <comment value="This has a different sense to the .validity."/>
 			<min value="0"/>
 			<max value="*"/>
 			<type>

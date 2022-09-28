@@ -14,7 +14,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <name value="ResourceTypes"/>
+  <name value="ResourceType"/>
   <title value="Resource Types"/>
   <status value="active"/>
   <experimental value="false"/>

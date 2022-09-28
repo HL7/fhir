@@ -11,11 +11,12 @@
   <url value="http://hl7.org/fhir/concept-subsumption-outcome"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.1.1239"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1239"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ConceptSubsumptionOutcome"/>
   <title value="Concept Subsumption Outcome code system"/>
+  <experimental value="true"/>
   <description value="Codes indicating the results of a subsumption check between codes. In the context of this CodeSystem, subsumption is defined in the FHIR specification under Resource Types - CodeSystem."/>
   <caseSensitive value="true"/>
   <content value="complete"/>

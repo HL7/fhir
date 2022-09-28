@@ -11,11 +11,13 @@
   <url value="http://hl7.org/fhir/ValueSet/edible-substance-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1518"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.2977"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Types of Edible Substances"/>
+  <name value="TypesOfEdibleSubstances"/>
+  <title value="Types of Edible Substances"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -24,7 +26,7 @@
     </telecom>
   </contact>
   <description value="This value set represents codes for types of edible substances and is provided as a suggestive example.  It include codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 762766007 Edible Substance (substance)."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>

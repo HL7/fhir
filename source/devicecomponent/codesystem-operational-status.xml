@@ -6,8 +6,14 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <url value="http://hl7.org/fhir/operational-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1813"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="DeviceComponentOperationalStatus"/>
+  <experimental value="true"/>
+  <description value="DeviceComponentOperationalStatus"/>
   <concept>
     <code value="off"/>
     <display value="Off"/>

@@ -229,4 +229,16 @@
     </li>
 	</ul>
 	<br/>
+	<h3>Internationalization</h3>
+	<p>The following Observations demonstrate examples of internationalization (using non-ASCII Unicode characters for Observation.code):
+    </p>
+	<ul>
+		<li>
+			<a href="observation-example-body-weight-with-arabic-code.html">Observation example demonstrating internationalization (Arabic)</a>
+		</li>
+		<li>
+			<a href="krcore-observation-labresult-example-01.html">Observation example demonstrating internationalization (Korean)</a>
+		</li>
+	</ul>
+	<br/>
 </div>

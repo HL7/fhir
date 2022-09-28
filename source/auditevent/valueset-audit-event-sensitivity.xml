@@ -1,15 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <url value="http://hl7.org/fhir/ValueSet/audit-event-sub-type"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.464"/>
+  </identifier>
   <version value="20200804"/>
-  <name value="Audit Event Object Sensitivity"/>
+  <name value="AuditEventObjectSensitivity"/>
+  <title value="Audit Event Object Sensitivity"/>
   <status value="active"/>
+  <experimental value="true"/>
   <date value="2020-08-04"/>
-  <publisher value="HL7 (FHIR Project)"/> 
+  <publisher value="HL7 (FHIR Project)"/>
   <description value="The sensitivity of an object in a security event resource. May also encompass confidentiality and rudimentary access control"/>
   <compose>
     <include>

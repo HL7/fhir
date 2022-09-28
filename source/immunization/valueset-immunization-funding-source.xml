@@ -17,6 +17,7 @@
   <name value="ImmunizationFundingSource"/>
   <title value="Immunization Funding Source"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>

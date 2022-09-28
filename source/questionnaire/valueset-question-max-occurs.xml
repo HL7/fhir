@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="question-max-occurs"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-	</meta>
-	<url value="http://hl7.org/fhir/ValueSet/question-max-occurs"/>
-	<version value="5.0.0"/>
-	<name value="MaxOccurs"/>
-	<status value="active"/>
-	<compose>
-		<include>
-			<system value="http://hl7.org/fhir/question-max-occurs"/>
-		</include>
-	</compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="question-max-occurs"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/question-max-occurs"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.929"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="MaxOccurs"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <description value="MaxOccurs"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/question-max-occurs"/>
+    </include>
+  </compose>
 </ValueSet>

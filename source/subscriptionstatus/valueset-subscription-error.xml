@@ -11,12 +11,13 @@
   <url value="http://hl7.org/fhir/ValueSet/subscription-error"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1437"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3160"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="SubscriptionErrorCodes"/>
   <title value="Subscription Error Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>

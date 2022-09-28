@@ -1,53 +1,32 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  
-
-<url value="http://hl7.org/fhir/ValueSet/administration-method-codes"/>
-
-<name value="SNOMEDCTAdministrationMethodCodes"/>
+  <url value="http://hl7.org/fhir/ValueSet/administration-method-codes"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.97"/>
+  </identifier>
+  <name value="SNOMEDCTAdministrationMethodCodes"/>
   <title value="SNOMED CT Administration Method Codes"/>
-  
-<status value="draft"/>
-  
-<publisher value="FHIR Project team"/>
-  
-<contact>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  
-
-<description value="This value set includes some method codes from SNOMED CT - provided as an exemplar"/>
-  
-
-<copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
-  
-
-<compose>
-    
-	<include>
-      
-		<system value="http://snomed.info/sct"/>
-      
-		<filter>
-      
-			<!--   SNOMED CT - Children of SCTID: 422096002 "Dosing instruction fragment (qualifier value)" "   -->
-        
-			<property value="concept"/>
-        
-			<op value="is-a"/>
-        
-			<value value="422096002"/>
-      
-		</filter>
-    
-	</include>
-  
-</compose>
-
-
+  <description value="This value set includes some method codes from SNOMED CT - provided as an exemplar"/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="422096002"/>
+      </filter>
+    </include>
+  </compose>
 </ValueSet>

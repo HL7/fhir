@@ -1,9 +1,10 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="MediaCollectionView/Projection"/>
+  <name value="MediaCollectionViewProjection"/>
   <title value="Media Collection View/Projection"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -17,7 +18,6 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
-      <!--   todo: work this over. what this means is any concepts where they have is-a with 260419006 how should this be done?   -->
         <property value="concept"/>
         <op value="is-a"/>
         <value value="260419006"/>

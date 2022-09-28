@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -24,6 +22,10 @@
     <valueCode value=".status=entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1451"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceDefinition"/>
   <status value="draft"/>
@@ -229,8 +231,8 @@
     </element>
     <element id="SubstanceDefinition.note">
       <path value="SubstanceDefinition.note"/>
-      <short value="Textual comment about the substance&#39;s catalogue or registry record"/>
-      <definition value="Textual comment about the substance&#39;s catalogue or registry record."/>
+      <short value="Textual comment about the substance's catalogue or registry record"/>
+      <definition value="Textual comment about the substance's catalogue or registry record."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -504,7 +506,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Physical Characteristics, attribute&#39;s value"/>
+        <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
     <element id="SubstanceDefinition.referenceInformation">
@@ -876,8 +878,8 @@
     </element>
     <element id="SubstanceDefinition.code.status">
       <path value="SubstanceDefinition.code.status"/>
-      <short value="Status of the code assignment, for example &#39;provisional&#39;, &#39;approved&#39;"/>
-      <definition value="Status of the code assignment, for example &#39;provisional&#39;, &#39;approved&#39;."/>
+      <short value="Status of the code assignment, for example 'provisional', 'approved'"/>
+      <definition value="Status of the code assignment, for example 'provisional', 'approved'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -978,8 +980,8 @@
     </element>
     <element id="SubstanceDefinition.name.type">
       <path value="SubstanceDefinition.name.type"/>
-      <short value="Name type e.g. &#39;systematic&#39;,  &#39;scientific, &#39;brand&#39;"/>
-      <definition value="Name type, for example &#39;systematic&#39;,  &#39;scientific, &#39;brand&#39;."/>
+      <short value="Name type e.g. 'systematic',  'scientific, 'brand'"/>
+      <definition value="Name type, for example 'systematic',  'scientific, 'brand'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1001,8 +1003,8 @@
     </element>
     <element id="SubstanceDefinition.name.status">
       <path value="SubstanceDefinition.name.status"/>
-      <short value="The status of the name e.g. &#39;current&#39;, &#39;proposed&#39;"/>
-      <definition value="The status of the name, for example &#39;current&#39;, &#39;proposed&#39;."/>
+      <short value="The status of the name e.g. 'current', 'proposed'"/>
+      <definition value="The status of the name, for example 'current', 'proposed'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1186,8 +1188,8 @@
     </element>
     <element id="SubstanceDefinition.name.official.status">
       <path value="SubstanceDefinition.name.official.status"/>
-      <short value="The status of the official name, for example &#39;draft&#39;, &#39;active&#39;"/>
-      <definition value="The status of the official name, for example &#39;draft&#39;, &#39;active&#39;, &#39;retired&#39;."/>
+      <short value="The status of the official name, for example 'draft', 'active'"/>
+      <definition value="The status of the official name, for example 'draft', 'active', 'retired'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1277,8 +1279,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.type">
       <path value="SubstanceDefinition.relationship.type"/>
-      <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;"/>
-      <definition value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;."/>
+      <short value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;"/>
+      <definition value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;, &#34;starting material&#34;, &#34;polymorph&#34;, &#34;impurity of&#34;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1352,8 +1354,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.comparator">
       <path value="SubstanceDefinition.relationship.comparator"/>
-      <short value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;"/>
-      <definition value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;."/>
+      <short value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;"/>
+      <definition value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

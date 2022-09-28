@@ -11,12 +11,13 @@
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-status-reason"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.1416"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3001"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="CarePlanActivityStatusReason"/>
   <title value="Care Plan Activity Status Reason"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>
   <contact>
     <telecom>
@@ -24,8 +25,8 @@
       <value value="http://www.hl7.org/Special/committees/patientcare/"/>
     </telecom>
   </contact>
-  <description value="Example codes indicating the reason why the activity isn&#39;t yet started, is on hold, was cancelled, etc. Note that these are in no way complete and might not even be appropriate for some uses."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms&#xAE; (SNOMED CT&#xAE;) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <description value="Example codes indicating the reason why the activity isn't yet started, is on hold, was cancelled, etc. Note that these are in no way complete and might not even be appropriate for some uses."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason"/>
