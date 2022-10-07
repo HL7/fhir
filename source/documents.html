@@ -25,8 +25,8 @@ Outstanding issues:
 <p>A document instance contains specific frozen versions of other resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  Implementations SHOULD have policies around when documents can be 'updated' (new version of the same instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal documents, clinical documents, etc.)   Strict limitations on document change are sometimes referred to as 'document immutability'.</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
-persisted in document storage and management systems, including systems such as IHE
-XDS.
+persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE
+XDS</a>.
 </p>
 <p>
 Applications claiming conformance to this framework claim to be conformant to
@@ -272,11 +272,11 @@ of posting to them:
 </p>
 <table class="grid">
  <tr> <td><b>End-Point</b></td> <td><b>Type of Content</b></td> <td><b>Description</b></td> </tr>
- <tr> <td>[baseurl]/Bundle</td> <td>Document Bundle</td> <td>This works like a normal end-point
+ <tr> <td><a href="bundle.html">[baseurl]/Bundle</a></td> <td>Document Bundle</td> <td>This works like a normal end-point
    for managing a type of resource, but it works with whole document bundles - i.e. a read operation returns a bundle,
    an update gets a bundle and a search returns a bundle of bundles. Note that if documents are POSTed
    using a <a href="http.html#create">create</a> interaction the Bundle.id will change, but the Bundle.identifier will not. See <a href="bundle.html#rest">Serving Bundles using the RESTful API</a> for further comment</td></tr>
- <tr> <td>[baseurl]/Composition</td> <td>Composition Resource</td> <td>The normal end-point for managing
+ <tr> <td><a href="composition.html">[baseurl]/Composition</a></td> <td>Composition Resource</td> <td>The normal end-point for managing
    composition resources. This can be used while building a document or after breaking a document up into
    its constituent resources or when using compositions separately from documents</td> </tr>
 
