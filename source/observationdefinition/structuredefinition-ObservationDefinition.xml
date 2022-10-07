@@ -262,10 +262,7 @@
 			<min value="0"/>
 			<max value="1"/>
 			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+				<code value="string"/> 
 			</type>
 			<isSummary value="true"/>
 			<mapping>
