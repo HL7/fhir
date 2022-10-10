@@ -701,7 +701,7 @@ The <code>update</code> interaction is performed by an HTTP <code>PUT</code> com
 <p>
 The request body SHALL be a <a href="resource.html">Resource</a> of the named type with an <code>id</code> element
 that has an identical value to the <code>[id]</code> in the URL. If no <code>id</code> element is provided,
-or the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400</code> error code, and SHOULD
+or the id disagrees with the id in the URL, the server SHALL respond with an HTTP <code>400 Bad Request</code> error code, and SHOULD
 provide an <a href="operationoutcome.html">OperationOutcome</a> identifying the issue.
 If the request body includes a <a href="resource.html#meta"><code>meta</code></a>, the server SHALL
 ignore the provided <code>versionId</code> and <code>lastUpdated</code> values.
@@ -749,7 +749,7 @@ Note: It is possible that a client may attempt to update a resource that was obt
 </p>
 <div class="draft-content">
 <p>
-Servers that determine that a POST would result in a duplicate MAY return a <code>303</code> pointing to the existing (unchanged) record 
+Servers that determine that a POST would result in a duplicate MAY return a <code>303 See Other</code> pointing to the existing (unchanged) record 
 and indicating that the record was not created because the specified resource already exists at the specified location.
 </p>
 </div>
@@ -786,7 +786,7 @@ same as the location in the URL of the PUT request).
 <a name="rejecting-updates"> </a>
 <h4>Rejecting Updates</h4>
 <p>
-Servers are permitted to reject update interactions because of integrity concerns or other business rules, and return HTTP status codes accordingly (usually a <code>422</code>).
+Servers are permitted to reject update interactions because of integrity concerns or other business rules, and return HTTP status codes accordingly (usually a <code>422 Unprocessable Entity</code>).
 Note that there are potential security issues relating to how rejections are handled. See the <a href="security.html#AccessDenied">security page</a> for more information.
 </p>
 <p>
@@ -794,10 +794,10 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 </p>
 <ul>
  <li><b><code>400 Bad Request</code></b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for conditional criteria)</li>
- <li><b><code>401 Not Authorized</code></b> - authorization is required for the interaction that was attempted</li>
+ <li><b><code>401 Unauthorized</code></b> - authorization is required for the interaction that was attempted</li>
  <li><b><code>404 Not Found</code></b> - resource type not supported, or not a FHIR end-point</li>
- <li><b><code>405 Method Not allowed</code></b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
- <li><b><code>409</code>/<code>412</code></b> - version conflict management - see <a href="#concurrency">below</a></li>
+ <li><b><code>405 Method Not Allowed</code></b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
+ <li><b><code>409 Conflict</code>/<code>412 Precondition Failed</code></b> - version conflict management - see <a href="#concurrency">below</a></li>
  <li><b><code>422 Unprocessable Entity</code></b> - the proposed resource violated applicable FHIR profiles or server business rules.
   If the reason for failure is a conflict that would violate a unique index constraint, the <code>422</code> response MAY include a location header that SHALL indicate the resource for the existing record that would have that same index value</li>
 </ul>
@@ -835,7 +835,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches, no id provided</b>: The server creates the resource.</li>
  <li><b>No matches, id provided and doesn't already exist</b>: The server treats the interaction as an <a href="#upsert">Update as Create</a> interaction (or rejects it, if it does not support Update as Create)</li>
- <li><b>No matches, id provided and already exist</b>: The server rejects the update with a <code>409 Conflict error</code></li>
+ <li><b>No matches, id provided and already exist</b>: The server rejects the update with a <code>409 Conflict</code> error</li>
  <li><b>One Match, no resource id provided OR (resource id provided and it matches the found resource)</b>: The server performs the update against the matching resource as above where, if the resource was updated, the server SHALL return a <code>200 OK</code>; if the resource was created, the server SHALL return a <code>201 Created</code>; and, the server SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match, resource id provided but does not match resource found</b>: The server returns a <code>400 Bad Request</code> error indicating the client id specification was a problem preferably with an OperationOutcome</li>
  <li><b>Multiple matches</b>: The server returns a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough preferably with an OperationOutcome</li>
@@ -916,7 +916,7 @@ If the version id given in the <code>If-Match</code> header does not match, the 
 <code>412 Precondition Failed</code> status code instead of updating the resource.
 </p>
 <p>
-Servers can require that clients provide an <code>If-Match</code> header by returning <code>400 Client Error</code>
+Servers can require that clients provide an <code>If-Match</code> header by returning <code>400 Bad Request</code>
 status codes when no <code>If-Match</code> header is found. Note that a <code>409 Conflict</code> can be returned when the
 server detects the update cannot be done (e.g. due to server side pessimistic locking).
 </p>
@@ -1059,7 +1059,7 @@ resource containing hints and warnings about the deletion; if one is sent it SHA
 Whether to support delete at all, or for a particular resource type or a particular instance is at the
 discretion of the server based on the policy and business rules that apply in its context.
 If the server refuses to delete resources of that type as a blanket policy, then it should return the <code>405
-Method not allowed</code> status code. If the server refuses to delete a resource because of reasons specific
+Method Not Allowed</code> status code. If the server refuses to delete a resource because of reasons specific
 to that resource, such as referential integrity, it should return the <code>409 Conflict</code> status code.
 Note that the servers MAY choose to enforce business rules regarding deletion of resources that are being referenced by other resources, but they also might not do so.
 Performing this interaction on a resource that is already deleted has no effect, and the server should return either a
@@ -1318,7 +1318,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 </p>
 <ul>
  <li><b><code>400 Bad Request</code></b> - search could not be processed or failed basic FHIR validation rules</li>
- <li><b><code>401 Not Authorized</code></b> - authorization is required for the interaction that was attempted</li>
+ <li><b><code>401 Unauthorized</code></b> - authorization is required for the interaction that was attempted</li>
  <li><b><code>404 Not Found</code></b> - resource type not supported, or not a FHIR end-point</li>
 </ul>
 
@@ -1418,7 +1418,7 @@ on the value of the <code>mode</code> parameter:
 Servers MAY ignore the mode parameter and return a CapabilityStatement resource. Note: servers might be required to support this parameter in further versions of this specification.
 </p>
 <p>
-If a <code>404 Unknown</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
+If a <code>404 Not Found</code> is returned from the <code>GET</code>, FHIR (or the specified version) is not supported on the
 nominated service url. An <code>ETag</code> header SHOULD be returned with the Response. The value of the ETag header SHALL change if the
 returned resource changes.
 </p>
@@ -1522,7 +1522,7 @@ References within a <code>Bundle.entry.resource</code> to another <code>Bundle.e
 created within the batch are considered to be non-conformant.
 </p>
 <p>
-When processing the batch, the HTTP response code is <code>200 Ok</code> if the batch was processed correctly, regardless of the success of the
+When processing the batch, the HTTP response code is <code>200 OK</code> if the batch was processed correctly, regardless of the success of the
 operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an
 entry of other than 2xx (<code>200</code>, <code>202</code> etc) indicates that processing the request in the entry failed.
 </p>
@@ -2035,7 +2035,7 @@ specified in HTTP: same response as a GET, but with no body.
 </p>
 <p>
 Servers that do not support HEAD MUST respond in accordance with the HTTP specification,
-for example using a <code>405 ("method not allowed")</code> or a <code>501 ("not implemented")</code>.
+for example using a <code>405 Method Not Allowed</code> or a <code>501 ("not implemented")</code>.
 </p>
 
 <a name="custom"> </a>
