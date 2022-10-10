@@ -806,7 +806,7 @@ Any of these errors SHOULD be accompanied by an <a href="operationoutcome.html">
 In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a <code>400</code>,
 whereas if the instance fails other non-externally described business rules, the response would be a <code>422</code> error. However,
 there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference
-whether they do or not). In practice, servers may also return 5xx errors in these cases without being deemed non-conformant.
+whether they do or not). In practice, servers may also return <code>5xx</code> errors in these cases without being deemed non-conformant.
 </p>
 <p>
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
@@ -1195,7 +1195,7 @@ Common HTTP Status codes returned on FHIR-related errors (in addition to normal 
 In general, if an instance fails the constraints documented in the CapabilityStatement then the response should be a <code>400</code>,
 whereas if the instance fails other non-externally described business rules, the response would be a <code>422</code> error. However,
 there's no expectation that servers will tightly adhere to this differentiation (nor is it clear that it makes much difference
-whether they do or not). In practice, servers may also return 5xx errors in these cases without being deemed non-conformant.
+whether they do or not). In practice, servers may also return <code>5xx</code> errors in these cases without being deemed non-conformant.
 </p>
 <p>
 For additional information on how systems may behave when processing updates, refer to the <a href="updates.html">Variations between Submitted data and Retrieved data</a> page.
@@ -1310,7 +1310,7 @@ issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-s
 </p>
 <p>
 If the search fails (cannot be executed, not that there are no matches), the return value
-SHALL be a status code 4xx or 5xx. If the failure occurs at a FHIR-aware level of processing,
+SHALL be a status code <code>4xx</code> or <code>5xx</code>. If the failure occurs at a FHIR-aware level of processing,
 the HTTP response SHOULD be accompanied by an <a href="operationoutcome.html">OperationOutcome</a>.
 </p>
 <p>
@@ -1524,13 +1524,13 @@ created within the batch are considered to be non-conformant.
 <p>
 When processing the batch, the HTTP response code is <code>200 OK</code> if the batch was processed correctly, regardless of the success of the
 operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an
-entry of other than 2xx (<code>200</code>, <code>202</code> etc) indicates that processing the request in the entry failed.
+entry of other than <code>2xx</code> (<code>200</code>, <code>202</code> etc) indicates that processing the request in the entry failed.
 </p>
 
 <a name="trules"> </a>
 <h4>Transaction Processing Rules</h4>
 <p>
-For a <code>transaction</code>, servers SHALL either accept all actions (i.e. process each entry resulting in a 2xx or 3xx response code) 
+For a <code>transaction</code>, servers SHALL either accept all actions (i.e. process each entry resulting in a <code>2xx</code> or <code>3xx</code> response code) 
 and return an overall <code>200 OK</code>, along with a
 response bundle (see below), or reject all resources and return an HTTP <code>400</code> or <code>500</code> type
 response. It is not an error if the submitted bundle has no resources in it.
