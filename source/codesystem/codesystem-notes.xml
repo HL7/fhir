@@ -370,9 +370,8 @@ This table summarizes how to treat these items as a terminology:
  </tr>
  <tr>
   <td><a href="medication.html">Medication</a></td>
-  <td>Medication resources are a bit different, since they don't have a canonical URL, and
-    there are not multiple items in a resource. So to refer to a medication resource, the system
-    is [base]/Medication, where base is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
+  <td>Medication resources are a bit different, since they don't have a canonical URL, the resource does not hold multiple items. So to refer to a medication resource, the system
+    is [base]/Medication, where [base] is the server address. The <a href="resource.html#id">Logical Id</a> of the resource is the code</td>
  </tr>
 </table>
 <p>
