@@ -632,7 +632,7 @@
       <path value="Composition.relatesTo"/>
       <short value="Relationships to other compositions/documents"/>
       <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
-      <comment value="To reference (using relatesTo) a Bundle of type &#34;document&#34; or another Composition where you only have the identifier, use a resourceReference with an identifier.\nHere is an example of using relatesTo to reference another Bundle of type &#34;document&#34; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&#34;replaces&#34; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&#34;...&#34; /&gt;&#xA;&lt;value value=&#34;...&#34; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
+      <comment value="To reference (using relatesTo) a Bundle of type &#34;document&#34; or another Composition where you only have the identifier, use a resourceReference with an identifier.&#10;Here is an example of using relatesTo to reference another Bundle of type &#34;document&#34; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&#34;replaces&#34; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&#34;...&#34; /&gt;&#xA;&lt;value value=&#34;...&#34; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
