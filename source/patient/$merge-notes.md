@@ -4,7 +4,7 @@ The result-patient.id must be the same as the target patient reference (if the p
 
 If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each old patient resource into the newly created patient resource.
 
-A server May decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged.
+A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged.
 
 # Merge Processing
 The merge operation will have multiple stages, and some of these may take additional time for processing and thus be done asynchronously
@@ -13,7 +13,7 @@ The merge operation will have multiple stages, and some of these may take additi
 |-|-|
 | Preview Merge | (Optional)<br/>This is a call to the operation (with preview=true) that simply checks for potential errors and warnings, without committing any changes.<br/>This might not be able to capture all possible causes of errors that could be encountered during the processing of the data patching.<br/>The returned Patient resource is a preview only and has not been committed. Hence the version number and last_modified date would be cleared/absent. |
 | Initiate Merge | This stage processes the input parameters checking for errors/warnings and begins the changes to the patient resources.<br/>If the system is able to complete the processing of all reference data to the target patient, then it may be complete and no task is required. Otherwise a Task for tracking would be created and monitor the progress of the merge. |
-| Data Processing | The rest operation may have returned, and processing is ongoing to patch any other resource that references the source patient to reference the target patient.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source Patient record will be marked as inactive, and add the link property to the target patient (except where systems delete the record)
+| Data Processing | The REST operation may have returned, and processing is ongoing to patch any other resource that references the source patient to reference the target patient.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source Patient record will be marked as inactive, and add the link property to the target patient (except where systems delete the record)
 | Completed (or failed) | All data processing is complete, and the Task is marked as completed (maybe with errors) |
 
 During the Data Processing stage the patient resource and resources referencing the source patient may be indeterminate until the merge processing operation completes.
@@ -25,7 +25,7 @@ During the Data Processing stage the patient resource and resources referencing 
 ## Merging Identifiers
 If the result patient resource is provided in the parameters to the operation, then it is assumed that the caller has correctly included all the required identifiers desired to be in the target patient (though must include the identifiers specified in the input parameters).
 
-If the result patient resource is **not** provided (only the identifier/reference to select it), then the values provided in the request parameters (source-patient.identifier and all source-patient-identifiers) will be copied into the target resource and marked as old.
+If the result patient resource is **not** provided (only the identifier or reference to select it), then the values provided in the request parameters (source-patient.identifier and all source-patient-identifiers) will be copied into the target resource and marked as old.
 
 > **Review Note:** If the marking of old still makes sense here for ALL provided identifiers that get copied across when the result patient isn't there)
 
@@ -133,11 +133,11 @@ Below is a summary of the Merge, Move and Link operations. They are included her
 The term "identifier" is used throughout this section.  An identifier is associated with a set (or sets) of data.  For example, an identifier (PID-3 - Patient Identifier List) may be a medical record number which has associated with it account numbers (PID-18 - Patient Account Number).  Account number (PID-18 - Patient Account Number) is a type of identifier which may have associated with it visit numbers (PV1-19 - Visit Number).
 
 This section addresses the events that occur usually for the purposes of correcting errors in person, patient, account, or visit identifiers.  The types of errors that occur typically fall into three categories:
-* Duplicate identifier created
+* Duplicate identifier created  
 The registrar fails to identify an existing person, patient, account, or visit and creates a new, "duplicate" record instead of using the existing record. A "merge" operation is used to fix this type of error.
-* Incorrect identifier selected
+* Incorrect identifier selected  
 The registrar mistakenly selects the wrong person, patient, or account and creates or attaches a patient, account, or visit underneath the incorrect person, patient, or account. A "move" operation is used to fix this type of error.
-* Incorrect identifier assigned
+* Incorrect identifier assigned  
 The registrar accidentally types in the wrong new identifier for a person, patient, account, or visit. This type of mistake usually occurs when identifiers are manually assigned (not system generated).  A "change identifier" operation is used to fix this type of error.
 
 **Note:** HL7v2 addresses only scenarios 1 and 2 as most identifiers are assigned by the related systems, today.
