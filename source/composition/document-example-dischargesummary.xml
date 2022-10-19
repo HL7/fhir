@@ -507,11 +507,11 @@
 	    </verificationStatus>
       <type>
         <coding>
-			  <system value="http://hl7.org/fhir/allergy-intolerance-type"/>
-			  <code value="allergy"/>
-			  <display value="Allergy"/>
-			</coding>
-        <type>
+			    <system value="http://hl7.org/fhir/allergy-intolerance-type"/>
+			    <code value="allergy"/>
+			    <display value="Allergy"/>
+			  </coding>
+      </type>
 
 
 
