@@ -217,6 +217,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.title"/>
 			<short value="Name for this plan definition (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the plan definition."/>
@@ -237,6 +240,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.subtitle">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.subtitle"/>
 			<short value="Subordinate title of the plan definition"/>
 			<definition value="An explanatory or alternate title for the plan definition giving additional information about its content."/>
@@ -406,6 +412,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the plan definition."/>
@@ -451,6 +460,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.description"/>
 			<short value="Natural language description of the plan definition"/>
 			<definition value="A free text natural language description of the plan definition from a consumer&#39;s perspective."/>
@@ -526,6 +538,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.purpose"/>
 			<short value="Why this plan definition is defined"/>
 			<definition value="Explanation of why this plan definition is needed and why it has been designed as it has."/>
@@ -553,6 +568,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.usage">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.usage"/>
 			<short value="Describes the clinical usage of the plan"/>
 			<definition value="A detailed description of how the plan definition is used from a clinical perspective."/>
@@ -1042,6 +1060,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.actor.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.actor.title"/>
 			<short value="User-visible title"/>
 			<definition value="A descriptive label for the actor."/>
@@ -1056,6 +1077,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.actor.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.actor.description"/>
 			<short value="Describes the actor"/>
 			<definition value="A description of how the actor fits into the overall actions of the plan definition."/>
@@ -1222,6 +1246,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.action.title"/>
 			<short value="User-visible title"/>
 			<definition value="The textual description of the action displayed to a user. For example, when the action is a test to be performed, the title would be the title of the test such as Assay by HPLC."/>
@@ -1240,6 +1267,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.action.description"/>
 			<short value="Brief description of the action"/>
 			<definition value="A brief description of the action used to provide a summary to display to the user."/>
@@ -1258,6 +1288,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.textEquivalent">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.action.textEquivalent"/>
 			<short value="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system"/>
 			<definition value="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically."/>
@@ -1498,6 +1531,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.input.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.action.input.title"/>
 			<short value="User-visible title"/>
 			<definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>
@@ -1562,6 +1598,9 @@
 			</mapping>
 		</element>
 		<element id="PlanDefinition.action.output.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="PlanDefinition.action.output.title"/>
 			<short value="User-visible title"/>
 			<definition value="A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers."/>

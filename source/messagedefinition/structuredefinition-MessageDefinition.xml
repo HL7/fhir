@@ -209,6 +209,9 @@
 			</mapping>
 		</element>
 		<element id="MessageDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="MessageDefinition.title"/>
 			<short value="Name for this message definition (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the message definition."/>
@@ -313,6 +316,9 @@
 			</mapping>
 		</element>
 		<element id="MessageDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="MessageDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the message definition."/>
@@ -350,6 +356,9 @@
 			</mapping>
 		</element>
 		<element id="MessageDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="MessageDefinition.description"/>
 			<short value="Natural language description of the message definition"/>
 			<definition value="A free text natural language description of the message definition from a consumer&#39;s perspective."/>
@@ -410,6 +419,9 @@
 			</mapping>
 		</element>
 		<element id="MessageDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="MessageDefinition.purpose"/>
 			<short value="Why this message definition is defined"/>
 			<definition value="Explanation of why this message definition is needed and why it has been designed as it has."/>
@@ -434,6 +446,9 @@
 			</mapping>
 		</element>
 		<element id="MessageDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="MessageDefinition.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="A copyright statement relating to the message definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the message definition."/>

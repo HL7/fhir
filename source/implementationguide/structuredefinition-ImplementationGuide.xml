@@ -188,6 +188,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ImplementationGuide.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.title"/>
       <short value="Name for this implementation guide (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the implementation guide."/>
@@ -264,6 +267,9 @@
       </mapping>
     </element>
     <element id="ImplementationGuide.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide."/>
@@ -293,6 +299,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ImplementationGuide.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.description"/>
       <short value="Natural language description of the implementation guide"/>
 			<definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
@@ -340,6 +349,9 @@
       </binding>
     </element>
     <element id="ImplementationGuide.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide."/>
@@ -358,6 +370,9 @@
       </mapping>
     </element>
     <element id="ImplementationGuide.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -569,6 +584,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.grouping.name">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.grouping.name"/>
       <short value="Descriptive name for the package"/>
       <definition value="The human-readable title to display for the package of resources when rendering the implementation guide."/>
@@ -579,6 +597,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.grouping.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.grouping.description"/>
       <short value="Human readable text describing the package"/>
       <definition value="Human readable text describing the package."/>
@@ -636,6 +657,9 @@
       </binding>
     </element>
     <element id="ImplementationGuide.definition.resource.name">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.resource.name"/>
       <short value="Human readable name for the resource"/>
       <definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
@@ -646,6 +670,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.resource.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.resource.description"/>
       <short value="Reason why included in guide"/>
       <definition value="A description of the reason that a resource has been included in the implementation guide."/>
@@ -711,6 +738,9 @@
       </constraint>
     </element>
     <element id="ImplementationGuide.definition.page.source[x]">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.page.source[x]"/>
       <short value="Source for page"/>
       <definition value="Indicates the URL or the actual content to provide for the page."/>
@@ -739,6 +769,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.page.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ImplementationGuide.definition.page.title"/>
       <short value="Short title shown for navigational assistance"/>
       <definition value="A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc."/>

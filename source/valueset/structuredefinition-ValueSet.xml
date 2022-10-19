@@ -185,6 +185,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ValueSet.title"/>
       <short value="Name for this value set (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the value set."/>
@@ -265,6 +268,9 @@
       </mapping>
     </element>
     <element id="ValueSet.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ValueSet.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the value set."/>
@@ -294,6 +300,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ValueSet.description"/>
       <short value="Natural language description of the value set"/>
       <definition value="A free text natural language description of the value set from a consumer&#39;s perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
@@ -360,6 +369,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ValueSet.purpose"/>
       <short value="Why this value set is defined"/>
       <definition value="Explanation of why this value set is needed and why it has been designed as it has."/>
@@ -379,6 +391,9 @@
       </mapping>
     </element>
     <element id="ValueSet.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ValueSet.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set."/>

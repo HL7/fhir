@@ -244,6 +244,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.title"/>
       <short value="Name for this capability statement (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
@@ -320,6 +323,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the capability statement."/>
@@ -352,6 +358,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.description"/>
       <short value="Natural language description of the capability statement"/>
       <definition value="A free text natural language description of the capability statement from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
@@ -403,6 +412,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.purpose"/>
       <short value="Why this capability statement is defined"/>
       <definition value="Explanation of why this capability statement is needed and why it has been designed as it has."/>
@@ -422,6 +434,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the capability statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the capability statement."/>
@@ -440,6 +455,9 @@
       </mapping>
     </element>
     <element id="CapabilityStatement.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -767,6 +785,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.rest.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.documentation"/>
       <short value="General description of implementation"/>
       <definition value="Information about the system&#39;s restful capabilities that apply across all applications, such as security."/>
@@ -825,6 +846,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.rest.security.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.security.description"/>
       <short value="General description of how security works"/>
       <definition value="General description of how security works."/>
@@ -909,6 +933,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.rest.resource.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.resource.documentation"/>
       <short value="Additional information about the use of the resource type"/>
       <definition value="Additional information about the resource type used by the system."/>
@@ -954,6 +981,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.rest.resource.interaction.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.resource.interaction.documentation"/>
       <short value="Anything special about operation behavior"/>
       <definition value="Guidance specific to the implementation of this operation, such as &#39;delete is a logical delete&#39; or &#39;updates are only allowed with version id&#39; or &#39;creates permitted from pre-authorized certificates only&#39;."/>
@@ -1259,6 +1289,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.rest.resource.operation.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.resource.operation.documentation"/>
       <short value="Specific details about operation behavior"/>
       <definition value="Documentation that describes anything special about the operation behavior, possibly detailing different behavior for system, type and instance-level invocation of the operation."/>
@@ -1303,6 +1336,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.rest.interaction.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.rest.interaction.documentation"/>
       <short value="Anything special about operation behavior"/>
       <definition value="Guidance specific to the implementation of this operation, such as limitations on the kind of transactions allowed, or information about system wide search is implemented."/>
@@ -1422,6 +1458,9 @@
       </type>
     </element>
     <element id="CapabilityStatement.messaging.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.messaging.documentation"/>
       <short value="Messaging interface behavior details"/>
       <definition value="Documentation about the system&#39;s messaging capabilities for this endpoint not otherwise documented by the capability statement.  For example, the process for becoming an authorized messaging exchange partner."/>
@@ -1515,6 +1554,9 @@
       </binding>
     </element>
     <element id="CapabilityStatement.document.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CapabilityStatement.document.documentation"/>
       <short value="Description of document support"/>
       <definition value="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc."/>

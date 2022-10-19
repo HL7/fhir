@@ -221,6 +221,9 @@
 			</mapping>
 		</element>
 		<element id="TestScript.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="TestScript.title"/>
 			<short value="Name for this test script (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the test script."/>
@@ -313,6 +316,9 @@
 			</mapping>
 		</element>
 		<element id="TestScript.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="TestScript.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the test script."/>
@@ -350,6 +356,9 @@
 			</mapping>
 		</element>
 		<element id="TestScript.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="TestScript.description"/>
 			<short value="Natural language description of the test script"/>
 			<definition value="A free text natural language description of the test script from a consumer&#39;s perspective."/>
@@ -409,6 +418,9 @@
 			</mapping>
 		</element>
 		<element id="TestScript.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="TestScript.purpose"/>
 			<short value="Why this test script is defined"/>
 			<definition value="Explanation of why this test script is needed and why it has been designed as it has."/>
@@ -432,6 +444,9 @@
 			</mapping>
 		</element>
 		<element id="TestScript.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="TestScript.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="A copyright statement relating to the test script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test script."/>
@@ -454,6 +469,9 @@
 			</mapping>
 		</element>
     <element id="TestScript.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="TestScript.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>

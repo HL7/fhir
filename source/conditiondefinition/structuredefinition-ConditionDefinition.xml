@@ -171,6 +171,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ConditionDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConditionDefinition.title"/>
       <short value="Name for this condition definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the condition definition."/>
@@ -257,6 +260,9 @@
       </mapping>
     </element>
     <element id="ConditionDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConditionDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the condition definition."/>
@@ -286,6 +292,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ConditionDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConditionDefinition.description"/>
       <short value="Natural language description of the condition definition"/>
       <definition value="A free text natural language description of the condition definition from a consumer&#39;s perspective."/>
