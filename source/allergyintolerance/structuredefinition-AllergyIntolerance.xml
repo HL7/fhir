@@ -193,14 +193,14 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AllergyIntoleranceType"/>
         </extension>
-        <strength value="required"/>
+        <strength value="preferred"/>
         <description value="Identification of the underlying physiological mechanism for a Reaction Risk."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/allergy-intolerance-type"/>
       </binding>
