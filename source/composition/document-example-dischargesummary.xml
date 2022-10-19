@@ -505,7 +505,17 @@
 			  <display value="Confirmed"/>
 			</coding>
 	    </verificationStatus>
-        <type value="allergy"/>
+      <type>
+        <coding>
+			  <system value="http://hl7.org/fhir/allergy-intolerance-type"/>
+			  <code value="allergy"/>
+			  <display value="Allergy"/>
+			</coding>
+        <type>
+
+
+
+
         <criticality value="high"/>
         <code>
           <text value="Doxycycline"/>
