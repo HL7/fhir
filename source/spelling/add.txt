@@ -3,15 +3,11 @@ _query
 _in
 _security
 _type
-recruitment_actual
 _lastupdated
 _list
-lifecycle
-subject_state
 _profile
 _tag
 _source
 _id
 _content
 _text
-recruitment_target
