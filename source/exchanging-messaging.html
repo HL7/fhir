@@ -49,7 +49,7 @@
     Synchronous messages are evaluated in 'real time', with the body of the initial 'acknowledgement' response containing the result of performing the message event.  If the message is transmitted using HTTP, the response message will be in the body of the HTTP response.  Typically, this means a response time on the order of milliseconds or seconds, though the specific response time expectations will be driven by the messaging technology and partner agreement.  It is possible that routing can occur for synchronous messaging, but there would be limits to the number of hops achievable while still falling within timing constraints.
   </p>
   <p>
-    {% include message-sync.svg %}
+    [%file message-sync.svg %]
   </p>
 
   <a name="async"> </a>
@@ -58,7 +58,7 @@
     With asynchronous, the <i>data consumer</i> transmits the request message to the <i>data source</i>, which optionally acknowledges it.  At some later point, the <i>data source</i> transmits a message to the <i>data consumer</i> containing the requested data.  The response is linked to the request using <code>MessageHeader.response.identifier</code>.  The <i>data source</i> could also support a 'status check' message event that allows a synchronous response indicating progress/timeline to response.
   </p>
   <p>
-    {% include message-async.svg %}
+    [%file message-async.svg %]
   </p>
 
 [%file newfooter%]
