@@ -111,7 +111,7 @@
         <human
           value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
         <expression
-          value="entry.all(request.exists() = (type = 'batch' or type = 'transaction' or type = 'history')) or (type='subscription-notification')"/>
+          value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
         <xpath
           value="not(f:entry/f:request) or (f:type/@value = 'batch') or (f:type/@value = 'transaction') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
@@ -122,7 +122,7 @@
         <human
           value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
         <expression
-          value="entry.all(response.exists() = (type = 'batch-response' or type = 'transaction-response' or type = 'history')) or (type='subscription-notification')"/>
+          value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
         <xpath
           value="not(f:entry/f:response) or (f:type/@value = 'batch-response') or (f:type/@value = 'transaction-response') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
