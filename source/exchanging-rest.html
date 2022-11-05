@@ -24,7 +24,7 @@
     In this mode, the <i>data consumer</i> is the initiator.  It executes a GET HTTP command against a specified endpoint on the <i>data source</i>.  The data source then returns the requested data.  The main difference between this pattern and <a href="exchanging-search.html">search</a> is that this simple pattern only returns a single matching resource, rather than a <a href="bundle.html">Bundle</a> of possible matches.
   </p>
   <p>
-    {% include rest-read.svg %}
+    [%file rest-read.svg %]
   </p>
   <p>
     If successful, the response is an HTTP 200, along with the requested resource instance.  If there is a failure, an appropriate HTTP error code will be provided, along with an optional <a href="operationoutcome.html">OperationOutcome</a>.
@@ -36,7 +36,7 @@
     There are many RESTful actions that follow this same basic pattern.  A resource of some type (or a set of deltas from an existing resource) is transmitted from <i>data source</i> to <i>data consumer</i> using a simple REST command and the appropriate endpoint.  The <i>data consumer</i> either stores the data as requested (and acknowledges that success with an appropriate HTTP code) or it rejects the request.  If accepted, a new 'version' of the resource is persisted at the specified endpoint and can potentially be referenced by other resources or subsequently queried or further manipulated.  This basic pattern is shown in the diagram below:
   </p>
   <p>
-    {% include rest.svg %}
+    [%file rest.svg %]
   </p>
 
   <a name="async"> </a>
@@ -45,7 +45,7 @@
     This pattern is used for a subset of the <a href="#push">push</a> scenarios.  The request goes from the <i>data source</i> to the <i>data consumer</i>, but the requested action does not complete immediately.  Instead, the <i>data consumer</i> delivers the response later.  The <i>data source</i> polls to see what the results are.  This will be most commonly used with the <a href="bundle.html">Bundle</a>-based actions which are processing multiple actions at once and may take longer than the HTTP time-out window allows.  (Note: In theory, it would be possible to use async for <a href="#pull">pull</a> transactions like <a href="#read">read</a> or <a href="#vread">vread</a>.  However no known use case exists for these simple operations to happen asynchronously.
   </p>
   <p>
-    {% include rest-async.svg %}
+    [%file rest-async.svg %]
   </p>
   <a name="async-1"> </a>
   <p>

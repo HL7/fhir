@@ -13,7 +13,7 @@ if ([[#pull Consumer\ninitiates?]]) then (yes (pull))
         (A)
         note right:Pull additional\ninformation
         detach
-      elseif ([[#pre-exists Is data\npre-existing?]]) then (yes)
+      (no) elseif ([[#pre-exists Is data\npre-existing?]]) then (yes)
         (B)
         note left:Resource-based query
         if ([[#resources Return\nresources?]]) then (yes)
@@ -50,30 +50,30 @@ if ([[#onlyone Single\nresource?]]) then (yes)
     :[[exchanging-rest.html#vread vread]];
     stop
   endif
-elseif ([[#history Resource\nhistory]]) then (yes)
+(no) elseif ([[#history Resource\nhistory]]) then (yes)
   :[[exchanging-search.html#history REST\nhistory]];
   (I)
   note right:async?
   detach
-elseif ([[#adhoc Ad-hoc\nquery?]]) then (yes)
+(no) elseif ([[#adhoc Ad-hoc\nquery?]]) then (yes)
   if ([[#rest-search REST\nsearchable?]]) then (yes)
     :[[exchanging-search.html#search REST search]];
     (I)
     note right:async?
     detach
-  elseif ([[#search-batch Batch\nsearchable?]]) then (yes)
+  (no) elseif ([[#search-batch Batch\nsearchable?]]) then (yes)
     :[[exchanging-rest.html#batch-search Batch search]];
     (B)
     note right:determine\nbatch content
     (I)
     note right:async?
     detach
-  elseif ([[#filter _filter\nsearchable?]]) then (yes)
+  (no) elseif ([[#filter _filter\nsearchable?]]) then (yes)
     :[[exchanging-search.html#filter _filter]];
     (I)
     note right:async?
     detach
-  elseif ([[#cql CQL\nsearchable]]) then (yes)
+  (no) elseif ([[#cql CQL\nsearchable]]) then (yes)
     :[[exchanging-search.html#cql CQL]];
     (I)
     note right:async?
@@ -104,12 +104,12 @@ if ([[#graphql GraphQL\nsearchable]]) then (yes)
   (I)
   note right:async?
   detach
-elseif ([[#cql CQL\nsearchable]]) then (yes)
+(no) elseif ([[#cql CQL\nsearchable]]) then (yes)
   :[[exchanging-search.html#cql CQL]];
   (I)
   note right:async?
   detach
-elseif ([[#sparql SPARQL\nsearchable]]) then (yes)
+(no) elseif ([[#sparql SPARQL\nsearchable]]) then (yes)
   :[[exchanging-search.html#sparql SPARQL]];
   stop
 else (no - See\nmsg or op pull)
@@ -142,12 +142,14 @@ else (no)
           if ([[#rest New record\nfor consumer?]]) then (yes)
             :[[exchanging-rest.html#create Individual\ncreate]];
             stop
-          elseif ([[#resources Update whole\nresource?]]) then (yes)
-            :[[exchanging-rest.html#update Individual\nupdate]];
-            stop
           else (no)
-            :[[exchanging-rest.html#patch Patch]];
-            stop
+		    if ([[#resources Update whole\nresource?]]) then (yes)
+              :[[exchanging-rest.html#update Individual\nupdate]];
+              stop
+            else (no)
+              :[[exchanging-rest.html#patch Patch]];
+              stop
+			endif
           endif
         else (yes)
           if ([[#transaction Transactional?]]) then (no)
@@ -177,8 +179,8 @@ else (no - See\nmsg notify)
   detach
 endif
 
-(-)
-if () then
+'(-)
+'if () then
   (H)
   note left:Msg or op pull?
   if ([[#message Is\nmessage-like?]]) then (no)
@@ -198,7 +200,7 @@ if () then
     :[[exchanging-messaging.html#query FHIR\nMessaging]];
     stop
   endif
-else
+'else
   (K)
   note left:Msg or op push?
   if ([[#message Is\nmessage-like?]]) then (no)
@@ -211,5 +213,5 @@ else
     :[[exchanging-messaging.html#notify FHIR\nMessaging]];
     stop
   endif
-endif
+'endif
 @enduml

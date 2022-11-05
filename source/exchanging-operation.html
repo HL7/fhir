@@ -53,7 +53,7 @@
     Synchronous operations are performed in 'real time', with the body of the HTTP response containing the result of invoking the operation.  Typically, this means a response time in the milliseconds, or at most a few seconds though HTTP timeouts can extend to a minute or longer if the use-case will tolerate that sort of duration.
   </p>
   <p>
-    {% include rest-sync.svg %}
+    [%file rest-sync.svg %]
   </p>
   <p>
     The operation is invoked by invoking a GET on the operation URL passing parameters in the URL, or by invoking a POST on the operation URL passing either a single resource in the body or a Parameters instance containing various parameters in the body.  The HTTP response could contain a Bundle (typically a search response Bundle), a single resource or a Parameters instance as defined by the operation.  On failure, it would generally contain an <a href="operationoutcome.html">OperationOutcome</a>.
@@ -76,7 +76,7 @@
     Asynchronous operations are used when there is no expectation that the response will be processed within the HTTP timeout period of the server (or at least within the period the client system is willing to block for).  It allows an operation to be initiated and the results of the operation to subsequently received by polling a temporary location established at the time of operation invocation.  Operations can be invoked asynchronously whether using POST or GET.  Details on the asynchronous process are found in the FHIR specification <a href="async.html">here</a>
   </p>
   <p>
-    {% include rest-async.svg %}
+    [%file rest-async.svg %]
   </p>
   <a name="async-1"> </a>
   <p>
