@@ -8,7 +8,7 @@ This resource covers the administration of all medications.  Please refer to the
 It will principally be used within care settings (including inpatient) to record medication administrations, including self-administrations of oral medications, injections, intravenous infusions, etc.  It can also be used in outpatient settings to record allergy shots and other non-immunization administrations.  In some
 cases, it might be used for home-health reporting, such as recording self-administered or even device-administered insulin. 
 </p>
-    <p>Note:  devices coated with a medication (e.g. heparin) are not typically recorded as a medication administration.  However, administration of a medication via an implanted medication pump (e.g. insulin) would be recorded as a MedicationAdministration</p>
+    <p>Note:  devices coated with a medication (e.g. heparin) are not typically recorded as a medication administration.  However, administration of a medication via an implanted medication pump (e.g., insulin) would be recorded as a MedicationAdministration.</p>
     <p>MedicationAdministration is an event resource from a FHIR workflow perspective - see <a href="workflow.html#event"> Workflow Event </a>
     </p>
 </div>
@@ -30,7 +30,7 @@ cases, it might be used for home-health reporting, such as recording self-admini
     </tr>
     <tr>
         <td><a href="medicationadministration.html">MedicationAdministration</a></td>
-        <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
+        <td>When a patient actually consumes a medicine, or it is otherwise administered to them.</td>
     </tr>
     <tr>
         <td><a href="medicationusage.html">MedicationUsage</a></td>

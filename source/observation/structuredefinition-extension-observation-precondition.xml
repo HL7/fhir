@@ -23,7 +23,7 @@
       <value value="http://hl7.org/special/committees/orders"/>
     </telecom>
   </contact>
-  <description value="Other preceding or concurrent observations that must be known to correctly interpret the the observation.  For example an fiO2 measure taken alongside of a SpO2 measurement.  See the [Observation notes](observation.html#notes) section for additional guidance."/>
+  <description value="Other preceding or concurrent observations that must be known to correctly interpret the observation.  For example, an fiO2 measure taken alongside of a SpO2 measurement.  See the [Observation notes](observation.html#notes) section for additional guidance."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
