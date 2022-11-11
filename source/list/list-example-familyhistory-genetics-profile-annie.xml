@@ -69,7 +69,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -199,7 +198,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -387,7 +385,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
       <condition>
         <code>
           <coding>
@@ -461,7 +458,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
       <condition>
         <code>
           <coding>
@@ -558,7 +554,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
     </FamilyMemberHistory>
   </contained>
   <contained>
@@ -616,7 +611,6 @@
         <system value="http://unitsofmeasure.org"/>
         <code value="a"/>
       </ageAge>
-      <deceasedBoolean value="false"/>
       <condition>
         <code>
           <coding>
