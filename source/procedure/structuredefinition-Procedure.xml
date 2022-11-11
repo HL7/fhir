@@ -854,14 +854,18 @@
       </mapping>
     </element>
     <element id="Procedure.complication">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J32511"/>
+      </extension>
       <path value="Procedure.complication"/>
       <short value="Complication following the procedure"/>
       <definition value="Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues."/>
-      <comment value="If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text."/>
+      <comment value="If complications are only expressed by the narrative text, they can be captured using the CodeableReference.concept.text."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -871,22 +875,6 @@
         <description value="Codes describing complications that resulted from a procedure."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=&#34;complication&#34;, moodCode=EVN].value"/>
-      </mapping>
-    </element>
-    <element id="Procedure.complicationDetail">
-      <path value="Procedure.complicationDetail"/>
-      <short value="A condition that is a result of the procedure"/>
-      <definition value="Any complications that occurred during the procedure, or in the immediate post-performance period."/>
-      <requirements value="This is used to document a condition that is a result of the procedure, not the condition that was the reason for the procedure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-      </type>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=&#34;complication&#34;, moodCode=EVN].value"/>
@@ -994,7 +982,7 @@
       <path value="Procedure.used"/>
       <short value="Items used during procedure"/>
       <definition value="Identifies medications, devices and any other substance used as part of the procedure."/>
-      <comment value="For devices actually implanted or removed, use Procedure.device."/>
+      <comment value="For devices actually implanted or removed, use Procedure.focalDevice.manipulated."/>
       <requirements value="Used for tracking contamination, etc."/>
       <min value="0"/>
       <max value="*"/>
