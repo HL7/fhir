@@ -442,7 +442,7 @@
     <element id="MedicationAdministration.performer">
       <path value="MedicationAdministration.performer"/>
       <short value="Who or what performed the medication administration and what type of performance they did"/>
-      <definition value="Indicates who or what performed the medication administration and how they were involved. For devices, this is the device that is actually performing the administration of the medication.  An IV Pump would be an example of a device that is performing the administration.  Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers."/>
+      <definition value="The performer of the medication treatment.  For devices this is the device that performed the administration of the medication.  An IV Pump would be an example of a device that is performing the administration. Both the IV Pump and the practitioner that set the rate or bolus on the pump can be listed as performers."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -494,7 +494,7 @@
     </element>
     <element id="MedicationAdministration.performer.actor">
       <path value="MedicationAdministration.performer.actor"/>
-      <short value="Who performed the medication administration"/>
+      <short value="Who or what performed the medication administration"/>
       <definition value="Indicates who or what performed the medication administration."/>
       <min value="1"/>
       <max value="1"/>
@@ -576,7 +576,7 @@
     <element id="MedicationAdministration.device">
       <path value="MedicationAdministration.device"/>
       <short value="Device used to administer"/>
-      <definition value="The device used in administering the medication to the patient.  For example, a particular infusion pump."/>
+      <definition value="The device that is to be used for the administration of the medication (for example, PCA Pump)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
