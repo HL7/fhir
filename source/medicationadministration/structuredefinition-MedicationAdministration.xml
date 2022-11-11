@@ -43,7 +43,7 @@
       <value value="http://www.hl7.org/Special/committees/medication/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner."/>
+  <description value="Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion. Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner. This event can also be used to record waste using a status of not-done and the appropriate statusReason."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -113,8 +113,6 @@
         <map value=".id"/>
       </mapping>
     </element>
-    
-    
     <element id="MedicationAdministration.basedOn">
       <path value="MedicationAdministration.basedOn"/>
       <short value="Plan this is fulfilled by this administration"/>
@@ -134,12 +132,14 @@
       <path value="MedicationAdministration.partOf"/>
       <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component or step."/>
+      <comment value="MedicationDispense will be used to indicate waste."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </type>
       <isSummary value="true"/>
       <mapping>
