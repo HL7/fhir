@@ -22,7 +22,7 @@
 		</period>
 	</statusHistory>
 	<statusHistory>
-		<status value="onhold"/>
+		<status value="on-hold"/>
 		<period>
 			<start value="2017-02-01T12:15:00+10:00"/>
 			<end value="2017-02-01T12:45:00+10:00"/>
