@@ -665,8 +665,8 @@
     </element>
     <element id="PackagedProductDefinition.packaging.packaging">
       <path value="PackagedProductDefinition.packaging.packaging"/>
-      <short value="Allows containers (and parts of containers) within containers, still a single packaged product"/>
-      <definition value="Allows containers (and parts of containers) parwithin containers, still a single packaged product.  See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition)."/>
+        <short value="Allows containers (and parts of containers) within containers, still as a part of single packaged product"/>
+      <definition value="Allows containers (and parts of containers) within containers, still as a part of a single packaged product. See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition)."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#PackagedProductDefinition.packaging"/>
