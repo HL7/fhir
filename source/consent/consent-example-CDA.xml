@@ -72,10 +72,10 @@
           </reference>
         </actor>
         <!-- CDA documents -->
-        <class>
+        <documentType>
           <system value="urn:ietf:bcp:13"/>
           <code value="application/hl7-cda+xml"/>
-        </class>
+        </documentType>
         <!-- code rules -->
         <code>
           <coding>

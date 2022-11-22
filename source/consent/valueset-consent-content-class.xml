@@ -15,25 +15,18 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes the FHIR resource types, along with some other important content class codes"/>
+  <description value="This value set LOINC document types and IHE content class codes"/>
   <compose>
     <include>
       <valueSet value="http://terminology.hl7.org/ValueSet/v3-HL7FormatCodes"/>
     </include>
-    <include/>
     <include>
-      <system value="urn:ietf:rfc:3986"/>
-      <concept>
-        <code value="http://hl7.org/fhir/StructureDefinition/lipidprofile"/>
-        <display value="Lipid Lab Report"/>
-      </concept>
-    </include>
-    <include>
-      <system value="urn:ietf:bcp:13"/>
-      <concept>
-        <code value="application/hl7-cda+xml"/>
-        <display value="CDA Documents"/>
-      </concept>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="Doc"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

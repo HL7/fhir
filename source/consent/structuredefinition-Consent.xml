@@ -232,7 +232,7 @@
         <element id="Consent.period">
             <path value="Consent.period" />
             <short value="Effective period for this Consent" />
-            <definition value="Effective period for this Consent Resource and all provisions unless specified in that provision" />
+            <definition value="Effective period for this Consent Resource and all provisions unless specified in that provision." />
             <alias value="period" />
             <min value="0" />
             <max value="1" />
@@ -348,75 +348,7 @@
                 <map value="Potential mappings to CON-5,6,7,8,16,19, 20-23"/>
             </mapping>
         </element>
-        <!-- removed for update to new policy structure
-        <element id="Consent.policy">
-            <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-                <valueCode value="400,0" />
-            </extension>
-            <path value="Consent.policy" />
-            <short value="Policies covered by this consent" />
-            <definition value="The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law." />
-            <comment value="if policy and policyRule are not present, the resource must include the policy being agreed to, or complied with, and that policy and/or policyRule SHOULD be populated as soon as is practical to support workflows that require computability. In addition, the policy could be indicated via the sourceReference or sourceAttachment content.&#xA;&#xA;Alternately, creating an invariant for individual scopes that forces one or more of the elements to be populated as part of a profile or Implementation Guide may be advisable." />
-            <min value="0" />
-            <max value="*" />
-            <type>
-                <code value="BackboneElement" />
-            </type>
-            <mapping>
-                <identity value="v2" />
-                <map value="CON-3 (Consent Form ID and Version – ST)&#xA;Note: An implementation-specific requirement will be needed" />
-            </mapping>
-        </element>
-        <element id="Consent.policy.authority">
-            <path value="Consent.policy.authority" />
-            <short value="Enforcement source for policy" />
-            <definition value="Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives." />
-            <min value="0" />
-            <max value="1" />
-            <type>
-                <code value="uri" />
-            </type>
-            <condition value="ppc-1" />
-        </element>
-        <element id="Consent.policy.uri">
-            <path value="Consent.policy.uri" />
-            <short value="Specific policy covered by this consent" />
-            <definition value="The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law." />
-            <comment value="This element is for discoverability / documentation and does not modify or qualify the policy rules." />
-            <min value="0" />
-            <max value="1" />
-            <type>
-                <code value="uri" />
-            </type>
-            <condition value="ppc-1" />
-        </element>
-        <element id="Consent.policyRule">
-            <path value="Consent.policyRule" />
-            <short value="Regulation that this consents to" />
-            <definition value="A reference to the specific base computable regulation or policy." />
-            <comment value="If the policyRule is absent, computable consent would need to be constructed from the elements of the Consent resource." />
-            <requirements value="Might be a unique identifier of a policy set in XACML, or other rules engine." />
-            <min value="0" />
-            <max value="1" />
-            <type>
-                <code value="CodeableConcept" />
-            </type>
-            <condition value="ppc-1" />
-            <isSummary value="true" />
-            <binding>
-                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-                    <valueString value="ConsentPolicyRule" />
-                </extension>
-                <strength value="example" />
-                <description value="Regulatory policy examples." />
-                <valueSet value="http://hl7.org/fhir/ValueSet/consent-policy" />
-            </binding>
-            <mapping>
-                <identity value="v2" />
-                <map value="CON-3 (Consent Form ID and Version – ST)&#xA;Note: An implementation-specific requirement will be needed" />
-            </mapping>
-        </element>
-    -->
+        
         <element id="Consent.regulatoryBasis">
             <path value="Consent.regulatoryBasis"/>
             <short value="Regulations establishing base Consent"/>
@@ -741,11 +673,31 @@
                 <valueSet value="http://terminology.hl7.org/ValueSet/v3-PurposeOfUse"/>
             </binding>
         </element>
-        <element id="Consent.provision.class">
-            <path value="Consent.provision.class"/>
+        <element id="Consent.provision.documentType">
+            <path value="Consent.provision.documentType"/>
             <short value="e.g. Resource Type, Profile, CDA, etc."/>
-            <definition value="The class of information covered by this provision. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to."/>
-            <comment value="Multiple types are or'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
+            <definition value="The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to."/>
+            <comment value="Multiple types are or'ed together. The intention of the documentType element is that the codes refer to document types defined in a standard somewhere."/>
+            <min value="0"/>
+            <max value="*"/>
+            <type>
+                <code value="Coding"/>
+            </type>
+            <isSummary value="true"/>
+            <binding>
+                <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+                    <valueString value="ConsentContentClass"/>
+                </extension>
+                <strength value="preferred"/>
+                <description value="The document type a consent provision covers."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+            </binding>
+        </element>
+        <element id="Consent.provision.resourceType">
+            <path value="Consent.provision.resourceType"/>
+            <short value="e.g. Resource Type, Profile, etc."/>
+            <definition value="The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to."/>
+            <comment value="Multiple types are or'ed together. The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -757,15 +709,14 @@
                     <valueString value="ConsentContentClass"/>
                 </extension>
                 <strength value="extensible"/>
-                <description value="The class (type) of information a consent provision covers."/>
-                <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
+                <description value="The resource types a consent provision covers."/>
+                <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
             </binding>
         </element>
         <element id="Consent.provision.code">
             <path value="Consent.provision.code"/>
             <short value="e.g. LOINC or SNOMED CT code, etc. in the content"/>
             <definition value="If this code is found in an instance, then the provision applies."/>
-            <comment value="Typical use of this is a Document code with class = CDA."/>
             <min value="0"/>
             <max value="*"/>
             <type>
