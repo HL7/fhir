@@ -232,7 +232,7 @@
         <element id="Consent.period">
             <path value="Consent.period" />
             <short value="Effective period for this Consent" />
-            <definition value="Effective period for this Consent Resource and all provisions unless specified in that provision" />
+            <definition value="Effective period for this Consent Resource and all provisions unless specified in that provision." />
             <alias value="period" />
             <min value="0" />
             <max value="1" />
