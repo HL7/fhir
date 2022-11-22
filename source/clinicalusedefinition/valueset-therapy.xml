@@ -55,9 +55,25 @@
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
-        <op value="is-a"/>
-        <value value="277132007"/> <!-- Therapeutic procedure (procedure) -->
+          <op value="is-a"/>
+          <value value="277132007"/> <!-- Therapeutic procedure (procedure) --> <!-- is an agreed proposal to change this to "71388002 |Procedure (procedure)" - but that seems less helpful than Therapeutic procedure --> 
       </filter>
     </include>
+      <include>
+          <system value="http://snomed.info/sct"/>
+          <filter>
+              <property value="concept"/>
+              <op value="is-a"/>
+              <value value="373873005"/> <!-- Pharmaceutical / biologic product (product) -->
+          </filter>
+      </include>
+      <include>
+          <system value="http://snomed.info/sct"/>
+          <filter>
+              <property value="concept"/>
+              <op value="is-a"/>
+              <value value="410942007"/> <!-- Drug or medicament (substance) -->
+          </filter>
+      </include>
   </compose>
 </ValueSet>
