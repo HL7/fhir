@@ -229,6 +229,18 @@
                 <map value="CON-13 (Consent Decision Date/Time – DTM)"/>
             </mapping>
         </element>
+        <element id="Consent.period">
+            <path value="Consent.period" />
+            <short value="Effective period for this Consent" />
+            <definition value="Effective period for this Consent Resource and all provisions unless specified in that provision" />
+            <alias value="period" />
+            <min value="0" />
+            <max value="1" />
+            <type>
+                <code value="Period" />
+            </type>
+            <isSummary value="true"/>           
+        </element>
         <element id="Consent.grantor">
             <path value="Consent.grantor"/>
             <short value="Who is granting rights according to the policy and rules"/>
