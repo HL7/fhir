@@ -130,13 +130,13 @@
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Consent.dateTime"/>
+          <valueString value="Consent.date"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Consent-date"/>
         <description value="When consent was agreed to"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Consent.dateTime"/>
+        <expression value="Consent.date"/>
         <!--<xpath value="f:Consent/f:dateTime"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
