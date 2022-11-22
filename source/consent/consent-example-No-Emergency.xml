@@ -21,7 +21,7 @@
     <reference value="Patient/f002"/>
     <display value="Donald D Duck"/>
   </subject>
-  <dateTime value="2018-12-28"/>
+  <date value="2018-12-28"/>
   <sourceAttachment>
     <title value="The Patient has expressed both deny Treatment and deny Emergency."/>
     <url value="https://uhin.org/wp-content/uploads/2017/06/cHIE_Patient_Participation_Form.pdf"/>

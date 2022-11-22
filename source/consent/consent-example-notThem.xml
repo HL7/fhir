@@ -24,7 +24,7 @@
     <reference value="Patient/mom"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <dateTime value="2018-12-24"/>
+  <date value="2018-12-24"/>
   <controller>
     <reference value="Organization/f001"/>
   </controller>

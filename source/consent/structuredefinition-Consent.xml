@@ -206,14 +206,14 @@
                 <map value="FiveWs.subject"/>
             </mapping>
         </element>
-        <element id="Consent.dateTime">
-            <path value="Consent.dateTime"/>
-            <short value="When consent was agreed to"/>
-            <definition value="Date and time the consent instance was agreed to."/>
+        <element id="Consent.date">
+            <path value="Consent.date"/>
+            <short value="Fully executed date of the consent"/>
+            <definition value="Date the consent instance was agreed to."/>
             <min value="0"/>
             <max value="1"/>
             <type>
-                <code value="dateTime"/>
+                <code value="date"/>
             </type>
             <isSummary value="true"/>
             <mapping>
@@ -590,7 +590,7 @@
         <element id="Consent.provision.type">
             <path value="Consent.provision.type"/>
             <short value="deny | permit"/>
-            <definition value="Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules."/>
+            <definition value="Action  to take - permit or deny - when the provision conditions are met.  Not permitted in root provision, required in all nested provisions."/>
             <min value="0"/>
             <max value="1"/>
             <type>
@@ -604,14 +604,14 @@
                     <valueString value="ConsentProvisionType"/>
                 </extension>
                 <strength value="required"/>
-                <description value="How a rule statement is applied, such as adding additional consent or removing consent."/>
+                <description value="How a provision statement is applied, such as adding additional consent or removing consent."/>
                 <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
             </binding>
         </element>
         <element id="Consent.provision.period">
             <path value="Consent.provision.period"/>
-            <short value="Timeframe for this rule"/>
-            <definition value="The timeframe in this rule is valid."/>
+            <short value="Timeframe for this provision"/>
+            <definition value="Timeframe for this provision."/>
             <comment value="This is the bound effective time of the consent and should be in the base provision in the Consent resource."/>
             <min value="0"/>
             <max value="1"/>
@@ -632,8 +632,8 @@
                 <valueCode value="down"/>
             </extension>
             <path value="Consent.provision.actor"/>
-            <short value="Who|what controlled by this rule (or group, by role)"/>
-            <definition value="Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
+            <short value="Who|what controlled by this provision (or group, by role)"/>
+            <definition value="Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -679,8 +679,8 @@
         </element>
         <element id="Consent.provision.action">
             <path value="Consent.provision.action"/>
-            <short value="Actions controlled by this rule"/>
-            <definition value="Actions controlled by this Rule."/>
+            <short value="Actions controlled by this provision"/>
+            <definition value="Actions controlled by this provision."/>
             <comment value="Note that this is the direct action (not the grounds for the action covered in the purpose element). At present, the only action in the understood and tested scope of this resource is 'read'."/>
             <min value="0"/>
             <max value="*"/>
@@ -723,8 +723,8 @@
         </element>
         <element id="Consent.provision.purpose">
             <path value="Consent.provision.purpose"/>
-            <short value="Context of activities covered by this rule"/>
-            <definition value="The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule."/>
+            <short value="Context of activities covered by this provision"/>
+            <definition value="The context of the activities a user is taking - why the user is accessing the data - that are controlled by this provision."/>
             <comment value="When the purpose of use tag is on the data, access request purpose of use shall not conflict."/>
             <min value="0"/>
             <max value="*"/>
@@ -744,7 +744,7 @@
         <element id="Consent.provision.class">
             <path value="Consent.provision.class"/>
             <short value="e.g. Resource Type, Profile, CDA, etc."/>
-            <definition value="The class of information covered by this rule. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to."/>
+            <definition value="The class of information covered by this provision. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to."/>
             <comment value="Multiple types are or'ed together. The intention of the contentType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
             <min value="0"/>
             <max value="*"/>
@@ -757,14 +757,14 @@
                     <valueString value="ConsentContentClass"/>
                 </extension>
                 <strength value="extensible"/>
-                <description value="The class (type) of information a consent rule covers."/>
+                <description value="The class (type) of information a consent provision covers."/>
                 <valueSet value="http://hl7.org/fhir/ValueSet/consent-content-class"/>
             </binding>
         </element>
         <element id="Consent.provision.code">
             <path value="Consent.provision.code"/>
             <short value="e.g. LOINC or SNOMED CT code, etc. in the content"/>
-            <definition value="If this code is found in an instance, then the rule applies."/>
+            <definition value="If this code is found in an instance, then the provision applies."/>
             <comment value="Typical use of this is a Document code with class = CDA."/>
             <min value="0"/>
             <max value="*"/>
@@ -783,8 +783,8 @@
         </element>
         <element id="Consent.provision.dataPeriod">
             <path value="Consent.provision.dataPeriod"/>
-            <short value="Timeframe for data controlled by this rule"/>
-            <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this rule."/>
+            <short value="Timeframe for data controlled by this provision"/>
+            <definition value="Clinical or Operational Relevant period of time that bounds the data controlled by this provision."/>
             <comment value="This has a different sense to the Consent.period - that is when the consent agreement holds. This is the time period of the data that is controlled by the agreement."/>
             <min value="0"/>
             <max value="1"/>
@@ -801,8 +801,8 @@
                 <valueCode value="down"/>
             </extension>
             <path value="Consent.provision.data"/>
-            <short value="Data controlled by this rule"/>
-            <definition value="The resources controlled by this rule if specific resources are referenced."/>
+            <short value="Data controlled by this provision"/>
+            <definition value="The resources controlled by this provision if specific resources are referenced."/>
             <min value="0"/>
             <max value="*"/>
             <type>
@@ -855,8 +855,8 @@
         </element>
         <element id="Consent.provision.provision">
             <path value="Consent.provision.provision"/>
-            <short value="Nested Exception Rules"/>
-            <definition value="Rules which provide exceptions to the base rule or subrules."/>
+            <short value="Nested Exception Provisions"/>
+            <definition value="Provisions which provide exceptions to the base provision or subprovisions."/>
             <min value="0"/>
             <max value="*"/>
             <contentReference value="#Consent.provision"/>

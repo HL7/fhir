@@ -39,7 +39,7 @@
   <subject>
     <reference value="Patient/xcda"/>
   </subject>
-  <dateTime value="2016-06-23T17:02:33+10:00"/>
+  <date value="2016-06-23"/>
   <grantor>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person -->

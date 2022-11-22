@@ -18,7 +18,7 @@
     <reference value="Patient/pat2"/>
     <!-- one of the stock examples -->
   </subject>
-  <dateTime value="2018-12-28T00:41:10-04:00"/>
+  <date value="2018-12-28"/>
   <grantee>
     <reference value="Patient/pat2"/>
     <!-- author is patient themselves, and they sign -->
