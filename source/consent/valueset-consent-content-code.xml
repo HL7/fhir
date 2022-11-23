@@ -31,5 +31,13 @@
     <include>
       <system value="http://loinc.org"/>
     </include>
+    <exclude>
+      <system value="http://loinc.org"/>
+      <filter>
+        <property value="SCALE_TYP"/>
+        <op value="="/>
+        <value value="Doc"/>
+      </filter>
+    </exclude>
   </compose>
 </ValueSet>
