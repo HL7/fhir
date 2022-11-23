@@ -307,29 +307,6 @@
         <map value="Packaged Medicinal Product.Marketing Status"/>
       </mapping>
     </element>
-    <element id="PackagedProductDefinition.characteristic">
-      <path value="PackagedProductDefinition.characteristic"/>
-      <short value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;"/>
-      <definition value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;, &#34;calendar pack&#34;."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PackageCharacteristic"/>
-        </extension>
-        <strength value="example"/>
-        <description value="A characteristic of a package."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/package-characteristic"/>
-      </binding>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
     <element id="PackagedProductDefinition.copackagedIndicator">
       <path value="PackagedProductDefinition.copackagedIndicator"/>
       <short value="Identifies if the drug product is supplied with another item such as a diluent or adjuvant"/>
@@ -676,5 +653,19 @@
         <map value="(link from Package Item (Container) to itself)"/>
       </mapping>
     </element>
+      <element id="PackagedProductDefinition.characteristic">
+          <path value="PackagedProductDefinition.characteristic"/>
+          <short value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;"/>
+          <definition value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;, &#34;calendar pack&#34;."/>
+          <min value="0"/>
+          <max value="*"/>
+          <contentReference value="#PackagedProductDefinition.packaging.property"/>
+          <isSummary value="true"/>
+          <mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+      
   </differential>
 </StructureDefinition>
