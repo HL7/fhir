@@ -80,10 +80,10 @@
           <code value="correct"/>
         </coding>
       </action>
-      <class>
-        <system value="http://hl7.org/fhir/fhir-types"/>
+      <resourceType>
+        <system value="http://hl7.org/fhir/resource-types"/>
         <code value="MedicationRequest"/>
-      </class>
+      </resourceType>
     </provision>
   </provision>
 </Consent>
