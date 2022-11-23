@@ -60,7 +60,7 @@
     <definition value="Indicated except when the other therapy is given"/>
   </concept>
   <concept>
-    <code value="indicated-only-before"/>
+    <code value="indicated-only-after"/>
     <display value="Indicated only if the other therapy is planned to be given afterwards (prep)"/>
     <definition value="Indicated only if the other therapy is planned to be given afterwards (prep)"/>
   </concept>
