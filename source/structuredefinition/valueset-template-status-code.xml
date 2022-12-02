@@ -11,11 +11,21 @@
   <url value="http://hl7.org/fhir/ValueSet/template-status-code"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.3.1937.98.11.8"/>
+    <value value="2.16.840.1.113883.3.1937.98.11.8"/>
   </identifier>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="2.16.840.1.113883.3.1937.98.11.8"/>
+    <value value="urn:oid:2.16.840.1.113883.3.1937.98.11.8"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.842"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.384"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="TemplateStatusCode"/>

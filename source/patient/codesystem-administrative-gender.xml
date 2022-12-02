@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="administrative-gender"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -8,103 +10,153 @@
     <status value="extensions"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This code system http://hl7.org/fhir/administrative-gender defines the following codes:</p>
+      
       
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
           
+          
           <td>
+            
             
             <b>Definition</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Comments</b>
+          
           
           </td>
         
+        
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">male
             
+            
             <a name="administrative-gender-male"> </a>
+          
           
           </td>
           
+          
           <td>Male</td>
+          
           
           <td>Male.</td>
           
+          
           <td>Male</td>
+        
         
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">female
             
+            
             <a name="administrative-gender-female"> </a>
+          
           
           </td>
           
+          
           <td>Female</td>
+          
           
           <td>Female.</td>
           
+          
           <td>Female</td>
+        
         
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">other
             
+            
             <a name="administrative-gender-other"> </a>
           
+          
           </td>
+          
           
           <td>Other</td>
           
+          
           <td>Other.</td>
+          
           
           <td>The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value.</td>
         
+        
         </tr>
+        
         
         <tr>
           
+          
           <td style="white-space:nowrap">unknown
+            
             
             <a name="administrative-gender-unknown"> </a>
           
+          
           </td>
+          
           
           <td>Unknown</td>
           
+          
           <td>Unknown.</td>
           
-          <td>A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of "unknown". (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of "H" and a URL prefix of "tel:" to convey that it is the home phone number that is unknown.)</td>
+          
+          <td>A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)</td>
+        
         
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -124,6 +176,16 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.2"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.1"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="AdministrativeGender"/>
@@ -161,7 +223,7 @@
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">
-      <valueString value="A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &#34;unknown&#34;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &#34;H&#34; and a URL prefix of &#34;tel:&#34; to convey that it is the home phone number that is unknown.)"/>
+      <valueString value="A proper value is applicable, but not known.  Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless:  Those properties themselves directly translate to a semantic of &quot;unknown&quot;. (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of &quot;H&quot; and a URL prefix of &quot;tel:&quot; to convey that it is the home phone number that is unknown.)"/>
     </extension>
     <code value="unknown"/>
     <display value="Unknown"/>

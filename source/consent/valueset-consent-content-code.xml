@@ -13,6 +13,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.748"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.746"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ConsentContentCodes"/>
   <title value="Consent Content Codes"/>
@@ -26,7 +31,7 @@
     </telecom>
   </contact>
   <description value="This example value set contains all LOINC code"/>
-  <copyright value="This content LOINC&#xAE; is copyright &#xA9; 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
+  <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <compose>
     <include>
       <system value="http://loinc.org"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="list-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -16,6 +18,16 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.327"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.318"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.178"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="ListStatus"/>
@@ -46,7 +58,7 @@
   <concept>
     <code value="retired"/>
     <display value="Retired"/>
-    <definition value="The list is &#34;old&#34; and should no longer be considered accurate or relevant."/>
+    <definition value="The list is &quot;old&quot; and should no longer be considered accurate or relevant."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>

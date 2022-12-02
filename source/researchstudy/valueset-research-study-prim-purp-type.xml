@@ -8,7 +8,9 @@
   </meta>
   <text>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>Hello world</p>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -48,10 +50,10 @@
     <include>
       <system value="http://hl7.org/fhir/research-study-classifiers"/>
       <filter>
-	    <property value="concept"/>
-	    <op value="descendent-of"/>
-	    <value value="research-study-prim-purp-type"/>
-	  </filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="research-study-prim-purp-type"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>
