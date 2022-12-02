@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="expression-language"/>
   <meta>
@@ -67,7 +68,6 @@
         <code value="text/cql-identifier"/>
         <display value="CQL Identifier"/>
       </concept>
-	  
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
           <valueString value="A Clinical Quality Language expression,"/>

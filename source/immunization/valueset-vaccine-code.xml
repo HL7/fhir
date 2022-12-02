@@ -10,31 +10,41 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
+      
       <p>Around the world, various different coding systems are used for immunizations:</p>
+      
       
       
       <ul> 
         
         
+        
         <li>USA: CVX (
+          
           
           
           <a href="http://hl7.org/fhir/sid/cvx">http://hl7.org/fhir/sid/cvx</a>)
         
         
+        
         </li>
+        
         
         
         <li>Australia: ACIR (
           
           
+          
           <a href="http://www.medicareaustralia.gov.au/provider/vendors/files/9560-1301-acir-idi-vaccine-codes.pdf">urn:oid:1.2.36.1.2001.1005.17</a>)
+        
         
         
         </li>
       
       
+      
       </ul>
+    
     
     
     </div>
@@ -46,6 +56,11 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.80.22"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.414"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="VaccineAdministeredValueSet"/>

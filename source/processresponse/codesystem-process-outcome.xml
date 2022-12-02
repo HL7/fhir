@@ -1,8 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/processoutcomecodes"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.1842"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.678"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.352"/>
   </identifier>
   <name value="ProcessOutcomeCodes"/>
   <title value="Process Outcome Codes"/>
@@ -14,17 +21,17 @@
   <content value="complete"/>
   <concept>
     <code value="complete"/>
-	<display value="Complete"/>
-	<definition value="The requested processing has completed."/>
+    <display value="Complete"/>
+    <definition value="The requested processing has completed."/>
   </concept>
   <concept>
     <code value="pended"/>
-	<display value="Pended"/>
-	<definition value="The requested processing has been suspended."/>
+    <display value="Pended"/>
+    <definition value="The requested processing has been suspended."/>
   </concept>
   <concept>
     <code value="error"/>
-	<display value="Error"/>
-	<definition value="The requested processing has terminated with some errors being found."/>
+    <display value="Error"/>
+    <definition value="The requested processing has terminated with some errors being found."/>
   </concept>
 </CodeSystem>
