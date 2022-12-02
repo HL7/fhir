@@ -330,7 +330,7 @@
     </element>
     <element id="AllergyIntolerance.patient">
       <path value="AllergyIntolerance.patient"/>
-      <short value="Who the sensitivity is for"/>
+      <short value="Who the allergy or intolerance is for"/>
       <definition value="The patient who has the allergy or intolerance."/>
       <alias value="Patient"/>
       <min value="1"/>

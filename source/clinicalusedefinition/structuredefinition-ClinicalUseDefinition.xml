@@ -308,7 +308,22 @@
         <map value="(the link from Contraindication to Therapeutic Indication)"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.contraindication.otherTherapy">
+      <element id="ClinicalUseDefinition.contraindication.applicability">
+          <path value="ClinicalUseDefinition.contraindication.applicability"/>
+          <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
+          <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
+          <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+          <min value="0"/>
+          <max value="1"/>
+          <type>
+              <code value="Expression"/>
+          </type>
+          <mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+      <element id="ClinicalUseDefinition.contraindication.otherTherapy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="820,70"/>
       </extension>
@@ -379,7 +394,7 @@
     </element>
     <element id="ClinicalUseDefinition.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,140"/>
+        <valueCode value="420,155"/>
       </extension>
       <path value="ClinicalUseDefinition.indication"/>
       <short value="Specifics for when this is an indication"/>
@@ -525,7 +540,24 @@
         <map value="Therapeutic Indication.Undesirable Effects"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.indication.otherTherapy">
+
+      <element id="ClinicalUseDefinition.indication.applicability">
+          <path value="ClinicalUseDefinition.indication.applicability"/>
+          <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
+          <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
+          <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+          <min value="0"/>
+          <max value="1"/>
+          <type>
+              <code value="Expression"/>
+          </type>
+          <mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+      
+      <element id="ClinicalUseDefinition.indication.otherTherapy">
       <path value="ClinicalUseDefinition.indication.otherTherapy"/>
       <short value="The use of the medicinal product in relation to other therapies described as part of the indication"/>
       <definition value="Information about the use of the medicinal product in relation to other therapies described as part of the indication."/>
@@ -540,7 +572,7 @@
     </element>
     <element id="ClinicalUseDefinition.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,323"/>
+        <valueCode value="420,352"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction"/>
       <short value="Specifics for when this is an interaction"/>
@@ -713,9 +745,25 @@
         <map value="Population Specifics"/>
       </mapping>
     </element>
-    <element id="ClinicalUseDefinition.undesirableEffect">
+      <element id="ClinicalUseDefinition.library">
+          <path value="ClinicalUseDefinition.library"/>
+          <short value="Logic used by the clinical use definition"/>
+          <definition value="Logic used by the clinical use definition."/>
+          <min value="0"/>
+          <max value="*"/>
+          <type>
+              <code value="canonical"/>
+              <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+          </type>
+          <isSummary value="true"/>
+          <mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+      <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,435"/>
+        <valueCode value="420,466"/>
       </extension>
       <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -805,7 +853,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,565"/>
+        <valueCode value="420,595"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>

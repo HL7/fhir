@@ -31,9 +31,11 @@
 	<display value="Burgers University Medical Center, South Wing, second floor"/>
   </location>
   
-  <complicationDetail>
+  <complication>
+	<reference>
 		<display value="Perforated intestine condition"/>
-  </complicationDetail>
+	</reference>
+  </complication>
   <used>
     <reference>
 		  <display value="Colonoscope device"/>
