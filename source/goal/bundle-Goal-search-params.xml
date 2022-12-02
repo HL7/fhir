@@ -45,6 +45,26 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Goal-description"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Goal.description"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Goal-description"/>
+        <description value="Code or text describing goal"/>
+        <code value="description"/>
+        <type value="token"/>
+        <expression value="Goal.description"/>
+        <!--<xpath value="f:Goal/f:description"/> -->
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Goal-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>

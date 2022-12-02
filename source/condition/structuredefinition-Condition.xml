@@ -143,7 +143,7 @@
         <valueString value="GF#16193."/>
       </extension>
       <path value="Condition.clinicalStatus"/>
-      <short value="active | recurrence | relapse | inactive | remission | resolved"/>
+      <short value="active | recurrence | relapse | inactive | remission | resolved | unknown"/>
       <definition value="The clinical status of the condition."/>
       <comment value="The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.  clinicalStatus is required since it is a modifier element.  For conditions that are problems list items, the clinicalStatus should not be unknown.  For conditions that are not problem list items, the clinicalStatus may be unknown.  For example, conditions derived from a claim are point in time, so those conditions may have a clinicalStatus of unknown"/>
       <min value="1"/>

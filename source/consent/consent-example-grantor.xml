@@ -20,7 +20,7 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <dateTime value="2018-12-24"/>
+  <date value="2018-12-24"/>
   <grantor>
     <reference value="Patient/pat1" />
   </grantor>
