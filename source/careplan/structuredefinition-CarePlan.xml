@@ -171,9 +171,12 @@
       </mapping>
     </element>
     <element id="CarePlan.basedOn">
+	  <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#38867, J#37955"/>
+      </extension>
       <path value="CarePlan.basedOn"/>
-      <short value="Fulfills CarePlan"/>
-      <definition value="A care plan that is fulfilled in whole or in part by this care plan."/>
+      <short value="Fulfills plan, proposal or order"/>
+      <definition value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan."/>
       <requirements value="Allows tracing of the care plan and tracking whether proposals/recommendations were acted upon."/>
       <alias value="fulfills"/>
       <min value="0"/>
@@ -184,6 +187,9 @@
         </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -305,7 +311,7 @@
       <path value="CarePlan.category"/>
       <short value="Type of plan"/>
       <definition value="Identifies what &#34;kind&#34; of plan this is to support differentiation between multiple co-existing plans; e.g. &#34;Home health&#34;, &#34;psychiatric&#34;, &#34;asthma&#34;, &#34;disease management&#34;, &#34;wellness plan&#34;, etc."/>
-      <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern."/>
+      <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.addresses."/>
       <requirements value="Used for filtering what plan(s) are retrieved and displayed to different types of users."/>
       <min value="0"/>
       <max value="*"/>
@@ -622,7 +628,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="GOL.1"/>
+        <map value="GOL-1"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -648,7 +654,7 @@
       <constraint>
         <key value="cpl-3"/>
         <severity value="error"/>
-        <human value="Provide a plannedActivityReference or plannedActivityDetail, not both"/>
+        <human value="Cannot have both plannedActivityReference and plannedActivityDetail"/>
         <expression value="plannedActivityDetail.empty() or plannedActivityReference.empty()"/>
         <xpath value="not(exists(f:plannedActivityDetail)) or not(exists(f:plannedActivityReference))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
@@ -716,7 +722,7 @@
     </element>
     <element id="CarePlan.activity.plannedActivityReference">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#19420, J#26064."/>
+        <valueString value="GF#19420, J#26064, J#34477"/>
       </extension>
       <path value="CarePlan.activity.plannedActivityReference"/>
       <short value="Activity that is intended to be part of the care plan"/>
@@ -737,6 +743,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <condition value="cpl-3"/>
       <mapping>

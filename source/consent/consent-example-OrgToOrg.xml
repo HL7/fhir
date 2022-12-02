@@ -18,7 +18,7 @@
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </subject>
-  <dateTime value="2021-11-11"/>
+  <date value="2021-11-11"/>
   <controller>
     <reference value="Organization/f001"/>
   </controller>

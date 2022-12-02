@@ -33,7 +33,7 @@
 		<reference value="Patient/72"/>
 		<!-- one of the stock examples -->
 	</subject>
-	<dateTime value="2016-05-26T00:41:10-04:00"/>
+	<date value="2016-05-26"/>
 	<performer>
 		<reference value="Patient/72"/>
 		<!-- author is patient themselves, and they sign -->

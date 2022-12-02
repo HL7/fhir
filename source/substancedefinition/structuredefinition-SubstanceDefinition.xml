@@ -530,8 +530,8 @@
         <valueCode value="468,733"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
-      <short value="The molecular weight or weight range"/>
-      <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
+        <short value="The average mass of a molecule of a compound"/>
+        <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -666,8 +666,8 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularFormula">
       <path value="SubstanceDefinition.structure.molecularFormula"/>
-      <short value="Molecular formula (e.g. using the Hill system)"/>
-      <definition value="Molecular formula of this substance, typically using the Hill system."/>
+        <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
+        <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
