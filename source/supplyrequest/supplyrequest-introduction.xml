@@ -21,7 +21,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>
 					<em>request</em> resources</a>.</strong>
 		</p>
 		<p>
-The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically
+The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process to be delivered to a particular location. This includes supplies specifically
 used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from
 materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
 services.
