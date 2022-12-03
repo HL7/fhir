@@ -9,54 +9,103 @@
   <text>
     <status value="extensions"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include these codes as defined in 
+          
           <a href="codesystem-restful-interaction.html">
+            
             <code>http://hl7.org/fhir/restful-interaction</code>
+          
           </a>
+          
           <table class="none">
+            
             <tr>
+              
               <td style="white-space:nowrap">
+                
                 <b>Code</b>
+              
               </td>
+              
               <td>
+                
                 <b>Display</b>
+              
               </td>
+              
               <td>
+                
                 <b>Definition</b>
+              
               </td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-transaction">transaction</a>
+              
               </td>
+              
               <td>transaction</td>
+              
               <td>Update, create or delete a set of resources as a single transaction.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-batch">batch</a>
+              
               </td>
+              
               <td>batch</td>
+              
               <td>perform a set of a separate interactions in a single http operation</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-search-system">search-system</a>
+              
               </td>
+              
               <td>search-system</td>
+              
               <td>Search all resources based on some filter criteria.</td>
+            
             </tr>
+            
             <tr>
+              
               <td>
+                
                 <a href="codesystem-restful-interaction.html#restful-interaction-history-system">history-system</a>
+              
               </td>
+              
               <td>history-system</td>
+              
               <td>Retrieve the change history for all resources on a system.</td>
+            
             </tr>
+          
           </table>
+        
         </li>
+      
       </ul>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -75,6 +124,16 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.181"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.171"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.84"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="SystemRestfulInteraction"/>

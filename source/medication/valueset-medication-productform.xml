@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.11"/>
-  </identifier>
   <name value="DAFMedicationProductForm"/>
   <title value="DAF Medication Product Form"/>
   <status value="draft"/>

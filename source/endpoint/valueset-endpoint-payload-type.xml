@@ -14,6 +14,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.496"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.489"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="EndpointPayloadType"/>
   <title value="Endpoint Payload Type"/>

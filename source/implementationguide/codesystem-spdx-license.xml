@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="spdx-license"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -265,8 +267,8 @@
   </concept>
   <concept>
     <code value="BSD-2-Clause"/>
-    <display value="BSD 2-Clause &#34;Simplified&#34; License"/>
-    <definition value="BSD 2-Clause &#34;Simplified&#34; License."/>
+    <display value="BSD 2-Clause &quot;Simplified&quot; License"/>
+    <definition value="BSD 2-Clause &quot;Simplified&quot; License."/>
   </concept>
   <concept>
     <code value="BSD-3-Clause-Attribution"/>
@@ -300,8 +302,8 @@
   </concept>
   <concept>
     <code value="BSD-3-Clause"/>
-    <display value="BSD 3-Clause &#34;New&#34; or &#34;Revised&#34; License"/>
-    <definition value="BSD 3-Clause &#34;New&#34; or &#34;Revised&#34; License."/>
+    <display value="BSD 3-Clause &quot;New&quot; or &quot;Revised&quot; License"/>
+    <definition value="BSD 3-Clause &quot;New&quot; or &quot;Revised&quot; License."/>
   </concept>
   <concept>
     <code value="BSD-4-Clause-UC"/>
@@ -310,8 +312,8 @@
   </concept>
   <concept>
     <code value="BSD-4-Clause"/>
-    <display value="BSD 4-Clause &#34;Original&#34; or &#34;Old&#34; License"/>
-    <definition value="BSD 4-Clause &#34;Original&#34; or &#34;Old&#34; License."/>
+    <display value="BSD 4-Clause &quot;Original&quot; or &quot;Old&quot; License"/>
+    <definition value="BSD 4-Clause &quot;Original&quot; or &quot;Old&quot; License."/>
   </concept>
   <concept>
     <code value="BSD-Protection"/>

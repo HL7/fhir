@@ -13,6 +13,16 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.658"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.642"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.343"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="ExampleVisionPrescriptionProductCodes"/>
   <title value="Example Vision Prescription Product Codes"/>

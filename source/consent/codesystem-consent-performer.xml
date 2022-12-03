@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/consentperformer"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -11,7 +13,7 @@
   <description value="This value set includes example Consenting Party role codes."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
-	<content value="complete"/>
+  <content value="complete"/>
   <concept>
     <code value="consenter"/>
     <display value="Consenter"/>
