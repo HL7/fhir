@@ -91,13 +91,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="SupplyRequest.subject"/>
+          <valueString value="SupplyRequest.deliverFor"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-patient"/>
         <description value="The patient or subject for whom the supply is destined"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="SupplyRequest.subject"/>
+        <expression value="SupplyRequest.deliverFor"/>
         <!--<xpath value="f:SupplyRequest/f:category"/> -->
         <processingMode value="normal"/>
       </SearchParameter>

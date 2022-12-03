@@ -250,11 +250,11 @@
         <map value=".priorityCode"/>
       </mapping>
     </element>
-    <element id="SupplyRequest.subject">
-      <path value="SupplyRequest.subject"/>
+    <element id="SupplyRequest.deliverFor">
+      <path value="SupplyRequest.deliverFor"/>
       <short value="The patient for who the supply request is for"/>
       <definition value="The patient to whom the supply will be given or for whom they will be used."/>
-      <alias value="deliverFor"/>
+      <alias value="subject"/>
       <min value="0"/>
       <max value="1"/>
       <type>
