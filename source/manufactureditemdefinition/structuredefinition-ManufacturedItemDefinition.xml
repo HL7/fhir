@@ -367,8 +367,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.amount">
       <path value="ManufacturedItemDefinition.component.amount"/>
-      <short value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)"/>
-      <definition value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)."/>
+        <short value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)"/>
+        <definition value="The measurable amount of substance in this component, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -392,8 +392,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.amount">
       <path value="ManufacturedItemDefinition.component.constituent.amount"/>
-      <short value="The measurable amount of this constituent in this component, expressable in different ways (e.g. by mass or volume)"/>
-      <definition value="The measurable amount of this constituent in this component, expressable in different ways (e.g. by mass or volume)."/>
+        <short value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)"/>
+        <definition value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

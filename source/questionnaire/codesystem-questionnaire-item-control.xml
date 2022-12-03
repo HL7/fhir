@@ -1,167 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-item-control"/>
-	<meta>
-		<profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<url value="http://hl7.org/fhir/questionnaire-item-control"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.4.932"/>
-	</identifier>
-	<name value="QuestionnaireItemUIControlCodes"/>
-	<title value="Questionnaire Item UI Control Codes"/>
-	<status value="draft"/>
-	<experimental value="false"/>
-	<description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
-	<caseSensitive value="true"/>
-	<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
-	<hierarchyMeaning value="is-a"/>
-	<content value="complete"/>
-	<property>
-		<code value="abstract"/>
-		<description value="True if an element is considered 'abstract' - that is the code is not for use as a real concept"/>
-		<type value="boolean"/>
-	</property>
-	<concept>
-		<code value="group"/>
-		<definition value="UI controls relevant to organizing groups of questions"/>
-		<property>
-			<code value="abstract"/>
-			<valueBoolean value="true"/>
-		</property>
-		<concept>
-			<code value="list"/>
-			<display value="List"/>
-			<definition value="Questions within the group should be listed sequentially"/>
-		</concept>
-		<concept>
-			<code value="table"/>
-			<display value="Vertical Answer Table"/>
-			<definition value="Questions within the group are rows in the table with possible answers as columns.  Used for 'choice' questions."/>
-		</concept>
-		<concept>
-			<code value="htable"/>
-			<display value="Horizontal Answer Table"/>
-			<definition value="Questions within the group are columns in the table with possible answers as rows.  Used for 'choice' questions."/>
-		</concept>
-		<concept>
-			<code value="gtable"/>
-			<display value="Group Table"/>
-			<definition value="Questions within the group are columns in the table with each group repetition as a row.  Used for single-answer questions."/>
-		</concept>
-		<concept>
-			<code value="grid"/>
-			<display value="Group Grid"/>
-			<definition value="Child items of type='group' within the a 'grid' group are rows, and questions beneath the 'row' groups are organized as columns in the grid. The grid might be fully populated, but could be sparse. Questions may support different data types and/or different answer choices."/>
-		</concept>
-		<concept>
-			<code value="header"/>
-			<display value="Header"/>
-			<definition value="The group is to be continuously visible at the top of the questionnaire"/>
-		</concept>
-		<concept>
-			<code value="footer"/>
-			<display value="Footer"/>
-			<definition value="The group is to be continuously visible at the bottom of the questionnaire"/>
-		</concept>
-		<concept>
-			<code value="page"/>
-			<display value="Page"/>
-			<definition value="Indicates that the content within the group should appear as a logical &#34;page&#34; when rendering the form, such that all enabled items        within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the 'next' group.        (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same        level as a 'page' group that are listed before the 'page' group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
-		</concept>
-	</concept>
-	<concept>
-		<code value="display"/>
-		<definition value="UI controls relevant to rendering questionnaire display items"/>
-		<property>
-			<code value="abstract"/>
-			<valueBoolean value="true"/>
-		</property>
-		<concept>
-			<code value="inline"/>
-			<display value="In-line"/>
-			<definition value="Display item is rendered as a paragraph in a sequential position between sibling items (default behavior)"/>
-		</concept>
-		<concept>
-			<code value="unit"/>
-			<display value="Unit"/>
-			<definition value="Display item is rendered adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
-		</concept>
-		<concept>
-			<code value="lower"/>
-			<display value="Lower-bound"/>
-			<definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'lower' bound.  E.g. 'Strongly disagree'"/>
-		</concept>
-		<concept>
-			<code value="upper"/>
-			<display value="Upper-bound"/>
-			<definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'upper' bound.  E.g. 'Strongly agree'"/>
-		</concept>
-		<concept>
-			<code value="flyover"/>
-			<display value="Fly-over"/>
-			<definition value="Display item is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
-		</concept>
-		<concept>
-			<code value="help"/>
-			<display value="Help-Button"/>
-			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'help' for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
-		</concept>
-		<concept>
-			<code value="legal"/>
-			<display value="legal-Button"/>
-			<definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
-		</concept>
-	</concept>
-	<concept>
-		<code value="question"/>
-		<definition value="UI controls relevant to capturing question data"/>
-		<property>
-			<code value="abstract"/>
-			<valueBoolean value="true"/>
-		</property>
-		<concept>
-			<code value="autocomplete"/>
-			<display value="Auto-complete"/>
-			<definition value="A control which provides a list of potential matches based on text entered into a control.  Used for large choice sets where text-matching is an appropriate discovery mechanism."/>
-		</concept>
-		<concept>
-			<code value="drop-down"/>
-			<display value="Drop down"/>
-			<definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field.  This control is best used for small-to-medium sized lists of options that can reasonably be scanned and selected in a drop-down control.  If the list of options is managed by ValueSet, the designer should be confident that the set of codes will both be fully available and appropriately sized.  For larger lists, the autocomplete control is more appropriate."/>
-		</concept>
-		<concept>
-			<code value="check-box"/>
-			<display value="Check-box"/>
-			<definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible.  Commonly useful for repeating items of type constrained by answerOption, answerValueset or answerExpression, however can also be used for boolean (if the checkbox is a 3-state control that allows 'unanswered' as a possibility)."/>
-		</concept>
-		<concept>
-			<code value="lookup"/>
-			<display value="Lookup"/>
-			<definition value="A control where editing an item spawns a separate dialog box or screen permitting a user to navigate, filter or otherwise discover an appropriate match.  Useful for large choice sets where text matching is not an appropriate discovery mechanism.  Such screens must generally be tuned for the specific choice list structure."/>
-		</concept>
-		<concept>
-			<code value="radio-button"/>
-			<display value="Radio Button"/>
-			<definition value="A control where choices are listed with a button beside them.  The button can be toggled to select or de-select a given choice.  Selecting one item deselects all others.  Used for non-repeating items with 'closed' answerOption, answerValueset or answerExpression constraints.  Can also be used for boolean so long as there is a button for 'unanswered' or it's possible to deselect all items."/>
-		</concept>
-		<concept>
-			<code value="slider"/>
-			<display value="Slider"/>
-			<definition value="A control where an axis is displayed between the high and low values and the control can be visually manipulated to select a value anywhere on the axis."/>
-		</concept>
-		<concept>
-			<code value="spinner"/>
-			<display value="Spinner"/>
-			<definition value="A control where a list of numeric or other ordered values can be scrolled through via arrows."/>
-		</concept>
-		<concept>
-			<code value="text-box"/>
-			<display value="Text Box"/>
-			<definition value="A control where a user can type in their answer freely."/>
-		</concept>
-	</concept>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-item-control"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <url value="http://hl7.org/fhir/questionnaire-item-control"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.932"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.849"/>
+  </identifier>
+  <name value="QuestionnaireItemUIControlCodes"/>
+  <title value="Questionnaire Item UI Control Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Starter set of user interface control/display mechanisms that might be used when rendering an item in a questionnaire."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <description value="True if an element is considered 'abstract' - that is the code is not for use as a real concept"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="group"/>
+    <definition value="UI controls relevant to organizing groups of questions"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="list"/>
+      <display value="List"/>
+      <definition value="Questions within the group should be listed sequentially"/>
+    </concept>
+    <concept>
+      <code value="table"/>
+      <display value="Vertical Answer Table"/>
+      <definition value="Questions within the group are rows in the table with possible answers as columns.  Used for 'choice' questions."/>
+    </concept>
+    <concept>
+      <code value="htable"/>
+      <display value="Horizontal Answer Table"/>
+      <definition value="Questions within the group are columns in the table with possible answers as rows.  Used for 'choice' questions."/>
+    </concept>
+    <concept>
+      <code value="gtable"/>
+      <display value="Group Table"/>
+      <definition value="Questions within the group are columns in the table with each group repetition as a row.  Used for single-answer questions."/>
+    </concept>
+    <concept>
+      <code value="grid"/>
+      <display value="Group Grid"/>
+      <definition value="Child items of type='group' within the a 'grid' group are rows, and questions beneath the 'row' groups are organized as columns in the grid. The grid might be fully populated, but could be sparse. Questions may support different data types and/or different answer choices."/>
+    </concept>
+    <concept>
+      <code value="header"/>
+      <display value="Header"/>
+      <definition value="The group is to be continuously visible at the top of the questionnaire"/>
+    </concept>
+    <concept>
+      <code value="footer"/>
+      <display value="Footer"/>
+      <definition value="The group is to be continuously visible at the bottom of the questionnaire"/>
+    </concept>
+    <concept>
+      <code value="page"/>
+      <display value="Page"/>
+      <definition value="Indicates that the content within the group should appear as a logical &quot;page&quot; when rendering the form, such that all enabled items        within the page are displayed at once, but items in subsequent groups are not displayed until the user indicates a desire to move to the 'next' group.        (Header and footer items may still be displayed.) This designation may also influence pagination when printing questionnaires. If there are items at the same        level as a 'page' group that are listed before the 'page' group, they will be treated as a separate page.  Header and footer groups for a questionnaire will be rendered on all pages."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="display"/>
+    <definition value="UI controls relevant to rendering questionnaire display items"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="inline"/>
+      <display value="In-line"/>
+      <definition value="Display item is rendered as a paragraph in a sequential position between sibling items (default behavior)"/>
+    </concept>
+    <concept>
+      <code value="unit"/>
+      <display value="Unit"/>
+      <definition value="Display item is rendered adjacent (horizontally or vertically) to the answer space for the parent question, typically to indicate a unit of measure"/>
+    </concept>
+    <concept>
+      <code value="lower"/>
+      <display value="Lower-bound"/>
+      <definition value="Display item is rendered to the left of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'lower' bound.  E.g. 'Strongly disagree'"/>
+    </concept>
+    <concept>
+      <code value="upper"/>
+      <display value="Upper-bound"/>
+      <definition value="Display item is rendered to the right of the set of answer choices or a scaling control for the parent question item to indicate the meaning of the 'upper' bound.  E.g. 'Strongly agree'"/>
+    </concept>
+    <concept>
+      <code value="flyover"/>
+      <display value="Fly-over"/>
+      <definition value="Display item is temporarily visible over top of an item if the mouse is positioned over top of the text for the containing item"/>
+    </concept>
+    <concept>
+      <code value="help"/>
+      <display value="Help-Button"/>
+      <definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'help' for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
+    </concept>
+    <concept>
+      <code value="legal"/>
+      <display value="legal-Button"/>
+      <definition value="Display item is rendered in a dialog box or similar control if invoked by pushing a button or some other UI-appropriate action to request 'legal' info for a question, group or the questionnaire as a whole (depending what the display item is nested within)"/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="question"/>
+    <definition value="UI controls relevant to capturing question data"/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="autocomplete"/>
+      <display value="Auto-complete"/>
+      <definition value="A control which provides a list of potential matches based on text entered into a control.  Used for large choice sets where text-matching is an appropriate discovery mechanism."/>
+    </concept>
+    <concept>
+      <code value="drop-down"/>
+      <display value="Drop down"/>
+      <definition value="A control where an item (or multiple items) can be selected from a list that is only displayed when the user is editing the field.  This control is best used for small-to-medium sized lists of options that can reasonably be scanned and selected in a drop-down control.  If the list of options is managed by ValueSet, the designer should be confident that the set of codes will both be fully available and appropriately sized.  For larger lists, the autocomplete control is more appropriate."/>
+    </concept>
+    <concept>
+      <code value="check-box"/>
+      <display value="Check-box"/>
+      <definition value="A control where choices are listed with a box beside them.  The box can be toggled to select or de-select a given choice.  Multiple selections may be possible.  Commonly useful for repeating items of type constrained by answerOption, answerValueset or answerExpression, however can also be used for boolean (if the checkbox is a 3-state control that allows 'unanswered' as a possibility)."/>
+    </concept>
+    <concept>
+      <code value="lookup"/>
+      <display value="Lookup"/>
+      <definition value="A control where editing an item spawns a separate dialog box or screen permitting a user to navigate, filter or otherwise discover an appropriate match.  Useful for large choice sets where text matching is not an appropriate discovery mechanism.  Such screens must generally be tuned for the specific choice list structure."/>
+    </concept>
+    <concept>
+      <code value="radio-button"/>
+      <display value="Radio Button"/>
+      <definition value="A control where choices are listed with a button beside them.  The button can be toggled to select or de-select a given choice.  Selecting one item deselects all others.  Used for non-repeating items with 'closed' answerOption, answerValueset or answerExpression constraints.  Can also be used for boolean so long as there is a button for 'unanswered' or it's possible to deselect all items."/>
+    </concept>
+    <concept>
+      <code value="slider"/>
+      <display value="Slider"/>
+      <definition value="A control where an axis is displayed between the high and low values and the control can be visually manipulated to select a value anywhere on the axis."/>
+    </concept>
+    <concept>
+      <code value="spinner"/>
+      <display value="Spinner"/>
+      <definition value="A control where a list of numeric or other ordered values can be scrolled through via arrows."/>
+    </concept>
+    <concept>
+      <code value="text-box"/>
+      <display value="Text Box"/>
+      <definition value="A control where a user can type in their answer freely."/>
+    </concept>
+  </concept>
 </CodeSystem>

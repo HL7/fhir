@@ -13,6 +13,16 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.950"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.867"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.433"/>
+  </identifier>
   <name value="FlagPriorityCodes"/>
   <title value="Flag Priority Codes"/>
   <status value="draft"/>

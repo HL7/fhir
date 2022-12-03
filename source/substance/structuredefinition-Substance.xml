@@ -95,7 +95,6 @@
       <path value="Substance.identifier"/>
       <short value="Unique identifier"/>
       <definition value="Unique identifier for the substance. For an instance, an identifier associated with the package/container (usually a label affixed directly)."/>
-      <comment value="This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container."/>
       <min value="0"/>
       <max value="*"/>
       <type>

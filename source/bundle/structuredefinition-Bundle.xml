@@ -191,7 +191,6 @@
         <severity value="error"/>
         <human
           value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
- 
         <expression
           value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
         <xpath value="not(
@@ -206,13 +205,13 @@
         <key value="bdl-16"/>
         <severity value="error"/>
         <human value="Issue.severity for all issues within the OperationOutcome must be either 'information' or 'warning'."/>
-        <expression value="Bundle.issues.exists() implies (Bundle.issues.OperationOutcome.issue.severity = 'information' or Bundle.issues.OperationOutcome.issue.severity = 'warning')"/>
+        <expression value="issues.exists() implies (issues.OperationOutcome.issue.severity = 'information' or issues.OperationOutcome.issue.severity = 'warning')"/>
       </constraint>
       <constraint>
         <key value="bdl-17"/>
         <severity value="error"/>
-        <human value="Use and meaning of Bundle.issues for documents has not been validated because the content will not be rendered in the document."/>
-        <expression value="type = 'document' implies Bundle.issues.empty()"/>
+        <human value="Use and meaning of issues for documents has not been validated because the content will not be rendered in the document."/>
+        <expression value="type = 'document' implies issues.empty()"/>
       </constraint>
       <mapping>
         <identity value="v2"/>

@@ -5,7 +5,12 @@
   <url value="http://hl7.org/fhir/ValueSet/daf-bodysite"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3278"/>
+    <value value="urn:oid:2.16.840.1.113883.3.88.12.3221.8.9"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.0"/>
   </identifier>
   <name value="BodySiteValueSet"/>
   <title value="Body Site Value Set"/>

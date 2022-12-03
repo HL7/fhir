@@ -19,6 +19,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.3.88.12.80.72"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.134"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="PracticeSettingCodeValueSet"/>
   <title value="Practice Setting Code Value Set"/>

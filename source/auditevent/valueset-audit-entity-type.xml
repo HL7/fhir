@@ -13,6 +13,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.458"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.894"/>
+  </identifier>
   <version value="5.0.0"/>
   <name value="AuditEventEntityType"/>
   <status value="active"/>
@@ -31,7 +36,7 @@
   </contact>
   <description value="Code for the entity type involved in the audit event."/>
   <immutable value="true"/>
-  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright &#xA9; 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
+  <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association. Additional codes added by HL7 FHIR use-case analysis"/>
   <compose>
     <include>
       <system value="http://dicom.nema.org/resources/ontology/DCM"/>
@@ -40,8 +45,6 @@
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/audit-entity-type"/>
     </include>
-    <include>
-      <import value="http://hl7.org/fhir/ValueSet/resource-types"/>
-    </include>
+    <include/>
   </compose>
 </ValueSet>
