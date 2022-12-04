@@ -669,6 +669,16 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="ExampleScenario.instance.version.title">
+      <path value="ExampleScenario.instance.version.title"/>
+      <short value="Label for instance version"/>
+      <definition value="A short descriptive label the version to be used in tables or diagrams."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="ExampleScenario.instance.version.description">
       <path value="ExampleScenario.instance.version.description"/>
       <short value="Details about version"/>
