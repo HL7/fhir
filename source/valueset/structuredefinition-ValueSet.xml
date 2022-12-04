@@ -92,7 +92,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <mapping>
@@ -120,7 +119,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -612,7 +610,6 @@
         <severity value="error"/>
         <human value="A value set with concepts or filters SHALL include a system"/>
         <expression value="(concept.exists() or filter.exists()) implies system.exists()"/>
-        <xpath value="not(exists(f:concept) or exists(f:filter)) or exists(f:system)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -620,7 +617,6 @@
         <severity value="error"/>
         <human value="Cannot have both concept and filter"/>
         <expression value="concept.empty() or filter.empty()"/>
-        <xpath value="not(exists(f:concept)) or not(exists(f:filter))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -628,7 +624,6 @@
         <severity value="error"/>
         <human value="A value set include/exclude SHALL have a value set or a system"/>
         <expression value="valueSet.exists() or system.exists()"/>
-        <xpath value="exists(f:valueSet) or exists(f:system)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <isSummary value="true"/>
@@ -1143,7 +1138,6 @@
         <severity value="error"/>
         <human value="SHALL have a code or a display"/>
         <expression value="code.exists() or display.exists()"/>
-        <xpath value="exists(f:code) or exists(f:display)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -1151,7 +1145,6 @@
         <severity value="error"/>
         <human value="SHALL have a code if not abstract"/>
         <expression value="code.exists() or abstract = true"/>
-        <xpath value="exists(f:code) or (f:abstract/@value = true())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -1159,7 +1152,6 @@
         <severity value="error"/>
         <human value="SHALL have a system if a code is present"/>
         <expression value="code.empty() or system.exists()"/>
-        <xpath value="exists(f:system) or not(exists(f:code))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
     </element>

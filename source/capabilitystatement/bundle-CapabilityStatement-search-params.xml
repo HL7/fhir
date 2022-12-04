@@ -17,7 +17,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(CapabilityStatement.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:CapabilityStatement/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(CapabilityStatement.useContext.value as Quantity) | (CapabilityStatement.useContext.value as Range)"/>
-        <!--<xpath value="f:CapabilityStatement/f:useContext/f:valueQuantity | f:CapabilityStatement/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="CapabilityStatement.useContext.code"/>
-        <!--<xpath value="f:CapabilityStatement/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +122,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="CapabilityStatement.date"/>
-        <!--<xpath value="f:CapabilityStatement/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +141,6 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="CapabilityStatement.description"/>
-        <!--<xpath value="f:CapabilityStatement/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="fhirversion"/>
         <type value="token"/>
         <expression value="CapabilityStatement.fhirVersion"/>
-        <!--<xpath value="f:CapabilityStatement/f:fhirVersion"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +179,6 @@
         <code value="format"/>
         <type value="token"/>
         <expression value="CapabilityStatement.format"/>
-        <!--<xpath value="f:CapabilityStatement/f:format"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +198,6 @@
         <code value="guide"/>
         <type value="reference"/>
         <expression value="CapabilityStatement.implementationGuide"/>
-        <!--<xpath value="f:CapabilityStatement/f:implementationGuide"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +217,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="CapabilityStatement.jurisdiction"/>
-        <!--<xpath value="f:CapabilityStatement/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +236,6 @@
         <code value="mode"/>
         <type value="token"/>
         <expression value="CapabilityStatement.rest.mode"/>
-        <!--<xpath value="f:CapabilityStatement/f:rest/f:mode"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +255,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="CapabilityStatement.name"/>
-        <!--<xpath value="f:CapabilityStatement/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +274,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="CapabilityStatement.publisher"/>
-        <!--<xpath value="f:CapabilityStatement/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +293,6 @@
         <code value="resource"/>
         <type value="token"/>
         <expression value="CapabilityStatement.rest.resource.type"/>
-        <!--<xpath value="f:CapabilityStatement/f:rest/f:resource/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +312,6 @@
         <code value="resource-profile"/>
         <type value="reference"/>
         <expression value="CapabilityStatement.rest.resource.profile"/>
-        <!--<xpath value="f:CapabilityStatement/f:rest/f:resource/f:profile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -345,7 +331,6 @@
         <code value="security-service"/>
         <type value="token"/>
         <expression value="CapabilityStatement.rest.security.service"/>
-        <!--<xpath value="f:CapabilityStatement/f:rest/f:security/f:service"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,7 +350,6 @@
         <code value="software"/>
         <type value="string"/>
         <expression value="CapabilityStatement.software.name"/>
-        <!--<xpath value="f:CapabilityStatement/f:software/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,7 +369,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="CapabilityStatement.status"/>
-        <!--<xpath value="f:CapabilityStatement/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -405,7 +388,6 @@
         <code value="supported-profile"/>
         <type value="reference"/>
         <expression value="CapabilityStatement.rest.resource.supportedProfile"/>
-        <!--<xpath value="f:CapabilityStatement/f:rest/f:resource/f:supportedProfile"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -425,7 +407,6 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="CapabilityStatement.title"/>
-        <!--<xpath value="f:CapabilityStatement/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -445,7 +426,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="CapabilityStatement.url"/>
-        <!--<xpath value="f:CapabilityStatement/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -465,7 +445,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="CapabilityStatement.version"/>
-        <!--<xpath value="f:CapabilityStatement/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -82,7 +82,6 @@
 				<severity value="error"/>
 				<human value="Last modified date must be greater than or equal to authored-on date."/>
 				<expression value="lastModified.exists().not() or authoredOn.exists().not() or lastModified &gt;= authoredOn"/>
-				<xpath value="not(exists(f:lastModified/@value)) or not(exists(f:authoredOn/@value)) or f:lastModified/@value &gt;= f:authoredOn/@value"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
 			</constraint>
 			<constraint>
@@ -90,7 +89,6 @@
 				<severity value="error"/>
 				<human value="Task.restriction is only allowed if the Task is seeking fulfillment and a focus is specified."/>
 				<expression value="restriction.exists() implies code.coding.where(code='fulfill' and system='http://hl7.org/fhir/CodeSystem/task-code').exists() and focus.exists()"/>
-				<xpath value="not(exists(f:restriction)) or (exists(f:code/f:coding[f:code/@value='fulfill' and f:system/@value='http://hl7.org/fhir/CodeSystem/task-code']) and exists(f:focus))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/Task"/>
 			</constraint>
 			<mapping>

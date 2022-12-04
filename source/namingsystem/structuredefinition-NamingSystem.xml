@@ -94,7 +94,6 @@
         <severity value="error"/>
         <human value="Root systems cannot have uuid identifiers"/>
         <expression value="kind != &#39;root&#39; or uniqueId.all(type != &#39;uuid&#39;)"/>
-        <xpath value="not(f:kind/@value=&#39;root&#39; and f:uniqueId/f:type/@value=&#39;uuid&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <constraint>
@@ -102,7 +101,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <mapping>
@@ -134,7 +132,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -643,7 +640,6 @@
         <severity value="error"/>
         <human value="Can&#39;t have more than one preferred identifier for a type"/>
         <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
-        <xpath value="not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:preferred/@value=true()])&gt;1) then $type else ()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
     </element>
@@ -683,7 +679,6 @@
         <severity value="error"/>
         <human value="Can&#39;t have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
         <expression value="uniqueId.where(authoritative = true).select(type).isDistinct().select(period).isDistinct()"/>
-        <xpath value="count(f:uniqueID)=count(distinct-values(f:uniqueID/f:period/@value)) or not(exists(for $type in distinct-values(f:uniqueId/f:type/@value) return if (count(f:uniqueId[f:type/@value=$type and f:authoritative/@value=true()])&gt;1) then $type else ()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
     </element>

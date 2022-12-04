@@ -67,7 +67,6 @@
         <severity value="error"/>
         <human value="Only one of rulesText, expression, or a compose definition SHALL be provided"/>
         <expression value="extension('http://hl7.org/fhir/StructureDefinition/valueset-rules-text').exists() xor extension('http://hl7.org/fhir/StructureDefinition/valueset-expression').exists() xor compose.exists()"/>
-        <xpath value="exists(f:extension)"/>
       </constraint>
       <mustSupport value="false"/>
     </element>

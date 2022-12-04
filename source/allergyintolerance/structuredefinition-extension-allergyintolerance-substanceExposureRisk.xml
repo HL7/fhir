@@ -57,7 +57,6 @@
         <severity value="error"/>
         <human value="If the substanceExposureRisk extension element is present, the AllergyIntolerance.code element must be omitted."/>
         <expression value="substanceExposureRisk.exists() and code.empty()"/>
-        <xpath value="exists(f:substanceExposureRisk) and not(exists(f:code))"/>
       </constraint>
     </element>
     <element id="Extension.extension:substance">

@@ -630,7 +630,6 @@
         <severity value="error"/>
         <human value="If dosage attribute is present then SHALL have at least one of dosage.text or dosage.dose or dosage.rate[x]"/>
         <expression value="(dose.exists() or rate.exists() or text.exists())"/>
-        <xpath value="exists(f:dose) or exists(f:text) or exists(f:*[starts-with(local-name(.), 'rate')])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
       </constraint>
       <mapping>

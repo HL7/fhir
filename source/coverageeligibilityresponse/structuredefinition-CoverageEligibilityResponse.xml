@@ -408,7 +408,6 @@
         <severity value="error"/>
         <human value="SHALL contain a category or a billcode but not both."/>
         <expression value="category.exists() xor productOrService.exists()"/>
-        <xpath value="exists(f:category) != exists(f:productOrService)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityResponse"/>
       </constraint>
     </element>

@@ -656,7 +656,6 @@
         <severity value="error"/>
         <human value="Cannot have both plannedActivityReference and plannedActivityDetail"/>
         <expression value="plannedActivityDetail.empty() or plannedActivityReference.empty()"/>
-        <xpath value="not(exists(f:plannedActivityDetail)) or not(exists(f:plannedActivityReference))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
       </constraint>
       <mapping>

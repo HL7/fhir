@@ -17,7 +17,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ConceptMap.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:ConceptMap/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ConceptMap.useContext.value as Quantity) | (ConceptMap.useContext.value as Range)"/>
-        <!--<xpath value="f:ConceptMap/f:useContext/f:valueQuantity | f:ConceptMap/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ConceptMap.useContext.code"/>
-        <!--<xpath value="f:ConceptMap/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +122,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ConceptMap.date"/>
-        <!--<xpath value="f:ConceptMap/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +141,6 @@
         <code value="dependson"/>
         <type value="uri"/>
         <expression value="ConceptMap.group.element.target.dependsOn.property"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:element/f:target/f:dependsOn/f:property"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="ConceptMap.description"/>
-        <!--<xpath value="f:ConceptMap/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +179,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ConceptMap.identifier"/>
-        <!--<xpath value="f:ConceptMap/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +198,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ConceptMap.jurisdiction"/>
-        <!--<xpath value="f:ConceptMap/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +217,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ConceptMap.name"/>
-        <!--<xpath value="f:ConceptMap/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +236,6 @@
         <code value="other-map"/>
         <type value="reference"/>
         <expression value="ConceptMap.group.unmapped.otherMap"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:unmapped/f:otherMap"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +255,6 @@
         <code value="product"/>
         <type value="uri"/>
         <expression value="ConceptMap.group.element.target.product.property"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:element/f:target/f:product/f:property"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +274,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ConceptMap.publisher"/>
-        <!--<xpath value="f:ConceptMap/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +293,6 @@
         <code value="source-scope"/>
         <type value="reference"/>
         <expression value="(ConceptMap.sourceScope as canonical)"/>
-        <!--<xpath value="f:ConceptMap/f:sourceScopeCanonical"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +312,6 @@
         <code value="source-scope-uri"/>
         <type value="uri"/>
         <expression value="(ConceptMap.sourceScope as uri)"/>
-        <!--<xpath value="f:ConceptMap/f:sourceScopeUri"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -345,7 +331,6 @@
         <code value="source-code"/>
         <type value="token"/>
         <expression value="ConceptMap.group.element.code"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:element/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,7 +350,6 @@
         <code value="source-group-system"/>
         <type value="reference"/>
         <expression value="ConceptMap.group.source"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:source"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,7 +369,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ConceptMap.status"/>
-        <!--<xpath value="f:ConceptMap/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -405,7 +388,6 @@
         <code value="target-scope"/>
         <type value="reference"/>
         <expression value="(ConceptMap.targetScope as canonical)"/>
-        <!--<xpath value="f:ConceptMap/f:targeScopeCanonical"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -425,7 +407,6 @@
         <code value="target-scope-uri"/>
         <type value="uri"/>
         <expression value="(ConceptMap.targetScope as uri)"/>
-        <!--<xpath value="f:ConceptMap/f:targetScopeUri"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -445,7 +426,6 @@
         <code value="target-code"/>
         <type value="token"/>
         <expression value="ConceptMap.group.element.target.code"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:element/f:target/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -465,7 +445,6 @@
         <code value="target-group-system"/>
         <type value="reference"/>
         <expression value="ConceptMap.group.target"/>
-        <!--<xpath value="f:ConceptMap/f:group/f:target"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -485,7 +464,6 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="ConceptMap.title"/>
-        <!--<xpath value="f:ConceptMap/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -505,7 +483,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ConceptMap.url"/>
-        <!--<xpath value="f:ConceptMap/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -525,7 +502,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ConceptMap.version"/>
-        <!--<xpath value="f:ConceptMap/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -545,7 +521,6 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="ConceptMap.effectivePeriod"/>
-        <!--<xpath value="f:ConceptMap/f:effectivePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -564,7 +539,6 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="ConceptMap.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <!--<xpath value="f:ConceptMap/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -582,7 +556,6 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="ConceptMap.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <!--<xpath value="f:ConceptMap/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -600,7 +573,6 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="ConceptMap.topic"/>
-        <!--<xpath value="f:ConceptMap/f:topic"/> -->
       </SearchParameter>
     </resource>
   </entry>

@@ -99,7 +99,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -108,7 +107,6 @@
         <severity value="error"/>
         <human value="In any snapshot or differential, no label, code or requirements on an element without a &quot;.&quot; in the path (e.g. the first element)"/>
         <expression value="children().element.where(path.contains(&#39;.&#39;).not()).label.empty() and children().element.where(path.contains(&#39;.&#39;).not()).code.empty() and children().element.where(path.contains(&#39;.&#39;).not()).requirements.empty()"/>
-        <xpath value="not(exists(f:snapshot/f:element[not(contains(f:path/@value, &#39;.&#39;)) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, &#39;.&#39;)) and (f:label or f:code or f:requirements)]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -117,7 +115,6 @@
         <severity value="error"/>
         <human value="If the first element in a differential has no &quot;.&quot; in the path and it&#39;s not a logical model, it has no type"/>
         <expression value="(kind!=&#39;logical&#39;  and differential.element.first().path.contains(&#39;.&#39;).not()) implies differential.element.first().type.empty()"/>
-        <xpath value="f:kind/@value=&#39;logical&#39; or not(f:differential/f:element[1][not(contains(f:path/@value, &#39;.&#39;))]/f:type)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -126,7 +123,6 @@
         <severity value="error"/>
         <human value="FHIR Specification models only use FHIR defined types"/>
         <expression value="url.startsWith(&#39;http://hl7.org/fhir/StructureDefinition&#39;) implies (differential | snapshot).element.type.code.all(matches(&#39;^[a-zA-Z0-9]+$&#39;) or matches(&#39;^http:\\/\\/hl7\\.org\\/fhirpath\\/System\\.[A-Z][A-Za-z]+$&#39;))"/>
-        <xpath value="not(starts-with(f:url/@value, &#39;http://hl7.org/fhir/StructureDefinition&#39;)) or count(f:differential/f:element/f:type/f:code[@value and not(matches(string(@value), &#39;^[a-zA-Z0-9]+$&#39;))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(string(@value), &#39;^[a-zA-Z0-9]+$&#39;))]) =0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -135,7 +131,6 @@
         <severity value="error"/>
         <human value="All element definitions must have unique ids (snapshot)"/>
         <expression value="snapshot.element.all(id.exists()) and snapshot.element.id.trace(&#39;ids&#39;).isDistinct()"/>
-        <xpath value="count(f:snapshot/f:element)=count(f:snapshot/f:element/@id) and (count(f:snapshot/f:element)=count(distinct-values(f:snapshot/f:element/@id)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -144,7 +139,6 @@
         <severity value="error"/>
         <human value="The first element in a snapshot has no type unless model is a logical model."/>
         <expression value="kind!=&#39;logical&#39;  implies snapshot.element.first().type.empty()"/>
-        <xpath value="f:kind/@value=&#39;logical&#39; or not(f:snapshot/f:element[1]/f:type)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -153,7 +147,6 @@
         <severity value="error"/>
         <human value="Context Invariants can only be used for extensions"/>
         <expression value="contextInvariant.exists() implies type = &#39;Extension&#39;"/>
-        <xpath value="not(exists(f:contextInvariant)) or (f:type/@value = &#39;Extension&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -162,7 +155,6 @@
         <severity value="error"/>
         <human value="All element definitions must have unique ids (diff)"/>
         <expression value="differential.element.all(id.exists()) and differential.element.id.trace(&#39;ids&#39;).isDistinct()"/>
-        <xpath value="count(f:differential/f:element)=count(f:differential/f:element/@id) and (count(f:differential/f:element)=count(distinct-values(f:differential/f:element/@id)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -171,7 +163,6 @@
         <severity value="error"/>
         <human value="No slice name on root"/>
         <expression value="(snapshot | differential).element.all(path.contains(&#39;.&#39;).not() implies sliceName.empty())"/>
-        <xpath value="count(*[self::snapshot or self::differential]/f:element[not(contains(f:path/@value, &#39;.&#39;)) and f:sliceName])=0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -180,7 +171,6 @@
         <severity value="error"/>
         <human value="If there&#39;s a type, its content must match the path name in the first element of a snapshot"/>
         <expression value="kind != &#39;logical&#39; implies snapshot.empty() or snapshot.element.first().path = type"/>
-        <xpath value="(f:kind/@value = &#39;logical&#39;) or not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -189,7 +179,6 @@
         <severity value="error"/>
         <human value="FHIR Specification models never have default values"/>
         <expression value="url.startsWith(&#39;http://hl7.org/fhir/StructureDefinition&#39;) implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())"/>
-        <xpath value="not(starts-with(f:url/@value, &#39;http://hl7.org/fhir/StructureDefinition&#39;)) or (not(exists(f:snapshot/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])) and not(exists(f:differential/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -198,7 +187,6 @@
         <severity value="error"/>
         <human value="All element definitions must have an id"/>
         <expression value="snapshot.element.all(id.exists()) and differential.element.all(id.exists())"/>
-        <xpath value="count(*/f:element)=count(*/f:element/@id)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -206,7 +194,6 @@
         <severity value="error"/>
         <human value="Element paths must be unique unless the structure is a constraint"/>
         <expression value="derivation = &#39;constraint&#39; or snapshot.element.select(path).isDistinct()"/>
-        <xpath value="(f:derivation/@value = &#39;constraint&#39;) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -215,7 +202,6 @@
         <severity value="error"/>
         <human value="Default values can only be specified on specializations"/>
         <expression value="differential.element.defaultValue.exists() implies (derivation = &#39;specialization&#39;)"/>
-        <xpath value="not(exists(f:differential/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])) or (f:derivation/@value = &#39;specialization&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -223,7 +209,6 @@
         <severity value="error"/>
         <human value="A structure must have either a differential, or a snapshot (or both)"/>
         <expression value="snapshot.exists() or differential.exists()"/>
-        <xpath value="exists(f:snapshot) or exists(f:differential)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -231,7 +216,6 @@
         <severity value="error"/>
         <human value="If the structure defines an extension then the structure must have context information"/>
         <expression value="type != &#39;Extension&#39; or derivation = &#39;specialization&#39; or (context.exists())"/>
-        <xpath value="not(f:type/@value = &#39;extension&#39;) or (f:derivation/@value = &#39;specialization&#39;) or (exists(f:context))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -240,7 +224,6 @@
         <severity value="error"/>
         <human value="If the structure is not abstract, then there SHALL be a baseDefinition"/>
         <expression value="abstract = true or baseDefinition.exists()"/>
-        <xpath value="(f:abstract/@value=true()) or exists(f:baseDefinition)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -248,14 +231,12 @@
         <severity value="error"/>
         <human value="If there's a base definition, there must be a derivation "/>
         <expression value="baseDefinition.exists() implies derivation.exists()"/>
-        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
       <constraint>
         <key value="sdf-29"/>
         <severity value="warning"/>
         <human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
         <expression value="((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
-        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -652,7 +633,6 @@
         <severity value="error"/>
         <human value="Must have at least a name or a uri (or both)"/>
         <expression value="name.exists() or uri.exists()"/>
-        <xpath value="exists(f:uri) or exists(f:name)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
     </element>
@@ -865,7 +845,6 @@
         <severity value="error"/>
         <human value="All snapshot elements must start with the StructureDefinition&#39;s specified type for non-logical models, or with the same type name for logical models"/>
         <expression value="(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;&#39;.&#39;))"/>
-        <xpath value="f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, &#39;.&#39;))])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -873,7 +852,6 @@
         <severity value="error"/>
         <human value="Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model"/>
         <expression value="%resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())"/>
-        <xpath value="count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -881,7 +859,6 @@
         <severity value="error"/>
         <human value="All snapshot elements must have a base definition"/>
         <expression value="element.all(base.exists())"/>
-        <xpath value="count(f:element) = count(f:element/f:base)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -889,14 +866,12 @@
         <severity value="error"/>
         <human value="For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference"/>
         <expression value="element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
-        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.reference') and f:type/f:code/@value='Reference' and exists(f:type/f:targetProfile)]))"/>
       </constraint>
       <constraint>
         <key value="sdf-25"/>
         <severity value="error"/>
         <human value="For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept"/>
         <expression value="element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
-        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.concept') and f:type/f:code/@value='CodeableConcept' and exists(f:binding)]))"/>
       </constraint>
       <constraint>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
@@ -909,7 +884,6 @@
         <severity value="error"/>
         <human value="The root element of a profile should not have mustSupport = true"/>
         <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
-        <xpath value="not(exists(f:snapshot/f:element[1][f:mustSupport/@value='true']))"/>
       </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
@@ -928,7 +902,6 @@
         <severity value="error"/>
         <human value="provide either a binding reference or a description (or both)"/>
         <expression value="binding.empty() or binding.valueSet.exists() or binding.description.exists()"/>
-        <xpath value="not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -936,7 +909,6 @@
         <severity value="error"/>
         <human value="If there are no discriminators, there must be a definition"/>
         <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
-        <xpath value="empty(f:slicing) or f:slicing[f:discriminator | f:description]"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <mapping>
@@ -963,7 +935,6 @@
         <severity value="error"/>
         <human value="No slicing on the root element"/>
         <expression value="element.where(path.contains(&#39;.&#39;).not()).slicing.empty()"/>
-        <xpath value="not(f:element[1]/f:slicing)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -971,7 +942,6 @@
         <severity value="error"/>
         <human value="In any differential, all the elements must start with the StructureDefinition&#39;s specified type for non-logical models, or with the same type name for logical models"/>
         <expression value="(%resource.kind = &#39;logical&#39; or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches(&#39;\\..*&#39;,&#39;&#39;)&amp;&#39;.&#39;)))"/>
-        <xpath value="count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, &#39;.&#39;))])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
     </element>

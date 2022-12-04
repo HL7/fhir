@@ -80,7 +80,6 @@
         <severity value="error"/>
         <human value="Indication, Contraindication, Interaction, UndesirableEffect and Warning cannot be used in the same instance"/>
         <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraindication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  &lt; 2"/>
-        <xpath value="count(f:ClinicalUseDefinition/f:indication|f:ClinicalUseDefinition/f:contraindication|f:ClinicalUseDefinition/f:interaction|f:ClinicalUseDefinition/f:undesirableEffect|f:ClinicalUseDefinition/f:warning) &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
       <mapping>

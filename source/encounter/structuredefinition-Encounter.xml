@@ -587,14 +587,12 @@
         <severity value="error"/>
         <human value="A type must be provided when no explicit actor is specified"/>
         <expression value="actor.exists() or type.exists()"/>
-        <xpath value="'true' // going to be deleted anyway"/>
       </constraint>
       <constraint>
         <key value="enc-2"/>
         <severity value="error"/>
         <human value="A type cannot be provided for a patient or group participant"/>
         <expression value="actor.exists(resolve() is Patient or resolve() is Group) implies type.exists().not()"/>
-        <xpath value="'true' // going to be deleted anyway"/>
       </constraint>
       <isSummary value="true"/>
       <mapping>

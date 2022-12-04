@@ -63,14 +63,12 @@
 				<severity value="error"/>
 				<human value="If a codesystem contains nested concepts, it must specify hierarchyMeaning"/>
 				<expression value="concept.concept.exists() implies hierarchyMeaning.exists()"/>
-				<xpath value="exists(f:hierarchyMeaning)"/>
 			</constraint>
 			<constraint>
 				<key value="scs-2"/>
 				<severity value="error"/>
 				<human value="If a codesystem contains example, fragment, or complete content, it must have at least one concept"/>
 				<expression value="content in ( 'example' | 'fragment' | 'complete' ) implies concept.exists()"/>
-				<xpath value="exists(f:content)"/>
 			</constraint>
 		</element>
 		<element id="CodeSystem.extension:knowledgeRepresentationLevel">

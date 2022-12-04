@@ -253,7 +253,6 @@
         <severity value="error"/>
         <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
         <expression value="(genomeAssembly.count()+sequenceCodeableConcept.count()+ sequenceReference.count()+ sequenceString.count()) = 1"/>
-        <xpath value="count(f:genomeAssembly)+count(f:sequenceCodeableConcept)+count(f:sequenceReference)+count(f:sequenceString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
@@ -261,7 +260,6 @@
         <severity value="error"/>
         <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
         <expression value="(chromosome.empty() and genomeAssembly.empty()) or (chromosome.exists() and genomeAssembly.exists())"/>
-        <xpath value="(exists(f:chromosome) and exists(f:genomeAssembly)) or (not(exists(f:chromosome)) and not(exists(f:genomeAssembly)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>

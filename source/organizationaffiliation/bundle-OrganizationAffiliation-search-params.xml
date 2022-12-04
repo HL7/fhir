@@ -17,7 +17,6 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.active"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="OrganizationAffiliation.period"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:period"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="email"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.contact.telecom.where(system=&#39;email&#39;)"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:contact/f:telecom[system/@value=&#39;email&#39;]"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="endpoint"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.endpoint"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:endpoint"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.identifier"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="location"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.location"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:location"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="network"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.network"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:network"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="participating-organization"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.participatingOrganization"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:participatingOrganization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +169,6 @@
         <code value="phone"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.contact.telecom.where(system=&#39;phone&#39;)"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:contact/f:telecom[system/@value=&#39;phone&#39;]"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +188,6 @@
         <code value="primary-organization"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.organization"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:organization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +207,6 @@
         <code value="role"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.code"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +226,6 @@
         <code value="service"/>
         <type value="reference"/>
         <expression value="OrganizationAffiliation.healthcareService"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:healthcareService"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +245,6 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.specialty"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:specialty"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -277,7 +264,6 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="OrganizationAffiliation.contact.telecom"/>
-        <!--<xpath value="f:OrganizationAffiliation/f:contact/f:telecom"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -85,57 +85,49 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
 				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+				<source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
       </constraint>
       <constraint>
         <key value="exs-3"/>
         <severity value="error"/>
         <human value="Must have actors if status is active or required"/>
         <expression value="status='active' or status='retired' implies actor.exists()"/>
-        <xpath value="not(f:status/@value = ('active','retired')) or exists(f:actor)"/>
       </constraint>
       <constraint>
         <key value="exs-4"/>
         <severity value="error"/>
         <human value="Must have processes if status is active or required"/>
         <expression value="status='active' or status='retired' implies process.exists()"/>
-        <xpath value="not(f:status/@value = ('active','retired')) or exists(f:process)"/>
       </constraint>
       <constraint>
         <key value="exs-6"/>
         <severity value="error"/>
         <human value="Actor keys must be unique"/>
         <expression value="actor.key.count() = actor.key.distinct().count()"/>
-        <xpath value="count(f:actor/f:key/@value) = count(distinct-values(f:actor/f:key/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-7"/>
         <severity value="error"/>
         <human value="Actor titles must be unique"/>
         <expression value="actor.title.count() = actor.title.distinct().count()"/>
-        <xpath value="count(f:actor/f:title/@value) = count(distinct-values(f:actor/f:title/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-8"/>
         <severity value="error"/>
         <human value="Instance keys must be unique"/>
         <expression value="instance.key.count() = instance.key.distinct().count()"/>
-        <xpath value="count(f:instance/f:key/@value) = count(distinct-values(f:instance/f:key/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-9"/>
         <severity value="error"/>
         <human value="Instance titles must be unique"/>
         <expression value="instance.title.count() = instance.title.distinct().count()"/>
-        <xpath value="count(f:instance/f:title/@value) = count(distinct-values(f:instance/f:title/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-12"/>
         <severity value="error"/>
         <human value="Process titles must be unique"/>
         <expression value="process.title.count() = process.title.distinct().count()"/>
-        <xpath value="count(f:process/f:title/@value) = count(distinct-values(f:process/f:title/@value))"/>
       </constraint>
       <mapping>
         <identity value="w5"/>
@@ -158,7 +150,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches('([^|#])*')"/>
-        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -453,14 +444,12 @@
         <severity value="warning"/>
         <human value="Actor should be referenced in at least one operation"/>
         <expression value="%resource.process.descendants().select(operation).where(initiator=%context.key or receiver=%context.key).exists()"/>
-        <xpath value="exists(parent::f:ExampleScenario/f:process//f:operation[f:initiator/@value=current()/f:key/@value or f:receiver/@value=current()/f:key/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-23"/>
         <severity value="error"/>
         <human value="actor.key canot be 'OTHER'"/>
         <expression value="key != 'OTHER'"/>
-        <xpath value="f:key/@value != 'OTHER'"/>
       </constraint>
     </element>
     <element id="ExampleScenario.actor.key">
@@ -525,42 +514,36 @@
         <severity value="error"/>
         <human value="StructureVersion is required if structureType is not FHIR (but may still be present even if FHIR)"/>
         <expression value="structureType.exists() and structureType.memberOf('http://hl7.org/fhir/ValueSet/resource-types').not() implies structureVersion.exists()"/>
-        <xpath value="true()"/>
       </constraint>
       <constraint>
         <key value="exs-2"/>
         <severity value="error"/>
         <human value="instance.content is only allowed if there are no instance.versions"/>
         <expression value="instance.content.exists() implies instance.version.empty()"/>
-        <xpath value="not(exists(f:content)) or not(exists(f:version))"/>
       </constraint>
       <constraint>
         <key value="exs-10"/>
         <severity value="error"/>
         <human value="Version keys must be unique within an instance"/>
         <expression value="version.key.count() = version.key.distinct().count()"/>
-        <xpath value="count(f:version/f:key/@value) = count(distinct-values(f:version/f:key/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-11"/>
         <severity value="error"/>
         <human value="Version titles must be unique within an instance"/>
         <expression value="version.title.count() = version.title.distinct().count()"/>
-        <xpath value="count(f:version/f:title/@value) = count(distinct-values(f:version/f:title/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-20"/>
         <severity value="warning"/>
         <human value="Instance should be referenced in at least one location"/>
         <expression value="%resource.process.descendants().select(instanceReference).where($this=%context.key).exists()"/>
-        <xpath value="exists(parent::f:ExampleScenario/f:process//f:instanceReference[@value=current()/f:key/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-21"/>
         <severity value="warning"/>
         <human value="Instance version should be referenced in at least one operation"/>
         <expression value="version.exists() implies version.key.intersect(%resource.process.descendants().where(instanceReference = %context.key).versionReference).exists()"/>
-        <xpath value="not(f:version) or not(exists(f:version/f:key/@value parent::f:ExampleScenario/f:process//*[f:instanceReference/@value=current()/f:key/@value]/f:versionReference/@value))"/>
       </constraint>
     </element>
     <element id="ExampleScenario.instance.key">
@@ -704,21 +687,18 @@
         <severity value="error"/>
         <human value="InstanceReference must be a key of an instance defined in the ExampleScenario"/>
         <expression value="%resource.instance.where(key=%context.instanceReference).exists()"/>
-        <xpath value="exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-15"/>
         <severity value="error"/>
         <human value="versionReference must be specified if the referenced instance defines versions"/>
         <expression value="versionReference.empty() implies %resource.instance.where(key=%context.instanceReference).version.empty()"/>
-        <xpath value="exists(f:versionReference) or not(exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value]/f:version))"/>
       </constraint>
       <constraint>
         <key value="exs-16"/>
         <severity value="error"/>
         <human value="versionReference must be a key of a version within the instance pointed to by instanceReference"/>
         <expression value="versionReference.exists() implies %resource.instance.where(key=%context.instanceReference).version.where(key=%context.versionReference).exists()"/>
-        <xpath value="not(exists(f:versionReference)) or exists(ancestor::f:ExampleScenario/f:instance[f:key/@value=current()/f:instanceReference/@value]/f:version[f:key/@value=current()/f:versionReference/@value]))"/>
       </constraint>
     </element>
     <element id="ExampleScenario.instance.containedInstance.instanceReference">
@@ -758,7 +738,6 @@
         <severity value="error"/>
         <human value="Processes must have steps if ExampleScenario status is active or required"/>
         <expression value="%resource.status='active' or %resource.status='retired' implies step.exists()"/>
-        <xpath value="not(parent::*/f:status/@value = ('active','retired')) or exists(f:step)"/>
       </constraint>
     </element>
     <element id="ExampleScenario.process.title">
@@ -818,14 +797,12 @@
         <severity value="error"/>
         <human value="Alternative titles must be unique within a step"/>
         <expression value="alternative.title.count() = alternative.title.distinct().count()"/>
-        <xpath value="count(f:alternative/f:title/@value) = count(distinct-values(f:alternative/f:title/@value))"/>
       </constraint>
       <constraint>
         <key value="exs-22"/>
         <severity value="error"/>
         <human value="Can have a process, a workflow, one or more operations or none of these, but cannot have a combination"/>
         <expression value="(process.exists() implies workflow.empty() and operation.empty()) and (workflow.exists() implies operation.empty())"/>
-        <xpath value="(not(exists(f:process)) or not(exists(f:workflow) or exists(f:operation))) and (not(exists(f:workflow) or not(exists(f:operation)))"/>
       </constraint>
     </element>
     <element id="ExampleScenario.process.step.number">
@@ -872,14 +849,12 @@
         <severity value="error"/>
         <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
         <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
-        <xpath value="not(exists(f:initiator)) or f:initiator/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:initiator/@value])"/>
       </constraint>
       <constraint>
         <key value="exs-18"/>
         <severity value="error"/>
         <human value="If specified, receiver must be a key of an actor within the ExampleScenario"/>
         <expression value="receiver.exists() implies receiver = 'OTHER' or %resource.actor.where(key=%context.receiver).exists()"/>
-        <xpath value="not(exists(f:receiver)) or f:/receiver/@value='OTHER' or exists(ancestor::f:ExampleScenario/f:actor[f:key/@value=current()/f:receiver/@value])"/>
       </constraint>
     </element>
     <element id="ExampleScenario.process.step.operation.type">

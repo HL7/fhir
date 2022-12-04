@@ -17,7 +17,6 @@
         <code value="biological"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="contained-item"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="device"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="PackagedProductDefinition.identifier"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="manufactured-item"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="medication"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="name"/>
         <type value="token"/>
         <expression value="PackagedProductDefinition.name"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="nutrition"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +169,6 @@
         <code value="package"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packaging.containedItem.item.reference"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packaging/f:containedItem/f:item/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +188,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="PackagedProductDefinition.status"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +207,6 @@
         <code value="package-for"/>
         <type value="reference"/>
         <expression value="PackagedProductDefinition.packageFor"/>
-        <!--<xpath value="f:PackagedProductDefinition/f:packageFor"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
