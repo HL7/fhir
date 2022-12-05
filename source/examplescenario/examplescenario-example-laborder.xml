@@ -50,14 +50,17 @@
     <description value="Bla"/>
     <version>
       <key value="req1-v1"/>
+      <title value="v1- initial"/>
       <description value="Initial order"/>
     </version>
     <version>
       <key value="req1-v2"/>
+      <title value="v2 - in progress"/>
       <description value="Order in progress"/>
     </version>
     <version>
       <key value="req1-v3"/>
+      <title value="v3 - completed"/>
       <description value="Order completed"/>
     </version>
   </instance>
@@ -71,18 +74,22 @@
     <description value="The task that handles the status updates..."/>
     <version>
       <key value="task1-v1"/>
+      <title value="v1 - created"/>
       <description value="Initially created"/>
     </version>
     <version>
       <key value="task1-v2"/>
+      <title value="v2 - accepted"/>
       <description value="Accepted"/>
     </version>
     <version>
       <key value="task1-v3"/>
+      <title value="v3 - in progress"/>
       <description value="In progress"/>
     </version>
     <version>
       <key value="task1-v4"/>
+      <title value="v4 - completed"/>
       <description value="Completed"/>
     </version>
   </instance>
@@ -96,14 +103,17 @@
     <description value="Lab's internal request for the procedure"/>
     <version>
       <key value="req.lab1-v1"/>
+      <title value="v1 - created"/>
       <description value="Order in progress"/>
     </version>
     <version>
       <key value="req.lab1-v2"/>
+      <title value="v2 - in progress"/>
       <description value="Order in progress"/>
     </version>
     <version>
       <key value="req.lab1-v3"/>
+      <title value="v3 - completed"/>
       <description value="Order completed"/>
     </version>
   </instance>

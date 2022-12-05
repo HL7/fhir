@@ -77,7 +77,7 @@
       </extension>
       <path value="SupplyRequest"/>
       <short value="Request for a medication, substance or device"/>
-      <definition value="A record of a request for a medication, substance or device used in the healthcare setting."/>
+      <definition value="A record of a request to deliver a medication, substance or device used in the healthcare setting to a particular destination for a particular person or organization."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -249,6 +249,18 @@
         <identity value="rim"/>
         <map value=".priorityCode"/>
       </mapping>
+    </element>
+    <element id="SupplyRequest.deliverFor">
+      <path value="SupplyRequest.deliverFor"/>
+      <short value="The patient for who the supply request is for"/>
+      <definition value="The patient to whom the supply will be given or for whom they will be used."/>
+      <alias value="subject"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
     </element>
     <element id="SupplyRequest.item">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
