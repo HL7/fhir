@@ -90,7 +90,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <mapping>
@@ -114,7 +113,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches('([^|#])*')"/>
-        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -462,7 +460,6 @@
         <severity value="error"/>
         <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
         <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
-        <xpath value="count(f:definitionReference)+count(f:definitionCanonical)+count(f:definitionCodeableConcept)+count(f:definitionExpression)+count(f:definitionId)+count(f:definitionByTypeAndValue)+count(f:definitionByCombination)  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <isSummary value="true"/>

@@ -17,7 +17,6 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="Patient.active"/>
-        <!--<xpath value="f:Patient/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="address"/>
         <type value="string"/>
         <expression value="Patient.address"/>
-        <!--<xpath value="f:Patient/f:address"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="address-city"/>
         <type value="string"/>
         <expression value="Patient.address.city"/>
-        <!--<xpath value="f:Patient/f:address/f:city"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="address-country"/>
         <type value="string"/>
         <expression value="Patient.address.country"/>
-        <!--<xpath value="f:Patient/f:address/f:country"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="address-postalcode"/>
         <type value="string"/>
         <expression value="Patient.address.postalCode"/>
-        <!--<xpath value="f:Patient/f:address/f:postalCode"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="address-state"/>
         <type value="string"/>
         <expression value="Patient.address.state"/>
-        <!--<xpath value="f:Patient/f:address/f:state"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="address-use"/>
         <type value="token"/>
         <expression value="Patient.address.use"/>
-        <!--<xpath value="f:Patient/f:address/f:use"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="birthdate"/>
         <type value="date"/>
         <expression value="Patient.birthDate"/>
-        <!--<xpath value="f:Patient/f:birthDate"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +169,6 @@
         <code value="death-date"/>
         <type value="date"/>
         <expression value="(Patient.deceased as dateTime)"/>
-        <!--<xpath value="f:Patient/f:deceasedDateTime"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +188,6 @@
         <code value="deceased"/>
         <type value="token"/>
         <expression value="Patient.deceased.exists() and Patient.deceased != false"/>
-        <!--<xpath value="f:Patient/f:deceasedBoolean | f:Patient/f:deceasedDateTime"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +207,6 @@
         <code value="email"/>
         <type value="token"/>
         <expression value="Patient.telecom.where(system=&#39;email&#39;)"/>
-        <!--<xpath value="f:Patient/f:telecom[system/@value=&#39;email&#39;]"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +226,6 @@
         <code value="family"/>
         <type value="string"/>
         <expression value="Patient.name.family"/>
-        <!--<xpath value="f:Patient/f:name/f:family"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +245,6 @@
         <code value="gender"/>
         <type value="token"/>
         <expression value="Patient.gender"/>
-        <!--<xpath value="f:Patient/f:gender"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -277,7 +264,6 @@
         <code value="general-practitioner"/>
         <type value="reference"/>
         <expression value="Patient.generalPractitioner"/>
-        <!--<xpath value="f:Patient/f:generalPractitioner"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -297,7 +283,6 @@
         <code value="given"/>
         <type value="string"/>
         <expression value="Patient.name.given"/>
-        <!--<xpath value="f:Patient/f:name/f:given"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -317,7 +302,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Patient.identifier"/>
-        <!--<xpath value="f:Patient/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -337,7 +321,6 @@
         <code value="language"/>
         <type value="token"/>
         <expression value="Patient.communication.language"/>
-        <!--<xpath value="f:Patient/f:communication/f:language"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -357,7 +340,6 @@
         <code value="link"/>
         <type value="reference"/>
         <expression value="Patient.link.other"/>
-        <!--<xpath value="f:Patient/f:link/f:other"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -377,7 +359,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Patient.name"/>
-        <!--<xpath value="f:Patient/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -397,7 +378,6 @@
         <code value="organization"/>
         <type value="reference"/>
         <expression value="Patient.managingOrganization"/>
-        <!--<xpath value="f:Patient/f:managingOrganization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -417,7 +397,6 @@
         <code value="phone"/>
         <type value="token"/>
         <expression value="Patient.telecom.where(system=&#39;phone&#39;)"/>
-        <!--<xpath value="f:Patient/f:telecom[system/@value=&#39;phone&#39;]"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -437,7 +416,6 @@
         <code value="phonetic"/>
         <type value="string"/>
         <expression value="Patient.name"/>
-        <!--<xpath value="f:Patient/f:name"/> -->
         <processingMode value="phonetic"/>
       </SearchParameter>
     </resource>
@@ -457,7 +435,6 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="Patient.telecom"/>
-        <!--<xpath value="f:Patient/f:telecom"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -14,7 +14,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">ServiceDefinition/infobutton</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -28,7 +28,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -39,7 +39,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">InfoButton Module</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -50,7 +50,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">draft</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -61,7 +61,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">The InfoButton specification defines a mechanism for retrieving relevant clinical context based a particular set of search criteria..</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -94,7 +94,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>

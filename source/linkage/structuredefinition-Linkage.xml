@@ -72,7 +72,6 @@
         <severity value="error"/>
         <human value="Must have at least two items"/>
         <expression value="item.count()&gt;1"/>
-        <xpath value="count(f:item)&gt;1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Linkage"/>
       </constraint>
       <mapping>

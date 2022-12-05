@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <id value="additional-binding-purpose"/>
+  <url value="http://hl7.org/fhir/tools/CodeSystem/additional-binding-purpose"/>
+  <name value="AdditionalBindingPurposeCodes"/>
+  <title value="Additional Binding Purpose Codes"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <description value="Additional Binding Purpose"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+    </coding>
+  </jurisdiction>  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="maximum"/>
+    <display value="Maximum Binding"/>
+    <definition value="A required binding, for use when the binding strength is 'extensible' or 'preferred'"/>
+  </concept>
+  <concept>
+    <code value="minimum"/>
+    <display value="Minimum Binding"/>
+    <definition value="The minimum allowable value set - any conformant system SHALL support all these codes"/>
+  </concept>
+  <concept>
+    <code value="conformance"/>
+    <display value="Conformance Binding"/>
+    <definition value="This value set is used as a validation criteria (in addition to the base binding, usually in a particular usage context)"/>
+  </concept>
+  <concept>
+    <code value="candidate"/>
+    <display value="Candidate Binding"/>
+    <definition value="This value set is a candidate to substitute for the overall conformance value set in some situations; usually these are defined in the documentation"/>
+  </concept>
+  <concept>
+    <code value="current"/>
+    <display value="Current Binding"/>
+    <definition value="New records are required to use this value set, but legacy records may use other codes"/>
+  </concept>
+  <concept>
+    <code value="recommended"/>
+    <display value="Recommended Binding"/>
+    <definition value="This is the value set that is recommended (documentation should explain why)"/>
+  </concept>
+  <concept>
+    <code value="ui"/>
+    <display value="UI Suggested Binding"/>
+    <definition value="This value set is provided to user look up in a given context"/>
+  </concept>
+  <concept>
+    <code value="starter"/>
+    <display value="Starter Binding"/>
+    <definition value="This value set is a good set of codes to start with when designing your system"/>
+  </concept>
+  <concept>
+    <code value="component"/>
+    <display value="Component Binding"/>
+    <definition value="This value set is a component of the base value set. Usually this is called out so that documentation can be written about a portion of the value set"/>
+  </concept>
+</CodeSystem>

@@ -72,7 +72,6 @@
         <severity value="error"/>
         <human value="The organization SHALL at least have a name or an identifier, and possibly more than one"/>
         <expression value="(identifier.count() + name.count()) &gt; 0"/>
-        <xpath value="count(f:identifier | f:name) &gt; 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/InsurancePlan"/>
       </constraint>
       <mapping>

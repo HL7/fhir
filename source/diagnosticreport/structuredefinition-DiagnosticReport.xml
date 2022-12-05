@@ -93,7 +93,6 @@
         <severity value="error"/>
         <human value="A resource referenced in a Composition entry must also be included in the DiagnosticReport result (Observation resources or nested resources via Observation.hasMember)"/>
         <expression value="composition.exists() implies composition.resolve().section.entry.resolve().descendants().where((id in result.resolve().descendants().id).not()).empty()"/>
-<!---        <xpath value="true()"/>  dummy xpath expression included to avoid null pointer error -->
       </constraint>
       <mapping>
         <identity value="workflow"/>

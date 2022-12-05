@@ -17,7 +17,6 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="CodeSystem.concept.code"/>
-        <!--<xpath value="f:CodeSystem/f:concept/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="content-mode"/>
         <type value="token"/>
         <expression value="CodeSystem.content"/>
-        <!--<xpath value="f:CodeSystem/f:content"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(CodeSystem.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:CodeSystem/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(CodeSystem.useContext.value as Quantity) | (CodeSystem.useContext.value as Range)"/>
-        <!--<xpath value="f:CodeSystem/f:useContext/f:valueQuantity | f:CodeSystem/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="CodeSystem.useContext.code"/>
-        <!--<xpath value="f:CodeSystem/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="CodeSystem.date"/>
-        <!--<xpath value="f:CodeSystem/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +179,6 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="CodeSystem.description"/>
-        <!--<xpath value="f:CodeSystem/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +198,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="CodeSystem.identifier"/>
-        <!--<xpath value="f:CodeSystem/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +217,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="CodeSystem.jurisdiction"/>
-        <!--<xpath value="f:CodeSystem/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +236,6 @@
         <code value="language"/>
         <type value="token"/>
         <expression value="CodeSystem.concept.designation.language"/>
-        <!--<xpath value="f:CodeSystem/f:concept/f:designation/f:language"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +255,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="CodeSystem.name"/>
-        <!--<xpath value="f:CodeSystem/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +274,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="CodeSystem.publisher"/>
-        <!--<xpath value="f:CodeSystem/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +293,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="CodeSystem.status"/>
-        <!--<xpath value="f:CodeSystem/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +312,6 @@
         <code value="supplements"/>
         <type value="reference"/>
         <expression value="CodeSystem.supplements"/>
-        <!--<xpath value="f:CodeSystem/f:supplements"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -345,7 +331,6 @@
         <code value="system"/>
         <type value="uri"/>
         <expression value="CodeSystem.url"/>
-        <!--<xpath value="f:CodeSystem/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -365,7 +350,6 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="CodeSystem.title"/>
-        <!--<xpath value="f:CodeSystem/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,7 +369,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="CodeSystem.url"/>
-        <!--<xpath value="f:CodeSystem/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -405,7 +388,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="CodeSystem.version"/>
-        <!--<xpath value="f:CodeSystem/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -425,7 +407,6 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="CodeSystem.effectivePeriod"/>
-        <!--<xpath value="f:CodeSystem/f:effectivePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -440,7 +421,6 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="CodeSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <!--<xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -454,7 +434,6 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="CodeSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <!--<xpath value="f:CodeSystem/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -468,7 +447,6 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="CodeSystem.topic"/>
-        <!--<xpath value="f:CodeSystem/f:topic"/> -->
       </SearchParameter>
     </resource>
   </entry>

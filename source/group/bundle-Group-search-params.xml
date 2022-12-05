@@ -17,7 +17,6 @@
         <code value="membership"/>
         <type value="token"/>
         <expression value="Group.membership"/>
-        <!--<xpath value="f:Group/f:membership"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="characteristic"/>
         <type value="token"/>
         <expression value="Group.characteristic.code"/>
-        <!--<xpath value="f:Group/f:characteristic/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -96,7 +94,6 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="Group.code"/>
-        <!--<xpath value="f:Group/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -116,7 +113,6 @@
         <code value="exclude"/>
         <type value="token"/>
         <expression value="Group.characteristic.exclude"/>
-        <!--<xpath value="f:Group/f:characteristic/f:exclude"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -136,7 +132,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Group.identifier"/>
-        <!--<xpath value="f:Group/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -156,7 +151,6 @@
         <code value="managing-entity"/>
         <type value="reference"/>
         <expression value="Group.managingEntity"/>
-        <!--<xpath value="f:Group/f:managingEntity"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -176,7 +170,6 @@
         <code value="member"/>
         <type value="reference"/>
         <expression value="Group.member.entity"/>
-        <!--<xpath value="f:Group/f:member/f:entity"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -196,7 +189,6 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="Group.type"/>
-        <!--<xpath value="f:Group/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -216,7 +208,6 @@
         <code value="value"/>
         <type value="token"/>
         <expression value="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)"/>
-        <!--<xpath value="f:Group/f:characteristic/f:valueCodeableConcept | f:Group/f:characteristic/f:valueBoolean | f:Group/f:characteristic/f:valueQuantity | f:Group/f:characteristic/f:valueRange | f:Group/f:characteristic/f:valueReference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -236,7 +227,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Group.name"/>
-        <!--<xpath value="f:Group/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

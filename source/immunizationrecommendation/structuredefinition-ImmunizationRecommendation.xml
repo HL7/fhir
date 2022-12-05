@@ -218,7 +218,6 @@
         <severity value="error"/>
         <human value="One of vaccineCode or targetDisease SHALL be present"/>
         <expression value="vaccineCode.exists() or targetDisease.exists()"/>
-        <xpath value="exists(f:vaccineCode) or exists(f:targetDisease)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
       </constraint>
       <isSummary value="true"/>

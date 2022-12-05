@@ -75,7 +75,6 @@
         <severity value="error"/>
         <human value="A list can only have an emptyReason if it is empty"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
-        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/List"/>
       </constraint>
       <mapping>

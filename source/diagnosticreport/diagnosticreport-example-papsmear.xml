@@ -7,7 +7,7 @@
 			<p>Acme Anatomic Pathology Services<br/>2216 Santa Monica Blvd, Suite 114<br/>Santa Monica, CA 90404<br/>===============================================================<br/>GYN CYTOLOGY (PAP SMEAR) REPORT<br/>===============================================================</p>
 			<p>Patient: Everywoman, Eve Report Date: 2/14/2013<br/>DOB: 05/31/1973 Age: 30 Sex: F MRN: PATID14567<br/>Patient Address: 2222 Home Street<br/> Huntington Park<br/> CA 90255<br/>Order: ORD40<br/>Physician: Careful, Adam 5742200012 (NPI)<br/>SpecimenID: GHSID40<br/>Collected Date: 2/11/2013<br/>Received Date: 2/12/2013<br/>LMP: 1/28/2013<br/>Specimen Source: Cervical Cytology (ThinPrep)<br/>Previously abnormal Pap? Unknown</p>
 			<p>Specimen Adequacy: Satisfactory<br/>Diagnostic Interpretation: Epithelial cell abnormality: Atypical squamous cells<br/>of undetermined significance<br/>Hormonal Evaluations: not possible, due to presence of atypical cells<br/>Recommendations: Appropriate Follow-up. Suggest repeat as clinically indicated<br/>Comments: Abnormal report reviewed by pathologist for confirmation</p>
-			<p/>
+			<p></p>
 		</div>
 	</text>
 	<status value="final"/><!--    all this report is final    --><code>

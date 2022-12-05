@@ -289,7 +289,6 @@
         <severity value="error"/>
         <human value="The telecom of an organization can never be of use 'home'"/>
         <expression value="telecom.where(use = 'home').empty()"/>
-        <xpath value="f:telecom.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <constraint>
@@ -297,7 +296,6 @@
         <severity value="error"/>
         <human value="The address of an organization can never be of use 'home'"/>
         <expression value="address.where(use = 'home').empty()"/>
-        <xpath value="f:address.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <mapping>

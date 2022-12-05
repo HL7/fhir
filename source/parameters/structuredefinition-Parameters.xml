@@ -103,7 +103,6 @@
         <severity value="error"/>
         <human value="A parameter must have one and only one of (value, resource, part)"/>
         <expression value="(part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))"/>
-        <xpath value="(exists(f:resource) or exists(f:part) or exists(f:*[starts-with(local-name(.), 'value')])) and not(exists(f:*[starts-with(local-name(.), 'value')])) and exists(f:resource))) and not(exists(f:*[starts-with(local-name(.), 'value')])) and exists(f:part))) and not(exists(f:part) and exists(f:resource))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Parameters"/>
       </constraint>
       <isSummary value="true"/>

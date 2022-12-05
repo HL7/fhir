@@ -774,7 +774,6 @@
         <severity value="error"/>
         <human value="A section must contain at least one of text, entries, or sub-sections"/>
         <expression value="text.exists() or entry.exists() or section.exists()"/>
-        <xpath value="exists(f:text) or exists(f:entry) or exists(f:section)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <constraint>
@@ -782,7 +781,6 @@
         <severity value="error"/>
         <human value="A section can only have an emptyReason if it is empty"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
-        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <mapping>

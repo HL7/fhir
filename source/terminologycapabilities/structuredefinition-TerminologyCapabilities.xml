@@ -86,7 +86,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
@@ -94,7 +93,6 @@
         <severity value="error"/>
         <human value="If kind = instance, implementation must be present and software may be present"/>
         <expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or exists(f:implementation)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
@@ -102,7 +100,6 @@
         <severity value="error"/>
 				<human value="A Terminology Capability statement SHALL have at least one of description, software, or implementation element"/>
         <expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
-        <xpath value="count(f:software | f:implementation | f:description) &gt; 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
@@ -110,7 +107,6 @@
         <severity value="error"/>
         <human value="If kind = requirements, implementation and software must be absent"/>
         <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
-        <xpath value="not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and not(exists(f:software)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
@@ -118,7 +114,6 @@
         <severity value="error"/>
         <human value="If kind = capability, implementation must be absent, software must be present"/>
         <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-        <xpath value=" not(f:kind/@value=&#39;instance&#39;) or (not(exists(f:implementation)) and exists(f:software))"/>
 		<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
 	  </constraint>
 	  <constraint>
@@ -153,7 +148,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -531,7 +525,6 @@
         <severity value="error"/>
         <human value="If there is more than one version, a version code must be defined"/>
         <expression value="version.count() &gt; 1 implies version.all(code.exists())"/>
-        <xpath value="(count(f:version) &lt;= 1) or not(exists(f:version[not(f:code)]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
 	  <constraint>

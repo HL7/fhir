@@ -17,7 +17,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ConditionDefinition.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:ConditionDefinition/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ConditionDefinition.useContext.value as Quantity) | (ConditionDefinition.useContext.value as Range)"/>
-        <!--<xpath value="f:ConditionDefinition/f:useContext/f:valueQuantity | f:ConditionDefinition/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ConditionDefinition.useContext.code"/>
-        <!--<xpath value="f:ConditionDefinition/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -125,7 +122,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ConditionDefinition.date"/>
-        <!--<xpath value="f:ConditionDefinition/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +141,6 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="ConditionDefinition.description"/>
-        <!--<xpath value="f:ConditionDefinition/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ConditionDefinition.identifier"/>
-        <!--<xpath value="f:ConditionDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +179,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ConditionDefinition.jurisdiction"/>
-        <!--<xpath value="f:ConditionDefinition/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -205,7 +198,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ConditionDefinition.name"/>
-        <!--<xpath value="f:ConditionDefinition/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +217,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ConditionDefinition.publisher"/>
-        <!--<xpath value="f:ConditionDefinition/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +236,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ConditionDefinition.status"/>
-        <!--<xpath value="f:ConditionDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +255,6 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="ConditionDefinition.title"/>
-        <!--<xpath value="f:ConditionDefinition/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +274,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ConditionDefinition.url"/>
-        <!--<xpath value="f:ConditionDefinition/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -305,7 +293,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ConditionDefinition.version"/>
-        <!--<xpath value="f:ConditionDefinition/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
