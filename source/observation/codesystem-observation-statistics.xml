@@ -11,14 +11,33 @@
   <url value="http://hl7.org/fhir/observation-statistics"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2100"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1126"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.395"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="StatisticsCode"/>
+  <title value="StatisticsCode"/>
   <status value="active"/>
-  <experimental value="true"/>
-  <description value="StatisticsCode"/>
+  <experimental value="false"/>
+  <date value="2022-12-01T09:29:23+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The statistical operation parameter -&quot;statistic&quot; codes."/>
   <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-statistics"/>
   <content value="complete"/>
   <concept>
     <code value="average"/>

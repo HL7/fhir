@@ -143,4 +143,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Flag-category"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Flag.category"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Flag-category"/>
+        <description value="The category of the flag, such as clinical, administrative, etc."/>
+        <code value="category"/>
+        <type value="token"/>
+        <expression value="Flag.category"/>
+        <!--<xpath value="f:Flag/f:category"/> -->
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

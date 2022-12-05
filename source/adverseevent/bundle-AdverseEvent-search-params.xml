@@ -165,19 +165,19 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="AdverseEvent-resultingcondition"/>
+        <id value="AdverseEvent-resultingeffect"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="AdverseEvent.resultingCondition"/>
+          <valueString value="AdverseEvent.resultingEffect"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-resultingcondition"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/AdverseEvent-resultingeffect"/>
         <description value="Effect on the subject due to this event"/>
-        <code value="resultingcondition"/>
+        <code value="resultingeffect"/>
         <type value="reference"/>
-        <expression value="AdverseEvent.resultingCondition"/>
-        <!--<xpath value="f:AdverseEvent/f:resultingCondition"/> -->
+        <expression value="AdverseEvent.resultingEffect"/>
+        <!--<xpath value="f:AdverseEvent/f:resultingEffect"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

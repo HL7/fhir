@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="capability-statement-kind"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -8,87 +10,129 @@
     <status value="extensions"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>This code system http://hl7.org/fhir/capability-statement-kind defines the following codes:</p>
+      
       
       <table class="codes">
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">
             
+            
             <b>Code</b>
+          
           
           </td>
           
+          
           <td>
+            
             
             <b>Display</b>
           
+          
           </td>
           
+          
           <td>
+            
             
             <b>Definition</b>
           
+          
           </td>
+          
           
           <td>
             
+            
             <b>Comments</b>
+          
           
           </td>
         
+        
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">instance
             
+            
             <a name="capability-statement-kind-instance"> </a>
           
+          
           </td>
+          
           
           <td>Instance</td>
           
+          
           <td>The CapabilityStatement instance represents the present capabilities of a specific system instance.  This is the kind returned by /metadata for a FHIR server end-point.</td>
+          
           
           <td/>
         
+        
         </tr>
         
+        
         <tr>
+          
           
           <td style="white-space:nowrap">capability
             
+            
             <a name="capability-statement-kind-capability"> </a>
           
+          
           </td>
+          
           
           <td>Capability</td>
           
+          
           <td>The CapabilityStatement instance represents the capabilities of a system or piece of software, independent of a particular installation.</td>
+          
           
           <td>Elements marked as 'optional' represent configurable capabilities</td>
         
+        
         </tr>
+        
         
         <tr>
           
+          
           <td style="white-space:nowrap">requirements
+            
             
             <a name="capability-statement-kind-requirements"> </a>
           
+          
           </td>
+          
           
           <td>Requirements</td>
           
+          
           <td>The CapabilityStatement instance represents a set of requirements for other systems to meet; e.g. as part of an implementation guide or 'request for proposal'.</td>
+          
           
           <td/>
         
+        
         </tr>
       
+      
       </table>
+    
     
     </div>
   </text>
@@ -108,6 +152,11 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.199"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.189"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="CapabilityStatementKind"/>

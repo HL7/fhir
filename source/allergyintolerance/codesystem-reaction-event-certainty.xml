@@ -11,7 +11,17 @@
   <url value="http://hl7.org/fhir/reaction-event-certainty"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2028"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.1276"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.860"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.54"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="AllergyIntoleranceCertainty"/>
