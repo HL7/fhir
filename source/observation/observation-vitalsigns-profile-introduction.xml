@@ -59,7 +59,7 @@
 				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital signs. For implementers using LOINC, optional qualifier codes are provided in the notes below.
 			</li>
 		</ul>
-		<p/>
+		<p></p>
 		<table class="grid">
 			<thead>
 				<tr>
@@ -249,7 +249,7 @@
 -->
 			</tbody>
 		</table>
-		<p/>
+		<p></p>
 	</div>
 	<div>
 		<a name="Quick_Start"></a>

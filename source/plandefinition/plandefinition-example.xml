@@ -13,7 +13,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/low-suicide-risk-order-set</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -27,7 +27,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -38,7 +38,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">Low Suicide Risk Order Set</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -49,7 +49,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">draft</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -60,7 +60,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">Orders to be applied to a patient characterized as low suicide risk.</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -71,7 +71,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">This order set helps ensure consistent application of appropriate orders for the care of low suicide risk patients.</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -82,7 +82,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">This order set should be applied after assessing a patient for suicide risk, when the findings of that assessment indicate the patient has low suicide risk.</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -384,7 +384,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -400,7 +400,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -418,7 +418,7 @@
                <td style="padding-left: 50px; padding-right: 25px;">Motive Medical Intelligence</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -438,7 +438,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <h2>Actions</h2>
          <p class="hierarchy" style="width: 100%;">
             <span>
