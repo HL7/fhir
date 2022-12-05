@@ -38,6 +38,35 @@ contexts of use. Typically, these adaptations specify:
 Note that because of the nature of the healthcare ecosystem, there may be multiple
 overlapping sets of adaptations - by healthcare domain, by country, by institution, and/or by vendor/implementation.
 </p>
+<p>
+There is a general hierarchy of implementation guidance, each making more agreements with an ever smaller community, 
+where the smaller communities have more in common:
+</p>
+<table class="grid">
+  <tr>
+    <td colspan="2">International Base Agreements, 
+      e.g. <a href="http://hl7.org/fhir/uv/ips/">IPS</a>, <a href="http://hl7.org/fhir/uv/ipa/2022Jan/">IPA</a>, <a href="http://hl7.org/fhir/uv/sdc/">SDC</a> etc </td>
+  </tr>
+  <tr>
+    <td colspan="1">National Base Implementation Guides, e.g. <a href="http://hl7.org/fhir/us/core">US-Core</a>, <a href="http://hl7.org.au/fhir">AU-Base</a> etc </td>
+    <td colspan="1">Healthcare Clinical Domain, e.g. <a href="http://hl7.org/fhir/us/mcode/">mCode</a>, <a href="http://hl7.org/fhir/us/vitals/STU1">Vital Signs</a> </td>
+  </tr>
+  <tr>
+    <td colspan="1">National Project Agreements e.g. <a href="https://medcomfhir.dk/igcarecommunication/">Dk-Medcom</a>, <a href="http://hl7.org/fhir/us/davinci-deqm/">Da Vinci DEQM</a></td>
+    <td colspan="1">Workflow profiles e.g. <a href="https://profiles.ihe.net/ITI/MHD/">IHE MHD</a>, <a href="https://fhir.ch/ig/ch-lab-order/index.html">CH Lab Forms</a></td>
+  </tr>
+  <tr>
+    <td colspan="2">Vendor Specific Implementation Guides</td>
+  </tr>
+  <tr>
+    <td colspan="2">Instution Specific Implementation Guides</td>
+  </tr>
+</table>
+<p>
+Note that the implementation guides and profiles that are further down the cascade are generally less likely to be publically available,
+and more concerned with presence or absence of data and local extensions, while those higher in the cascade are more concerned with 
+meaning, consistent functionality and exchange of data defined in regulation, and are much more likely to be freely publicly available.
+</p>
 <a name="glossary"></a>
 <h3>Glossary</h3>
 <p>
@@ -948,17 +977,17 @@ constraining profile does, it cannot make codes valid that are invalid in the ba
 
 <a name="mustSupport"></a>
 <a name="mustsupport"></a>
-<h3>Must Support</h3>
+<a name="obligations"></a>
+<h3>Must Support / Implementation Obligations</h3>
 <p>
-One of the properties that can be declared on profiles but not on resource or datatype definitions is 'mustSupport'.
-This is a boolean property.  If true, it means that systems claiming to conform to a given profile must "support" the element.
+One of the properties that can be declared on profiles but not on resource or datatype definitions is 'mustSupport', which is a 
+boolean property.  If true, it means that systems claiming to conform to a given profile must "support" the element.
 This is distinct from cardinality.  It is possible to have an element with a minimum cardinality of "0", but still expect systems
 to support the element.
 </p>
 <p>
-The meaning of "support" is not defined by the base FHIR specification, but can be set to
-true in a profile. When a profile does this, it SHALL also make clear
-exactly what kind of "support" is required. Examples include:
+The meaning of "support" is not defined by the base FHIR specification, but it can be set to true in a profile. 
+When a profile does this, it SHALL also make clear exactly what kind of "support" is required. Examples include:
 </p>
 <ul>
   <li>The system must be able to store and retrieve the element</li>
@@ -968,11 +997,17 @@ exactly what kind of "support" is required. Examples include:
   <li>etc.</li>
 </ul>
 <p>
-The specific meaning of "Must Support" for the purposes of a profile SHALL be described in the <code>ElementDefinition.definition</code>,
-the general <code>StructureDefinition.description</code> or in other documentation for the implementation guide that includes the profile.
+The specific meaning of "Must Support" SHALL be defined. Profiles can do this in one of two ways:
 </p>
+<ul>
+  <li>They can provide detailed <a href="obligations.html>">Obligations</a></li>
+  <li>They can describe their expectations in <code>ElementDefinition.definition</code>,
+    the general <code>StructureDefinition.description</code> or in other 
+    documentation for the implementation guide that includes the profile</li>
+</ul>
 <p>
 If creating a profile based on another profile, Must Support can be changed from false to true, but cannot be changed from true to false.
+Obligations can be added, particularly for different actors, but existing obligations cannot be undone or loosened.
 Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
@@ -984,9 +1019,24 @@ but there's no expectation that the system must support the parent.
 <p>
 If an Implementation Guide defines a complex element as Must Support, and does not declare any of its child elements as Must Support, 
 then the Implementation Guide should provide further guidance; if there is no further guidance, then the expectation is that
-implementers must support at least a subset of the child elements of the MS parent.
+implementers must support at least a subset of the child elements of the must-support parent.
 </p>
 
+<a name="complexity"></a>
+<h3>Managing Profile Complexity</h3>
+<p>
+The FHIR profile ecosystem has grown rapidly in volume and complexity, with the real world profusion of use cases 
+being faithfully represented in a profusion of related but different profiles. This specification recommends that 
+profile designers consider these patterns to minimize the complexity to only that which must exist:
+</p>
+<ul>
+  <li>Profiles should derive from national base profiles whenever possible</li>
+  <li>
+    Use-case Profiles embedded in a workflow should derive from an abstract profile that captures as many 
+    general application obligations as possible, since these are likely shared across the work flow in common.
+  </li>
+  <li>Obligations should be associated with defined Actors whenever possible</li>
+</ul>
 
 <a name="search"></a>
 <h3>Search Criteria</h3>
