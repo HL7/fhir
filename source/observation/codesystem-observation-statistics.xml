@@ -20,10 +20,24 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StatisticsCode"/>
+  <title value="StatisticsCode"/>
   <status value="active"/>
-  <experimental value="true"/>
-  <description value="StatisticsCode"/>
+  <experimental value="false"/>
+  <date value="2022-12-01T09:29:23+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The statistical operation parameter -&quot;statistic&quot; codes."/>
   <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/observation-statistics"/>
   <content value="complete"/>
   <concept>
     <code value="average"/>
