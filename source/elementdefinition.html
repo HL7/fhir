@@ -434,7 +434,8 @@ same path must conform.
 		<li>If there is no <code>StructureDefinition.baseDefinition</code>: min and max are always required</li>
 		<li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the min and max from the base definition</li>
 		<li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
-		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present</li>
+		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present.
+			If the element is omitted, it is NOT treated as though the fixed value or pattern had been specified</li>
 </ul>
 	
 <div class="trial-content">

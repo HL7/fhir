@@ -132,7 +132,7 @@ many applications transfer resources as well&#10;
     <definition value="Exchangers do not produce or consume resources; they only pass the resource on. They may store the resource in a persistent store between reception and subsequent transfer. The generic FHIR servers are exchangers, as are most middleware systems."/>
     <concept>
       <code value="preserve"/>
-      <display value="Conformant Applications SHALL/SHOULD ensure that this element does not changed between receiving and transfer"/>
+      <display value="Conformant Applications SHALL/SHOULD ensure that this element does not change between receiving and transfer"/>
       <definition value="Notes: This does not mean that the element value cannot change, only that changing the element value for an element marked with this obligation moves an application from being an exchanger to a Consumer and a Producer, and those obligations apply"/>
       <property>
         <code value="should-shall"/>
