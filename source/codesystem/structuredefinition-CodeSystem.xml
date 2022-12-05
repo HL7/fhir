@@ -92,7 +92,6 @@
         <severity value="error"/>
         <human value="Within a code system definition, all the codes SHALL be unique"/>
         <expression value="concept.exists() implies concept.code.combine(%resource.concept.descendants().concept.code).isDistinct()"/>
-        <xpath value="count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <constraint>
@@ -121,7 +120,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <mapping>
@@ -149,7 +147,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>

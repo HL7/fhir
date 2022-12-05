@@ -209,6 +209,7 @@ signatures.html
       <page title="Profiling FHIR" filename="profiling.html">
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
+      <page title="Implementation Obligations" filename="obligations.html"/>
       <page type="resource" resource="CapabilityStatement"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>

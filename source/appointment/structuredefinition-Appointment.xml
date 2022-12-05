@@ -87,7 +87,6 @@
         <severity value="error"/>
         <human value="The start must be less than or equal to the end"/>
         <expression value="start.exists() implies start &lt;= end"/>
-        <xpath value="f:start &lt;= f:end or not(start.exists() and end.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
       <constraint>
@@ -95,7 +94,6 @@
         <severity value="error"/>
         <human value="Cancellation reason is only used for appointments that have been cancelled, or noshow"/>
         <expression value="cancellationReason.exists() implies (status='noshow' or status='cancelled')"/>
-        <xpath value="not(exists(f:cancellationReason)) or f:status/@value=('noshow', 'cancelled')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -103,7 +101,6 @@
         <severity value="error"/>
         <human value="Only proposed or cancelled appointments can be missing start/end dates"/>
         <expression value="(start.exists() and end.exists()) or (status in ('proposed' | 'cancelled' | 'waitlist'))"/>
-        <xpath value="((exists(f:start) and exists(f:end)) or (f:status/@value='proposed') or (f:status/@value='cancelled') or (f:status/@value='waitlist'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -111,7 +108,6 @@
         <severity value="error"/>
         <human value="Either start and end are specified, or neither"/>
         <expression value="start.exists() = end.exists()"/>
-        <xpath value="((exists(f:start) and exists(f:end)) or (not(exists(f:start)) and not(exists(f:end))))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <constraint>
@@ -125,7 +121,6 @@
         <severity value="warning"/>
         <human value="An appointment may have an originatingAppointment or recurrenceTemplate, but not both"/>
         <expression value="originatingAppointment.exists().not() or recurrenceTemplate.exists().not()"/>
-        <xpath value="((not(exists(f:originatingAppointment)) or not(exists(f:recurrenceTemplate))))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <mapping>
@@ -849,7 +844,6 @@
         <severity value="error"/>
         <human value="Either the type or actor on the participant SHALL be specified"/>
         <expression value="type.exists() or actor.exists()"/>
-        <xpath value="(exists(f:type) or exists(f:actor))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
       <mapping>

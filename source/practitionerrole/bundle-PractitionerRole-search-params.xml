@@ -17,7 +17,6 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="PractitionerRole.active"/>
-        <!--<xpath value="f:PractitionerRole/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="PractitionerRole.period"/>
-        <!--<xpath value="f:PractitionerRole/f:period"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="email"/>
         <type value="token"/>
         <expression value="PractitionerRole.contact.telecom.where(system='email')"/>
-        <!--<xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value='email']"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="endpoint"/>
         <type value="reference"/>
         <expression value="PractitionerRole.endpoint"/>
-        <!--<xpath value="f:PractitionerRole/f:endpoint"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="PractitionerRole.identifier"/>
-        <!--<xpath value="f:PractitionerRole/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="location"/>
         <type value="reference"/>
         <expression value="PractitionerRole.location"/>
-        <!--<xpath value="f:PractitionerRole/f:location"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="organization"/>
         <type value="reference"/>
         <expression value="PractitionerRole.organization"/>
-        <!--<xpath value="f:PractitionerRole/f:organization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="phone"/>
         <type value="token"/>
         <expression value="PractitionerRole.contact.telecom.where(system='phone')"/>
-        <!--<xpath value="f:PractitionerRole/f:contact/f:telecom[system/@value='phone']"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +169,6 @@
         <code value="practitioner"/>
         <type value="reference"/>
         <expression value="PractitionerRole.practitioner"/>
-        <!--<xpath value="f:PractitionerRole/f:practitioner"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +188,6 @@
         <code value="role"/>
         <type value="token"/>
         <expression value="PractitionerRole.code"/>
-        <!--<xpath value="f:PractitionerRole/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -217,7 +207,6 @@
         <code value="service"/>
         <type value="reference"/>
         <expression value="PractitionerRole.healthcareService"/>
-        <!--<xpath value="f:PractitionerRole/f:healthcareService"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +226,6 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="PractitionerRole.specialty"/>
-        <!--<xpath value="f:PractitionerRole/f:specialty"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +245,6 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="PractitionerRole.contact.telecom"/>
-        <!--<xpath value="f:PractitionerRole/f:contact/f:telecom"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

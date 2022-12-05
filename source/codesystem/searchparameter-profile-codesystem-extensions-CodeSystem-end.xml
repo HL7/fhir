@@ -10,6 +10,5 @@
   <base value="CodeSystem"/>
   <type value="date"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/codesystem-expirationDate').value"/>
-  <!--<xpath value="f:CodeSystem/f:extension[@url='http://hl7.org/fhir/StructureDefinition/codesystem-expirationDate']/f:valueDateTime"/> -->
   <processingMode value="normal"/>
 </SearchParameter>

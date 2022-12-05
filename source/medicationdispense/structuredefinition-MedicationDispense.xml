@@ -90,7 +90,6 @@
         <severity value="error"/>
         <human value="whenHandedOver cannot be before whenPrepared"/>
         <expression value="whenHandedOver.empty() or whenPrepared.empty() or whenHandedOver &gt;= whenPrepared"/>
-        <xpath value="not(exists(f:whenHandedOver/@value)) or not(exists(f:whenPrepared/@value)) or ( f:whenHandedOver/@value &gt;= f:whenPrepared/@value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
       </constraint>
       <mapping>

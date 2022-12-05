@@ -531,7 +531,6 @@
               <key value="2"/>
               <severity value="error"/>
               <human value="A section SHALL have content or one or more sections, but not both."/>
-              <xpath value="exists(f:content) != exists(f:section)"/>
             </constraint>
             <isModifier value="false"/>
             <mapping>

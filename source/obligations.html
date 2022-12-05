@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+
+
+[%settitle Implementation Obligations%]
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+
+<a name="impl-obligations"></a>
+<h2>Implementation Obligations</h2>
+<table class="colsn"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial-Use</a><!--!ns!--></td></tr></table>
+[%normative page infrastructure%]
+
+<p>
+The FHIR specification is primarily concerned with valid interfaces of various kinds (APIs, messaging, etc)
+and the rules for the content in resource instances exchanged between applications. Implementation guides 
+that describe specific implementation solutions and <a href="actordefinition.html">application roles</a> 
+are also concerned with application behavior - what information must be provided under what conditions, and 
+setting expectations for how particular data elements are handled. 
+</p>
+<p>
+Implementation guides can make rules about the behavior of applications by using the <code>mustSupport</code>
+and <code>obligation</code> features of <a href="elementdefinition.html">ElementDefinition</a> in profiles. 
+For further information, read <a href="obligations.html">Implementation Obligations</a>.
+</p>
+<p>
+Note that since the base specification is only describing the interfaces and resources, not any particular 
+solution, the base application does not specify any applications obligations in the resource definitions.
+</p>
+
+<a name="mustSupport"></a>
+<h3>MustSupport</h3>
+<p>
+Any element can be labelled as 'must-support' using the <code>mustSupport</code> flag on an 
+<a href="elementdefinition.html">Element Definition</a> in an applicable profile. Labeling an 
+element MustSupport means that implementations that produce or consume resources SHALL
+provide "support" for the element in some meaningful way.
+</p>
+<p>
+The <code>mustSupport</code> flag itself does not define exactly what "support" for an element 
+means. When a profile contains an element labelled as "must-support", it SHALL also make clear
+exactly what kind of "support" is required, as this could involve expectations around what
+a system must store, display, allow data capture of, include in decision logic, pass on to
+other data consumers, etc.
+</p>
+<p>
+Profiles can make the expectations clear by either:
+</p>
+<ul>
+  <li>Providing a narrative description of the obligations associated with the element 
+    as part of an implementation guide in which the profile is published, or in the 
+    narrative description of the element</li>
+  <li>Providing detailed expectations about the element using the <code>obligation</code> element</li>
+</ul>
+
+<p>
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
+the important elements to make use of the resource), nor is it automatically mustSupport - however both
+of these things are more likely to be true for IsModifier elements than for other elements.
+</p>  
+
+<p>
+The base FHIR specification is intended to be independent of any particular implementation context, 
+so no elements are flagged as <code>mustSupport</code>=true as part of the base specification, and 
+no obligations are defined for any elements (except for an example profile).
+</p>
+
+<div class="trial-content">
+  <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+    This section and the element <code>ElementDefinition.obligation</code>
+    is considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
+  </p>
+  
+<a name="obligations"></a>
+<h3>Obligations</h3>
+
+<p>
+If an element is labelled as "must-support", the element can specify the obligations associated
+with it's use by providing one or more obligations. Each obligation has the following features:
+</p>
+<table lass="grid">
+  <tr>
+    <td>code</td>
+    <td>
+      one or more codes that specify the details of the obligation. The codes are taken from the 
+      <a href="codesystem-obligation.html">Obligations Code system</a>. The codes say things like 
+      'SHALL store this deta item', 'SHOULD populate this if a data element is available', or 
+      'HL7 v2 expectations apply'. If multiple codes are specified, then all the obligations 
+      apply. See below for more details about how the combination obligation 
+      codes work.
+    </td>
+  </tr>
+  <tr>
+    <td>actor</td>
+    <td>
+      One or references to <a href="actordefinition.html">actors</a> that are involved in the 
+      exchanges associated with the element. If any actors are indicated, then the obligations 
+      are only associated with those actors; if no actors are indicated, the obligations apply 
+      to all applications exchanging the element. Since this includes in any derived profiles,
+      designers should be wary of defining obligations that don't have any associated actors.
+    </td>
+  </tr>
+  <tr>
+    <td>documentation</td>
+    <td>
+      Markdown documentation that provides additional information about the obligation, including
+      it's rationale and justification
+    </td>
+  </tr>
+  <tr>
+    <td>usage</td>
+    <td>
+      A set of qualifiers that restrict the scope of the obligation. Typically, the obligation is 
+      restricted by jurisdiction/realm, but it may also be restricted to particular clinical or
+      workflow contexts. This specification does not detail exactly how implementations determine 
+      when usage criteria apply, so this is a subject that should be addressed in implementation 
+      guides when usages are specified
+    </td>
+  </tr>
+  <tr>
+    <td>filter</td>
+    <td>
+      A <a href="fhirpath.html">FHIRPath</a> expression that indicates a subset of elements to 
+      which this obligation applies. This is typically used with elements with a max cardinality
+      greater than 0. The same outcome can be achieved by slicing the element, but this has a
+      real price for implementers, so a filter is preferred if the element is not sliced for 
+      other reasons
+    </td>
+  </tr>
+  <tr>
+    <td>filterDoco</td>
+    <td>
+      A human readable description of the filter. This SHOULD be provided if a filter is specified,
+      for the benefit of readers not familiar with FHIRPath expressions.
+    </td>
+  </tr>
+  <tr>
+    <td>process</td>
+    <td>
+      One or more URIs that reference processes that involve handling the data element. The references
+      may be to <a href="operationdefinition.html">Operations</a> defined by the FHIR specification, or 
+      processed defined elsewhere, including in the <a href="https://www.iso.org/standard/57757.html">EHR-FM specification</a>.
+    </td>
+  </tr>
+</table>
+
+<a name="obligation-codes"></a>
+<h3>Obligation Codes</h3>
+
+<p>
+There are two kinds of codes specified by the obligation codes coding system:
+</p>
+<ul>
+  <li>Duplicate codes combining "shall" or "should" with a functional code</li>
+  <li>Composite codes that specify one or more combinations of duplicate codes</li>
+</ul>
+<p>
+The functional codes are defined in three different groups, according to whether 
+obligations apply to resource creators, consumers or applications that are just 
+transferring them from one application to another (a category that includes general
+purpose FHIR repositories). Note that actors, whether clients or servers or something
+else, typically both create and consume resources.
+</p>
+</div>
+
+[%file newfooter%]
+</body>
+</html>

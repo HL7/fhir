@@ -352,7 +352,6 @@
         <severity value="error"/>
         <human value="Goal.target.measure is required if Goal.target.detail is populated"/>
         <expression value="(detail.exists() and measure.exists()) or detail.exists().not()"/>
-        <xpath value="(exists(f:*[starts-with(local-name(.), 'detail')]) and exists(f:measure)) or not(exists(f:*[starts-with(local-name(.), 'detail')]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Goal"/>
       </constraint>
     </element>

@@ -89,7 +89,6 @@
         <severity value="warning"/>
         <human value="Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class"/>
         <expression value="oralDiet.exists() or supplement.exists() or enteralFormula.exists()"/>
-        <xpath value="exists(f:oralDiet) or exists(f:supplement) or exists(f:enteralFormula)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </constraint>
       <mapping>

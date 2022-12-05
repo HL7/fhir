@@ -72,7 +72,6 @@
         <severity value="error"/>
         <human value="events listed in event notifications"/>
         <expression value="type = 'event-notification' implies (notificationEvent.exists() and notificationEvent.first().exists())"/>
-        <xpath value="not(f:type/@value='event-notification') or exists(f:notificationEvent[1])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
       </constraint>
       <mapping>

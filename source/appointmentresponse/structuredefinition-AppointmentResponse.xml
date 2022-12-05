@@ -87,7 +87,6 @@
         <severity value="error"/>
         <human value="Either the participantType or actor must be specified"/>
         <expression value="participantType.exists() or actor.exists()"/>
-        <xpath value="(exists(f:participantType) or exists(f:actor))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/AppointmentResponse"/>
       </constraint>
       <mapping>

@@ -94,7 +94,6 @@
         <severity value="error"/>
         <human value="orderDetail SHALL only be present if code is present"/>
         <expression value="orderDetail.empty() or code.exists()"/>
-        <xpath value="exists(f:code) or not(exists(f:orderDetail))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <mapping>
@@ -1139,7 +1138,6 @@
         <severity value="error"/>
         <human value="bodyStructure SHALL only be present if bodySite is not present"/>
         <expression value="bodySite.exists() or bodyStructure.exists()"/>
-        <xpath value="exists(f:bodySite) or exists(f:bodyStructure)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <mapping>

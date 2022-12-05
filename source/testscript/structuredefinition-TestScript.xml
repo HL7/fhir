@@ -89,7 +89,6 @@
 				<severity value="warning"/>
 				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
 				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<mapping>
@@ -125,7 +124,6 @@
 				<severity value="warning"/>
 				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
 				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
 			</constraint>
 			<isSummary value="true"/>
@@ -572,7 +570,6 @@
 				<severity value="error"/>
 				<human value="TestScript metadata capability SHALL contain required or validated or both."/>
 				<expression value="capability.required.exists() or capability.validated.exists()"/>
-				<xpath value="f:capability/f:required or f:capability/f:validated or (f:capability/f:required and f:capability/f:validated)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -835,7 +832,6 @@
 				<severity value="error"/>
 				<human value="Variable can only contain one of expression, headerField or path."/>
 				<expression value="expression.empty() or headerField.empty() or path.empty()"/>
-				<xpath value="not(f:expression and f:headerField and f:path)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -959,7 +955,6 @@
 				<severity value="error"/>
 				<human value="Setup action SHALL contain either an operation or assert but not both."/>
 				<expression value="operation.exists() xor assert.exists()"/>
-				<xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -980,7 +975,6 @@
 				<severity value="error"/>
 				<human value="Setup operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (&#39;capabilities&#39; |&#39;search&#39; | &#39;transaction&#39; | &#39;history&#39;))"/>
-				<xpath value="f:sourceId or ((f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1)) or (f:type/f:code/@value=&#39;capabilities&#39; or f:type/f:code/@value=&#39;search&#39; or f:type/f:code/@value=&#39;transaction&#39; or f:type/f:code/@value=&#39;history&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1278,7 +1272,6 @@
 				<severity value="error"/>
 				<human value="Setup action assert response and responseCode SHALL be empty when direction equals request"/>
 				<expression value="(response.empty() and responseCode.empty() and direction = &#39;request&#39;) or direction.empty() or direction = &#39;response&#39;"/>
-				<xpath value="((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value=&#39;request&#39;)) or (count(f:direction) = 0) or (f:direction/@value=&#39;response&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
@@ -1286,7 +1279,6 @@
 				<severity value="error"/>
 				<human value="Only a single assertion SHALL be present within setup action assert element."/>
 				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
-				<xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
@@ -1294,7 +1286,6 @@
 				<severity value="error"/>
 				<human value="Setup action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
 				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
-				<xpath value="(f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1674,7 +1665,6 @@
 				<severity value="error"/>
 				<human value="Test action SHALL contain either an operation or assert but not both."/>
 				<expression value="operation.exists() xor assert.exists()"/>
-				<xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1690,7 +1680,6 @@
 				<severity value="error"/>
 				<human value="Test operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (&#39;capabilities&#39; | &#39;search&#39; | &#39;transaction&#39; | &#39;history&#39;))"/>
-				<xpath value="f:sourceId or (f:targetId or f:url or f:params) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=&#39;capabilities&#39; or f:type/f:code/@value=&#39;search&#39; or f:type/f:code/@value=&#39;transaction&#39; or f:type/f:code/@value=&#39;history&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1707,7 +1696,6 @@
 				<severity value="error"/>
 				<human value="Test action assert SHALL contain either compareToSourceId and compareToSourceExpression, compareToSourceId and compareToSourcePath or neither."/>
 				<expression value="compareToSourceId.empty() xor (compareToSourceExpression.exists() or compareToSourcePath.exists())"/>
-				<xpath value="(f:compareToSourceId and f:compareToSourceExpression) or (f:compareToSourceId and f:compareToSourcePath) or not(f:compareToSourceId or f:compareToSourceExpression or f:compareToSourcePath)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
@@ -1715,7 +1703,6 @@
 				<severity value="error"/>
 				<human value="Test action assert response and response and responseCode SHALL be empty when direction equals request"/>
 				<expression value="(response.empty() and responseCode.empty() and direction = &#39;request&#39;) or direction.empty() or direction = &#39;response&#39;"/>
-				<xpath value="((count(f:response) + count(f:responseCode)) = 0 and (f:direction/@value=&#39;request&#39;)) or (count(f:direction) = 0) or (f:direction/@value=&#39;response&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 			<constraint>
@@ -1723,7 +1710,6 @@
 				<severity value="error"/>
 				<human value="Only a single assertion SHALL be present within test action assert element."/>
 				<expression value="extension.exists() or (contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + validateProfileId.count() &lt;=1) or (((expression.count() + minimumId.count() &lt;=2) or (expression.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1)) or (((path.count() + minimumId.count() &lt;=2) or (path.count() + validateProfileId.count() &lt;=2)) and (expression.count() + path.count() &lt;=1) and (minimumId.count() + validateProfileId.count() &lt;=1))"/>
-				<xpath value="(count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId) &lt;=1) or (((count(f:expression) + count(f:minimumId) &lt;=2) or (count(f:expression) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1)) or (((count(f:path) + count(f:minimumId) &lt;=2) or (count(f:path) + count(f:validateProfileId) &lt;=2)) and (count(f:expression) + count(f:path) &lt;=1) and (count(f:minimumId) + count(f:validateProfileId) &lt;=1))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>
@@ -1769,7 +1755,6 @@
 				<severity value="error"/>
 				<human value="Teardown operation SHALL contain either sourceId or targetId or params or url."/>
 				<expression value="sourceId.exists() or (targetId.count() + url.count() + params.count() = 1) or (type.code in (&#39;capabilities&#39; | &#39;search&#39; | &#39;transaction&#39; | &#39;history&#39;))"/>
-				<xpath value="f:sourceId or (f:targetId or f:url or (f:params and f:resource)) and (count(f:targetId) + count(f:url) + count(f:params) =1) or (f:type/f:code/@value=&#39;capabilities&#39; or f:type/f:code/@value=&#39;search&#39; or f:type/f:code/@value=&#39;transaction&#39; or f:type/f:code/@value=&#39;history&#39;)"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
 			</constraint>
 		</element>

@@ -425,7 +425,6 @@
         <severity value="error"/>
         <human value="Must be &lt;= 100"/>
         <expression value="probability is decimal implies (probability as decimal) &lt;= 100"/>
-        <xpath value="not(f:probabilityDecimal) or f:probabilityDecimal/@value &lt;= 100"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </constraint>
       <mapping>
@@ -476,7 +475,6 @@
         <severity value="error"/>
         <human value="low and high must be percentages, if present"/>
         <expression value="(low.empty() or ((low.code = '%') and (low.system = %ucum))) and (high.empty() or ((high.code = '%') and (high.system = %ucum)))"/>
-        <xpath value="(not(f:low) or f:low[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org']) and (not(f:high) or f:high[f:code/@value='%' and f:system/@value='http://unitsofmeasure.org'])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </constraint>
       <mapping>

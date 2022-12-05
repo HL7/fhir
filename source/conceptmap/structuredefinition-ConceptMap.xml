@@ -89,7 +89,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <mapping>
@@ -117,7 +116,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -588,7 +586,6 @@
         <severity value="error"/>
         <human value="If noMap is present, target SHALL NOT be present"/>
         <expression value="(noMap.exists() and target.empty()) or noMap.empty()"/>
-        <xpath value="(exists(f:noMap) and not(exists(f:target))) or not(exists(f:noMap))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -596,7 +593,6 @@
         <severity value="error"/>
         <human value="Either code or valueSet SHALL be present but not both."/>
         <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -666,7 +662,6 @@
         <severity value="error"/>
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
         <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != &#39;source-is-broader-than-target&#39;) and (relationship != &#39;not-related-to&#39;))"/>
-        <xpath value="exists(f:comment) or (f:status/@value = draft) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -674,7 +669,6 @@
         <severity value="error"/>
         <human value="Either code or valueSet SHALL be present but not both."/>
         <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -771,7 +765,6 @@
         <severity value="error"/>
         <human value="One of value[x] or valueSet must exist, but not both."/>
         <expression value="(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:value) and not(exists(f:valueSet))) or (not(exists(f:value)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -856,7 +849,6 @@
         <severity value="error"/>
         <human value="If the mode is &#39;other-map&#39;, a url for the other map must be provided"/>
         <expression value="(mode = &#39;other-map&#39;) implies otherMap.exists()"/>
-        <xpath value="(f:mode/@value != &#39;other-map&#39;) or exists(f:otherMap)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -864,7 +856,6 @@
         <severity value="error"/>
         <human value="If the mode is &#39;fixed&#39;, either a code or valueSet must be provided, but not both."/>
         <expression value="(mode = &#39;fixed&#39;) implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
-        <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -872,7 +863,6 @@
         <severity value="error"/>
         <human value="If the mode is not &#39;fixed&#39;, code, display and valueSet are not allowed"/>
         <expression value="(mode != &#39;fixed&#39;) implies (code.empty() and display.empty() and valueSet.empty())"/>
-        <xpath value="(f:mode/@value = &#39;fixed&#39;) or not(exists(f:code) or exists(f:display) or exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -880,7 +870,6 @@
         <severity value="error"/>
         <human value="If the mode is not &#39;other-map&#39;, relationship must be provided"/>
         <expression value="(mode != &#39;other-map&#39;) implies relationship.exists()"/>
-        <xpath value="(f:mode/@value = &#39;other-map&#39;) or exists(f:relationship)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -888,7 +877,6 @@
         <severity value="error"/>
         <human value="If the mode is not &#39;other-map&#39;, otherMap is not allowed"/>
         <expression value="(mode != &#39;other-map&#39;) implies otherMap.empty()"/>
-        <xpath value="(f:mode/@value = &#39;other-map&#39;) or not(exists(f:otherMap))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>

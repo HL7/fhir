@@ -47,7 +47,6 @@
         <severity value="error"/>
         <human value="Cannot have length if offset is missing."/>
         <expression value="extension.where(url='length').exists() implies extension.where(url='offset').exists()"/>
-        <xpath value="todo-remove-this-line-when-build-process-allows-that"/>
         <source value="http://hl7.org/fhir/StructureDefinition/derivation-reference"/>
       </constraint>
     </element>

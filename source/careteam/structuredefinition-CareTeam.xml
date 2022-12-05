@@ -252,7 +252,6 @@
         <severity value="error"/>
         <human value="CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner"/>
         <expression value="onBehalfOf.exists() implies (member.resolve() is Practitioner)"/>
-        <xpath value="starts-with(f:member/f:reference/@value, 'Practitioner/') or contains(f:member/f:reference/@value, '/Practitioner/') or exists(ancestor::*/f:contains/f:Practitioner/f:id[@value=substring-after(current()/f:member/f:reference/@value, '#')]) or not(exists(f:onBehalfOf))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </constraint>
       <constraint>
@@ -263,7 +262,6 @@
         <severity value="warning"/>
         <human value="CareTeam.participant.role or CareTeam.participant.member exists"/>
         <expression value="role.exists() or member.exists()"/>
-        <xpath value="exists(f:role) or exists(f:member)"/>
       </constraint>
       <mapping>
         <identity value="v2"/>

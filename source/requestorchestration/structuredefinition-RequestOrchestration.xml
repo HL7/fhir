@@ -467,7 +467,6 @@
         <severity value="error"/>
         <human value="Must have resource or action but not both"/>
         <expression value="resource.exists() != action.exists()"/>
-        <xpath value="exists(f:resource) != exists(f:action)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
       </constraint>
     </element>
@@ -661,7 +660,6 @@
         <severity value="error"/>
         <human value="Input data elements must have a requirement or a relatedData, but not both"/>
         <expression value="requirement.exists() xor relatedData.exists()"/>
-        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -725,7 +723,6 @@
         <severity value="error"/>
         <human value="Output data element must have a requirement or a relatedData, but not both"/>
         <expression value="requirement.exists() xor relatedData.exists()"/>
-        <xpath value="exists(f:requirement) xor exists (f:relatedData/@value)"/>
       </constraint>
       <mapping>
         <identity value="rim"/>

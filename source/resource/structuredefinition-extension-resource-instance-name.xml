@@ -46,7 +46,6 @@
         <severity value="error"/>
         <human value="Cannot be used where title already exists."/>
         <expression value="%resource.title.exists().not()"/>
-        <xpath value="remove when tooling allows"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Extension"/>
       </constraint>
     </element>

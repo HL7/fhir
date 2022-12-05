@@ -78,7 +78,6 @@
         <severity value="error"/>
         <human value="Stratifiers SHALL be either a single criteria or a set of criteria components"/>
         <expression value="group.stratifier.stratum.all(value.exists() xor component.exists())"/>
-        <xpath value="not(f:kind/@value='data-exchange') or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <constraint>
@@ -86,7 +85,6 @@
         <severity value="error"/>
         <human value="Measure Reports used for data collection SHALL NOT communicate group and score information"/>
         <expression value="(type != 'data-exchange') or group.exists().not()"/>
-        <xpath value="not(f:kind/@value='data-exchange') or not(exists(f:group))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
       </constraint>
       <mapping>

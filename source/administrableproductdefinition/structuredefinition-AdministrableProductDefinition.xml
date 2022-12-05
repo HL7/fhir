@@ -78,7 +78,6 @@
         <severity value="error"/>
         <human value="RouteOfAdministration cannot be used when the 'formOf' product already uses MedicinalProductDefinition.route (and vice versa)"/>
         <expression value="(AdministrableProductDefinition.routeOfAdministration.code.count() + AdministrableProductDefinition.formOf.resolve().route.count())  &lt; 2"/>
-        <xpath value="count(f:AdministrableProductDefinition/f:routeOfAdministration/f:code|//f:MedicinalProductDefinition[f:id/@value=current()/ancestor::f:AdministrableProductDefinition/f:formOf/f:reference/@value]/f:route) &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/AdministrableProductDefinition"/>
       </constraint>
       <mapping>

@@ -6,9 +6,9 @@
 <p>
 Lists the current status or changes to an inventory.
 The current status of inventory is presented as the quantity of items, grouped in listings, where a listing can be the items in a location, or with a given status. This is a 'snapshot' of the current inventory.
-<br></br>
+<br/>
 The changes to an inventory are represented as the additions (incoming) or substractions (consumptions or outgoing) of items to an inventory listing. This is often used when there is a need to determine the increment/decrement in stock, and there is a need to only transmit the difference, without the need to update the entire snapshot.
-<br></br>
+<br/>
 The inventory status can be available as a response to a request, or can be done ad-hoc (e.g. report a consumption for consignment stock) or scheduled (e.g. recount the stock every 6 months).
 
 

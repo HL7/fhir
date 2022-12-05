@@ -91,8 +91,6 @@
           value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
         <expression
           value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
-        <xpath
-          value="(f:type/@value = 'history') or (count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -101,8 +99,6 @@
         <human value="A document must have an identifier with a system and a value"/>
         <expression
           value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
-        <xpath
-          value="not(f:type/@value = 'document') or exists(f:identifier/f:system) or exists(f:identifier/f:value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -112,8 +108,6 @@
           value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
         <expression
           value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
-        <xpath
-          value="not(f:entry/f:request) or (f:type/@value = 'batch') or (f:type/@value = 'transaction') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -123,8 +117,6 @@
           value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
         <expression
           value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
-        <xpath
-          value="not(f:entry/f:response) or (f:type/@value = 'batch-response') or (f:type/@value = 'transaction-response') or (f:type/@value = 'history') or (f:type/@value = 'subscription-notification)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -134,8 +126,6 @@
           value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
         <expression
           value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
-        <xpath
-          value="not(f:type/@value='subscription-notification') or f:entry[1]/f:resource/f:SubscriptionStatus"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -143,7 +133,6 @@
         <severity value="error"/>
         <human value="A message must have a MessageHeader as the first resource"/>
         <expression value="type = 'message' implies entry.first().resource.is(MessageHeader)"/>
-        <xpath value="not(f:type/@value='message') or f:entry[1]/f:resource/f:MessageHeader"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -151,7 +140,6 @@
         <severity value="error"/>
         <human value="total only when a search or history"/>
         <expression value="total.empty() or (type = 'searchset') or (type = 'history')"/>
-        <xpath value="not(f:total) or (f:type/@value = 'searchset') or (f:type/@value = 'history')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -159,7 +147,6 @@
         <severity value="error"/>
         <human value="entry.search only when a search"/>
         <expression value="entry.search.empty() or (type = 'searchset')"/>
-        <xpath value="not(f:entry/f:search) or (f:type/@value = 'searchset')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -167,7 +154,6 @@
         <severity value="error"/>
         <human value="A document must have a Composition as the first resource"/>
         <expression value="type = 'document' implies entry.first().resource.is(Composition)"/>
-        <xpath value="not(f:type/@value='document') or f:entry[1]/f:resource/f:Composition"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -175,7 +161,6 @@
         <severity value="error"/>
         <human value="A document must have a date"/>
         <expression value="type = 'document' implies (timestamp.hasValue())"/>
-        <xpath value="not(f:type/@value = 'document') or exists(f:timestamp/@value)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -183,7 +168,6 @@
         <severity value="error"/>
         <human value="entry.request.method PATCH not allowed for history"/>
         <expression value="type = 'history' implies entry.request.method != 'PATCH'"/>
-        <xpath value="(f:type/@value = 'history') and not(f:entry/f:request/f:method/@value = 'PATCH')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -193,12 +177,6 @@
           value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
         <expression
           value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
-        <xpath value="not(
-          (f:type/@value = 'transaction') or 
-          (f:type/@value = 'transaction-response') or 
-          (f:type/@value = 'batch') or 
-          (f:type/@value = 'batch-response') 
-          ) or count(f:entry) = (count(f:entry/f:fullUrl) + count(f:entry[not(f:fullUrl)]/f:request/f:method/@value='POST'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -379,7 +357,6 @@
         <severity value="error"/>
         <human value="fullUrl cannot be a version specific reference"/>
         <expression value="fullUrl.exists() implies fullUrl.contains('/_history/').not()"/>
-        <xpath value="not(exists(f:fullUrl[contains(string(@value), '/_history/')]))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -387,7 +364,6 @@
         <severity value="error"/>
         <human value="must be a resource unless there's a request or response"/>
         <expression value="resource.exists() or request.exists() or response.exists()"/>
-        <xpath value="exists(f:resource) or exists(f:request) or exists(f:response)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <isSummary value="true"/>

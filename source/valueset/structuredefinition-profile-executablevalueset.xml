@@ -94,7 +94,6 @@
         <severity value="error"/>
         <human value="For contains, a version SHALL be provided unless the parameters element has a &#34;system-version&#34; parameter corresponding to the system of the entry and the version matches the system-version parameter."/>
         <expression value="contains.version.exists() xor  parameter.where(name = 'system-version').exists()"/>
-        <xpath value="exists(f:expansion.contains.version)"/>
       </constraint>
       <mustSupport value="true"/>
     </element>

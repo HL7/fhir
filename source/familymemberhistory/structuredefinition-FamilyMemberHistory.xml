@@ -82,7 +82,6 @@
         <severity value="error"/>
         <human value="Can only have estimatedAge if age[x] is present"/>
         <expression value="age.exists() or estimatedAge.empty()"/>
-        <xpath value="exists(*[starts-with(local-name(.), 'age')]) or not(exists(f:estimatedAge))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <constraint>
@@ -90,7 +89,6 @@
         <severity value="error"/>
         <human value="Can have age[x] or born[x], but not both"/>
         <expression value="age.empty() or born.empty()"/>
-        <xpath value="not (*[starts-with(local-name(.), 'age')] and *[starts-with(local-name(.), 'birth')])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
 	  <constraint>
@@ -98,7 +96,6 @@
         <severity value="error"/>
         <human value="Can have age[x] or deceased[x], but not both"/>
         <expression value="age.empty() or deceased.empty()"/>
-        <xpath value="not (*[starts-with(local-name(.), 'age')] and *[starts-with(local-name(.), 'deceased')])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <mapping>

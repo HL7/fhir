@@ -281,36 +281,23 @@ Other modifiers are defined:
 </ul>
 
 <a name="mustSupport"></a>
-<h3>MustSupport</h3>
+<h3>Obligations for Applications (MustSupport)</h3>
 <p>
-Labeling an element MustSupport means that implementations that produce or consume resources SHALL
-provide "support" for the element in some meaningful way. Because the base FHIR specification is intended
-to be independent of any particular implementation context, no elements are flagged as <code>mustSupport</code>=true as
-part of the base specification. This flag is intended for use in profiles that have a defined implementation context.
+The FHIR specification is primarily concerned with valid interfaces of various kinds (APIs, messaging, etc)
+and the rules for the content in resource instances exchanged between applications. Implementation guides 
+that describe specific implementation solutions and <a href="actordefinition.html">application roles</a> 
+are also concerned with application behavior - what information must be provided under what conditions, and 
+setting expectations for how particular data elements are handled. 
 </p>
 <p>
-For this reason, the specification itself never labels any elements as MustSupport.
-This is done in <a href="profiling.html#mustsupport">StructureDefinitions</a>, where the profile
-labels an element as mustSupport=true. When a profile does this, it SHALL also make clear
-exactly what kind of "support" is required, as this could involve expectations around what
-a system must store, display, allow data capture of, include in decision logic, pass on to
-other data consumers, etc.
+Implementation guides can make rules about the behavior of applications by using the <code>mustSupport</code>
+and <code>obligation</code> features of <a href="elementdefinition.html">ElementDefinition</a> in profiles. 
+For further information, read <a href="obligations.html">Implementation Obligations</a>.
 </p>
-
 <p>
-Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
-the important elements to make use of the resource), nor is it automatically mustSupport - however both
-of these things are more likely to be true for IsModifier elements than for other elements.
+Note that since the base specification is only describing the interfaces and resources, not any particular 
+solution, the base application does not specify any applications obligations in the resource definitions.
 </p>
-
-[%stu-note must-support%]
-  The FHIR community has considerable experience with the use of must-support.
-  A number of issues have been identified with how must-support works, and 
-  the community is working on an enhancement. At present, this enhancement is 
-  documented on the <a href="https://confluence.hl7.org/display/FHIR/Must+Support+replacement+proposal">FHIR Confluence</a> pages.
-[%end-note%]
-
-
 
 <a name="constraints"></a>
 <h3>Constraints</h3>
