@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="CanonicalResource-core"/>
+  <name value="Common CanonicalResource extensions"/>
+  <title value="Common CanonicalResource extensions"/>
+  <status value="draft"/>
+  <date value="2014-04-12T00:00:00.000"/>
+  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
+  <description value="Common extensions for use with the CanonicalResource resource"/>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/canonicalresource-short-description"/>
+      </reference>
+    </resource>
+  </definition>
+</ImplementationGuide>
