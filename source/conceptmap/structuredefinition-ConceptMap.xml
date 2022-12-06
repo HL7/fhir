@@ -176,6 +176,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ConceptMap.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConceptMap.title"/>
       <short value="Name for this concept map (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the concept map."/>
@@ -252,6 +255,9 @@
       </mapping>
     </element>
     <element id="ConceptMap.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConceptMap.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the concept map."/>
@@ -281,6 +287,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ConceptMap.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConceptMap.description"/>
       <short value="Natural language description of the concept map"/>
       <definition value="A free text natural language description of the concept map from a consumer&#39;s perspective."/>
@@ -332,6 +341,9 @@
       </binding>
     </element>
     <element id="ConceptMap.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConceptMap.purpose"/>
       <short value="Why this concept map is defined"/>
       <definition value="Explanation of why this concept map is needed and why it has been designed as it has."/>
@@ -351,6 +363,9 @@
       </mapping>
     </element>
     <element id="ConceptMap.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ConceptMap.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the concept map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the concept map."/>

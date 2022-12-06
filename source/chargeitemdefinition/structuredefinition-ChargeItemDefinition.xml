@@ -212,6 +212,9 @@
 			</mapping>
 		</element>
 		<element id="ChargeItemDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ChargeItemDefinition.title"/>
 			<short value="Name for this charge item definition (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the charge item definition."/>
@@ -371,6 +374,9 @@
 			</mapping>
 		</element>
 		<element id="ChargeItemDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ChargeItemDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the charge item definition."/>
@@ -416,6 +422,9 @@
 			</mapping>
 		</element>
 		<element id="ChargeItemDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ChargeItemDefinition.description"/>
 			<short value="Natural language description of the charge item definition"/>
 			<definition value="A free text natural language description of the charge item definition from a consumer&#39;s perspective."/>
@@ -488,6 +497,9 @@
 			</mapping>
 		</element>
 		<element id="ChargeItemDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ChargeItemDefinition.purpose"/>
 			<short value="Why this charge item definition is defined"/>
 			<definition value="Explanation of why this charge item definition is needed and why it has been designed as it has."/>
@@ -515,6 +527,9 @@
 			</mapping>
 		</element>
 		<element id="ChargeItemDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ChargeItemDefinition.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="A copyright statement relating to the charge item definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the charge item definition."/>

@@ -157,6 +157,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ActorDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.title"/>
       <short value="Name for this actor definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the actor definition."/>
@@ -233,6 +236,9 @@
       </mapping>
     </element>
     <element id="ActorDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the actor definition."/>
@@ -262,6 +268,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ActorDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.description"/>
       <short value="Natural language description of the actor"/>
       <definition value="A free text natural language description of the actor."/>
@@ -314,6 +323,9 @@
       </binding>
     </element>
     <element id="ActorDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.purpose"/>
       <short value="Why this actor definition is defined"/>
       <definition value="Explanation of why this actor definition is needed and why it has been designed as it has."/>
@@ -329,6 +341,9 @@
       </mapping>
     </element>
     <element id="ActorDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the actor definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the actor definition."/>
@@ -343,6 +358,9 @@
       </type>
     </element>
     <element id="ActorDefinition.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -374,6 +392,9 @@
       </binding>
     </element>
     <element id="ActorDefinition.documentation">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="ActorDefinition.documentation"/>
       <short value="Functionality associated with the actor"/>
       <definition value="Documentation about the functionality of the actor."/>

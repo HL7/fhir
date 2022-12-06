@@ -174,6 +174,9 @@
       <isSummary value="true"/>
     </element>
     <element id="GraphDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="GraphDefinition.title"/>
       <short value="Name for this graph definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
@@ -250,6 +253,9 @@
       </mapping>
     </element>
     <element id="GraphDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="GraphDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the graph definition."/>
@@ -279,6 +285,9 @@
       <isSummary value="true"/>
     </element>
     <element id="GraphDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="GraphDefinition.description"/>
       <short value="Natural language description of the graph definition"/>
       <definition value="A free text natural language description of the graph definition from a consumer&#39;s perspective."/>
@@ -326,6 +335,9 @@
       </binding>
     </element>
     <element id="GraphDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="GraphDefinition.purpose"/>
       <short value="Why this graph definition is defined"/>
       <definition value="Explanation of why this graph definition is needed and why it has been designed as it has."/>

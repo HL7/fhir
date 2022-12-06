@@ -158,6 +158,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Requirements.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.title"/>
       <short value="Name for this Requirements (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the Requirements."/>
@@ -234,6 +237,9 @@
       </mapping>
     </element>
     <element id="Requirements.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.publisher"/>
       <short value="Name of the publisher/steward (organization or individual)"/>
       <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements."/>
@@ -263,6 +269,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Requirements.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.description"/>
       <short value="Natural language description of the actor"/>
       <definition value="A free text natural language description of the actor."/>
@@ -315,6 +324,9 @@
       </binding>
     </element>
     <element id="Requirements.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.purpose"/>
       <short value="Why this Requirements is defined"/>
       <definition value="Explanation of why this Requirements is needed and why it has been designed as it has."/>
@@ -330,6 +342,9 @@
       </mapping>
     </element>
     <element id="Requirements.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the Requirements and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the Requirements."/>
@@ -344,6 +359,9 @@
       </type>
     </element>
     <element id="Requirements.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -402,6 +420,9 @@
       </type>
     </element>
     <element id="Requirements.statement.label">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.statement.label"/>
       <short value="Short Human label for this statement"/>
       <definition value="A short human usable label for this statement."/>
@@ -442,6 +463,9 @@
       </type>
     </element>
     <element id="Requirements.statement.requirement">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Requirements.statement.requirement"/>
       <short value="The actual requirement"/>
       <definition value="The actual requirement for human consumption."/>

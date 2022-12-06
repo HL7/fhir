@@ -168,6 +168,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Citation.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Citation.title"/>
       <short value="Name for this citation (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the citation."/>
@@ -237,6 +240,9 @@
       </mapping>
     </element>
     <element id="Citation.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Citation.publisher"/>
       <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
       <definition value="The name of the organization or individual that published the citation."/>
@@ -266,6 +272,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Citation.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Citation.description"/>
       <short value="Natural language description of the citation"/>
       <definition value="A free text natural language description of the citation from a consumer&#39;s perspective."/>
@@ -309,6 +318,9 @@
       </binding>
     </element>
     <element id="Citation.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Citation.purpose"/>
       <short value="Why this citation is defined"/>
       <definition value="Explanation of why this citation is needed and why it has been designed as it has."/>
@@ -328,6 +340,9 @@
       </mapping>
     </element>
     <element id="Citation.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="Citation.copyright"/>
       <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
       <min value="0"/>
