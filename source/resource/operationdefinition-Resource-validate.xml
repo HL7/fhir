@@ -92,7 +92,7 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate against the nominated profile, it SHALL return an error"/>
-    <type value="uri"/>
+    <type value="canonical"/>
   </parameter>
   <parameter>
     <name value="return"/>
