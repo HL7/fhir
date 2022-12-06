@@ -1,0 +1,118 @@
+<StructureDefinition xmlns='http://hl7.org/fhir'>
+  <id value='search-set-bundle'/>
+  <extension url='http://hl7.org/fhir/StructureDefinition/structuredefinition-category'>
+    <valueString value='Foundation.Other'/>
+  </extension>
+  <extension url='http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category'>
+    <valueCode value='not-classified'/>
+  </extension>
+  <url value='http://hl7.org/fhir/StructureDefinition/search-bundle'/>
+  <version value='0.1.0'/>
+  <name value='SearchBundle'/>
+  <title value='Search bundle'/>
+  <status value='active'/>
+  <description value='This profile holds all the requirements and constraints related to a FHIR search bundle.'/>
+  <fhirVersion value='5.0.0'/>
+  <mapping>
+    <identity value='v2'/>
+    <uri value='http://hl7.org/v2'/>
+    <name value='HL7 v2 Mapping'/>
+  </mapping>
+  <mapping>
+    <identity value='rim'/>
+    <uri value='http://hl7.org/v3'/>
+    <name value='RIM Mapping'/>
+  </mapping>
+  <mapping>
+    <identity value='cda'/>
+    <uri value='http://hl7.org/v3/cda'/>
+    <name value='CDA (R2)'/>
+  </mapping>
+  <mapping>
+    <identity value='w5'/>
+    <uri value='http://hl7.org/fhir/fivews'/>
+    <name value='FiveWs Pattern Mapping'/>
+  </mapping>
+  <kind value='resource'/>
+  <abstract value='false'/>
+  <type value='Bundle'/>
+  <baseDefinition value='http://hl7.org/fhir/StructureDefinition/Bundle'/>
+  <derivation value='constraint'/>
+  <differential>
+    <element id='Bundle.type'>
+      <patternCode value='searchset'/>
+      <path value='Bundle.type'/>
+    </element>
+    <element id='Bundle.entry'>
+      <slicing>
+        <discriminator>
+          <type value='value'/>
+          <path value='search.mode'/>
+        </discriminator>
+        <description value='Slice defining each method'/>
+        <ordered value='false'/>
+        <rules value='closed'/>
+      </slicing>
+      <path value='Bundle.entry'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome'>
+      <path value='Bundle.entry'/>
+      <sliceName value='operationOutcome'/>
+      <min value='0'/>
+      <max value='1'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome.fullUrl'>
+      <path value='Bundle.entry.fullUrl'/>
+      <min value='1'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome.resource'>
+      <type>
+        <code value='OperationOutcome'/>
+      </type>
+      <path value='Bundle.entry.resource'/>
+      <min value='1'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome.search.mode'>
+      <patternCode value='outcome'/>
+      <path value='Bundle.entry.search.mode'/>
+      <min value='1'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome.request'>
+      <path value='Bundle.entry.request'/>
+      <max value='0'/>
+    </element>
+    <element id='Bundle.entry:operationOutcome.response'>
+      <path value='Bundle.entry.response'/>
+      <max value='0'/>
+    </element>
+    <element id='Bundle.entry:other'>
+      <path value='Bundle.entry'/>
+      <sliceName value='other'/>
+      <min value='0'/>
+      <max value='*'/>
+    </element>
+    <element id='Bundle.entry:other.fullUrl'>
+      <path value='Bundle.entry.fullUrl'/>
+      <min value='1'/>
+    </element>
+    <element id='Bundle.entry:other.resource'>
+      <path value='Bundle.entry.resource'/>
+      <min value='1'/>
+    </element>
+    <element id='Bundle.entry:other.request'>
+      <path value='Bundle.entry.request'/>
+      <max value='0'/>
+    </element>
+    <element id='Bundle.entry:other.response'>
+      <path value='Bundle.entry.response'/>
+      <max value='0'/>
+    </element>
+    <element id='Bundle.issues.issue.severity'>
+      <path value='Bundle.issues.issue.severity'/>
+      <binding>
+        <valueSet value='http://hl7.org/fhir/ValueSet/BatchTransactionOperationOutcomeSeverity'/>
+        <strength value='required'/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>
