@@ -526,6 +526,17 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-origin-types"/>
 			</binding>
 		</element>
+  	<element id="TestScript.origin.url">
+			<path value="TestScript.origin.url"/>
+			<short value="The url path of the origin server"/>
+			<definition value="The explicit url path of the origin server used in this test script."/>
+			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+		</element>		
 		<element id="TestScript.destination">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="-120,220"/>
@@ -571,6 +582,17 @@
 				<valueSet value="http://hl7.org/fhir/ValueSet/testscript-profile-destination-types"/>
 			</binding>
 		</element>
+  	<element id="TestScript.destination.url">
+			<path value="TestScript.destination.url"/>
+			<short value="The url path of the destination server"/>
+			<definition value="The explicit url path of the destination server used in this test script."/>
+			<comment value="If provided, the test engine is not expected to prompt for or accept external input of this value."/>
+			<min value="0"/>
+			<max value="1"/>
+			<type>
+				<code value="url"/>
+			</type>
+		</element>		
 		<element id="TestScript.metadata">
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
 				<valueCode value="260,30"/>
