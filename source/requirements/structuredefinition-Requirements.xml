@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Requirements"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -78,7 +79,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </constraint>
       <mapping>
@@ -101,7 +102,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -218,8 +219,8 @@
     <element id="Requirements.date">
       <path value="Requirements.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the Requirements was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
-      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the Requirements was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the Requirements changes."/>
+      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the Requirements. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -234,8 +235,8 @@
     </element>
     <element id="Requirements.publisher">
       <path value="Requirements.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the Requirements."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the Requirements is the organization or individual primarily responsible for the maintenance and upkeep of the Requirements. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the Requirements. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the Requirements.  May also allow for contact."/>
       <min value="0"/>
@@ -317,7 +318,7 @@
       <path value="Requirements.purpose"/>
       <short value="Why this Requirements is defined"/>
       <definition value="Explanation of why this Requirements is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the Requirements. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Requirements."/>
+      <comment value="This element does not describe the usage of the Requirements. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this Requirements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -385,6 +386,9 @@
       <definition value="The actual statement of requirement, in markdown format."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
     </element>
     <element id="Requirements.statement.key">
       <path value="Requirements.statement.key"/>
@@ -419,9 +423,23 @@
         <code value="code"/>
       </type>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="??"/>
+        </extension>
         <strength value="required"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/conformance-expectation"/>
       </binding>
+    </element>
+    <element id="Requirements.statement.conditionality">
+      <path value="Requirements.statement.conditionality"/>
+      <short value="Set to true if requirements statement is conditional"/>
+      <definition value="This boolean flag is set to true of the text of the requirement is conditional on something e.g. it includes lanauage like 'if x then y'. This conditionality flag is introduced for purposes of filtering and colour highlighting etc."/>
+      <comment value="There is no intent that the conditional statement by evaluatable"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
     </element>
     <element id="Requirements.statement.requirement">
       <path value="Requirements.statement.requirement"/>
@@ -473,10 +491,6 @@
       <max value="*"/>
       <type>
         <code value="Reference"/>
-<!--        
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
--->        
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
