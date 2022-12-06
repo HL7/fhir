@@ -522,7 +522,7 @@
         <element id="Consent.provision.type">
             <path value="Consent.provision.type"/>
             <short value="deny | permit"/>
-            <definition value="Action  to take - permit or deny - when the provision conditions are met.  Not permitted in root provision, required in all nested provisions."/>
+            <definition value="Action  to take - permit or deny - when the provision conditions are met."/>
             <min value="0"/>
             <max value="1"/>
             <type>
