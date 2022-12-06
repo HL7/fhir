@@ -126,6 +126,9 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="SpecimenDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SpecimenDefinition.title"/>
 			<short value="Name for this SpecimenDefinition (Human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the SpecimenDefinition."/>
@@ -223,6 +226,9 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="SpecimenDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SpecimenDefinition.publisher"/>
 			<short value="The name of the individual or organization that published the SpecimenDefinition"/>
 			<definition value="Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact."/>
@@ -247,6 +253,9 @@
 			<isSummary value="true"/>
 		</element>
 		<element id="SpecimenDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SpecimenDefinition.description"/>
 			<short value="Natural language description of the SpecimenDefinition"/>
 			<definition value="A free text natural language description of the SpecimenDefinition from the consumer&#39;s perspective."/>
@@ -289,6 +298,9 @@
 			</binding>
 		</element>
 		<element id="SpecimenDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SpecimenDefinition.purpose"/>
 			<short value="Why this SpecimenDefinition is defined"/>
 			<definition value="Explains why this SpecimeDefinition is needed and why it has been designed as it has."/>
@@ -300,6 +312,9 @@
 			</type>
 		</element>
 		<element id="SpecimenDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SpecimenDefinition.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition."/>

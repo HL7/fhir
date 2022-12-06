@@ -184,6 +184,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CompartmentDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CompartmentDefinition.title"/>
       <short value="Name for this compartment definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
@@ -260,6 +263,9 @@
       </mapping>
     </element>
     <element id="CompartmentDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CompartmentDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the compartment definition."/>
@@ -292,6 +298,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CompartmentDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CompartmentDefinition.description"/>
       <short value="Natural language description of the compartment definition"/>
       <definition value="A free text natural language description of the compartment definition from a consumer&#39;s perspective."/>
@@ -316,6 +325,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CompartmentDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CompartmentDefinition.purpose"/>
       <short value="Why this compartment definition is defined"/>
       <definition value="Explanation of why this compartment definition is needed and why it has been designed as it has."/>

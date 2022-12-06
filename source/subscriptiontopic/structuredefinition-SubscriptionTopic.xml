@@ -173,6 +173,9 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SubscriptionTopic.title"/>
 			<short value="Name for this subscription topic (Human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;."/>
@@ -306,6 +309,9 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SubscriptionTopic.publisher"/>
 			<short value="The name of the individual or organization that published the SubscriptionTopic"/>
 			<definition value="Helps establish the &quot;authority/credibility&quot; of the SubscriptionTopic.  May also allow for contact."/>
@@ -351,6 +357,9 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SubscriptionTopic.description"/>
 			<short value="Natural language description of the SubscriptionTopic"/>
 			<definition value="A free text natural language description of the Topic from the consumer&#39;s perspective."/>
@@ -421,6 +430,9 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SubscriptionTopic.purpose"/>
 			<short value="Why this SubscriptionTopic is defined"/>
 			<definition value="Explains why this Topic is needed and why it has been designed as it has."/>
@@ -444,6 +456,9 @@
 			</mapping>
 		</element>
 		<element id="SubscriptionTopic.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="SubscriptionTopic.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="A copyright statement relating to the SubscriptionTopic and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SubscriptionTopic."/>
@@ -466,6 +481,9 @@
 			</mapping>
 		</element>
     <element id="SubscriptionTopic.copyrightLabel">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="SubscriptionTopic.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>

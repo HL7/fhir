@@ -350,6 +350,9 @@
       </type>
     </element>
     <element id="EvidenceReport.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="EvidenceReport.publisher"/>
       <short value="Name of the publisher/steward (organization or individual)"/>
       <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the evidence report."/>
@@ -524,6 +527,9 @@
       </type>
     </element>
     <element id="EvidenceReport.section.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="EvidenceReport.section.title"/>
       <short value="Label for section (e.g. for ToC)"/>
       <definition value="The label for this particular section.  This will be part of the rendered content for the document, and is often used to build a table of contents."/>

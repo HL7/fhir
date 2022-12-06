@@ -207,6 +207,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CodeSystem.title"/>
       <short value="Name for this code system (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the code system."/>
@@ -283,6 +286,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CodeSystem.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the code system."/>
@@ -312,6 +318,9 @@
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CodeSystem.description"/>
       <short value="Natural language description of the code system"/>
       <definition value="A free text natural language description of the code system from a consumer&#39;s perspective."/>
@@ -368,6 +377,9 @@
       </binding>
     </element>
     <element id="CodeSystem.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CodeSystem.purpose"/>
       <short value="Why this code system is defined"/>
       <definition value="Explanation of why this code system is needed and why it has been designed as it has."/>
@@ -387,6 +399,9 @@
       </mapping>
     </element>
     <element id="CodeSystem.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="CodeSystem.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system."/>

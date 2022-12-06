@@ -192,6 +192,9 @@
       <isSummary value="true"/>
     </element>
     <element id="NamingSystem.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.title"/>
       <short value="Title for this naming system (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the naming system."/>
@@ -291,6 +294,9 @@
       </mapping>
     </element>
     <element id="NamingSystem.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the naming system."/>
@@ -323,6 +329,9 @@
       <isSummary value="true"/>
     </element>
     <element id="NamingSystem.responsible">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.responsible"/>
       <short value="Who maintains system namespace?"/>
       <definition value="The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision."/>
@@ -357,6 +366,9 @@
       </binding>
     </element>
     <element id="NamingSystem.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.description"/>
       <short value="Natural language description of the naming system"/>
       <definition value="A free text natural language description of the naming system from a consumer&#39;s perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc."/>
@@ -404,6 +416,9 @@
       </binding>
     </element>
     <element id="NamingSystem.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.purpose"/>
       <short value="Why this naming system is defined"/>
       <definition value="Explanation of why this naming system is needed and why it has been designed as it has."/>
@@ -423,6 +438,9 @@
       </mapping>
     </element>
     <element id="NamingSystem.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the naming system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the naming system."/>
@@ -565,6 +583,9 @@
       </type>
     </element>
     <element id="NamingSystem.usage">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
       <path value="NamingSystem.usage"/>
       <short value="How/where is it used"/>
       <definition value="Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc."/>

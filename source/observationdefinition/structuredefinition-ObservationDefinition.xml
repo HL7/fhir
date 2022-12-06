@@ -179,6 +179,9 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ObservationDefinition.title"/>
 			<short value="Name for this ObservationDefinition (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the ObservationDefinition."/>
@@ -254,6 +257,9 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ObservationDefinition.publisher"/>
 			<short value="The name of the individual or organization that published the ObservationDefinition"/>
 			<definition value="Helps establish the &quot;authority/credibility&quot; of the ObservationDefinition. May also allow for contact."/>
@@ -286,6 +292,9 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ObservationDefinition.description"/>
 			<short value="Natural language description of the ObservationDefinition"/>
 			<definition value="A free text natural language description of the ObservationDefinition from the consumer&#39;s perspective."/>
@@ -342,6 +351,9 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ObservationDefinition.purpose"/>
 			<short value="Why this ObservationDefinition is defined"/>
 			<definition value="Explains why this ObservationDefinition is needed and why it has been designed as it has."/>
@@ -357,6 +369,9 @@
 			</mapping>
 		</element>
 		<element id="ObservationDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ObservationDefinition.copyright"/>
 			<short value="Use and/or publishing restrictions"/>
 			<definition value="Copyright statement relating to the ObservationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the ObservationDefinition."/>

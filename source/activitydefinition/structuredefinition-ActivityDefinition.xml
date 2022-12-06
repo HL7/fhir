@@ -215,6 +215,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.title">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ActivityDefinition.title"/>
 			<short value="Name for this activity definition (human friendly)"/>
 			<definition value="A short, descriptive, user-friendly title for the activity definition."/>
@@ -235,6 +238,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.subtitle">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ActivityDefinition.subtitle"/>
 			<short value="Subordinate title of the activity definition"/>
 			<definition value="An explanatory or alternate title for the activity definition giving additional information about its content."/>
@@ -381,6 +387,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.publisher">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ActivityDefinition.publisher"/>
 			<short value="Name of the publisher/steward (organization or individual)"/>
 			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the activity definition."/>
@@ -426,6 +435,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.description">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ActivityDefinition.description"/>
 			<short value="Natural language description of the activity definition"/>
 			<definition value="A free text natural language description of the activity definition from a consumer&#39;s perspective."/>
@@ -501,6 +513,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.purpose">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<path value="ActivityDefinition.purpose"/>
 			<short value="Why this activity definition is defined"/>
 			<definition value="Explanation of why this activity definition is needed and why it has been designed as it has."/>
@@ -529,6 +544,9 @@
 		</element>
 		<element id="ActivityDefinition.usage">
 			<path value="ActivityDefinition.usage"/>
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<short value="Describes the clinical usage of the activity definition"/>
 			<definition value="A detailed description of how the activity definition is used from a clinical perspective."/>
 			<min value="0"/>
@@ -542,6 +560,9 @@
 			</mapping>
 		</element>
 		<element id="ActivityDefinition.copyright">
+			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+				<valueBoolean value="true"/>
+			</extension>
 			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
 				<valueString value="There is ongoing discussion about the uses of copyright, particularly around modeling information such as license, copyright, and disclaimers."/>
 			</extension>
