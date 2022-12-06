@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-12-04T17:55:56Z</LastSaved>
+  <LastSaved>2022-12-05T20:57:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -809,11 +809,11 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">Missing Meaning</Data><Comment ss:Author="Lloyd"><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Semantic inferred if element is omitted from instance</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Regex</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Indicates a regular expression that the value of this element must meet.  Only allowed for simple data types.</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">Short Name</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Short description or code1 | code2 | code3 +</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s73"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Full definition - required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Full definition - required</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Requirements</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Why element/resource is needed or why selected constraints chosen</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">Comments</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes for implementers</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s74"><Data ss:Type="String">To Do</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Things to bug you about if they're not done :&gt;</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s75"><Data ss:Type="String">RIM Mapping</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s75"><Data ss:Type="String">RIM Mapping</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">E.g. RIMClass[classCode=foo,moodCode=bar].someAssociation[typeCode=code].attribute</Font><Font html:Color="#000000">       </Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">v2 Mapping</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">E.g. SEG.1.2.3</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">LOINC Code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s75"><Data ss:Type="String">11179 Mapping</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Change column name to one from mappingSpaces.xml.  Add more if needed</Font>       </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2408,7 +2408,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">For primitives, that a value must be present - not replaced by an extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Specifies for a primitive data type that the value of the data type cannot be replaced by an extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Typical extensions that can be provided in place of a the value are [data-absent-reason](extension-data-absent-reason.html),  [nullflavor](extension-iso21090-nullflavor.html),  [OriginalText](extension-originaltext.html), and [expression](extension-cqf-expression.html)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Typical extensions that can be provided in place of a the value are [data-absent-reason](extension-data-absent-reason.html),  [nullflavor](extension-iso21090-nullflavor.html),  [OriginalText](extension-originaltext.html), and [expression](extension-cqf-expression.html). Note that this element has no meaning when a value is provided, and extensions can be provided in addition to a value </Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2513,7 +2513,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ObligationCodes</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2654,7 +2654,7 @@
     <Cell><Data ss:Type="String">trial-use</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="37">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.obligation.filterDoco</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ElementDefinition.obligation.filterDocumentation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2958,7 +2958,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">maximum | minimum | conformance | candidate | current | recommended | ui | starter | component</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">maximum | minimum | conformance | candidate | current | preferred | ui | starter | component</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The use of this additional binding</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Conformance bindings are in addition to the base binding, not instead of it</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3109,7 +3109,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Whether binding can applies to all repeats, or just one</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the binding applies to all repeats, or just to any one of them</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the binding applies to all repeats, or just to any one of them. This is only relevant for elements that can repeat</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A common pattern is to make a conformance binding to all repeats, and then make a binding that one of the repeats must conform to</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4794,9 +4794,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>48</TopRowBottomPane>
+   <TopRowBottomPane>58</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -5069,13 +5069,13 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(f:mapping) = count(distinct-values(f:mapping/f:identity/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="Number">28</Data><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Can't have valueAlternatives if mustHaveValue is true</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">mustHaveValue.value implies valueAlternatives.empty()</Data></Cell>
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5284,7 +5284,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7224,7 +7224,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">ObligationCodes</Data></Cell>
     <Cell><Data ss:Type="String">Codes, potentially combination code, that describe an obligation that applies to implementing applications</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-obligation</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>

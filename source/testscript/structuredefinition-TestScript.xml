@@ -295,8 +295,8 @@
 		<element id="TestScript.date">
 			<path value="TestScript.date"/>
 			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the test script was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the test script. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<definition value="The date  (and optionally time) when the test script was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test script changes."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the test script. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -828,8 +828,8 @@
 			<min value="0"/>
 			<max value="*"/>
 			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+				<code value="canonical"/>
+				<targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
 			</type>
 		</element>
 		<element id="TestScript.variable">

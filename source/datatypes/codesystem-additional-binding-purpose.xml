@@ -37,17 +37,17 @@
   <concept>
     <code value="current"/>
     <display value="Current Binding"/>
-    <definition value="New records are required to use this value set, but legacy records may use other codes"/>
+    <definition value="New records are required to use this value set, but legacy records may use other codes. The definition of 'new record' is difficult, since systems often create new records based on pre-existing data. Usually 'current' bindings are mandated by an external authority that makes clear rules around this"/>
   </concept>
   <concept>
-    <code value="recommended"/>
-    <display value="Recommended Binding"/>
-    <definition value="This is the value set that is recommended (documentation should explain why)"/>
+    <code value="preferred"/>
+    <display value="Preferred Binding"/>
+    <definition value="This is the value set that is preferred in a given context (documentation should explain why)"/>
   </concept>
   <concept>
     <code value="ui"/>
     <display value="UI Suggested Binding"/>
-    <definition value="This value set is provided to user look up in a given context"/>
+    <definition value="This value set is provided for user look up in a given context. Typically, these valuesets only include a subset of codes relevant for input in a context"/>
   </concept>
   <concept>
     <code value="starter"/>

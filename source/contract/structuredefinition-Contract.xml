@@ -574,7 +574,7 @@
     <element id="Contract.contentDefinition.publicationDate">
       <path value="Contract.contentDefinition.publicationDate"/>
       <short value="When published"/>
-      <definition value="The date (and optionally time) when the contract was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes."/>
+      <definition value="The date (and optionally time) when the contract was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -257,7 +257,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>markdown<a name="markdown"></a></td>
-  <td>A FHIR <code>string</code> (see above) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
+  <td>A FHIR <code>string</code> (see below) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
   <td>xs:string</td>
   <td>JSON string</td>
 </tr>
@@ -438,11 +438,13 @@ Notes:
  </li>
  <li>About the markdown datatype:
    <ul>
-     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format.</li>
-     <li>Note that GFM prohibits Raw HTML.</li>
+     <li>Markdown is a string, and subject to the same rules (e.g. length limit, valid characters)</li>
+     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions 
+         on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format, with the exception of support for inline HTML which is not supported.</li>
+     <li>Processors SHALL treat embedded XML tags as string content, not as tags. This may be done by pre-processing and escaping any <code>"&gt;"</code> 
+        characters preceding character content (<code>"&gt;"</code> becomes <code>"\&gt;"</code>) before processing the content or by using a markdown 
+        processor-specific flag that accomplishes the same effect. This means that HTML content cannot be embedded in markdown to influence rendering.</li>
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
-     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed).</li>
-     <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit).</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
    </ul>

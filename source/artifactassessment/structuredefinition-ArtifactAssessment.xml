@@ -127,7 +127,7 @@
       <path value="ArtifactAssessment.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>

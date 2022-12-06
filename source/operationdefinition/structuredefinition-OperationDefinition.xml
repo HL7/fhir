@@ -307,8 +307,8 @@
 		<element id="OperationDefinition.date">
 			<path value="OperationDefinition.date"/>
 			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the operation definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+			<definition value="The date  (and optionally time) when the operation definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the operation definition changes."/>
+			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the operation definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
 			<alias value="Revision Date"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -664,8 +664,8 @@
 			<constraint>
 				<key value="opd-3"/>
 				<severity value="error"/>
-				<human value="A targetProfile can only be specified for parameters of type Reference or Canonical"/>
-				<expression value="targetProfile.exists() implies (type = &#39;Reference&#39; or type = &#39;canonical&#39;)"/>
+				<human value="A targetProfile can only be specified for parameters of type Reference, Canonical, or a Resource"/>
+				<expression value="targetProfile.exists() implies (type = 'Reference' or type = 'canonical' or type.memberOf('http://hl7.org/fhir/ValueSet/resource-types'))"/>
 				<source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
 			</constraint>
 			<constraint>
@@ -808,7 +808,7 @@
 		</element>
 		<element id="OperationDefinition.parameter.targetProfile">
 			<path value="OperationDefinition.parameter.targetProfile"/>
-			<short value="If type is Reference | canonical, allowed targets. If type is 'Resource', then this constrains the allowed reosurce types"/>
+			<short value="If type is Reference | canonical, allowed targets. If type is 'Resource', then this constrains the allowed resource types"/>
 			<definition value="Used when the type is &quot;Reference&quot; or &quot;canonical&quot;, and identifies a profile structure or implementation Guide that applies to the target of the reference this parameter refers to. If any profiles are specified, then the content must conform to at least one of them. The URL can be a local reference - to a contained StructureDefinition, or a reference to another StructureDefinition or Implementation Guide by a canonical URL. When an implementation guide is specified, the target resource SHALL conform to at least one profile defined in the implementation guide."/>
 			<comment value="Often, these profiles are the base definitions from the spec (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
 			<min value="0"/>

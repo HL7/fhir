@@ -291,7 +291,7 @@
     <element id="ResearchStudy.date">
       <path value="ResearchStudy.date"/>
       <short value="Date the resource last changed"/>
-      <definition value="The date (and optionally time) when the ResearchStudy Resource was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes."/>
+      <definition value="The date (and optionally time) when the ResearchStudy Resource was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the ResearchStudy Resource changes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
