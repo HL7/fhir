@@ -86,9 +86,7 @@
       <display value="Peter Chalmers (minimum)"/>
     </resource>
   </fixture>
-  <profile id="patient-profile">
-    <reference value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-  </profile>
+  <profile id="patient-profile" value="http://hl7.org/fhir/StructureDefinition/Patient"/>
   <variable>
     <name value="createResourceId"/>
     <path value="Patient/id"/>
