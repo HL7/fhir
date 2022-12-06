@@ -462,6 +462,18 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="Requirements.statement.parent">
+      <path value="Requirements.statement.parent"/>
+      <short value="A larger requirement that this requirement helps to refine and enable"/>
+      <definition value="A larger requirement that this requirement helps to refine and enable."/>
+      <comment value="Follows the same convention as statement.derivedFrom, where a reference is the canonical of the Requirements followed by '#' and the 'key' of the specific requirement."/>
+      <requirements value="Allows requirements to be organized compositionally. E.g. Epic/Story/Task."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="Requirements.statement.satisfiedBy">
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
