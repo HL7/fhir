@@ -1,0 +1,19 @@
+// Using GET
+GET [base]/NamingSystem/$current-canonical?url=http%3A%2F%2Fhl7.org%2Ffhir%2Faccount-status&status=active
+
+--------------------------------------
+// Using POST
+POST [base]/NamingSystem/$current-canonical
+[other headers]
+
+{
+  "resourceType" : "Parameters",
+  "parameter" : [ {
+     "name" : "url",
+     "valueUrl" : "http://hl7.org/fhir/account-status"
+   }, {
+     "name" : "status",
+     "valueCode" : "active"
+   }
+  ]
+}
