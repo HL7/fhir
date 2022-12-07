@@ -438,6 +438,7 @@
       <short value="SHALL | SHOULD | MAY | SHOULD-NOT"/>
       <definition value="A short human usable label for this statement."/>
       <comment value="The conformance code is extracted from the requirement to make indexing and display easier. The requirement needs to express the conformance verbs directly in the markdown content. It's not unusual to mix verbs in a single sentence (e.g. System SHALL do X and SHOULD do Y)"/>
+      <requirements value="This element is allowed to repeat because a single requirements statement might contain multiple conformance words and thus need to be indexed under multiple conformance categories."/>
       <min value="0"/>
       <max value="*"/>
       <type>
