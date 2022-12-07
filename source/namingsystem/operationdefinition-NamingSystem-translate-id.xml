@@ -133,7 +133,7 @@
     <min value="0"/>
     <max value="*"/>
     <documentation value="The target identifer(s) of the requested type"/>
-    <type value="boolean"/>
+    <type value="string"/>
   </parameter>
   <parameter>
     <name value="targetIdentifer.preferred"/>
@@ -149,6 +149,6 @@
     <min value="0"/>
     <max value="1"/>
     <documentation value="The perioid when the target identifier is valid."/>
-    <type value="boolean"/>
+    <type value="period"/>
   </parameter>
 </OperationDefinition>
