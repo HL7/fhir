@@ -52,21 +52,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/codesystem-effectiveDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/codesystem-expirationDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/codesystem-author"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/codesystem-trusted-expansion"/>
       </reference>
     </resource>
