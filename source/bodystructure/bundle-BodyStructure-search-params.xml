@@ -33,7 +33,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-includedStructure-structure"/>
         <description value="Body site includedStructure structure"/>
-        <code value="includedStructure"/>
+        <code value="included_structure"/>
         <type value="token"/>
         <expression value="BodyStructure.includedStructure.structure"/>
         <processingMode value="normal"/>
@@ -52,7 +52,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/BodyStructure-excludedStructure-structure"/>
         <description value="Body site excludedStructure structure"/>
-        <code value="excludedStructure"/>
+        <code value="excluded_structure"/>
         <type value="token"/>
         <expression value="BodyStructure.excludedStructure.structure"/>
         <processingMode value="normal"/>
