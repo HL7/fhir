@@ -4,10 +4,12 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
- The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptions and images.  It provides for the addition of qualifiers such as laterality and directionality to the anatomic location for those use cases where precoordination of codes is not possible.  The BodyStructure resource supports recording and tracking of an anatomic location or structure on a patient outside the context of another resource.  For example it can be the target of a <a href="procedure.html">Procedure</a> resource or <a href="observation.html">Observation</a> resource.
+The BodyStructure resource contains details about the anatomical location of a specimen or body part, including patient information, identifiers, as well as text descriptions and images.
+</p>
+<p>
+When needed, it allows the the representation of complex body structures and/or locations using the included and excluded elements. Also, it provides for the addition of qualifiers such as laterality and directionality to the anatomic location for those use cases where pre-coordination of codes is not possible. The BodyStructure resource supports recording and tracking of an anatomic location or structure on a patient outside the context of another resource. For example it can be the target of a <a href="procedure.html">Procedure</a> or <a href="observation.html">Observation</a> resource.
 </p>
 </div>
-
 
 <div>
 <a name="bnr"></a>
