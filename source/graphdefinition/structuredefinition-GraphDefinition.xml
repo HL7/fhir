@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="GraphDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -88,7 +89,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/GraphDefinition"/>
       </constraint>
       <mapping>
@@ -115,7 +116,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -155,6 +156,9 @@
       </type>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="??"/>
+        </extension>
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
@@ -174,9 +178,9 @@
       <isSummary value="true"/>
     </element>
     <element id="GraphDefinition.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="GraphDefinition.title"/>
       <short value="Name for this graph definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
@@ -253,12 +257,12 @@
       </mapping>
     </element>
     <element id="GraphDefinition.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="GraphDefinition.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the graph definition."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the graph definition."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the graph definition is the organization or individual primarily responsible for the maintenance and upkeep of the graph definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the graph definition. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the graph definition.  May also allow for contact."/>
       <min value="0"/>
@@ -285,13 +289,13 @@
       <isSummary value="true"/>
     </element>
     <element id="GraphDefinition.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="GraphDefinition.description"/>
       <short value="Natural language description of the graph definition"/>
-      <definition value="A free text natural language description of the graph definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the graph definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the graph definition is presumed to be the predominant language in the place the graph definition was created)."/>
+      <definition value="A free text natural language description of the graph definition from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the graph definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the graph definition is presumed to be the predominant language in the place the graph definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -335,13 +339,13 @@
       </binding>
     </element>
     <element id="GraphDefinition.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="GraphDefinition.purpose"/>
       <short value="Why this graph definition is defined"/>
       <definition value="Explanation of why this graph definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the graph definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this graph definition."/>
+      <comment value="This element does not describe the usage of the graph definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this graph definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -358,34 +362,65 @@
     </element>
     <element id="GraphDefinition.start">
       <path value="GraphDefinition.start"/>
-      <short value="Type of resource at which the graph starts"/>
-      <definition value="The type of FHIR resource at which instances of this graph start."/>
+      <short value="Starting Node"/>
+      <definition value="The Node at which instances of this graph start. If there is no nominated start, the graph can start at any of the nodes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.node">
+      <path value="GraphDefinition.node"/>
+      <short value="Potential target for the link"/>
+      <definition value="Potential target for the link."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.node.nodeId">
+      <path value="GraphDefinition.node.nodeId"/>
+      <short value="Internal ID - target for link references"/>
+      <definition value="Internal ID of node - target for link references."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.node.description">
+      <path value="GraphDefinition.node.description"/>
+      <short value="Why this node is specified"/>
+      <definition value="Information about why this node is of interest in this graph definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.node.type">
+      <path value="GraphDefinition.node.type"/>
+      <short value="Type of resource this link refers to"/>
+      <definition value="Type of resource this link refers to."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
+          <valueString value="AllResourceType"/>
         </extension>
         <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
-    <element id="GraphDefinition.profile">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="250,0"/>
-      </extension>
-      <path value="GraphDefinition.profile"/>
-      <short value="Profile on base resource"/>
-      <definition value="The profile that describes the use of the base resource."/>
-      <comment value="The code does not include the &#39;$&#39; prefix that is always included in the URL when the operation is invoked."/>
+    <element id="GraphDefinition.node.profile">
+      <path value="GraphDefinition.node.profile"/>
+      <short value="Profile for the target resource"/>
+      <definition value="Profile for the target resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -403,21 +438,10 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.path">
-      <path value="GraphDefinition.link.path"/>
-      <short value="Path in the resource that contains the link"/>
-      <definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
-      <comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="GraphDefinition.link.sliceName">
-      <path value="GraphDefinition.link.sliceName"/>
-      <short value="Which slice (if profiled)"/>
-      <definition value="Which slice (if profiled)."/>
+    <element id="GraphDefinition.link.description">
+      <path value="GraphDefinition.link.description"/>
+      <short value="Why this link is specified"/>
+      <definition value="Information about why this link is of interest in this graph definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -444,52 +468,49 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.description">
-      <path value="GraphDefinition.link.description"/>
-      <short value="Why this link is specified"/>
-      <definition value="Information about why this link is of interest in this graph definition."/>
+    <element id="GraphDefinition.link.sourceId">
+      <path value="GraphDefinition.link.sourceId"/>
+      <short value="Source Node for this link"/>
+      <definition value="The source node for this link."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+    </element>
+    <element id="GraphDefinition.link.path">
+      <path value="GraphDefinition.link.path"/>
+      <short value="Path in the resource that contains the link"/>
+      <definition value="A FHIRPath expression that identifies one of FHIR References to other resources."/>
+      <comment value="The path expression cannot contain a resolve() function. If there is no path, the link is a reverse lookup, using target.params. If the path is &quot;*&quot; then this means all references in the resource."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.target">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,0"/>
-      </extension>
-      <path value="GraphDefinition.link.target"/>
-      <short value="Potential target for the link"/>
-      <definition value="Potential target for the link."/>
+    <element id="GraphDefinition.link.sliceName">
+      <path value="GraphDefinition.link.sliceName"/>
+      <short value="Which slice (if profiled)"/>
+      <definition value="Which slice (if profiled)."/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
       <type>
-        <code value="BackboneElement"/>
+        <code value="string"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.target.type">
-      <path value="GraphDefinition.link.target.type"/>
-      <short value="Type of resource this link refers to"/>
-      <definition value="Type of resource this link refers to."/>
+    <element id="GraphDefinition.link.targetId">
+      <path value="GraphDefinition.link.targetId"/>
+      <short value="Target Node for this link"/>
+      <definition value="The target node for this link."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="id"/>
       </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AllResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
-        </extension>
-        <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
-      </binding>
     </element>
-    <element id="GraphDefinition.link.target.params">
-      <path value="GraphDefinition.link.target.params"/>
+    <element id="GraphDefinition.link.params">
+      <path value="GraphDefinition.link.params"/>
       <short value="Criteria for reverse lookup"/>
       <definition value="A set of parameters to look up."/>
       <comment value="At least one of the parameters must have the value {ref} which identifies the focus resource."/>
@@ -499,22 +520,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.target.profile">
-      <path value="GraphDefinition.link.target.profile"/>
-      <short value="Profile for the target resource"/>
-      <definition value="Profile for the target resource."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
-      </type>
-    </element>
-    <element id="GraphDefinition.link.target.compartment">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,200"/>
-      </extension>
-      <path value="GraphDefinition.link.target.compartment"/>
+    <element id="GraphDefinition.link.compartment">
+      <path value="GraphDefinition.link.compartment"/>
       <short value="Compartment Consistency Rules"/>
       <definition value="Compartment Consistency Rules."/>
       <min value="0"/>
@@ -523,9 +530,9 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.target.compartment.use">
-      <path value="GraphDefinition.link.target.compartment.use"/>
-      <short value="condition | requirement"/>
+    <element id="GraphDefinition.link.compartment.use">
+      <path value="GraphDefinition.link.compartment.use"/>
+      <short value="where | requires"/>
       <definition value="Defines how the compartment rule is used - whether it it is used to test whether resources are subject to the rule, or whether it is a rule that must be followed."/>
       <comment value="All conditional rules are evaluated; if they are true, then the rules are evaluated."/>
       <min value="1"/>
@@ -538,30 +545,11 @@
           <valueString value="GraphCompartmentUse"/>
         </extension>
         <strength value="required"/>
-        <description value="Defines how a compartment rule is used."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-use"/>
       </binding>
     </element>
-    <element id="GraphDefinition.link.target.compartment.code">
-      <path value="GraphDefinition.link.target.compartment.code"/>
-      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
-      <definition value="Identifies the compartment."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="CompartmentCode"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Identifies a compartment."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
-      </binding>
-    </element>
-    <element id="GraphDefinition.link.target.compartment.rule">
-      <path value="GraphDefinition.link.target.compartment.rule"/>
+    <element id="GraphDefinition.link.compartment.rule">
+      <path value="GraphDefinition.link.compartment.rule"/>
       <short value="identical | matching | different | custom"/>
       <definition value="identical | matching | different | no-rule | custom."/>
       <min value="1"/>
@@ -574,12 +562,28 @@
           <valueString value="GraphCompartmentRule"/>
         </extension>
         <strength value="required"/>
-        <description value="How a compartment must be linked."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-rule"/>
       </binding>
     </element>
-    <element id="GraphDefinition.link.target.compartment.expression">
-      <path value="GraphDefinition.link.target.compartment.expression"/>
+    <element id="GraphDefinition.link.compartment.code">
+      <path value="GraphDefinition.link.compartment.code"/>
+      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+      <definition value="Identifies the compartment."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CompartmentCode"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/compartment-type"/>
+      </binding>
+    </element>
+    <element id="GraphDefinition.link.compartment.expression">
+      <path value="GraphDefinition.link.compartment.expression"/>
       <short value="Custom rule, as a FHIRPath expression"/>
       <definition value="Custom rule, as a FHIRPath expression."/>
       <min value="0"/>
@@ -588,8 +592,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="GraphDefinition.link.target.compartment.description">
-      <path value="GraphDefinition.link.target.compartment.description"/>
+    <element id="GraphDefinition.link.compartment.description">
+      <path value="GraphDefinition.link.compartment.description"/>
       <short value="Documentation for FHIRPath expression"/>
       <definition value="Documentation for FHIRPath expression."/>
       <min value="0"/>
@@ -597,14 +601,6 @@
       <type>
         <code value="string"/>
       </type>
-    </element>
-    <element id="GraphDefinition.link.target.link">
-      <path value="GraphDefinition.link.target.link"/>
-      <short value="Additional links from target resource"/>
-      <definition value="Additional links from target resource."/>
-      <min value="0"/>
-      <max value="*"/>
-      <contentReference value="#GraphDefinition.link"/>
     </element>
   </differential>
 </StructureDefinition>
