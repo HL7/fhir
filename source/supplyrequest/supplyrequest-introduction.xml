@@ -40,6 +40,11 @@ These instances can be linked in different ways, depending on the needs of the w
 		<p>The SupplyRequest resource is used for <em>inventory management</em>.  When requesting medication, substances and devices when there is a patient focus or instructions regarding their use, <a href="devicerequest.html">DeviceRequest</a> or <a href="medicationrequest.html">MedicationRequest</a> should be used instead.
 		</p>
 		<p>
+        For <a href="devicedispense.html">DeviceDispense</a>, 
+		<a href="medicationdispense.html">MedicationDispense</a>,
+		and BiologicallyDerivedProductDispense (planned), a SupplyRequest does not document the formal association of a device, medication, biologically derived product, or supply item to a patient.  The DeviceDispense (or MedicationDispense or BiologicallyDerivceProductDispense) is used to formally document that the device, medication, biologically derived product or supply item is to be used by or for a patient in a medical activity. 
+		</p>
+		<p>
         To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.
 		</p>
 
