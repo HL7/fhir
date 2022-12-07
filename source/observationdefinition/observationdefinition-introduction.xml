@@ -30,7 +30,7 @@ An ObservationDefinition resource provides the definitional characteristics for 
 When an Observation instantiates an ObservationDefinition, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource:</p>
  <ul>
 <li>Category, code, datatype of the value, bodySite, method.</li>
-<li>Each referenceRange element present in Observation should come from a qualifiedInterval element of ObservationDefinition.</li>
+<li>Each referenceRange element present in Observation should come from a qualifiedValue element of ObservationDefinition.</li>
 <li>If ObservationDefinition has declared a ValueSet of valid coded values, and if Observation has a valueCodeableConcept, the value is expected to be part of that ValueSet.</li>
 <li>The subject of the Observation should be conformant with one of the subjectCodeableConcept listed in ObservationDefinition.</li>
 <li>If the Observation has a device element, the referenced Device resource should conform to a DeviceDefinition or Device referenced by ObservationDefinition.device (if present).</li>
