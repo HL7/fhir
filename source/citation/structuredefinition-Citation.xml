@@ -118,7 +118,7 @@
     </element>
     <element id="Citation.identifier">
       <path value="Citation.identifier"/>
-      <short value="Identifier for the Citation resource itself"/>
+      <short value="Identifier for the citation record itself"/>
       <definition value="A formal identifier that is used to identify this citation record when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
       <comment value="Use this element if you need to identify the citation record independently from identifying the cited artifact."/>
       <requirements value="Allows externally provided and/or usable identifiers to be associated with this citation record."/>
@@ -140,8 +140,8 @@
     <element id="Citation.version">
       <path value="Citation.version"/>
       <short value="Business version of the citation record"/>
-      <definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation resource author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-      <comment value="There may be different Citation instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <definition value="The identifier that is used to identify this version of the citation record when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the citation record author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different citation record instances that have the same identifier but different versions. The version can be appended to the url in a reference to allow a reference to a particular business version of the citation record with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -244,7 +244,7 @@
 				<valueBoolean value="true"/>
 			</extension>
       <path value="Citation.publisher"/>
-      <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
+      <short value="The publisher of the citation record, not the publisher of the article or artifact being cited"/>
       <definition value="The name of the organization or individual that published the citation record."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the citation record is the organization or individual primarily responsible for the maintenance and upkeep of the citation record. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the citation record. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the citation record. May also allow for contact."/>
@@ -261,7 +261,7 @@
     </element>
     <element id="Citation.contact">
       <path value="Citation.contact"/>
-      <short value="Contact details for the publisher of the Citation Resource"/>
+      <short value="Contact details for the publisher of the citation record"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
       <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
@@ -287,8 +287,8 @@
     </element>
     <element id="Citation.useContext">
       <path value="Citation.useContext"/>
-      <short value="The context that the Citation Resource content is intended to support"/>
-      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate Citation instances."/>
+      <short value="The context that the citation record content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate citation record instances."/>
       <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
       <requirements value="Assist in searching for appropriate content."/>
       <min value="0"/>
@@ -344,7 +344,7 @@
 				<valueBoolean value="true"/>
 			</extension>
       <path value="Citation.copyright"/>
-      <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
+      <short value="Use and/or publishing restrictions for the citation record, not for the cited artifact"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -401,7 +401,7 @@
     </element>
     <element id="Citation.author">
       <path value="Citation.author"/>
-	  <short value="Who authored the Citation"/>
+	  <short value="Who authored the citation record"/>
       <definition value="Who authored or created the citation record."/>
 	  <comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
@@ -412,7 +412,7 @@
     </element>
     <element id="Citation.editor">
       <path value="Citation.editor"/>
-      <short value="Who edited the Citation"/>
+      <short value="Who edited the citation record"/>
       <definition value="Who edited or revised the citation record."/>
 	  <comment value="The Citation.editor element is structured to support a name (with a string datatype) and contact point information for the editor, and is not structured to support unique identifiers for the editor. If detailed contributorship data is needed for the editing of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
@@ -423,7 +423,7 @@
     </element>
     <element id="Citation.reviewer">
       <path value="Citation.reviewer"/>
-      <short value="Who reviewed the Citation"/>
+      <short value="Who reviewed the citation record"/>
 	  <comment value="The Citation.reviewer element is structured to support a name (with a string datatype) and contact point information for the reviewer, and is not structured to support unique identifiers for the reviewer. If detailed contributorship data is needed for the review of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -433,7 +433,7 @@
     </element>
     <element id="Citation.endorser">
       <path value="Citation.endorser"/>
-      <short value="Who endorsed the Citation"/>
+      <short value="Who endorsed the citation record"/>
 	  <comment value="The Citation.endorser element is structured to support a name (with a string datatype) and contact point information for the endorser, and is not structured to support unique identifiers for the endorser. If detailed contributorship data is needed for the endorsement of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -597,7 +597,7 @@
     </element>
     <element id="Citation.relatedArtifact">
       <path value="Citation.relatedArtifact"/>
-      <short value="Artifact related to the Citation Resource"/>
+      <short value="Artifact related to the citation record"/>
 	  <comment value="Use this if needed for reporting artifacts related to the citation record, NOT FOR reporting artifacts related to the cited article. For example, one may use this element to report the data source for generation of the Citation Resource instance if it was automatically generated, such as conversion from a citation repository."/>
       <min value="0"/>
       <max value="*"/>
