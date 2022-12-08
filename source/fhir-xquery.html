@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+[%settitle FHIR-X-Query%]
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+
+<h2>FHIR-X-Query</h2>
+<table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: Normative</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial use</a></td></tr></table>
+
+<h3 id="x-fhir-query-enhancements">x-fhir-query documentation</h3>
+<p>
+  The <a href="metadatatypes.html#Expression">Expression</a> type indicates that one of the allowed languages is <code>application/x-fhir-query</code>.  
+  This is defined as a FHIR <a href="http://hl7.org/fhir/R4/search.html">search</a> string.  Normally this will not include the base URL and is intended 
+  to be invoked against the server that is in scope (usually based on the base URL of the resource containing the Expression).
+  However, in some cases, a full URL might be specified, i.e. if the author of the resource wants resources to always be retrieved from a
+  specific source.  
+</p>
+<p>
+  In addition to the base query syntax, this specification allows for the injection of FHIRPath into the query expressions.  This allows the
+  queries to take advantage of context when they are invoked.  Systems SHALL evaluate and substitute the results of such queries before executing them.  
+  The FHIRPaths are denoted by surrounding them with double curly-braces (i.e. <code>{{ fhirpath goes here }}</code>) in the same way expressions are denoted in the
+  <a href="https://shopify.github.io/liquid">Liquid</a> templating language.
+</p>
+<p>
+  For example:
+</p>
+<pre><code>Observation?code=http://loinc.org|65972-2&amp;date=gt{{today()-7 days}}&amp;subject={{%patient.id}}</code></pre>
+<p>
+would return all Observations with the specified LOINC code made in the last week for the specified patient (the %patient variable be in scope 
+from the application's knowledge of the patient context).
+</p>
+<p>
+NOTE: Some of the FHIRPath content may need to be escaped (percent-encoded) in order to constitute a valid URL.
+</p>
+<p>
+  Aside from specifying a FHIR search string, the query can also be used to invoke operations. For example:
+</p>
+<pre><code>Observation/$stats?subject=Patient/123&amp;code=2339-0&amp;system=http://loinc.org&amp;duration=24&amp;statistic=average</code></pre>
+<p>
+  would return an Observation resource with the average for Glucose [Mass/​volume] in Blood (2339-0) in the last 24 hours for the specified patient.
+</p>  
+<p>This specification provides the following rules for the <code>application/x-fhir-query</code> language:
+</p>
+<ul>
+  <li>If the expression resolves to a complex element of type Coding, Identifier, or Reference, the element content will be substituted using the standard token format.</li>
+  <li>If the expression resolves to a complex element of type CodeableConcept, the processing will behave as though the expression had an additional node specifying ".coding" 
+    (i.e. the substitution will execute on the collection of codings resolved to within the CodeableConcept).</li>
+  <li>If the expression resolves to an element of type Quantity, it will be converted to a search type of 'quantity'.</li>
+  <li>If the expression resolves to a collection of more than one value, the substitution will be a list of comma-separated values (i.e. behaving as 'or').</li>
+</ul>   
+
+
+[%file newfooter%]
+</body>
+</html>

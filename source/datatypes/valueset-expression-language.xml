@@ -56,7 +56,7 @@
       </concept>
       <concept>
         <extension url="http://hl7.org/fhir/StructureDefinition/valueset-concept-definition">
-          <valueString value="FHIR's RESTful query syntax - typically independedent of base URL"/>
+          <valueString value="FHIR's RESTful query syntax - typically independent of base URL"/>
         </extension>
         <code value="text/x-fhir-query"/>
         <display value="FHIR Query"/>

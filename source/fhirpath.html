@@ -413,7 +413,7 @@ The following locations use this restricted FHIRPath language:
 <h3>Terminology Service API</h3>
 
 <p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
-Unlike this rest of this page, the FHIR Terminology service API is only draft (Maturity = 0). It will be advanced to a more
+Unlike this rest of this page, the FHIR Terminology service API and the general server API (see below) are only draft (Maturity = 0). They will be advanced to a more
 mature status following the usual <a href="versions.html#maturity">Maturity Model</a> for FHIR.
 </p>
 
@@ -560,6 +560,215 @@ Parameters:
 <p>
 <b>Return Value:</b> A <a href="parameters.html">Parameters</a> resource with the results of the translation operation.
 </p>
+
+<a name="srvr-api"></a>
+<h3>General Service API</h3>
+
+<p>
+In order to support interaction with a server in FHIRPath statements, FHIR defines
+a general %server object that FHIRPath implementations should make available.
+Calls to this object are passed through a <a href="terminology-service.html">standard FHIR terminology service</a>.
+</p>
+<p>
+Summary:
+</p>
+<pre class="fhirpath">
+%server : Server // default server (application controls context)
+%server.at(url) : Server // server at specified address
+
+%server.read(type, id) : Resource
+%server.create(resource) : Resource
+%server.update(resource) : Resource
+%server.delete(resource) : boolean
+%server.patch(parameters) : Resource
+%server.search(doPost, parameters) : Bundle
+%server.capabilities(mode) : Resource
+%server.validate(resource, mode, parameters) : OperationOutcome
+%server.transform(source, content) : Resource
+%server.everything(type, id, parameters) : Bundle
+%server.apply(resource, subject, parameters) : Bundle
+</pre>
+
+<pre class="fhirpath">
+  %terminologies.at(url) : Server
+</pre>
+<p>
+Get a server object pointing at a particular server.
+Note: The %server object points to the default server as specified by the application evaluating the FHIRPath.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>url</b>: A URL that points to a FHIR RESTful API.</li>
+</ul>
+<p><b>Return Value:</b> A server that points at the specified URL. No errors - they will come when/if the server object is used.</p>
+  
+
+<pre class="fhirpath">
+  %server.read(type, id) : Resource
+</pre>
+<p>
+Get a resource from the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>type</b>: The type of the resource to read.</li>
+  <li><b>id</b>: The id of the resource to read.</li>
+</ul>
+<p><b>Return Value:</b> The resource at type/id, or null.</p>
+
+
+<pre class="fhirpath">
+  %server.create(resource) : Resource
+</pre>
+<p>
+Create a resource on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>resource</b>: The resource to create. If the resource has an id, it will be ignored.</li>
+</ul>
+<p><b>Return Value:</b> The resource after it was stored, or null if the create operation failed.</p>
+
+<pre class="fhirpath">
+  %server.update(resource) : Resource
+</pre>
+<p>
+Store a resource on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>resource</b>: The resource to create. The resource must have an id.</li>
+</ul>
+<p><b>Return Value:</b> The resource after it was stored, or null if the create operation failed.</p>
+
+<pre class="fhirpath">
+  %server.delete(resource) : boolean
+</pre>
+<p>
+Delete a resource on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>resource</b>: The resource to delete (must have an id).</li>
+</ul>
+<p><b>Return Value:</b> true if the resource was deleted, or false.</p>
+
+<pre class="fhirpath">
+  %server.search(doPost, parameters) : Bundle
+</pre>
+<p>
+Perform a search on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&etc)</li>
+</ul>
+<p><b>Return Value:</b> A bundle with the search results, or null.</p>
+
+<pre class="fhirpath">
+  %server.patch(parameters) : Resource
+</pre>
+<p>
+Perform a patch operation on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>parameters</b>: A parameters resource for <a href="fhirpatch.html">FHIRPath Patch</a></li>
+</ul>
+<p><b>Return Value:</b> The resource after the patch, or null.</p>
+
+<pre class="fhirpath">
+  %server.capabilities(mode) : Resource
+</pre>
+<p>
+Get the capabilities from the server
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>mode</b>: Optional: the mode to fetch.</li>
+</ul>
+<p><b>Return Value:</b> The resource returned (CapabilitiesStatement or TerminologyCapabilities resource), or null.</p>
+
+<pre class="fhirpath">
+  %server.validate(resource, mode, parameters) : OperationOutcome
+</pre>
+<p>
+Validate a resource on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>resource</b>: The resource to validate.</li>
+  <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&etc)</li>
+</ul>
+<p><b>Return Value:</b> An operation outcome with issues, or null if the validation couldn't be performed.</p>
+
+<pre class="fhirpath">
+  %server.transform(source, content) : Resource
+</pre>
+<p>
+Run the $transform operation on the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>source</b>: The structure map to use.</li>
+  <li><b>content</b>: The resource to convert (often a binary)</li>
+</ul>
+<p><b>Return Value:</b> The resource returned from the transform, or null.</p>
+
+<pre class="fhirpath">
+  %server.everything(type, id, parameters) : Bundle
+</pre>
+<p>
+Get a resource from the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>type</b>: The type of the resource to read.</li>
+  <li><b>id</b>: The id of the resource to read.</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&etc)</li>
+</ul>
+<p><b>Return Value:</b> The Bundle for type/id, or null.</p>
+
+<pre class="fhirpath">
+  %server.apply(resource, subject, parameters) : Bundle
+</pre>
+<p>
+Get a resource from the server.
+</p>
+<p>
+Parameters:
+</p>
+<ul>
+  <li><b>resource</b>: The resource to drive the $apply operation (PlanDefinition, ActivityDefinition).</li>
+  <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&etc)</li>
+</ul>
+<p><b>Return Value:</b> The bundle from $apply, or null.</p>
+
 
 </div>
 
