@@ -254,7 +254,7 @@
       <SearchParameter>
         <id value="CarePlan-instantiates-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CarePlan.instantiatesCanonical"/>
@@ -273,7 +273,7 @@
       <SearchParameter>
         <id value="CarePlan-instantiates-uri"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CarePlan.instantiatesUri"/>
@@ -292,7 +292,7 @@
       <SearchParameter>
         <id value="CarePlan-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CarePlan.intent"/>
@@ -388,7 +388,7 @@
       <SearchParameter>
         <id value="CarePlan-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CarePlan.status"/>

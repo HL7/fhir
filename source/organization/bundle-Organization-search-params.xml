@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Organization-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.active"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Organization-address-city"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.contact.address.city"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Organization-address-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.contact.address.country"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Organization-address-postalcode"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.contact.address.postalCode"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Organization-address-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.contact.address.state"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Organization-address-use"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.contact.address.use"/>
@@ -165,7 +165,7 @@
           <valueString value="Organization.identifier | Organization.qualification.identifier"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-identifier"/>
-        <description value="Any identifier for the organization (not the accreditation issuer&#39;s identifier)"/>
+        <description value="Any identifier for the organization (not the accreditation issuer's identifier)"/>
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Organization.identifier | Organization.qualification.identifier"/>
@@ -184,7 +184,7 @@
           <valueString value="Organization.name,Organization.alias"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-name"/>
-        <description value="A portion of the organization&#39;s name or alias"/>
+        <description value="A portion of the organization's name or alias"/>
         <code value="name"/>
         <type value="string"/>
         <expression value="Organization.name | Organization.alias"/>
@@ -216,13 +216,13 @@
       <SearchParameter>
         <id value="Organization-phonetic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Organization.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Organization-phonetic"/>
-        <description value="A portion of the organization&#39;s name using some kind of phonetic matching algorithm"/>
+        <description value="A portion of the organization's name using some kind of phonetic matching algorithm"/>
         <code value="phonetic"/>
         <type value="string"/>
         <expression value="Organization.name"/>

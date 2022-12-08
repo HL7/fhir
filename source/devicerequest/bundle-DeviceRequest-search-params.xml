@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="DeviceRequest-authored-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceRequest.authoredOn"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="DeviceRequest-instantiates-canonical"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceRequest.instantiatesCanonical"/>
@@ -178,7 +178,7 @@
       <SearchParameter>
         <id value="DeviceRequest-instantiates-uri"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceRequest.instantiatesUri"/>
@@ -216,7 +216,7 @@
       <SearchParameter>
         <id value="DeviceRequest-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceRequest.intent"/>
@@ -312,7 +312,7 @@
       <SearchParameter>
         <id value="DeviceRequest-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="DeviceRequest.status"/>

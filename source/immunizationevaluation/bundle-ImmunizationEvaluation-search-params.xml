@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ImmunizationEvaluation-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImmunizationEvaluation.date"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="ImmunizationEvaluation-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImmunizationEvaluation.status"/>
