@@ -56,7 +56,7 @@
   <concept>
     <code value="example"/>
     <display value="Example"/>
-    <definition value="A few representative concepts are included in the code system resource. There is no useful intent in the subset choice and there's no process to make it workable: it's not intended to be workable."/>
+    <definition value="A subset of the valid externally defined concepts are included in the code system resource. There is no specific purpose or documented intent other than for illustrative purposes."/>
   </concept>
   <concept>
     <code value="fragment"/>

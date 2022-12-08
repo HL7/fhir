@@ -85,6 +85,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.status"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The status of the guidance response"/>
         <code value="status"/>
         <type value="token"/>

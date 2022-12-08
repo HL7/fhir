@@ -14,12 +14,12 @@ is often not practical - for instance, <a href="http://snomed.org">SNOMED CT</a>
 may lead to variations in meaning of concepts, but there is only one identifier for SNOMED CT.
 </p>
 <p>
-For this reason, a code system MAY provide a version identifier which can be specified in <code>CodeSystem.version</code>. The version specific identifier SHOULD be
+For this reason, a code system MAY provide a version which can be specified in <code>CodeSystem.version</code>. The version SHOULD be
 provided whenever there are potentially significant changes in meaning across multiple releases of a code system.
-There is no particular format requirement for the version identifier, though HL7 recommends a date-based approach.
+There is no particular format requirement for the version, though HL7 recommends a date-based approach, or <a href="https://semver.org">sem-ver</a>.
 </p>
 <p>
-When the <code>CodeSystem.versionNeeded</code> is 'true', then the version identifier SHALL be used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system.
+When the <code>CodeSystem.versionNeeded</code> is 'true', then the CodeSystem.version value SHALL be used in <a href="datatypes.html#coding">Coding</a> instances that refer to the code system.
 </p>
 <p>
 Where the terminology does not clearly define what string should be used to identify code system versions, the recommendation is to use as the version string the date (expressed in FHIR date format) on which the version of the code system that is being used was officially published.

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="Composition-search-params"/>
   <entry>
     <resource>
@@ -37,7 +37,7 @@
         <type value="reference"/>
         <expression value="Composition.author"/>
         <processingMode value="normal"/>
-       <component>
+        <component>
           <definition value="section"/>
           <expression value="code"/>
         </component>
@@ -91,7 +91,7 @@
       <SearchParameter>
         <id value="Composition-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Composition.date"/>
@@ -244,7 +244,7 @@
       <SearchParameter>
         <id value="Composition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Composition.status"/>
@@ -282,7 +282,7 @@
       <SearchParameter>
         <id value="Composition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Composition.title"/>
@@ -320,7 +320,7 @@
       <SearchParameter>
         <id value="Composition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -339,7 +339,7 @@
       <SearchParameter>
         <id value="Composition-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>
@@ -382,14 +382,14 @@
         <type value="composite"/>
         <expression value="Composition.section"/>
         <processingMode value="normal"/>
-       <component>
+        <component>
           <definition value="section"/>
           <expression value="section.code"/>
         </component>
         <component>
           <definition value="section-text"/>
           <expression value="section.text"/>
-        </component>        
+        </component>
       </SearchParameter>
     </resource>
   </entry>

@@ -174,25 +174,48 @@ As an example, consider a profile on composition that wants to specify that the 
 follows the section entry into a list:
 </p>
 <pre class="xml">
-    &lt;!-- 
-      starting from a Composition...
-    --&gt;
+&lt;!-- this graph starts with a composition. We don't care what the specific profile is
+     (though the statement above 'this case doesn't cross patients' implies that we do care a little) --&gt;
+  &lt;start value="composition1"/&gt;
+  
+  &lt;node&gt;
+    &lt;nodeId value="composition1"/&gt;
+    &lt;description value="The base composition"/&gt;
+    &lt;type value="Composition"/&gt;
+    &lt;profile value="http://hl7.org/fhir/StructureDefinition/clinicaldocument"/&gt;
+  &lt;/node&gt;
+  &lt;node&gt;
+    &lt;nodeId value="list1"/&gt;
+    &lt;description value="A list resource that a section entry reference points to"/&gt;
+    &lt;type value="List"/&gt;
+  &lt;/node&gt;
+  &lt;node&gt;
+    &lt;nodeId value="resN"/&gt;
+    &lt;description value="Generic resource that's the target of a list reference"/&gt;
+    &lt;type value="Resource"/&gt;
+  &lt;/node&gt;
+
+  &lt;!-- define the section -&gt; list link --&gt;
   &lt;link&gt;
+    &lt;description value="Link from Composition.section to list"/&gt;
+    &lt;sourceId value="composition1"/&gt;
+    &lt;!-- any section entry. Todo: this recurses; are we profiling this at all levels? --&gt; 
+    &lt;path value="Composition.section.entry"/&gt;
     &lt;!-- 
-      follow and Composition.section.entry that refers to a list
+      one target. This graph is not making rules about the content of the section entries - that
+      would be done in a profile. it's just saying, if you see a reference to a list in a section
+      entry, these are the rules that describe the graph
     --&gt;
-    &lt;path value=&quot;Composition.section.entry&quot;/&gt;
-    &lt;target&gt;
-      &lt;type value=&quot;List&quot;/&gt;      
-      &lt;!-- and inside this list, follow any items --&gt;
-      &lt;link&gt;
-        &lt;path value=&quot;List.entry.item&quot;/&gt;
-        &lt;target&gt;
-          &lt;type value=&quot;Resource&quot;/&gt; 
-        &lt;/target&gt;
-      &lt;/link&gt;      
-    &lt;/target&gt;
-  &lt;/link&gt;
+    &lt;targetId value="list1"/&gt;
+  &lt;/link&gt;    
+
+  &lt;!-- and from the list, any references --&gt;
+  &lt;link&gt;
+    &lt;description value="Include any list entries"/&gt;
+    &lt;sourceId value="list1"/&gt;
+    &lt;path value="List.entry.item"/&gt;
+    &lt;targetId value="resN"/&gt;
+  &lt;/link&gt;      
 </pre>
 
 <p>
@@ -202,29 +225,36 @@ requirement when traversing the links that the patient compartment
 remain identical:
 </p>
 <pre class="xml">
+  &lt;!-- define the section -&gt; list link --&gt;
   &lt;link&gt;
-    &lt;path value=&quot;Composition.section.entry&quot;/&gt;
-    &lt;target&gt;
-      &lt;type value=&quot;List&quot;/&gt;      
-        &lt;compartment&gt;
-          &lt;use value=&quot;requirement&quot;/&gt;
-          &lt;code value=&quot;Patient&quot;/&gt;
-          &lt;rule value=&quot;identical&quot;/&gt;
-        &lt;/compartment&gt;
-      &lt;/target&gt;
-      &lt;link&gt;
-        &lt;path value=&quot;List.entry.item&quot;/&gt;
-        &lt;description value=&quot;Include any list entries&quot;/&gt;
-        &lt;target&gt;
-          &lt;type value=&quot;Resource&quot;/&gt; 
-          &lt;compartment&gt;
-            &lt;use value=&quot;requirement&quot;/&gt;
-            &lt;code value=&quot;Patient&quot;/&gt;
-            &lt;rule value=&quot;identical&quot;/&gt;
-          &lt;/compartment&gt;
-        &lt;/target&gt;
-      &lt;/link&gt;      
-    &lt;/target&gt;
+    &lt;description value="Link from Composition.section to list"/&gt;
+    &lt;sourceId value="composition1"/&gt;
+    &lt;!-- any section entry. Todo: this recurses; are we profiling this at all levels? --&gt; 
+    &lt;path value="Composition.section.entry"/&gt;
+    &lt;!-- 
+      one target. This graph is not making rules about the content of the section entries - that
+      would be done in a profile. it's just saying, if you see a reference to a list in a section
+      entry, these are the rules that describe the graph
+    --&gt;
+    &lt;targetId value="list1"/&gt;
+    &lt;compartment&gt;
+      &lt;use value="requirement"/&gt;
+      &lt;code value="Patient"/&gt;
+      &lt;rule value="identical"/&gt;
+    &lt;/compartment&gt;
+  &lt;/link&gt;    
+
+  &lt;!-- and from the list, any references --&gt;
+  &lt;link&gt;
+    &lt;description value="Include any list entries"/&gt;
+    &lt;sourceId value="list1"/&gt;
+    &lt;path value="List.entry.item"/&gt;
+    &lt;targetId value="resN"/&gt;
+    &lt;compartment&gt;
+      &lt;use value="requirement"/&gt;
+      &lt;code value="Patient"/&gt;
+      &lt;rule value="identical"/&gt;
+    &lt;/compartment&gt;
   &lt;/link&gt;
 </pre>
 
@@ -233,21 +263,19 @@ Another useful approach is to walk any link * (e.g. wildcard support):
 </p>
 <pre class="xml">
   &lt;link&gt;
+    &lt;sourceId value=&quot;comp1&quot;&gt;
     &lt;!-- 
       follow all links that refers to a list
     --&gt;
     &lt;path value=&quot;*&quot;/&gt;
-    &lt;target&gt;
-      &lt;type value=&quot;List&quot;/&gt;      
-      &lt;!-- and inside this list, follow any references --&gt;
-      &lt;link&gt;
-        &lt;path value=&quot;*&quot;/&gt;
-        &lt;target&gt;
-          &lt;type value=&quot;Resource&quot;/&gt; 
-        &lt;/target&gt;
-      &lt;/link&gt;      
-    &lt;/target&gt;
+    &lt;targetId value=&quot;list1&quot;&gt;
   &lt;/link&gt;
+  &lt;!-- and inside this list, follow any references --&gt;
+  &lt;link&gt;
+    &lt;sourceId value=&quot;list1&quot;&gt;
+    &lt;path value=&quot;*&quot;/&gt;
+    &lt;targetId value=&quot;resN&quot;/&gt;
+  &lt;/link&gt;      
 </pre>
 <p>
 or you can follow any links in any resource:
@@ -258,16 +286,7 @@ or you can follow any links in any resource:
       follow all links 
     --&gt;
     &lt;path value=&quot;*&quot;/&gt;
-    &lt;target&gt;
-      &lt;type value=&quot;Resource&quot;/&gt;      
-      &lt;!-- and inside the target, follow any links --&gt;
-      &lt;link&gt;
-        &lt;path value=&quot;*&quot;/&gt;
-        &lt;target&gt;
-          &lt;type value=&quot;Resource&quot;/&gt; 
-        &lt;/target&gt;
-      &lt;/link&gt;      
-    &lt;/target&gt;
+    &lt;targetid value="resN"/&gt;
   &lt;/link&gt;
 </pre>
 
@@ -278,123 +297,81 @@ This technique is useful, for example, when including provenance resources in a 
 
 <pre class="xml">
   &lt;link&gt;
+    &lt;sourceId value=&quot;obs1&quot;/&gt;
     &lt;!-- if the path is missing &lt;path value=&quot;&quot;/&gt; --&gt;
-    &lt;target&gt;
-      &lt;!-- 
-        any provenance
-      --&gt;
-      &lt;type value=&quot;Provenance&quot;/&gt;
-      &lt;!--
-        and specify the search parameters to include 
-        all the provenances that refer to this resource
-      --&gt;
-      &lt;params value=&quot;target={ref}&quot;/&gt;      
-    &lt;/target&gt;
+    &lt;targetId value=&quot;prov&quot;/&gt;  &lt;!-- any provenance --&gt;
+    &lt;!--
+      and specify the search parameters to include 
+      all the provenances that refer to this resource
+    --&gt;
+    &lt;params value=&quot;target={ref}&quot;/&gt;      
   &lt;/link&gt;
 </pre>
 
 <a name="text"></a>
 <h4>Text Representation</h4>
 <p>
-For convenience, a graph definition may be represented using a text short hand form, loosely based
-on the <a href="graphql.html">graphQL language</a>. A graph definition is introduced by the 
-name of the Resource (<code>GraphDefinition.start</code>, followed by an optional profile
-in parentheses (<code>GraphDefinition.profile</code>, then a group of links, surrounded 
-by <code>{</code> and <code>}</code>:
+For convenience, a graph definition may be represented using a text short hand form. 
+A graph definition is introduced by two or more node statements:
 </p>
 <pre>
-Patient(http://hl7.org/fhir/us/core/Patient) { 
-}
+node start comp1 'The base composition' = Composition (http://hl7.org/fhir/StructureDefinition/clinicaldocument);
+node list1 'A list resource that a section entry reference points to' = List;
+node resN 'Generic resource that's the target of a list reference' = Resource;
 </pre>
 <p>
-Between the brackets are one or more links (<code>GraphDefinition.link</code>), separated by commas. 
-Links statements can either be path-based look ups, or a search to perform a reverse lookup:
+Each node declaration starts with the fixed word <code>node</code> followed by the nodeId, the node description,
+<code>=</code>, the node type, and then, if the node has a profile, the profile value in brackets. One of the 
+nodes have the key word "start"
+</p>
+<p>
+Once all the nodes are declared, then the links are declared:
 </p>
 <pre>
-Patient { 
-  managingOrganization : Organization,
-  generalPractitioner : Practitioner,
-  search Observation?patient={ref}
-}
+link 'Link from Composition.section to list' = comp1[Composition.section.entry] -> list1 requires identical patient;
+link 'Include any list entries' = list1[List.entry.item] -> resN requires identical patient;
 </pre>
 <p>
-The format for a path-based look up is:
+The format for a link is:
 </p>
 <pre>
-  [path] cardinality [min]..[max] '[description]' : [ResoureType rules]
-</pre>
-<p>
-where:
-</p>
-<ul>
- <li>path = <code>GraphDefinition.link.path</code></li>
- <li>cardinality [min]..[max] is optional, and min = <code>GraphDefinition.link.min</code> and max = <code>GraphDefinition.link.max</code> </li>
- <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
-</ul>
-<p>
-The resource type rules statement consists of one or more of the following, separated by <code>;</code> characters:
-</p>
-<pre>
-  [ResourceType] (profile)  
+<code>link</code> '{description}' {min}..{max} <code>=</code> sourceId<code>[</code>{path}:{sliceName}<code>]</code> {targetId}<code>?</code>{params} {resource-compartment-rules}<code>;</code>
 </pre>
 <p>
 where:
 </p>
 <ul>
- <li>ResourceType = <code>GraphDefinition.link.target.type</code></li>
- <li>profile is optional, and = <code>GraphDefinition.link.target.profile</code></li>
- <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
-</ul>
-<p>
-In addition, the resource type rule may be followed by a links section, surrounded
-by <code>{}</code>, with the content as described above.
-</p>
-<p>
-Search statements for reverse look ups have a slightly different format:
-</p>
-<pre>
-Patient{ 
-  search [ResourceType]?[params] cardinality [min]..[max] '[description]' 
-}
-</pre>
-<p>
-where:
-</p>
-<ul>
- <li>ResourceType = <code>GraphDefinition.link.target.type</code></li>
- <li>params = <code>GraphDefinition.link.target.params</code></li>
- <li>cardinality [min]..[max] is optional, and min = <code>GraphDefinition.link.min</code> and max = <code>GraphDefinition.link.max</code> </li>
- <li>description is optional, and = <code>GraphDefinition.link.description</code> </li>
+ <li>description, min, max, path, sliceName, params and resource-type-rules are all optional</li>
+ <li>resource-compartment-rules is present if there's a compartent, and the syntax is {use} {rule} {code}. If the rule is 'custom' then the syntax is '=' '{fhirpath}' '{description}' </li>
 </ul>
 <p>
 In this format, the amount of whitespace, and its form, is irrelevant. For the purposes
-of clarity, the examples here are laid out on different lines, but this is not required.
-When a GraphDefinition is used as a parameter in a url, no whitespace is used.
+of clarity, the statements here are laid out on different lines, but this is not required.
+When a GraphDefinition is used as a parameter in a url, no extra whitespace is used, just
+a single space, and the descriptions SHOULD be omitted.
 </p>
 
 <p>
 Here is a full example that uses all the features of the syntax:
 </p>
 <pre>
+node pat = Patient;
+node org = Organization;
+node org2 = Organization;
+node ept = EndPoint;
+node prac = Practitioner;
+node grp = Group;
 
-Patient(http://hl7.org/fhir/us/core/Patient) { 
-  managingOrganization cardinality 0..1 'description of item' : 
-    Organization(http://hl7.org/fhir/us/core/Organization) { 
-      endpoint : Endpoint 
-    };
-    Basic;
-    Group { 
-      item : Patient 
-    },
-  generalPractitioner : Organization,
-  search Observation?patient={ref} cardinality 0..10 'Observations for the patient' {
-    performer : Practitioner,
-    related.where(type='has-member').target : Observation require matching Patient,
-    related.where(type='derived-from').target : Observation where identical Patient,
-    related.where(type='sequel-to').target : Observation where different Patient,
-    related.where(type='qualified-by').target : Observation where custom Patient = path
-  }
-}
+link 'patient managing org' 0..1 = pat[managingOrganization] -> org;
+link = org[endpoint] -> ept
+link 'groups patient is in' = pat -> grp?item={ref}
+link 'registered GP' = pat[generalPractitioner] -> org;
+link 'Observations for the patient' = pat -> org?patient={ref};
+link = org[performer] -> prac;
+link = org[related.where(type='has-member').target] -> org2 requires matching Patient;
+link = org[related.where(type='derived-from').target] -> org2 requires identical Patient;
+link = org[related.where(type='sequel-to').target] -> org2 requires different Organization;
+link = org[related.where(type='qualified-by').target] -> org2 requires custom Patient = path;
 </pre>
 
 </div>

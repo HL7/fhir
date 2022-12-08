@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+[other headers]
+
+{
+  "resourceType" : "CodeSystem",
+  "id" : "account-status",
+  ...
+  "url" : "http://hl7.org/fhir/account-status",
+  "version" : "5.0.0",
+  "name" : "AccountStatus",
+  "title" : "AccountStatus",
+  "status" : "active",
+  ....
+}
