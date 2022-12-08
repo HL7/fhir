@@ -187,7 +187,7 @@
         <description value="The participant in the requests in the orchestration"/>
         <code value="participant"/>
         <type value="reference"/>
-        <expression value="RequestOrchestration.action.participant.actor"/>
+        <expression value="RequestOrchestration.action.participant.actor.as(Reference) | RequestOrchestration.action.participant.actor.as(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

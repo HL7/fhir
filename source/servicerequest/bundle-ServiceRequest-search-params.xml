@@ -244,7 +244,7 @@
         <description value="When service should occur"/>
         <code value="occurrence"/>
         <type value="date"/>
-        <expression value="ServiceRequest.occurrence"/>
+        <expression value="ServiceRequest.occurrence.as(dateTime) | ServiceRequest.occurrence.as(Period) | ServiceRequest.occurrence.as(Timing)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

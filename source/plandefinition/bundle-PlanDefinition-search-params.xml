@@ -159,7 +159,7 @@
         <description value="Activity or plan definitions used by plan definition"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.action.definition"/>
+        <expression value="PlanDefinition.action.definition.as(canonical) | PlanDefinition.action.definition.as(uri)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -54,7 +54,7 @@
         <description value="The date the specimen was collected"/>
         <code value="collected"/>
         <type value="date"/>
-        <expression value="Specimen.collection.collected"/>
+        <expression value="Specimen.collection.collected.as(dateTime) | Specimen.collection.collected.as(Period)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

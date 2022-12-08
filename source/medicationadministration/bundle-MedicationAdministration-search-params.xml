@@ -35,7 +35,7 @@
         <description value="Date administration happened (or did not happen)"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="MedicationAdministration.occurence"/>
+        <expression value="MedicationAdministration.occurence.as(dateTime) | MedicationAdministration.occurence.as(Period)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
