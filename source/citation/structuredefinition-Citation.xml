@@ -401,7 +401,8 @@
     </element>
     <element id="Citation.author">
       <path value="Citation.author"/>
-      <short value="Who authored or created the citation record."/>
+	  <short value="Who authored the Citation"/>
+      <definition value="Who authored or created the citation record."/>
 	  <comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
