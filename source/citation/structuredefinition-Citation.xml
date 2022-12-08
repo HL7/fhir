@@ -412,7 +412,8 @@
     </element>
     <element id="Citation.editor">
       <path value="Citation.editor"/>
-      <short value="Who edited or revised the citation record."/>
+      <short value="Who edited the Citation"/>
+      <definition value="Who edited or revised the citation record."/>
 	  <comment value="The Citation.editor element is structured to support a name (with a string datatype) and contact point information for the editor, and is not structured to support unique identifiers for the editor. If detailed contributorship data is needed for the editing of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
