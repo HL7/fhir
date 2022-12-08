@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-finding-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.finding.item.concept"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ClinicalImpression-finding-ref"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ClinicalImpression.finding.item.reference"/>

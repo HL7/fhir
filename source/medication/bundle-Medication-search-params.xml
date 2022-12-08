@@ -79,7 +79,7 @@
       <SearchParameter>
         <id value="Medication-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.ingredient.item.reference"/>
@@ -98,7 +98,7 @@
       <SearchParameter>
         <id value="Medication-ingredient-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.ingredient.item.concept"/>
@@ -136,6 +136,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Medication.marketingAuthorizationHolder"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Returns medications made or sold for this marketing authorization holder"/>
         <code value="marketingauthorizationholder"/>

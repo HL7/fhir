@@ -216,6 +216,9 @@
     <resource>
       <SearchParameter>
         <id value="QuestionnaireResponse-item-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <url value="http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-item-subject"/>
         <version value="5.0.0"/>
         <name value="item-subject"/>

@@ -122,6 +122,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.paymentBy.party"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="Parties who will pay for services"/>
         <code value="paymentby-party"/>
         <type value="reference"/>
@@ -134,6 +137,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.insurer"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="The identity of the insurer"/>
         <code value="insurer"/>
@@ -204,6 +210,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Coverage.subscriberId"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Identifier of the subscriber"/>
         <code value="subscriberid"/>

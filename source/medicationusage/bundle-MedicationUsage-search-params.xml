@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="MedicationUsage-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationUsage.medication.concept"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="MedicationUsage-medication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationUsage.medication.reference"/>

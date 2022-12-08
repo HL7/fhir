@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.definitional.ingredient.item.reference"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="MedicationKnowledge-ingredient-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationKnowledge.definitional.ingredient.item.concept"/>

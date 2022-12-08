@@ -8,6 +8,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.participant.actor"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="Who or what participated in the activities related to the allergy or intolerance"/>
         <code value="participant"/>
         <type value="reference"/>
@@ -154,6 +157,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.reaction.manifestation.concept"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="Clinical symptoms/signs associated with the Event"/>
         <code value="manifestation-code"/>
         <type value="token"/>
@@ -166,6 +172,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="AllergyIntolerance.reaction.manifestation.reference"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Clinical symptoms/signs associated with the Event"/>
         <code value="manifestation-reference"/>

@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="Ingredient-substance"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Ingredient.substance.code.reference"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Ingredient-substance-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Ingredient.substance.code.concept"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="Ingredient-substance-definition"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Ingredient.substance.code.reference"/>
@@ -154,7 +154,7 @@
       </SearchParameter>
     </resource>
   </entry>
-    <entry>
+  <entry>
     <resource>
       <SearchParameter>
         <id value="Ingredient-status"/>
@@ -173,5 +173,4 @@
       </SearchParameter>
     </resource>
   </entry>
-
 </Bundle>

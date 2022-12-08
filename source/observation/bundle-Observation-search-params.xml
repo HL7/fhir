@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Observation-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.basedOn"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="Observation-category"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.category"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="Observation-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.code"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="Observation-code-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-concept"/>
         <description value="Code and coded value parameter pair"/>
@@ -88,7 +88,7 @@
       <SearchParameter>
         <id value="Observation-code-value-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-date"/>
         <description value="Code and date/time value parameter pair"/>
@@ -112,7 +112,7 @@
       <SearchParameter>
         <id value="Observation-code-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-quantity"/>
         <description value="Code and quantity value parameter pair"/>
@@ -136,7 +136,7 @@
       <SearchParameter>
         <id value="Observation-code-value-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code-value-string"/>
         <description value="Code and string value parameter pair"/>
@@ -160,7 +160,7 @@
       <SearchParameter>
         <id value="Observation-combo-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.code,Observation.component.code"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="Observation-combo-code-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-code-value-concept"/>
         <description value="Code and coded value parameter pair, including in components"/>
@@ -203,7 +203,7 @@
       <SearchParameter>
         <id value="Observation-combo-code-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-combo-code-value-quantity"/>
         <description value="Code and quantity value parameter pair, including in components"/>
@@ -227,7 +227,7 @@
       <SearchParameter>
         <id value="Observation-combo-data-absent-reason"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.dataAbsentReason,Observation.component.dataAbsentReason"/>
@@ -246,7 +246,7 @@
       <SearchParameter>
         <id value="Observation-combo-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.valueCodeableConcept,Observation.component.valueCodeableConcept"/>
@@ -265,7 +265,7 @@
       <SearchParameter>
         <id value="Observation-combo-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.value[x]"/>
@@ -284,7 +284,7 @@
       <SearchParameter>
         <id value="Observation-component-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.component.code"/>
@@ -303,7 +303,7 @@
       <SearchParameter>
         <id value="Observation-component-code-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code-value-concept"/>
         <description value="Component code and component coded value parameter pair"/>
@@ -327,7 +327,7 @@
       <SearchParameter>
         <id value="Observation-component-code-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-code-value-quantity"/>
         <description value="Component code and component quantity value parameter pair"/>
@@ -351,7 +351,7 @@
       <SearchParameter>
         <id value="Observation-component-data-absent-reason"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.component.dataAbsentReason"/>
@@ -370,7 +370,7 @@
       <SearchParameter>
         <id value="Observation-component-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.component.valueCodeableConcept"/>
@@ -389,7 +389,7 @@
       <SearchParameter>
         <id value="Observation-component-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.component.value[x]"/>
@@ -408,7 +408,7 @@
       <SearchParameter>
         <id value="Observation-data-absent-reason"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.dataAbsentReason"/>
@@ -427,7 +427,7 @@
       <SearchParameter>
         <id value="Observation-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.effective[x]"/>
@@ -446,7 +446,7 @@
       <SearchParameter>
         <id value="Observation-derived-from"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.derivedFrom"/>
@@ -465,7 +465,7 @@
       <SearchParameter>
         <id value="Observation-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.device"/>
@@ -484,7 +484,7 @@
       <SearchParameter>
         <id value="Observation-encounter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.encounter"/>
@@ -522,7 +522,7 @@
       <SearchParameter>
         <id value="Observation-has-member"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.hasMember"/>
@@ -541,7 +541,7 @@
       <SearchParameter>
         <id value="Observation-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.identifier"/>
@@ -560,7 +560,7 @@
       <SearchParameter>
         <id value="Observation-method"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.method"/>
@@ -579,7 +579,7 @@
       <SearchParameter>
         <id value="Observation-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.partOf"/>
@@ -598,7 +598,7 @@
       <SearchParameter>
         <id value="Observation-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.subject"/>
@@ -618,7 +618,7 @@
       <SearchParameter>
         <id value="Observation-performer"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.performer"/>
@@ -637,7 +637,7 @@
       <SearchParameter>
         <id value="Observation-specimen"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.specimen"/>
@@ -675,7 +675,7 @@
       <SearchParameter>
         <id value="Observation-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.subject"/>
@@ -694,7 +694,7 @@
       <SearchParameter>
         <id value="Observation-value-concept"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.valueCodeableConcept"/>
@@ -713,7 +713,7 @@
       <SearchParameter>
         <id value="Observation-value-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.valueDateTime,Observation.valuePeriod"/>
@@ -732,7 +732,7 @@
       <SearchParameter>
         <id value="Observation-value-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.value[x]"/>
@@ -751,7 +751,7 @@
       <SearchParameter>
         <id value="Observation-value-string"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.value[x]"/>

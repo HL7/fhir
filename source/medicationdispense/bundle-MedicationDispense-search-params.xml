@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="MedicationDispense-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationDispense.medication.concept"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="MedicationDispense-medication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationDispense.medication.reference"/>
@@ -294,6 +294,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationDispense.recorded"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="Returns dispenses where dispensing activity began on this date"/>
         <code value="recorded"/>
         <type value="date"/>
@@ -306,6 +309,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationDispense.location"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Returns dispense for a given location"/>
         <code value="location"/>

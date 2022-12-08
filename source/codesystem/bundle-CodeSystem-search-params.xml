@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="CodeSystem-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueCodeableConcept"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="CodeSystem-context-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
@@ -188,7 +188,7 @@
       <SearchParameter>
         <id value="CodeSystem-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.identifier"/>
@@ -207,7 +207,7 @@
       <SearchParameter>
         <id value="CodeSystem-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.jurisdiction"/>
@@ -302,7 +302,7 @@
       <SearchParameter>
         <id value="CodeSystem-supplements"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.supplements"/>
@@ -327,7 +327,7 @@
           <valueString value="CodeSystem.url"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/CodeSystem-system"/>
-        <description value="The system for any codes defined by this code system (same as &#39;url&#39;)"/>
+        <description value="The system for any codes defined by this code system (same as 'url')"/>
         <code value="system"/>
         <type value="uri"/>
         <expression value="CodeSystem.url"/>
@@ -417,10 +417,13 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="A resource that the CodeSystem is derived from"/>
         <code value="derived-from"/>
         <type value="reference"/>
-        <expression value="CodeSystem.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <expression value="CodeSystem.relatedArtifact.where(type='derived-from').resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -430,10 +433,13 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The predecessor of the CodeSystem"/>
         <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="CodeSystem.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <expression value="CodeSystem.relatedArtifact.where(type='predecessor').resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -442,6 +448,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="CodeSystem.topic"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Topics associated with the CodeSystem"/>
         <code value="topic"/>

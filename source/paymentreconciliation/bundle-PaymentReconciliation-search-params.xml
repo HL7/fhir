@@ -160,6 +160,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.allocation.encounter"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The encounter to which payment or adjustment was applied."/>
         <code value="allocation-encounter"/>
         <type value="reference"/>
@@ -172,6 +175,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="PaymentReconciliation.allocation.account"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="The account to which payment or adjustment was applied."/>
         <code value="allocation-account"/>

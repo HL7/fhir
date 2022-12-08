@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="MedicinalProductDefinition-ingredient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicinalProductDefinition.ingredient"/>

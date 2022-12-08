@@ -455,6 +455,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NamingSystem.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="A resource that the NamingSystem is derived from"/>
         <code value="derived-from"/>
         <type value="reference"/>
@@ -468,6 +471,9 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NamingSystem.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The predecessor of the NamingSystem"/>
         <code value="predecessor"/>
         <type value="reference"/>
@@ -480,6 +486,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="NamingSystem.topic"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Topics associated with the NamingSystem"/>
         <code value="topic"/>
