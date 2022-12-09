@@ -361,7 +361,7 @@
         </extension>
         <strength value="example"/>
         <description value="Biologically Derived Product Property Type Codes"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproduct-property-type-codes"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
       </binding>
     </element>
     <element id="BiologicallyDerivedProduct.property.value[x]">
