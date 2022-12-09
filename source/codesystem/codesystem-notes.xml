@@ -102,7 +102,7 @@ to use one of the designations.
 </p>
 
 <a name="properties"></a>
-<h2>Properties</h2>
+<h2>Concept Properties</h2>
 <p>
 Each code system can define one or more concept properties. Each concept defined by the code system
 may have one or more values for each concept property defined by the code system. Typical uses for
@@ -167,39 +167,21 @@ concepts and their properties, but this information does not surface in the reso
 by the FHIR specification.
 </p>
 
+<a name="defined-props"></a>
+<h2>Defined Concept Properties</h2>
 
-<a name="status"></a>
-<h2>Concept Status</h2>
+<p>In order to assist with consistency between code systems, the following basic property URIs are defined:</p>
 
-<p>
-Many Code Systems have a 'status' associated with the concept. This may categorize the concept
-as:
-</p>
-<ul>
-  <li>Experimental - provided for trial, but may be removed in the future</li>
-  <li>Active - in normal use</li>
-  <li>Deprecated - planned to be removed from use</li>
-  <li>Retired - still present for historical reasons, but no longer allowed to be used</li>
-</ul>
-<p>
-There is wide variation in the life cycles supported by the different code systems, the words
-they use to describe the various status values they use, and some code systems have additional
-status values. HL7 uses Active and Retired. In addition to these status codes, concepts may also 
-be labeled as "Abstract' (not to be used in some circumstances), and have dates associated
-with their retirement or deprecation. All this information is represented as properties of
-the concepts. In order to assist with consistency between code systems, the following
-basic property URIs are defined:
-</p>
 <table class="grid">
  <tr><td>http://hl7.org/fhir/concept-properties#status : code</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
      <ul>
       <li>active - the concept is for normal use</li>
       <li>experimental - provided for trial, but may be removed in the future</li>
-      <li>deprecated - planned to be removed from use</li>
+      <li>deprecated - the concept is outdated and planned to be withdrawn from use</li>
       <li>retired - still present for historical reasons, but no longer allowed to be used</li>
      </ul>
    </td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false. Note that the status property may also be used to indicate that a concept is inactive</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept was status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
@@ -211,8 +193,37 @@ basic property URIs are defined:
  <tr><td>http://hl7.org/fhir/concept-properties#comment : code</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
 </table>
 <p>
+Code System representations SHOULD use these properties where possible.
+</p>
+<p>
 The parent and child properties are used when performing concept lookup (using the <a href="codesystem-operations.html#lookup">$lookup</a> operation),
 and when using properties to indicate parent/child relationships (see below).
+</p>
+
+<a name="status"></a>
+<h3>Concept Status</h3>
+
+<p>
+Many Code Systems have a 'status' associated with the concept. This may categorize the concept as:
+</p>
+<ul>
+  <li>Experimental - provided for trial, but may be removed in the future</li>
+  <li>Active - in normal use</li>
+  <li>Deprecated - planned to be removed from use</li>
+  <li>Retired - still present for historical reasons, but no longer allowed to be used</li>
+</ul>
+<p>
+There is wide variation in the life cycles supported by the different code systems and the words
+they use to describe the various status values they use, and some code systems have additional
+status values. HL7 uses Active, Deprecated and Retired. These ideas overlap with setting 
+the concept to 'inactive'. In addition, concepts have dates associated with their retirement 
+or deprecation and some code systems imply the status by providing dates. 
+</p>
+<p>
+In addition to these status codes, concepts may also be labeled 'notSelectable' (aka 'Abstract'),
+which means "not to be used in some circumstances", though the exact circumstances need to be clarified 
+somewhere. This is sometimes also considered a status, though it's usually dependent on the context
+of use (e.g. set in a ValueSet).
 </p>
 
 <a name="hierarchy"></a>
@@ -285,6 +296,34 @@ The following filters are defined for all code systems:
    <td>Includes all codes that have a property value equal to one of the specified strings, where [property] is the code for any <a href="#properties">defined property</a></td>
    <td>The values cannot include ",", since it is being used as a delimiter</td>
  </tr>
+ <tr>
+   <td>[property]</td>
+   <td>regex</td>
+   <td>[string]</td>
+   <td>Includes all codes that have a property value matching the specified regex</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>[property]</td>
+   <td>exists</td>
+   <td>true or false</td>
+   <td>When value is "true", includes all codes that have the specified property. When value is "false", includes all codes that lack the specified property</td>
+   <td></td>
+ </tr>
+ <tr>
+   <td>designation</td>
+   <td>=</td>
+   <td>[string]</td>
+   <td>Matches any concept with a designation equal to the supplied string</td>
+   <td>Designations considered include the concept.display, which counts as a designation</td>
+ </tr> 
+ <tr>
+   <td>designation</td>
+   <td>regex</td>
+   <td>[string]</td>
+   <td>Matches any concept with a designation matching the supplied string</td>
+   <td>Designations considered include the concept.display, which counts as a designation</td>
+ </tr> 
 </table>
 
 [%ballot-note filters%]
