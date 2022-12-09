@@ -1333,12 +1333,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">value | exists | pattern | type | profile | position</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">value | exists | type | profile | position</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">How the element value is interpreted when discrimination is evaluated</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String" x:Ticked="1">pattern' is deprecated - it works exactly the same as 'value'</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String" x:Ticked="1">'pattern' is deprecated - it works exactly the same as 'value'</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A</Data><NamedCell
