@@ -31,12 +31,12 @@
     <include>
       <system value="http://snomed.info/sct"/>
       <concept>
-        <code value="7771000"/>
-        <display value="Left"/>
+        <code value="419161000"/>
+        <display value="Unilateral Left"/>
       </concept>
       <concept>
-        <code value="24028007"/>
-        <display value="Right"/>
+        <code value="419465000"/>
+        <display value="Unilateral Right"/>
       </concept>
       <concept>
         <code value="51440002"/>
