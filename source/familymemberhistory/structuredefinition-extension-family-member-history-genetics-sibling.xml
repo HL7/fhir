@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="family-member-history-genetics-sibling"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -6,13 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/family-member-history-genetics-sibling"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1223"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="sibling"/>
+  <name value="FMHSibling"/>
+  <title value="FamilyMemberHistory Sibling"/>
   <status value="draft"/>
   <date value="2019-05-29"/>
   <publisher value="Health Level Seven International (Clinical Genomics)"/>
@@ -52,7 +58,7 @@
       <path value="Extension.extension"/>
       <sliceName value="type"/>
       <short value="sibling | brother | sister | etc."/>
-      <definition value="Distinguishes between different types of sibling relationships with varying granularity to support capturing the relationship &#34;to the degree known&#34;."/>
+      <definition value="Distinguishes between different types of sibling relationships with varying granularity to support capturing the relationship &quot;to the degree known&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

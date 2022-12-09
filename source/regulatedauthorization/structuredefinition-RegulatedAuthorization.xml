@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="RegulatedAuthorization"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RegulatedAuthorization"/>
+  <title value="RegulatedAuthorization"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -309,57 +312,6 @@
         <map value="Marketing Authorisation.Status Reasons.Legal Grounds"/>
       </mapping>
     </element>
-    <!--element id="RegulatedAuthorization.relatedDate">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="650,160"/>
-      </extension>
-      <path value="RegulatedAuthorization.relatedDate"/>
-      <short value="Other dates associated with the authorization. It is common for an authorization to have renewal dates, initial time limited phases and so on"/>
-      <definition value="Other dates associated with the authorization. It is common for an authorization to have renewal dates, initial time limited phases and so on."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="Marketing Authorisation.Data Exclusivity Start Date, Marketing Authorisation.Data Exclusivity End Date , Marketing Authorisation.Date of First Authorisation, Marketing Authorisation.International Birth Date, Status Reasons.Restore Date"/>
-      </mapping>
-    </element>
-    <element id="RegulatedAuthorization.relatedDate.date[x]">
-      <path value="RegulatedAuthorization.relatedDate.date[x]"/>
-      <short value="Another date associated with the authorization"/>
-      <definition value="Another date associated with the authorization."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <type>
-        <code value="dateTime"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(dates as above)"/>
-      </mapping>
-    </element>
-    <element id="RegulatedAuthorization.relatedDate.type">
-      <path value="RegulatedAuthorization.relatedDate.type"/>
-      <short value="The meaning of the related date for a regulated product, treatment, facility or activity.  As an example, the data exclusivity period for a regulated product"/>
-      <definition value="The meaning of the related date for a regulated product, treatment, facility or activity.  As an example, the data exclusivity period for a regulated product."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="idmp"/>
-        <map value="(type of date from the ones above)"/>
-      </mapping>
-    </element-->
     <element id="RegulatedAuthorization.holder">
       <path value="RegulatedAuthorization.holder"/>
       <short value="The organization that has been granted this authorization, by the regulator"/>

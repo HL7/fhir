@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="FamilyMemberHistory"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FamilyMemberHistory"/>
+  <title value="FamilyMemberHistory"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -91,7 +94,7 @@
         <expression value="age.empty() or born.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
-	  <constraint>
+      <constraint>
         <key value="fhs-3"/>
         <severity value="error"/>
         <human value="Can have age[x] or deceased[x], but not both"/>
@@ -364,10 +367,10 @@
         <map value=".player"/>
       </mapping>
     </element>
-	<element id="FamilyMemberHistory.name">
+    <element id="FamilyMemberHistory.name">
       <path value="FamilyMemberHistory.name"/>
       <short value="The family member described"/>
-      <definition value="This will either be a name or a description; e.g. &#34;Aunt Susan&#34;, &#34;my cousin with the red hair&#34;."/>
+      <definition value="This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;."/>
       <requirements value="Allows greater ease in ensuring the same person is being talked about."/>
       <min value="0"/>
       <max value="1"/>
@@ -464,11 +467,11 @@
         <code value="string"/>
       </type>
       <condition value="fhs-1"/>
-	  <condition value="fhs-3"/>
+      <condition value="fhs-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&#34;age&#34;].value"/>
+        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&quot;age&quot;].value"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.estimatedAge">
@@ -510,7 +513,7 @@
       <type>
         <code value="string"/>
       </type>
-	  <condition value="fhs-3"/>
+      <condition value="fhs-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -665,7 +668,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;Subject Age at measurement&#34;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']  Use originalText for string"/>
+        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;Subject Age at measurement&quot;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']  Use originalText for string"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.condition.note">

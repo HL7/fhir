@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceNucleicAcid"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -22,6 +24,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceNucleicAcid"/>
+  <title value="SubstanceNucleicAcid"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>

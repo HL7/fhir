@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImagingStudy"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImagingStudy"/>
+  <title value="ImagingStudy"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
@@ -133,7 +136,7 @@
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown"/>
       <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
-      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -601,9 +604,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="ImagingStudy.series"/>
       <short value="Each study has one or more series of instances"/>
       <definition value="Each study has one or more series of images or other content."/>
@@ -770,7 +773,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -863,9 +866,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
       <path value="ImagingStudy.series.performer"/>
       <short value="Who performed the series"/>
       <definition value="Indicates who or what performed the series and how they were involved."/>
@@ -948,9 +951,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="ImagingStudy.series.instance"/>
       <short value="A single SOP instance from the series"/>
       <definition value="A single SOP instance within the series, e.g. an image, or presentation state."/>
@@ -1012,7 +1015,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&#34;sop class&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&quot;sop class&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="dicom"/>

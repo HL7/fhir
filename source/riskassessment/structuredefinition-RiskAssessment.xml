@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="RiskAssessment"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RiskAssessment"/>
+  <title value="RiskAssessment"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -93,7 +96,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Observation[classCode=OBS, moodCode=EVN, code=&#34;Risk Assessment&#34;]"/>
+        <map value="Observation[classCode=OBS, moodCode=EVN, code=&quot;Risk Assessment&quot;]"/>
       </mapping>
       <mapping>
         <identity value="openehr"/>
@@ -479,7 +482,7 @@
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;probability&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;probability&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="openehr"/>
@@ -516,14 +519,14 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;relative risk&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;relative risk&quot;].value"/>
       </mapping>
     </element>
     <element id="RiskAssessment.prediction.when[x]">
       <path value="RiskAssessment.prediction.when[x]"/>
       <short value="Timeframe or age range"/>
       <definition value="Indicates the period of time or age range of the subject to which the specified probability applies."/>
-      <comment value="If not specified, the risk applies &#34;over the subject's lifespan&#34;."/>
+      <comment value="If not specified, the risk applies &quot;over the subject's lifespan&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -534,7 +537,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;age&#34;].value"/>
+        <map value=".effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age&quot;].value"/>
       </mapping>
     </element>
     <element id="RiskAssessment.prediction.rationale">

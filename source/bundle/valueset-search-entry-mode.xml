@@ -54,18 +54,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/search-entry-mode"/>
-      <concept>
-        <code value="match"/>
-      </concept>
-      <concept>
-        <code value="include"/>
-      </concept>
-      <concept>
-        <extension url="http://hl7.org/fhir/StructureDefinition/valueset-deprecated">
-          <valueBoolean value="true"/>
-        </extension>
-        <code value="outcome"/>
-      </concept>
     </include>
   </compose>
 </ValueSet>

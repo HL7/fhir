@@ -1,79 +1,85 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="questionnaire-itemControl"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-itemControl"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1239"/>
   </identifier>
   <version value="5.0.0"/>
-	<name value="itemControl"/>
-	<status value="draft"/>
-	<date value="2013-07-04"/>
-	<publisher value="HL7"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="The type of data entry control or structure that should be used to render the item.  Certain item controls only make sense for certain types of items.  For example, a radio button doesn't make sense for a question where repeats=true; few systems will know how to implement a 'slider' control if the question type is 'Attachment', etc.  Form fillers are allowed to ignore item controls that don't make sense (or that they don't know how to handle) for the type of item the extension appears on.  If the extension is ignored, the form filler will use whatever display control it supports that works best for the type of item present.  Similarly, form authoring tools may raise validation issues or prohibit the selection of certain control types based on the characteristics of the item."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<kind value="complex-type"/>
-	<abstract value="false"/>
-	<context>
-		<type value="element"/>
-		<expression value="Questionnaire.item"/>
-	</context>
-	<context>
-		<type value="element"/>
-		<expression value="ElementDefinition"/>
-	</context>
-	<type value="Extension"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-	<derivation value="constraint"/>
-	<differential>
-		<element id="Extension">
-			<path value="Extension"/>
-			<short value="E.g. Fly-over, Table, Checkbox, Combo-box, Lookup, etc."/>
-			<definition value="The type of data entry control or structure that should be used to render the item."/>
-			<comment value="Different controls may be appropriate for different item types.  It is up to the system rendering a questionnaire as to what controls it will support and for which data types.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#itemControl)."/>
-			<min value="0"/>
-			<max value="1"/>
-		</element>
-		<element id="Extension.extension">
-			<path value="Extension.extension"/>
-			<max value="0"/>
-		</element>
-		<element id="Extension.url">
-			<path value="Extension.url"/>
-			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"/>
-		</element>
-		<element id="Extension.value[x]">
-			<path value="Extension.value[x]"/>
-			<requirements value="The data type is CodeableConcept to allow for additional codings that might provide finer-grained control information or specification of specific controls in different rendering environments.  CodeableConcept.text is generally unnecessary for this element and should not be sent alone as the use-case for this element is for computable interpretation by rendering engines."/>
-			<min value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ItemControl"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="User interface controls or widgets used for questionnaire items."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
-			</binding>
-		</element>
-	</differential>
+  <name value="QItemControl"/>
+  <title value="Questionnaire Item Control"/>
+  <status value="draft"/>
+  <date value="2013-07-04"/>
+  <publisher value="HL7"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of data entry control or structure that should be used to render the item.  Certain item controls only make sense for certain types of items.  For example, a radio button doesn't make sense for a question where repeats=true; few systems will know how to implement a 'slider' control if the question type is 'Attachment', etc.  Form fillers are allowed to ignore item controls that don't make sense (or that they don't know how to handle) for the type of item the extension appears on.  If the extension is ignored, the form filler will use whatever display control it supports that works best for the type of item present.  Similarly, form authoring tools may raise validation issues or prohibit the selection of certain control types based on the characteristics of the item."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Questionnaire.item"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ElementDefinition"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="E.g. Fly-over, Table, Checkbox, Combo-box, Lookup, etc."/>
+      <definition value="The type of data entry control or structure that should be used to render the item."/>
+      <comment value="Different controls may be appropriate for different item types.  It is up to the system rendering a questionnaire as to what controls it will support and for which data types.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#itemControl)."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <requirements value="The data type is CodeableConcept to allow for additional codings that might provide finer-grained control information or specification of specific controls in different rendering environments.  CodeableConcept.text is generally unnecessary for this element and should not be sent alone as the use-case for this element is for computable interpretation by rendering engines."/>
+      <min value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ItemControl"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="User interface controls or widgets used for questionnaire items."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-item-control"/>
+      </binding>
+    </element>
+  </differential>
 </StructureDefinition>

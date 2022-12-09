@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-12-05T20:57:54Z</LastSaved>
+  <LastSaved>2022-12-09T01:25:48Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4790,7 +4790,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7518,7 +7517,7 @@
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="discriminator-type">
-  <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="139.0"/>
    <Column ss:AutoFitWidth="0" ss:Index="6" ss:Width="360.0"/>
    <Column ss:Index="10" ss:Width="57.0"/>
@@ -7533,6 +7532,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - see Confluence for syntax</Font>       </ss:Data></Comment></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
     <Cell><Data ss:Type="String">Deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">DeprecatedReason</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s139">
     <Cell ss:StyleID="s88"><Data ss:Type="String">value</Data></Cell>
@@ -7557,6 +7557,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Pattern</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. This has the same meaning as 'value' and is deprecated </Data></Cell>
     <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19T00:00:00.000</Data></Cell>
+    <Cell><Data ss:Type="String">Pattern' is deprecated - it works exactly the same as 'value'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s139">
     <Cell ss:StyleID="s88"><Data ss:Type="String">type</Data></Cell>
@@ -7593,6 +7594,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Citation"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -28,6 +29,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/Citation"/>
   <version value="5.0.0"/>
   <name value="Citation"/>
+  <title value="Citation"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -84,7 +86,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Citation"/>
       </constraint>
       <mapping>
@@ -107,7 +109,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -168,9 +170,9 @@
       <isSummary value="true"/>
     </element>
     <element id="Citation.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="Citation.title"/>
       <short value="Name for this citation (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the citation."/>
@@ -240,9 +242,9 @@
       </mapping>
     </element>
     <element id="Citation.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="Citation.publisher"/>
       <short value="The publisher of the Citation, not the publisher of the article or artifact being cited"/>
       <definition value="The name of the organization or individual that published the citation."/>
@@ -272,13 +274,13 @@
       <isSummary value="true"/>
     </element>
     <element id="Citation.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="Citation.description"/>
       <short value="Natural language description of the citation"/>
-      <definition value="A free text natural language description of the citation from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
+      <definition value="A free text natural language description of the citation from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the citation as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the citation is presumed to be the predominant language in the place the citation was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -318,13 +320,13 @@
       </binding>
     </element>
     <element id="Citation.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="Citation.purpose"/>
       <short value="Why this citation is defined"/>
       <definition value="Explanation of why this citation is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the citation. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
+      <comment value="This element does not describe the usage of the citation. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this citation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -340,9 +342,9 @@
       </mapping>
     </element>
     <element id="Citation.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="Citation.copyright"/>
       <short value="Use and/or publishing restrictions for the Citation, not for the cited artifact"/>
       <min value="0"/>
@@ -355,7 +357,7 @@
       <path value="Citation.approvalDate"/>
       <short value="When the citation was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>

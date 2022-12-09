@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="extended-contact-availability"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -6,6 +7,9 @@
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/extended-contact-availability"/>
   <version value="5.0.0"/>
@@ -61,8 +65,8 @@
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
-      <min value="1"/>
       <comment value="To be updated to the Availability datatype when it is available as an extension datatype"/>
+      <min value="1"/>
       <type>
         <code value="Availability"/>
       </type>

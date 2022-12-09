@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="groupdefinition"/>
   <text>
     <status value="generated"/>
@@ -20,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Group Definition"/>
+  <title value="Group Definition"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

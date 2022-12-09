@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="canonicalresource-short-description"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -6,10 +8,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/canonicalresource-short-description"/>
   <version value="5.0.0"/>
-  <name value="ShortDescription"/>
-  <title value="Short Description"/>
+  <name value="CRShortDescription"/>
+  <title value="CanonicalResource Short Description"/>
   <status value="draft"/>
   <date value="2014-04-12"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
