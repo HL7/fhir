@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AppointmentResponse"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AppointmentResponse"/>
+  <title value="AppointmentResponse"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -329,7 +332,7 @@
       </mapping>
       <mapping>
         <identity value="ical"/>
-        <map value="ATTENDEE;CN=&#34;Brian Postlethwaite&#34;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)"/>
+        <map value="ATTENDEE;CN=&quot;Brian Postlethwaite&quot;;RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)"/>
       </mapping>
     </element>
     <element id="AppointmentResponse.comment">

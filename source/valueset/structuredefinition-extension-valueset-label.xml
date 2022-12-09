@@ -1,65 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="valueset-label"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="vocab"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/valueset-label"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="valueset-label"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="vocab"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/valueset-label"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1216"/>
   </identifier>
   <version value="5.0.0"/>
-	<name value="label"/>
-	<status value="draft"/>
-	<date value="2020-12-28T16:55:11+11:00"/>
-	<publisher value="HL7"/>
-	<description value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<kind value="complex-type"/>
-	<abstract value="false"/>
-	<context>
-		<type value="element"/>
-		<expression value="ValueSet.compose.include.concept"/>
-	</context>
-	<context>
-		<type value="element"/>
-		<expression value="ValueSet.expansion.contains"/>
-	</context>
-	<type value="Extension"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-	<derivation value="constraint"/>
-	<differential>
-		<element id="Extension">
-			<path value="Extension"/>
-			<short value="E.g. &#34;(a)&#34;, &#34;1.&#34;, etc."/>
-			<definition value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
-			<comment value="For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#valueset-label)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<isModifier value="false"/>
-		</element>
-		<element id="Extension.extension">
-			<path value="Extension.extension"/>
-			<max value="0"/>
-		</element>
-		<element id="Extension.url">
-			<path value="Extension.url"/>
-			<fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-label"/>
-		</element>
-		<element id="Extension.value[x]">
-			<path value="Extension.value[x]"/>
-			<min value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-	</differential>
+  <name value="VSLabel"/>
+  <title value="ValueSet Label"/>
+  <status value="draft"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet.compose.include.concept"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ValueSet.expansion.contains"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="E.g. &quot;(a)&quot;, &quot;1.&quot;, etc."/>
+      <definition value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
+      <comment value="For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#valueset-label)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <isModifier value="false"/>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/valueset-label"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="PackagedProductDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="PackagedProductDefinition"/>
+  <title value="PackagedProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -229,7 +232,7 @@
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="27,270"/> 
+        <valueCode value="27,270"/>
       </extension>
       <path value="PackagedProductDefinition.legalStatusOfSupply"/>
       <short value="The legal status of supply of the packaged item as classified by the regulator"/>
@@ -254,7 +257,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/>      
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="LegalStatusOfSupply"/>
@@ -291,7 +294,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    
     <element id="PackagedProductDefinition.marketingStatus">
       <path value="PackagedProductDefinition.marketingStatus"/>
       <short value="Allows specifying that an item is on the market for sale, or that it is not available, and the dates and locations associated"/>
@@ -419,12 +421,12 @@
       <max value="1"/>
       <type>
         <code value="boolean"/>
-      </type>			
+      </type>
       <meaningWhenMissing value="If absent, it cannot be assumed that the item is packaging (a container) or a part of the packaging - it is just 'packaging'. Systems can sometimes infer this from the packaging.type (e.g. bottles are containers, bottle caps are not), or from the fact that a container will usually have other items within it (though it is possible that these exist but are not mentioned). Often the distinction is not critical - and can easily be understood by humans - but if that is necessary for machine processing it is recommended that this attribute is given a value."/>
       <isSummary value="true"/>
       <mapping>
-         <identity value="idmp"/>
-      <map value="Whether this packaging item corresponds to an Package Item (Container), if false, or a Package (Component), when true"/>
+        <identity value="idmp"/>
+        <map value="Whether this packaging item corresponds to an Package Item (Container), if false, or a Package (Component), when true"/>
       </mapping>
     </element>
     <element id="PackagedProductDefinition.packaging.quantity">
@@ -642,7 +644,7 @@
     </element>
     <element id="PackagedProductDefinition.packaging.packaging">
       <path value="PackagedProductDefinition.packaging.packaging"/>
-        <short value="Allows containers (and parts of containers) within containers, still as a part of single packaged product"/>
+      <short value="Allows containers (and parts of containers) within containers, still as a part of single packaged product"/>
       <definition value="Allows containers (and parts of containers) within containers, still as a part of a single packaged product. See also PackagedProductDefinition.packaging.containedItem.item(PackagedProductDefinition)."/>
       <min value="0"/>
       <max value="*"/>
@@ -653,19 +655,18 @@
         <map value="(link from Package Item (Container) to itself)"/>
       </mapping>
     </element>
-      <element id="PackagedProductDefinition.characteristic">
-          <path value="PackagedProductDefinition.characteristic"/>
-          <short value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;"/>
-          <definition value="Allows the key features to be recorded, such as &#34;hospital pack&#34;, &#34;nurse prescribable&#34;, &#34;calendar pack&#34;."/>
-          <min value="0"/>
-          <max value="*"/>
-          <contentReference value="#PackagedProductDefinition.packaging.property"/>
-          <isSummary value="true"/>
-          <mapping>
-              <identity value="idmp"/>
-              <map value="n/a"/>
-          </mapping>
-      </element>
-      
+    <element id="PackagedProductDefinition.characteristic">
+      <path value="PackagedProductDefinition.characteristic"/>
+      <short value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;"/>
+      <definition value="Allows the key features to be recorded, such as &quot;hospital pack&quot;, &quot;nurse prescribable&quot;, &quot;calendar pack&quot;."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#PackagedProductDefinition.packaging.property"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
   </differential>
 </StructureDefinition>

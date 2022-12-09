@@ -1,10 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="operationoutcome-issue-source"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="operationoutcome-file"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source"/>
   <identifier>
@@ -12,8 +17,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1360"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="issue-source"/>
-  <title value="Source of Issue"/>
+  <name value="OOSourceFile"/>
+  <title value="OperationOutcome Source File"/>
   <status value="draft"/>
   <date value="2014-01-31"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>

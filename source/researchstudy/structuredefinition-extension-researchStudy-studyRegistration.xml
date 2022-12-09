@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="researchStudy-studyRegistration"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/researchStudy-studyRegistration"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1097"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="studyRegistration"/>
-  <title value="studyRegistration"/>
+  <name value="RSStudyRegistration"/>
+  <title value="ResearchStudy Study Registration"/>
   <status value="draft"/>
   <date value="2022-07-25T00:00:00+00:00"/>
   <publisher value="HL7"/>
@@ -42,8 +47,6 @@
       <min value="0"/>
       <max value="*"/>
     </element>
-    
-    <!-- activity -->
     <element id="Extension.extension:activity">
       <path value="Extension.extension"/>
       <sliceName value="activity"/>
@@ -81,8 +84,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-registration-activity"/>
       </binding>
     </element>
-
-    <!-- actual -->
     <element id="Extension.extension:actual">
       <path value="Extension.extension"/>
       <sliceName value="actual"/>
@@ -112,8 +113,6 @@
         <code value="boolean"/>
       </type>
     </element>
-    
-    <!-- period -->
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
       <sliceName value="period"/>
@@ -143,6 +142,5 @@
         <code value="Period"/>
       </type>
     </element>
-
   </differential>
 </StructureDefinition>

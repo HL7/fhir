@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceRequest"/>
+  <title value="DeviceRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -325,7 +328,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -392,7 +395,7 @@
       <path value="DeviceRequest.doNotPerform"/>
       <short value="True if the request is to stop or not to start using the device"/>
       <definition value="If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses."/>
-      <comment value="If do not perform is not specified, the request is a positive request e.g. &#34;do perform&#34;. DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as 'do not perform'."/>
+      <comment value="If do not perform is not specified, the request is a positive request e.g. &quot;do perform&quot;. DeviceRequest.reasonCode includes the reason for marking the DeviceRequest as 'do not perform'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -644,7 +647,7 @@
       </extension>
       <path value="DeviceRequest.occurrence[x]"/>
       <short value="Desired time or schedule for use"/>
-      <definition value="The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. &#34;Every 8 hours&#34;; &#34;Three times a day&#34;; &#34;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&#34;; &#34;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&#34;."/>
+      <definition value="The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -758,7 +761,7 @@
           <valueString value="DeviceRequestParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &#34;Primary physician&#34;, &#34;Team coordinator&#34;, &#34;Caregiver&#34;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -866,8 +869,8 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-				<code value="boolean"/>
-			</type>
+        <code value="boolean"/>
+      </type>
     </element>
     <element id="DeviceRequest.asNeededFor">
       <path value="DeviceRequest.asNeededFor"/>
@@ -877,7 +880,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
-      </type>  
+      </type>
     </element>
     <element id="DeviceRequest.insurance">
       <path value="DeviceRequest.insurance"/>
@@ -960,7 +963,7 @@
       <path value="DeviceRequest.relevantHistory"/>
       <short value="Request provenance"/>
       <definition value="Key events in the history of the request."/>
-      <comment value="This might not include provenances for all versions of the request - only those deemed &#34;relevant&#34; or important.&#xD;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a &#34;relevant&#34; change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#xD;All Provenances should have some historical version of this Request as their subject."/>
+      <comment value="This might not include provenances for all versions of the request - only those deemed &quot;relevant&quot; or important.&#xD;This SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a &quot;relevant&quot; change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude&#xD;All Provenances should have some historical version of this Request as their subject."/>
       <min value="0"/>
       <max value="*"/>
       <type>

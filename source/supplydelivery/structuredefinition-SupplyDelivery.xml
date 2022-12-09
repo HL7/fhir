@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SupplyDelivery"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SupplyDelivery"/>
+  <title value="SupplyDelivery"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -213,7 +216,7 @@
         <map value=".participation[typeCode=SBJ].role"/>
       </mapping>
     </element>
-    <element id="SupplyDelivery.type"> 
+    <element id="SupplyDelivery.type">
       <path value="SupplyDelivery.type"/>
       <short value="Category of supply event"/>
       <definition value="Indicates the type of supply being provided.  Examples include: Medication, Device, Biologically Derived Product."/>
@@ -253,7 +256,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=PRD].role"/> 
+        <map value=".participation[typeCode=PRD].role"/>
       </mapping>
     </element>
     <element id="SupplyDelivery.suppliedItem.quantity">
@@ -293,7 +296,7 @@
         </extension>
         <strength value="example"/>
         <description value="The item that was delivered."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/> 
+        <valueSet value="http://hl7.org/fhir/ValueSet/supplydelivery-supplyitemtype"/>
       </binding>
       <mapping>
         <identity value="rim"/>

@@ -638,6 +638,47 @@ used instead. The alternate concept can have any level of specificity in an <cod
   </ul>
 </ol>
 <p>
+For clarity, this table summarises the rules around extensibility for each bindable data type:  
+</p>
+<table class="grid">
+<tr><td>CodeableConcept</td><td> 
+<ol>
+<li>a Coding drawn from the ValueSet is present, or</li>
+<li>a Coding that represents a concept inexpressable by the ValueSet is present, or</li>
+<li>CodeableConcept.text present with no Codings, or</li>
+<li>any extension is present that conveys an alternative concept inexpressable by the ValueSet</li>
+</ol>
+</td></tr>
+<tr><td>Coding </td><td> 
+<ol>
+<li>a Coding drawn from the ValueSet is present, or</li>
+<li>a Coding that represents a concept inexpressable by the ValueSet is present, or</li>
+<li>any extension is present that conveys an alternative concept inexpressable by the ValueSet</li>
+</ol>
+</td></tr>
+<tr><td>Quantity </td><td> 
+<ol>
+<li>Quantity.code and Quantity.system are from the ValueSet, or</li>
+<li>Quantity.code and Quantity.system represents a concept inexpressable by the ValueSet is present, or</li>
+<li>any Quantity.extension is present that conveys an alternate unit concept inexpressable by the ValueSet</li>
+</ol>
+</td></tr>
+<tr><td>uri, string </td><td> 
+<ol>
+  <li>a value drawn from the ValueSet is present, or</li>
+  <li>A value expressing a concept inexpressable by the ValueSet is present</li>
+  <li>any extension is present that conveys an alternative concept inexpressable by the ValueSet (e.g., if a datatype other than URI needs to be conveyed)</li>
+</ol>
+</td></tr>
+<tr><td>code </td><td> 
+<ol>
+<li>a value drawn from the ValueSet is present, or</li>
+<li>any extension is present that conveys an alternative concept inexpressable by the ValueSet</li>
+</ol>
+</td></tr>
+</table>
+
+<p>
 The same rules apply for the <code>concept</code> property of a <a href="references.html#CodeableReference">CodeableReference</a>.   
 </p>
 <p>
@@ -780,7 +821,8 @@ underlying code system, in which case the list of valid concepts may change over
 </li>
 <li><a href="extension-elementdefinition-minvalueset.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
 </ul>
-<a name="strings"></a>
+<!--
+  <a name="strings"></a>
 <h3>Binding String Values</h3>
 <p>
 In a few special cases, humans customarily use codes directly for elements that have type "string". A typical case is codes for states,
@@ -789,6 +831,7 @@ An element of type <a href="datatypes.html#string">string</a> or <a href="dataty
 When a string or URI is bound to a value set, the value property SHALL contain the code specified by the value set, and the system
 and display values are ignored.
 </p>
+-->
 <a name="Terminology-Service"></a>
 <h3>Terminology Service</h3>
 <p>

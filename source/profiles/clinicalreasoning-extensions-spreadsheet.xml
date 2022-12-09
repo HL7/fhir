@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Bryn</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-08-30T02:05:31Z</LastSaved>
+  <LastSaved>2022-12-09T09:49:16Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -4118,7 +4118,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="66" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="66" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4165,6 +4165,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">??? Mapping</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">                      <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Change column name to one from mappingSpaces.xml.  Add more if needed</Font>                   </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Display Hint</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">                      <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Provides guidance to narrative auto-generator.  Check Confluence documentation</Font>                   </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">                      <Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Not published</Font>                   </ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">standards-status</Data></Cell>
+    <Cell><Data ss:Type="String">standards-status-reason</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
@@ -4618,9 +4620,12 @@
     <Cell><Data ss:Type="String">relativeDateTime</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">Relative Date Time</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A date/time that is specified relative to another event</Data></Cell>
     <Cell><Data ss:Type="String">A date/time value that is determined based on a duration offset from a target event</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">deprecated</Data></Cell>
+    <Cell><Data ss:Type="String">This extension is deprecated, use the [relative-date](extension-relative-date.html) extension instead</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell><Data ss:Type="String">relativeDateTime.target</Data></Cell>
@@ -4656,6 +4661,7 @@
     <Cell><Data ss:Type="String">cdsHooksEndpoint</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">CDS Hooks Endpont</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Surface this ECA Rule here</Data></Cell>
@@ -4665,6 +4671,7 @@
     <Cell><Data ss:Type="String">contactReference</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell><Data ss:Type="String">Conact Reference</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Reference(Person | Group | Device | Organization)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Who or what the contact is</Data></Cell>
@@ -4674,6 +4681,7 @@
     <Cell><Data ss:Type="String">contributionTime</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell><Data ss:Type="String">Contribution Time</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">When the contribution was made</Data></Cell>
@@ -4683,6 +4691,7 @@
     <Cell><Data ss:Type="String">contactAddress</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
+    <Cell><Data ss:Type="String">Contact Address</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Address</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
@@ -4692,6 +4701,7 @@
     <Cell><Data ss:Type="String">certainty</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">Certainty</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Certainty or quality rating</Data></Cell>
     <Cell><Data ss:Type="String">An assessment of certainty, confidence, or quality of the item on which it appears</Data></Cell>
@@ -4737,7 +4747,7 @@
     <Cell><Data ss:Type="String">knowledgeCapability</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">knowledgeCapability</Data></Cell>
+    <Cell><Data ss:Type="String">Knowledge Capability</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">KnowledgeCapability</Data></Cell>
@@ -4749,7 +4759,7 @@
     <Cell><Data ss:Type="String">knowledgeRepresentationLevel</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">knowledgeRepresentationLevel</Data></Cell>
+    <Cell><Data ss:Type="String">Knowledge Representation Level</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:Index="10"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
@@ -4761,7 +4771,7 @@
     <Cell><Data ss:Type="String">artifactComment</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">artifactComment</Data></Cell>
+    <Cell><Data ss:Type="String">Artifact Comment</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Additional documentation, review, or usage guidance</Data></Cell>
     <Cell><Data ss:Type="String">A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user</Data></Cell>
@@ -4817,7 +4827,7 @@
     <Cell><Data ss:Type="String">directReferenceCode</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">directReferenceCode</Data></Cell>
+    <Cell><Data ss:Type="String">Direct Reference Code</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A code directly referenced by the artifact</Data></Cell>
@@ -4835,7 +4845,7 @@
     <Cell><Data ss:Type="String">logicDefinition</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">logicDefinition</Data></Cell>
+    <Cell><Data ss:Type="String">Logic Definition</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A logic definition used in the artifact</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Represents a specific logic definition used by the artifact</Data></Cell>
@@ -4927,7 +4937,7 @@
     <Cell><Data ss:Type="String">inputParameters</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">inputParameters</Data></Cell>
+    <Cell><Data ss:Type="String">input Parameters</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Reference(Parameters)</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">What parameters</Data></Cell>
@@ -4938,7 +4948,7 @@
     <Cell><Data ss:Type="String">targetInvariant</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">targetInvariant</Data></Cell>
+    <Cell><Data ss:Type="String">Target Invariant</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">A constraint on the target resource</Data></Cell>
     <Cell><Data ss:Type="String">Specifies an invariant that is enforced in the context of an instantiated resource</Data></Cell>
@@ -4979,7 +4989,7 @@
     <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
     <Cell><Data ss:Type="String">Element</Data></Cell>
     <Cell><Data ss:Type="String">Expression</Data></Cell>
-    <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
+    <Cell><Data ss:Type="String">Alternative Expression</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Equivalent expression in an alternate language</Data></Cell>
@@ -4991,7 +5001,7 @@
     <Cell><Data ss:Type="String">supportedCqlVersion</Data></Cell>
     <Cell><Data ss:Type="String">Resource</Data></Cell>
     <Cell><Data ss:Type="String">CapabilityStatement.rest</Data></Cell>
-    <Cell><Data ss:Type="String">supportedCqlVersion</Data></Cell>
+    <Cell><Data ss:Type="String">Supported CQL Version</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">What version of CQL is supported</Data></Cell>
@@ -5014,9 +5024,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>59</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

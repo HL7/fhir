@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NutritionIntake"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -25,6 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionIntake"/>
+  <title value="NutritionIntake"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -208,7 +211,7 @@
       <path value="NutritionIntake.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the NutritionIntake."/>
-      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;not-taken&#34;, &#34;on-hold&#34;, &#34;cancelled&#34; or &#34;entered-in-error&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-taken&quot;, &quot;on-hold&quot;, &quot;cancelled&quot; or &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -295,7 +298,7 @@
       <path value="NutritionIntake.occurrence[x]"/>
       <short value="The date/time or interval when the food or fluid is/was consumed"/>
       <definition value="The interval of time during which it is being asserted that the patient is/was consuming the food or fluid."/>
-      <comment value="This attribute reflects the period over which the patient consumed the food fluid and is expected to be populated on the majority of NutritionIntake. If the food or fluid is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &#34;end&#34; date will be omitted.  If the end date is known, then it is included as the &#34;end date&#34;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+      <comment value="This attribute reflects the period over which the patient consumed the food fluid and is expected to be populated on the majority of NutritionIntake. If the food or fluid is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
       <min value="0"/>
       <max value="1"/>
       <type>

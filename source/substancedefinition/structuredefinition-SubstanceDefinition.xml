@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SubstanceDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceDefinition"/>
+  <title value="SubstanceDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -443,7 +446,7 @@
     </element>
     <element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,825"/>      
+        <valueCode value="370,825"/>
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -530,8 +533,8 @@
         <valueCode value="468,733"/>
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
-        <short value="The average mass of a molecule of a compound"/>
-        <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
+      <short value="The average mass of a molecule of a compound"/>
+      <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -666,8 +669,8 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularFormula">
       <path value="SubstanceDefinition.structure.molecularFormula"/>
-        <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
-        <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
+      <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
+      <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -748,7 +751,7 @@
     </element>
     <element id="SubstanceDefinition.structure.representation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="730,630"/> <!-- was 691,580 -->
+        <valueCode value="730,630"/>
       </extension>
       <path value="SubstanceDefinition.structure.representation"/>
       <short value="A depiction of the structure or characterization of the substance"/>
@@ -782,7 +785,6 @@
         <description value="A format of a substance representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-type"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="Structural_Representation.Structural_Representation_Type"/>
@@ -821,7 +823,6 @@
         <description value="A format of a substance representation."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-representation-format"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -845,7 +846,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,922"/> <!-- was 221,880 -->
+        <valueCode value="300,922"/>
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -947,7 +948,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="570,350"/> <!-- was 470,350 --> 
+        <valueCode value="570,350"/>
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -1019,7 +1020,6 @@
         <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -1147,7 +1147,7 @@
     </element>
     <element id="SubstanceDefinition.name.official">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="730,530"/> <!-- 757,472 --> 
+        <valueCode value="730,530"/>
       </extension>
       <path value="SubstanceDefinition.name.official"/>
       <short value="Details of the official nature of this name"/>
@@ -1279,8 +1279,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.type">
       <path value="SubstanceDefinition.relationship.type"/>
-      <short value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;"/>
-      <definition value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;, &#34;starting material&#34;, &#34;polymorph&#34;, &#34;impurity of&#34;."/>
+      <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;"/>
+      <definition value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1354,8 +1354,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.comparator">
       <path value="SubstanceDefinition.relationship.comparator"/>
-      <short value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;"/>
-      <definition value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;."/>
+      <short value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;"/>
+      <definition value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

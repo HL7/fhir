@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Practitioner"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Practitioner"/>
+  <title value="Practitioner"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -106,7 +109,7 @@
     </element>
     <element id="Practitioner.identifier">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Under &#34;Comments&#34; it said: &#34;The identifier changes when a new/different person steps into the same role&#34;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
+        <valueString value="Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
       </extension>
       <path value="Practitioner.identifier"/>
       <short value="An identifier for the person as this agent"/>
@@ -358,7 +361,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./subjectOf/ObservationEvent[code=&#34;photo&#34;]/value"/>
+        <map value="./subjectOf/ObservationEvent[code=&quot;photo&quot;]/value"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -472,7 +475,7 @@
     </element>
     <element id="Practitioner.communication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Note: cannot be named &#34;language&#34; because of technical reasons."/>
+        <valueString value="Note: cannot be named &quot;language&quot; because of technical reasons."/>
       </extension>
       <path value="Practitioner.communication"/>
       <short value="A language the practitioner can use in patient communication"/>

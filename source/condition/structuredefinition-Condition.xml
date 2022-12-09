@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Condition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Condition"/>
+  <title value="Condition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -176,7 +179,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&#34;clinicalStatus&#34;, moodCode=EVN].value"/>
+        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;clinicalStatus&quot;, moodCode=EVN].value"/>
       </mapping>
     </element>
     <element id="Condition.verificationStatus">
@@ -217,7 +220,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&#34;verificationStatus&#34;, moodCode=EVN].value"/>
+        <map value="Observation ACT&#xA;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;verificationStatus&quot;, moodCode=EVN].value"/>
       </mapping>
       <mapping>
         <identity value="sct-attr"/>
@@ -292,7 +295,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;severity&#34;].value"/>
+        <map value="Can be pre/post-coordinated into value.  Or ./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;severity&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="sct-attr"/>
@@ -416,7 +419,7 @@
       <path value="Condition.encounter"/>
       <short value="The Encounter during which this Condition was created"/>
       <definition value="The Encounter during which this Condition was created or to which the creation of this record is tightly associated."/>
-      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. This record indicates the encounter this particular record is associated with.  In the case of a &#34;new&#34; diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first &#34;known&#34;."/>
+      <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. This record indicates the encounter this particular record is associated with.  In the case of a &quot;new&quot; diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first &quot;known&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -473,7 +476,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime.low or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;age at onset&#34;].value"/>
+        <map value=".effectiveTime.low or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age at onset&quot;].value"/>
       </mapping>
     </element>
     <element id="Condition.abatement[x]">
@@ -482,7 +485,7 @@
       </extension>
       <path value="Condition.abatement[x]"/>
       <short value="When in resolution/remission"/>
-      <definition value="The date or estimated date that the condition resolved or went into remission. This is called &#34;abatement&#34; because of the many overloaded connotations associated with &#34;remission&#34; or &#34;resolution&#34; - Some conditions, such as chronic conditions, are never really resolved, but they can abate."/>
+      <definition value="The date or estimated date that the condition resolved or went into remission. This is called &quot;abatement&quot; because of the many overloaded connotations associated with &quot;remission&quot; or &quot;resolution&quot; - Some conditions, such as chronic conditions, are never really resolved, but they can abate."/>
       <comment value="There is no explicit distinction between resolution and remission because in many cases the distinction is not clear. Age is generally used when the patient reports an age at which the Condition abated.  If there is no abatement element, it is unknown whether the condition has resolved or entered remission; applications and users should generally assume that the condition is still valid.  When abatementString exists, it implies the condition is abated.&#xA;Because a Condition.code can represent multiple levels of granularity and can be modified over time, the onset and abatement dates can have ambiguity whether those dates apply to the current Condition.code or an earlier representation of that Condition.code.   For example, if the Condition.code was initially documented as severe asthma, then it is ambiguous whether the onset and abatement dates apply to asthma (overall in that subject's lifetime) or when asthma transitioned to become severe."/>
       <min value="0"/>
       <max value="1"/>
@@ -508,7 +511,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;age at remission&#34;].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed"/>
+        <map value=".effectiveTime.high or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;age at remission&quot;].value or .inboundRelationship[typeCode=SUBJ]source[classCode=CONC, moodCode=EVN].status=completed"/>
       </mapping>
     </element>
     <element id="Condition.recordedDate">
@@ -614,12 +617,12 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
-	  <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,0"/>
       </extension>
       <path value="Condition.stage"/>
       <short value="Stage/grade, usually assessed formally"/>
-      <definition value="A simple summary of the stage such as &#34;Stage 3&#34; or &#34;Early Onset&#34;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease."/>
+      <definition value="A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -634,7 +637,7 @@
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;stage/grade&#34;]"/>
+        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;stage/grade&quot;]"/>
       </mapping>
     </element>
     <element id="Condition.stage.summary">
@@ -643,7 +646,7 @@
       </extension>
       <path value="Condition.stage.summary"/>
       <short value="Simple summary (disease specific)"/>
-      <definition value="A simple summary of the stage such as &#34;Stage 3&#34; or &#34;Early Onset&#34;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease."/>
+      <definition value="A simple summary of the stage such as &quot;Stage 3&quot; or &quot;Early Onset&quot;. The determination of the stage is disease-specific, such as cancer, retinopathy of prematurity, kidney diseases, Alzheimer's, or Parkinson disease."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -711,11 +714,11 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;stage type&#34;]"/>
+        <map value="./inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;stage type&quot;]"/>
       </mapping>
     </element>
     <element id="Condition.evidence">
-	  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -765,7 +768,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
   </differential>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="AdministrableProductDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AdministrableProductDefinition"/>
+  <title value="AdministrableProductDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -119,7 +122,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -240,8 +243,8 @@
     </element>
     <element id="AdministrableProductDefinition.device">
       <path value="AdministrableProductDefinition.device"/>
-      <short value="A device that is integral to the medicinal product, in effect being considered as an &#34;ingredient&#34; of the medicinal product"/>
-      <definition value="A device that is integral to the medicinal product, in effect being considered as an &#34;ingredient&#34; of the medicinal product. This is not intended for devices that are just co-packaged."/>
+      <short value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product"/>
+      <definition value="A device that is integral to the medicinal product, in effect being considered as an &quot;ingredient&quot; of the medicinal product. This is not intended for devices that are just co-packaged."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -256,7 +259,7 @@
     </element>
     <element id="AdministrableProductDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,25"/> <!-- was 500, 17 -->
+        <valueCode value="500,25"/>
       </extension>
       <path value="AdministrableProductDefinition.property"/>
       <short value="Characteristics e.g. a product's onset of action"/>

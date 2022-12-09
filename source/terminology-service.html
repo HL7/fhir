@@ -7,6 +7,8 @@
 <body>
 [%file newnavbar%]
 
+<%txheader service%>
+
 <h2>Terminology Service</h2>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 4</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 <p>
@@ -495,48 +497,45 @@ HTTP/1.1 200 OK
 <a name="standard-props"></a>
 <h4>Standard Properties</h4>
 <p>
-The following properties are defined for all code systems:
+  The following property names are defined in response to the $lookup operation from all code systems: 
 </p>
 <table class="grid">
  <tr>
   <td><b>Name</b></td>
   <td><b>Usage</b></td>
+  <td><b>Source</b></td>
  </tr>
  <tr>
+  <td>name</td>
+  <td>The name of the code system. Note that this was also known as <code>system</code>, but this is deprecated</td>
   <td>system</td>
-  <td>The name of the code system</td>
  </tr>
  <tr>
   <td>version</td>
   <td>The version of the code system used for the look up operation</td>
+  <td>system</td>
  </tr>
  <tr>
   <td>display</td>
   <td>The recommended display for the code, if one is known</td>
- </tr>
- <tr>
-  <td>definition</td>
-  <td>The definition for the code</td>
+  <td>designation</td>
  </tr>
  <tr>
   <td>designation</td>
   <td>Other designations for the code</td>
+  <td>designation</td>
  </tr>
  <tr>
   <td>lang.X</td>
   <td>Designations in language X (where X is an IETF Language code, see <a href="https://www.rfc-editor.org/rfc/rfc5646.html">BCP-47</a></td>
- </tr>
- <tr>
-  <td>parent</td>
-  <td>Parent codes for this code (for code systems with a defined hierarchy)</td>
- </tr>
- <tr>
-  <td>child</td>
-  <td>child codes of this code (for code systems with a defined hierarchy)</td>
+  <td>designation</td>
  </tr>
 </table>
 <p>
-In addition, any property codes defined by the code system (CodeSystem.property.code) can be used (and see the definitions for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, <a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a> in HL7 Terminology).
+In addition, any property codes defined by <a href="codesystem.html#defined-props">this specification</a>
+or by the CodeSystem (<a href="codesystem-definitions.html#CodeSystem.property">CodeSystem.property.code</a>) 
+can be returned (and see the definitions for <a href="https://terminology.hl7.org/SNOMEDCT.html">SNOMED CT</a>, 
+<a href="https://terminology.hl7.org/LOINC.html">LOINC</a>, and <a href="https://terminology.hl7.org/RxNorm.html">RxNorm</a> in HL7 Terminology).
 </p>
 
 <a name="validation"></a>

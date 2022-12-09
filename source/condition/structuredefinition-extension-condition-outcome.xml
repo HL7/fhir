@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="condition-outcome"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/condition-outcome"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1311"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="outcome"/>
-  <title value="Outcome"/>
+  <name value="ConditionOutcome"/>
+  <title value="Condition Outcome"/>
   <status value="draft"/>
   <date value="2015-02-21"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
@@ -23,7 +28,7 @@
       <value value="HL7"/>
     </telecom>
   </contact>
-  <description value="A result of the condition. The &#34;Cause of death&#34; for a patient is typically captured as an Observation.  The &#34;outcome&#34; doesn't imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active."/>
+  <description value="A result of the condition. The &quot;Cause of death&quot; for a patient is typically captured as an Observation.  The &quot;outcome&quot; doesn't imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -43,7 +48,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="A consequence of the Condition"/>
-      <definition value="A result of the condition. The &#34;Cause of death&#34; for a patient is typically captured as an Observation.  The &#34;outcome&#34; doesn't imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active."/>
+      <definition value="A result of the condition. The &quot;Cause of death&quot; for a patient is typically captured as an Observation.  The &quot;outcome&quot; doesn't imply causality.  Some outcomes might not be assessable until the condition.clinicalStatus is no longer active."/>
       <min value="0"/>
       <max value="1"/>
     </element>

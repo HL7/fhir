@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ExampleScenario"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -25,12 +27,13 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
-	<identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1065"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ExampleScenario"/>
+  <title value="ExampleScenario"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -84,8 +87,8 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
       </constraint>
       <constraint>
         <key value="exs-3"/>
@@ -227,9 +230,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.title"/>
       <short value="Name for this example scenario (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the ExampleScenario."/>
@@ -252,7 +255,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-			<isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -291,7 +294,7 @@
     <element id="ExampleScenario.date">
       <path value="ExampleScenario.date"/>
       <short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition')."/>
+      <definition value="The date  (and optionally time) when the example scenario was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the example scenario changes. (e.g. the 'content logical definition')."/>
       <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the example scenario. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
@@ -306,14 +309,14 @@
       </mapping>
     </element>
     <element id="ExampleScenario.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the example scenario."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the example scenario is the organization or individual primarily responsible for the maintenance and upkeep of the example scenario. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the example scenario. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &#34;authority/credibility&#34; of the example scenario.  May also allow for contact."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the example scenario.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -338,13 +341,13 @@
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.description"/>
       <short value="Natural language description of the ExampleScenario"/>
       <definition value="A free text natural language description of the ExampleScenario from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
+      <comment value="This description can be used to capture details such as comments about misuse. It is not a rendering of the ExampleScenario as conveyed in the 'text' field of the resource itself."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -389,13 +392,13 @@
       </binding>
     </element>
     <element id="ExampleScenario.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.purpose"/>
       <short value="The purpose of the example, e.g. to illustrate a scenario"/>
       <definition value="What the example scenario resource is created for. This should not be used to show the business purpose of the scenario itself, but the purpose of documenting a scenario."/>
-			<comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
+      <comment value="This element does not describe the usage of the example scenario. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this example scenario."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -429,9 +432,9 @@
       </mapping>
     </element>
     <element id="ExampleScenario.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -496,9 +499,9 @@
       </binding>
     </element>
     <element id="ExampleScenario.actor.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.actor.title"/>
       <short value="Label for actor when rendering"/>
       <definition value="The human-readable name for the actor used when rendering the scenario."/>
@@ -509,9 +512,9 @@
       </type>
     </element>
     <element id="ExampleScenario.actor.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.actor.description"/>
       <short value="Details about actor"/>
       <definition value="An explanation of who/what the actor is and its role in the scenario."/>
@@ -621,9 +624,9 @@
       </type>
     </element>
     <element id="ExampleScenario.instance.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.instance.title"/>
       <short value="Label for instance"/>
       <definition value="A short descriptive label the instance to be used in tables or diagrams."/>
@@ -634,9 +637,9 @@
       </type>
     </element>
     <element id="ExampleScenario.instance.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.instance.description"/>
       <short value="Human-friendly description of the instance"/>
       <definition value="An explanation of what the instance contains and what it's for."/>
@@ -690,9 +693,9 @@
       </type>
     </element>
     <element id="ExampleScenario.instance.version.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.instance.version.description"/>
       <short value="Details about version"/>
       <definition value="An explanation of what this specific version of the instance contains and represents."/>
@@ -781,9 +784,9 @@
       </constraint>
     </element>
     <element id="ExampleScenario.process.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.title"/>
       <short value="Label for procss"/>
       <definition value="A short descriptive label the process to be used in tables or diagrams."/>
@@ -795,9 +798,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.process.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.description"/>
       <short value="Human-friendly description of the process"/>
       <definition value="An explanation of what the process represents and what it does."/>
@@ -808,9 +811,9 @@
       </type>
     </element>
     <element id="ExampleScenario.process.preConditions">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.preConditions"/>
       <short value="Status before process starts"/>
       <definition value="Description of the initial state of the actors, environment and data before the process starts."/>
@@ -821,9 +824,9 @@
       </type>
     </element>
     <element id="ExampleScenario.process.postConditions">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.postConditions"/>
       <short value="Status after successful completion"/>
       <definition value="Description of the final state of the actors, environment and data after the process has been successfully completed."/>
@@ -956,9 +959,9 @@
       </type>
     </element>
     <element id="ExampleScenario.process.step.operation.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.step.operation.description"/>
       <short value="Human-friendly description of the operation"/>
       <definition value="An explanation of what the operation represents and what it does."/>
@@ -1005,7 +1008,6 @@
       <path value="ExampleScenario.process.step.operation.response"/>
       <short value="Instance transmitted on invocation response"/>
       <definition value="A reference to the instance that is transmitted from receiver to requester as part of the operation's synchronous response (if any)."/>
-      <!--			<comment value="Multiple responses can sometimes exist for a single operation.  E.g. the 'accept acknowledgement' and the 'application acknowledgement' for a single v2 request message."/>-->
       <min value="0"/>
       <max value="1"/>
       <contentReference value="#ExampleScenario.instance.containedInstance"/>
@@ -1021,9 +1023,9 @@
       </type>
     </element>
     <element id="ExampleScenario.process.step.alternative.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.step.alternative.title"/>
       <short value="Label for alternative"/>
       <definition value="The label to display for the alternative that gives a sense of the circumstance in which the alternative should be invoked."/>
@@ -1034,9 +1036,9 @@
       </type>
     </element>
     <element id="ExampleScenario.process.step.alternative.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ExampleScenario.process.step.alternative.description"/>
       <short value="Human-readable description of option"/>
       <definition value="A human-readable description of the alternative explaining when the alternative should occur rather than the base step."/>

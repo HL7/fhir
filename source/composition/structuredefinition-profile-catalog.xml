@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="catalog"/>
   <text>
     <status value="generated"/>
@@ -20,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Profile for Catalog"/>
+  <title value="Profile for Catalog"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2014-01-31"/>
@@ -141,6 +144,5 @@
       <min value="0"/>
       <max value="*"/>
     </element>
-    
   </differential>
 </StructureDefinition>

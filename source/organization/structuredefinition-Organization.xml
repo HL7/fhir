@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Organization"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Organization"/>
+  <title value="Organization"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -221,7 +224,7 @@
     </element>
     <element id="Organization.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="If you need multiple names to cater for acronyms and &#34;trading under&#34; names, use an extension &#34;alias&#34; instead."/>
+        <valueString value="If you need multiple names to cater for acronyms and &quot;trading under&quot; names, use an extension &quot;alias&quot; instead."/>
       </extension>
       <path value="Organization.name"/>
       <short value="Name used for the organization"/>
@@ -271,7 +274,7 @@
         <map value=".name"/>
       </mapping>
     </element>
-	<element id="Organization.description">
+    <element id="Organization.description">
       <path value="Organization.description"/>
       <short value="Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name"/>
       <definition value="Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected."/>
