@@ -72,7 +72,7 @@ many applications transfer resources as well&#10;
       </property>
       <concept>
         <code value="will-send"/>
-        <display value="Conformant Applications SHALL/SHOULD send this element if a value is known, and allowed to be shared"/>
+        <display value="Conformant Applications SHALL/SHOULD be capable of sending this element and, if the element has a value and is allowed to be shared, include it when sending the resource"/>
         <definition value="Notes: This implementation obligation means that whenever the producer knows the correct value for an element, it populates it, subject to security, consent and privacy considerations"/>
         <property>
           <code value="should-shall"/>
@@ -82,8 +82,8 @@ many applications transfer resources as well&#10;
     </concept>
     <concept>
       <code value="use-reason"/>
-      <display value="Conformant Applications SHALL/SHOULD provide an element with a DataAbsentReason or a NullFlavor if a value is not known and the element is mandatory"/>
-      <definition value="Notes: When no value for an element is known, the producer populates the element with a DataAbsentReason or a NullFlavor. If no particular reason is known or reportable, the DataAbsentReason 'unknown' is used. Which particular extension can be used, see below"/>
+      <display value="Conformant Applications SHALL/SHOULD provide an element with a DataAbsentReason or a NullFlavor (or equivalent) if a value is not known and the element is mandatory"/>
+      <definition value="Notes: When no value for an element is known, the producer populates the element with a [DataAbsentReason](extension-data-absent-reason.html) or a [NullFlavor](extension-iso21090-nullflavor.html) (or equivalent). If no particular reason is known or reportable, the DataAbsentReason 'unknown' is used. Which particular extension can be used, see below"/>
       <property>
         <code value="should-shall"/>
         <valueBoolean value="true"/>
@@ -92,7 +92,7 @@ many applications transfer resources as well&#10;
     <concept>
       <code value="in-narrative"/>
       <display value="Conformant Applications SHALL/SHOULD ensure that this data element is represented in any human readable representation in a resource"/>
-      <definition value="Notes: When no value for an element is known, the producer populates the element with a DataAbsentReason or a NullFlavor. If no particular reason is known or reportable, the DataAbsentReason 'unknown' is used. Which particular extension can be used, see below"/>
+      <definition value="Notes: When no value for an element is known, the producer populates the element with a [DataAbsentReason](extension-data-absent-reason.html) or a [NullFlavor](extension-iso21090-nullflavor.html) (or equivalent). If no particular reason is known or reportable, the DataAbsentReason 'unknown' is used. Which particular extension can be used, see below"/>
       <property>
         <code value="should-shall"/>
         <valueBoolean value="true"/>
@@ -152,7 +152,7 @@ many applications transfer resources as well&#10;
     <concept>
       <code value="no-error"/>
       <display value="Conformant Applications SHALL/SHOULD accept resources containing any valid value for the element without error"/>
-      <definition value="Notes: Applications are still able to inform the user that a value cannot be processed correctly, but applications aren't able to reject the information out of hand or ignore the element value in order to process the resource correctly (which would be allowed for elements that do not have this obligation). This obligation also applies to elements that only contain a DataAbsentReason or a NullFlavor, should either of these be allowed on the consumer obligations"/>
+      <definition value="Notes: Applications are still able to inform the user that a value cannot be processed correctly, but applications aren't able to reject the information out of hand or ignore the element value in order to process the resource correctly (which would be allowed for elements that do not have this obligation). This obligation also applies to elements that only contain a [DataAbsentReason](extension-data-absent-reason.html) or a [NullFlavor](extension-iso21090-nullflavor.html) (or equivalent), should either of these be allowed on the consumer obligations"/>
       <property>
         <code value="should-shall"/>
         <valueBoolean value="true"/>
@@ -187,7 +187,7 @@ many applications transfer resources as well&#10;
       <concept>
         <code value="process"/>
         <display value="Conformant Applications SHALL/SHOULD consider the value of this element when processing the resource as specified by the IG"/>
-        <definition value="Notes: this implies that the IG that specifies this obligation provides details about what processing is to be performed, and the obligation specifially relates to the processing specified in the IG DataAbsentReason or NullFlavor when handling the resource or the information in it as specified by the other obligations."/>
+        <definition value="Notes: this implies that the IG that specifies this obligation provides details about what processing is to be performed, and the obligation specifially relates to the processing specified in the IG [DataAbsentReason](extension-data-absent-reason.html) or [NullFlavor](extension-iso21090-nullflavor.html) or equivalent when handling the resource or the information in it as specified by the other obligations."/>
         <property>
           <code value="should-shall"/>
           <valueBoolean value="true"/>
