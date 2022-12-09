@@ -1,1 +1,1 @@
-﻿C:\Users\lloyd.mckenzie\Documents\Git\_intelliJ\kindling\fhir\source\message-sync.html (The system cannot find the file specified)
+﻿misidentified resource /Users/jdln/workspace/fhir_build/fhir/source/observation/observation-example-rhstatus.xml expected 'rhstatus' found 'abostatus'
