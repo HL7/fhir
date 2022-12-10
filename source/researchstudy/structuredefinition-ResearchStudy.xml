@@ -411,75 +411,26 @@
       </mapping>
     </element>
     <element id="ResearchStudy.focus">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="840,0"/>
-      </extension>
       <path value="ResearchStudy.focus"/>
       <short value="Drugs, devices, etc. under study"/>
       <definition value="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="ResearchStudy.focus.productCode">
-      <path value="ResearchStudy.focus.productCode"/>
-      <short value="Identification of product under study"/>
-      <definition value="Identification of product under study. This may be any combination of code and/or name."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResearchStudyFocus"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Codes for medications, devices and other interventions."/>
-      </binding>
-      <mapping>
-        <identity value="clinicaltrials-gov"/>
-        <map value="Focus of Study"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="BRIDG5.1"/>
-        <map value="InterventionalStudyProtocol.interventionTypeCode"/>
-      </mapping>
-    </element>
-    <element id="ResearchStudy.focus.focusType">
-      <path value="ResearchStudy.focus.focusType"/>
-      <short value="medication | device | intervention | factor"/>
-      <definition value="Indicates whether the focus is a medication, a device, a procedure, a specific factor or some other intervention or characteristic."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ResearchStudyFocusType"/>
         </extension>
-        <strength value="extensible"/>
-        <description value="defn."/>
+        <strength value="example"/>
+        <description value="Common codes of research study focus"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/research-study-focus-type"/>
       </binding>
-    </element>
-    <element id="ResearchStudy.focus.factor">
-      <path value="ResearchStudy.focus.factor"/>
-      <short value="An independent variable manipulated by the experimentalist"/>
-      <definition value="A factor corresponds to an independent variable manipulated by the experimentalist with the intention to affect biological systems in a way that can be measured by an assay."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
     </element>
     <element id="ResearchStudy.condition">
       <path value="ResearchStudy.condition"/>
