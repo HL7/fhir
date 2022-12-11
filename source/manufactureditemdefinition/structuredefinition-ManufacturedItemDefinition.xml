@@ -404,9 +404,9 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.location">
       <path value="ManufacturedItemDefinition.component.constituent.location"/>
-      <short value="The type of location of the constituent within this component e.g. intragranular, blend"/>
-      <definition value="The type of location of the constituent within this component e.g. intragranular, blend."/>
-      <min value="0"/>
+    	<short value="The physical location of the constituent/ingredient within the component"/>
+    	<definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc."/>
+    	<min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
@@ -424,10 +424,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="ManufacturedItemDefinition.component.constituent.locationForIngredient">
-      <path value="ManufacturedItemDefinition.component.constituent.locationForIngredient"/>
-      <short value="An ingredient that this component is the location of in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
-      <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it."/>
+    <element id="ManufacturedItemDefinition.component.constituent.hasIngredient">
+      <path value="ManufacturedItemDefinition.component.constituent.hasIngredient"/>
+    	<short value="The ingredient that is the constituent of the given component"/>
+    	<definition value="The ingredient that is the constituent of the given component."/>
       <min value="0"/>
       <max value="*"/>
       <type>
