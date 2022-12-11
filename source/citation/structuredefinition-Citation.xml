@@ -1520,7 +1520,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.summary.type">
       <path value="Citation.citedArtifact.contributorship.summary.type"/>
-      <short value="Either authorList or contributorshipStatement"/>
+      <short value="Such as author list, contributorship statement, funding statement, acknowledgements statement, or conflicts of interest statement"/>
       <definition value="Used most commonly to express an author list or a contributorship statement."/>
       <min value="0"/>
       <max value="1"/>
