@@ -46,8 +46,8 @@
       <preferred value="true"/>
       <language>
          <coding>
-            <system value="http://example.europa.eu/fhir/Language"/>
-            <code value="100000072147"/>
+         	<system value="http://tools.ietf.org/html/bcp47"/>
+            <code value="en"/>
             <display value="English"/>
          </coding>
       </language>
@@ -64,9 +64,9 @@
       <preferred value="false"/>
       <language>
          <coding>
-            <system value="http://example.europa.eu/fhir/Language"/>
-            <code value="100000072181"/>
-            <display value="Greek, Modern (1453-)"/>
+         	<system value="http://tools.ietf.org/html/bcp47"/>
+            <code value="el"/>
+            <display value="Greek"/>
          </coding>
       </language>
    </name>
@@ -82,8 +82,8 @@
       <preferred value="false"/>
       <language>
          <coding>
-            <system value="http://example.europa.eu/fhir/Language"/>
-            <code value="100000072142"/>
+         	<system value="http://tools.ietf.org/html/bcp47"/>
+            <code value="bg"/>
             <display value="Bulgarian"/>
          </coding>
       </language>
@@ -100,8 +100,8 @@
       <preferred value="false"/>
       <language>
          <coding>
-            <system value="http://example.europa.eu/fhir/Language"/>
-            <code value="100000072147"/>
+         	<system value="http://tools.ietf.org/html/bcp47"/>
+            <code value="en"/>
             <display value="English"/>
          </coding>
       </language>
