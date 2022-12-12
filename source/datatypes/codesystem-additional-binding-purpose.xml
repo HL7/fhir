@@ -25,9 +25,14 @@
     <definition value="The minimum allowable value set - any conformant system SHALL support all these codes"/>
   </concept>
   <concept>
-    <code value="conformance"/>
+    <code value="required"/>
+    <display value="Required Binding"/>
+    <definition value="This value set is used as a required binding (in addition to the base binding (not a replacement), usually in a particular usage context)"/>
+  </concept>
+  <concept>
+    <code value="extensible"/>
     <display value="Conformance Binding"/>
-    <definition value="This value set is used as a validation criteria (in addition to the base binding, usually in a particular usage context)"/>
+    <definition value="This value set is used as an extensible binding (in addition to the base binding (not a replacement), usually in a particular usage context)"/>
   </concept>
   <concept>
     <code value="candidate"/>
