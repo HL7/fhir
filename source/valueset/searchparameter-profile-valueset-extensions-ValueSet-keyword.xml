@@ -10,6 +10,5 @@
   <base value="ValueSet"/>
   <type value="string"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-keyWord').value"/>
-  <!--<xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-keyWord']/f:valueString | /f:#keyWord"/> -->
   <processingMode value="normal"/>
 </SearchParameter>

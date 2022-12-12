@@ -64,7 +64,6 @@ find the structure when registered in repositories.
  <tr><td>description</td><td>A free text natural language description of the structure and its use</td></tr>
  <tr><td>purpose</td><td>Why this structure was created - what the intent of it is</td></tr>
  <tr><td>useContext &amp; Jurisdiction</td><td>Computable details about purpose and scope of use</td></tr>
- <tr><td>keyword</td><td>A set of terms from external terminologies that may be used to assist with indexing and searching of StructureDefinitions</td></tr>
  <tr><td>copyright</td><td>Use and/or publishing restrictions</td></tr>
  <tr><td>fhirVersion</td><td>The version of the FHIR specification on which this structure is based. It is not necessary to specify the version, 
  as most StructureDefinitions are valid across multiple versions, and the validity of a structure against a particular version of FHIR can easily be checked by tooling.</td></tr>

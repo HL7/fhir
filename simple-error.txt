@@ -1,1 +1,1 @@
-﻿Errors executing build. Details logged.
+﻿misidentified resource /Users/jdln/workspace/fhir_build/fhir/source/observation/observation-example-rhstatus.xml expected 'rhstatus' found 'abostatus'

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DocumentReference"/>
   <meta>
     <lastUpdated value="2022-06-09T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DocumentReference"/>
+  <title value="DocumentReference"/>
   <status value="draft"/>
   <date value="2022-06-09T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -43,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &#34;document&#34; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
+  <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -89,7 +92,7 @@
     <element id="DocumentReference">
       <path value="DocumentReference"/>
       <short value="A reference to a document"/>
-      <definition value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &#34;document&#34; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
+      <definition value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
       <comment value="Usually, this is used for documents other than those defined by FHIR."/>
       <min value="0"/>
       <max value="*"/>
@@ -98,7 +101,6 @@
         <severity value="warning"/>
         <human value="facilityType SHALL only be present if context is not an encounter"/>
         <expression value="facilityType.empty() or context.where(resolve() is Encounter).empty()"/>
-        <xpath value="true"/>
         <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </constraint>
       <constraint>
@@ -106,7 +108,6 @@
         <severity value="warning"/>
         <human value="practiceSetting SHALL only be present if context is not present"/>
         <expression value="practiceSetting.empty() or context.where(resolve() is Encounter).empty()"/>
-        <xpath value="true"/>
         <source value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </constraint>
       <mapping>
@@ -119,7 +120,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Document[classCode=&#34;DOC&#34; and moodCode=&#34;EVN&#34;]"/>
+        <map value="Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -129,17 +130,17 @@
         <identity value="w5"/>
         <map value="infrastructure.documents"/>
       </mapping>
-	  <mapping>
-	    <identity value="xds"/>
-		<map value="DocumentEntry"/>
-	  </mapping>
+      <mapping>
+        <identity value="xds"/>
+        <map value="DocumentEntry"/>
+      </mapping>
     </element>
     <element id="DocumentReference.identifier">
       <path value="DocumentReference.identifier"/>
       <short value="Business identifiers for the document"/>
       <definition value="Other business identifiers associated with the document, including version independent identifiers."/>
-      <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
       <comment value="The structure and format of this identifier would be consistent with the specification corresponding to the format of the document. (e.g. for a DICOM standard document, a 64-character numeric UID; for an HL7 CDA format, the CDA Document Id root and extension)."/>
+      <requirements value="Document identifiers usually assigned by the source of the document, or other business identifiers such as XDS DocumentEntry.uniqueId and DocumentEntry.entryUUID. These identifiers are specific to this instance of the document."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -253,7 +254,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="interim: .completionCode=&#34;IN&#34; &amp; ./statusCode[isNormalDatatype()]=&#34;active&#34;;  final: .completionCode=&#34;AU&#34; &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;complete&#34; and not(./inboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()]/source[subsumesCode(&#34;ActClass#CACT&#34;) and moodCode=&#34;EVN&#34; and domainMember(&#34;ReviseDocument&#34;, code) and isNormalAct()]);  amended: .completionCode=&#34;AU&#34; &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;complete&#34; and ./inboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()]/source[subsumesCode(&#34;ActClass#CACT&#34;) and moodCode=&#34;EVN&#34; and domainMember(&#34;ReviseDocument&#34;, code) and isNormalAct() and statusCode=&#34;completed&#34;];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;obsolete&#34;"/>
+        <map value="interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;  final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct()]);  amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseDocument&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot;"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -375,7 +376,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;EVN&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -415,7 +416,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;SBJ&#34;].role[typeCode=&#34;PAT&#34;]"/>
+        <map value=".participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -456,14 +457,14 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(highest(./outboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()], priorityNumber)/target[moodCode=&#34;EVN&#34; and classCode=(&#34;ENC&#34;, &#34;PCPR&#34;) and isNormalAct])"/>
+        <map value="unique(highest(./outboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()], priorityNumber)/target[moodCode=&quot;EVN&quot; and classCode=(&quot;ENC&quot;, &quot;PCPR&quot;) and isNormalAct])"/>
       </mapping>
     </element>
     <element id="DocumentReference.event">
       <path value="DocumentReference.event"/>
       <short value="Main clinical acts documented"/>
-      <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the type Code, such as a &#34;History and Physical Report&#34; in which the procedure being documented is necessarily a &#34;History and Physical&#34; act."/>
-      <comment value="An event can further specialize the act inherent in the type, such as  where it is simply &#34;Procedure Report&#34; and the procedure was a &#34;colonoscopy&#34;. If one or more event codes are included, they shall not conflict with the values inherent in the class or type elements as such a conflict would create an ambiguous situation."/>
+      <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the type Code, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
+      <comment value="An event can further specialize the act inherent in the type, such as  where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more event codes are included, they shall not conflict with the values inherent in the class or type elements as such a conflict would create an ambiguous situation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -517,7 +518,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;LOC&#34;].role[classCode=&#34;DSDLOC&#34;].code"/>
+        <map value=".participation[typeCode=&quot;LOC&quot;].role[classCode=&quot;DSDLOC&quot;].code"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -553,7 +554,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;LOC&#34;].role[classCode=&#34;DSDLOC&#34;].code"/>
+        <map value=".participation[typeCode=&quot;LOC&quot;].role[classCode=&quot;DSDLOC&quot;].code"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -617,7 +618,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".availabilityTime[type=&#34;TS&#34;]"/>
+        <map value=".availabilityTime[type=&quot;TS&quot;]"/>
       </mapping>
     </element>
     <element id="DocumentReference.author">
@@ -652,7 +653,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;AUT&#34;].role[classCode=&#34;ASSIGNED&#34;]"/>
+        <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -687,7 +688,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;AUTHEN&#34;].role[classCode=&#34;ASSIGNED&#34;]"/>
+        <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -745,7 +746,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./time[type=&#34;TS&#34; and isNormalDatatype()]"/>
+        <map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -781,7 +782,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./role[classCode=&#34;ASSIGNED&#34; and isNormalRole]/player[determinerCode=&#34;INST&#34; and classCode=(&#34;DEV&#34;, &#34;PSN&#34;) and isNormalEntity()] or ./role[classCode=&#34;ASSIGNED&#34; and isNormalRole and not(player)]/scoper[determinerCode=&#34;INST&#34; and classCode=&#34;ORG&#34; and isNormalEntity()]"/>
+        <map value="./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()] or ./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -809,13 +810,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;RCV&#34;].role[classCode=&#34;CUST&#34;].scoper[classCode=&#34;ORG&#34; and determinerCode=&#34;INST&#34;]"/>
+        <map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
       </mapping>
     </element>
     <element id="DocumentReference.relatesTo">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="DocumentReference.relatesTo"/>
       <short value="Relationships to other documents"/>
       <definition value="Relationships that this document has with other document references that already exist."/>
@@ -892,7 +893,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".target[classCode=&#34;DOC&#34;, moodCode=&#34;EVN&#34;].id"/>
+        <map value=".target[classCode=&quot;DOC&quot;, moodCode=&quot;EVN&quot;].id"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -902,7 +903,7 @@
         <identity value="cda"/>
         <map value="ClinicalDocument/relatedDocument/parentDocument"/>
       </mapping>
-     </element>
+    </element>
     <element id="DocumentReference.description">
       <path value="DocumentReference.description"/>
       <short value="Human-readable description"/>
@@ -921,7 +922,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].target.text"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target.text"/>
       </mapping>
       <mapping>
         <identity value="xds"/>
@@ -973,9 +974,9 @@
       </mapping>
     </element>
     <element id="DocumentReference.content">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
       <path value="DocumentReference.content"/>
       <short value="Document referenced"/>
       <definition value="The document and format referenced.  If there are multiple content element repetitions, these must all represent the same document in different format, or attachment metadata."/>
@@ -1028,9 +1029,9 @@
       </mapping>
     </element>
     <element id="DocumentReference.content.profile">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="DocumentReference.content.profile"/>
       <short value="Content profile rules for the document"/>
       <definition value="An identifier of the document constraints, encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType."/>

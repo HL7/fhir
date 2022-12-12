@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Provenance"/>
   <meta>
     <lastUpdated value="2021-04-07T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Provenance"/>
+  <title value="Provenance"/>
   <status value="draft"/>
   <date value="2021-04-07T08:58:31.578+11:00"/>
   <publisher value="Health Level Seven International (Security)"/>
@@ -205,7 +208,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./inboundRelationship[isNormalActRelationship() and typeCode=&#34;SUBJ&#34;]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode='ED'/tel"/>
+        <map value="./inboundRelationship[isNormalActRelationship() and typeCode=&quot;SUBJ&quot;]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode='ED'/tel"/>
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
@@ -232,7 +235,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=&#34;LOC&#34; and determinerCode=&#34;INST&#34;]"/>
+        <map value="unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=&quot;LOC&quot; and determinerCode=&quot;INST&quot;]"/>
       </mapping>
       <mapping>
         <identity value="fhirauditevent"/>
@@ -248,7 +251,7 @@
       <short value="Authorization (purposeOfUse) related to the event"/>
       <definition value="The authorization (e.g., PurposeOfUse) that was used during the event being recorded."/>
       <requirements value="Record of any relevant security context, not restricted to purposeOfUse valueSet. May include security compartments, refrain, obligation, or other security tags."/>
-	  <alias value="PurposeOfEvent"/>
+      <alias value="PurposeOfEvent"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -356,15 +359,15 @@
         <identity value="w3c.prov"/>
         <map value="Activity.Activity"/>
       </mapping>
-    </element>    
-	<element id="Provenance.patient">
+    </element>
+    <element id="Provenance.patient">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
       <path value="Provenance.patient"/>
       <short value="The patient is the subject of the data created/updated (.target) by the activity"/>
       <definition value="The patient element is available to enable deterministic tracking of activities that involve the patient as the subject of the data used in an activity."/>
-	  <requirements value="When the .patient is populated it shall be accurate to the subject of the target data. The .patient shall not be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
+      <requirements value="When the .patient is populated it shall be accurate to the subject of the target data. The .patient shall not be populated when the target data created/updated (.target) by the activity does not involve a subject. Note that when the patient is an agent, they will be recorded as an agent. When the Patient resource is Created, Updated, or Deleted it will be recorded as an entity."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -388,7 +391,7 @@
         <map value="Entity.Identity"/>
       </mapping>
     </element>
-	<element id="Provenance.encounter">
+    <element id="Provenance.encounter">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
@@ -419,9 +422,9 @@
       </mapping>
     </element>
     <element id="Provenance.agent">
-		<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-			<valueCode value="right"/>
-		</extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="Provenance.agent"/>
       <short value="Actor involved"/>
       <definition value="An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place."/>
@@ -437,7 +440,6 @@
         <severity value="error"/>
         <human value="Who and onBehalfOf cannot be the same"/>
         <expression value="who.resolve().exists() and onBehalfOf.resolve().exists() implies who.resolve() != onBehalfOf.resolve()"/>
-        <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
       <constraint>
@@ -445,7 +447,6 @@
         <severity value="error"/>
         <human value="If who is a PractitionerRole, onBehalfOf can't reference the same Practitioner"/>
         <expression value="who.resolve().ofType(PractitionerRole).practitioner.resolve().exists() and onBehalfOf.resolve().ofType(Practitioner).exists() implies who.resolve().practitioner.resolve() != onBehalfOf.resolve()"/>
-        <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
       <constraint>
@@ -453,7 +454,6 @@
         <severity value="error"/>
         <human value="If who is an organization, onBehalfOf can't be a PractitionerRole within that organization"/>
         <expression value="who.resolve().ofType(Organization).exists() and onBehalfOf.resolve().ofType(PractitionerRole).organization.resolve().exists() implies who.resolve() != onBehalfOf.resolve().organization.resolve()"/>
-        <xpath value="true()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
       </constraint>
       <isSummary value="true"/>
@@ -596,9 +596,9 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
       </extension>
-		<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-			<valueCode value="right"/>
-		</extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="Provenance.entity"/>
       <short value="An entity used in this activity"/>
       <definition value="An entity used in this activity."/>

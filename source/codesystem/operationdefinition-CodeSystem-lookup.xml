@@ -116,7 +116,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: url, name, version (code system info) and code information: display, definition, designation, parent and child, and for designations, lang.X where X is a designation language code. Some of the properties are returned explicit in named parameters (when the names match), and the rest (except for lang.X) in the property parameter group"/>
+    <documentation value="A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: name, version (code system info) and code information: display, designation, and lang.X where X is a designation language code. These properties are returned explicitly in named out parameters with matching names, or in designations. In addition, any property codes defined by [this specification](codesystem.html#defined-props) or by the CodeSystem ([CodeSystem.property.code](codesystem-definitions.html#CodeSystem.property)) are allowed, and these are returned in the out parameter ```property```"/>
     <type value="code"/>
   </parameter>
   <parameter>

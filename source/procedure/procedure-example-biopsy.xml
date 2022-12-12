@@ -47,12 +47,14 @@
       <text value="Left forearm"/>
   </bodySite>
   <complication>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="67750007"/>
-      <display value="Ineffective airway clearance (finding)"/>
-    </coding>
-    <text value="Ineffective airway clearance"/>
+    <concept>
+		<coding>
+		  <system value="http://snomed.info/sct"/>
+		  <code value="67750007"/>
+		  <display value="Ineffective airway clearance (finding)"/>
+		</coding>
+		<text value="Ineffective airway clearance"/>
+	</concept>
   </complication>
   <followUp>
     <text value="Review in clinic"/>

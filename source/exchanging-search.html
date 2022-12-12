@@ -25,7 +25,7 @@
     The synchronous search flow is similar to that in basic <a href="exchanging-rest.html">FHIR REST</a> operations.  The main difference with search is the introduction of <a href="http.html#paging">paging</a> to allow large result sets to be retrieved in reasonable-sized chunks.
   </p>
   <p>
-    {% include search-sync.svg %}
+    [%file search-sync.svg %]
   </p>
   <a name="sync-1"> </a>
   <p>
@@ -46,7 +46,7 @@
     Asynchronous search is identical to <a href="exchanging-rest.html#async">RESTful</a> and <a href="exchanging-operation.html#async">operation</a> asynchronous flows.  Not all search approaches will support the asynchronous mechanism (this will be noted below in the section on each approach).  Also, not all <i>data sources</i> will support the asynchronous mode, even if it is allowed.  In an asynchronous request, there is no paging - all information is included in the file(s) produced by the asynchronous request
   </p>
   <p>
-    {% include rest-async.svg %}
+    [%file rest-async.svg %]
   </p>
   <a name="async-1"> </a>
   <p>

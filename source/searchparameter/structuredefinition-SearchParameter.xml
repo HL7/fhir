@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="SearchParameter"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -32,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SearchParameter"/>
+  <title value="SearchParameter"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -94,8 +96,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
@@ -103,23 +104,20 @@
         <severity value="error"/>
         <human value="If an expression is present, there SHALL be a processingMode"/>
         <expression value="expression.empty() or processingMode.exists()"/>
-        <xpath value="not(exists(f:xpath)) or exists(f:processingMode)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
         <key value="spd-2"/>
         <severity value="error"/>
-        <human value="Search parameters can only have chain names when the search parameter type is &#39;reference&#39;"/>
-        <expression value="chain.empty() or type = &#39;reference&#39;"/>
-        <xpath value="not(exists(f:chain)) or (f:type/@value = &#39;reference&#39;)"/>
+        <human value="Search parameters can only have chain names when the search parameter type is 'reference'"/>
+        <expression value="chain.empty() or type = 'reference'"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <constraint>
         <key value="spd-3"/>
         <severity value="error"/>
-        <human value="Search parameters comparator can only be used on type &#39;number&#39;, &#39;date&#39;, &#39;quantity&#39; or &#39;special&#39;."/>
-        <expression value="comparator.empty() or (type in (&#39;number&#39; | &#39;date&#39; | &#39;quantity&#39; | &#39;special&#39;))"/>
-        <xpath value="not(exists(f:comparator)) or (f:type/@value = &#39;number&#39;) or (f:type/@value = &#39;date&#39;) or (f:type/@value = &#39;quantity&#39;) or (f:type/@value = &#39;special&#39;)"/>
+        <human value="Search parameters comparator can only be used on type 'number', 'date', 'quantity' or 'special'."/>
+        <expression value="comparator.empty() or (type in ('number' | 'date' | 'quantity' | 'special'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/SearchParameter"/>
       </constraint>
       <mapping>
@@ -150,8 +148,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -210,6 +207,9 @@
       <isSummary value="true"/>
     </element>
     <element id="SearchParameter.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="SearchParameter.title"/>
       <short value="Name for this search parameter (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the search parameter."/>
@@ -283,8 +283,8 @@
     <element id="SearchParameter.date">
       <path value="SearchParameter.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the search parameter was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the search parameter. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the search parameter was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the search parameter. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -298,9 +298,12 @@
       </mapping>
     </element>
     <element id="SearchParameter.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="SearchParameter.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual tresponsible for the release and ongoing maintenance of the search parameter."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the search parameter is the organization or individual primarily responsible for the maintenance and upkeep of the search parameter. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the search parameter. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the search parameter.  May also allow for contact."/>
       <min value="0"/>
@@ -330,10 +333,13 @@
       <isSummary value="true"/>
     </element>
     <element id="SearchParameter.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="SearchParameter.description"/>
       <short value="Natural language description of the search parameter"/>
       <definition value="And how it used."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the search parameter as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the search parameter is presumed to be the predominant language in the place the search parameter was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the search parameter as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the search parameter is presumed to be the predominant language in the place the search parameter was created)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -378,10 +384,13 @@
       </binding>
     </element>
     <element id="SearchParameter.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="SearchParameter.purpose"/>
       <short value="Why this search parameter is defined"/>
       <definition value="Explanation of why this search parameter is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the search parameter. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this search parameter."/>
+      <comment value="This element does not describe the usage of the search parameter. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this search parameter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -468,18 +477,6 @@
       </type>
       <condition value="spd-1"/>
     </element>
-<!--    <element id="SearchParameter.xpath">
-      <path value="SearchParameter.xpath"/>
-      <short value="XPath that extracts the values"/>
-      <definition value="An XPath expression that returns a set of elements for the search parameter."/>
-      <comment value="Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    -->
     <element id="SearchParameter.processingMode">
       <path value="SearchParameter.processingMode"/>
       <short value="normal | phonetic | other"/>
@@ -592,7 +589,7 @@
       <path value="SearchParameter.chain"/>
       <short value="Chained names supported"/>
       <definition value="Contains the names of any search parameters which may be chained to the containing search parameter. Chained parameters may be added to search parameters of type reference and specify that resources will only be returned if they contain a reference to a resource which matches the chained parameter value. Values for this field should be drawn from SearchParameter.code for a parameter on the target resource type."/>
-      <comment value="Notes:&#10;&#10;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#10;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#10;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#10;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#10;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
+      <comment value="Notes:&#xA;&#xA;* Not all systems will declare chain values.  If no chain values are specified at all, then no presumptions can be made about the degree of chaining support available&#xA;* A server may use a single chain value of '*' to mean that all reference search types supported can be chained rather than enumerating all chain values&#xA;*  If a particular reference search parameter is supported, but not subsequent chaining, then just list that search parameter name - e.g. for Patient.practitioner, the chain value would be ```practitioner```&#xA;* If a particular reference search parameter is supported with unlimited chaining beneath it, then follow the search parameter name with '.'.  E.g. ```practitioner.```&#xA;* If there are specific (not unlimited) chaining paths allowed they can be explicitly enumerated.  E.g. ```practitioner.organization```"/>
       <min value="0"/>
       <max value="*"/>
       <type>

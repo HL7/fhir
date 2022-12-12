@@ -5,9 +5,9 @@
 <h2>Scope and Usage</h2>
 
 [%ballot-note fmg%]
-<a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appopriate to include in the FHIR specification. 
+<a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appropriate to include in the FHIR specification. 
 The resource covers domain content that is not considered specific to healthcare, and FMG is 
-still discussing whether alternative standards organizations exist that should standardise this content, 
+still discussing whether alternative standards organizations exist that should standardize this content, 
 and whether HL7 does or can have the correct community representation to support standardizing this 
 content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
 </p>

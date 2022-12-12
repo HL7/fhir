@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicinalProductDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicinalProductDefinition"/>
+  <title value="MedicinalProductDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -68,7 +71,7 @@
   <differential>
     <element id="MedicinalProductDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="340,30"/> <!-- 290,30 -->
+        <valueCode value="340,30"/>
       </extension>
       <path value="MedicinalProductDefinition"/>
       <short value="Detailed definition of a medicinal product"/>
@@ -741,7 +744,7 @@
     </element>
     <element id="MedicinalProductDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="60,201"/> <!-- 80, 177 -->
+        <valueCode value="60,201"/>
       </extension>
       <path value="MedicinalProductDefinition.name"/>
       <short value="The product's name, including full name and possibly coded parts"/>
@@ -809,7 +812,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.part">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="50,315"/> <!-- 50,292 -->
+        <valueCode value="50,315"/>
       </extension>
       <path value="MedicinalProductDefinition.name.part"/>
       <short value="Coding words or phrases of the name"/>
@@ -877,7 +880,7 @@
     </element>
     <element id="MedicinalProductDefinition.name.usage">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="30,70"/> <!-- was 50,42 -->
+        <valueCode value="30,70"/>
       </extension>
       <path value="MedicinalProductDefinition.name.usage"/>
       <short value="Country and jurisdiction where the name applies"/>
@@ -960,7 +963,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/> 
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="A human language."/>
@@ -1176,8 +1179,8 @@
         <valueCode value="800,400"/>
       </extension>
       <path value="MedicinalProductDefinition.characteristic"/>
-      <short value="Key product features such as &#34;sugar free&#34;, &#34;modified release&#34;"/>
-      <definition value="Allows the key product features to be recorded, such as &#34;sugar free&#34;, &#34;modified release&#34;, &#34;parallel import&#34;."/>
+      <short value="Key product features such as &quot;sugar free&quot;, &quot;modified release&quot;"/>
+      <definition value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1224,9 +1227,7 @@
       <path value="MedicinalProductDefinition.characteristic.value[x]"/>
       <short value="A value for the characteristic"/>
       <definition value="A value for the characteristic.text."/>
-      <!--comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. The usage of CodeableConcept etc."/-->
       <comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. (temporary text to make build work: The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc.)."/>
-      <!--comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/-->
       <min value="0"/>
       <max value="1"/>
       <type>

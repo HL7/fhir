@@ -17,7 +17,6 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="{{name}}.effectivePeriod"/>
-        <!--<xpath value="f:MetadataResource/f:effectivePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -32,7 +31,6 @@
         <code value="composed-of"/>
         <type value="reference"/>
         <expression value="{{name}}.relatedArtifact.where(type='composed-of').resource"/>
-        <!--<xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='composed-of']/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -46,7 +44,6 @@
         <code value="depends-on"/>
         <type value="reference"/>
         <expression value="{{name}}.relatedArtifact.where(type='depends-on').resource"/>
-        <!--<xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='depends-on']/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -60,7 +57,6 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="{{name}}.relatedArtifact.where(type='derived-from').resource"/>
-        <!--<xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='derived-from']/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -74,7 +70,6 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="{{name}}.relatedArtifact.where(type='predecessor').resource"/>
-        <!--<xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='predecessor']/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -88,7 +83,6 @@
         <code value="successor"/>
         <type value="reference"/>
         <expression value="{{name}}.relatedArtifact.where(type='successor').resource"/>
-        <!--<xpath value="f:MetadataResource/f:relatedArtifact[f:type/@value='successor']/f:resource"/> -->
       </SearchParameter>
     </resource>
   </entry>
@@ -102,7 +96,6 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="{{name}}.topic"/>
-        <!--<xpath value="f:MetadataResource/f:topic"/> -->
       </SearchParameter>
     </resource>
   </entry>

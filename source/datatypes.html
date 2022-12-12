@@ -35,7 +35,7 @@ resource elements. There are five categories of datatypes:
   <li>The base abstract types that provide <a href="types.html">the foundation for all types</a></li>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
   <li>General-purpose complex types, which are re-usable clusters of elements (<a href="#complex">below</a>)</li>
-  <li><a href="metadatatypes.html">Metadatatypes</a>: A set of types for use with metadata resources</li>
+  <li><a href="metadatatypes.html">MetaDatatypes</a>: A set of types for use with metadata resources</li>
   <li>Special purpose datatypes - defined elsewhere in the specification for specific usages:
     [%dtref Reference%], [%dtref Meta%], [%dtref Narrative%], [%dtref Extension%], [%dtref xhtml%], [%dtref ElementDefinition%] and [%dtref Dosage%].
   </li>
@@ -105,7 +105,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
+  <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable way for this at this time</td>
 </tr>
 
 <tr>
@@ -159,7 +159,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>date<a name="date"></a></td>
-  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
+  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates.</td>
   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
@@ -185,7 +185,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
 <tr>
   <td>decimal<a name="decimal"></a></td>
-  <td>Rational numbers that have a decimal representation. Decimals in FHIR can not have more than 18 digits and a decimal point. See below about the precision of the number</td>
+  <td>Rational numbers that have a decimal representation. Decimals in FHIR cannot have more than 18 digits and a decimal point. See below about the precision of the number</td>
   <td>union of xs:decimal and xs:double (see below for limitations)</td>
   <td>A JSON number (see below for limitations)</td>
 </tr>
@@ -257,7 +257,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>markdown<a name="markdown"></a></td>
-  <td>A FHIR <code>string</code> (see above) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
+  <td>A FHIR <code>string</code> (see below) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
   <td>xs:string</td>
   <td>JSON string</td>
 </tr>
@@ -395,56 +395,58 @@ Notes:
 </p>
 <ul>
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
- <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context</li>
+ <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context.</li>
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
-      <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes</li>
-      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance)</li>
-      <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a></li>
-      <li>In object code, implementations that might meet this constraint are GMP implementations or equivalents to Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field</li>
-      <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply</li>
+      <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes.</li>
+      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance).</li>
+      <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a>.</li>
+      <li>In object code, implementations that might meet this constraint are GMP implementations or equivalents to Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field.</li>
+      <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply.</li>
     </ul>
  </li>
- <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
+ <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
  <li>Issues with the specified regexes:
    <ul>
-     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes</li>
+     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes.</li>
      <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used.
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
-     <li>The unicode issues also apply to the regex for <code>code</code></li>
+     <li>The unicode issues also apply to the regex for <code>code</code>.</li>
      <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
-     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed</li>
+     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed.</li>
    </ul>
  </li>
- <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds</li>
+ <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds.</li>
  <li>About the id datatype:
    <ul>
-     <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
+     <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.</li>
      <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
-     <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype</li>
-     <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b)</li>
+     <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype.</li>
+     <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b).</li>
    </ul>
  </li>
  <li>About the <code>uri</code>, <code>url</code> and <code>canonical</code> datatypes:
    <ul>
-     <li>They all contain URIs, but differ in how applications resolve the reference</li>
-     <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other</li>
-     <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case</li>
-     <li>A general URI may be either a URL or a canonical URL or some other kind of URI</li>
+     <li>They all contain URIs, but differ in how applications resolve the reference.</li>
+     <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other.</li>
+     <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case.</li>
+     <li>A general URI may be either a URL or a canonical URL or some other kind of URI.</li>
    </ul>
  </li>
  <li>About the markdown datatype:
    <ul>
-     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format</li>
-     <li>Note that GFM prohibits Raw HTML</li>
-     <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy</li>
-     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed)</li>
-     <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit)</li>
+     <li>Markdown is a string, and subject to the same rules (e.g. length limit, valid characters)</li>
+     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions 
+         on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format, with the exception of support for inline HTML which is not supported.</li>
+     <li>Processors SHALL treat embedded XML tags as string content, not as tags. This may be done by pre-processing and escaping any <code>"&gt;"</code> 
+        characters preceding character content (<code>"&gt;"</code> becomes <code>"\&gt;"</code>) before processing the content or by using a markdown 
+        processor-specific flag that accomplishes the same effect. This means that HTML content cannot be embedded in markdown to influence rendering.</li>
+     <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
-		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes)</li>
+		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
    </ul>
  </li>
 </ul>
@@ -495,7 +497,7 @@ The full representation, with id, extensions and value, showing the id and exten
 </pre>
 <p><b>RDF</b></p>
 <p>
-The value is represented in RDF as a relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
+The value is represented in RDF as a relationship with the URI "http://hl7.org/fhir/value". Using the normal prefix, this becomes:
 </p>
 <pre class="rdf">
   fhir:Type.count [ fhir:value "2"^^xsd:integer ]
@@ -572,10 +574,9 @@ values are.
 
 <a name="Attachment"></a>
 <a name="attachment"></a>
-<h2 style="margin-bottom: 1px">
-Attachment
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Attachment</h2>
+[%dtstatus Attachment%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Attachment">Examples</a>, <a href="datatypes-definitions.html#Attachment">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Attachment">Mappings</a>, <a href="datatypes-extras.html#Attachment">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Attachment">R4 Conversions</a>.
 </p>
 
@@ -640,9 +641,11 @@ Attachment is used in the following places: [%dtusage Attachment%]
 <a name="coding"></a>
 <a name="codesystem"></a>
 <h2 style="margin-bottom: 1px">Coding</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+[%dtstatus Coding%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Coding">Examples</a>, <a href="datatypes-definitions.html#Coding">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Coding">Mappings</a>, <a href="datatypes-extras.html#Coding">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Coding">R4 Conversions</a>.
 </p>
+
 <p>
 A Coding is a representation of a defined concept using a symbol from a defined "code system"
 - see <a href="terminologies.html">Using Codes in resources</a> for more details.
@@ -760,12 +763,12 @@ in extensions, which are usually intended to be defined for a well-controlled co
 
 <a name="CodeableConcept"></a>
 <a name="codeableconcept"></a>
-<h2 style="margin-bottom: 1px">
-CodeableConcept
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">CodeableConcept</h2>
+[%dtstatus CodeableConcept%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#CodeableConcept">Examples</a>, <a href="datatypes-definitions.html#CodeableConcept">Detailed Descriptions</a>, <a href="datatypes-mappings.html#CodeableConcept">Mappings</a>, <a href="datatypes-extras.html#CodeableConcept">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#CodeableConcept">R4 Conversions</a>.
 </p>
+
 <p>
 A CodeableConcept represents a value that is usually supplied by providing a reference to one or more terminologies or ontologies but may also be defined by the
 provision of text. This is a common pattern in healthcare data.
@@ -842,13 +845,13 @@ CodeableConcept is used in the following places: [%dtusage CodeableConcept%]
 
 <a name="Quantity"></a>
 <a name="quantity"></a>
-<h2 style="margin-bottom: 1px">
-Quantity
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Quantity</h2>
+[%dtstatus Quantity%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Quantity">Examples</a>, <a href="datatypes-definitions.html#Quantity">Detailed Descriptions</a> and
 <a href="datatypes-mappings.html#Quantity">Mappings</a>, <a href="datatypes-extras.html#Quantity">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Quantity">R4 Conversions</a>.
 </p>
+
 <p>
 A measured amount (or an amount that can potentially be measured).
 </p>
@@ -997,13 +1000,13 @@ just rules applied where the Quantity type is used. There's another constraint -
 
 <a name="Money"></a>
 <a name="Money"></a>
-<h2 style="margin-bottom: 1px">
-Money
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Money</h2>
+[%dtstatus Money%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Money">Examples</a>, <a href="datatypes-definitions.html#Money">Detailed Descriptions</a> and
 <a href="datatypes-mappings.html#Money">Mappings</a>, <a href="datatypes-extras.html#Money">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Money">R4 Conversions</a>.
 </p>
+
 <p>
 An amount of currency.
 </p>
@@ -1055,12 +1058,12 @@ just rules applied where the Quantity type is used to represent Money amounts.
 
 <a name="Range"></a>
 <a name="range"></a>
-<h2 style="margin-bottom: 1px">
-Range
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Range</h2>
+[%dtstatus Range%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Range">Examples</a>, <a href="datatypes-definitions.html#Range">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Range">Mappings</a>, <a href="datatypes-extras.html#Range">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Range">R4 Conversions</a>.
 </p>
+
 <p>
 A set of ordered Quantity values defined by a low and high limit.
 </p>
@@ -1092,12 +1095,12 @@ Range is used in the following places: [%dtusage Range%]
 
 <a name="Ratio"></a>
 <a name="ratio"></a>
-<h2 style="margin-bottom: 1px">
-Ratio
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Ratio</h2>
+[%dtstatus Ratio%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Ratio">Examples</a>, <a href="datatypes-definitions.html#Ratio">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Ratio">Mappings</a>, <a href="datatypes-extras.html#Ratio">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Ratio">R4 Conversions</a>.
 </p>
+
 <p>
 A relationship between two Quantity values expressed as a numerator and a denominator.
 </p>
@@ -1138,12 +1141,12 @@ Ratio is used in the following places: [%dtusage Ratio%]
 
 <a name="RatioRange"></a>
 <a name="ratiorange"></a>
-<h2 style="margin-bottom: 1px">
-RatioRange
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">RatioRange</h2>
+[%dtstatus RatioRange%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#RatioRange">Examples</a>, <a href="datatypes-definitions.html#RatioRange">Detailed Descriptions</a>, <a href="datatypes-mappings.html#RatioRange">Mappings</a>, <a href="datatypes-extras.html#RatioRange">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#RatioRange">R4 Conversions</a>.
 </p>
+
 <p>
 A range of ratios of two Quantity values expressed as a low numerator, a high numerator, and a denominator.
 </p>
@@ -1178,12 +1181,12 @@ RatioRange is used in the following places: [%dtusage RatioRange%]
 
 <a name="Period"></a>
 <a name="period"></a>
-<h2 style="margin-bottom: 1px">
-Period
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Period</h2>
+[%dtstatus Period%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Period">Examples</a>, <a href="datatypes-definitions.html#Period">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Period">Mappings</a>, <a href="datatypes-extras.html#Period">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Period">R4 Conversions</a>.
 </p>
+
 <p>
 A time period defined by a start and end date/time.
 </p>
@@ -1215,13 +1218,12 @@ Period is used in the following places: [%dtusage Period%]
 
 <a name="SampledData"></a>
 <a name="sampleddata"></a>
-<h2 style="margin-bottom: 1px">
-SampledData
-</h2>
-[%StandardsStatus trial-use DataType n/a%]
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">SampledData</h2>
+[%dtstatus SampledData%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R4 Conversions</a>.
 </p>
+
 <p>
 Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The datatype also supports more than one dimension in the data.
 </p>
@@ -1250,12 +1252,12 @@ SampledData is used in the following places: [%dtusage SampledData%]
 
 <a name="Identifier"></a>
 <a name="identifier"></a>
-<h2 style="margin-bottom: 1px">
-Identifier
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Identifier</h2>
+[%dtstatus Identifier%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Identifier">Examples</a>, <a href="datatypes-definitions.html#Identifier">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Identifier">Mappings</a>, <a href="datatypes-extras.html#Identifier">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Identifier">R4 Conversions</a>.
 </p>
+
 <p>
 A string, typically numeric or alphanumeric, that is associated with a single object or entity within a given system.
 Typically, identifiers are used to connect content in resources to external content available in other frameworks or protocols.
@@ -1338,12 +1340,12 @@ Identifier is used in the following places: [%dtusage Identifier%]
 
 <a name="HumanName"></a>
 <a name="humanname"></a>
-<h2 style="margin-bottom: 1px">
-HumanName
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">HumanName</h2>
+[%dtstatus HumanName%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#HumanName">Examples</a>, <a href="datatypes-definitions.html#HumanName">Detailed Descriptions</a>, <a href="datatypes-mappings.html#HumanName">Mappings</a>, <a href="datatypes-extras.html#HumanName">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#HumanName">R4 Conversions</a>.
 </p>
+
 <p>
 A name of a human with text, parts and usage information.
 </p>
@@ -1434,12 +1436,12 @@ HumanName is used in the following places: [%dtusage HumanName%]
 
 <a name="Address"></a>
 <a name="address"></a>
-<h2 style="margin-bottom: 1px">
-Address
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Address</h2>
+[%dtstatus Address%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Address">Examples</a>, <a href="datatypes-definitions.html#Address">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Address">Mappings</a>, <a href="datatypes-extras.html#Address">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Address">R4 Conversions</a>.
 </p>
+
 <p>
 An address expressed using postal conventions (as opposed to GPS or other location definition
 formats).  This datatype may be used to convey addresses for use in delivering mail as well
@@ -1469,12 +1471,12 @@ Address is used in the following places: [%dtusage Address%]
 
 <a name="ContactPoint"></a>
 <a name="contactpoint"></a>
-<h2 style="margin-bottom: 1px">
-ContactPoint
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">ContactPoint</h2>
+[%dtstatus ContactPoint%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#ContactPoint">Examples</a>, <a href="datatypes-definitions.html#ContactPoint">Detailed Descriptions</a>, <a href="datatypes-mappings.html#ContactPoint">Mappings</a>, <a href="datatypes-extras.html#ContactPoint">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#ContactPoint">R4 Conversions</a>.
 </p>
+
 <p>
 Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc.
 </p>
@@ -1506,12 +1508,12 @@ ContactPoint is used in the following places: [%dtusage ContactPoint%]
 
 <a name="Timing"></a>
 <a name="timing"></a>
-<h2 style="margin-bottom: 1px">
-Timing
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Timing</h2>
+[%dtstatus Timing%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Timing">Mappings</a>, <a href="datatypes-extras.html#Timing">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Timing">R4 Conversions</a>.
 </p>
+
 <p>
 Describes the occurrence of an event that may occur multiple times. Timing schedules are used for
 specifying when events are expected or requested to occur and may also be used to represent the
@@ -1621,13 +1623,12 @@ Timing is used in the following places: [%dtusage Timing%]
 
 <a name="Signature"></a>
 <a name="signature"></a>
-<h2 style="margin-bottom: 1px">
-Signature
-</h2>
-[%StandardsStatus trial-use DataType n/a%]
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Signature</h2>
+[%dtstatus Signature%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Signature">Examples</a>, <a href="datatypes-definitions.html#Signature">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Signature">Mappings</a>, <a href="datatypes-extras.html#Signature">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Signature">R4 Conversions</a>.
 </p>
+
 <p>
 A <a href="signatures.html">Signature</a> holds an electronic representation of a signature and its supporting context in a FHIR accessible form.
 The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or
@@ -1716,12 +1717,12 @@ Signature is used in the following places: [%dtusage Signature%]
 
 <a name="Annotation"></a>
 <a name="annotation"></a>
-<h2 style="margin-bottom: 1px">
-Annotation
-</h2>
-<p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
+<h2 style="margin-bottom: 1px">Annotation</h2>
+[%dtstatus Annotation%]
+<p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#Annotation">Examples</a>, <a href="datatypes-definitions.html#Annotation">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Annotation">Mappings</a>, <a href="datatypes-extras.html#Annotation">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#Annotation">R4 Conversions</a>.
 </p>
+
 <p>
 A  text note which also  contains information about who made the statement and when.
 </p>

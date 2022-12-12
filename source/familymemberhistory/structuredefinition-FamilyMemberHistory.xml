@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="FamilyMemberHistory"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FamilyMemberHistory"/>
+  <title value="FamilyMemberHistory"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -82,7 +85,6 @@
         <severity value="error"/>
         <human value="Can only have estimatedAge if age[x] is present"/>
         <expression value="age.exists() or estimatedAge.empty()"/>
-        <xpath value="exists(*[starts-with(local-name(.), 'age')]) or not(exists(f:estimatedAge))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <constraint>
@@ -90,7 +92,13 @@
         <severity value="error"/>
         <human value="Can have age[x] or born[x], but not both"/>
         <expression value="age.empty() or born.empty()"/>
-        <xpath value="not (*[starts-with(local-name(.), 'age')] and *[starts-with(local-name(.), 'birth')])"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
+      </constraint>
+      <constraint>
+        <key value="fhs-3"/>
+        <severity value="error"/>
+        <human value="Can have age[x] or deceased[x], but not both"/>
+        <expression value="age.empty() or deceased.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory"/>
       </constraint>
       <mapping>
@@ -287,10 +295,82 @@
         <map value="participation[typeCode=AUT].time"/>
       </mapping>
     </element>
+    <element id="FamilyMemberHistory.participant">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#37477"/>
+      </extension>
+      <path value="FamilyMemberHistory.participant"/>
+      <short value="Who or what participated in the activities related to the family member history and how they were involved"/>
+      <definition value="Indicates who or what participated in the activities related to the family member history and how they were involved."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=PRF]"/>
+      </mapping>
+    </element>
+    <element id="FamilyMemberHistory.participant.function">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#37477"/>
+      </extension>
+      <path value="FamilyMemberHistory.participant.function"/>
+      <short value="Type of involvement"/>
+      <definition value="Distinguishes the type of involvement of the actor in the activities related to the family member history."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="FamilyMemberHistoryParticipantFunction"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation.functionCode"/>
+      </mapping>
+    </element>
+    <element id="FamilyMemberHistory.participant.actor">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#37477"/>
+      </extension>
+      <path value="FamilyMemberHistory.participant.actor"/>
+      <short value="Who or what participated in the activities related to the family member history"/>
+      <definition value="Indicates who or what participated in the activities related to the family member history."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.who"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".player"/>
+      </mapping>
+    </element>
     <element id="FamilyMemberHistory.name">
       <path value="FamilyMemberHistory.name"/>
       <short value="The family member described"/>
-      <definition value="This will either be a name or a description; e.g. &#34;Aunt Susan&#34;, &#34;my cousin with the red hair&#34;."/>
+      <definition value="This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;."/>
       <requirements value="Allows greater ease in ensuring the same person is being talked about."/>
       <min value="0"/>
       <max value="1"/>
@@ -387,10 +467,11 @@
         <code value="string"/>
       </type>
       <condition value="fhs-1"/>
+      <condition value="fhs-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&#34;age&#34;].value"/>
+        <map value="participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=&quot;age&quot;].value"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.estimatedAge">
@@ -432,6 +513,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="fhs-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -586,7 +668,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;Subject Age at measurement&#34;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']  Use originalText for string"/>
+        <map value="inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;Subject Age at measurement&quot;, value&lt;Diagnosis].value[@xsi:typeCode='TS' or 'IVL_TS']  Use originalText for string"/>
       </mapping>
     </element>
     <element id="FamilyMemberHistory.condition.note">

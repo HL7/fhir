@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DiagnosticReport"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DiagnosticReport"/>
+  <title value="DiagnosticReport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -93,7 +96,6 @@
         <severity value="error"/>
         <human value="A resource referenced in a Composition entry must also be included in the DiagnosticReport result (Observation resources or nested resources via Observation.hasMember)"/>
         <expression value="composition.exists() implies composition.resolve().section.entry.resolve().descendants().where((id in result.resolve().descendants().id).not()).empty()"/>
-<!---        <xpath value="true()"/>  dummy xpath expression included to avoid null pointer error -->
       </constraint>
       <mapping>
         <identity value="workflow"/>
@@ -212,7 +214,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &#34;revise&#34;"/>
+        <map value="statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type &quot;revise&quot;"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.category">
@@ -478,7 +480,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PRT-8 (where this PRT-4-Participation = &#34;PO&#34;)"/>
+        <map value="PRT-8 (where this PRT-4-Participation = &quot;PO&quot;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -516,7 +518,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &#34;PI&#34;)"/>
+        <map value="OBR-32, PRT-8 (where this PRT-4-Participation = &quot;PI&quot;)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -687,7 +689,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.media.link">
@@ -739,7 +741,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="inboundRelationship[typeCode=&#34;SPRT&#34;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)"/>
+        <map value="inboundRelationship[typeCode=&quot;SPRT&quot;].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)"/>
       </mapping>
     </element>
     <element id="DiagnosticReport.conclusionCode">
@@ -775,7 +777,7 @@
       <path value="DiagnosticReport.presentedForm"/>
       <short value="Entire report as issued"/>
       <definition value="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent."/>
-      <comment value="&#34;application/pdf&#34; is recommended as the most reliable and interoperable in this context."/>
+      <comment value="&quot;application/pdf&quot; is recommended as the most reliable and interoperable in this context."/>
       <requirements value="Gives laboratory the ability to provide its own fully formatted report for clinical fidelity."/>
       <min value="0"/>
       <max value="*"/>

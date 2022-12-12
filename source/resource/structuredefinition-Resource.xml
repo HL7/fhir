@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Resource"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -22,6 +24,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Resource"/>
+  <title value="Resource"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -56,16 +59,6 @@
       <definition value="This is the base resource type for everything."/>
       <min value="0"/>
       <max value="*"/>
-      <!--
-      <constraint>
-        <key value="res-1"/>
-        <severity value="error"/>
-        <human value="Resource references must be to other resources"/>
-        <expression value="Resource.descendants().ofType(Reference).where(type.exists() and type.contains(':')).empty()"/>
-        <xpath value="don't now"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
-      </constraint>      
-      -->
       <mapping>
         <identity value="rim"/>
         <map value="Entity. Role, or Act"/>

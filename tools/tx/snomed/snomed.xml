@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- the build tool builds these from the designated snomed server, when it can -->
+  <!-- the build tool builds these from the designated snomed server, when it can -->
 <snomed>
   <concept id="10001005" display="Bacterial septicemia">
     <display value="Bacterial septicemia"/>
@@ -10920,6 +10920,12 @@
     <display value="Yellow fever"/>
     <display value="Yellow fever (disorder)"/>
     <display value="YF - Yellow fever"/>
+  </concept>
+  <concept id="165747007" display="Rhesus positive">
+    <display value="Rhesus positive"/>
+    <display value="Rh positive"/>
+    <display value="RhD positive (finding)"/>
+    <display value="RhD positive"/>
   </concept>
   <concept id="166643006" display="Liver enzymes abnormal">
     <display value="Liver enzymes abnormal"/>

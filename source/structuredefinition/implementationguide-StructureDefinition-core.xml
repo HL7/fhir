@@ -81,6 +81,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="StructureDefinition/structuredefinition-standards-status-reason"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/structuredefinition-hierarchy"/>
       </reference>
     </resource>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="care-plan-activity-category"/>
   <meta>
     <lastUpdated value="2015-08-30T17:04:04.676-06:00"/>
@@ -7,7 +9,12 @@
   <url value="http://hl7.org/fhir/ValueSet/care-plan-activity-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3002"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.892"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.63"/>
   </identifier>
   <version value="1.0.0"/>
   <name value="CarePlanActivityCategory"/>

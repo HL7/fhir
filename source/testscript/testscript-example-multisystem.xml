@@ -41,6 +41,7 @@
     <profile>
       <code value="FHIR-Server"/>
     </profile>
+    <url value="http://acme.com/fhir/test"/>
   </destination>
   <destination>
     <index value="2"/>

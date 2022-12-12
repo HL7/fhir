@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="questionnaireresponse-author"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/questionnaireresponse-author"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1416"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="author"/>
-  <title value="Author"/>
+  <name value="QRAuthor"/>
+  <title value="QuestionnaireResponse Author"/>
   <status value="draft"/>
   <date value="2013-07-04"/>
   <publisher value="HL7"/>
@@ -69,12 +74,12 @@
       <min value="1"/>
       <type>
         <code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
     </element>
   </differential>

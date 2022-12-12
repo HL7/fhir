@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Procedure"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Procedure"/>
+  <title value="Procedure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -226,7 +229,7 @@
       <path value="Procedure.status"/>
       <short value="preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"/>
       <definition value="A code specifying the state of the procedure. Generally, this will be the in-progress or completed state."/>
-      <comment value="The &#34;unknown&#34; code is not to be used to convey other statuses.  The &#34;unknown&#34; code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="The &quot;unknown&quot; code is not to be used to convey other statuses.  The &quot;unknown&quot; code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the procedure.&#xA;&#xA;This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -263,7 +266,7 @@
       <path value="Procedure.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the procedure."/>
-      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;not-done&#34;, &#34;suspended&#34; or &#34;aborted&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;aborted&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <alias value="Suspended Reason"/>
       <alias value="Cancelled Reason"/>
       <min value="0"/>
@@ -295,7 +298,7 @@
       </extension>
       <path value="Procedure.category"/>
       <short value="Classification of the procedure"/>
-      <definition value="A code that classifies the procedure for searching, sorting and display purposes (e.g. &#34;Surgical Procedure&#34;)."/>
+      <definition value="A code that classifies the procedure for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -320,13 +323,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;EVN&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
       </mapping>
     </element>
     <element id="Procedure.code">
       <path value="Procedure.code"/>
       <short value="Identification of the procedure"/>
-      <definition value="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &#34;Laparoscopic Appendectomy&#34;)."/>
+      <definition value="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &quot;Laparoscopic Appendectomy&quot;)."/>
       <requirements value="0..1 to account for primarily narrative only resources."/>
       <alias value="type"/>
       <min value="0"/>
@@ -401,7 +404,7 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-	<element id="Procedure.focus">
+    <element id="Procedure.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#32504"/>
       </extension>
@@ -418,7 +421,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -462,7 +465,7 @@
       <path value="Procedure.occurrence[x]"/>
       <short value="When the procedure occurred or is occurring"/>
       <definition value="Estimated or actual date, date-time, period, or age when the procedure did occur or is occurring.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured."/>
-      <comment value="This indicates when the procedure actually occurred or is occurring, not when it was asked/requested/ordered to occur. For the latter, look at the occurence element of the Request this Procedure is &#34;basedOn&#34;. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xA;&#xA;Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."/>
+      <comment value="This indicates when the procedure actually occurred or is occurring, not when it was asked/requested/ordered to occur. For the latter, look at the occurence element of the Request this Procedure is &quot;basedOn&quot;. The status code allows differentiation of whether the timing reflects a historic event or an ongoing event. Ongoing events should not include an upper bound in the Period or Timing.bounds.&#xA;&#xA;Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -595,7 +598,7 @@
       </extension>
       <path value="Procedure.performer"/>
       <short value="The people who performed the procedure"/>
-      <definition value="Limited to &#34;real&#34; people rather than equipment."/>
+      <definition value="Limited to &quot;real&quot; people rather than equipment."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -701,7 +704,7 @@
         <map value=".scoper"/>
       </mapping>
     </element>
-	<element id="Procedure.performer.period">
+    <element id="Procedure.performer.period">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J33392"/>
       </extension>
@@ -713,7 +716,7 @@
       <type>
         <code value="Period"/>
       </type>
-	</element>
+    </element>
     <element id="Procedure.location">
       <path value="Procedure.location"/>
       <short value="Where the procedure happened"/>
@@ -854,14 +857,18 @@
       </mapping>
     </element>
     <element id="Procedure.complication">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J32511"/>
+      </extension>
       <path value="Procedure.complication"/>
       <short value="Complication following the procedure"/>
       <definition value="Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues."/>
-      <comment value="If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text."/>
+      <comment value="If complications are only expressed by the narrative text, they can be captured using the CodeableReference.concept.text."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -873,23 +880,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=&#34;complication&#34;, moodCode=EVN].value"/>
-      </mapping>
-    </element>
-    <element id="Procedure.complicationDetail">
-      <path value="Procedure.complicationDetail"/>
-      <short value="A condition that is a result of the procedure"/>
-      <definition value="Any complications that occurred during the procedure, or in the immediate post-performance period."/>
-      <requirements value="This is used to document a condition that is a result of the procedure, not the condition that was the reason for the procedure."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=&#34;complication&#34;, moodCode=EVN].value"/>
+        <map value=".outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=&quot;complication&quot;, moodCode=EVN].value"/>
       </mapping>
     </element>
     <element id="Procedure.followUp">
@@ -933,7 +924,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
     <element id="Procedure.focalDevice">
@@ -972,7 +963,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;procedure device action&#34;].value=:procedure device action codes"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;procedure device action&quot;].value=:procedure device action codes"/>
       </mapping>
     </element>
     <element id="Procedure.focalDevice.manipulated">
@@ -994,7 +985,7 @@
       <path value="Procedure.used"/>
       <short value="Items used during procedure"/>
       <definition value="Identifies medications, devices and any other substance used as part of the procedure."/>
-      <comment value="For devices actually implanted or removed, use Procedure.device."/>
+      <comment value="For devices actually implanted or removed, use Procedure.focalDevice.manipulated."/>
       <requirements value="Used for tracking contamination, etc."/>
       <min value="0"/>
       <max value="*"/>

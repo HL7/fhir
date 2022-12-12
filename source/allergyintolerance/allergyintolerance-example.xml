@@ -26,8 +26,13 @@
   </verificationStatus>
   
   <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
-  <type value="allergy"/>
-  
+  <type>
+    <coding>
+      <system value="http://hl7.org/fhir/allergy-intolerance-type"/>
+      <code value="allergy"/>
+      <display value="Allergy"/>
+    </coding>
+  </type>  
   <!-- this categorization is implied by "cashew nut" and therefore basically 
     redundant, but many systems collect this field anyway, since it's either 
     useful when the substance is not coded, or it's quicker to sort/filter on

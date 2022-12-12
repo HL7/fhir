@@ -430,7 +430,7 @@ shared in FHIR</li>
   </p>
   <a name="tree"> </a>
   <div style="margin: auto;">
-    {% include fhir-exchanges.svg %}
+    [%file fhir-exchanges.svg %]
     <b>FHIR exchange decision tree</b>
   </div>
   <a name="criteria"> </a>
@@ -923,7 +923,7 @@ shared in FHIR</li>
   <a name="synchronous"> </a>
   <h4>Is synchronous (I)</h4>
   <p>
-    In synchronous queries, the results are determined and returned within the HTTP timeout period of the initiating GET.  The <i/> will typically block and wait for a response before continuing with its action.  While it is possible to have very long timeout periods (100 seconds plus), typically the intention with synchronous responses is to return in tens of milliseconds to a few seconds at most to ensure appropriate system performance and user experience.  In cases where a search may take longer than this, the FHIR <a href="#synchronous">asynchronous</a> search mechanism can be used to allow a query to be initiated and subsequently monitored until a response is available - even if this takes minutes, hours, or potentially even days.  This may be necessary if the search is extremely complex or is slow for other reasons (e.g. if it involves accessing data sources with high latency or limited availability).
+    In synchronous queries, the results are determined and returned within the HTTP timeout period of the initiating GET.  The application will typically block and wait for a response before continuing with its action.  While it is possible to have very long timeout periods (100 seconds plus), typically the intention with synchronous responses is to return in tens of milliseconds to a few seconds at most to ensure appropriate system performance and user experience.  In cases where a search may take longer than this, the FHIR <a href="#synchronous">asynchronous</a> search mechanism can be used to allow a query to be initiated and subsequently monitored until a response is available - even if this takes minutes, hours, or potentially even days.  This may be necessary if the search is extremely complex or is slow for other reasons (e.g. if it involves accessing data sources with high latency or limited availability).
   </p>
   <p>
     Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small differences - such as who initiates the process.
@@ -931,6 +931,184 @@ shared in FHIR</li>
   <p>
     <a style="color:gray" href="#tree">Return to diagram</a>
   </p>
+
+<a name="primitives"> </a>
+<h3>Populating Data</h3>
+
+<p>
+Irrespective of how data is exchanged using FHIR, data from a source system must be represented in a 
+FHIR resource. In the end, this means matching the available data to a set of elements with primitive 
+data types, and writing the available data into the primitive elements.
+</p>
+<p>
+When it comes to populating primitive data types with existing data, an authoring system
+must consider a range of scenarios, depending on the data that is available:
+</p>
+<table class="grid">
+  <tr>
+    <th>Scenario</th>
+    <th>Choices</th>
+  </tr>
+  <tr>
+    <td><b>expected</b>: The system has the expected data</td>
+    <td>The system can populate the value, and does. This is the ideal
+       happy path, and straight forward for the authoring system. 
+       <br/><br/>
+       Note that it might not always be appropriate to share the data 
+       even if it is available - the authoring system always has to consider
+       the applicable security and consent rules around sharing the data 
+       with the recipient(s) of the data, under the applicable rules.
+    </td>
+  </tr>
+  <tr>
+    <td><b>extends</b>: The system has more data</td>
+    <td>In this case, the system has additional data that doesn't have 
+      a place in the existing primitive data. For example, the system has
+      a public id for an address.
+      <br/><br/>
+      In this case, the authoring system can add extensions to the 
+      objects that contain the elements. (Note that it can also extend the
+      primitive elements with extensions themselves, but extending complex 
+      objects is always preferred).
+      <br/><br/>
+      Applicable profiles may makes rules about what extensions are allowed 
+      in the context, so implementers should consult them first. Otherwise, 
+      implementers should look through the extension registries 
+      (<a href="extensibility-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
+      for appropriate extensions before creating their own.
+    </td>
+  </tr>
+  <tr>
+    <td><b>more-details</b>: The system has finer grained data</td>
+    <td>In this case, the system has additional data about the existing values 
+      that doesn't have a place in the existing primitive data. For example, the system has 
+      a name for a timezone on a dateTime with a timezone.
+      <br/><br/>
+      In this case, the authoring system can add extensions to the 
+      primitive elements. (Note that it can also extend the
+      primitive elements with extensions themselves, but extending complex 
+      objects is always preferred).
+      <br/><br/>
+      Applicable profiles may makes rules about what extensions are allowed 
+      in the context, so implementers should consult them first. Otherwise, 
+      implementers should look through the extension registries 
+      (<a href="extensibility-registry.html">FHIR Standard</a> and <a href="http://hl7.org/fhir/registry">FHIR Registry</a>) 
+      for appropriate extensions before creating their own.      
+      <br/><br/>
+      Note that the difference between "extends" and "more-details" is a grey zone 
+      and a matter of judgment by the system designers, and there is nowhere in the 
+      FHIR specification or eco-system that requires this call to be correct or consistent, 
+      though consistency is encouraged to make life easier for other implementers.
+    </td>
+  </tr>
+  <tr>
+    <td><b>missing</b>: The source data is not available</td>
+    <td>
+      If the element minimum cardinality is 0, then the element can simply be omitted.
+      If the element mininmum cardinality is 1, then the authoring system has a problem.
+      In principle, the first question is why is an element that there is no data for 
+      mandatory? The authoring system may be required to change it's own workflow to procure 
+      a value for the element. However this is not always necessary (or possible). 
+      <br/><br/>
+      The first possibility is that that authoring system can provide a fixed value that 
+      is known to be true based on the application's workflow. E.g. A MedicationAdministration 
+      status is always 'completed' because that's the only kind of administrations the 
+      system deals with. Applications should carefully consider failure pathways before 
+      filling out a fixed value.
+      <br/><br/>
+      Alternatively, the authoring application can provide an element with no value, and use one 
+      of the missing value extensions (<a href="extension-data-absent-reason.html">data-absent-reason</a> 
+      or <a href="extension-iso21090-nullflavor.html">nullflavor</a>). Applications
+      can use their own extensions for this as well, but this is strongly discouraged, as 
+      those existing extensions should cover all the reasons why data is missing.
+      <br/><br/>
+      See how this looks in <a href="xml.html#primitive">XML</a> and  <a href="json.html#primitive">JSON</a>.
+      <br/><br/>
+      Applicable profiles may use the  <a href="elementdefinition.html">ElementDefinition</a>
+      properties <code>mustHaveValue</code> or <code>valueAlternatives</code> to 
+      disallow the use of extensions like this, or control which extensions are allowed
+      in place of a value. Additionally, applicable profiles may constrain the allowable
+      extensions.
+      <br/><br/>
+      If the applicable profiles prohibit missing data, the application must be 
+      redesigned. If this isn't possible, then that's an impasse whose solution is 
+      outside the scope of the FHIR specification.
+    </td>
+  </tr>
+  <tr>
+    <td><b>invalid</b>: The available data is not allowed</td>
+    <td>This is the most difficult case, where the data this is available is not 
+      valid under the base resource design or the applicable profiles. A common 
+      example of this is a source that allows plain text or invalidated dates in 
+      place of real dates for clinical events, but there are a variety of variants 
+      of this; some of the variants are discussed below. This might also happen
+      where an applicable profile has specified a <code>fixed</code> or <code>pattern</code> value
+      that is not correct for the source system.
+      <br/><br/>
+      In general, specification and profile designers try to avoid the situation 
+      where real world systems have data that is invalid, but all designs are a 
+      trade-off between different pros and cons, and systems do not always have 
+      valid data. Again, one solution is to redesign the system or the clinical 
+      workflow to ensure that data is always valid, but this isn't always possible
+      e.g. due to the existence of legacy data.
+      <br/><br/>
+      Applications are able to provide alternative invalid data using the <a href="extension-originaltext.html">originalText</a>
+      extension in place of a value. This signifies to any consuming application that 
+      a valid value is not available, but if they wish, they are able to present the
+      actual original data value to a human user along with the information that it 
+      can't be processed. 
+      <br/><br/>
+      Again, applicable profiles may use the  <a href="elementdefinition.html">ElementDefinition</a>
+      properties <code>mustHaveValue</code> or <code>valueAlternatives</code> to 
+      disallow the use of extensions like this, or control which extensions are allowed
+      in place of a value. Additionally, applicable profiles may constrain the allowable
+      extensions.
+      <br/><br/>
+      If the applicable profiles prohibit invalid data replacement like this, the 
+      application must be redesigned. If this isn't possible, then that's an impasse whose solution is 
+      outside the scope of the FHIR specification.
+    </td>
+  </tr>
+  <tr>
+    <td><b>invalid-code</b>: The data has a code that is invalid</td>
+    <td>This is a relatively common situation; conflicts around coding granualarity 
+      are ubiquitous. 
+      <br/><br/>
+      If the applicable profiles include a required binding to a code/coding type, then the source system 
+      must choose one of the allowed codes from the relevant value set. It can still provide it's 
+      own code in an extension, and in general this is encouraged. There is no standard extension 
+      for this purpose; look for applicable extensions in the <a href="http://hl7.org/fhir/registry">FHIR Registry</a>. 
+      <br/><br/>
+      If the binding is a required binding to a CodeableConcept, then the source system 
+      must choose one of the applicable codes and put that in one of the codings, and
+      then it should provide it's own code in another coding. The same is true if the 
+      binding is an extensible binding, and one of the existing codes is applicable. 
+      <br/><br/>
+      As above, applicable profiles may influence an applications choices in this regard.
+    </td>
+  </tr>
+  <tr>
+    <td><b>too-long</b>: The data is too long</td>
+    <td>
+      This happens with data where on of the applicable profiles has limited the length 
+      of a data value using <code>ElementDefinition.maxLength</code>. E.g. the patient's 
+      family name is limited to 80 characters, and the source system has a name longer than
+      that. 
+      <br/><br/>
+      Length limitations like this are indicative of an underlying database field size limit.
+      The FHIR eco-system and development approaches generally are moving away from using 
+      databases like this, but there are still many legacy systems that work this way. 
+      <br/><br/>
+      The FHIR specification has no formal approach to resolve this, but implementers 
+      may wish to copy the approach of V2, where fields that are too long are truncated
+      at N-1 characters, and the character # is appended. 
+      <br/><br/>
+      In addition, applications are able to preserve the correct untruncated text using 
+      the <a href="extension-originaltext.html">originalText</a> extension.
+    </td>
+  </tr>
+</table>
+
   <a name="considerations"> </a>
   <h3>Additional Considerations</h3>
   <p>

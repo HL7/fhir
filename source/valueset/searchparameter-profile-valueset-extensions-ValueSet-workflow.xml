@@ -10,6 +10,5 @@
   <base value="ValueSet"/>
   <type value="token"/>
   <expression value="CodeSystem.extension('http://hl7.org/fhir/StructureDefinition/valueset-workflowStatus').value"/>
-  <!--<xpath value="f:ValueSet/f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-workflowStatus']/f:valueString | /f:#workflowStatus"/> -->
   <processingMode value="normal"/>
 </SearchParameter>

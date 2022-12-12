@@ -19,6 +19,11 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.815"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.798"/>
+  </identifier>
   <version value="5.0.0-cibuild"/>
   <name value="ActionConditionKind"/>
   <title value="ActionConditionKind"/>

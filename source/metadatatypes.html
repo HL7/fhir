@@ -62,11 +62,11 @@ For an index of all datatypes, see <a href="datatypes.html">the Datatypes page</
 <a name="ContactDetail"></a>
 <a name="contactdetail"></a>
 <h2 style="margin-bottom: 1px">ContactDetail</h2>
-[%StandardsStatus normative DataType infrastructure%]
-
+[%dtstatus ContactDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#ContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ContactDetail">Mappings</a>.
 </p>
+[%StandardsStatus normative DataType infrastructure%]
 
 <p>The ContactDetail structure defines general contact details.</p>
 
@@ -84,6 +84,7 @@ ContactDetail is used in the following places: [%dtusage ContactDetail%]
 <a name="DataRequirement"></a>
 <a name="datarequirement"></a>
 <h2 style="margin-bottom: 1px">DataRequirement</h2>
+[%dtstatus DataRequirement%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a href="metadatatypes-definitions.html#DataRequirement">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#DataRequirement">Mappings</a>.
 </p>
@@ -160,6 +161,7 @@ DataRequirement is used in the following places: [%dtusage DataRequirement%]
 <a name="ParameterDefinition"></a>
 <a name="parameterdefinition"></a>
 <h2 style="margin-bottom: 1px">ParameterDefinition</h2>
+[%dtstatus ParameterDefinition%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>, <a href="metadatatypes-definitions.html#ParameterDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ParameterDefinition">Mappings</a>.
 </p>
@@ -181,6 +183,7 @@ See also <a href="metadatatypes-examples.html#ParameterDefinition">Examples</a>,
 <a name="RelatedArtifact"></a>
 <a name="relatedartifact"></a>
 <h2 style="margin-bottom: 1px">RelatedArtifact</h2>
+[%dtstatus RelatedArtifact%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#RelatedArtifact">Examples</a>, <a href="metadatatypes-definitions.html#RelatedArtifact">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#RelatedArtifact">Mappings</a>.
 </p>
@@ -231,6 +234,7 @@ The RelatedArtifact type is used in a variety of contexts, and supports flexible
 <a name="TriggerDefinition"></a>
 <a name="triggerdefinition"></a>
 <h2 style="margin-bottom: 1px">TriggerDefinition</h2>
+[%dtstatus TriggerDefinition%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#TriggerDefinition">Examples</a>, <a href="metadatatypes-definitions.html#TriggerDefinition">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#TriggerDefinition">Mappings</a>.
 </p>
@@ -282,6 +286,7 @@ TriggerDefinition is used in the following places: [%dtusage TriggerDefinition%]
 <a name="Expression"></a>
 <a name="expression"></a>
 <h2 style="margin-bottom: 1px">Expression</h2>
+[%dtstatus Expression%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#Expression">Examples</a>, <a href="metadatatypes-definitions.html#Expression">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Expression">Mappings</a>.
 </p>
@@ -304,6 +309,23 @@ expression is evaluated, and how the result of the expression is used.
 [%tx Expression%]
 </div>
 
+<p><b>Language support</b></p>
+<p>
+While the expression data type supports any language, a few 
+specific languages defined by HL7 at particularly of interest
+for the purposes of this specification:
+</p>
+<ul>
+  <li><b>text/fhirpath</b>: See <a href="fhirpath.html">FHIRPath Documentation</a></li>
+  <li><b>text/x-fhir-query</b>: See <a href="fhir-xquery.html">FHIR X-Query Documentation</a></li>
+  <li><b>text/cql</b>: See <a href="https://cql.hl7.org">CQL (Clinical Quality Language) Documentation</a>. There are also 2 CQL variants:
+    <ul>
+      <li><b>text/cql-identifier</b>: See <a href="https://cql.hl7.org/07-physicalrepresentation.html#media-types-and-namespaces">CQL Identifier</a></li>
+      <li><b>text/cql-expression</b>: See <a href="https://cql.hl7.org/07-physicalrepresentation.html#media-types-and-namespaces">CQL Expression</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>
 Expression is used in the following places: [%dtusage Expression%]
 </p>
@@ -315,6 +337,7 @@ Expression is used in the following places: [%dtusage Expression%]
 <a name="UsageContext"></a>
 <a name="usagecontext"></a>
 <h2 style="margin-bottom: 1px">UsageContext</h2>
+[%dtstatus UsageContext%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#UsageContext">Examples</a>, <a href="metadatatypes-definitions.html#UsageContext">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#UsageContext">Mappings</a>.
 </p>
@@ -338,7 +361,7 @@ UsageContext is used in the following places: [%dtusage UsageContext%]
 <a name="ExtendedContactDetail"></a>
 <a name="extendedcontactdetail"></a>
 <h2 style="margin-bottom: 1px">ExtendedContactDetail</h2>
-
+[%dtstatus ExtendedContactDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#ExtendedContactDetail">Examples</a>, <a href="metadatatypes-definitions.html#ExtendedContactDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#ExtendedContactDetail">Mappings</a>.
 </p>
@@ -381,7 +404,7 @@ ExtendedContactDetail is used in the following places: [%dtusage ExtendedContact
 <a name="VirtualServiceDetail"></a>
 <a name="virtualservicedetail"></a>
 <h2 style="margin-bottom: 1px">VirtualServiceDetail</h2>
-
+[%dtstatus VirtualServiceDetail%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#VirtualServiceDetail">Examples</a>, <a href="metadatatypes-definitions.html#VirtualServiceDetail">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#VirtualServiceDetail">Mappings</a>.
 </p>
@@ -403,7 +426,7 @@ VirtualServiceDetail is used in the following places: [%dtusage VirtualServiceDe
 <a name="Availability"></a>
 <a name="availability"></a>
 <h2 style="margin-bottom: 1px">Availability</h2>
-
+[%dtstatus Availability%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a href="metadatatypes-definitions.html#Availability">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#Availability">Mappings</a>.
 </p>
@@ -425,7 +448,7 @@ See also <a href="metadatatypes-examples.html#Availability">Examples</a>, <a hre
 <a name="MonetaryComponent"></a>
 <a name="monetarycomponent"></a>
 <h2 style="margin-bottom: 1px">MonetaryComponent</h2>
-
+[%dtstatus MonetaryComponent%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px">
 See also <a href="metadatatypes-examples.html#MonetaryComponent">Examples</a>, <a href="metadatatypes-definitions.html#MonetaryComponent">Detailed Descriptions</a> and <a href="metadatatypes-mappings.html#MonetaryComponent">Mappings</a>.
 </p>

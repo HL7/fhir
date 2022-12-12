@@ -17,7 +17,6 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="Patient.active"/>
-        <!--<xpath value="f:Patient/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -27,7 +26,7 @@
       <SearchParameter>
         <id value="Patient-address"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.address"/>
@@ -37,7 +36,6 @@
         <code value="address"/>
         <type value="string"/>
         <expression value="Patient.address"/>
-        <!--<xpath value="f:Patient/f:address"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="address-city"/>
         <type value="string"/>
         <expression value="Patient.address.city"/>
-        <!--<xpath value="f:Patient/f:address/f:city"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="address-country"/>
         <type value="string"/>
         <expression value="Patient.address.country"/>
-        <!--<xpath value="f:Patient/f:address/f:country"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="address-postalcode"/>
         <type value="string"/>
         <expression value="Patient.address.postalCode"/>
-        <!--<xpath value="f:Patient/f:address/f:postalCode"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="address-state"/>
         <type value="string"/>
         <expression value="Patient.address.state"/>
-        <!--<xpath value="f:Patient/f:address/f:state"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="address-use"/>
         <type value="token"/>
         <expression value="Patient.address.use"/>
-        <!--<xpath value="f:Patient/f:address/f:use"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -153,11 +146,10 @@
           <valueString value="Patient.birthDate"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Patient-birthdate"/>
-        <description value="The patient&#39;s date of birth"/>
+        <description value="The patient's date of birth"/>
         <code value="birthdate"/>
         <type value="date"/>
         <expression value="Patient.birthDate"/>
-        <!--<xpath value="f:Patient/f:birthDate"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -167,7 +159,7 @@
       <SearchParameter>
         <id value="Patient-death-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.deceasedDateTime"/>
@@ -177,7 +169,6 @@
         <code value="death-date"/>
         <type value="date"/>
         <expression value="(Patient.deceased as dateTime)"/>
-        <!--<xpath value="f:Patient/f:deceasedDateTime"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -187,7 +178,7 @@
       <SearchParameter>
         <id value="Patient-deceased"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.deceased[x]"/>
@@ -197,7 +188,6 @@
         <code value="deceased"/>
         <type value="token"/>
         <expression value="Patient.deceased.exists() and Patient.deceased != false"/>
-        <!--<xpath value="f:Patient/f:deceasedBoolean | f:Patient/f:deceasedDateTime"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -207,7 +197,7 @@
       <SearchParameter>
         <id value="Patient-email"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.telecom(system=email)"/>
@@ -216,8 +206,7 @@
         <description value="A value in an email contact"/>
         <code value="email"/>
         <type value="token"/>
-        <expression value="Patient.telecom.where(system=&#39;email&#39;)"/>
-        <!--<xpath value="f:Patient/f:telecom[system/@value=&#39;email&#39;]"/> -->
+        <expression value="Patient.telecom.where(system='email')"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +226,6 @@
         <code value="family"/>
         <type value="string"/>
         <expression value="Patient.name.family"/>
-        <!--<xpath value="f:Patient/f:name/f:family"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +245,6 @@
         <code value="gender"/>
         <type value="token"/>
         <expression value="Patient.gender"/>
-        <!--<xpath value="f:Patient/f:gender"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -267,17 +254,16 @@
       <SearchParameter>
         <id value="Patient-general-practitioner"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.generalPractitioner"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Patient-general-practitioner"/>
-        <description value="Patient&#39;s nominated general practitioner, not the organization that manages the record"/>
+        <description value="Patient's nominated general practitioner, not the organization that manages the record"/>
         <code value="general-practitioner"/>
         <type value="reference"/>
         <expression value="Patient.generalPractitioner"/>
-        <!--<xpath value="f:Patient/f:generalPractitioner"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -297,7 +283,6 @@
         <code value="given"/>
         <type value="string"/>
         <expression value="Patient.name.given"/>
-        <!--<xpath value="f:Patient/f:name/f:given"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -307,7 +292,7 @@
       <SearchParameter>
         <id value="Patient-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.identifier"/>
@@ -317,7 +302,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Patient.identifier"/>
-        <!--<xpath value="f:Patient/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -327,7 +311,7 @@
       <SearchParameter>
         <id value="Patient-language"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.communication.language"/>
@@ -337,7 +321,6 @@
         <code value="language"/>
         <type value="token"/>
         <expression value="Patient.communication.language"/>
-        <!--<xpath value="f:Patient/f:communication/f:language"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -347,7 +330,7 @@
       <SearchParameter>
         <id value="Patient-link"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.link.other"/>
@@ -357,7 +340,6 @@
         <code value="link"/>
         <type value="reference"/>
         <expression value="Patient.link.other"/>
-        <!--<xpath value="f:Patient/f:link/f:other"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -367,7 +349,7 @@
       <SearchParameter>
         <id value="Patient-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.name"/>
@@ -377,7 +359,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Patient.name"/>
-        <!--<xpath value="f:Patient/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -387,7 +368,7 @@
       <SearchParameter>
         <id value="Patient-organization"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.managingOrganization"/>
@@ -397,7 +378,6 @@
         <code value="organization"/>
         <type value="reference"/>
         <expression value="Patient.managingOrganization"/>
-        <!--<xpath value="f:Patient/f:managingOrganization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -407,7 +387,7 @@
       <SearchParameter>
         <id value="Patient-phone"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.telecom(system=phone)"/>
@@ -416,8 +396,7 @@
         <description value="A value in a phone contact"/>
         <code value="phone"/>
         <type value="token"/>
-        <expression value="Patient.telecom.where(system=&#39;phone&#39;)"/>
-        <!--<xpath value="f:Patient/f:telecom[system/@value=&#39;phone&#39;]"/> -->
+        <expression value="Patient.telecom.where(system='phone')"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -427,7 +406,7 @@
       <SearchParameter>
         <id value="Patient-phonetic"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.name"/>
@@ -437,7 +416,6 @@
         <code value="phonetic"/>
         <type value="string"/>
         <expression value="Patient.name"/>
-        <!--<xpath value="f:Patient/f:name"/> -->
         <processingMode value="phonetic"/>
       </SearchParameter>
     </resource>
@@ -447,7 +425,7 @@
       <SearchParameter>
         <id value="Patient-telecom"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Patient.telecom"/>
@@ -457,7 +435,6 @@
         <code value="telecom"/>
         <type value="token"/>
         <expression value="Patient.telecom"/>
-        <!--<xpath value="f:Patient/f:telecom"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

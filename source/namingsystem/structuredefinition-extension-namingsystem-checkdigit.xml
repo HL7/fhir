@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="namingsystem-checkDigit"/> 
+  <id value="namingsystem-checkDigit"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="mnm"/> 
-  </extension> 
+    <valueCode value="mnm"/>
+  </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="1"/> 
-  </extension> 
-  <url value="http://hl7.org/fhir/StructureDefinition/namingsystem-checkDigit"/> 
-  <version value="5.0.0"/> 
-  <name value="checkDigit"/> 
-  <status value="draft"/> 
-  <experimental value="false"/> 
-  <date value="2022-09-04"/> 
-  <publisher value="HL7"/> 
-  <description value="allow for a check digit and a check digit scheme to be conveyed as part of Naming System.
-   The rules of the ID Type determine if the check digit is part of the ID value or sent
-   separately."/> 
-  <fhirVersion value="5.0.0"/> 
-  <mapping> 
-    <identity value="rim"/> 
-    <uri value="http://hl7.org/v3"/> 
-    <name value="RIM Mapping"/> 
-  </mapping> 
-  <kind value="complex-type"/> 
-  <abstract value="false"/> 
-  <context> 
-    <type value="element"/> 
-    <expression value="NamingSystem"/> 
-  </context> 
-  <type value="Extension"/> 
-  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/> 
-  <derivation value="constraint"/> 
-  <differential> 
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/namingsystem-checkDigit"/>
+  <version value="5.0.0"/>
+  <name value="NSCheckDigit"/>
+  <title value="NamingSystem Check Digit"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2022-09-04"/>
+  <publisher value="HL7"/>
+  <description value="allow for a check digit and a check digit scheme to be conveyed as part of Naming System.    The rules of the ID Type determine if the check digit is part of the ID value or sent    separately."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="NamingSystem"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
     <element id="Extension">
-      <path value="Extension"/> 
-      <short value="Allows for a check digit and a check digit scheme to be conveyed as part of a Naming System"/> 
-      <definition value="allow for a check digit and a check digit scheme to be conveyed as part of Namaing System.
-       The rules of the ID Type determine if the check digit is part of the ID value or sent
-       separately."/> 
-      <min value="0"/> 
-      <max value="1"/> 
-    </element> 
+      <path value="Extension"/>
+      <short value="Allows for a check digit and a check digit scheme to be conveyed as part of a Naming System"/>
+      <definition value="allow for a check digit and a check digit scheme to be conveyed as part of Namaing System.        The rules of the ID Type determine if the check digit is part of the ID value or sent        separately."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
     <element id="Extension.extension">
-      <path value="Extension.extension"/> 
-      <max value="0"/> 
-    </element> 
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
     <element id="Extension.url">
-      <path value="Extension.url"/> 
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/namingsystem-checkDigit"/> 
-    </element> 
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/namingsystem-checkDigit"/>
+    </element>
     <element id="Extension.value[x]">
-      <path value="Extension.value[x]"/> 
-      <min value="1"/> 
-      <type> 
-        <code value="string"/> 
-      </type> 
-    </element> 
-  </differential> 
-</StructureDefinition> 
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

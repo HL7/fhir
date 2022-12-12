@@ -11,33 +11,39 @@
 
 <%extDefnHeader%>
 
-<h1>Extension: <%ext-name%></h1>
+<h1>Extension: <%ext-present%></h1>
 
 <table class="<%fmm-style%>">
  <tr><td><%wg%></td><td><%fmm%></td><td><%sstatus%><!--!ns!--></td><td><%profile-context%></td></tr>
 </table>
 
-<p><b>Summary</b></p>
-<table class="grid">
- <tr><td>Defining URL:</td><td><span class="copy-text"><code><%extensionurl%></code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="<%extensionurl%>" data-original-title="Click to copy URL"></button></span></td></tr>
- <tr><td>Version:</td><td><%ext-ver%></td></tr>
- <tr><td>Name:</td><td><%ext-name%></td></tr>
- <tr><td>Title:</td><td><%ext-title%></td></tr>
- <tr><td>Modifier:</td><td><%ext-modifier%></td></tr>
- <tr><td>Status:</td><td><%ext-status%></td></tr>
- <tr><td>Definition:</td><td><%ext-def%></td></tr>
- <tr><td>Committee:</td><td><%ext-committee%></td></tr>
+<table class="<%fmm-style%>">
+  <tr>
+    <td colspan="4">
+      <i>Official URL</i>: <span class="copy-text"><code><%extensionurl%></code><button title="Click to copy URL" class="btn-copy" data-clipboard-text="<%extensionurl%>" data-original-title="Click to copy URL"></button></span>
+    </td>
+    <td><i>Version</i>: <%ext-ver%></td>
+  </tr>
+  <tr>
+   <td colspan="4"><%ext-status%> as of <%ext-date%></td>
+   <td><i>Computable Name</i>: <span style="font-family: monospace;"><%ext-name%></span></td>
+  </tr>
+  <tr>
+    <td colspan="4"><em>Flags</em>: <%ext-flags%></td>
+    <td colspan="1"><em>OID</em>: <span style="font-family: monospace;"><%ext-oid%></span></td>
+  </tr>
 </table>
 
-
-<p>Status: <%status%>. <%pubdetails%></p>
-
-<p>
-<%definition%>
-</p>
-<%ext-comments%>
+<%pubdetails%>
 
 <%context-info%>
+
+<a name="defn"> </a>
+<h3>Definition</h3>
+
+<%definition%>
+
+<%ext-comments%>
 
 <%extref%>
 

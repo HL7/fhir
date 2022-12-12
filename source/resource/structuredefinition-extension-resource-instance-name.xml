@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="resource-instance-name"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/resource-instance-name"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1432"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="resource-instance-name"/>
-  <title value="resource instance name"/>
+  <name value="ResourceInstanceName"/>
+  <title value="Resource instance name"/>
   <status value="draft"/>
   <date value="2022-05-13T16:10:11-04:00"/>
   <publisher value="HL7"/>
@@ -46,7 +51,6 @@
         <severity value="error"/>
         <human value="Cannot be used where title already exists."/>
         <expression value="%resource.title.exists().not()"/>
-        <xpath value="remove when tooling allows"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Extension"/>
       </constraint>
     </element>

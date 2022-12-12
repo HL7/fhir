@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="object-role"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -69,6 +71,9 @@
     <definition value="A human participant not otherwise identified by some other category."/>
   </concept>
   <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="deprecated"/>
+    </extension>
     <code value="7"/>
     <display value="List"/>
     <definition value="(deprecated)."/>
@@ -104,6 +109,9 @@
     <definition value="A passive object, such as a role table, that is relevant to the event."/>
   </concept>
   <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="deprecated"/>
+    </extension>
     <code value="14"/>
     <display value="Security Granularity Definition"/>
     <definition value="(deprecated)  Relevant to certain RBAC security methodologies."/>
@@ -144,6 +152,9 @@
     <definition value="A list of jobs or a system that provides lists of jobs; e.g. an MWL SCP."/>
   </concept>
   <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="deprecated"/>
+    </extension>
     <code value="22"/>
     <display value="Table"/>
     <definition value="(Deprecated)."/>

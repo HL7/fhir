@@ -17,7 +17,6 @@
         <code value="address"/>
         <type value="string"/>
         <expression value="Location.address"/>
-        <!--<xpath value="f:Location/f:address"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -27,7 +26,7 @@
       <SearchParameter>
         <id value="Location-address-city"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.address.city"/>
@@ -37,7 +36,6 @@
         <code value="address-city"/>
         <type value="string"/>
         <expression value="Location.address.city"/>
-        <!--<xpath value="f:Location/f:address/f:city"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -47,7 +45,7 @@
       <SearchParameter>
         <id value="Location-address-country"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.address.country"/>
@@ -57,7 +55,6 @@
         <code value="address-country"/>
         <type value="string"/>
         <expression value="Location.address.country"/>
-        <!--<xpath value="f:Location/f:address/f:country"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -67,7 +64,7 @@
       <SearchParameter>
         <id value="Location-address-postalcode"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.address.postalCode"/>
@@ -77,7 +74,6 @@
         <code value="address-postalcode"/>
         <type value="string"/>
         <expression value="Location.address.postalCode"/>
-        <!--<xpath value="f:Location/f:address/f:postalCode"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -87,7 +83,7 @@
       <SearchParameter>
         <id value="Location-address-state"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.address.state"/>
@@ -97,7 +93,6 @@
         <code value="address-state"/>
         <type value="string"/>
         <expression value="Location.address.state"/>
-        <!--<xpath value="f:Location/f:address/f:state"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -107,7 +102,7 @@
       <SearchParameter>
         <id value="Location-address-use"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.address.use"/>
@@ -117,7 +112,6 @@
         <code value="address-use"/>
         <type value="token"/>
         <expression value="Location.address.use"/>
-        <!--<xpath value="f:Location/f:address/f:use"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="endpoint"/>
         <type value="reference"/>
         <expression value="Location.endpoint"/>
-        <!--<xpath value="f:Location/f:endpoint"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Location.identifier"/>
-        <!--<xpath value="f:Location/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -173,11 +165,10 @@
           <valueString value="Location.name,Location.alias"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-name"/>
-        <description value="A portion of the location&#39;s name or alias"/>
+        <description value="A portion of the location's name or alias"/>
         <code value="name"/>
         <type value="string"/>
         <expression value="Location.name | Location.alias"/>
-        <!--<xpath value="f:Location/f:name | f:Location/f:alias"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -193,11 +184,10 @@
           <valueString value="Location.position"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-near"/>
-        <description value="Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).&#10;&#10;Servers which support the near parameter SHALL support the unit string 'km' for kilometers and SHOULD support '[mi_us]' for miles, support for other units is optional. If the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discretion as to what distances should be considered near (and units are irrelevant).&#xD;&#xD;If the server is unable to understand the units (and does support the near search parameter), it MIGHT return an OperationOutcome and fail the search with a http status 400 BadRequest. If the server does not support the near parameter, the parameter MIGHT report the unused parameter in a bundled OperationOutcome and still perform the search ignoring the near parameter.&#10;&#10;Note: The algorithm to determine the distance is not defined by the specification, and systems might have different engines that calculate things differently. They could consider geographic point to point, or path via road, or including current traffic conditions, or just simple neighboring postcodes/localities if that's all it had access to."/>
+        <description value="Search for locations where the location.position is near to, or within a specified distance of, the provided coordinates expressed as [latitude]|[longitude]|[distance]|[units] (using the WGS84 datum, see notes).&#xA;&#xA;Servers which support the near parameter SHALL support the unit string 'km' for kilometers and SHOULD support '[mi_us]' for miles, support for other units is optional. If the units are omitted, then kms should be assumed. If the distance is omitted, then the server can use its own discretion as to what distances should be considered near (and units are irrelevant).&#xD;&#xD;If the server is unable to understand the units (and does support the near search parameter), it MIGHT return an OperationOutcome and fail the search with a http status 400 BadRequest. If the server does not support the near parameter, the parameter MIGHT report the unused parameter in a bundled OperationOutcome and still perform the search ignoring the near parameter.&#xA;&#xA;Note: The algorithm to determine the distance is not defined by the specification, and systems might have different engines that calculate things differently. They could consider geographic point to point, or path via road, or including current traffic conditions, or just simple neighboring postcodes/localities if that's all it had access to."/>
         <code value="near"/>
         <type value="special"/>
         <expression value="Location.position"/>
-        <!--<xpath value="f:Location/f:position"/> -->
         <processingMode value="other"/>
       </SearchParameter>
     </resource>
@@ -217,7 +207,6 @@
         <code value="operational-status"/>
         <type value="token"/>
         <expression value="Location.operationalStatus"/>
-        <!--<xpath value="f:Location/f:operationalStatus"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,7 +226,6 @@
         <code value="organization"/>
         <type value="reference"/>
         <expression value="Location.managingOrganization"/>
-        <!--<xpath value="f:Location/f:managingOrganization"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +245,6 @@
         <code value="partof"/>
         <type value="reference"/>
         <expression value="Location.partOf"/>
-        <!--<xpath value="f:Location/f:partOf"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -267,7 +254,7 @@
       <SearchParameter>
         <id value="Location-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Location.status"/>
@@ -277,7 +264,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="Location.status"/>
-        <!--<xpath value="f:Location/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -297,19 +283,133 @@
         <code value="type"/>
         <type value="token"/>
         <expression value="Location.type"/>
-        <!--<xpath value="f:Location/f:type"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
   <entry>
     <resource>
-      <SearchParameter xmlns="http://hl7.org/fhir">
+      <SearchParameter>
         <id value="location-contains"/>
         <text>
           <status value="generated"/>
-          <div xmlns="http://www.w3.org/1999/xhtml"><p><b>Generated Narrative</b></p><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource "location-contains" </p></div><p><b>url</b>: <code>http://hl7.org/fhir/uv/vhdir/SearchParameter/location-contains</code></p><p><b>version</b>: 0.2.0</p><p><b>name</b>: VhDir_sp_location_contains</p><p><b>status</b>: draft</p><p><b>date</b>: 2018-08-19</p><p><b>publisher</b>: HL7 International - Patient Administration Work Group</p><p><b>contact</b>: HL7 International - Patient Administration Work Group: <a href="http://www.hl7.org/Special/committees/pafm">http://www.hl7.org/Special/committees/pafm</a>,<a href="mailto:pafm@lists.HL7.org">pafm@lists.HL7.org</a></p><p><b>description</b>: Select locations that contain the specified co-ordinates</p><p><b>jurisdiction</b>: United States of America <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (unknown#US)</span></p><p><b>code</b>: contains</p><p><b>base</b>: Location</p><p><b>type</b>: special</p><p><b>expression</b>: Location.extension('http://hl7.org/fhir/StructureDefinition/location-boundary-geojson').value</p><p><b>multipleOr</b>: true</p><p><b>multipleAnd</b>: true</p></div>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            
+            <p>
+              
+              <b>Generated Narrative</b>
+            
+            </p>
+            
+            <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%">
+              
+              <p style="margin-bottom: 0px">Resource &quot;location-contains&quot; </p>
+            
+            </div>
+            
+            <p>
+              
+              <b>url</b>: 
+              
+              <code>http://hl7.org/fhir/uv/vhdir/SearchParameter/location-contains</code>
+            
+            </p>
+            
+            <p>
+              
+              <b>version</b>: 0.2.0
+            
+            </p>
+            
+            <p>
+              
+              <b>name</b>: VhDir_sp_location_contains
+            
+            </p>
+            
+            <p>
+              
+              <b>status</b>: draft
+            
+            </p>
+            
+            <p>
+              
+              <b>date</b>: 2018-08-19
+            
+            </p>
+            
+            <p>
+              
+              <b>publisher</b>: HL7 International - Patient Administration Work Group
+            
+            </p>
+            
+            <p>
+              
+              <b>contact</b>: HL7 International - Patient Administration Work Group: 
+              
+              <a href="http://www.hl7.org/Special/committees/pafm">http://www.hl7.org/Special/committees/pafm</a>,
+              
+              <a href="mailto:pafm@lists.HL7.org">pafm@lists.HL7.org</a>
+            
+            </p>
+            
+            <p>
+              
+              <b>description</b>: Select locations that contain the specified co-ordinates
+            
+            </p>
+            
+            <p>
+              
+              <b>jurisdiction</b>: United States of America 
+              
+              <span style="background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki"> (unknown#US)</span>
+            
+            </p>
+            
+            <p>
+              
+              <b>code</b>: contains
+            
+            </p>
+            
+            <p>
+              
+              <b>base</b>: Location
+            
+            </p>
+            
+            <p>
+              
+              <b>type</b>: special
+            
+            </p>
+            
+            <p>
+              
+              <b>expression</b>: Location.extension('http://hl7.org/fhir/StructureDefinition/location-boundary-geojson').value
+            
+            </p>
+            
+            <p>
+              
+              <b>multipleOr</b>: true
+            
+            </p>
+            
+            <p>
+              
+              <b>multipleAnd</b>: true
+            
+            </p>
+          
+          </div>
         </text>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/location-contains"/>
         <version value="0.2.0"/>
         <status value="draft"/>
@@ -318,8 +418,8 @@
         <code value="contains"/>
         <base value="Location"/>
         <type value="special"/>
-        <expression value="Location.extension(&#39;http://hl7.org/fhir/StructureDefinition/location-boundary-geojson&#39;).value"/>
-      </SearchParameter>  
+        <expression value="Location.extension('http://hl7.org/fhir/StructureDefinition/location-boundary-geojson').value"/>
+      </SearchParameter>
     </resource>
   </entry>
   <entry>
@@ -333,11 +433,10 @@
           <valueString value="Location.characteristic"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Location-characteristic"/>
-        <description value="One of the Location&#39;s characteristics"/>
+        <description value="One of the Location's characteristics"/>
         <code value="characteristic"/>
         <type value="token"/>
         <expression value="Location.characteristic"/>
-        <!--<xpath value="f:Location/f:characteristic"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

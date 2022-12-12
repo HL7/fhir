@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -35,6 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ValueSet"/>
+  <title value="ValueSet"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -91,8 +93,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <mapping>
@@ -119,8 +120,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -185,6 +185,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ValueSet.title"/>
       <short value="Name for this value set (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the value set."/>
@@ -265,9 +268,12 @@
       </mapping>
     </element>
     <element id="ValueSet.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ValueSet.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the value set."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the value set."/>
       <comment value="Usually an organization but may be an individual. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the value set. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the value set.  May also allow for contact."/>
       <min value="0"/>
@@ -294,9 +300,12 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ValueSet.description"/>
       <short value="Natural language description of the value set"/>
-      <definition value="A free text natural language description of the value set from a consumer&#39;s perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
+      <definition value="A free text natural language description of the value set from a consumer's perspective. The textual description specifies the span of meanings for concepts to be included within the Value Set Expansion, and also may specify the intended use and limitations of the Value Set."/>
       <comment value="Description SHOULD contain instructions for clinical or administrative use and interpretation and information about misuse. Description SHOULD be populated unless the information is available from context. Description SHOULD be populated unless the value set is a contained resource (e.g. a value set defined solely in the context of a profile)."/>
       <min value="0"/>
       <max value="1"/>
@@ -350,8 +359,8 @@
     <element id="ValueSet.immutable">
       <path value="ValueSet.immutable"/>
       <short value="Indicates whether or not any change to the content logical definition may occur"/>
-      <definition value="If this is set to &#39;true&#39;, then no new versions of the content logical definition can be created.  Note: Other metadata might still change."/>
-      <comment value="Normally immutability is set to &#39;false&#39;, which is the default assumption if it is not populated.  Note that the implication is that if this is set to &#39;true&#39;, there may be only one ValueSet version for this definition. Immutability tends to be set to &#39;true&#39; in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot; - Where there&#39;s no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition."/>
+      <definition value="If this is set to 'true', then no new versions of the content logical definition can be created.  Note: Other metadata might still change."/>
+      <comment value="Normally immutability is set to 'false', which is the default assumption if it is not populated.  Note that the implication is that if this is set to 'true', there may be only one ValueSet version for this definition. Immutability tends to be set to 'true' in one of two cases: - Where the value set, by the nature of its usage, cannot change.  For example &quot;All specializations of ACT in ActClassCode&quot; - Where there's no safe way to express the &quot;Purpose&quot; such that someone else could safely make changes to the value set definition. Source workflow control must guarantee that the same URI always yields the same definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -360,10 +369,13 @@
       <isSummary value="true"/>
     </element>
     <element id="ValueSet.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ValueSet.purpose"/>
       <short value="Why this value set is defined"/>
       <definition value="Explanation of why this value set is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the value set. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this value set."/>
+      <comment value="This element does not describe the usage of the value set. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this value set."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -379,6 +391,9 @@
       </mapping>
     </element>
     <element id="ValueSet.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ValueSet.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the value set and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the value set."/>
@@ -403,7 +418,7 @@
       <path value="ValueSet.approvalDate"/>
       <short value="When the ValueSet was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -601,7 +616,7 @@
       <path value="ValueSet.compose.include"/>
       <short value="Include one or more codes from a code system or other value set(s)"/>
       <definition value="Include one or more codes from a code system or other value set(s)."/>
-      <comment value="All the conditions in an include must be true. If a system is listed, all the codes from the system are listed. If one or more filters are listed, all of the filters must apply. If one or more value sets are listed, the codes must be in all the value sets. E.g. each include is &#39;include all the codes that meet all these conditions&#39;."/>
+      <comment value="All the conditions in an include must be true. If a system is listed, all the codes from the system are listed. If one or more filters are listed, all of the filters must apply. If one or more value sets are listed, the codes must be in all the value sets. E.g. each include is 'include all the codes that meet all these conditions'."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -612,7 +627,6 @@
         <severity value="error"/>
         <human value="A value set with concepts or filters SHALL include a system"/>
         <expression value="(concept.exists() or filter.exists()) implies system.exists()"/>
-        <xpath value="not(exists(f:concept) or exists(f:filter)) or exists(f:system)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -620,7 +634,6 @@
         <severity value="error"/>
         <human value="Cannot have both concept and filter"/>
         <expression value="concept.empty() or filter.empty()"/>
-        <xpath value="not(exists(f:concept)) or not(exists(f:filter))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -628,7 +641,6 @@
         <severity value="error"/>
         <human value="A value set include/exclude SHALL have a value set or a system"/>
         <expression value="valueSet.exists() or system.exists()"/>
-        <xpath value="exists(f:valueSet) or exists(f:system)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <isSummary value="true"/>
@@ -641,7 +653,7 @@
       <path value="ValueSet.compose.include.system"/>
       <short value="The system the codes come from"/>
       <definition value="An absolute URI which is the code system from which the selected codes come from."/>
-      <comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See &#39;&#39;Coding.system&#39;&#39; for further documentation about the correct value for the system element."/>
+      <comment value="If there are no codes or filters, the entire code system is included. Note that the set of codes that are included may contain abstract codes. See ''Coding.system'' for further documentation about the correct value for the system element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -658,8 +670,8 @@
     <element id="ValueSet.compose.include.version">
       <path value="ValueSet.compose.include.version"/>
       <short value="Specific version of the code system referred to"/>
-      <definition value="The version of the code system that the codes are selected from, or the special version &#39;*&#39; for all versions."/>
-      <comment value="This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set might not be known until a context of use binds it to a particular version. The special value &#39;*&#39; means all versions; It is at server discretion regarding expansions and which versions must be supported."/>
+      <definition value="The version of the code system that the codes are selected from, or the special version '*' for all versions."/>
+      <comment value="This is used when selecting the descendants of a concept - they may change between versions. If no version is specified, then the exact contents of the value set might not be known until a context of use binds it to a particular version. The special value '*' means all versions; It is at server discretion regarding expansions and which versions must be supported."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -891,7 +903,7 @@
       </extension>
       <path value="ValueSet.compose.include.filter.value"/>
       <short value="Code from the system, or regex criteria, or boolean value for exists"/>
-      <definition value="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is &#39;regex&#39;, or one of the values (true and false), when the operation is &#39;exists&#39;."/>
+      <definition value="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value  (if the filter represents a property defined in CodeSystem) or of the system filter value (if the filter represents a filter defined in CodeSystem) when the operation is 'regex', or one of the values (true and false), when the operation is 'exists'."/>
       <comment value="Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example."/>
       <min value="1"/>
       <max value="1"/>
@@ -925,7 +937,7 @@
     <element id="ValueSet.compose.include.copyright">
       <path value="ValueSet.compose.include.copyright"/>
       <short value="A copyright statement for the specific code system included in the value set"/>
-      <definition value="A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element&#39;s system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)."/>
+      <definition value="A copyright statement for the specific code system asserted by the containing ValueSet.compose.include element's system value (if the associated ValueSet.compose.include.version element is not present); or the code system and version combination (if the associated ValueSet.compose.include.version element is present)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -952,8 +964,8 @@
     </element>
     <element id="ValueSet.compose.property">
       <path value="ValueSet.compose.property"/>
-      <short value="Property to return if client doesn&#39;t override"/>
-      <definition value="A property to return in the expansion, if the client doesn&#39;t ask for any particular properties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. The special value &#39;*&#39; means all properties known to the server."/>
+      <short value="Property to return if client doesn't override"/>
+      <definition value="A property to return in the expansion, if the client doesn't ask for any particular properties. May be either a code from the code system definition (convenient) or a the formal URI that refers to the property. The special value '*' means all properties known to the server."/>
       <comment value="Note that property names can clash, so using a URI is recommended."/>
       <min value="0"/>
       <max value="*"/>
@@ -1143,7 +1155,6 @@
         <severity value="error"/>
         <human value="SHALL have a code or a display"/>
         <expression value="code.exists() or display.exists()"/>
-        <xpath value="exists(f:code) or exists(f:display)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -1151,7 +1162,6 @@
         <severity value="error"/>
         <human value="SHALL have a code if not abstract"/>
         <expression value="code.exists() or abstract = true"/>
-        <xpath value="exists(f:code) or (f:abstract/@value = true())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
       <constraint>
@@ -1159,7 +1169,6 @@
         <severity value="error"/>
         <human value="SHALL have a system if a code is present"/>
         <expression value="code.empty() or system.exists()"/>
-        <xpath value="exists(f:system) or not(exists(f:code))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </constraint>
     </element>

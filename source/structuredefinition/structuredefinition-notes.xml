@@ -16,8 +16,7 @@
 <li><code>element.type</code> is used to specify which types may be used for this element. If there is more than one type, the element offers a choice of types and must have a name that terminates in "[x]". (Note: when substituting [x] with a specific data type, always capitalize the first letter. Choice types are always camel-case. Ex: "effectiveDateTime" is correct, "effectivedateTime" is NOT correct.)
 When profiling a resource and only one type is specified, the name of the element is changed to include the type instead of '[x]'.</li>
 <li>When using XPath to define constraints about the relationship between the contents of the narrative and the contents of the data elements, the element against which the rule is expressed is the one against which the error or warning will be reported by a validator.</li>
-<li>When expression constraints are placed on elements that offer a choice of types, the expression has to select the type to which it applies using the <a href="fhirpath.html">FHIRPath <code>is</code> operator</a>.</li>
-<li>For XPath constraints, the prefix "f" should be used for "http://hl7.org/fhir", and "h" for "http://www.w3.org/1999/xhtml". XPath constraints are written against the XML representation</li>
+<li>When expression constraints are placed on elements that offer a choice of types, the expression has to select the type to which it applies using the <a href="fhirpath.html">FHIRPath <code>as</code> operator</a>.</li>
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
 </ul>
 

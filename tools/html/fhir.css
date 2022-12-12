@@ -149,6 +149,18 @@ table.colsi td {
 }
 
 
+table.colsdep {
+	width: 100%;
+}
+
+table.colsdep td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #ffeeee;
+}
+
 
 table.list td {
         border-top: 1px silver solid;

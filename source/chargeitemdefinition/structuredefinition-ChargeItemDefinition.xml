@@ -1,747 +1,762 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="ChargeItemDefinition"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Financial.General"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="0"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="business"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="pa"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="MetadataResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ChargeItemDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Financial.General"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1383"/>
   </identifier>
-	<version value="5.0.0"/>
-	<name value="ChargeItemDefinition"/>
-	<status value="draft"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (Patient Administration)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="objimpl"/>
-		<uri value="http://hl7.org/fhir/object-implementation"/>
-		<name value="Object Implementation Information"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="ChargeItemDefinition"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="ChargeItemDefinition">
-			<path value="ChargeItemDefinition"/>
-			<short value="Definition of properties and rules about how the price and the applicability of a ChargeItem can be determined"/>
-			<definition value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
-			</constraint>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="financial.support"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.url">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-				<valueCode value="Event.identifier"/>
-			</extension>
-			<path value="ChargeItemDefinition.url"/>
-			<short value="Canonical identifier for this charge item definition, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this charge item definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this charge item definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the charge item definition is stored on different servers."/>
-			<comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-			<requirements value="Allows the charge item definition to be referenced by a single globally unique identifier."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches(&#39;([^|#])*&#39;)"/>
-				<xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.identifier">
-			<path value="ChargeItemDefinition.identifier"/>
-			<short value="Additional identifier for the charge item definition"/>
-			<definition value="A formal identifier that is used to identify this charge item definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this charge item definition outside of FHIR, where it is not possible to use the logical URI."/>
-			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.version">
-			<path value="ChargeItemDefinition.version"/>
-			<short value="Business version of the charge item definition"/>
-			<definition value="The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
-			<comment value="There may be different charge item definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the charge item definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.name">
-			<path value="ChargeItemDefinition.name"/>
-			<short value="Name for this charge item definition (computer friendly)"/>
-			<definition value="A natural language name identifying the ChargeItemDefinition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.name"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.title">
-			<path value="ChargeItemDefinition.title"/>
-			<short value="Name for this charge item definition (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the charge item definition."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.derivedFromUri">
-			<path value="ChargeItemDefinition.derivedFromUri"/>
-			<short value="Underlying externally-defined charge item definition"/>
-			<definition value="The URL pointing to an externally-defined charge item definition that is adhered to in whole or in part by this definition."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.partOf">
-			<path value="ChargeItemDefinition.partOf"/>
-			<short value="A larger definition of which this particular definition is a component or step"/>
-			<definition value="A larger definition of which this particular definition is a component or step."/>
-			<alias value="container"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.replaces">
-			<path value="ChargeItemDefinition.replaces"/>
-			<short value="Completed or terminated request(s) whose function is taken by this new request"/>
-			<definition value="As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance."/>
-			<alias value="supersedes"/>
-			<alias value="prior"/>
-			<alias value="renewed order"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.status">
-			<path value="ChargeItemDefinition.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The current state of the ChargeItemDefinition."/>
-			<comment value="Allows filtering of charge item definitions that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The lifecycle status of an artifact."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.status {different ValueSet}"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.status"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.experimental">
-			<path value="ChargeItemDefinition.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of charge item definitions that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level charge item definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.date">
-			<path value="ChargeItemDefinition.date"/>
-			<short value="Date last changed"/>
-			<definition value="The date  (and optionally time) when the charge item definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes."/>
-			<comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the charge item definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.publisher">
-			<path value="ChargeItemDefinition.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the charge item definition."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the charge item definition is the organization or individual primarily responsible for the maintenance and upkeep of the charge item definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the charge item definition. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the charge item definition.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher {as string instead of CodeableConcept}"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.contact">
-			<path value="ChargeItemDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.description">
-			<path value="ChargeItemDefinition.description"/>
-			<short value="Natural language description of the charge item definition"/>
-			<definition value="A free text natural language description of the charge item definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the charge item definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the charge item definition is presumed to be the predominant language in the place the charge item definition was created)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.useContext">
-			<path value="ChargeItemDefinition.useContext"/>
-			<short value="The context that the content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate charge item definition instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.jurisdiction">
-			<path value="ChargeItemDefinition.jurisdiction"/>
-			<short value="Intended jurisdiction for charge item definition (if applicable)"/>
-			<definition value="A legal or geographic region in which the charge item definition is intended to be used."/>
-			<comment value="It may be possible for the charge item definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.jurisdiction"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.purpose">
-			<path value="ChargeItemDefinition.purpose"/>
-			<short value="Why this charge item definition is defined"/>
-			<definition value="Explanation of why this charge item definition is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the charge item definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this charge item definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".reasonCode.text"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.copyright">
-			<path value="ChargeItemDefinition.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the charge item definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the charge item definition."/>
-			<requirements value="Consumers must be able to determine any legal restrictions on the use of the charge item definition and/or its content."/>
-			<alias value="License"/>
-			<alias value="Restrictions"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.copyright"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.approvalDate">
-			<path value="ChargeItemDefinition.approvalDate"/>
-			<short value="When the charge item definition was approved by publisher"/>
-			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.approvalDate"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.lastReviewDate">
-			<path value="ChargeItemDefinition.lastReviewDate"/>
-			<short value="When the charge item definition was last reviewed"/>
-			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date."/>
-			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.lastReviewDate"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.code">
-			<path value="ChargeItemDefinition.code"/>
-			<short value="Billing code or product type this definition applies to"/>
-			<definition value="The defined billing details in this resource pertain to the given billing code."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ChargeItemDefinitionCode"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Billing Code defined by this ChargeItemDefinition."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/chargeitem-billingcodes"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.instance">
-			<path value="ChargeItemDefinition.instance"/>
-			<short value="Instances this definition applies to"/>
-			<definition value="The defined billing details in this resource pertain to the given product instance(s)."/>
-			<comment value="In case of highly customized, individually produced or fitted devices/substances, the pricing information may be different for each instance of the product. This reference links pricing details to specific product instances."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.applicability">
-			<path value="ChargeItemDefinition.applicability"/>
-			<short value="Whether or not the billing code is applicable"/>
-			<definition value="Expressions that describe applicability criteria for the billing code."/>
-			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.applicability.condition">
-			<path value="ChargeItemDefinition.applicability.condition"/>
-			<short value="Boolean-valued expression"/>
-			<definition value="An expression that returns true or false, indicating whether the condition is satisfied. When using FHIRPath expressions, the %context environment variable must be replaced at runtime with the ChargeItem resource to which this definition is applied."/>
-			<comment value="Please note that FHIRPath Expressions can only be evaluated in the scope of the current ChargeItem resource to which this definition is being applied.&#xA;FHIRPath expressions can traverse into other resources linked from the ChargeItem resource, however, testing rules such as that a billing code may be billed only once per encounter need a wider scope. In such scenarios, CQL may be the appropriate choice."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Expression"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.applicability.effectivePeriod">
-			<path value="ChargeItemDefinition.applicability.effectivePeriod"/>
-			<short value="When the charge item definition is expected to be used"/>
-			<definition value="The period during which the charge item definition content was or is planned to be in active use."/>
-			<comment value="The effective period for a charge item definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the charge item definition are or are expected to be used instead."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.effectivePeriod"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.applicability.relatedArtifact">
-			<path value="ChargeItemDefinition.applicability.relatedArtifact"/>
-			<short value="Reference to / quotation of the external source of the group of properties"/>
-			<definition value="Reference to / quotation of the external source of the group of properties."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="RelatedArtifact"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.propertyGroup">
-			<path value="ChargeItemDefinition.propertyGroup"/>
-			<short value="Group of properties which are applicable under the same conditions"/>
-			<definition value="Group of properties which are applicable under the same conditions. If no applicability rules are established for the group, then all properties always apply."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.propertyGroup.applicability">
-			<path value="ChargeItemDefinition.propertyGroup.applicability"/>
-			<short value="Conditions under which the priceComponent is applicable"/>
-			<definition value="Expressions that describe applicability criteria for the priceComponent."/>
-			<comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
-			<min value="0"/>
-			<max value="*"/>
-			<contentReference value="#ChargeItemDefinition.applicability"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="ChargeItemDefinition.propertyGroup.priceComponent">
-			<path value="ChargeItemDefinition.propertyGroup.priceComponent"/>
-			<short value="Components of total line item price"/>
-			<definition value="The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the prices have been calculated."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="MonetaryComponent"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-	</differential>
+  <version value="5.0.0"/>
+  <name value="ChargeItemDefinition"/>
+  <title value="ChargeItemDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="ChargeItemDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="ChargeItemDefinition">
+      <path value="ChargeItemDefinition"/>
+      <short value="Definition of properties and rules about how the price and the applicability of a ChargeItem can be determined"/>
+      <definition value="The ChargeItemDefinition resource provides the properties that apply to the (billing) codes necessary to calculate costs and prices. The properties may differ largely depending on type and realm, therefore this resource gives only a rough structure and requires profiling for each type of billing code system."/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="financial.support"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.url">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="Event.identifier"/>
+      </extension>
+      <path value="ChargeItemDefinition.url"/>
+      <short value="Canonical identifier for this charge item definition, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this charge item definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this charge item definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the charge item definition is stored on different servers."/>
+      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <requirements value="Allows the charge item definition to be referenced by a single globally unique identifier."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="url.matches('([^|#])*')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.identifier">
+      <path value="ChargeItemDefinition.identifier"/>
+      <short value="Additional identifier for the charge item definition"/>
+      <definition value="A formal identifier that is used to identify this charge item definition when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this charge item definition outside of FHIR, where it is not possible to use the logical URI."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.version">
+      <path value="ChargeItemDefinition.version"/>
+      <short value="Business version of the charge item definition"/>
+      <definition value="The identifier that is used to identify this version of the charge item definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the charge item definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets."/>
+      <comment value="There may be different charge item definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the charge item definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.name">
+      <path value="ChargeItemDefinition.name"/>
+      <short value="Name for this charge item definition (computer friendly)"/>
+      <definition value="A natural language name identifying the ChargeItemDefinition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.name"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ChargeItemDefinition.title"/>
+      <short value="Name for this charge item definition (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the charge item definition."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.derivedFromUri">
+      <path value="ChargeItemDefinition.derivedFromUri"/>
+      <short value="Underlying externally-defined charge item definition"/>
+      <definition value="The URL pointing to an externally-defined charge item definition that is adhered to in whole or in part by this definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.partOf">
+      <path value="ChargeItemDefinition.partOf"/>
+      <short value="A larger definition of which this particular definition is a component or step"/>
+      <definition value="A larger definition of which this particular definition is a component or step."/>
+      <alias value="container"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.replaces">
+      <path value="ChargeItemDefinition.replaces"/>
+      <short value="Completed or terminated request(s) whose function is taken by this new request"/>
+      <definition value="As new versions of a protocol or guideline are defined, allows identification of what versions are replaced by a new instance."/>
+      <alias value="supersedes"/>
+      <alias value="prior"/>
+      <alias value="renewed order"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.status">
+      <path value="ChargeItemDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of the ChargeItemDefinition."/>
+      <comment value="Allows filtering of charge item definitions that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.status {different ValueSet}"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.experimental">
+      <path value="ChargeItemDefinition.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this charge item definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of charge item definitions that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level charge item definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.experimental"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.date">
+      <path value="ChargeItemDefinition.date"/>
+      <short value="Date last changed"/>
+      <definition value="The date  (and optionally time) when the charge item definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the charge item definition changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the charge item definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.date"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ChargeItemDefinition.publisher"/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the charge item definition."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the charge item definition is the organization or individual primarily responsible for the maintenance and upkeep of the charge item definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the charge item definition. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the charge item definition.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.publisher {as string instead of CodeableConcept}"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.contact">
+      <path value="ChargeItemDefinition.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ChargeItemDefinition.description"/>
+      <short value="Natural language description of the charge item definition"/>
+      <definition value="A free text natural language description of the charge item definition from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the charge item definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the charge item definition is presumed to be the predominant language in the place the charge item definition was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.description"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.useContext">
+      <path value="ChargeItemDefinition.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate charge item definition instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.jurisdiction">
+      <path value="ChargeItemDefinition.jurisdiction"/>
+      <short value="Intended jurisdiction for charge item definition (if applicable)"/>
+      <definition value="A legal or geographic region in which the charge item definition is intended to be used."/>
+      <comment value="It may be possible for the charge item definition to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.jurisdiction"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ChargeItemDefinition.purpose"/>
+      <short value="Why this charge item definition is defined"/>
+      <definition value="Explanation of why this charge item definition is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the charge item definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this charge item definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.purpose"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode.text"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ChargeItemDefinition.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the charge item definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the charge item definition."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the charge item definition and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.approvalDate">
+      <path value="ChargeItemDefinition.approvalDate"/>
+      <short value="When the charge item definition was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.lastReviewDate">
+      <path value="ChargeItemDefinition.lastReviewDate"/>
+      <short value="When the charge item definition was last reviewed"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.code">
+      <path value="ChargeItemDefinition.code"/>
+      <short value="Billing code or product type this definition applies to"/>
+      <definition value="The defined billing details in this resource pertain to the given billing code."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ChargeItemDefinitionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Billing Code defined by this ChargeItemDefinition."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/chargeitem-billingcodes"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.instance">
+      <path value="ChargeItemDefinition.instance"/>
+      <short value="Instances this definition applies to"/>
+      <definition value="The defined billing details in this resource pertain to the given product instance(s)."/>
+      <comment value="In case of highly customized, individually produced or fitted devices/substances, the pricing information may be different for each instance of the product. This reference links pricing details to specific product instances."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability">
+      <path value="ChargeItemDefinition.applicability"/>
+      <short value="Whether or not the billing code is applicable"/>
+      <definition value="Expressions that describe applicability criteria for the billing code."/>
+      <comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability.condition">
+      <path value="ChargeItemDefinition.applicability.condition"/>
+      <short value="Boolean-valued expression"/>
+      <definition value="An expression that returns true or false, indicating whether the condition is satisfied. When using FHIRPath expressions, the %context environment variable must be replaced at runtime with the ChargeItem resource to which this definition is applied."/>
+      <comment value="Please note that FHIRPath Expressions can only be evaluated in the scope of the current ChargeItem resource to which this definition is being applied.&#xA;FHIRPath expressions can traverse into other resources linked from the ChargeItem resource, however, testing rules such as that a billing code may be billed only once per encounter need a wider scope. In such scenarios, CQL may be the appropriate choice."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability.effectivePeriod">
+      <path value="ChargeItemDefinition.applicability.effectivePeriod"/>
+      <short value="When the charge item definition is expected to be used"/>
+      <definition value="The period during which the charge item definition content was or is planned to be in active use."/>
+      <comment value="The effective period for a charge item definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the charge item definition are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.applicability.relatedArtifact">
+      <path value="ChargeItemDefinition.applicability.relatedArtifact"/>
+      <short value="Reference to / quotation of the external source of the group of properties"/>
+      <definition value="Reference to / quotation of the external source of the group of properties."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="RelatedArtifact"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup">
+      <path value="ChargeItemDefinition.propertyGroup"/>
+      <short value="Group of properties which are applicable under the same conditions"/>
+      <definition value="Group of properties which are applicable under the same conditions. If no applicability rules are established for the group, then all properties always apply."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.applicability">
+      <path value="ChargeItemDefinition.propertyGroup.applicability"/>
+      <short value="Conditions under which the priceComponent is applicable"/>
+      <definition value="Expressions that describe applicability criteria for the priceComponent."/>
+      <comment value="The applicability conditions can be used to ascertain whether a billing item is allowed in a specific context. E.g. some billing codes may only be applicable in out-patient settings, only to male/female patients or only to children."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#ChargeItemDefinition.applicability"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="ChargeItemDefinition.propertyGroup.priceComponent">
+      <path value="ChargeItemDefinition.propertyGroup.priceComponent"/>
+      <short value="Components of total line item price"/>
+      <definition value="The price for a ChargeItem may be calculated as a base price with surcharges/deductions that apply in certain conditions. A ChargeItemDefinition resource that defines the prices, factors and conditions that apply to a billing code is currently under development. The priceComponent element can be used to offer transparency to the recipient of the Invoice of how the prices have been calculated."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="MonetaryComponent"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

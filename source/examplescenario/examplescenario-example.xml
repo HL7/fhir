@@ -152,10 +152,12 @@
     <description value="Administration report for day 1, lunch: Taken"/>
     <version>
       <key value="iheadm002v1"/>
+      <title value="Administration - v1"/>
       <description value="Medication just taken"/>
     </version>
     <version>
       <key value="iheadm002v2"/>
+      <title value="Administration - v2"/>
       <description value="Medication rejected"/>
     </version>
   </instance>

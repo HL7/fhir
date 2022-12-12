@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="individual-genderIdentity"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/individual-genderIdentity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1336"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="genderIdentity"/>
-  <title value="genderIdentity"/>
+  <name value="PGenderIdentity"/>
+  <title value="Individual Gender Identity"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
@@ -50,7 +55,7 @@
       <path value="Extension"/>
       <short value="The individual's gender identity"/>
       <definition value="An individual's personal sense of being a man, woman, boy, girl, nonbinary, or something else."/>
-	  <comment value="This represents an individual’s identity, ascertained by asking them what that identity is."/>
+      <comment value="This represents an individual’s identity, ascertained by asking them what that identity is."/>
       <min value="0"/>
     </element>
     <element id="Extension.extension:value">
@@ -82,13 +87,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="GenderIdentity"/>
-		  </extension>
-		  <strength value="preferred"/>
-		  <valueSet value="http://terminology.hl7.org/ValueSet/gender-identity"/>
-	  </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="GenderIdentity"/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/gender-identity"/>
+      </binding>
     </element>
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
@@ -154,7 +159,7 @@
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
-	  <min value="0"/>
+      <min value="0"/>
       <max value="0"/>
     </element>
   </differential>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NutritionProduct"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionProduct"/>
+  <title value="NutritionProduct"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -117,7 +120,7 @@
       <path value="NutritionProduct.status"/>
       <short value="active | inactive | entered-in-error"/>
       <definition value="The current state of the product."/>
-      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -149,7 +152,7 @@
     </element>
     <element id="NutritionProduct.category">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Should we have a category negation, as in &#34;not suitable for kosher diet&#34;?"/>
+        <valueString value="Should we have a category negation, as in &quot;not suitable for kosher diet&quot;?"/>
       </extension>
       <path value="NutritionProduct.category"/>
       <short value="Broad product groups or categories used to classify the product, such as Legume and Legume Products, Beverages, or Beef Products"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="OperationOutcome"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="OperationOutcome"/>
+  <title value="OperationOutcome"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -101,7 +104,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="AcknowledgementDetail or Observation[classCode=&#34;ALRT&#34; and moodCode=&#34;EVN&#34;]"/>
+        <map value="AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
     </element>
     <element id="OperationOutcome.issue.severity">
@@ -129,7 +132,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./typeCode[parent::AcknowledgmentDetail] or unique(./inboundRelationship[parent::Observation and typeCode='SUBJ' and isNormalActRelationship()]/source[classCode=&#34;OBS&#34; and moodCode=&#34;EVN&#34; and implies(code, ActCode#SEV and isNormalAct())/value[xsi:type=&#34;CD&#34;]"/>
+        <map value="./typeCode[parent::AcknowledgmentDetail] or unique(./inboundRelationship[parent::Observation and typeCode='SUBJ' and isNormalActRelationship()]/source[classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot; and implies(code, ActCode#SEV and isNormalAct())/value[xsi:type=&quot;CD&quot;]"/>
       </mapping>
     </element>
     <element id="OperationOutcome.issue.code">
@@ -211,11 +214,15 @@
     </element>
     <element id="OperationOutcome.issue.location">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-        <valueCode value="deprecated"/>
+        <valueCode value="deprecated">
+          <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+            <valueMarkdown value="This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse."/>
+          </extension>
+        </valueCode>
       </extension>
       <path value="OperationOutcome.issue.location"/>
       <short value="Deprecated: Path of element(s) related to issue"/>
-      <definition value="This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. &#xA;&#xA;For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be &#34;http.&#34; + the parameter name."/>
+      <definition value="This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. &#xA;&#xA;For resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be &quot;http.&quot; + the parameter name."/>
       <comment value="The root of the XPath is the resource or bundle that generated OperationOutcome.  Each XPath SHALL resolve to a single node.  This element is deprecated, and is being replaced by expression."/>
       <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
       <min value="0"/>

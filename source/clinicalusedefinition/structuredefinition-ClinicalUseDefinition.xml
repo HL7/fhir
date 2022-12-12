@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ClinicalUseDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ClinicalUseDefinition"/>
+  <title value="ClinicalUseDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -80,7 +83,6 @@
         <severity value="error"/>
         <human value="Indication, Contraindication, Interaction, UndesirableEffect and Warning cannot be used in the same instance"/>
         <expression value="(ClinicalUseDefinition.indication.count() + ClinicalUseDefinition.contraindication.count() + ClinicalUseDefinition.interaction.count() + ClinicalUseDefinition.undesirableEffect.count() + ClinicalUseDefinition.warning.count())  &lt; 2"/>
-        <xpath value="count(f:ClinicalUseDefinition/f:indication|f:ClinicalUseDefinition/f:contraindication|f:ClinicalUseDefinition/f:interaction|f:ClinicalUseDefinition/f:undesirableEffect|f:ClinicalUseDefinition/f:warning) &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
       <mapping>
@@ -136,8 +138,8 @@
     </element>
     <element id="ClinicalUseDefinition.category">
       <path value="ClinicalUseDefinition.category"/>
-      <short value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &#34;Pregnancy&#34;, &#34;Overdose&#34;"/>
-      <definition value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &#34;Pregnancy and Lactation&#34;, &#34;Overdose&#34;, &#34;Effects on Ability to Drive and Use Machines&#34;."/>
+      <short value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy&quot;, &quot;Overdose&quot;"/>
+      <definition value="A categorisation of the issue, primarily for dividing warnings into subject heading areas such as &quot;Pregnancy and Lactation&quot;, &quot;Overdose&quot;, &quot;Effects on Ability to Drive and Use Machines&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -241,13 +243,13 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Contraindication.Contraindications as &#34;Disease / Symptom / Procedure&#34; and Contraindication.Contraindications Text"/>
+        <map value="Contraindication.Contraindications as &quot;Disease / Symptom / Procedure&quot; and Contraindication.Contraindications Text"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.contraindication.diseaseStatus">
       <path value="ClinicalUseDefinition.contraindication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the contraindication"/>
-      <definition value="The status of the disease or symptom for the contraindication, for example &#34;chronic&#34; or &#34;metastatic&#34;."/>
+      <definition value="The status of the disease or symptom for the contraindication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -306,6 +308,21 @@
       <mapping>
         <identity value="idmp"/>
         <map value="(the link from Contraindication to Therapeutic Indication)"/>
+      </mapping>
+    </element>
+    <element id="ClinicalUseDefinition.contraindication.applicability">
+      <path value="ClinicalUseDefinition.contraindication.applicability"/>
+      <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
+      <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
+      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.contraindication.otherTherapy">
@@ -379,7 +396,7 @@
     </element>
     <element id="ClinicalUseDefinition.indication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,140"/>
+        <valueCode value="420,155"/>
       </extension>
       <path value="ClinicalUseDefinition.indication"/>
       <short value="Specifics for when this is an indication"/>
@@ -416,13 +433,13 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Therapeutic Indication.Indication as &#34;Disease / Symptom / Procedure&#34;, and Therapeutic Indication.Indication Text"/>
+        <map value="Therapeutic Indication.Indication as &quot;Disease / Symptom / Procedure&quot;, and Therapeutic Indication.Indication Text"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.indication.diseaseStatus">
       <path value="ClinicalUseDefinition.indication.diseaseStatus"/>
       <short value="The status of the disease or symptom for the indication"/>
-      <definition value="The status of the disease or symptom for the indication, for example &#34;chronic&#34; or &#34;metastatic&#34;."/>
+      <definition value="The status of the disease or symptom for the indication, for example &quot;chronic&quot; or &quot;metastatic&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -525,6 +542,21 @@
         <map value="Therapeutic Indication.Undesirable Effects"/>
       </mapping>
     </element>
+    <element id="ClinicalUseDefinition.indication.applicability">
+      <path value="ClinicalUseDefinition.indication.applicability"/>
+      <short value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements"/>
+      <definition value="An expression that returns true or false, indicating whether the indication is applicable or not, after having applied its other elements."/>
+      <comment value="The expression may be inlined or may be a reference to a named expression within a logic library referenced by the library element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="ClinicalUseDefinition.indication.otherTherapy">
       <path value="ClinicalUseDefinition.indication.otherTherapy"/>
       <short value="The use of the medicinal product in relation to other therapies described as part of the indication"/>
@@ -540,7 +572,7 @@
     </element>
     <element id="ClinicalUseDefinition.interaction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,323"/>
+        <valueCode value="420,352"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction"/>
       <short value="Specifics for when this is an interaction"/>
@@ -629,8 +661,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.effect">
       <path value="ClinicalUseDefinition.interaction.effect"/>
-      <short value="The effect of the interaction, for example &#34;reduced gastric absorption of primary medication&#34;"/>
-      <definition value="The effect of the interaction, for example &#34;reduced gastric absorption of primary medication&#34;."/>
+      <short value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;"/>
+      <definition value="The effect of the interaction, for example &quot;reduced gastric absorption of primary medication&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -713,9 +745,25 @@
         <map value="Population Specifics"/>
       </mapping>
     </element>
+    <element id="ClinicalUseDefinition.library">
+      <path value="ClinicalUseDefinition.library"/>
+      <short value="Logic used by the clinical use definition"/>
+      <definition value="Logic used by the clinical use definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="ClinicalUseDefinition.undesirableEffect">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,435"/>
+        <valueCode value="420,466"/>
       </extension>
       <path value="ClinicalUseDefinition.undesirableEffect"/>
       <short value="A possible negative outcome from the use of this treatment"/>
@@ -752,7 +800,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Undesirable Effects.Undesirable Effect as &#34;Symptom / Condition / Effect&#34;"/>
+        <map value="Undesirable Effects.Undesirable Effect as &quot;Symptom / Condition / Effect&quot;"/>
       </mapping>
     </element>
     <element id="ClinicalUseDefinition.undesirableEffect.classification">
@@ -765,7 +813,6 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="UndesirableEffectClassification"/>
@@ -774,7 +821,6 @@
         <description value="A categorisation for an undesirable effect."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/undesirable-effect-classification"/>
       </binding>
-      
       <mapping>
         <identity value="idmp"/>
         <map value="Undesirable Effects.Symptom / Condition / Effect Classification"/>
@@ -805,7 +851,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,565"/>
+        <valueCode value="420,595"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>

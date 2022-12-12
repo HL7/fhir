@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="CarePlan"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CarePlan"/>
+  <title value="CarePlan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -171,9 +174,12 @@
       </mapping>
     </element>
     <element id="CarePlan.basedOn">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="J#38867, J#37955"/>
+      </extension>
       <path value="CarePlan.basedOn"/>
-      <short value="Fulfills CarePlan"/>
-      <definition value="A care plan that is fulfilled in whole or in part by this care plan."/>
+      <short value="Fulfills plan, proposal or order"/>
+      <definition value="A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan."/>
       <requirements value="Allows tracing of the care plan and tracking whether proposals/recommendations were acted upon."/>
       <alias value="fulfills"/>
       <min value="0"/>
@@ -184,6 +190,9 @@
         </extension>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -278,7 +287,7 @@
       <path value="CarePlan.intent"/>
       <short value="proposal | plan | order | option | directive"/>
       <definition value="Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain."/>
-      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.&#xA;This element is expected to be immutable. E.g. A &#34;proposal&#34; instance should never change to be a &#34;plan&#34; instance or &#34;order&#34; instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value."/>
+      <comment value="This element is labeled as a modifier because the intent alters when and how the resource is actually applicable.&#xA;This element is expected to be immutable. E.g. A &quot;proposal&quot; instance should never change to be a &quot;plan&quot; instance or &quot;order&quot; instance. Instead, a new instance 'basedOn' the prior instance should be created with the new 'intent' value."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <min value="1"/>
       <max value="1"/>
@@ -286,7 +295,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request&#34;"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request&quot;"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -304,8 +313,8 @@
     <element id="CarePlan.category">
       <path value="CarePlan.category"/>
       <short value="Type of plan"/>
-      <definition value="Identifies what &#34;kind&#34; of plan this is to support differentiation between multiple co-existing plans; e.g. &#34;Home health&#34;, &#34;psychiatric&#34;, &#34;asthma&#34;, &#34;disease management&#34;, &#34;wellness plan&#34;, etc."/>
-      <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern."/>
+      <definition value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc."/>
+      <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.addresses."/>
       <requirements value="Used for filtering what plan(s) are retrieved and displayed to different types of users."/>
       <min value="0"/>
       <max value="*"/>
@@ -318,7 +327,7 @@
           <valueString value="CarePlanCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Identifies what &#34;kind&#34; of plan this is to support differentiation between multiple co-existing plans; e.g. &#34;Home health&#34;, &#34;psychiatric&#34;, &#34;asthma&#34;, &#34;disease management&#34;, etc."/>
+        <description value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-category"/>
       </binding>
       <mapping>
@@ -592,7 +601,7 @@
       <path value="CarePlan.supportingInfo"/>
       <short value="Information considered as part of plan"/>
       <definition value="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc."/>
-      <comment value="Use &#34;concern&#34; to identify specific conditions addressed by the care plan.  supportingInfo can be used to convey one or more Advance Directives or Medical Treatment Consent Directives by referencing Consent or any other request resource with intent = directive."/>
+      <comment value="Use &quot;concern&quot; to identify specific conditions addressed by the care plan.  supportingInfo can be used to convey one or more Advance Directives or Medical Treatment Consent Directives by referencing Consent or any other request resource with intent = directive."/>
       <requirements value="Identifies barriers and other considerations associated with the care plan."/>
       <min value="0"/>
       <max value="*"/>
@@ -622,7 +631,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="GOL.1"/>
+        <map value="GOL-1"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -648,9 +657,8 @@
       <constraint>
         <key value="cpl-3"/>
         <severity value="error"/>
-        <human value="Provide a plannedActivityReference or plannedActivityDetail, not both"/>
+        <human value="Cannot have both plannedActivityReference and plannedActivityDetail"/>
         <expression value="plannedActivityDetail.empty() or plannedActivityReference.empty()"/>
-        <xpath value="not(exists(f:plannedActivityDetail)) or not(exists(f:plannedActivityReference))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
       </constraint>
       <mapping>
@@ -668,7 +676,7 @@
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
       <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc)"/>
-      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &#34;event&#34; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using CarePlan.activity.plannedActivityDetail OR using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
+      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using CarePlan.activity.plannedActivityDetail OR using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
       <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>
       <min value="0"/>
@@ -711,17 +719,17 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
     <element id="CarePlan.activity.plannedActivityReference">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#19420, J#26064."/>
+        <valueString value="GF#19420, J#26064, J#34477"/>
       </extension>
       <path value="CarePlan.activity.plannedActivityReference"/>
       <short value="Activity that is intended to be part of the care plan"/>
       <definition value="The details of the proposed activity represented in a specific resource."/>
-      <comment value="Standard extension exists ([resource-pertainsToGoal](extension-resource-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &#34;basedOn&#34; element.  i.e. Requests that are part of a CarePlan are not &#34;based on&#34; the CarePlan."/>
+      <comment value="Standard extension exists ([resource-pertainsToGoal](extension-resource-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.plannedActivityReference.  &#xA;The goal should be visible when the resource referenced by CarePlan.activity.plannedActivityReference is viewed independently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the &quot;basedOn&quot; element.  i.e. Requests that are part of a CarePlan are not &quot;based on&quot; the CarePlan."/>
       <requirements value="Details in a form consistent with other applications and contexts of use."/>
       <min value="0"/>
       <max value="1"/>
@@ -737,6 +745,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RequestOrchestration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
       <condition value="cpl-3"/>
       <mapping>
@@ -841,7 +850,7 @@
       <path value="CarePlan.activity.plannedActivityDetail.code"/>
       <short value="Detail type of activity"/>
       <definition value="Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter."/>
-      <comment value="Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &#34;prohibited&#34; instead."/>
+      <comment value="Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use &quot;prohibited&quot; instead."/>
       <requirements value="Allows matching performed to planned as well as validation against protocols."/>
       <min value="0"/>
       <max value="1"/>
@@ -888,7 +897,7 @@
           <valueString value="CarePlanActivityReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as &#34;general wellness&#34;, prophylaxis, surgical preparation, etc."/>
+        <description value="Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as &quot;general wellness&quot;, prophylaxis, surgical preparation, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>
@@ -919,7 +928,7 @@
       <path value="CarePlan.activity.plannedActivityDetail.status"/>
       <short value="not-started | scheduled | in-progress | on-hold | completed | cancelled | stopped | unknown | entered-in-error"/>
       <definition value="Identifies what progress is being made for the specific activity."/>
-      <comment value="Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that &#34;status&#34; is only as current as the plan was most recently updated.  &#xA;The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity."/>
+      <comment value="Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that &quot;status&quot; is only as current as the plan was most recently updated.  &#xA;The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn't know the current state of the activity."/>
       <requirements value="Indicates progress against the plan, whether the activity is still relevant for the plan."/>
       <min value="1"/>
       <max value="1"/>
@@ -953,7 +962,7 @@
       <path value="CarePlan.activity.plannedActivityDetail.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Provides reason why the activity isn't yet started, is on hold, was cancelled, etc."/>
-      <comment value="Will generally not be present if status is &#34;complete&#34;.  Be sure to prompt to update this (or at least remove the existing value) if the status is changed."/>
+      <comment value="Will generally not be present if status is &quot;complete&quot;.  Be sure to prompt to update this (or at least remove the existing value) if the status is changed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1235,7 +1244,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
   </differential>

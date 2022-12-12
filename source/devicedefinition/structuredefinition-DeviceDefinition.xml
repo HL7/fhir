@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceDefinition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
+  <title value="DeviceDefinition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -170,7 +173,6 @@
         <code value="uri"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.regulatoryIdentifier">
       <path value="DeviceDefinition.regulatoryIdentifier"/>
       <short value="Regulatory identifier(s) associated with this device"/>
@@ -182,7 +184,6 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.regulatoryIdentifier.type">
       <path value="DeviceDefinition.regulatoryIdentifier.type"/>
       <short value="basic | master | license"/>
@@ -200,7 +201,6 @@
         <description value="Device regulatory identifier type."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/devicedefinition-regulatory-identifier-type"/>
       </binding>
-
     </element>
     <element id="DeviceDefinition.regulatoryIdentifier.deviceIdentifier">
       <path value="DeviceDefinition.regulatoryIdentifier.deviceIdentifier"/>
@@ -232,7 +232,6 @@
         <code value="uri"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.partNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
@@ -425,7 +424,6 @@
         <code value="integer"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.packaging">
       <path value="DeviceDefinition.packaging"/>
       <short value="Information about the packaging of the device, i.e. how the device is packaged"/>
@@ -505,71 +503,9 @@
       <short value="Unique Device Identifier (UDI) Barcode string on the packaging"/>
       <definition value="Unique Device Identifier (UDI) Barcode string on the packaging."/>
       <min value="0"/>
-			<max value="*"/>
-			<contentReference value="#DeviceDefinition.udiDeviceIdentifier"/>
+      <max value="*"/>
+      <contentReference value="#DeviceDefinition.udiDeviceIdentifier"/>
     </element>
-    <!-- <element id="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.deviceIdentifier"/>
-      <short value="Identifier to be associated with every instance for issuer and jurisdiction"/>
-      <definition value="Identifier to be associated with every instance for issuer and jurisdiction."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.issuer">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.issuer"/>
-      <short value="The organization that assigns the identifier algorithm"/>
-      <definition value="The organization that assigns the identifier algorithm."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.jurisdiction">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.jurisdiction"/>
-      <short value="The jurisdiction to which the deviceIdentifier applies"/>
-      <definition value="The jurisdiction to which the deviceIdentifier applies."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>    
-
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution"/>
-      <short value="Indicates whether and when the device is available on the market"/>
-      <definition value="The organization that assigns the identifier algorithm."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.marketPeriod"/>
-      <short value="Begin and end dates for the commercial distribution of the device"/>
-      <definition value="Begin and end dates for the commercial distribution of the device."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-    </element>
-    <element id="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction">
-      <path value="DeviceDefinition.packaging.udiDeviceIdentifier.marketDistribution.subJurisdiction"/>
-      <short value="National state or territory where the device is commercialized"/>
-      <definition value="National state or territory to which the marketDistribution refers, typically where the device is commercialized."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element> -->
-
     <element id="DeviceDefinition.packaging.packaging">
       <path value="DeviceDefinition.packaging.packaging"/>
       <short value="Allows packages within packages"/>
@@ -749,18 +685,6 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
-<!--
-    <element id="DeviceDefinition.onlineInformation">
-      <path value="DeviceDefinition.onlineInformation"/>
-      <short value="Access to on-line information"/>
-      <definition value="Access to on-line information about the device."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
--->
     <element id="DeviceDefinition.link">
       <path value="DeviceDefinition.link"/>
       <short value="An associated device, attached to, used with, communicating with or linking a previous or new device model to the focal device"/>
@@ -814,18 +738,6 @@
         <map value=".text"/>
       </mapping>
     </element>
-<!--
-      <element id="DeviceDefinition.quantity">
-      <path value="DeviceDefinition.quantity"/>
-      <short value="The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product)"/>
-      <definition value="The quantity of the device present in the packaging (e.g. the number of devices present in a pack, or the number of devices in the same package of the medicinal product)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Quantity"/>
-      </type>
-    </element>
--->    
     <element id="DeviceDefinition.parentDevice">
       <path value="DeviceDefinition.parentDevice"/>
       <short value="The parent device it can be part of"/>
@@ -903,7 +815,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-          <code value="BackboneElement"/>
+        <code value="BackboneElement"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.useContext">
@@ -913,7 +825,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="UsageContext"/>
+        <code value="UsageContext"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.usageInstruction">
@@ -923,7 +835,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-          <code value="markdown"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.relatedArtifact">
@@ -933,7 +845,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="RelatedArtifact"/>
+        <code value="RelatedArtifact"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.indication">
@@ -943,8 +855,8 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="CodeableReference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.contraindication">
@@ -954,7 +866,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="CodeableReference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
@@ -965,7 +877,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="CodeableReference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </type>
     </element>
@@ -976,11 +888,9 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-          <code value="string"/>
+        <code value="string"/>
       </type>
     </element>
-
-
     <element id="DeviceDefinition.correctiveAction">
       <path value="DeviceDefinition.correctiveAction"/>
       <short value="Tracking of latest field safety corrective action"/>
@@ -1037,10 +947,9 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="BackboneElement"/>
+        <code value="BackboneElement"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.chargeItem.chargeItemCode">
       <path value="DeviceDefinition.chargeItem.chargeItemCode"/>
       <short value="The code or reference for the charge item"/>
@@ -1048,11 +957,10 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-          <code value="CodeableReference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.chargeItem.count">
       <path value="DeviceDefinition.chargeItem.count"/>
       <short value="Coefficient applicable to the billing code"/>
@@ -1060,10 +968,9 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-          <code value="Quantity"/>
+        <code value="Quantity"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.chargeItem.effectivePeriod">
       <path value="DeviceDefinition.chargeItem.effectivePeriod"/>
       <short value="A specific time period in which this charge item applies"/>
@@ -1071,10 +978,9 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-          <code value="Period"/>
+        <code value="Period"/>
       </type>
     </element>
-
     <element id="DeviceDefinition.chargeItem.useContext">
       <path value="DeviceDefinition.chargeItem.useContext"/>
       <short value="The context to which this charge item applies"/>
@@ -1082,7 +988,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-          <code value="UsageContext"/>
+        <code value="UsageContext"/>
       </type>
     </element>
   </differential>

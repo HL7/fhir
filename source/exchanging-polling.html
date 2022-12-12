@@ -31,7 +31,7 @@
     This approach is used when the <i>data consumer</i> is only interested in a single resource that already exists.  For example, when monitoring a Task for progress or to see if it is complete (e.g. for <a href="exchanging-request.html#task">Task-based exchanges</a>).  Rather than performing a search, the <i>data consumer</i> simply executes a <code>read</code>.  To be more efficient, it uses the <code>If-modified-since</code> header specifying the <code>_lastUpdated</code> value of the most recent version it has retrieved.  This ensures that no data will be returned at all if the record has not changed since it was last looked at.
   </p>
   <p>
-    {% include polling-read.svg %}
+    [%file polling-read.svg %]
   </p>
   <p>
     Note that while the 'read' mechanism is extremely efficient, separate requests must be made for each record being monitored.  If the <i>data consumer</i> is tracking numerous records on the <i>data source</i>, it might be more efficient for both systems to use the <a href="#query">query polling mechanism</a> instead.
@@ -46,7 +46,7 @@
     <code>If-modified-since</code> is not available when performing queries.  Instead, whatever query mechanism is used, it should include the filter of <code>&amp;_lastUpdated=gt[sometimestamp]</code> where [sometimestamp] is the most recent <code>meta.lastUpdated</code> value retrieved in previous poll requests.
   </p>
   <p>
-    {% include polling-query.svg %}
+    [%file polling-query.svg %]
   </p>
 
 [%file newfooter%]

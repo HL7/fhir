@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="triglyceride"/>
   <text>
     <status value="generated"/>
@@ -20,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
+  <title value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-05-12"/>

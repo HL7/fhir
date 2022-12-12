@@ -36,7 +36,7 @@ This table summarizes common event scenarios, and the codes that should be used 
 				<b>action</b>
 			</td>
 			<td>
-				<b/>Other</td>
+				<b>Other</b></td>
 		</tr>
 		<tr>
 			<td>User Login (<a href="auditevent-examples.html">example</a>)</td>

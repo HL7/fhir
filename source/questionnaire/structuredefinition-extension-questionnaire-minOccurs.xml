@@ -1,75 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-minOccurs"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-minOccurs"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1254"/>
   </identifier>
   <version value="5.0.0"/>
-	<name value="minOccurs"/>
-	<status value="draft"/>
-	<date value="2013-07-04"/>
-	<publisher value="HL7"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<kind value="complex-type"/>
-	<abstract value="false"/>
-	<context>
-		<type value="element"/>
-		<expression value="Questionnaire.item"/>
-	</context>
-	<context>
-		<type value="element"/>
-		<expression value="ElementDefinition"/>
-	</context>
-	<contextInvariant value="type!='display' and (required=true or %extension.valueInteger=0)"/>
-	<type value="Extension"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-	<derivation value="constraint"/>
-	<differential>
-		<element id="Extension">
-			<path value="Extension"/>
-			<short value="Minimum repetitions"/>
-			<definition value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
-			<comment value="Default assumption for &#34;required&#34; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#minOccurs)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Extension.extension">
-			<path value="Extension.extension"/>
-			<max value="0"/>
-		</element>
-		<element id="Extension.url">
-			<path value="Extension.url"/>
-			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"/>
-		</element>
-		<element id="Extension.value[x]">
-			<path value="Extension.value[x]"/>
-			<min value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-		</element>
-	</differential>
+  <name value="QMinOccurs"/>
+  <title value="Questionnaire Min Occurs"/>
+  <status value="draft"/>
+  <date value="2013-07-04"/>
+  <publisher value="HL7"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Questionnaire.item"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ElementDefinition"/>
+  </context>
+  <contextInvariant value="type!='display' and (required=true or %extension.valueInteger=0)"/>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Minimum repetitions"/>
+      <definition value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
+      <comment value="Default assumption for &quot;required&quot; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#minOccurs)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

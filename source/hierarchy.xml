@@ -169,6 +169,7 @@ signatures.html
           <page title="Asynchronous Bulk Data Request" filename="async-bulk.html"/>
           <page title="Asynchronous Interaction Request" filename="async-bundle.html"/>
         </page>
+        <page title="X-FHIR-Query" filename="fhir-xquery.html"/>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>
@@ -209,6 +210,7 @@ signatures.html
       <page title="Profiling FHIR" filename="profiling.html">
         <page title="Examples" filename="profiling-examples.html"/>
       </page>
+      <page title="Implementation Obligations" filename="obligations.html"/>
       <page type="resource" resource="CapabilityStatement"/>
       <page type="resource" resource="StructureDefinition"/>
       <page type="resource" resource="OperationDefinition"/>
@@ -435,7 +437,7 @@ signatures.html
       <page type="resource" resource="MeasureReport"/>
     </page>
 
-    <page title="Medication Definition" filename="medication-definition-module.html" icon="medication.png">
+      <page title="Medication Definition" filename="medication-definition-module.html" icon="medication-icon-16.png">
       <page type="resource" resource="MedicinalProductDefinition"/>
       <page type="resource" resource="PackagedProductDefinition"/>
       <page type="resource" resource="RegulatedAdministrableProduct"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="List"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="List"/>
+  <title value="List"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -75,7 +78,6 @@
         <severity value="error"/>
         <human value="A list can only have an emptyReason if it is empty"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
-        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/List"/>
       </constraint>
       <mapping>
@@ -147,7 +149,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="If set to &#34;changes&#34;, the list is considered incomplete, while the other two codes indicate the list is complete, which changes the understanding of the elements listed"/>
+      <isModifierReason value="If set to &quot;changes&quot;, the list is considered incomplete, while the other two codes indicate the list is complete, which changes the understanding of the elements listed"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -163,7 +165,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&#34;].value"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
       </mapping>
     </element>
     <element id="List.title">
@@ -225,12 +227,7 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -394,7 +391,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&#34;].value"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
       </mapping>
     </element>
     <element id="List.entry.deleted">
@@ -402,7 +399,7 @@
       <short value="If this item is actually marked as deleted"/>
       <definition value="True if this item is marked as deleted in the list."/>
       <comment value="If the flag means that the entry has actually been deleted from the list, the deleted element SHALL be true. A deleted entry should be displayed in narrative as deleted.  This element is labeled as a modifier because it indicates that an item is (to be) no longer in the list."/>
-      <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &#34;deleted&#34;."/>
+      <requirements value="The flag element may contain codes that an application processing the list does not understand. However there can be no ambiguity if a list item is actually marked as &quot;deleted&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -413,7 +410,7 @@
       <isModifierReason value="If deleted is true, then the item included in the list isn't actually part of the list anymore"/>
       <mapping>
         <identity value="rim"/>
-        <map value="added: .updateMode=(&#34;A&#34;,&#34;AR&#34;)  retained: .updateMode=&#34;NC&#34;  updated: .updateMode=&#34;R&#34;  deleted: .updateMode=&#34;D&#34;"/>
+        <map value="added: .updateMode=(&quot;A&quot;,&quot;AR&quot;)  retained: .updateMode=&quot;NC&quot;  updated: .updateMode=&quot;R&quot;  deleted: .updateMode=&quot;D&quot;"/>
       </mapping>
     </element>
     <element id="List.entry.date">
@@ -451,7 +448,7 @@
       <short value="Why list is empty"/>
       <definition value="If the list is empty, why the list is empty."/>
       <comment value="The various reasons for an empty list make a significant interpretation to its interpretation. Note that this code is for use when the entire list has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
-      <requirements value="Allows capturing things like &#34;none exist&#34; or &#34;not asked&#34; which can be important for most lists."/>
+      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
       <min value="0"/>
       <max value="1"/>
       <type>

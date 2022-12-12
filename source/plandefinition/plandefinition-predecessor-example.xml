@@ -13,7 +13,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/zika-virus-intervention-initial</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -27,7 +27,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -38,7 +38,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">Example Zika Virus Intervention</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -49,7 +49,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">active</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -60,7 +60,7 @@
                <td style="padding-left: 25px; padding-right: 25px;">Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management.</td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -76,7 +76,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <table class="grid dict">
             <tr>
                <td>
@@ -90,7 +90,7 @@
                </td>
             </tr>
          </table>
-         <p/>
+         <p></p>
          <h2>Actions</h2>
          <p class="hierarchy" style="width: 100%;">
             <span>

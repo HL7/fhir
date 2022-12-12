@@ -25,9 +25,9 @@ There is a close relationship between <a href="structuredefinition.html">Profile
 </p>
 <ul>
  <li>A <a href="structuredefinition.html">StructureDefinition</a> defines a profile, and profiles can make rules about the relationships between resources. A carefully defined set of profiles implies part of what is in a GraphDefinition</li>
- <li>A GraphDefinition defines rules about the relationships between resources, and in so doing, implies some constraints that would need to be represented in their profiles</li>
+ <li>A GraphDefinition defines rules about the relationships between resources, and in so doing, implies some constraints that could or should be represented in their profiles, if they are defined </li>
  <li>Like <a href="compartmentdefinition.html">CompartmentDefinition</a>, GraphDefinition allows defining a grouping of resources and may be used for security access permissions.
- However, GraphDefinitions do not define additional query capabilities and is much more limited in how membership in the collection is defined
+ However, GraphDefinitions do not define additional query capabilities and are much more limited in how membership in the collection is defined
  (all resources that are part of a Compartment must expose a search parameter of the same name).</li>
 </ul>
 <p>
@@ -37,8 +37,8 @@ explicitly described in the profiles it refers to.
 </p>
 <p>
 It is possible that in some circumstances, a graph definition makes incompatible rules with 
-the Profiles it refers to - in this case, no graph if resources will meet the constraints expressed. 
-Applications should - but are not required - detect when such incompatibilities arise.
+the Profiles it refers to - in this case, no graph of resources will meet the constraints expressed. 
+Applications should - but are not required to - detect when such incompatibilities arise.
 </p>
 </div>
 

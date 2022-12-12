@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Transport"/>
-  <meta> 
+  <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Transport"/>
+  <title value="Transport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -79,7 +82,7 @@
       <short value="Delivery of item"/>
       <definition value="Record of transport of item."/>
       <min value="0"/>
-      <max value="*"/> 
+      <max value="*"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -112,8 +115,7 @@
         <map value=".id"/>
       </mapping>
     </element>
-
-  <element id="Transport.instantiatesCanonical">
+    <element id="Transport.instantiatesCanonical">
       <path value="Transport.instantiatesCanonical"/>
       <short value="Formal definition of transport"/>
       <definition value="The URL pointing to a *FHIR*-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Transport."/>
@@ -157,7 +159,7 @@
     <element id="Transport.basedOn">
       <path value="Transport.basedOn"/>
       <short value="Request fulfilled by this transport"/>
-      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &#34;request&#34; resource such as a ServiceRequest or Transport, which is distinct from the &#34;request&#34; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
+      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the transport.  It references a &quot;request&quot; resource such as a ServiceRequest or Transport, which is distinct from the &quot;request&quot; resource the Transport is seeking to fulfill.  This latter resource is referenced by FocusOn.  For example, based on a ServiceRequest (= BasedOn), a transport is created to fulfill a procedureRequest ( = FocusOn ) to transport a specimen to the lab."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -271,14 +273,14 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&#34;status change&#34;].reasonCode"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=CACT, moodCode=EVN, code=&quot;status change&quot;].reasonCode"/>
       </mapping>
     </element>
     <element id="Transport.intent">
       <path value="Transport.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &#34;level&#34; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
-      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &#34;order&#34;."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
+      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -345,7 +347,7 @@
       <path value="Transport.code"/>
       <short value="Transport Type"/>
       <definition value="A name or code (or both) briefly describing what the transport involves."/>
-      <comment value="The title (eg &#34;My Transports&#34;, &#34;Outstanding Transports for Patient X&#34;) should go into the code."/>
+      <comment value="The title (eg &quot;My Transports&quot;, &quot;Outstanding Transports for Patient X&quot;) should go into the code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -653,7 +655,6 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-  
     <element id="Transport.insurance">
       <path value="Transport.insurance"/>
       <short value="Associated insurance coverage"/>
@@ -693,7 +694,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value(string)"/>
+        <map value=".inboundRelationship[typeCode=SUBJ, ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value(string)"/>
       </mapping>
     </element>
     <element id="Transport.relevantHistory">
@@ -717,7 +718,6 @@
         <map value=".inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]"/>
       </mapping>
     </element>
-
     <element id="Transport.restriction">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,100"/>
@@ -813,7 +813,7 @@
       <path value="Transport.input.type"/>
       <short value="Label for the input"/>
       <definition value="A code or description indicating how the input is intended to be used as part of the transport execution."/>
-      <comment value="If referencing a BPMN workflow or Protocol, the &#34;system&#34; is the URL for the workflow definition and the code is the &#34;name&#34; of the required input."/>
+      <comment value="If referencing a BPMN workflow or Protocol, the &quot;system&quot; is the URL for the workflow definition and the code is the &quot;name&quot; of the required input."/>
       <requirements value="Inputs are named to enable transport automation to bind data and pass it from one transport to the next."/>
       <alias value="Name"/>
       <min value="1"/>
@@ -826,7 +826,7 @@
           <valueString value="TransportInputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Comparison source&#34;, &#34;Applicable consent&#34;, &#34;Concomitent Medications&#34;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1031,7 +1031,7 @@
           <valueString value="TransportOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &#34;Identified issues&#34;, &#34;Preliminary results&#34;, &#34;Filler order&#34;, &#34;Final results&#34;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1285,7 +1285,7 @@
         <map value=".reasonCode"/>
       </mapping>
     </element>
-      <element id="Transport.reasonReference">
+    <element id="Transport.reasonReference">
       <path value="Transport.reasonReference"/>
       <short value="Why transport is needed"/>
       <definition value="A resource reference indicating why this transport needs to be performed."/>

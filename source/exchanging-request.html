@@ -44,7 +44,7 @@
     This approach corresponds to <a href="workflow-ad-hoc.html#optiona">Option A</a> in the FHIR core workflow communication patterns.
   </p>
   <p>
-    {% include communicationrequest-post.svg %}
+    [%file communicationrequest-post.svg %]
   </p>
   <a name="cr-post-a1"> </a>
   <p>
@@ -72,7 +72,7 @@
     This approach aligns with <a href="workflow-management.html#optiong">Option G</a> in the FHIR core workflow communication patterns, where the Task is posted directly to the filler's system (<i>data source</i>).  Alternate workflows using Task where the Task lives on the placer's system (<i>data consumer</i>) - <a href="workflow-management.html#optionf">Option F</a> or on an intermediary system <a href="workflow-management.html#optionH">Option H</a>, however those require either <a href="exchanging-polling.html">polling</a> or <a href="exchanging-subscription.html">subscription</a> by the <i>data source</i>.  In general these alternatives would only make sense if the request for information wasn't directed to a specific <i>data source</i> (which would be unusual) or if the <i>data consumer</i> did not have authority to post a Task directly to the <i>data source</i>'s system.
   </p>
   <p>
-    {% include communicationrequest-task.svg %}
+    [%file communicationrequest-task.svg %]
   </p>
   <a name="cr-task1"> </a>
   <p>
@@ -120,7 +120,7 @@
     In this approach, no CommunicationRequest is used at all - as there is no need for a formal order.  Instead, the Task itself describes the data to be retrieved.  The workflow is identical to that used in <a href="#cr-task">CommunicationRequest plus Task</a>, except that the first step (the creation of the CommunicationRequest) and the third step (read of the CommunicationRequest) are skipped and the Task transmitted in the initial step does not specify a Task.focus.
   </p>
   <p>
-    {% include task.svg %}
+    [%file task.svg %]
   </p>
   <a name="task1"> </a>
   <p>

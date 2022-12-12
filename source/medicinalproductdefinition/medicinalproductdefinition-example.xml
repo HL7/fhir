@@ -42,7 +42,7 @@
 							title="Codes: {http://ema.europa.eu/example/jurisdictionCode EU}"
 							>EU</span></td>
 						<td><span
-							title="Codes: {http://ema.europa.eu/example/languageCode EN}"
+							title="Codes: {http://tools.ietf.org/html/bcp47}"
 							>EN</span></td>
 					</tr>
 				</table>
@@ -121,8 +121,8 @@
 			</jurisdiction>
 			<language>
 				<coding>
-					<system value="http://ema.europa.eu/example/languageCode"/>
-					<code value="EN"/>
+					<system value="http://tools.ietf.org/html/bcp47"/>
+					<code value="en"/>
 				</coding>
 			</language>
 		</usage>

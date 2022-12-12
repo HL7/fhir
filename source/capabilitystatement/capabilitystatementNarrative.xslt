@@ -46,7 +46,7 @@
               <xsl:for-each select="status[@value=('draft', 'retired')]">
                 <xsl:value-of select="concat('(', @value, ')')"/>
               </xsl:for-each>
-              <xsl:if test="experimental/@value='true'">
+              <xsl:if test="xs:string(experimental/@value)='true'">
                 <xsl:text> - experimental</xsl:text>
               </xsl:if>
             </xsl:variable>
@@ -335,7 +335,7 @@
                 </p>
               </xsl:for-each>
               <xsl:if test="supportedProfile">
-                <p>Supported Profile(s):</p>
+                <p>Supported Profile(s) - if resource is supported:</p>
                 <ul>
                   <xsl:for-each select="supportedProfile">
                     <li>
@@ -639,7 +639,7 @@
     </tr>
   </xsl:template>
   <xsl:template name="doCapabilityStatement" as="node()">
-    <xsl:variable name="documentation" as="xs:string">
+    <xsl:variable name="documentation" as="xs:string?">
       <xsl:if test="normalize-space(documentation/@value)!=''">
         <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)),'')"/>
       </xsl:if>
@@ -817,13 +817,24 @@
       <xsl:when test="fn:splitable($string, '[', ']')">
         <xsl:variable name="parts" select="fn:separate($string, '[', ']')"/>
         <xsl:copy-of select="fn:handleMarkdown($parts[1])"/>
-        <xsl:variable name="linkParts" as="xs:string+" select="tokenize($parts[2], ' ')"/>
-        <xsl:variable name="linkBase" as="xs:string" select="$linkParts[1]"/>
-        <xsl:variable name="name" as="xs:string?" select="string-join($linkParts[position()&gt;1], ' ')"/>
-        <a href="{$linkBase}">
-          <xsl:value-of select="if ($name) then $name else $linkBase"/>
-        </a>
-        <xsl:copy-of select="fn:handleMarkdown($parts[3])"/>
+        <xsl:choose>
+          <xsl:when test="starts-with($parts[3], '(') and fn:splitable($parts[3], '(', ')')">
+            <xsl:variable name="urlParts" as="xs:string+" select="fn:separate(concat('x', $parts[3]), '(', ')')"/>
+            <a href="{$urlParts[2]}">
+              <xsl:value-of select="$parts[2]"/>
+            </a>
+            <xsl:copy-of select="fn:handleMarkdown($urlParts[3])"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:variable name="linkParts" as="xs:string+" select="tokenize($parts[2], ' ')"/>
+            <xsl:variable name="linkBase" as="xs:string" select="$linkParts[1]"/>
+            <xsl:variable name="name" as="xs:string?" select="string-join($linkParts[position()&gt;1], ' ')"/>
+            <a href="{$linkBase}">
+              <xsl:value-of select="if ($name) then $name else $linkBase"/>
+            </a>
+            <xsl:copy-of select="fn:handleMarkdown($parts[3])"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$string"/>
@@ -844,7 +855,9 @@
   <xsl:function name="fn:regex" as="xs:string">
     <xsl:param name="start" as="xs:string"/>
     <xsl:param name="end" as="xs:string"/>
-    <xsl:value-of select="concat('(.*[^\\])?', replace($start, '([\[\]\\])', '\\$1'), '(.*[^\\])', replace($end, '([\[\]\\])', '\\$1'), '(.*)')"/>
+    <xsl:variable name="escapeStart" select="if ($start='(') then '\' else ''"/>
+    <xsl:variable name="escapeEnd" select="if ($end=')') then '\' else ''"/>
+    <xsl:value-of select="concat('(.*[^\\])?', $escapeStart, replace($start, '([\[\]\\])', '\\$1'), '(.*[^\\])', $escapeEnd, replace($end, '([\[\]\\])', '\\$1'), '(.*)')"/>
   </xsl:function>
   <xsl:function name="fn:separate" as="xs:string+">
     <xsl:param name="string" as="xs:string"/>

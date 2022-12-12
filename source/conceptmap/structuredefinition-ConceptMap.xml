@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ConceptMap"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -32,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ConceptMap"/>
+  <title value="ConceptMap"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -88,8 +90,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <mapping>
@@ -116,8 +117,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
-        <xpath value="not(exists(@value)) or matches(@value, &#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -178,6 +178,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ConceptMap.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ConceptMap.title"/>
       <short value="Name for this concept map (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the concept map."/>
@@ -239,8 +242,8 @@
     <element id="ConceptMap.date">
       <path value="ConceptMap.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the concept map was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the concept map was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the concept map. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -254,9 +257,12 @@
       </mapping>
     </element>
     <element id="ConceptMap.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ConceptMap.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the concept map."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the concept map."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the concept map is the organization or individual primarily responsible for the maintenance and upkeep of the concept map. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the concept map. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the concept map.  May also allow for contact."/>
       <min value="0"/>
@@ -283,9 +289,12 @@
       <isSummary value="true"/>
     </element>
     <element id="ConceptMap.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ConceptMap.description"/>
       <short value="Natural language description of the concept map"/>
-      <definition value="A free text natural language description of the concept map from a consumer&#39;s perspective."/>
+      <definition value="A free text natural language description of the concept map from a consumer's perspective."/>
       <comment value="The description is not intended to describe the semantics of the concept map. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes."/>
       <min value="0"/>
       <max value="1"/>
@@ -334,10 +343,13 @@
       </binding>
     </element>
     <element id="ConceptMap.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ConceptMap.purpose"/>
       <short value="Why this concept map is defined"/>
       <definition value="Explanation of why this concept map is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the concept map. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this concept map."/>
+      <comment value="This element does not describe the usage of the concept map. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this concept map."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -353,6 +365,9 @@
       </mapping>
     </element>
     <element id="ConceptMap.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ConceptMap.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the concept map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the concept map."/>
@@ -374,7 +389,7 @@
       <path value="ConceptMap.approvalDate"/>
       <short value="When the ConceptMap was approved by publisher"/>
       <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-      <comment value="The &#39;date&#39; element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -556,7 +571,7 @@
       <path value="ConceptMap.group.target"/>
       <short value="Target system that the concepts are to be mapped to"/>
       <definition value="An absolute URI that identifies the target system that the concepts will be mapped to."/>
-      <comment value="This is not needed if the target value set is specified and it contains concepts from only a single system. The group target may also be omitted if all of the target element relationship values are &#39;not-related-to&#39;."/>
+      <comment value="This is not needed if the target value set is specified and it contains concepts from only a single system. The group target may also be omitted if all of the target element relationship values are 'not-related-to'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -588,7 +603,6 @@
         <severity value="error"/>
         <human value="If noMap is present, target SHALL NOT be present"/>
         <expression value="(noMap.exists() and target.empty()) or noMap.empty()"/>
-        <xpath value="(exists(f:noMap) and not(exists(f:target))) or not(exists(f:noMap))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -596,7 +610,6 @@
         <severity value="error"/>
         <human value="Either code or valueSet SHALL be present but not both."/>
         <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -655,7 +668,7 @@
       <path value="ConceptMap.group.element.target"/>
       <short value="Concept in target system for element"/>
       <definition value="A concept from the target value set that this concept maps to."/>
-      <comment value="Ideally there would only be one map, with an &#39;equivalent&#39; mapping. But multiple maps are allowed for several narrower (i.e. source-is-broader-than-target) options, or to assert that other concepts are not related."/>
+      <comment value="Ideally there would only be one map, with an 'equivalent' mapping. But multiple maps are allowed for several narrower (i.e. source-is-broader-than-target) options, or to assert that other concepts are not related."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -665,8 +678,7 @@
         <key value="cmd-1"/>
         <severity value="error"/>
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
-        <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != &#39;source-is-broader-than-target&#39;) and (relationship != &#39;not-related-to&#39;))"/>
-        <xpath value="exists(f:comment) or (f:status/@value = draft) or not(exists(f:relationship)) or ((f:relationship/@value != &#39;source-is-broader-than-target&#39;) and (f:v/@value != &#39;not-related-to&#39;))"/>
+        <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -674,7 +686,6 @@
         <severity value="error"/>
         <human value="Either code or valueSet SHALL be present but not both."/>
         <expression value="(code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -727,7 +738,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="The &#39;not-related-to&#39; relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapRelationship"/>
@@ -771,7 +782,6 @@
         <severity value="error"/>
         <human value="One of value[x] or valueSet must exist, but not both."/>
         <expression value="(value.exists() and valueSet.empty()) or (value.empty() and valueSet.exists())"/>
-        <xpath value="(exists(f:value) and not(exists(f:valueSet))) or (not(exists(f:value)) and exists(f:valueSet))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -844,7 +854,7 @@
       </extension>
       <path value="ConceptMap.group.unmapped"/>
       <short value="What to do when there is no mapping target for the source concept"/>
-      <definition value="What to do when there is no mapping to a target concept from the source concept.  This provides the &quot;default&quot; to be applied when there is no target concept mapping specified.  The &#39;unmapped&#39; element is ignored if a code is specified to have relationship = not-related-to."/>
+      <definition value="What to do when there is no mapping to a target concept from the source concept.  This provides the &quot;default&quot; to be applied when there is no target concept mapping specified.  The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to."/>
       <comment value="This only applies if the source code has a system value that matches the system defined for the group."/>
       <min value="0"/>
       <max value="1"/>
@@ -854,41 +864,36 @@
       <constraint>
         <key value="cmd-3"/>
         <severity value="error"/>
-        <human value="If the mode is &#39;other-map&#39;, a url for the other map must be provided"/>
-        <expression value="(mode = &#39;other-map&#39;) implies otherMap.exists()"/>
-        <xpath value="(f:mode/@value != &#39;other-map&#39;) or exists(f:otherMap)"/>
+        <human value="If the mode is 'other-map', a url for the other map must be provided"/>
+        <expression value="(mode = 'other-map') implies otherMap.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
         <key value="cmd-2"/>
         <severity value="error"/>
-        <human value="If the mode is &#39;fixed&#39;, either a code or valueSet must be provided, but not both."/>
-        <expression value="(mode = &#39;fixed&#39;) implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
-        <xpath value="(f:mode/@value != &#39;fixed&#39;) or (exists(f:code) and not(exists(f:valueSet))) or (not(exists(f:code)) and exists(f:valueSet))"/>
+        <human value="If the mode is 'fixed', either a code or valueSet must be provided, but not both."/>
+        <expression value="(mode = 'fixed') implies ((code.exists() and valueSet.empty()) or (code.empty() and valueSet.exists()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
         <key value="cmd-8"/>
         <severity value="error"/>
-        <human value="If the mode is not &#39;fixed&#39;, code, display and valueSet are not allowed"/>
-        <expression value="(mode != &#39;fixed&#39;) implies (code.empty() and display.empty() and valueSet.empty())"/>
-        <xpath value="(f:mode/@value = &#39;fixed&#39;) or not(exists(f:code) or exists(f:display) or exists(f:valueSet))"/>
+        <human value="If the mode is not 'fixed', code, display and valueSet are not allowed"/>
+        <expression value="(mode != 'fixed') implies (code.empty() and display.empty() and valueSet.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
         <key value="cmd-9"/>
         <severity value="error"/>
-        <human value="If the mode is not &#39;other-map&#39;, relationship must be provided"/>
-        <expression value="(mode != &#39;other-map&#39;) implies relationship.exists()"/>
-        <xpath value="(f:mode/@value = &#39;other-map&#39;) or exists(f:relationship)"/>
+        <human value="If the mode is not 'other-map', relationship must be provided"/>
+        <expression value="(mode != 'other-map') implies relationship.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
         <key value="cmd-10"/>
         <severity value="error"/>
-        <human value="If the mode is not &#39;other-map&#39;, otherMap is not allowed"/>
-        <expression value="(mode != &#39;other-map&#39;) implies otherMap.empty()"/>
-        <xpath value="(f:mode/@value = &#39;other-map&#39;) or not(exists(f:otherMap))"/>
+        <human value="If the mode is not 'other-map', otherMap is not allowed"/>
+        <expression value="(mode != 'other-map') implies otherMap.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
@@ -916,7 +921,7 @@
       </extension>
       <path value="ConceptMap.group.unmapped.code"/>
       <short value="Fixed code when mode = fixed"/>
-      <definition value="The fixed code to use when the mode = &#39;fixed&#39;  - all unmapped codes are mapped to a single fixed code."/>
+      <definition value="The fixed code to use when the mode = 'fixed'  - all unmapped codes are mapped to a single fixed code."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -937,7 +942,7 @@
     <element id="ConceptMap.group.unmapped.valueSet">
       <path value="ConceptMap.group.unmapped.valueSet"/>
       <short value="Fixed code set when mode = fixed"/>
-      <definition value="The set of fixed codes to use when the mode = &#39;fixed&#39;  - all unmapped codes are mapped to each of the fixed codes."/>
+      <definition value="The set of fixed codes to use when the mode = 'fixed'  - all unmapped codes are mapped to each of the fixed codes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -956,7 +961,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="The &#39;not-related-to&#39; relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="UnmappedConceptMapRelationship"/>
