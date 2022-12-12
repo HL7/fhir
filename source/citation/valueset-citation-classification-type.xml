@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/citation-classification-type"/>
+      <system value="http://hl7.org/fhir/citation-classification-type"/>
     </include>
   </compose>
 </ValueSet>

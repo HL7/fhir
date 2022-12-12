@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/contributor-summary-style"/>
+      <system value="http://hl7.org/fhir/contributor-summary-style"/>
     </include>
   </compose>
 </ValueSet>

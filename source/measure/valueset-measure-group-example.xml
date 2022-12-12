@@ -20,7 +20,7 @@
   <description value="Example Measure Groups for the Measure Resource."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-group-example"/>
+      <system value="http://hl7.org/fhir/measure-group-example"/>
     </include>
   </compose>
 </ValueSet>

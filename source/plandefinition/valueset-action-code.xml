@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/action-code"/>
+      <system value="http://hl7.org/fhir/action-code"/>
     </include>
   </compose>
 </ValueSet>

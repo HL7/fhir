@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+      <system value="http://hl7.org/fhir/characteristic-offset"/>
     </include>
   </compose>
 </ValueSet>

@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/definition-method"/>
+      <system value="http://hl7.org/fhir/definition-method"/>
     </include>
   </compose>
 </ValueSet>

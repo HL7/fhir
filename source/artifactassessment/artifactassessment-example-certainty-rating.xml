@@ -23,7 +23,7 @@
 		<summary value="serious concerns with risk of bias, inconsistency, and imprecision"/>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<system value="http://hl7.org/fhir/certainty-type"/>
 				<code value="Overall"/>
 				<display value="Overall certainty"/>
 			</coding>
@@ -44,7 +44,7 @@
 			<summary value="risk of bias in both included trials"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="RiskOfBias"/>
 					<display value="Risk of bias"/>
 				</coding>
@@ -65,7 +65,7 @@
 			<summary value="high degree of heterogeneity (I-squared 80.7%) with confidence intervals of 2 trial effect estimates barely overlapping"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Inconsistency"/>
 					<display value="Inconsistency"/>
 				</coding>
@@ -85,7 +85,7 @@
 			<informationType value="rating"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Indirectness"/>
 					<display value="Indirectness"/>
 				</coding>
@@ -106,7 +106,7 @@
 			<summary value="95% confidence interval includes both large effects and no effects"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Imprecision"/>
 					<display value="Imprecision"/>
 				</coding>
@@ -126,7 +126,7 @@
 			<informationType value="rating"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="PublicationBias"/>
 					<display value="Publication bias"/>
 				</coding>

@@ -28,7 +28,7 @@
   <description value="Medication Cost Category Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-cost-category"/>
+      <system value="http://hl7.org/fhir/medication-cost-category"/>
     </include>
   </compose>
 </ValueSet>

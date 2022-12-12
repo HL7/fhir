@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/cited-medium"/>
+      <system value="http://hl7.org/fhir/cited-medium"/>
     </include>
   </compose>
 </ValueSet>

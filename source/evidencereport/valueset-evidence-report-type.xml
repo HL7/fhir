@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/evidence-report-type"/>
+      <system value="http://hl7.org/fhir/evidence-report-type"/>
     </include>
   </compose>
 </ValueSet>

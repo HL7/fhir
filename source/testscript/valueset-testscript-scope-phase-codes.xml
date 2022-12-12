@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/testscript-scope-phase-codes"/>
+      <system value="http://hl7.org/fhir/testscript-scope-phase-codes"/>
     </include>
   </compose>
 </ValueSet>

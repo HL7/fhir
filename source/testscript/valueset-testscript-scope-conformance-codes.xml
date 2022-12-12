@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/testscript-scope-conformance-codes"/>
+      <system value="http://hl7.org/fhir/testscript-scope-conformance-codes"/>
     </include>
   </compose>
 </ValueSet>

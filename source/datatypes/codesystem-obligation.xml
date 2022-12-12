@@ -29,6 +29,7 @@ many applications transfer resources as well&#10;
   </jurisdiction>  
   <caseSensitive value="true"/>
   <hierarchyMeaning value="is-a"/>
+  <compositional value="true"/>
   <content value="complete"/>
   <property>
     <code value="qualify"/>

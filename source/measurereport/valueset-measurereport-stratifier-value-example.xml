@@ -20,7 +20,7 @@
   <description value="Example Measure Stratification Value for MeasureReports Resource."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/measurereport-stratifier-value-example"/>
+      <system value="http://hl7.org/fhir/measurereport-stratifier-value-example"/>
     </include>
   </compose>
 </ValueSet>

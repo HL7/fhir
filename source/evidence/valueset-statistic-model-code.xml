@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/statistic-model-code"/>
+      <system value="http://hl7.org/fhir/statistic-model-code"/>
     </include>
   </compose>
 </ValueSet>
