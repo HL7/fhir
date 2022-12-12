@@ -1,9 +1,9 @@
 // Using GET
-GET [base]/NamingSystem/$current-canonical?url=http%3A%2F%2Fhl7.org%2Ffhir%2Faccount-status&status=active
+GET [base]/CodeSystem/$current-canonical?url=http%3A%2F%2Fhl7.org%2Ffhir%2Faccount-status&status=active
 
 --------------------------------------
 // Using POST
-POST [base]/NamingSystem/$current-canonical
+POST [base]/CodeSystem/$current-canonical
 [other headers]
 
 {
