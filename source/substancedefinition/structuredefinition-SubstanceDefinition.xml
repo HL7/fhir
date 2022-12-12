@@ -461,22 +461,25 @@
               <map value="n/a"/>
           </mapping>
       </element>
-      <element id="SubstanceDefinition.characterization.image[x]">
-          <path value="SubstanceDefinition.characterization.image[x]"/>
-          <short value="A code expressing the type of property"/>
-          <definition value="A code expressing the type of property."/>
-          <min value="0"/>
+      <element id="SubstanceDefinition.characterization.technique">
+          <path value="SubstanceDefinition.characterization.technique"/>
+  		<short value="The method used to find the characterization e.g. HPLC"/>
+  		<definition value="The method used to elucidate the characterization of the drug substance. Example: HPLC."/>
+  		<min value="0"/>
           <max value="1"/>
           <type>
-              <code value="Attachment"/>
+              <code value="CodeableConcept"/>
           </type>
-          <type>
-              <code value="Reference"/>
-              <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
-          </type>
-          
           <isSummary value="true"/>
-          <mapping>
+  		<binding>
+  			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+  				<valueString value="SubstanceStructureTechnique"/>
+  			</extension>
+  			<strength value="example"/>
+  			<description value="The method used to elucidate the characterization of the drug substance."/>
+  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
+  		</binding>
+  		<mapping>
               <identity value="idmp"/>
               <map value="n/a"/>
           </mapping>
@@ -504,37 +507,14 @@
   			<map value="n/a"/>
   		</mapping>
   	</element>
-  	<element id="SubstanceDefinition.characterization.technique">
-          <path value="SubstanceDefinition.characterization.technique"/>
-  		<short value="The method used to find the characterization e.g. HPLC"/>
-  		<definition value="The method used to elucidate the characterization of the drug substance. Example: HPLC."/>
-  		<min value="0"/>
-          <max value="1"/>
-          <type>
-              <code value="CodeableConcept"/>
-          </type>
-          <isSummary value="true"/>
-  		<binding>
-  			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-  				<valueString value="SubstanceStructureTechnique"/>
-  			</extension>
-  			<strength value="example"/>
-  			<description value="The method used to elucidate the characterization of the drug substance."/>
-  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
-  		</binding>
-  		<mapping>
-              <identity value="idmp"/>
-              <map value="n/a"/>
-          </mapping>
-      </element>
   	<element id="SubstanceDefinition.characterization.description">
   		<path value="SubstanceDefinition.characterization.description"/>
-  		<short value="Narrative text about the characterization"/>
-  		<definition value="Narrative text about the characterization."/>
+  		<short value="Narrative text, data, tables about the characterization"/>
+  		<definition value="Narrative text, data, tables about the characterization."/>
   		<min value="0"/>
   		<max value="1"/>
   		<type>
-  			<code value="string"/>
+  			<code value="markdown"/>
   		</type>
   		<isSummary value="true"/>
   		<mapping>
@@ -542,7 +522,27 @@
   			<map value="n/a"/>
   		</mapping>
   	</element>
-      <element id="SubstanceDefinition.property">
+  	<element id="SubstanceDefinition.characterization.file[x]">
+  		<path value="SubstanceDefinition.characterization.file[x]"/>
+  		<short value="An image or data file that characterizes this substance"/>
+  		<definition value="An image or data file that characterizes this substance."/>
+  		<min value="0"/>
+  		<max value="*"/>
+  		<type>
+  			<code value="Attachment"/>
+  		</type>
+  		<type>
+  			<code value="Reference"/>
+  			<targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
+  		</type>
+  		
+  		<isSummary value="true"/>
+  		<mapping>
+  			<identity value="idmp"/>
+  			<map value="n/a"/>
+  		</mapping>
+  	</element>
+  	<element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="375,835"/>      
       </extension>
