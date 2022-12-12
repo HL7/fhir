@@ -522,8 +522,8 @@
   			<map value="n/a"/>
   		</mapping>
   	</element>
-  	<element id="SubstanceDefinition.characterization.file[x]">
-  		<path value="SubstanceDefinition.characterization.file[x]"/>
+  	<element id="SubstanceDefinition.characterization.file">
+  		<path value="SubstanceDefinition.characterization.file"/>
   		<short value="An image or data file that characterizes this substance"/>
   		<definition value="An image or data file that characterizes this substance."/>
   		<min value="0"/>
@@ -531,11 +531,10 @@
   		<type>
   			<code value="Attachment"/>
   		</type>
-  		<type>
+  		<!--type>
   			<code value="Reference"/>
   			<targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
-  		</type>
-  		
+  		</type-->
   		<isSummary value="true"/>
   		<mapping>
   			<identity value="idmp"/>
