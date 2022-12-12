@@ -57,7 +57,7 @@
     <definition value="The Encounter has begun and the patient is present / the practitioner and the patient are meeting."/>
   </concept>
   <concept>
-    <code value="onhold"/>
+    <code value="on-hold"/>
     <display value="On Hold"/>
     <definition value="The Encounter has begun, but is currently on hold, e.g. because the patient is temporarily on leave."/>
   </concept>

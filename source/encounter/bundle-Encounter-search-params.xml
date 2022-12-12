@@ -433,7 +433,7 @@
           <valueString value="Encounter.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-status"/>
-        <description value="planned | in-progress | onhold | completed | cancelled | entered-in-error | unknown"/>
+        <description value="planned | in-progress | on-hold | completed | cancelled | entered-in-error | unknown"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="Encounter.status"/>
