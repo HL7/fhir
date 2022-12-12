@@ -32,12 +32,12 @@
     </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="Servers handle this request by finding the provided identifier in their known naming systems, and returning the requested identifier type ([CanonicalResource.uniqueId.type](namingsystem-definitions.html#CanonicalResource.uniqueId.type)). If there is more than one identifier of the specified type (for the specified date), then the 'preferred' identifier will be returned.  If there is only one identifier, that identifier will be returned even if it is not preferred.  If there are multiple preferred identifiers or multiple identifiers with none marked as preferred, the system MAY return an error or may list all identifiers applicable for that date and period.  &#xA;&#xA;If the server wishes, it can also look through all code systems and value sets it knows about when attempting to find the requested identifier."/>
+    <valueMarkdown value="If none of the instances define the versionAlgorithm to use, a server may  dynamically attempt to determine which versioning system is implied by the data.&#xD;&#xD;If the instances found with the provided canonical URL define different versionAlgorithm values the server may return an error.&#xD;&#xD;Note that the *CanonicalResource* is an interface and not an actual resource type, as such the operation is actually called on the canonical resource types such as CodeSystem, Questionnaire etc." />
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CanonicalResource-current-canonical"/>
   <version value="5.0.0"/>
   <name value="current-canonical"/>
-  <title value="Fetch Preferred id"/>
+  <title value="Fetch the current version of a canonical resource (based on canonical versioning)"/>
   <status value="draft"/>
   <kind value="operation"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -52,7 +52,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Returns the most current version of the canonical resource with the specified url available on the server.  It optionally also allows filtering to only expose the most current version with a particular status or set of statuses.  Note that 'current' is determined by comparing version values, NOT by looking at lastUpdated."/>
+  <description value="Returns the most current version of the canonical resource with the specified url available on the server.  It optionally also allows filtering to only expose the most current version with a particular status or set of statuses.&#xD;&#xD;Note that 'current' is determined by comparing version values using the specified versionAlgorithm, NOT by looking at lastUpdated." />
   <affectsState value="false"/>
   <code value="current-canonical"/>
   <resource value="CanonicalResource"/>
@@ -65,7 +65,7 @@
     <min value="1"/>
     <max value="1"/>
     <documentation value="This is the canonical URL (with no version declared)"/>
-    <type value="url"/>
+    <type value="uri"/>
   </parameter>
   <parameter>
     <name value="status"/>
