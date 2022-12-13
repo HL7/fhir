@@ -370,32 +370,6 @@
         <map value="(0008,0090)+(0008,0096)"/>
       </mapping>
     </element>
-    <element id="ImagingStudy.interpreter">
-      <path value="ImagingStudy.interpreter"/>
-      <short value="Who interpreted images"/>
-      <definition value="Who read the study and interpreted the images or other content."/>
-      <alias value="Name of Physician(s) Reading Study"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="(0008,1060)"/>
-      </mapping>
-    </element>
     <element id="ImagingStudy.endpoint">
       <path value="ImagingStudy.endpoint"/>
       <short value="Study access endpoint"/>
