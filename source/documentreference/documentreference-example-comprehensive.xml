@@ -36,6 +36,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:0c287d32-01e3-4d87-9953-9fcc9404eb21"/>
   </identifier>
+  <version value="urn:uuid:0c287d32-01e3-4d87-9953-9fcc9404eb21"/>
   <status value="current"/>
   <type>
     <coding>
