@@ -25,7 +25,7 @@ Observations to model Questionnaires. Such use cases should now use the Question
 The base questionnaire resource is aimed at the capabilities of "most" healthcare systems that deal with forms and questionnaires.  While the resource structure
 supports a reasonable degree of complexity, it doesn't provide the degree of control over rendering, question flow and data management needed by some portions 
 of the healthcare space.  Many of these more sophisticated requirements are addressed by a supplemental implementation guide called 
-<a href="http://build.fhir.org/ig/HL7/sdc/">Structured Data Capture (SDC)</a>.  This implementation guide covers the following capabilities, plus several others:
+<a href="http://hl7.org/fhir/uv/sdc/">Structured Data Capture (SDC)</a>.  This implementation guide covers the following capabilities, plus several others:
 </p>
 <ul>
   <li>Rendering grids of questions, multi-column drop-downs, multi-language questionnaires, and other 'advanced' formatting capabilities</li>

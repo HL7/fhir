@@ -53,7 +53,7 @@
       <path value="Extension"/>
       <short value="Don't display to user"/>
       <definition value="If true, indicates that the extended item should not be displayed to the user."/>
-      <comment value="If an item is hidden, all descendant items are hidden as well.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#hidden)."/>
+      <comment value="If an item is hidden, all descendant items are hidden as well.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#hidden)."/>
       <min value="0"/>
       <max value="1"/>
     </element>

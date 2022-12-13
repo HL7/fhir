@@ -836,7 +836,7 @@
       <path value="TestScript.fixture.resource"/>
       <short value="Reference of the resource"/>
       <definition value="Reference to the resource (containing the contents of the resource needed for operations). This is allowed to be a Parameters resource."/>
-      <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
+      <comment value="See the [Resource List](resourcelist.html) for complete list of resource types."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -848,7 +848,7 @@
       <path value="TestScript.profile"/>
       <short value="Reference of the validation profile"/>
       <definition value="Reference to the profile to be used for validation."/>
-      <comment value="See http://build.fhir.org/resourcelist.html for complete list of resource types."/>
+      <comment value="See the [Resource List](resourcelist.html) for complete list of resource types."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1024,7 +1024,7 @@
       <path value="TestScript.setup.action.operation.type"/>
       <short value="The operation code type that will be executed"/>
       <definition value="Server interaction or operation type."/>
-      <comment value="See http://build.fhir.org/http.html for list of server interactions."/>
+      <comment value="See the list of [server interactions](http.html)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1045,7 +1045,7 @@
     <element id="TestScript.setup.action.operation.resource">
       <path value="TestScript.setup.action.operation.resource"/>
       <short value="Resource type"/>
-      <definition value="The type of the FHIR resource. See http://build.fhir.org/resourcelist.html. Data type of uri is needed when non-HL7 artifacts are identified."/>
+      <definition value="The type of the FHIR resource. See the [resource list](resourcelist.html). Data type of uri is needed when non-HL7 artifacts are identified."/>
       <comment value="If &quot;url&quot; element is specified, then &quot;targetId&quot;, &quot;params&quot;, and &quot;resource&quot; elements will be ignored as &quot;url&quot; element will have everything needed for constructing the request url.  If &quot;params&quot; element is specified, then &quot;targetId&quot; element is ignored. For FHIR operations that require a resource (e.g. &quot;read&quot; and &quot;vread&quot; operations), the &quot;resource&quot; element must be specified when &quot;params&quot; element is specified.  If &quot;url&quot; and &quot;params&quot; elements are absent, then the request url will be constructed from &quot;targetId&quot; fixture if present. For &quot;read&quot; operation, the resource and id values will be extracted from &quot;targetId&quot; fixture and used to construct the url. For &quot;vread&quot; and &quot;history&quot; operations, the versionId value will also be used."/>
       <min value="0"/>
       <max value="1"/>
@@ -1213,7 +1213,7 @@
       <path value="TestScript.setup.action.operation.requestHeader"/>
       <short value="Each operation can have one or more header elements"/>
       <definition value="Header elements would be used to set HTTP headers."/>
-      <comment value="This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - &quot;If-Modified-Since&quot; and &quot;If-None-Match&quot; headers.  See http://build.fhir.org/http.html#2.1.0.5.1 - &quot;If-Match&quot; header.  See http://build.fhir.org/http.html#2.1.0.11 - Conditional Create using &quot;If-None-Exist&quot;.  See http://build.fhir.org/http.html#2.1.0.13.1 - Invalid &quot;Content-Type&quot; header for negative testing. - etc."/>
+      <comment value="This gives control to test-script writers to set headers explicitly based on test requirements.  It will allow for testing using:  - &quot;If-Modified-Since&quot; and &quot;If-None-Match&quot; headers.  [&quot;If-Match&quot; header](http.html#2.1.0.5.1).  See [Conditional Create using &quot;If-None-Exist&quot;](http.html#2.1.0.11).  See [Invalid &quot;Content-Type&quot; header](http.html#2.1.0.13.1) for negative testing. - etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1546,8 +1546,8 @@
     <element id="TestScript.setup.action.assert.resource">
       <path value="TestScript.setup.action.assert.resource"/>
       <short value="Resource type"/>
-      <definition value="The type of the resource.  See http://build.fhir.org/resourcelist.html."/>
-      <comment value="This will be expected resource type in response body e.g. in read, vread, search, etc.  See http://build.fhir.org/resourcelist.html for complete list of resource types; e.g. &lt;assert &gt; &lt;resourceType value=&quot;Patient&quot; &lt;/assert&gt;."/>
+      <definition value="The type of the resource.  See the [resource list](resourcelist.html)."/>
+      <comment value="This will be expected resource type in response body e.g. in read, vread, search, etc.  See the [Resource List](resourcelist.html) for complete list of resource types; e.g. &lt;assert &gt; &lt;resourceType value=&quot;Patient&quot; &lt;/assert&gt;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

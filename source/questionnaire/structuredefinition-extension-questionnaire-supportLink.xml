@@ -52,7 +52,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Supporting information"/>
-      <definition value="A URL that resolves to additional supporting information or guidance related to the question.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#supportLink)."/>
+      <definition value="A URL that resolves to additional supporting information or guidance related to the question.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#supportLink)."/>
       <min value="0"/>
       <max value="*"/>
       <isModifier value="false"/>

@@ -28,7 +28,7 @@ Logical models are abstract data structures, normally defined for a given purpos
 </p>
 
     <h2 id="defining-logical-models">Defining logical models</h2>
-    <p>A logical model is defined in FHIR as a StructureDefinition which is a <a href="https://hl7.org/fhir/structuredefinition-definitions.html#StructureDefinition.derivation">specialization</a> of a base type (<a href="https://hl7.org/fhir/types.html#Base">Element</a> or <a href="https://build.fhir.org/types.html#Element">Base</a>) where <a href="https://hl7.org/fhir/structuredefinition-definitions.html#StructureDefinition.kind">StructureDefinition.kind</a> = logical.</p>
+    <p>A logical model is defined in FHIR as a StructureDefinition which is a <a href="structuredefinition-definitions.html#StructureDefinition.derivation">specialization</a> of a base type (<a href="types.html#Base">Element</a> or <a href="types.html#Element">Base</a>) where <a href="structuredefinition-definitions.html#StructureDefinition.kind">StructureDefinition.kind</a> = logical.</p>
     <p>For example,</p>
     <pre><code>  &quot;kind&quot;: &quot;logical&quot;,
   &quot;abstract&quot;: false,
@@ -41,7 +41,7 @@ Logical models are abstract data structures, normally defined for a given purpos
     <li>For logical models, setting <code>abstract</code> to true or false has no predefined impact - authors can define it based on their goals for the model.</li>
     </ul>
     <h2 id="content-of-logical-models">Content of logical models</h2>
-    <p>Logical models are expressed in FHIR with <a href="https://hl7.org/fhir/StructureDefinition.html">StructureDefinition</a> with <a href="https://hl7.org/fhir/ElementDefinition.html">ElementDefinitions</a>.</p>
+    <p>Logical models are expressed in FHIR with <a href="structuredefinition.html">StructureDefinition</a> with <a href="elementdefinition.html">ElementDefinitions</a>.</p>
     <p>The StructureDefinition defines:</p>
         <ul>
             <li> metadata - title, status, authorship, purpose, etc. </li>
@@ -57,7 +57,7 @@ Logical models are abstract data structures, normally defined for a given purpos
         </ul>
         
     <h3 id="data-types-in-logical-models">Datatypes in logical models</h3>
-    <p>Elements in a logical model are expected to have a type because of how FHIR structures are defined. It is posible to use the FHIR <a href="https://hl7.org/fhir/datatypes">datatypes</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
+    <p>Elements in a logical model are expected to have a type because of how FHIR structures are defined. It is posible to use the FHIR <a href="datatypes.html">datatypes</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
     <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>.</p> <p>It is possible to define datatypes for use in logical models, by profiling the existing types in FHIR. However, redefining the FHIR primitive datatypes is not supported.</p>
 
     <h3 id="terminology-bindings">Terminology bindings</h3>

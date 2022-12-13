@@ -7,7 +7,7 @@
 				<b>Generated Narrative with Details</b>
 			</p><p>
 				<b>id</b>: cwl-example</p><p>
-				<b>target</b>: <a href="http://build.fhir.org/sequence-example-pgx-1.html">MolecularSequence/example-pgx-1</a>
+				<b>target</b>: <a href="sequence-example-pgx-1.html">MolecularSequence/example-pgx-1</a>
 			</p><p>
 				<b>period</b>: Nov 30, 2016 --&gt; (ongoing)</p><p>
 				<b>recorded</b>: Dec 1, 2016 8:12:14 AM</p><p>
@@ -30,7 +30,7 @@
 					<td>Author (Details: http://hl7.org/fhir/provenance-participant-role code author = 'Author',
              stated as 'null')</td>
 					<td>
-						<a href="http://build.fhir.org/patient-example.html">Patient/example</a>
+						<a href="patient-example.html">Patient/example</a>
 					</td>
 				</tr>
 			</table>

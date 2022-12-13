@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="horizontal | vertical"/>
       <definition value="Identifies the desired orientation when rendering a list of choices (typically radio-box or check-box lists)."/>
-      <comment value="Systems may choose to wrap answers rather than attempting to display them all in one row or column.  Language conventions may determine the order in which the choices are listed (left-to-right or right-to-left, etc.).  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#choiceOrientation)."/>
+      <comment value="Systems may choose to wrap answers rather than attempting to display them all in one row or column.  Language conventions may determine the order in which the choices are listed (left-to-right or right-to-left, etc.).  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#choiceOrientation)."/>
       <min value="0"/>
       <max value="1"/>
     </element>

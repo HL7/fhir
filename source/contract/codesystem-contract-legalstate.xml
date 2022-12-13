@@ -10,8 +10,8 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Each definition includes usage notes explaining
             the precedence order in contract lifecycle - i.e., while only some stages are required,
             the order in which they may occur is deterministic; and a map to comparable FHIR and v.3
-            status codes. It follows guidance about use of status codes in FHIR at
-            http://build.fhir.org/sc.html.</div>
+            status codes. It follows guidance about use of status codes in FHIR in
+            <a href="sc.html">the Status Codes Grid</a>.</div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
@@ -34,7 +34,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR at http://build.fhir.org/sc.html."/>
+  <description value="This CodeSystem contains FHIR-defined contract status types. Each definition includes usage notes explaining the precedence order in contract lifecycle - i.e., while only some stages are required, the order in which they may occur is deterministic; and a map to comparable FHIR and v.3 status codes. It follows guidance about use of status codes in FHIR in the [Status Codes Grid](sc.html)."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

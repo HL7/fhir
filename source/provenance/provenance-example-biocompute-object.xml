@@ -7,7 +7,7 @@
 				<b>Generated Narrative with Details</b>
 			</p><p>
 				<b>id</b>: example-biocompute-object</p><p>
-				<b>target</b>: <a href="http://build.fhir.org/sequence-example.html">MolecularSequence/example</a>
+				<b>target</b>: <a href="sequence-example.html">MolecularSequence/example</a>
 			</p><p>
 				<b>period</b>: 2017-6-6 --&gt; (ongoing)</p><p>
 				<b>recorded</b>: 2016-6-9 8:12:14</p><p>
@@ -29,7 +29,7 @@
 					<td>Author (Details: http://hl7.org/fhir/provenance-participant-role code author = 'Author',
              stated as 'null')</td>
 					<td>
-						<a href="http://build.fhir.org/practitioner-example.html">Practitioner/example</a>
+						<a href="practitioner-example.html">Practitioner/example</a>
 					</td>
 				</tr>
 			</table>

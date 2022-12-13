@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Maximum repetitions"/>
       <definition value="The maximum number of times the group must appear, or the maximum number of answers for a question - when greater than 1 and not unlimited."/>
-      <comment value="Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#maxOccurs)."/>
+      <comment value="Only relevant if the element has repeats=true and there's a need to constrain the number of allowed repetitions.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#maxOccurs)."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>

@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Purpose of rendered text"/>
       <definition value="Describes the intended purpose of the rendered text.  For example - instructions, guidance on access control, maintenance information, etc."/>
-      <comment value="See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#displayCategory)."/>
+      <comment value="See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#displayCategory)."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>

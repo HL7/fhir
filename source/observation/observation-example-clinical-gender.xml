@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- Clinical Gender Observation example see http://build.fhir.org/patient.html#gender -->
+<!-- Clinical Gender Observation example see patient.html#gender -->
 <Observation xmlns="http://hl7.org/fhir">
   <id value="clinical-gender"/>
   <status value="final"/>

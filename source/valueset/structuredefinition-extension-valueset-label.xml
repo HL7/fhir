@@ -47,7 +47,7 @@
       <path value="Extension"/>
       <short value="E.g. &quot;(a)&quot;, &quot;1.&quot;, etc."/>
       <definition value="The label to list in front of a code when presenting a list of possible values in a questionnaire-like fashion."/>
-      <comment value="For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#valueset-label)."/>
+      <comment value="For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#valueset-label)."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

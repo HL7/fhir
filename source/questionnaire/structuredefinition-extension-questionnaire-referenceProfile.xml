@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Allowed profile for reference"/>
       <definition value="Where the type for a question is &quot;Reference&quot;, indicates a profile that the resource instances pointed to in answers to this question must be valid against."/>
-      <comment value="If multiple profiles are present, then the resource must be valid against at least one of them.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#referenceProfile)."/>
+      <comment value="If multiple profiles are present, then the resource must be valid against at least one of them.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#referenceProfile)."/>
       <min value="0"/>
       <max value="*"/>
     </element>

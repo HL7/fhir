@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Minimum repetitions"/>
       <definition value="The minimum number of times the group must appear, or the minimum number of answers for a question - when greater than 1."/>
-      <comment value="Default assumption for &quot;required&quot; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#minOccurs)."/>
+      <comment value="Default assumption for &quot;required&quot; elements is minOccurs=1.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#minOccurs)."/>
       <min value="0"/>
       <max value="1"/>
       <mapping>
