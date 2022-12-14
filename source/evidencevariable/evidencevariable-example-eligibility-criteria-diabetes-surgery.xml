@@ -595,7 +595,7 @@
       </valueQuantity>
       <offset>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+          <system value="http://hl7.org/fhir/characteristic-offset"/>
           <code value="LNL"/>
           <display value="Lower Normal Limit"/>
         </coding>

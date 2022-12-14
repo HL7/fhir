@@ -57,7 +57,7 @@
       <path value="Extension"/>
       <short value="Is signature needed?"/>
       <definition value="Indicates that a signature (of the specified type) is needed when completing the QuestionnaireResponse."/>
-      <comment value="If this appears at the Questionnaire level, then the signature will be gathered for the entire form when it is marked complete.  If it appears on a particular item, then it will be gathered on that question or group when it is filled in.  (E.g. seeking the user's initials beside certain questions.)&#xA;&#xA;The signature can be captured using the http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature extension.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#signatureRequired)."/>
+      <comment value="If this appears at the Questionnaire level, then the signature will be gathered for the entire form when it is marked complete.  If it appears on a particular item, then it will be gathered on that question or group when it is filled in.  (E.g. seeking the user's initials beside certain questions.)&#xA;&#xA;The signature can be captured using the http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature extension.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#signatureRequired)."/>
       <min value="0"/>
       <max value="*"/>
     </element>

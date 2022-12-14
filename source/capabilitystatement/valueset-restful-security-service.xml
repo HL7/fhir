@@ -32,7 +32,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.82"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot3"/>
   <name value="RestfulSecurityService"/>
   <title value="RestfulSecurityService"/>
   <status value="active"/>
@@ -53,7 +53,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+      <system value="http://hl7.org/fhir/restful-security-service"/>
     </include>
   </compose>
 </ValueSet>

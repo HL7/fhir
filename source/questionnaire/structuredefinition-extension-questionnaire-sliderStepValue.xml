@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Increment value for slider"/>
       <definition value="For slider-based controls, indicates the step size to use when toggling the control up or down."/>
-      <comment value="See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/rendering.html#sliderStepValue)."/>
+      <comment value="See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/rendering.html#sliderStepValue)."/>
       <min value="0"/>
       <max value="1"/>
     </element>

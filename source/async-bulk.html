@@ -26,7 +26,7 @@
   <p>All of the interactions defined in the <a href="http.html">RESTful API</a> are described as synchronous operations
     - that is, the client makes a query and waits for the server to respond with the outcome in the HTTP response. This
     pattern is not always suitable when substantial amounts of data must be returned.</p>
-  <p>A good example of this is the <a href="https://hl7.org/fhir/uv/bulkdata/export.html">$export operation</a>, where
+  <p>A good example of this is the <a href="http://hl7.org/fhir/uv/bulkdata/export.html">$export operation</a>, where
     simple searches may result in large amounts of data. </p>
   <p>The asynchronous request pattern, based on <a href="https://tools.ietf.org/html/rfc7240#section-4.1">rfc 7240</a>,
     caters to this use case and is applicable for for use in <a href="operations.html">Operations</a> and
@@ -362,7 +362,7 @@
     When <code>requiresAccessToken</code> is set to <code>false</code> and no additional authorization-related
     extensions are present on the completion manifest's output entry, then the output URLs SHALL be dereferenceable
     directly, and SHALL be short lived following the expiration timing requirement that have been documented for bearer
-    tokens in the <a href="https://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services
+    tokens in the <a href="http://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services
       Authorization Guide</a>. In this case, a client MAY re-fetch the output manifest if output links have expired and
     MAY use the Expires header on the output response, when present, as a hint to know when capability URLs will expire.
   </p>
@@ -421,7 +421,7 @@
     set to <code>false</code> and no additional authorization-related extensions are present on a the Complete Status
     body's output entry, the url location SHALL be dereferenceable directly, and SHALL be short lived following the 
     expiration timing requirement that have been documented for bearer
-    tokens in the <a href="https://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services Authorization Guide</a>.
+    tokens in the <a href="http://hl7.org/fhir/uv/bulkdata/authorization/index.html">SMART Backend Services Authorization Guide</a>.
   </p>
 
   <p>Note that if a server copies files to the Bulk Data output endpoint or proxies requests to facilitate access from

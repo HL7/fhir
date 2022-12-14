@@ -132,7 +132,7 @@
 	      			<informationType value="classifier"/>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 						<code value="mesh-heading"/>
 						<display value="MeSH heading"/>
 					</coding>
@@ -188,7 +188,7 @@
 	      			<informationType value="classifier"/>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 						<code value="mesh-heading"/>
 						<display value="MeSH heading"/>
 					</coding>
@@ -232,7 +232,7 @@
 	      			<informationType value="classifier"/>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 						<code value="mesh-heading"/>
 						<display value="MeSH heading"/>
 					</coding>
@@ -298,7 +298,7 @@
 	      			<informationType value="classifier"/>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 						<code value="mesh-heading"/>
 						<display value="MeSH heading"/>
 					</coding>
@@ -342,7 +342,7 @@
 	      			<informationType value="classifier"/>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+						<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 						<code value="mesh-heading"/>
 						<display value="MeSH heading"/>
 					</coding>
@@ -429,7 +429,7 @@
 	<classification>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/citation-classification-type"/>
+				<system value="http://hl7.org/fhir/citation-classification-type"/>
 				<code value="fevir-platform-use"/>
 				<display value="FEvIR Platform Use"/>
 			</coding>
@@ -531,7 +531,7 @@
 		<abstract>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-abstract-type"/>
 					<code value="primary-human-use"/>
 					<display value="Primary human use"/>
 				</coding>
@@ -1119,7 +1119,7 @@
 			<publishedIn>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/published-in-type"/>
+						<system value="http://hl7.org/fhir/published-in-type"/>
 						<code value="D020492"/>
 						<display value="Periodical"/>
 					</coding>
@@ -1196,7 +1196,7 @@
 		<webLocation>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<system value="http://hl7.org/fhir/artifact-url-classifier"/>
 					<code value="doi-based"/>
 					<display value="DOI Based"/>
 				</coding>
@@ -1206,7 +1206,7 @@
 		<webLocation>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<system value="http://hl7.org/fhir/artifact-url-classifier"/>
 					<version value="5.0.0"/>
 					<code value="abstract"/>
 					<display value="Abstract"/>
@@ -1219,7 +1219,7 @@
 		<webLocation>
 			<classifier>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/artifact-url-classifier"/>
+					<system value="http://hl7.org/fhir/artifact-url-classifier"/>
 					<version value="5.0.0"/>
 					<code value="full-text"/>
 					<display value="Full-Text"/>
@@ -1256,7 +1256,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="knowledge-artifact-type"/>
 					<display value="Knowledge Artifact Type"/>
 				</coding>
@@ -1272,7 +1272,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="publishing-model"/>
 					<display value="Publishing Model"/>
 				</coding>
@@ -1288,7 +1288,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="chemical"/>
 					<display value="Chemical"/>
 				</coding>
@@ -1357,7 +1357,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="publication-type"/>
 					<display value="Publication type"/>
 				</coding>
@@ -1387,7 +1387,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="supplemental-mesh-protocol"/>
 					<display value="Supplemental MeSH for Protocol"/>
 				</coding>
@@ -1403,7 +1403,7 @@
 		<classification>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/cited-artifact-classification-type"/>
+					<system value="http://hl7.org/fhir/cited-artifact-classification-type"/>
 					<code value="citation-subset"/>
 					<display value="Citation subset"/>
 				</coding>
@@ -1464,7 +1464,7 @@
 			<summary>
 				<type>
 					<coding>
-						<system value="http://terminology.hl7.org/CodeSystem/contributor-summary-type"/>
+						<system value="http://hl7.org/fhir/contributor-summary-type"/>
 						<version value="5.0.0"/>
 						<code value="author-string"/>
 						<display value="Author string"/>

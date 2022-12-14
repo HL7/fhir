@@ -35,7 +35,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/artifact-relationship-type"/>
+      <system value="http://hl7.org/fhir/artifact-relationship-type"/>
     </include>
   </compose>
 </ValueSet>

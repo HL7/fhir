@@ -54,7 +54,7 @@
       <path value="Extension"/>
       <short value="Allowed resource for reference"/>
       <definition value="Where the type for a question is &quot;Reference&quot;, indicates a type of resource that is permitted."/>
-      <comment value="This extension only has meaning if the question.type = Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#referenceResource)."/>
+      <comment value="This extension only has meaning if the question.type = Reference.  If no allowedResource extensions are present, the presumption is that any type of resource is permitted.  If multiple are present, then any of the specified types are permitted.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#referenceResource)."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

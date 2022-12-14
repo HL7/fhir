@@ -49,7 +49,7 @@
       <path value="Extension"/>
       <short value="Option is exclusive"/>
       <definition value="If true, indicates that if this answerOption is selected, no other possible answers may be selected, even if the item is a repeating question."/>
-      <comment value="See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#optionExclusive)."/>
+      <comment value="See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#optionExclusive)."/>
       <min value="0"/>
       <max value="1"/>
     </element>

@@ -35,7 +35,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/publishing-model-type"/>
+      <system value="http://hl7.org/fhir/publishing-model-type"/>
     </include>
   </compose>
 </ValueSet>

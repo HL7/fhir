@@ -12,12 +12,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/evidence-report-section"/>
+  <url value="http://hl7.org/fhir/evidence-report-section"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1961"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot3"/>
   <name value="ReportSectionType"/>
   <title value="ReportSectionType"/>
   <status value="draft"/>

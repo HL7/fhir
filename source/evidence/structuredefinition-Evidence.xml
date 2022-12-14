@@ -328,7 +328,7 @@
       <path value="Evidence.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -340,7 +340,7 @@
       <path value="Evidence.author"/>
       <short value="Who authored the content"/>
       <definition value="An individiual, organization, or device primarily involved in the creation and maintenance of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -352,7 +352,7 @@
       <path value="Evidence.editor"/>
       <short value="Who edited the content"/>
       <definition value="An individiual, organization, or device primarily responsible for internal coherence of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -363,7 +363,7 @@
       <path value="Evidence.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individiual, organization, or device primarily responsible for review of some aspect of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -374,7 +374,7 @@
       <path value="Evidence.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individiual, organization, or device responsible for officially endorsing the content for use in some setting."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>

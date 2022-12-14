@@ -57,7 +57,7 @@
       <path value="Extension"/>
       <short value="Constraint"/>
       <definition value="An invariant that must be satisfied before responses to the questionnaire can be considered &quot;complete&quot;."/>
-      <comment value="This maps to the ElementDefinition.constraint element.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#constraint)."/>
+      <comment value="This maps to the ElementDefinition.constraint element.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#constraint)."/>
       <min value="0"/>
       <max value="*"/>
     </element>

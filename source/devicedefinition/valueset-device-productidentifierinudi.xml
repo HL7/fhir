@@ -19,7 +19,7 @@
   <description value="Device Production Identifier in UDI"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/device-productidentifierinudi"/>
+      <system value="http://hl7.org/fhir/device-productidentifierinudi"/>
     </include>
   </compose>
 </ValueSet>

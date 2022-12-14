@@ -184,7 +184,7 @@
 		<description value="Moderate certainty due to risk of bias"/>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<system value="http://hl7.org/fhir/certainty-type"/>
 				<code value="Overall"/>
 				<display value="Overall quality"/>
 			</coding>
@@ -199,7 +199,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="PublicationBias"/>
 					<display value="Publication bias"/>
 				</coding>
@@ -215,7 +215,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Inconsistency"/>
 					<display value="Inconsistency"/>
 				</coding>
@@ -231,7 +231,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Imprecision"/>
 					<display value="Imprecision"/>
 				</coding>
@@ -247,7 +247,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Indirectness"/>
 					<display value="Indirectness"/>
 				</coding>
@@ -266,7 +266,7 @@
 			</note>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="RiskOfBias"/>
 					<display value="Risk of bias"/>
 				</coding>

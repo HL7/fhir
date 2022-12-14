@@ -14,7 +14,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1999"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0-snapshot3"/>
   <name value="BiologicallyDerivedProductTypeCodes"/>
   <title value="BiologicallyDerivedProductTypeCodes"/>
   <status value="draft"/>

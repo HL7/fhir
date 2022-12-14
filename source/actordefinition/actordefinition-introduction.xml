@@ -20,7 +20,7 @@ actors and in doing so, bring into scope the technical artifacts associated with
 <h2>Boundaries and Relationships</h2>
 
 <p>
-Once defined, Actors may be asociated with <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/StructureDefinition-obligation.html">obligations</a> defined in profiles to describe
+Once defined, Actors may be asociated with <a href="obligations.html">obligations</a> defined in profiles to describe
 expected application behaviour.
 </p>
 <p>

@@ -5,7 +5,7 @@
     "lastUpdated" : "2022-09-01T13:47:12.078+10:00"
   },
   "url" : "http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition",
-  "version" : "5.0.0-cibuild",
+  "version" : "5.0.0-snapshot3",
   "name" : "MedicinalProductDefinition",
   "status" : "draft",
   "experimental" : false,
