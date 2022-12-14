@@ -13,7 +13,7 @@
     <valueInteger value="3"/>
   </extension>
   <url value="http://hl7.org/fhir/search-processingmode"/>
-  <version value="5.0.0-snapshot3"/>
+  <version value="5.0.0-cibuild"/>
   <name value="SearchProcessingModeType"/>
   <title value="SearchProcessingModeType"/>
   <status value="draft"/>

@@ -11,7 +11,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3204"/>
   </identifier>
-  <version value="5.0.0-snapshot3"/>
+  <version value="5.0.0-cibuild"/>
   <name value="DeviceSpecializationSystemType"/>
   <title value="Device Specialization System Type"/>
   <status value="draft"/>
