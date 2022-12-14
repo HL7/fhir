@@ -456,12 +456,13 @@
     <element id="ImagingStudy.procedure">
       <path value="ImagingStudy.procedure"/>
       <short value="The performed procedure or code"/>
-      <definition value="The procedure or code from which this ImagingStudy was part of."/>
+      <definition value="This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
       <isSummary value="true"/>
       <binding>
