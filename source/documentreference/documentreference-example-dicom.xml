@@ -55,6 +55,13 @@
 
   <status value="current"/>
 
+  <modality>
+      <!-- modality -->
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="US"/>
+      </coding>
+  </modality>
   <subject>
     <reference value="Patient/example"/>
   </subject>
@@ -79,13 +86,6 @@
 		  </coding>
 	  </concept>
 	</bodySite>  
-  <modality>
-      <!-- modality -->
-      <coding>
-        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-        <code value="US"/>
-      </coding>
-  </modality>
 
   <author>
     <display value="G.E. Medical Systems"/>

@@ -315,6 +315,32 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
+    <element id="DocumentReference.modality">
+      <path value="DocumentReference.modality"/>
+      <short value="Imaging modality used"/>
+      <definition value="Imaging modality used. This may include both acquisition and non-acquisition modalities."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ImagingModality"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Type of acquired data in the instance."/>
+        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+    </element>
     <element id="DocumentReference.type">
       <path value="DocumentReference.type"/>
       <short value="Kind of document (LOINC if possible)"/>
@@ -538,32 +564,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".targetSiteCode"/>
-      </mapping>
-    </element>
-    <element id="DocumentReference.modality">
-      <path value="DocumentReference.modality"/>
-      <short value="Imaging modality used"/>
-      <definition value="Imaging modality used. This may include both acquisition and non-acquisition modalities."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ImagingModality"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
-          <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Type of acquired data in the instance."/>
-        <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_33.html"/>
-      </binding>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.class"/>
       </mapping>
     </element>
     <element id="DocumentReference.facilityType">
