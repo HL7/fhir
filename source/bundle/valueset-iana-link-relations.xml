@@ -7,7 +7,7 @@
     <valueCode value="fhir"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/iana-link-relations"/>
-  <version value="5.0.0-snapshot3"/>
+  <version value="5.0.0-cibuild"/>
   <name value="LinkRelationTypes"/>
   <status value="active"/>
   <experimental value="false"/>
