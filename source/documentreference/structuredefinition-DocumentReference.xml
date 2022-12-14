@@ -176,6 +176,25 @@
         <map value="ClinicalDocument/id"/>
       </mapping>
     </element>
+    <element id="DocumentReference.version">
+      <path value="DocumentReference.version"/>
+      <short value="An explicitly assigned identifer of a variation of the content in the DocumentReference"/>
+      <comment value="While each resource, including the DocumentReference itself, has its own version identifier, this is a formal identifier for the logical version of the DocumentReference as a whole. It would remain constant if the resources were moved to a new server, and all got new individual resource versions, for example."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="fhircomposition"/>
+        <map value="Composition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+    </element>
     <element id="DocumentReference.basedOn">
       <path value="DocumentReference.basedOn"/>
       <short value="Procedure that caused this media to be created"/>
@@ -195,7 +214,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CoverageEligibilityRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EnrollmentRequest"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>

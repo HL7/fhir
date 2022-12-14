@@ -822,7 +822,7 @@
       <short value="This agent network location for the activity"/>
       <definition value="When the event utilizes a network there should be an agent describing the local system, and an agent describing remote system, with the network interface details."/>
       <comment value="When remote network endpoint is known, another agent representing the remote agent would indicate the remote network endpoint used. Convention is to indicate data flowing from Source to Destination. The convention for Search, given data flows both ways (query parameters vs results), is to have the Source as the initiator of the Search Transaction, and the Destination the responder to the Search transaction."/>
-      <requirements value="When a network protocol is used the endpoint is associated with the agent most directly using the endpoint. This is usually the software agent that has implemented the application level protocol.  Preference is to define network in terns of a Reference(Endpoint), or URI; use address only when address or hostname is known."/>
+      <requirements value="When a network protocol is used the endpoint is associated with the agent most directly using the endpoint. This is usually the software agent that has implemented the application level protocol.  Preference is to define network in terms of a Reference(Endpoint), or URI; use string only when address or hostname is all that is known. When encoding using string it is best to encode using the formal canonical host name, but if you can't, then you can encode numeric in Literal address form using square brackets '[]' as a v4 string (in dotted notation), or v6 string (in colon notation)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
