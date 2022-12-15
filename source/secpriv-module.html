@@ -221,6 +221,8 @@ should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">P
 The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
 beyond healthcare workflows. A RESTful User resource is defined in 
 the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
+User role assignment is typically managed in the general IT system, but may be influenced by FHIR Resource binding. 
+For example, users that are Practitioners, the PractionerRole may indicate functional or structural roles. 
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
