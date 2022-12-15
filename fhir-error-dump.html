@@ -1,0 +1,672 @@
+﻿<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Secpriv-module - FHIR v5.0.0-snapshot3</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="http://hl7.org/fhir"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+  <link href="fhir-pub.css" rel="stylesheet"/>
+  <link rel="Prev" href="http://hl7.org/fhir/secpriv-module.html"/>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./dist/css/bootstrap.css" rel="stylesheet"/>
+  <link href="./assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+  <!-- Project extras -->
+  <link href="./assets/css/project.css" rel="stylesheet"/>
+  <link href="./assets/css/pygments-manni.css" rel="stylesheet"/>
+	<link href="jquery-ui.css" rel="stylesheet"/>
+
+  <script src="./assets/js/fhir-table-scripts.js"></script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="./assets/ico/apple-touch-icon-144-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="./assets/ico/apple-touch-icon-114-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="./assets/ico/apple-touch-icon-72-precomposed.png"/>
+  <link rel="apple-touch-icon-precomposed" href="./assets/ico/apple-touch-icon-57-precomposed.png"/>
+  <link rel="shortcut icon" href="./assets/ico/favicon.png"/>
+
+</head>
+<body>
+	<div id="segment-header" class="segment"><!-- segment-header -->	
+		<div class="container">  <!-- container -->
+			<a no-external="true" id="logo" href="http://hl7.org/fhir"><img src="./assets/images/fhir-logo-www.png" alt="logo fhir" width="249" height="60"/> </a>
+			<div id="hl7-status">
+				<b>Snapshot 2: Connectathon 32 Base</b>
+			</div>       	
+			
+			<div id="hl7-nav">
+				 <a no-external="true" id="hl7-logo" href="http://www.hl7.org">
+					<img src="./assets/images/hl7-logo.png" width="54" alt="visit the hl7 website" height="50"/>
+				</a> 
+			</div>       	
+			<div id="hl7-nav"><a no-external="true" id="hl7-logo" href="http://build.fhir.org/search-build.html"><img src="./assets/images/search.png" alt="Search CI-Build FHIR"/></a></div> 
+		</div>
+		<div class="container">  <!-- container -->
+	</div></div><!-- /segment-header -->	
+
+
+	<div id="segment-navbar" class="segment"><!-- segment-navbar -->
+		<div id="stripe"> </div>
+		<div class="container"><!-- container -->
+ <!-- HEADER CONTENT -->
+ 	      		 	      		      		
+			<nav class="navbar navbar-inverse">
+				<div class="container">
+					<button data-target=".navbar-inverse-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+						<span class="icon-bar"> </span>
+					</button>
+					<a href="index.html" class="navbar-brand hidden">FHIR</a>
+					<div class="nav-collapse collapse navbar-inverse-collapse">
+						<ul class="nav navbar-nav">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./modules.html">Getting Started</a></li>
+              <li><a href="./documentation.html">Documentation</a></li>
+              <li><a href="./datatypes.html">Data Types</a></li>
+              <li><a href="./resourcelist.html"><b><i>Resource Types</i></b></a></li>
+              <li><a href="./terminologies-systems.html">Terminologies</a></li>
+              <li class="dropdown">
+                <a data-toggle="dropdown" href="#" class="dropdown-toggle">Artifacts<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="./extensibility-registry.html">Extensions</a></li>
+                  <li><a href="./operationslist.html">Operations</a></li>
+                  <li><a href="./patterns.html">Patterns</a></li>
+                  <li><a href="./profilelist.html">Profiles</a></li>
+                  <li><a href="./searchparameter-registry.html">Search Parameters</a></li>
+				  <li class="divider"></li>
+                  <li><a href="http://registry.fhir.org" target="_blank">Artifact Registry</a></li>
+                </ul>    
+              </li>
+              <li><a href="http://fhir.org/guides/registry" target="_blank">Implementation Guides</a></li>
+						</ul>
+					</div><!-- /.nav-collapse -->
+				</div><!-- /.container -->
+			</nav><!-- /.navbar -->
+      		
+<!-- /HEADER CONTENT -->				
+		</div><!-- /container -->
+	</div><!-- /segment-navbar -->
+	
+
+	<div id="segment-breadcrumb" class="segment"><!-- segment-breadcrumb -->
+		<div class="container"><!-- container -->	
+			<ul class="breadcrumb">
+        <li><b><img src="secpriv.jpg" alt="link"/> Security and Privacy</b></li>        <!-- secpriv-module.html / page / -->
+
+			</ul>	
+		</div><!-- /container -->
+	</div><!-- /segment-breadcrumb -->
+	
+
+	<div id="segment-content" class="segment"><!-- segment-content -->
+	<div class="container"><!-- container -->
+            <div class="row">
+            	<div class="inner-wrapper">
+<!-- CONTENT CONTENT -->
+
+<div class="col-12">
+
+<p style="background-color: #ffefef; border:1px solid maroon; padding: 5px; max-width: 790px;">This is the Continuous Integration Build of FHIR (will be incorrect/inconsistent at times). <br/>See the <a href="http://hl7.org/fhir/directory.html">Directory of published versions</a></p>
+
+
+
+
+<table class="colsi"><tr><td id="wg"><a _target="blank" href="http://www.hl7.org/Special/committees/secure/index.cfm">Security</a> Work Group</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+<a name="root"></a>
+<h2>Security and Privacy Module</h2>
+
+<a name="intro"></a>
+<h3>Introduction</h3>
+<p>
+The Security and Privacy Module describes how to protect a FHIR server (through
+access control and authorization), how to document what permissions a user has
+granted (consent), and how to keep records about what events have been
+performed (audit logging and provenance). FHIR does not mandate a single
+technical approach to security and privacy; rather, the specification provides
+a set of building blocks that can be applied to create secure, private systems.
+</p>
+
+<a name="index"></a>
+<h3>Index</h3>
+<p>
+The Security and Privacy module includes the following materials:
+</p>
+
+<table class="none">
+ <tr>
+   <td><b>Resources</b></td>
+   <td><b>Datatypes</b></td>
+   <td><b>Implementation Guidance and Principles</b></td>
+  </tr>
+ <tr>
+   <td>
+<ul>
+<li>
+  <a href="consent.html">Consent</a>
+</li>
+<li>
+  <a href="provenance.html">Provenance</a>
+</li>
+<li>
+  <a href="auditevent.html">Audit Event</a>
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+<li>
+  <a href="datatypes.html#signature">Signature</a>
+</li>
+</ul>
+   </td>
+   <td>
+<ul>
+<li>
+  <a href="security.html">Security Principles</a>
+</li>
+<li>
+  <a href="security-labels.html">Security Labels</a>
+</li>
+<li>
+  <a href="signatures.html">Signatures</a>
+</li>
+</ul>
+   </td>
+  </tr>
+</table>
+<p>
+The following common use-cases are elaborated below:
+<ul>
+<li><a href="#security">Security</a> and <a href="#privacy">Privacy</a></li>
+<li><a href="#authorization">Authorization and Access Control</a></li>
+<li><a href="#query-parameters">Authorization considerations with Query Parameters</a></li>
+<li><a href="#user">User Identity and Access Context</a></li>
+<li><a href="#audit">Security and Privacy Audit Logging</a></li>
+<li><a href="#AoD">Accounting of Disclosures and Access Reports</a></li>
+<li><a href="#privacy-consent">Privacy Consent</a></li>
+<li><a href="#provenance">Provenance</a></li>
+<li><a href="#signature">Digital and Electronic Signatures</a></li>
+<li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
+<li><a href="#testData">Security Considerations on Test Data</a></li>
+<li><a href="#privacy-of-ids">Risks to Privacy by Exposing Links</a></li>
+</ul>
+</p>
+
+
+<a name="security"></a>
+<h3>Security</h3>
+<p>
+FHIR is focused on the data access methods and encoding leveraging existing Security solutions.
+Security in FHIR needs to focus on the set of considerations required to ensure that
+data can be discovered, accessed, or altered only in accordance with
+expectations and policies.  
+Implementation should leverage existing security standards and implementations to ensure that:
+</p>
+
+<ul>
+<li>
+All communications can be encrypted to prevent unauthorized access. 
+</li>
+<li>
+No information leaks when errors occur
+</li>
+<li>
+No active script content can be injected into narrative resources
+</li>
+<li>
+Full audit trails can be constructed and used to detect anomalous access patterns
+</li></ul>
+<p>
+For general security considerations and principles, see <a href="security.html">Security</a>.
+Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
+See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
+and <a href="https://www.owasp.org">OWASP</a>. 
+These security frameworks include prioritized lists of most important concerns.
+</p>
+<p>
+Recent evidence indicates lack of implementer attention to addressing common security vulnerabilities emphasized by <a href="https://owasp.org/www-project-api-security/">OWASP top 10 API</a>.   Reviewing the <a href="https://owasp.org/www-project-top-ten/">OWASP Top Ten</a>and <a href="https://owasp.org/www-project-mobile-top-10/">OWASP mobile top 10</a> and ensuring those vulnerabilities are mitigated is important for good security.
+</p>
+<a name="privacy"></a>
+<h3>Privacy</h3>
+<p>
+
+Privacy in FHIR includes the set of considerations required to ensure that
+individual data are treated according to an individual's Privacy Principles and Privacy-By-Design. FHIR
+includes implementation guidance to ensure that:
+
+</p>
+
+<ul>
+<li>
+  Individual preferences can be communicated through standards-based protocols
+  (e.g., OAuth, User-Managed Access) or using an explicit FHIR representation
+  (<a href="consent.html">Consent</a>) </li>
+<li>
+  Resources can be tagged to indicate the sensitivity or confidentiality of the data they represent (<a href="security-labels.html">Security Labels</a>)
+</li>
+<li>
+  Data access records and audit logs can be shared with individuals, e.g. for accounting of disclosures (<a href="auditevent.html">Audit Event</a>)
+</li>
+</ul>
+
+<a name="uses"></a>
+<h3>Common Use Cases</h3>
+<a name="authorization"></a>
+<h4>
+Authorization and Access Control
+</h4>
+
+<p>
+
+<em>Use case:</em> A FHIR server should ensure that API access is allowed for
+authorized requests and denied for unauthorized requests.
+
+</p>
+
+<p>
+
+<em>Approach:</em> Authorization details can vary according to local policy,
+and according to the access scenario (e.g. sharing data among
+institution-internal subsystems vs. sharing data with trusted partners vs.
+sharing data with third-party user-facing apps). In general, FHIR enables a
+separation of concerns between the FHIR REST API and standards-based
+authorization protocols like OAuth. For the use case of user-facing third-party
+app authorization, we recommend the OAuth-based SMART protocol 
+see <a href="security.html#authentication">Security: Authentication</a> as an
+externally-reviewed authorization mechanism with a real-world deployment base -
+but we note that community efforts are underway to explore a variety of
+approaches to authorization. 
+</p><p>
+Resource Servers MUST enforce the authorization associated with the access token. This enforcement includes verification of the token, verification of the token expiration, and might include using introspection to verify the token has not been revoked. This enforcement includes constraining results returned to the scopes authorized by the access token. The Resource server might have further access controls beyond those in the token to enforce, such as Consent or business rules.
+</p><p>
+For further details, see <a href="security.html#binding">Security: Authorization and Access Control</a>.
+
+</p>
+
+<a name="query-parameters"></a>
+<h5>Query Parameters Considerations</h5>
+<p>
+<em>Use-Case:</em> When a user has restricted rights but attempts to do a query they do not have rights to, they should not be given the data. Policy should be used to determine if the user query should result in an error, zero data, or the data one would get after removing the non-authorized parameters.
+</p><p>
+<em>Approach:</em> Enforcement is by local enforcement methods. Note that community efforts are underway to explore a variety of
+approaches to enforcement. 
+</p><p>
+<em>Example:</em> Using _include or _revinc to get at resources beyond those authorized. Ignoring (removing) the _include parameter would give some results, just not the _include Resources. This could be silently handled and thus give some results, or it could be returned as error.
+</p>
+
+<a name="user"></a>
+<h4>
+User Identity and Access Context
+</h4>
+
+<p>
+
+<em>Use case:</em> "Access to protected Resources are enabled though user Role-Based, 
+Context-Based, and/or Attribute-Based Access Control."
+
+</p>
+
+<p>
+
+<em>Approach:</em> Ensure that the level of assurance for identity proofing reflects the appropriate risk, given the issued party's exposure to health information. Users should be identified and should have their Functional and/or Structural role 
+declared when these roles are related to the functionality the user is interacting with. Roles should 
+be conveyed using standard codes from <a href="valueset-security-role-type.html">Security Role Vocabulary</a>.
+</p><p>
+A purpose of use should be asserted for each requested action on a Resource.  Purpose of use 
+should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">Purpose of Use Vocabulary</a>.
+</p><p>
+The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
+beyond healthcare workflows. A RESTful User resource is defined in 
+the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
+</p><p>
+When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
+the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
+in the security token where JWT tokens are used.
+
+For details, see
+<a href="security-labels.html#hcs">Security: HCS vocabulary</a>.
+
+</p>
+
+<a name="audit"></a>
+<h4>
+Audit Logging
+</h4>
+
+<p>
+
+<em>Use case:</em> "A FHIR server should keep a complete, tamper-proof log of
+all API access and other security- and privacy-relevant events".
+
+</p>
+
+<p>
+
+<em>Approach:</em> FHIR provides an AuditEvent resource suitable for
+use by FHIR clients and servers to record when a security or privacy relevant
+event has occurred. This form of audit logging records as much detail as
+reasonable at the time the event happened. 
+The FHIR AuditEvent is aligned and cross-referenced with IHE Audit Trail and Node Authentication (ATNA) Profile.
+
+For details, see
+<a href="security.html#audit">Security: Audit</a>.
+
+</p>
+
+<a name="AoD"></a>
+<h4>Accounting of Disclosures and/or Access Report</h4>
+<p>
+<em>Use case:</em> "A Patient should be offered a report that informs about how their data is Collected, Used, and Disclosed."
+</p><p>
+<em>Approach:</em> The AuditEvent resource can inform this report.
+</p><p>
+There are many motivations to provide a Patient with some report on how their data was used. There is a very restricted version of this in HIPAA as an "Accounting of Disclosures", there are others that would include more accesses. The result is a human readable report. The raw material used to create this report can be derived from a well recorded 'security audit log', specifically based on AuditEvent. The format of the report delivered to the Patient is not further discussed but might be: printed on paper, PDF, comma separated file, or FHIR Document made up of filtered and crafted AuditEvent Resources.  The report would indicate, to the best ability, Who accessed What data from Where at When for Why purpose. The 'best ability' recognizes that some events happen during emergent conditions where some knowledge is not knowable. The report usually does need to be careful not to abuse the Privacy rights of the individual that accessed the data (Who).  The report would describe the data that was accessed (What), not duplicate the data. 
+</p><p>
+In order to enable Privacy Accounting of Disclosures and Access Logs, and to enable privacy office and security office audit log analysis, <a href="auditevent.html#patient">all AuditEvent records should include a reference to the Patient/Subject</a> of the activity being recorded. Reasonable efforts should be taken to assure the Patient/Subject is recorded, but it is recognized that there are times when this is not reasonable. See deeper details on AuditEvent.
+</p><p>
+Some events are known to be subject to the Accounting of Disclosures report when the event happens, thus can be recorded as an Accounting of Disclosures  - See <a href="auditevent-example-disclosure.html">example Accounting of Disclosures</a>.  Other events must be pulled from the security audit log. A security audit log will record ALL actions upon data regardless of if they are reportable to the Patient. This is true because the security audit log is used for many other purposes. - See <a href="security.html#audit">Audit Logging</a>. These recorded AuditEvents may need to be manipulated to protect organization or employee (provider) privacy constraints. Given the large number of AuditEvents, there may be multiple records of the same actual access event, so the reporting will need to de-duplicate.
+
+</p>
+
+<a name="privacy-consent"></a>
+<h4>
+Privacy Consent
+</h4>
+
+<p>
+
+<em>Use case:</em> "Documentation of a Patient's Privacy Consent Directive - rules for Collection, Use, and Disclosure of their health data."
+
+</p>
+
+<p>
+
+<em>Approach:</em> FHIR provides a Consent resource suitable for
+use by FHIR clients and servers to record current Privacy Consent state. The meaning of a consent or the absence of the consent is a local policy concern.
+The Privacy Consent may be a pointer to privacy rules documented elsewhere, such as a policy identifier or identifier in XACML.
+The Privacy Consent has the ability to point at a scanned image of an ink-on-paper signing ceremony, 
+and supports digital signatures through use of <a href="provenance.html">Provenance</a>.
+The Privacy Consent has the ability to include some simple FHIR centric base and exception rules. 
+</p><p>
+When a use / access / disclosure is requested and an Access Control decision finds multiple Consent resources apply equally, a policy must cover this case. For example: one possible policy might be that the most recent Consent would be seen as more authoritative and thus apply rather than an older Consent. There may also be policy mechanisms to assure that only one Consent is ever active for a given Patient and context.
+</p><p>
+All uses of FHIR Resources would be security/privacy relevant and thus should be recorded in an <a href="auditevent.html">AuditEvent</a>. 
+The data access that qualifies as a Disclosure should additionally be recorded as a Disclosure, see <a href="auditevent-example-disclosure.html">Disclosure Audit Event Example</a>.
+</p><p>
+For Privacy Consent guidance and examples, see
+<a href="consent.html">Consent Resource</a>.
+
+</p>
+<a name="provenance"></a>
+<h4>
+Provenance
+</h4>
+<p>
+<em>Use case:</em> "All FHIR Resources should be capable of having the Provenance fully described."
+</p>
+<p>
+<em>Approach:</em> FHIR provides the Provenance resource suitable for
+use by FHIR clients and servers to record the full provenance details: who, what, where, when, and why. 
+A Provenance resource can record details for Create, Update, and Delete; or any other activity. 
+Generally, Read operations would be recorded using  <a href="auditevent.html">AuditEvent</a>. 
+Many Resources include these elements within; this is done when that provenance element is critical to the use of that Resource. 
+This <a href="fivews.html">overlap is expected and cross-referenced on the Five Ws pattern</a>.
+
+For details, see
+<a href="provenance.html">Provenance Resource</a>.
+</p>
+<p>
+<em>Use case:</em> "For any given query, need Provenance records also."
+</p>
+<p>
+<em>Approach:</em> Given that a system is using Provenance records. 
+When one needs the Provenance records in addition to the results of a query on other records (e.g. Query on MedicationRequest), 
+then one uses reverse include to request that all Provenance records also be returned. 
+That is to add <code>?_revinclude=Provenance:target</code>. 
+
+For details, see <a href="search.html#revinclude">_revinclude</a>.
+</p>
+
+
+<a name="signature"></a>
+<h4>Signature</h4>
+<p>
+<em>Use case:</em> "Digital Signature is needed to prove authenticity, integrity, and non-repudiation."
+</p><p>
+<em>Approach:</em> FHIR Resources are often parts of Medical Record or are communicated as part of formal Medical Documentation. 
+As such there is a need to cryptographically bind a signature so that the receiving or consuming actor can verify authenticity, integrity, and non-repudiation.
+This functionality is provided through the signature element in <a href="provenance.html">Provenance</a> Resource. 
+Where the signature can be any local policy agreed to signature including Digital Signature methods and Electronic Signature.
+
+For details, see
+<a href="signatures.html">Security: Digital Signatures</a>.
+</p><p>
+Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
+When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
+the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
+These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
+One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
+created/updated Resource is as expected, then the Digital Signature is formed.
+</p><p>
+A variation of this happens in Messaging, Documents, and other interaction models. 
+For details, see 
+<a href="updates.html">Ramifications of storage/retrieval variations</a>
+</p>
+
+
+<a name="deId"></a>
+<h4>De-Identification, pseudonymization, anonymization</h4>
+<p>
+De-Identification is inclusive of pseudonymization and anonymization; which are the processes of reducing privacy risk by eliminating 
+and modifying data elements to meet a targeted use-case.
+</p><p>
+Use-Case: "Requesting Client should have access to De-Identified data only."
+</p><p>
+<em>Trigger:</em> Based on an Access Control decision that results in a permit with an Obligation to De-Identify, the Results delivered 
+to the Requesting Client would be de-identified.
+</p><p>
+<em>Consideration:</em> This assumes the system knows the type and intensity of the de-identification algorithm, where 
+de-identification is best viewed as a process, not an algorithm - a process that reduces Privacy risk while enabling a targeted and authorized use-case.
+</p><p>
+<ul>
+<li>
+<b>Direct-Identifier</b> - ISO/IEC 20889:2018 - attribute that alone enables unique identification of a data principal within a specific operational context. The operational context includes the information that the entity processing (e.g. de-identifying) the data processes, together with information that third parties and potential attackers can possess or that is in the public domain.
+</li><li>
+<b>Indirect-Identifier</b> - ISO/IEC 20889:2018 - attribute that, together with other attributes that can be in the dataset or external to it, enables unique identification of a data principal within a specific operational context.
+</li><li>
+<b>Quasi-Identifier</b> - ISO/IEC 20889:2018 - attribute in a dataset that, when considered in conjunction with other attributes in the dataset, singles out a data principal.
+</li></ul>
+Note that often Quasi-Identifier and Indirect-Identifier are often considered the same way.
+</p><p>
+<em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
+risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
+some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
+See standards below for further details.
+</p><p>
+<em>Discussion:</em>
+Obviously the most important elements for de-identification are names and identifiers. FHIR resources have 
+many different types of ids and identifiers that serve different purposes. Some (<code>id</code>s) are the basis for internal
+links between different resources, while identifiers are mainly - but not exclusively - for correlating with external data sources. 
+Strategies for de-identification need to consider whether re-identification with the source system is a problem, 
+in which case ids will need to be modified - and consistently across the resource set being de-identified. 
+External identifiers will mostly need to be removed, but even then, where they are used for internal references
+within the resource set, they'll need to be changed consistently.
+</p><p>
+Then, there is the question of where to 
+make the de-identification changes. For example, the Observation Resource has a subject element that 
+mostly refers to a Patient resource. Should it be removed? Left and the Patient resource it refers to be de-identified? 
+Updated to a new patient resource randomly or consistently? 
+There are many other Reference elements on Observation that can easily be used to navigate back 
+to the Subject;  e.g., Observation.context value of Encounter or EpisodeOfCare; or Observation.performer.   
+These also need to be de-identified, and it will depend on the intended use of the data whether these all
+need to be consistent with each other. 
+</p><p>
+Some identifiers in Observation Resource:
+<ul>
+<li><b>Direct-Identifiers</b>: .identifier, .subject, .performer, .encounter, .focus, .note, .specimen, .basedOn</li>
+<li><b>Indirect-Identifiers</b>: .category, .code, .issued, .effective[x], .method, .bodySite, .interpretation, .value[x], .component</li>
+</ul>
+</p>
+<p>
+<em>Emphasis:</em> The .specimen is a direct identifier of a particular specimen; and would be a direct identifier of a particular patient. 
+This is a ramification of having the specimen identifier. 
+One solution is to create pseudo specimen resources that will stand-in for the original specimen resource. 
+This pseudo specimen management is supplied by a trusted-third-party that maintains a database of pseudo-identifiers with authorized reversibility.
+</p><p>
+Care should be taken when modifying an isModifier elements, as the modification will change the meaning of the Resource.
+</p><p>
+In practice, then, the de-identification process depends on the intended use of the data, the scope of the data being 
+extracted, and the risk associated with the release of the data (e.g. data released into the public domain has a 
+different risk than internal sharing of data within a tightly managed organization with strong information security policies.
+</p><p>
+<em>Security-label:</em> The resulting Resource should be marked with security-label to indicate that it has been de-identified. This would assure that downstream use doesn't mistake this Resource as representing full fidelity. These security-labels come from the Security Integrity Observation ValueSet. Some useful security-tag vocabulary: ANONYED, MASKED, PSEUDED, REDACTED
+</p><p>
+Further Standards: 
+<a href="https://www.iso.org/standard/45123.html">ISO/IEC 29100 Information technology - Security techniques - Privacy framework</a>, 
+<a href="https://www.iso.org/standard/69373.html">ISO/IEC 20889 Privacy enhancing data de-identification terminology and classification of techniques</a>, 
+<a href="https://www.iso.org/standard/63553.html">ISO/TS 25237 Health informatics - Pseudonymization</a>, 
+<a href="http://nvlpubs.nist.gov/nistpubs/ir/2015/NIST.IR.8053.pdf">NIST IR 8053 - De-Identification of Personal Information</a>, 
+<a href="http://wiki.ihe.net/index.php/Healthcare_De-Identification_Handbook">IHE De-Identification Handbook</a>, 
+<a href="http://dicom.nema.org/medical/dicom/current/output/html/part15.html#chapter_E">DICOM (Part 15, Chapter E)</a>
+</p>
+
+
+<a name="testData"></a>
+<h4>Using FHIR to publish test data</h4>
+<p>
+Use-Case: There are times when test data is needed. Test data are data that is not associated with any real patient. Test data are usually representative of expected data that is published for the purpose of testing. Test data may be fully fabricated, synthetic, or derived from use-cases that had previously caused failures.
+</p><p>
+<em>Trigger:</em> When test data are published it may be important to identify the data as test data. 
+</p><p>
+<em>Consideration:</em> This identification may be to assure that the test data is not misunderstood as real data, and that the test data is not factored into statistics or reporting. However, there is a risk that identifying test data may inappropriately thwart the intended test that the data are published to test.
+</p><p>
+<em>Discussion:</em> 
+</p><p>
+Test data could be isolated in a server specific to test data.
+</p><p>
+Test data could be intermingled with real-patient data using one or both of the following methods:
+</p>
+<ul>
+<li>Security-label -- All test data Resources could be tagged with PurposeOfUse HTEST</li>
+<li>Test Patient -- The Patient that the data is associated with could be a clear indication of a test patient. (For example, in the USA the SSN starting with "666-" will never be issued so is commonly used as an indicator of a test patient)</li>
+</ul>
+<p>
+<em>Considerations:</em> Note there is a risk when co-mingling test data with real patient data that someone will accidentally use test data without realizing it is test data. 
+</p>
+
+
+<a name="privacy-of-ids"></a>
+<h4>Risks to Privacy by Exposing Links</h4>
+<p>
+Use-Case: There are times when data will have different authorization requirements. Where some data must be restricted to a smaller subset of the audience that has access to other data. Such as sensitive health topics within a patient compartment.
+</p><p>
+<em>Trigger:</em> When data are exposed that has links (e.g., Reference) to other data that the recipient does not have access to.
+</p><p>
+<em>Consideration:</em> Note that providing resources with links to other resources that are not accessible to the given user, does still expose the id (identifier) of that second resource. That id (identifier) should not directly expose information, but the id (identifier) may be seen in other resources as links also. The id (identifier) can then be used to correlate a set of resources, and this correlation needs to be considered in Privacy risk exposure. 
+</p><p>
+<em>Discussion:</em> This correlation may be desirable, or may present a Privacy risk that is unacceptable.
+</p>
+<em>Considerations:</em> Note there is a risk when exposing security label segmented data to recipients that have limited authorization. 
+</p>
+
+<a name="roadmap"></a>
+<h3>Developmental Roadmap</h3>
+
+<p>
+In the STU3 release, FHIR includes building blocks and principles for creating
+secure, privacy-oriented health IT systems; FHIR does not mandate a single
+technical approach to security and privacy.
+</p>
+
+<p>
+ In future releases, we anticipate including guidance on:
+</p>
+
+<ul>
+<li>
+incorporate the SMART on FHIR authorization specification,
+for user-authorized apps, 
+</li>
+<li>
+methods for organization-to-organization authorization,
+</li>
+<li>
+more details about how to use digital Signatures for data integrity and
+non-repudiation, including an approach that supports some level of manipulation
+of resources (e.g. separating the entries in a bundle, or conversion between
+XML and JSON during processing),
+</li>
+<li>
+more detailed Consent management, including support for specific consent use cases.
+</li>
+<li>
+guidance and methods to support GDPR or other emerging Privacy regulations.
+</li>
+</ul>
+
+</div> <!-- col-12 -->
+				</div><!-- /inner-wrapper -->
+            </div><!-- /row -->
+        </div><!-- /container -->
+        
+    </div><!-- /segment-content -->
+
+
+	<div id="segment-footer" class="segment"><!-- segment-footer -->
+		<div class="container"><!-- container -->
+			<div class="inner-wrapper">
+				<p>
+        FHIR &reg;© HL7.org 2011+. FHIR R5 Ballot hl7.fhir.core#5.0.0-snapshot3 generated on Wed, Dec 14, 2022 15:01-0600. 
+        <br/>
+        <span style="color: #FFFF77">
+        Links: <a style="color: #b8dcf9" href="http://hl7.org/fhir/search.cfm">Search</a> | 
+               <a style="color: #b8dcf9" href="history.html">Version History</a> | 
+               <a style="color: #b8dcf9" href="toc.html">Contents</a> | 
+               <a style="color: #b8dcf9" href="help.html">Glossary</a> |
+               <a style="color: #ffffff" href="qa.html">QA</a> |
+<!--                <a style="color: #b8dcf9" href="credits.html">Credits</a> | -->
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2FR4B%2Fsecpriv-module.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fsecpriv-module.html">Compare to R4B</a> |                
+               <a style="color: #b8dcf9" href="http://services.w3.org/htmldiff?doc1=http%3A%2F%2Fhl7.org%2Ffhir%2F4.6.0%2Fsecpriv-module.html&amp;doc2=http%3A%2F%2Fbuild.fhir.org%2Fsecpriv-module.html">Compare to R5 Draft</a> |                
+               <a style="color: #b8dcf9" rel="license" href="license.html"><img src="cc0.png" style="border-style: none;" alt="CC0"/></a> | 
+               <a style="color: #b8dcf9" target="_blank" href="https://jira.hl7.org/secure/CreateIssueDetails!init.jspa?pid=10405&amp;issuetype=10600&amp;customfield_11302=FHIR-core&amp;customfield_11808=R5&amp;customfield_10612=http://build.fhir.org/secpriv-module.html">Propose a change</a>   
+        </span>
+        </p>
+			</div><!-- /inner-wrapper -->
+		</div><!-- /container -->
+	</div><!-- /segment-footer -->
+<!-- disqus thread -->
+<!--disqus-->
+<!-- end disqus -->        
+	
+	<div id="segment-post-footer" class="segment hidden"><!-- segment-post-footer -->
+		<div class="container"><!-- container -->
+		</div><!-- /container -->
+	</div><!-- /segment-post-footer -->
+    
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./assets/js/jquery.js"> </script>   <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+<script src="./dist/js/bootstrap.min.js"> </script>
+<script src="./assets/js/respond.min.js"> </script>
+
+<script src="./assets/js/fhir.js"> </script>
+
+<!-- Analytics Below
+================================================== -->
+
+</body>
+</html>
