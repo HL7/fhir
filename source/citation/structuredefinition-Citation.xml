@@ -1075,7 +1075,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publishedIn.publisher">
       <path value="Citation.citedArtifact.publicationForm.publishedIn.publisher"/>
-      <short value="Name of the publisher"/>
+      <short value="Name of or resource describing the publisher"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1095,8 +1095,7 @@
     <element id="Citation.citedArtifact.publicationForm.citedMedium">
       <path value="Citation.citedArtifact.publicationForm.citedMedium"/>
       <short value="Internet or Print"/>
-      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;."/>
-      <comment value="National Library of Medicine uses the codes &quot;Internet&quot; or &quot;Print&quot;."/>
+      <definition value="Describes the form of the medium cited. Common codes are &quot;Internet&quot; or &quot;Print&quot;. The CitedMedium value set has 6 codes. The codes internet, print, and offline-digital-storage are the common codes for a typical publication form, though internet and print are more common for study citations. Three additional codes (each appending one of the primary codes with &quot;-without-issue&quot; are used for situations when a study is published both within an issue (of a periodical release as commonly done for journals) AND is published separately from the issue (as commonly done with early online publication), to represent specific identification of the publication form not associated with the issue."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1112,7 +1111,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.volume">
       <path value="Citation.citedArtifact.publicationForm.volume"/>
-      <short value="Volume number of journal in which the article is published"/>
+      <short value="Volume number of journal or other collection in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1121,7 +1120,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.issue">
       <path value="Citation.citedArtifact.publicationForm.issue"/>
-      <short value="Issue, part or supplement of journal in which the article is published"/>
+      <short value="Issue, part or supplement of journal or other collection in which the article is published"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1130,7 +1129,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publicationDateYear">
       <path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
-      <short value="Year on which the issue of the journal was published"/>
+      <short value="Year in which the cited artifact was published"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1139,7 +1138,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
       <path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
-      <short value="Month on which the issue of the journal was published"/>
+      <short value="Month in which the cited artifact was published"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1148,7 +1147,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publicationDateDay">
       <path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
-      <short value="Day on which the issue of the journal was published"/>
+      <short value="Day on which the cited artifact was published"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1157,7 +1156,7 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publicationDateSeason">
       <path value="Citation.citedArtifact.publicationForm.publicationDateSeason"/>
-      <short value="Season on which the issue of the journal was published"/>
+      <short value="Season in which the cited artifact was published"/>
       <definition value="Spring, Summer, Fall/Autumn, Winter."/>
       <min value="0"/>
       <max value="1"/>
@@ -1167,7 +1166,8 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.publicationDateText">
       <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
-      <short value="Text representation of the date of which the issue of the journal was published"/>
+      <short value="Text representation of the date on which the issue of the cited artifact was published"/>
+	  <comment value="The publicationDateText element is prefererntially used when a date is not represented in a form that can be handled as structured data in other elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1177,7 +1177,7 @@
     <element id="Citation.citedArtifact.publicationForm.articleDate">
       <path value="Citation.citedArtifact.publicationForm.articleDate"/>
       <short value="The date the article was added to the database, or the date the article was released"/>
-      <definition value="The date the article was added to the database, or the date the article was released (which may differ from the journal issue publication date)."/>
+	  <comment value="The articleDate is the preferred element for expressing the publication date as structured data."/>
       <min value="0"/>
       <max value="1"/>
       <type>

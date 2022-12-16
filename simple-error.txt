@@ -1,1 +1,1 @@
-﻿misidentified resource /Users/jdln/workspace/fhir_build/fhir/source/observation/observation-example-rhstatus.xml expected 'rhstatus' found 'abostatus'
+﻿Exception inserting section numbers in secpriv-module.html: Malformed XHTML: Found "</p>" expecting "</div>" at line 582 column 6

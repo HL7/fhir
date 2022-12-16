@@ -36,12 +36,12 @@
   </concept>
   <concept>
     <code value="patient"/>
-    <display value="Patient Sensitive"/>
+    <display value="Patient Sensitive Resource"/>
     <definition value="These Resources make up the bulk of FHIR and therefore are the most commonly understood. These Resources contain highly sesitive health information, or are closely linked to highly sensitive health information. These Resources will often use the security labels to differentiate various confidentiality levels within this broad group of Patient Sensitive data. Access to these Resources often requires a declared Purpose Of Use. Access to these Resources is often controlled by a Privacy Consent."/>
   </concept>
   <concept>
     <code value="not-classified"/>
-    <display value="Not classified"/>
+    <display value="No Dominant Category"/>
     <definition value="Some Resources can be used for a wide scope of use-cases that span very sensitive to very non-sensitive. These Resources do not fall into any of the above classifications, as their sensitivity is highly variable. These Resources will need special handling. These Resources often contain metadata that describes the content in a way that can be used for Access Control decisions."/>
   </concept>
 </CodeSystem>
