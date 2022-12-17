@@ -134,7 +134,7 @@
     <element id="Device.displayName">
       <path value="Device.displayName"/>
       <short value="The name used to display by default when the device is referenced"/>
-      <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.deviceName, or may be another simple name."/>
+      <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.name, or may be another simple name."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -493,11 +493,12 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-    <element id="Device.deviceName">
+
+    <element id="Device.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
       </extension>
-      <path value="Device.deviceName"/>
+      <path value="Device.name"/>
       <short value="The name or names of the device as known to the manufacturer and/or patient"/>
       <definition value="This represents the manufacturer's name of the device as provided by the device, from a UDI label, or by a person describing the Device.  This typically would be used when a person provides the name(s) or when the device represents one of the names available from DeviceDefinition."/>
       <min value="0"/>
@@ -510,10 +511,10 @@
         <map value="Participant.name"/>
       </mapping>
     </element>
-    <element id="Device.deviceName.name">
-      <path value="Device.deviceName.name"/>
-      <short value="The name that identifies the device"/>
-      <definition value="The name that identifies the device."/>
+    <element id="Device.name.value">
+      <path value="Device.name.value"/>
+      <short value="The term that names the device"/>
+      <definition value="The actual name that identifies the device."/>
       <alias value="Σ"/>
       <min value="1"/>
       <max value="1"/>
@@ -521,13 +522,13 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.deviceName.type">
+    <element id="Device.name.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.deviceName.type"/>
+      <path value="Device.name.type"/>
       <short value="registered-name | user-friendly-name | patient-reported-name"/>
-      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
+      <definition value="Indicates the kind of name. RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -549,6 +550,37 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].code"/>
       </mapping>
+    </element>
+    <element id="Device.name.display">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="Device.name.display"/>
+      <short value="The preferred device name"/>
+      <definition value="Indicates the default or preferred name to be displayed"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="statusCode"/>
+      </mapping>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="Device.name.where(display = true).exists implies Device.name.where(display = true).count() = 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
     </element>
     <element id="Device.modelNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

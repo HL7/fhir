@@ -49,13 +49,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Device.deviceName"/>
+          <valueString value="Device.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-device-name"/>
-        <description value="A server defined search that may match any of the string fields in Device.deviceName or Device.type."/>
+        <description value="A server defined search that may match any of the string fields in Device.name or Device.type."/>
         <code value="device-name"/>
         <type value="string"/>
-        <expression value="Device.deviceName.name | Device.type.coding.display | Device.type.text"/>
+        <expression value="Device.name.name | Device.type.coding.display | Device.type.text"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="Nonin Medical, Inc."/>
   <serialNumber value="0400007825"/>
-  <deviceName>
-    <name value="Nonin_Medical_Inc._323552"/>
+  <name>
+    <value value="Nonin_Medical_Inc._323552"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="Model 3150"/>
   <type>
     <coding>
