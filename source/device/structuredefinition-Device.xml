@@ -521,6 +521,7 @@
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="Device.name.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -534,6 +535,7 @@
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
@@ -557,7 +559,7 @@
       </extension>
       <path value="Device.name.display"/>
       <short value="The preferred device name"/>
-      <definition value="Indicates the default or preferred name to be displayed"/>
+      <definition value="Indicates the default or preferred name to be displayed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
