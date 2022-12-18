@@ -580,7 +580,7 @@
         <key value="dev-1"/>
         <severity value="error"/>
         <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.where(display = true).exists implies Device.name.where(display = true).count() = 1"/>
+        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </constraint>
     </element>
