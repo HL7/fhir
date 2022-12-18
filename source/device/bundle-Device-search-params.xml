@@ -44,7 +44,7 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Device-device-name"/>
+        <id value="Device-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
@@ -55,7 +55,7 @@
         <description value="A server defined search that may match any of the string fields in Device.name or Device.type."/>
         <code value="device-name"/>
         <type value="string"/>
-        <expression value="Device.name.name | Device.type.coding.display | Device.type.text"/>
+        <expression value="Device.name.value | Device.type.coding.display | Device.type.text"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
