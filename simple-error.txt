@@ -1,1 +1,1 @@
-﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/device/structuredefinition-Device.xml: markup not allowed inside attribute value - illegal <  (position: TEXT seen ...<expression value="Device.name.where(display = true).count() <... @581:71) 
+﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/task/structuredefinition-Task.xml: end tag name </type> must match start tag name <targetProfile> from line 765 (position: TEXT seen ...l7.org/fhir/StructureDefinition/RelatedPerson"/> -->\n      </type>... @771:14) 

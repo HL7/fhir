@@ -692,7 +692,7 @@
     <element id="Task.owner">
       <path value="Task.owner"/>
       <short value="Responsible individual"/>
-      <definition value="Individual organization or Device currently responsible for task execution."/>
+      <definition value="Party responsible for managing task execution."/>
       <comment value="Tasks may be created with an owner not yet identified."/>
       <requirements value="Identifies who is expected to perform this task."/>
       <alias value="Performer"/>
@@ -705,9 +705,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <isSummary value="true"/>
@@ -723,6 +721,57 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role"/>
       </mapping>
+    </element>
+    <element id="Task.performer">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,225"/>
+      </extension>
+      <path value="Task.performer"/>
+      <short value="Task performer"/>
+      <definition value="Who performed the task in question."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Task.performer.function">
+      <path value="Task.performer.function"/>
+      <short value="Type of performance"/>
+      <definition value="A code or description of the performer of the task."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TaskPerformerFunctionCode"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes to identify types of task performers."/>
+      </binding>
+    </element>
+    <element id="Task.performer.actor">
+      <path value="Task.performer.actor"/>
+      <short value="Who performed the task"/>
+      <definition value="The actor or entity who performed the task."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      
+      </type>
     </element>
     <element id="Task.location">
       <path value="Task.location"/>
