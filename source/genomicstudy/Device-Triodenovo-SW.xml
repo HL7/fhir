@@ -12,7 +12,7 @@
   <status value="active"/>
   <manufacturer value="Vanderbilt Genetics Institute"/>
   <name>
-    <name value="Triodenovo Software"/>
+    <value value="Triodenovo Software"/>
     <type value="user-friendly-name"/>
   </name>
   <type>

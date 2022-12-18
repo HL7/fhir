@@ -12,7 +12,7 @@
   <status value="active"/>
   <manufacturer value="Illumina"/>
   <name>
-    <name value="NextSeq 550 Instrument"/>
+    <value value="NextSeq 550 Instrument"/>
     <type value="user-friendly-name"/>
   </name>
   <type>
