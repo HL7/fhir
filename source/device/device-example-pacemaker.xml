@@ -7,10 +7,10 @@
 	</identifier>
 	<manufacturer value="Acme Devices, Inc"/>
 	<lotNumber value="1234-5678"/>
-	<deviceName>
-      <name value="PM/Octane 2014"/>
+	<name>
+      <value value="PM/Octane 2014"/>
 	  <type value="user-friendly-name" />
-	</deviceName>
+	</name>
 	<type>
 		<coding>
 			<system value="http://acme.com/devices"/>
