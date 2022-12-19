@@ -727,7 +727,7 @@
         <valueCode value="400,225"/>
       </extension>
       <path value="Task.performer"/>
-      <short value="Task performer"/>
+      <short value="Performer of the task"/>
       <definition value="Who performed the task in question."/>
       <min value="0"/>
       <max value="*"/>

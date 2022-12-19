@@ -321,7 +321,7 @@
         <description value="Search by specific performer."/>
         <code value="performer"/>
         <type value="reference"/>
-        <expression value="Task.performer.actor"/>
+        <expression value="Task.performer.actor.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
