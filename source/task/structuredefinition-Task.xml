@@ -745,6 +745,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TaskPerformerFunctionCode"/>
@@ -770,8 +771,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-      
-      </type>
+      <isSummary value="true"/>
     </element>
     <element id="Task.location">
       <path value="Task.location"/>
