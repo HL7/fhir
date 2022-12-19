@@ -8,8 +8,5 @@
     <item>
       <reference value="ImplementationGuide/Bundle-core"/>
     </item> 
-    <item>
-      <reference value="ImplementationGuide/Bundle-common"/>
-    </item>
   </entry>
 </List>
