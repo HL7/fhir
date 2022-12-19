@@ -300,7 +300,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
         <description value="Search by specific requested performer."/>
-        <code value="requested_performer"/>
+        <code value="requestedperformer"/>
         <type value="reference"/>
         <expression value="Task.requestedPerformer"/>
         <processingMode value="normal"/>
