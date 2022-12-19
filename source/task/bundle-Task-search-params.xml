@@ -291,18 +291,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Task-requestedPerformer"/>
+        <id value="Task-requestedPerformer-reference"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Task.requestedPerformer"/>
+          <valueString value="Task.requestedPerformer.reference"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer-reference"/>
         <description value="Search by specific requested performer."/>
-        <code value="requestedperformer"/>
+        <code value="requestedperformer-reference"/>
         <type value="reference"/>
-        <expression value="Task.requestedperformer"/>
+        <expression value="Task.requestedPerformer.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
