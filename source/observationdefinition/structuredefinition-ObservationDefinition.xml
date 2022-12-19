@@ -112,7 +112,7 @@
         <map value="clinical.diagnostics"/>
       </mapping>
     </element>
-    <element id="ObservationDefinition.url">
+    <element id="ObservationDefinition.url"> 
       <path value="ObservationDefinition.url"/>
       <short value="Logical canonical URL to reference this ObservationDefinition (globally unique)"/>
       <definition value="An absolute URL that is used to identify this ObservationDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this ObservationDefinition is (or will be) published. The URL SHOULD include the major version of the ObservationDefinition. For more information see Technical and Business Versions."/>
