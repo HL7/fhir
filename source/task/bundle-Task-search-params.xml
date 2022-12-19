@@ -296,7 +296,7 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Task.requested_performer"/>
+          <valueString value="Task.requestedperformer"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Task-performer"/>
         <description value="Search by specific requested performer."/>
