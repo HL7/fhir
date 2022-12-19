@@ -142,7 +142,7 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SpecimenDefinition.versionAlgorithm[x]">
+    <!-- <element id="SpecimenDefinition.versionAlgorithm[x]">
       <path value="SpecimenDefinition.versionAlgorithm[x]"/>
       <short value="How to compare versions"/>
       <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
@@ -160,8 +160,8 @@
         <strength value="extensible"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
       </binding>
-    </element>
-    <element id="SpecimenDefinition.name">
+    </element> -->
+    <!-- <element id="SpecimenDefinition.name">
       <path value="SpecimenDefinition.name"/>
       <short value="Name for this SpecimenDefinition (computer friendly)"/>
       <definition value="A natural language name identifying the SpecimenDefinition. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
@@ -178,7 +178,7 @@
         <identity value="workflow"/>
         <map value="Definition.name"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="SpecimenDefinition.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
         <valueBoolean value="true"/>
