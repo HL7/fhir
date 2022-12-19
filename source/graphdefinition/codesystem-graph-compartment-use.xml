@@ -41,13 +41,13 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-use"/>
   <content value="complete"/>
   <concept>
-    <code value="condition"/>
-    <display value="Condition"/>
+    <code value="where"/>
+    <display value="Where"/>
     <definition value="This compartment rule is a condition for whether the rule applies."/>
   </concept>
   <concept>
-    <code value="requirement"/>
-    <display value="Requirement"/>
+    <code value="requires"/>
+    <display value="requires"/>
     <definition value="This compartment rule is enforced on any relationships that meet the conditions."/>
   </concept>
 </CodeSystem>

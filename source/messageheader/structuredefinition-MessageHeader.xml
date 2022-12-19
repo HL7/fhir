@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MessageHeader"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MessageHeader"/>
+  <title value="MessageHeader"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Infrastructure And Messaging)"/>
@@ -92,7 +95,7 @@
     <element id="MessageHeader.event[x]">
       <path value="MessageHeader.event[x]"/>
       <short value="Event code or link to EventDefinition"/>
-      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &#34;http://terminology.hl7.org/CodeSystem/message-events&#34;.  Alternatively a canonical uri to the EventDefinition."/>
+      <definition value="Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value &quot;http://terminology.hl7.org/CodeSystem/message-events&quot;.  Alternatively a canonical uri to the EventDefinition."/>
       <comment value="The time of the event will be found in the focus resource. The time of the message will be found in [Bundle.timestamp](bundle-definitions.html#Bundle.timestamp)."/>
       <requirements value="Drives the behavior associated with this message."/>
       <min value="1"/>
@@ -126,7 +129,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./payload[classCode=&#34;CACT&#34; and moodCode=&#34;EVN&#34; and isNormalAct()]/code[isNormalDatatype()]/code"/>
+        <map value="./payload[classCode=&quot;CACT&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]/code[isNormalDatatype()]/code"/>
       </mapping>
     </element>
     <element id="MessageHeader.destination">
@@ -140,7 +143,7 @@
       <short value="Message destination application(s)"/>
       <definition value="The destination application which the message is intended for."/>
       <comment value="There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system."/>
-      <requirements value="Indicates where message is to be sent for routing purposes.  Allows verification of &#34;am I the intended recipient&#34;."/>
+      <requirements value="Indicates where message is to be sent for routing purposes.  Allows verification of &quot;am I the intended recipient&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -153,7 +156,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./communicationFunction[typeCode=&#34;RCV&#34;]"/>
+        <map value="./communicationFunction[typeCode=&quot;RCV&quot;]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -177,7 +180,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./entity[determinerCode=&#34;INST&#34; and (classCode=(&#34;DEV&#34;, &#34;PSN&#34;, &#34;ORG&#34;]/name[type='ST' and isNormalDatatype()])"/>
+        <map value="unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]/name[type='ST' and isNormalDatatype()])"/>
       </mapping>
     </element>
     <element id="MessageHeader.destination.target">
@@ -194,7 +197,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./entity[determinerCode=&#34;INST&#34; and (classCode=(&#34;DEV&#34;, &#34;PSN&#34;, &#34;ORG&#34;]"/>
+        <map value="unique(./entity[determinerCode=&quot;INST&quot; and (classCode=(&quot;DEV&quot;, &quot;PSN&quot;, &quot;ORG&quot;]"/>
       </mapping>
     </element>
     <element id="MessageHeader.destination.endpoint">
@@ -223,7 +226,7 @@
         <valueString value="Is this in the 80%?"/>
       </extension>
       <path value="MessageHeader.destination.receiver"/>
-      <short value="Intended &#34;real-world&#34; recipient for the data"/>
+      <short value="Intended &quot;real-world&quot; recipient for the data"/>
       <definition value="Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient."/>
       <requirements value="Allows routing beyond just the application level."/>
       <min value="0"/>
@@ -311,7 +314,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/participation[typeCode=&#34;ENT&#34; and isNormalParticipation]/role[classCode=&#34;ASSIGNED&#34; and isNormalRole()]/player[isNormalEntity() and classCode=(&#34;DEV&#34;, &#34;PSN&#34;) and determinerCode=&#34;INST&#34;])"/>
+        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;ENT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])"/>
       </mapping>
     </element>
     <element id="MessageHeader.author">
@@ -338,7 +341,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&#34;AUT&#34; and isNormalParticipation]/role[classCode=&#34;ASSIGNED&#34; and isNormalRole()]/player[isNormalEntity() and classCode=(&#34;DEV&#34;, &#34;PSN&#34;) and determinerCode=&#34;INST&#34;])"/>
+        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;AUT&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and determinerCode=&quot;INST&quot;])"/>
       </mapping>
     </element>
     <element id="MessageHeader.source">
@@ -364,7 +367,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./communicationFunction[typeCode=&#34;SND&#34;])"/>
+        <map value="unique(./communicationFunction[typeCode=&quot;SND&quot;])"/>
       </mapping>
     </element>
     <element id="MessageHeader.source.name">
@@ -384,7 +387,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./entity[determinerCode=&#34;INST&#34; and classCode=&#34;DEV&#34;]/name[type='ST' and isNormalDatatype()])"/>
+        <map value="unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/name[type='ST' and isNormalDatatype()])"/>
       </mapping>
     </element>
     <element id="MessageHeader.source.software">
@@ -404,7 +407,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./entity[determinerCode=&#34;INST&#34; and classCode=&#34;DEV&#34;]/softwareName[isNormalDatatype()])"/>
+        <map value="unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/softwareName[isNormalDatatype()])"/>
       </mapping>
     </element>
     <element id="MessageHeader.source.version">
@@ -432,7 +435,7 @@
     </element>
     <element id="MessageHeader.source.contact">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Should actually have a code for the role in the v3 mapping to indicate that the contact is for &#34;problems&#34;."/>
+        <valueString value="Should actually have a code for the role in the v3 mapping to indicate that the contact is for &quot;problems&quot;."/>
       </extension>
       <path value="MessageHeader.source.contact"/>
       <short value="Human contact for problems"/>
@@ -450,7 +453,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./entity[determinerCode=&#34;INST&#34; and classCode=&#34;DEV&#34;]/scopesRole[normalRole() and classCode=&#34;CON&#34; and layer[classCode=&#34;PSN&#34;]/telecom[isNormalDatatype()])"/>
+        <map value="unique(./entity[determinerCode=&quot;INST&quot; and classCode=&quot;DEV&quot;]/scopesRole[normalRole() and classCode=&quot;CON&quot; and layer[classCode=&quot;PSN&quot;]/telecom[isNormalDatatype()])"/>
       </mapping>
     </element>
     <element id="MessageHeader.source.endpoint">
@@ -499,7 +502,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&#34;RESP&#34; and isNormalParticipation]/role[classCode=&#34;ASSIGNED&#34; and isNormalRole()]/player[isNormalEntity() and classCode=&#34;PSN&#34; and determinerCode=&#34;INST&#34;] or ./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&#34;RESP&#34; and isNormalParticipation]/role[classCode=&#34;ASSIGNED&#34; and isNormalRole()]/scoper[isNormalEntity() and classCode=&#34;ORG&#34; and determinerCode=&#34;INST&#34;])"/>
+        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/player[isNormalEntity() and classCode=&quot;PSN&quot; and determinerCode=&quot;INST&quot;] or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=&quot;RESP&quot; and isNormalParticipation]/role[classCode=&quot;ASSIGNED&quot; and isNormalRole()]/scoper[isNormalEntity() and classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;])"/>
       </mapping>
     </element>
     <element id="MessageHeader.reason">
@@ -531,7 +534,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/reasonCode[isNormalDatatype()])"/>
+        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/reasonCode[isNormalDatatype()])"/>
       </mapping>
     </element>
     <element id="MessageHeader.response">
@@ -624,7 +627,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="AcknowledgementDetail or Observation[classCode=&#34;ALRT&#34; and moodCode=&#34;EVN&#34;]"/>
+        <map value="AcknowledgementDetail or Observation[classCode=&quot;ALRT&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
     </element>
     <element id="MessageHeader.focus">
@@ -642,7 +645,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/participation[typeCode=&#34;SUBJ&#34; and isNormalParticipation]/role or ./controlAct[classCode=&#34;CACT&#34; and classCode=&#34;EVN&#34; and isNormalAct()]/outboundRelationship[typeCode=&#34;SBJ&#34; and isNormalActRelatoinship]/target)"/>
+        <map value="unique(./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/participation[typeCode=&quot;SUBJ&quot; and isNormalParticipation]/role or ./controlAct[classCode=&quot;CACT&quot; and classCode=&quot;EVN&quot; and isNormalAct()]/outboundRelationship[typeCode=&quot;SBJ&quot; and isNormalActRelatoinship]/target)"/>
       </mapping>
     </element>
     <element id="MessageHeader.definition">

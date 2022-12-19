@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../../FHIRTransforms/schemas/FHIR/R5/fhir-all.xsd"
- xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Bundle"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -24,9 +24,7 @@
     <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode
-      value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it's stored, and in error"
-    />
+    <valueCode value="Depends on the type: document - see for Composition; message - see for MessageHeader; transaction / transaction-response / history / searchset - not expected to be stored; collection: just delete it if it's stored, and in error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
   <identifier>
@@ -35,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Bundle"/>
+  <title value="Bundle"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -87,45 +86,36 @@
       <constraint>
         <key value="bdl-7"/>
         <severity value="error"/>
-        <human
-          value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-        <expression
-          value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
+        <human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
+        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-9"/>
         <severity value="error"/>
         <human value="A document must have an identifier with a system and a value"/>
-        <expression
-          value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
+        <expression value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-3"/>
         <severity value="error"/>
-        <human
-          value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression
-          value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
+        <human value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
+        <expression value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-4"/>
         <severity value="error"/>
-        <human
-          value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression
-          value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
+        <human value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
+        <expression value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
         <key value="bdl-13"/>
         <severity value="error"/>
-        <human
-          value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
-        <expression
-          value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
+        <human value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
+        <expression value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -173,10 +163,8 @@
       <constraint>
         <key value="bdl-15"/>
         <severity value="error"/>
-        <human
-          value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
-        <expression
-          value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
+        <human value="Bundle resources where type is not transaction, transaction-response, batch, or batch-response or when the request is a POST SHALL have Bundle.entry.fullUrl populated"/>
+        <expression value="type='transaction' or type='transaction-response' or type='batch' or type='batch-response' or entry.all(fullUrl.exists() or request.method='POST')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -211,10 +199,8 @@
     <element id="Bundle.identifier">
       <path value="Bundle.identifier"/>
       <short value="Persistent identifier for the bundle"/>
-      <definition
-        value="A persistent identifier for the bundle that won't change as a bundle is copied from server to server."/>
-      <comment
-        value="Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results and servers ignore Bundle.identifier when processing batches and transactions. For Documents  the .identifier SHALL be populated such that the .identifier is globally unique."/>
+      <definition value="A persistent identifier for the bundle that won't change as a bundle is copied from server to server."/>
+      <comment value="Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results and servers ignore Bundle.identifier when processing batches and transactions. For Documents  the .identifier SHALL be populated such that the .identifier is globally unique."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -232,11 +218,9 @@
     </element>
     <element id="Bundle.type">
       <path value="Bundle.type"/>
-      <short
-        value="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection | subscription-notification"/>
+      <short value="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection | subscription-notification"/>
       <definition value="Indicates the purpose of this bundle - how it is intended to be used."/>
-      <comment
-        value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
+      <comment value="It's possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -259,10 +243,8 @@
     <element id="Bundle.timestamp">
       <path value="Bundle.timestamp"/>
       <short value="When the bundle was assembled"/>
-      <definition
-        value="The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle."/>
-      <comment
-        value="For many bundles, the timestamp is equal to .meta.lastUpdated, because they are not stored (e.g. search results). When a bundle is placed in a persistent store, .meta.lastUpdated will be usually be changed by the server. When the bundle is a message, a middleware agent altering the message (even if not stored) SHOULD update .meta.lastUpdated. .timestamp is used to track the original time of the Bundle, and SHOULD be populated.  &#xA;&#xA;Usage:&#xA;&#xA;* document : the date the document was created. Note: the composition may predate the document, or be associated with multiple documents. The date of the composition - the authoring time - may be earlier than the document assembly time&#xA;* message : the date that the content of the message was assembled. This date is not changed by middleware engines unless they add additional data that changes the meaning of the time of the message&#xA;* history : the date that the history was assembled. This time would be used as the _since time to ask for subsequent updates&#xA;* searchset : the time that the search set was assembled. Note that different pages MAY have different timestamps but need not. Having different timestamps does not imply that subsequent pages will represent or include changes made since the initial query&#xA;* transaction | transaction-response | batch | batch-response | collection : no particular assigned meaning&#xA;&#xA;The timestamp value should be greater than the lastUpdated and other timestamps in the resources in the bundle, and it should be equal or earlier than the .meta.lastUpdated on the Bundle itself."/>
+      <definition value="The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle."/>
+      <comment value="For many bundles, the timestamp is equal to .meta.lastUpdated, because they are not stored (e.g. search results). When a bundle is placed in a persistent store, .meta.lastUpdated will be usually be changed by the server. When the bundle is a message, a middleware agent altering the message (even if not stored) SHOULD update .meta.lastUpdated. .timestamp is used to track the original time of the Bundle, and SHOULD be populated.  &#xA;&#xA;Usage:&#xA;&#xA;* document : the date the document was created. Note: the composition may predate the document, or be associated with multiple documents. The date of the composition - the authoring time - may be earlier than the document assembly time&#xA;* message : the date that the content of the message was assembled. This date is not changed by middleware engines unless they add additional data that changes the meaning of the time of the message&#xA;* history : the date that the history was assembled. This time would be used as the _since time to ask for subsequent updates&#xA;* searchset : the time that the search set was assembled. Note that different pages MAY have different timestamps but need not. Having different timestamps does not imply that subsequent pages will represent or include changes made since the initial query&#xA;* transaction | transaction-response | batch | batch-response | collection : no particular assigned meaning&#xA;&#xA;The timestamp value should be greater than the lastUpdated and other timestamps in the resources in the bundle, and it should be equal or earlier than the .meta.lastUpdated on the Bundle itself."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -281,10 +263,8 @@
     <element id="Bundle.total">
       <path value="Bundle.total"/>
       <short value="If search, the total number of matches"/>
-      <definition
-        value="If a set of search matches, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
-      <comment
-        value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
+      <definition value="If a set of search matches, this is the (potentially estimated) total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle."/>
+      <comment value="Only used if the bundle is a search result set. The total does not include resources such as OperationOutcome and included resources, only the total number of matching resources."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -300,8 +280,7 @@
       <path value="Bundle.link"/>
       <short value="Links related to this Bundle"/>
       <definition value="A series of links that provide context to this bundle."/>
-      <comment
-        value="Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)). &#xA;&#xA;Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.&#xA;&#xA;This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific."/>
+      <comment value="Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)). &#xA;&#xA;Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.&#xA;&#xA;This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -311,10 +290,8 @@
     </element>
     <element id="Bundle.link.relation">
       <path value="Bundle.link.relation"/>
-      <short
-        value="See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
-      <definition
-        value="A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1)."/>
+      <short value="See http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
+      <definition value="A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -343,15 +320,13 @@
       </extension>
       <path value="Bundle.entry"/>
       <short value="Entry in the bundle - will have a resource or information"/>
-      <definition
-        value="An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only)."/>
+      <definition value="An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
-      <orderMeaning
-        value="For bundles of type 'document' and 'message', the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
+      <orderMeaning value="For bundles of type 'document' and 'message', the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
       <constraint>
         <key value="bdl-8"/>
         <severity value="error"/>
@@ -380,10 +355,8 @@
     <element id="Bundle.entry.fullUrl">
       <path value="Bundle.entry.fullUrl"/>
       <short value="URI for resource (e.g. the absolute URL server address, URI for UUID/OID, etc.)"/>
-      <definition
-        value="The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: &#xA;* invoking a create&#xA;* invoking or responding to an operation where the body is not a single identified resource&#xA;* invoking or returning the results of a search or history operation."/>
-      <comment
-        value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
+      <definition value="The Absolute URL for the resource. Except for transactions and batches, each entry in a Bundle must have a fullUrl. The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. Even when not required, fullUrl MAY be set to a urn:uuid to allow referencing entries in a transaction. The fullUrl can be an arbitrary URI and is not limited to urn:uuid, urn:oid, http, and https. The fullUrl element SHALL have a value except when: &#xA;* invoking a create&#xA;* invoking or responding to an operation where the body is not a single identified resource&#xA;* invoking or returning the results of a search or history operation."/>
+      <comment value="fullUrl might not be [unique in the context of a resource](bundle.html#bundle-unique). Note that since [FHIR resources do not need to be served through the FHIR API](references.html), the fullURL might be a URN or an absolute URL that does not end with the logical id of the resource (Resource.id). However, but if the fullUrl does look like a RESTful server URL (e.g. meets the [regex](references.html#regex), then the 'id' portion of the fullUrl SHALL end with the Resource.id.&#xA;&#xA;Note that the fullUrl is not the same as the canonical URL - it's an absolute url for an endpoint serving the resource (these will happen to have the same value on the canonical server for the resource with the canonical URL)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -394,8 +367,7 @@
     <element id="Bundle.entry.resource">
       <path value="Bundle.entry.resource"/>
       <short value="A resource in the bundle"/>
-      <definition
-        value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning."/>
+      <definition value="The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type. This is allowed to be a Parameters resource if and only if it is referenced by something else within the Bundle that provides context/meaning."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -409,8 +381,7 @@
       </extension>
       <path value="Bundle.entry.search"/>
       <short value="Search related information"/>
-      <definition
-        value="Information about the search process that lead to the creation of this entry."/>
+      <definition value="Information about the search process that lead to the creation of this entry."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -421,11 +392,9 @@
     </element>
     <element id="Bundle.entry.search.mode">
       <path value="Bundle.entry.search.mode"/>
-      <short value="match | include | outcome - why this is in the result set"/>
-      <definition
-        value="Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
-      <comment
-        value="There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence."/>
+      <short value="match | include - why this is in the result set"/>
+      <definition value="Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+      <comment value="There is only one mode. In some corner cases, a resource may be included because it is both a match and an include. In these circumstances, 'match' takes precedence."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -437,8 +406,7 @@
           <valueString value="SearchEntryMode"/>
         </extension>
         <strength value="required"/>
-        <description
-          value="Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
+        <description value="Why an entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/search-entry-mode"/>
       </binding>
     </element>
@@ -446,8 +414,7 @@
       <path value="Bundle.entry.search.score"/>
       <short value="Search ranking (between 0 and 1)"/>
       <definition value="When searching, the server's search ranking score for the entry."/>
-      <comment
-        value="Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order.&#xA;&#xA;See [Patient Match](patient-operation-match.html) for the EMPI search which relates to this element."/>
+      <comment value="Servers are not required to return a ranking score. 1 is most relevant, and 0 is least relevant. Often, search results are sorted by score, but the client may specify a different sort order.&#xA;&#xA;See [Patient Match](patient-operation-match.html) for the EMPI search which relates to this element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -461,8 +428,7 @@
       </extension>
       <path value="Bundle.entry.request"/>
       <short value="Additional execution information (transaction/batch/history)"/>
-      <definition
-        value="Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry."/>
+      <definition value="Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -474,8 +440,7 @@
     <element id="Bundle.entry.request.method">
       <path value="Bundle.entry.request.method"/>
       <short value="GET | HEAD | POST | PUT | DELETE | PATCH"/>
-      <definition
-        value="In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred."/>
+      <definition value="In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -487,18 +452,15 @@
           <valueString value="HTTPVerb"/>
         </extension>
         <strength value="required"/>
-        <description
-          value="HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details."/>
+        <description value="HTTP verbs (in the HTTP command line). See [HTTP rfc](https://tools.ietf.org/html/rfc7231) for details."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/http-verb"/>
       </binding>
     </element>
     <element id="Bundle.entry.request.url">
       <path value="Bundle.entry.request.url"/>
       <short value="URL for HTTP equivalent of this entry"/>
-      <definition
-        value="The URL for this entry, relative to the root (the address to which the request is posted)."/>
-      <comment
-        value="E.g. for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT and the URL would be &quot;Patient/[id]&quot;."/>
+      <definition value="The URL for this entry, relative to the root (the address to which the request is posted)."/>
+      <comment value="E.g. for a Patient Create, the method would be &quot;POST&quot; and the URL would be &quot;Patient&quot;. For a Patient Update, the method would be PUT and the URL would be &quot;Patient/[id]&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -509,8 +471,7 @@
     <element id="Bundle.entry.request.ifNoneMatch">
       <path value="Bundle.entry.request.ifNoneMatch"/>
       <short value="For managing cache validation"/>
-      <definition
-        value="If the ETag values match, return a 304 Not Modified status. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
+      <definition value="If the ETag values match, return a 304 Not Modified status. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -521,8 +482,7 @@
     <element id="Bundle.entry.request.ifModifiedSince">
       <path value="Bundle.entry.request.ifModifiedSince"/>
       <short value="For managing cache currency"/>
-      <definition
-        value="Only perform the operation if the last updated date matches. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
+      <definition value="Only perform the operation if the last updated date matches. See the API documentation for [&quot;Conditional Read&quot;](http.html#cread)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -533,8 +493,7 @@
     <element id="Bundle.entry.request.ifMatch">
       <path value="Bundle.entry.request.ifMatch"/>
       <short value="For managing update contention"/>
-      <definition
-        value="Only perform the operation if the Etag value matches. For more information, see the API section [&quot;Managing Resource Contention&quot;](http.html#concurrency)."/>
+      <definition value="Only perform the operation if the Etag value matches. For more information, see the API section [&quot;Managing Resource Contention&quot;](http.html#concurrency)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -545,8 +504,7 @@
     <element id="Bundle.entry.request.ifNoneExist">
       <path value="Bundle.entry.request.ifNoneExist"/>
       <short value="For conditional creates"/>
-      <definition
-        value="Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [&quot;Conditional Create&quot;](http.html#ccreate). This is just the query portion of the URL - what follows the &quot;?&quot; (not including the &quot;?&quot;)."/>
+      <definition value="Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [&quot;Conditional Create&quot;](http.html#ccreate). This is just the query portion of the URL - what follows the &quot;?&quot; (not including the &quot;?&quot;)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -560,8 +518,7 @@
       </extension>
       <path value="Bundle.entry.response"/>
       <short value="Results of execution (transaction/batch/history)"/>
-      <definition
-        value="Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history."/>
+      <definition value="Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -573,8 +530,7 @@
     <element id="Bundle.entry.response.status">
       <path value="Bundle.entry.response.status"/>
       <short value="Status response code (text optional)"/>
-      <definition
-        value="The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code."/>
+      <definition value="The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -585,8 +541,7 @@
     <element id="Bundle.entry.response.location">
       <path value="Bundle.entry.response.location"/>
       <short value="The location (if the operation returns a location)"/>
-      <definition
-        value="The location header created by processing this operation, populated if the operation returns a location."/>
+      <definition value="The location header created by processing this operation, populated if the operation returns a location."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -597,10 +552,8 @@
     <element id="Bundle.entry.response.etag">
       <path value="Bundle.entry.response.etag"/>
       <short value="The Etag for the resource (if relevant)"/>
-      <definition
-        value="The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))."/>
-      <comment
-        value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included."/>
+      <definition value="The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency))."/>
+      <comment value="Etags match the Resource.meta.versionId. The ETag has to match the version id in the header if a resource is included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -612,8 +565,7 @@
       <path value="Bundle.entry.response.lastModified"/>
       <short value="Server's date time modified"/>
       <definition value="The date/time that the resource was modified on the server."/>
-      <comment
-        value="This has to match the same time in the meta header (meta.lastUpdated) if a resource is included."/>
+      <comment value="This has to match the same time in the meta header (meta.lastUpdated) if a resource is included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -624,10 +576,8 @@
     <element id="Bundle.entry.response.outcome">
       <path value="Bundle.entry.response.outcome"/>
       <short value="OperationOutcome with hints and warnings (for batch/transaction)"/>
-      <definition
-        value="An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction."/>
-      <comment
-        value="For a POST/PUT operation, this is the equivalent outcome that would be returned for prefer = operationoutcome - except that the resource is always returned whether or not the outcome is returned.&#xA;&#xA;This outcome is not used for error responses in batch/transaction, only for hints and warnings. In a batch operation, the error will be in Bundle.entry.response, and for transaction, there will be a single OperationOutcome instead of a bundle in the case of an error."/>
+      <definition value="An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction."/>
+      <comment value="For a POST/PUT operation, this is the equivalent outcome that would be returned for prefer = operationoutcome - except that the resource is always returned whether or not the outcome is returned.&#xA;&#xA;This outcome is not used for error responses in batch/transaction, only for hints and warnings. In a batch operation, the error will be in Bundle.entry.response, and for transaction, there will be a single OperationOutcome instead of a bundle in the case of an error."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -642,10 +592,8 @@
       <path value="Bundle.signature"/>
       <short value="Digital Signature"/>
       <definition value="Digital Signature - base64 encoded. XML-DSig or a JWS."/>
-      <comment
-        value="The signature could be created by the &quot;author&quot; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
-      <requirements
-        value="A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form. The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or it may be a graphical image that represents a signature or a signature process. This element allows capturing signatures on documents, messages, transactions or even search responses, to support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient."/>
+      <comment value="The signature could be created by the &quot;author&quot; of the bundle or by the originating device.   Requirements around inclusion of a signature, verification of signatures and treatment of signed/non-signed bundles is implementation-environment specific."/>
+      <requirements value="A Signature holds an electronic representation of a signature and its supporting context in a FHIR accessible form. The signature may either be a cryptographic type (XML DigSig or a JWS), which is able to provide non-repudiation proof, or it may be a graphical image that represents a signature or a signature process. This element allows capturing signatures on documents, messages, transactions or even search responses, to support content-authentication, non-repudiation or other business cases. This is primarily relevant where the bundle may travel through multiple hops or via other mechanisms where HTTPS non-repudiation is insufficient."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -660,16 +608,13 @@
       <path value="Bundle.issues"/>
       <short value="Issues with the Bundle"/>
       <definition value="Captures issues and warnings that relate to the construction of the Bundle and the content within it."/>
-      <comment
-        value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
+      <comment value="Usage notes: These issues and warnings must apply to the Bundle as a whole, not to individual entries.Messages relating to the processing of individual entries (e.g. in a batch or transaction) SHALL be reported in the entry.response.outcome for that entry.  If there are errors that arise in the creation of the Bundle, then that should be handled by an OperationOutcome being returned instead of the Bundle."/>
       <min value="0"/>
       <max value="1"/>
-      
       <type>
         <code value="Resource"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"></profile>
+        <profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
       </type>
-      
       <isSummary value="true"/>
     </element>
   </differential>

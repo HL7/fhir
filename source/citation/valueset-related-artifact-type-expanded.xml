@@ -41,7 +41,7 @@
       <system value="http://hl7.org/fhir/related-artifact-type"/>
     </include>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/related-artifact-type-expanded"/>
+      <system value="http://hl7.org/fhir/related-artifact-type-expanded"/>
     </include>
   </compose>
 </ValueSet>

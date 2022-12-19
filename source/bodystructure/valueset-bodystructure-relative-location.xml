@@ -32,11 +32,11 @@
       <system value="http://snomed.info/sct"/>
       <concept>
         <code value="7771000"/>
-        <display value="Left"/>
+        <display value="Left (qualifier value)"/>
       </concept>
       <concept>
         <code value="24028007"/>
-        <display value="Right"/>
+        <display value="Right (qualifier value)"/>
       </concept>
       <concept>
         <code value="51440002"/>

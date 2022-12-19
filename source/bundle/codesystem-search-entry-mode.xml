@@ -64,6 +64,13 @@
     <definition value="This resource is returned because it is referred to from another resource in the search set."/>
   </concept>
   <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="deprecated">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+          <valueMarkdown value="Use Bundle.issues instead"/>
+        </extension>
+      </valueCode>
+    </extension>
     <code value="outcome"/>
     <display value="Outcome"/>
     <definition value="An OperationOutcome that provides additional information about the processing of a search."/>

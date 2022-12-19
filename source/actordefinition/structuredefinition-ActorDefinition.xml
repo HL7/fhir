@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ActorDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -32,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ActorDefinition"/>
+  <title value="ActorDefinition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -78,7 +80,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ActorDefinition"/>
       </constraint>
       <mapping>
@@ -101,7 +103,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -157,9 +159,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ActorDefinition.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.title"/>
       <short value="Name for this actor definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the actor definition."/>
@@ -221,8 +223,8 @@
     <element id="ActorDefinition.date">
       <path value="ActorDefinition.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the actor definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the actor definition changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the actor definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the actor definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the actor definition changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the actor definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -236,12 +238,12 @@
       </mapping>
     </element>
     <element id="ActorDefinition.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the actor definition."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the actor definition."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the actor definition is the organization or individual primarily responsible for the maintenance and upkeep of the actor definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the actor definition. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the actor definition.  May also allow for contact."/>
       <min value="0"/>
@@ -268,9 +270,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ActorDefinition.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.description"/>
       <short value="Natural language description of the actor"/>
       <definition value="A free text natural language description of the actor."/>
@@ -323,13 +325,13 @@
       </binding>
     </element>
     <element id="ActorDefinition.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.purpose"/>
       <short value="Why this actor definition is defined"/>
       <definition value="Explanation of why this actor definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the actor definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this actor definition."/>
+      <comment value="This element does not describe the usage of the actor definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this actor definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -341,9 +343,9 @@
       </mapping>
     </element>
     <element id="ActorDefinition.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the actor definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the actor definition."/>
@@ -358,9 +360,9 @@
       </type>
     </element>
     <element id="ActorDefinition.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -392,9 +394,9 @@
       </binding>
     </element>
     <element id="ActorDefinition.documentation">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ActorDefinition.documentation"/>
       <short value="Functionality associated with the actor"/>
       <definition value="Documentation about the functionality of the actor."/>

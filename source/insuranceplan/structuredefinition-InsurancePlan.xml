@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="InsurancePlan"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="InsurancePlan"/>
+  <title value="InsurancePlan"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -247,8 +250,8 @@
       <path value="InsurancePlan.contact"/>
       <short value="Official contact details relevant to the health insurance plan/product"/>
       <definition value="The contact details of communication devices available relevant to the specific Insurance Plan/Product. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
       <comment value="The address/telecom use code 'home' are not to be used."/>
+      <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -416,7 +419,7 @@
     <element id="InsurancePlan.plan.type">
       <path value="InsurancePlan.plan.type"/>
       <short value="Type of plan"/>
-      <definition value="Type of plan. For example, &#34;Platinum&#34; or &#34;High Deductable&#34;."/>
+      <definition value="Type of plan. For example, &quot;Platinum&quot; or &quot;High Deductable&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

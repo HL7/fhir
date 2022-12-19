@@ -19,7 +19,7 @@
 		<informationType value="rating"/>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<system value="http://hl7.org/fhir/certainty-type"/>
 				<version value="5.0.0"/>
 				<code value="RiskOfBias"/>
 				<display value="Risk of bias"/>
@@ -336,7 +336,7 @@
 		<summary value="Results not consistent with critically ill cohort."/>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<system value="http://hl7.org/fhir/certainty-type"/>
 				<version value="5.0.0"/>
 				<code value="Inconsistency"/>
 				<display value="Inconsistency"/>

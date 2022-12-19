@@ -30,7 +30,7 @@
 	<messaging>
 		<endpoint>
 			<protocol>
-				<system value="http://terminology.hl7.org/CodeSystem/message-transport"/>
+				<system value="http://hl7.org/fhir/message-transport"/>
 				<code value="mllp"/>
 			</protocol>
 			<!-- LLP server at 10.1.1.10 on port 9234 -->

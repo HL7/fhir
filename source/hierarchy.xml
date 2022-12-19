@@ -169,6 +169,7 @@ signatures.html
           <page title="Asynchronous Bulk Data Request" filename="async-bulk.html"/>
           <page title="Asynchronous Interaction Request" filename="async-bundle.html"/>
         </page>
+        <page title="X-FHIR-Query" filename="fhir-xquery.html"/>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>

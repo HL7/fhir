@@ -94,7 +94,7 @@
       <cors value="true"/>
       <service>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/restful-security-service"/>
+          <system value="http://hl7.org/fhir/restful-security-service"/>
           <code value="Certificates"/>
         </coding>
       </service>

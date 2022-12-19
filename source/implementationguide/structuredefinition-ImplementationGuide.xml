@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImplementationGuide"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -25,12 +27,13 @@
     <valueString value="CanonicalResource"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImplementationGuide"/>
-	<identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1373"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="ImplementationGuide"/>
+  <title value="ImplementationGuide"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -185,9 +188,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ImplementationGuide.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.title"/>
       <short value="Name for this implementation guide (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the implementation guide."/>
@@ -210,7 +213,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-			<isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -249,8 +252,8 @@
     <element id="ImplementationGuide.date">
       <path value="ImplementationGuide.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the implementation guide. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the implementation guide was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the implementation guide. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -264,14 +267,14 @@
       </mapping>
     </element>
     <element id="ImplementationGuide.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the implementation guide."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the implementation guide is the organization or individual primarily responsible for the maintenance and upkeep of the implementation guide. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the implementation guide. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &#34;authority/credibility&#34; of the implementation guide.  May also allow for contact."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the implementation guide.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -296,13 +299,13 @@
       <isSummary value="true"/>
     </element>
     <element id="ImplementationGuide.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.description"/>
       <short value="Natural language description of the implementation guide"/>
-			<definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
+      <definition value="A free text natural language description of the implementation guide from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as why the implementation guide was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the implementation guide as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the implementation guide is presumed to be the predominant language in the place the implementation guide was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -346,9 +349,9 @@
       </binding>
     </element>
     <element id="ImplementationGuide.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide."/>
@@ -367,9 +370,9 @@
       </mapping>
     </element>
     <element id="ImplementationGuide.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -396,7 +399,7 @@
     <element id="ImplementationGuide.license">
       <path value="ImplementationGuide.license"/>
       <short value="SPDX license code for this IG (or not-open-source)"/>
-			<definition value="The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'."/>
+      <definition value="The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -408,7 +411,7 @@
           <valueString value="SPDXLicense"/>
         </extension>
         <strength value="required"/>
-				<description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
+        <description value="The license that applies to an Implementation Guide (using an SPDX license Identifiers, or 'not-open-source'). The binding is required but new SPDX license Identifiers are allowed to be used (https://spdx.org/licenses/)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/spdx-license"/>
       </binding>
     </element>
@@ -504,7 +507,7 @@
       <path value="ImplementationGuide.global"/>
       <short value="Profiles that apply globally"/>
       <definition value="A set of profiles that all resources covered by this implementation guide must conform to."/>
-			<comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide."/>
+      <comment value="See [Default Profiles](implementationguide.html#default) for a discussion of which resources are 'covered' by an implementation guide."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -580,9 +583,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.grouping.name">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.grouping.name"/>
       <short value="Descriptive name for the package"/>
       <definition value="The human-readable title to display for the package of resources when rendering the implementation guide."/>
@@ -593,9 +596,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.grouping.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.grouping.description"/>
       <short value="Human readable text describing the package"/>
       <definition value="Human readable text describing the package."/>
@@ -653,9 +656,9 @@
       </binding>
     </element>
     <element id="ImplementationGuide.definition.resource.name">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.resource.name"/>
       <short value="Human readable name for the resource"/>
       <definition value="A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name)."/>
@@ -666,9 +669,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.resource.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.resource.description"/>
       <short value="Reason why included in guide"/>
       <definition value="A description of the reason that a resource has been included in the implementation guide."/>
@@ -733,9 +736,9 @@
       </constraint>
     </element>
     <element id="ImplementationGuide.definition.page.source[x]">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.page.source[x]"/>
       <short value="Source for page"/>
       <definition value="Indicates the URL or the actual content to provide for the page."/>
@@ -764,9 +767,9 @@
       </type>
     </element>
     <element id="ImplementationGuide.definition.page.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="ImplementationGuide.definition.page.title"/>
       <short value="Short title shown for navigational assistance"/>
       <definition value="A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc."/>
@@ -958,7 +961,7 @@
       <path value="ImplementationGuide.manifest.resource.relativePath"/>
       <short value="Relative path for page in IG"/>
       <definition value="The relative path for primary page for this resource within the IG."/>
-			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the resource page."/>
+      <comment value="Appending 'rendering' + &quot;/&quot; + this should resolve to the resource page."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -983,7 +986,7 @@
       <path value="ImplementationGuide.manifest.page.name"/>
       <short value="HTML page name"/>
       <definition value="Relative path to the page."/>
-			<comment value="Appending 'rendering' + &#34;/&#34; + this should resolve to the page."/>
+      <comment value="Appending 'rendering' + &quot;/&quot; + this should resolve to the page."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1005,7 +1008,7 @@
       <path value="ImplementationGuide.manifest.page.anchor"/>
       <short value="Anchor available on the page"/>
       <definition value="The name of an anchor available on the page."/>
-			<comment value="Appending 'rendering' + &#34;/&#34; + page.name + &#34;#&#34; + page.anchor should resolve to the anchor."/>
+      <comment value="Appending 'rendering' + &quot;/&quot; + page.name + &quot;#&quot; + page.anchor should resolve to the anchor."/>
       <requirements value="Allows validation of hyperlinks from a derived IG to this IG without a local copy of the IG."/>
       <min value="0"/>
       <max value="*"/>

@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.date"/>
@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-compatible-with"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.url,SubscriptionTopic.derivedFrom"/>
@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-resource"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.resourceTrigger.resource"/>
@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.status"/>
@@ -102,7 +102,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.title"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-trigger-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.resourceTrigger.description"/>
@@ -140,7 +140,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.url"/>
@@ -159,7 +159,7 @@
       <SearchParameter>
         <id value="SubscriptionTopic-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="SubscriptionTopic.version"/>

@@ -44,7 +44,7 @@
 			
 			<div id="hl7-nav">
 				 <a id="hl7-logo" href="http://www.hl7.org">
-					<img height="50" alt="visit the hl7 website" width="42" src="./assets/images/hl7-logo.png"/>
+					<img height="50" alt="visit the hl7 website" width="54" src="./assets/images/hl7-logo.png"/>
 				</a> 
 			</div>       	
 			  <!-- hl7-search -->
@@ -107,7 +107,7 @@ Still under development.
 		<div class="container">  <!-- container -->
 			<div class="inner-wrapper">
 				<p>
-        © HL7.org 2011+. FHIR Version Directory
+        ï¿½ HL7.org 2011+. FHIR Version Directory
         </p>
 			</div>  <!-- /inner-wrapper -->
 		</div>  <!-- /container -->

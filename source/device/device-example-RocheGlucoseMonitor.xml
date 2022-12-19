@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="Roche"/>
   <serialNumber value="92300365108"/>
-  <deviceName>
-    <name value="meter+00365108"/>
+  <name>
+    <value value="meter+00365108"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="923"/>
   <type>
     <coding>

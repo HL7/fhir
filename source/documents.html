@@ -39,7 +39,7 @@ HL7 will develop profiles in the future giving additional guidance on appropriat
 representation of clinical documents in general, specific types of clinical
 documents (e.g. Consolidated CDA), and other non-clinical documents.
 </p>
-<p>FHIR documents are not intended to capture unbounded data sets such as a full EHR. Rather, consider the <a href="https://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for such use cases. </p>
+<p>FHIR documents are not intended to capture unbounded data sets such as a full EHR. Rather, consider the <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> specification for such use cases. </p>
 
 <p>
 Note that FHIR defines both this document format and a <a href="documentreference.html">DocumentReference resource</a>.
@@ -93,9 +93,10 @@ for more information).
 The document bundle SHALL include only:
 </p>
 <ol>
- <li>The Composition resource, and any resources directly or indirectly (e.g. recursively) referenced from it</li>
- <li>A Binary resource containing a stylesheet (as described below)</li>
- <li>Provenance Resources that have a target of Composition or another resource included in the document</li>
+ <li>The composition set: The Composition resource, and the resources it links to</li>
+ <li>The supporting information: Any resources that are part of the graph of resources that reference or 
+  are referenced from the composition set, either directly or indirectly (e.g. recursively in a chain)</li>
+ <li>Supporting Collateral: A Binary resource containing a stylesheet (as described below)</li>
 </ol>
 <p>
 There are two key identifiers in the document:
@@ -160,8 +161,8 @@ XSLT transform that converts an XML document into browser-ready XHTML.
 <a name="css"></a>
 <p>
 In addition to the <a href="narrative.html#css">basic style rules about Narratives</a>, which
-must be followed, a document can reference or contain one or more stylesheets that contains additional styles that
-apply to the collated narrative. This is done by asserting stylesheet links on the feed:
+must be followed, a document can reference or contain one or more stylesheets that contain additional styles that
+apply to the collated narrative. This is done by asserting stylesheet links on the Bundle:
 </p>
 <pre class="xml">
 &lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;

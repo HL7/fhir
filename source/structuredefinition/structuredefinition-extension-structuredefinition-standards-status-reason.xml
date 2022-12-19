@@ -1,28 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="openEHR-test"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="structuredefinition-standards-status-reason"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="pc"/>
+    <valueCode value="fhir"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://hl7.org/fhir/StructureDefinition/openEHR-test"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.5.1287"/>
-  </identifier>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason"/>
   <version value="5.0.0"/>
-  <name value="test"/>
+  <name value="SDStandardsStatusReason"/>
+  <title value="StructureDefinition Standards Status Reason"/>
   <status value="draft"/>
-  <date value="2014-10-09"/>
-  <publisher value="Health Level Seven, Inc / openEHR project"/>
+  <date value="2014-01-31"/>
+  <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org"/>
+      <value value="http://hl7.org/special/committees/FHIR"/>
     </telecom>
   </contact>
-  <description value="Observations that confirm or refute the risk and/or the substance."/>
+  <description value="The Current HL7 ballot/Standards status of this artifact."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -33,7 +35,7 @@
   <abstract value="false"/>
   <context>
     <type value="element"/>
-    <expression value="AllergyIntolerance"/>
+    <expression value="Element"/>
   </context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
@@ -41,10 +43,10 @@
   <differential>
     <element id="Extension">
       <path value="Extension"/>
-      <short value="Observations that confirm or refute"/>
-      <definition value="Observations that confirm or refute the risk and/or the substance."/>
+      <short value="Explanation for the status of artifact"/>
+      <definition value="Explanation for the status of artifact. For deprecated content, allows conveying the reason for deprecation and what to do instead"/>
       <min value="0"/>
-      <max value="*"/>
+      <max value="1"/>
     </element>
     <element id="Extension.extension">
       <path value="Extension.extension"/>
@@ -52,15 +54,13 @@
     </element>
     <element id="Extension.url">
       <path value="Extension.url"/>
-      <fixedUri value="http://hl7.org/fhir/StructureDefinition/openEHR-test"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+        <code value="markdown"/>
       </type>
     </element>
   </differential>

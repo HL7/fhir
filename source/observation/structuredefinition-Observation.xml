@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Observation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -31,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Observation"/>
+  <title value="Observation"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -249,13 +252,13 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
         <map value="outBoundRelationship"/>
       </mapping>
-      <isSummary value="true"/>
     </element>
-   <element id="Observation.triggeredBy.type">
+    <element id="Observation.triggeredBy.type">
       <path value="Observation.triggeredBy.type"/>
       <short value="reflex | repeat | re-run"/>
       <definition value="The type of trigger.&#xA;Reflex | Repeat | Re-run."/>
@@ -278,7 +281,7 @@
         <map value="code"/>
       </mapping>
     </element>
-   <element id="Observation.triggeredBy.reason">
+    <element id="Observation.triggeredBy.reason">
       <path value="Observation.triggeredBy.reason"/>
       <short value="Reason that the observation was triggered"/>
       <definition value="Provides the reason why this observation was performed as a result of the observation(s) referenced."/>
@@ -287,7 +290,7 @@
       <type>
         <code value="string"/>
       </type>
-       <mapping>
+      <mapping>
         <identity value="rim"/>
         <map value="annotation"/>
       </mapping>
@@ -373,7 +376,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &#34;revise&#34;"/>
+        <map value="status  Amended &amp; Final are differentiated by whether it is the subject of a ControlAct event with a type of &quot;revise&quot;"/>
       </mapping>
     </element>
     <element id="Observation.category">
@@ -404,13 +407,13 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;EVN&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
       </mapping>
     </element>
     <element id="Observation.code">
       <path value="Observation.code"/>
       <short value="Type of observation (code / type)"/>
-      <definition value="Describes what was observed. Sometimes this is called the observation &#34;name&#34;."/>
+      <definition value="Describes what was observed. Sometimes this is called the observation &quot;name&quot;."/>
       <comment value="*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
       <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
       <alias value="Name"/>
@@ -510,7 +513,7 @@
       <path value="Observation.focus"/>
       <short value="What the observation is about, when it is not about the subject of record"/>
       <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
-      <comment value="Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., &#34;Blood Glucose&#34;) and does not need to be represented separately using this element.  Use `specimen` if a reference to a specimen is required.  If a code is required instead of a resource use either  `bodysite` for bodysites or the standard extension [focusCode](extension-observation-focuscode.html)."/>
+      <comment value="Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., &quot;Blood Glucose&quot;) and does not need to be represented separately using this element.  Use `specimen` if a reference to a specimen is required.  If a code is required instead of a resource use either  `bodysite` for bodysites or the standard extension [focusCode](extension-observation-focuscode.html)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -572,8 +575,8 @@
     <element id="Observation.effective[x]">
       <path value="Observation.effective[x]"/>
       <short value="Clinically relevant time/time-period for observation"/>
-      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &#34;physiologically relevant time&#34;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
-      <comment value="At least a date should be present unless this observation is a historical report.  For recording imprecise or &#34;fuzzy&#34; times (For example, a blood glucose measurement taken &#34;after breakfast&#34;) use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events."/>
+      <definition value="The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &quot;physiologically relevant time&quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself."/>
+      <comment value="At least a date should be present unless this observation is a historical report.  For recording imprecise or &quot;fuzzy&quot; times (For example, a blood glucose measurement taken &quot;after breakfast&quot;) use the [Timing](datatypes.html#timing) datatype which allow the measurement to be tied to regular life events."/>
       <requirements value="Knowing when an observation was deemed true is important to its relevance as well as determining trends."/>
       <alias value="Occurrence"/>
       <min value="0"/>
@@ -638,7 +641,7 @@
       </extension>
       <path value="Observation.performer"/>
       <short value="Who is responsible for the observation"/>
-      <definition value="Who was responsible for asserting the observed value as &#34;true&#34;."/>
+      <definition value="Who was responsible for asserting the observed value as &quot;true&quot;."/>
       <requirements value="May give a degree of confidence in the observation and also indicates where follow-up questions should be directed."/>
       <min value="0"/>
       <max value="*"/>
@@ -742,7 +745,7 @@
       <path value="Observation.dataAbsentReason"/>
       <short value="Why the result is missing"/>
       <definition value="Provides a reason why the expected value in the element Observation.value[x] is missing."/>
-      <comment value="Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &#34;detected&#34;, &#34;not detected&#34;, &#34;inconclusive&#34;, or  &#34;specimen unsatisfactory&#34;.   &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &#34;error&#34; could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values."/>
+      <comment value="Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values."/>
       <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
       <min value="0"/>
       <max value="1"/>
@@ -824,7 +827,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="subjectOf.observationEvent[code=&#34;annotation&#34;].value"/>
+        <map value="subjectOf.observationEvent[code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
     <element id="Observation.bodySite">
@@ -882,10 +885,6 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="targetSiteCode"/>
-      </mapping>
       <constraint>
         <key value="obs-8"/>
         <severity value="error"/>
@@ -893,6 +892,10 @@
         <expression value="bodyStructure.empty() or bodySite.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value="targetSiteCode"/>
+      </mapping>
     </element>
     <element id="Observation.method">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -940,17 +943,13 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
-
-<constraint>
+      <constraint>
         <key value="obs-9"/>
         <severity value="error"/>
         <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
         <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
-
-
-
       <mapping>
         <identity value="sct-concept"/>
         <map value="&lt; 123038009 |Specimen|"/>
@@ -1006,9 +1005,9 @@
       </extension>
       <path value="Observation.referenceRange"/>
       <short value="Provides guide for interpretation"/>
-      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an &#34;OR&#34;.   In other words, to represent two distinct target populations, two `referenceRange` elements would be used."/>
+      <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range.  Multiple reference ranges are interpreted as an &quot;OR&quot;.   In other words, to represent two distinct target populations, two `referenceRange` elements would be used."/>
       <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
-      <requirements value="Knowing what values are considered &#34;normal&#34; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1082,7 +1081,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-     <condition value="obs-3"/>
+      <condition value="obs-3"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ObservationReferenceRangeNormalValue"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes identifying the normal value of the observation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
+      </binding>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
@@ -1091,14 +1098,6 @@
         <identity value="rim"/>
         <map value="value:IVL_PQ.normal"/>
       </mapping>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ObservationReferenceRangeNormalValue"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Codes identifying the normal value of the observation."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/observation-referencerange-normalvalue"/>
-    </binding>
     </element>
     <element id="Observation.referenceRange.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -1141,7 +1140,7 @@
       </extension>
       <path value="Observation.referenceRange.appliesTo"/>
       <short value="Reference range population"/>
-      <definition value="Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple `appliesTo`  are interpreted as an &#34;AND&#34; of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used."/>
+      <definition value="Codes to indicate the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.  Multiple `appliesTo`  are interpreted as an &quot;AND&quot; of the target populations.  For example, to represent a target population of African American females, both a code of female and a code for African American would be used."/>
       <comment value="This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed."/>
       <requirements value="Need to be able to identify the target population for proper interpretation."/>
       <min value="0"/>
@@ -1182,13 +1181,13 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&#34;age&#34;].value"/>
+        <map value="outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=&quot;age&quot;].value"/>
       </mapping>
     </element>
     <element id="Observation.referenceRange.text">
       <path value="Observation.referenceRange.text"/>
       <short value="Text based reference range in an observation"/>
-      <definition value="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of &#34;Negative&#34; or a list or table of &#34;normals&#34;."/>
+      <definition value="Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.  An example would be a reference value of &quot;Negative&quot; or a list or table of &quot;normals&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1292,7 +1291,7 @@
     <element id="Observation.component.code">
       <path value="Observation.component.code"/>
       <short value="Type of component observation (code / type)"/>
-      <definition value="Describes what was observed. Sometimes this is called the observation &#34;code&#34;."/>
+      <definition value="Describes what was observed. Sometimes this is called the observation &quot;code&quot;."/>
       <comment value="*All* code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation."/>
       <requirements value="Knowing what kind of observation is being made is essential to understanding the observation."/>
       <min value="1"/>
@@ -1398,7 +1397,7 @@
       <path value="Observation.component.dataAbsentReason"/>
       <short value="Why the component result is missing"/>
       <definition value="Provides a reason why the expected value in the element Observation.component.value[x] is missing."/>
-      <comment value="&#34;Null&#34; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &#34;detected&#34;, &#34;not detected&#34;, &#34;inconclusive&#34;, or  &#34;test not done&#34;. &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &#34;error&#34; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values."/>
+      <comment value="&quot;Null&quot; or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;test not done&quot;. &#xA;&#xA;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed.  Because of these options, use-case agreements are required to interpret general observations for exceptional values."/>
       <requirements value="For many results it is necessary to handle exceptional values in measurements."/>
       <min value="0"/>
       <max value="1"/>
@@ -1468,7 +1467,7 @@
       <short value="Provides guide for interpretation of component result"/>
       <definition value="Guidance on how to interpret the value by comparison to a normal or recommended range."/>
       <comment value="Most observations only have one generic reference range. Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g., specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties."/>
-      <requirements value="Knowing what values are considered &#34;normal&#34; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
+      <requirements value="Knowing what values are considered &quot;normal&quot; can help evaluate the significance of a particular result. Need to be able to provide multiple reference ranges for different contexts."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Observation.referenceRange"/>

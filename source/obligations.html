@@ -27,7 +27,6 @@ setting expectations for how particular data elements are handled.
 <p>
 Implementation guides can make rules about the behavior of applications by using the <code>mustSupport</code>
 and <code>obligation</code> features of <a href="elementdefinition.html">ElementDefinition</a> in profiles. 
-For further information, read <a href="obligations.html">Implementation Obligations</a>.
 </p>
 <p>
 Note that since the base specification is only describing the interfaces and resources, not any particular 
@@ -90,7 +89,7 @@ with it's use by providing one or more obligations. Each obligation has the foll
     <td>
       one or more codes that specify the details of the obligation. The codes are taken from the 
       <a href="codesystem-obligation.html">Obligations Code system</a>. The codes say things like 
-      'SHALL store this deta item', 'SHOULD populate this if a data element is available', or 
+      'SHALL store this data item', 'SHOULD populate this if a data element is available', or 
       'HL7 v2 expectations apply'. If multiple codes are specified, then all the obligations 
       apply. See below for more details about how the combination obligation 
       codes work.
@@ -99,7 +98,7 @@ with it's use by providing one or more obligations. Each obligation has the foll
   <tr>
     <td>actor</td>
     <td>
-      One or references to <a href="actordefinition.html">actors</a> that are involved in the 
+      One or more references to <a href="actordefinition.html">actors</a> that are involved in the 
       exchanges associated with the element. If any actors are indicated, then the obligations 
       are only associated with those actors; if no actors are indicated, the obligations apply 
       to all applications exchanging the element. Since this includes in any derived profiles,
@@ -134,7 +133,7 @@ with it's use by providing one or more obligations. Each obligation has the foll
     </td>
   </tr>
   <tr>
-    <td>filterDoco</td>
+    <td>filterDocumentation</td>
     <td>
       A human readable description of the filter. This SHOULD be provided if a filter is specified,
       for the benefit of readers not familiar with FHIRPath expressions.

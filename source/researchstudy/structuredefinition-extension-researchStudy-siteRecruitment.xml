@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="researchStudy-siteRecruitment"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="brr"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/researchStudy-siteRecruitment"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1098"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="siteRecruitment"/>
-  <title value="siteRecruitment"/>
+  <name value="RSSiteRecruitment"/>
+  <title value="ResearchStudy Site Recruitment"/>
   <status value="draft"/>
   <date value="2021-03-31T00:00:00+00:00"/>
   <publisher value="HL7"/>
@@ -42,8 +47,6 @@
       <min value="0"/>
       <max value="1"/>
     </element>
-    
-    <!-- targetNumber -->
     <element id="Extension.extension:targetNumber">
       <path value="Extension.extension"/>
       <sliceName value="targetNumber"/>
@@ -73,8 +76,6 @@
         <code value="unsignedInt"/>
       </type>
     </element>
-
-    <!-- actualNumber -->
     <element id="Extension.extension:actualNumber">
       <path value="Extension.extension"/>
       <sliceName value="actualNumber"/>
@@ -104,8 +105,6 @@
         <code value="unsignedInt"/>
       </type>
     </element>
-    
-    <!-- eligibility -->
     <element id="Extension.extension:eligibility">
       <path value="Extension.extension"/>
       <sliceName value="eligibility"/>
@@ -135,8 +134,6 @@
         <code value="markdown"/>
       </type>
     </element>
-    
-    <!-- Wrap up -->
     <element id="Extension.url">
       <path value="Extension.url"/>
       <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-animal"/>

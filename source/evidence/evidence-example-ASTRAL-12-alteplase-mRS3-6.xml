@@ -127,7 +127,7 @@
 	<certainty>
 		<type>
 			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+				<system value="http://hl7.org/fhir/certainty-type"/>
 				<code value="Overall"/>
 				<display value="Overall quality"/>
 			</coding>
@@ -142,7 +142,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="RiskOfBias"/>
 					<display value="Risk of bias"/>
 				</coding>
@@ -159,7 +159,7 @@
 			<description value="Estimated risk from validation calibration plot consistent with predicted risk; observed risk in subgroup with ASTRAL score = 12 consistent with validation calibration plot"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Inconsistency"/>
 					<display value="Inconsistency"/>
 				</coding>
@@ -175,7 +175,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Indirectness"/>
 					<display value="Indirectness"/>
 				</coding>
@@ -192,7 +192,7 @@
 			<description value="Narrow confidence interval"/>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="Imprecision"/>
 					<display value="Imprecision"/>
 				</coding>
@@ -208,7 +208,7 @@
 		<subcomponent>
 			<type>
 				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+					<system value="http://hl7.org/fhir/certainty-type"/>
 					<code value="PublicationBias"/>
 					<display value="Publication bias"/>
 				</coding>

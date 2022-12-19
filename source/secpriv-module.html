@@ -91,6 +91,7 @@ The following common use-cases are elaborated below:
 <li><a href="#signature">Digital and Electronic Signatures</a></li>
 <li><a href="#deId">De-Identification, Anonymization, and Pseudonymization</a></li>
 <li><a href="#testData">Security Considerations on Test Data</a></li>
+<li><a href="#privacy-of-ids">Risks to Privacy by Exposing Links</a></li>
 </ul>
 </p>
 
@@ -220,6 +221,8 @@ should be conveyed using standard codes from <a href="v3/PurposeOfUse/vs.html">P
 The FHIR core specification does not include a "User" resource, as a User resource would be general IT and used well
 beyond healthcare workflows. A RESTful User resource is defined in 
 the <a href="https://en.wikipedia.org/wiki/System_for_Cross-domain_Identity_Management">System for Cross-domain Identity Management (SCIM) specification</a>.
+User role assignment is typically managed in the general IT system, but may be influenced by FHIR Resource binding. 
+For example, users that are Practitioners, the PractionerRole may indicate functional or structural roles. 
 </p><p>
 When using OAuth, the requested action on a Resource for specified one or more purpose of use and 
 the role of the user are managed by the OAuth authorization service (AS) and may be communicated 
@@ -454,6 +457,23 @@ Test data could be intermingled with real-patient data using one or both of the 
 </ul>
 <p>
 <em>Considerations:</em> Note there is a risk when co-mingling test data with real patient data that someone will accidentally use test data without realizing it is test data. 
+</p>
+
+
+<a name="privacy-of-ids"></a>
+<h4>Risks to Privacy by Exposing Links</h4>
+<p>
+Use-Case: There are times when data will have different authorization requirements. Where some data must be restricted to a smaller subset of the audience that has access to other data. Such as sensitive health topics within a patient compartment.
+</p><p>
+  <em>Trigger:</em> When data are exposed that has links (e.g., Reference) to other data that the recipient does not have access to.
+</p><p>
+  <em>Consideration:</em> Note that providing resources with links to other resources that are not accessible to the given user, does still expose the id (identifier) of that second resource. That id (identifier) should not directly expose information, but the id (identifier) may be seen in other resources as links also. The id (identifier) can then be used to correlate a set of resources, and this correlation needs to be considered in Privacy risk exposure. 
+</p>
+<p>
+  <em>Discussion:</em> This correlation may be desirable, or may present a Privacy risk that is unacceptable.
+</p>
+<p>
+  <em>Considerations:</em> Note there is a risk when exposing security label segmented data to recipients that have limited authorization. 
 </p>
 
 <a name="roadmap"></a>

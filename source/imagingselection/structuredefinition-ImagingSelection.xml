@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImagingSelection"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -25,6 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImagingSelection"/>
+  <title value="ImagingSelection"/>
   <status value="draft"/>
   <date value="2022-06-29T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
@@ -86,7 +89,7 @@
         <identity value="w5"/>
         <map value="clinical.diagnostics"/>
       </mapping>
-	</element>
+    </element>
     <element id="ImagingSelection.identifier">
       <path value="ImagingSelection.identifier"/>
       <short value="Business Identifier for Imaging Selection"/>
@@ -112,7 +115,7 @@
       <path value="ImagingSelection.status"/>
       <short value="available | entered-in-error | unknown"/>
       <definition value="The current state of the ImagingSelection resource. This is not the status of any ImagingStudy, ServiceRequest, or Task resources associated with the ImagingSelection."/>
-      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -197,9 +200,9 @@
       </mapping>
     </element>
     <element id="ImagingSelection.performer">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="ImagingSelection.performer"/>
       <short value="Selector of the instances (human or machine)"/>
       <definition value="Selector of the instances – human or machine."/>
@@ -226,11 +229,13 @@
       <path value="ImagingSelection.performer.function"/>
       <short value="Type of performer"/>
       <definition value="Distinguishes the type of involvement of the performer."/>
+      <requirements value="Allows disambiguation of the types and involvement of different performers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EventPerformerFunction"/>
@@ -239,8 +244,6 @@
         <description value="The type of involvement of the performer."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/series-performer-function"/>
       </binding>
-      <requirements value="Allows disambiguation of the types and involvement of different performers."/>
-      <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.performer.actor">
       <path value="ImagingSelection.performer.actor"/>
@@ -348,11 +351,11 @@
       <type>
         <code value="id"/>
       </type>
-      <isSummary value="true"/>
       <example>
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793"/>
       </example>
+      <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Study Instance UID (0020,000D)"/>
@@ -400,11 +403,11 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1"/>
       </example>
+      <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Series Instance UID (0020,000E)"/>
       </mapping>
-      <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.seriesNumber">
       <path value="ImagingSelection.seriesNumber"/>
@@ -418,11 +421,11 @@
       <type>
         <code value="unsignedInt"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Series Number (0020,0011)"/>
       </mapping>
-      <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.frameOfReferenceUid">
       <path value="ImagingSelection.frameOfReferenceUid"/>
@@ -440,11 +443,11 @@
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.2"/>
       </example>
+      <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
         <map value="Frame of Reference UID (0020,0052)"/>
       </mapping>
-      <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.bodySite">
       <path value="ImagingSelection.bodySite"/>
@@ -455,7 +458,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -488,9 +491,9 @@
       <isSummary value="true"/>
     </element>
     <element id="ImagingSelection.instance">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
       <path value="ImagingSelection.instance"/>
       <short value="The selected instances"/>
       <definition value="Each imaging selection includes one or more selected DICOM SOP instances."/>
@@ -514,11 +517,11 @@
       <type>
         <code value="id"/>
       </type>
-      <isSummary value="true"/>
       <example>
         <label value="General"/>
         <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
       </example>
+      <isSummary value="true"/>
       <mapping>
         <identity value="dicom"/>
         <map value="SOP Instance UID (0008,0018)"/>
@@ -554,6 +557,10 @@
       <type>
         <code value="Coding"/>
       </type>
+      <example>
+        <label value="General"/>
+        <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
+      </example>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="sopClass"/>
@@ -565,10 +572,6 @@
         <description value="DICOM SOP Classes."/>
         <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1"/>
       </binding>
-      <example>
-        <label value="General"/>
-        <valueId value="1.2.840.10008.5.1.4.1.1.2"/>
-      </example>
       <mapping>
         <identity value="dicom"/>
         <map value="SOP Class UID (0008,0016)"/>
@@ -583,25 +586,22 @@
       <type>
         <code value="string"/>
       </type>
-      <isSummary value="false"/>
       <example>
         <label value="Frame Number"/>
-        <valueString value="1"/>
-        <valueString value="2"/>
-        <valueString value="3"/>
         <valueString value="6"/>
       </example>
       <example>
         <label value="Observation UID"/>
         <valueString value="1.2.840.113747.20080222.324856729726854657132726086516575"/>
       </example>
+      <isSummary value="false"/>
     </element>
     <element id="ImagingSelection.instance.imageRegion">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="ImageRegion2D"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-          <valueCode value="right"/>
+        <valueCode value="right"/>
       </extension>
       <path value="ImagingSelection.instance.imageRegion"/>
       <short value="A specific 2D region in a DICOM image / frame"/>
@@ -641,15 +641,15 @@
       <path value="ImagingSelection.instance.imageRegion.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
       <definition value="The coordinates describing the image region. Encoded as a set of (column, row) pairs that denote positions in the selected image / frames specified with sub-pixel resolution.&#xA;       The origin at the TLHC of the TLHC pixel is 0.0\0.0, the BRHC of the TLHC pixel is 1.0\1.0, and the BRHC of the BRHC pixel is the number of columns\rows in the image / frames. The values must be within the range 0\0 to the number of columns\rows in the image / frames."/>
+      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
+      <requirements value="The number of values must be a multiple of two."/>
+      <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>
       <type>
         <code value="decimal"/>
       </type>
       <orderMeaning value="The values are an ordered set of (x, y) coordinates."/>
-      <requirements value="The number of values must be a multiple of two."/>
-      <alias value="GraphicData"/>
-      <comment value="For a description of how 2D coordinates are encoded, see [DICOM PS3.3 C.18.6](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.6.html)."/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>
@@ -657,10 +657,10 @@
     </element>
     <element id="ImagingSelection.imageRegion">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-          <valueString value="ImageRegion3D"/>
+        <valueString value="ImageRegion3D"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-          <valueCode value="right"/>
+        <valueCode value="right"/>
       </extension>
       <path value="ImagingSelection.imageRegion"/>
       <short value="A specific 3D region in a DICOM frame of reference"/>
@@ -700,15 +700,15 @@
       <path value="ImagingSelection.imageRegion.coordinate"/>
       <short value="Specifies the coordinates that define the image region"/>
       <definition value="The coordinates describing the image region. Encoded as an ordered set of (x,y,z) triplets (in mm and may be negative) that define a region of interest in the patient-relative Reference Coordinate System defined by ImagingSelection.frameOfReferenceUid element."/>
+      <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
+      <requirements value="The number of values must be a multiple of three."/>
+      <alias value="GraphicData"/>
       <min value="1"/>
       <max value="*"/>
       <type>
         <code value="decimal"/>
       </type>
       <orderMeaning value="The values are an ordered set of (x, y, z) coordinates."/>
-      <requirements value="The number of values must be a multiple of three."/>
-      <alias value="GraphicData"/>
-      <comment value="For a description of how 3D coordinates are encoded, see [DICOM PS3.3 C.18.9](http://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.18.9.html)."/>
       <mapping>
         <identity value="dicom"/>
         <map value="Graphic Data (0070,0022)"/>

@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="no-fixed-address"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/no-fixed-address"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1349"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="NoFixedAddress"/>
-  <title value="No Fixed Address"/>
+  <name value="PatNoFixedAddress"/>
+  <title value="Patient No Fixed Address"/>
   <status value="draft"/>
   <date value="2021-07-05"/>
   <publisher value="HL7"/>

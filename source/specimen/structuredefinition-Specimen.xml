@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Specimen"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -29,6 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Specimen"/>
+  <title value="Specimen"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -297,27 +300,27 @@
       </mapping>
     </element>
     <element id="Specimen.combined">
-			<path value="Specimen.combined"/>
-			<short value="grouped | pooled"/>
-			<definition value="This element signifies if the specimen is part of a group or pooled."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Codes for the combined status of a specimen."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-combined"/>
-			</binding>
-		</element>
+      <path value="Specimen.combined"/>
+      <short value="grouped | pooled"/>
+      <definition value="This element signifies if the specimen is part of a group or pooled."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes for the combined status of a specimen."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-combined"/>
+      </binding>
+    </element>
     <element id="Specimen.role">
       <path value="Specimen.role"/>
       <short value="The role the specimen serves"/>
@@ -534,7 +537,6 @@
         <map value=".methodCode"/>
       </mapping>
     </element>
-
     <element id="Specimen.collection.device">
       <path value="Specimen.collection.device"/>
       <short value="Device used to perform collection"/>
@@ -744,7 +746,7 @@
       </mapping>
     </element>
     <element id="Specimen.container.device">
-       <path value="Specimen.container.device"/>
+      <path value="Specimen.container.device"/>
       <short value="Device resource for the container"/>
       <definition value="The device resource for the the container holding the specimen. If the container is in a holder then the referenced device will point to a parent device."/>
       <min value="1"/>
@@ -836,7 +838,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
   </differential>

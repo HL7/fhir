@@ -64,7 +64,7 @@
       <SearchParameter>
         <id value="ChargeItem-entered-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ChargeItem.enteredDate"/>
@@ -149,7 +149,7 @@
         <description value="When the charged service was applied"/>
         <code value="occurrence"/>
         <type value="date"/>
-        <expression value="ChargeItem.occurrence"/>
+        <expression value="ChargeItem.occurrence.as(dateTime) | ChargeItem.occurrence.as(Period) | ChargeItem.occurrence.as(Timing)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

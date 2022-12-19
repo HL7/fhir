@@ -42,7 +42,13 @@
   <concept>
     <code value="deprecated"/>
     <display value="Deprecated"/>
-    <definition value="This portion of the specification is provided for implementer assistance, and does not make rules that implementers are required to follow. Typical examples of this content in the FHIR specification are tables of contents, registries, examples, and implementer advice."/>
+    <definition value="This portion of the specification is outdated; it is documented for historical purposes, but no longer supported and may be withdrawn in a future version. Implementers who already support it should continue to do so for backward compatibility."/>
+  </concept>
+  <concept>
+    <!-- nothing will actually be labelled with this status because it's only used when it's not there anymore -->
+    <code value="withdrawn"/>
+    <display value="Withdrawn"/>
+    <definition value="This content has been removed from the specification."/>
   </concept>
   <concept>
     <code value="external"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="devicemetricobservation"/>
   <text>
     <status value="generated"/>
@@ -20,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Device Metric Observation Profile"/>
+  <title value="Device Metric Observation Profile"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2014-11-17"/>

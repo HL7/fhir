@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="adverse-event-causality-method"/>
+  <id value="substance-form"/>
   <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="pc"/>
+    <valueCode value="brr"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-    <valueCode value="draft"/>
+    <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/adverse-event-causality-method"/>
+  <url value="http://hl7.org/fhir/substance-form"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.1255"/>
+  	<value value="urn:oid:2.16.840.1.113883.4.642.4.2111"/>
   </identifier>
   <version value="5.0.0-cibuild"/>
-  <name value="AdverseEventCausalityMethod"/>
-  <title value="AdverseEventCausalityMethod"/>
-  <status value="draft"/>
+  <name value="SubstanceForm"/>
+  <title value="SubstanceForm"/>
+  <status value="active"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,20 +37,16 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="TODO."/>
+  <description value="SubstanceForm"/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/adverse-event-causality-method"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/substance-form"/>
   <content value="complete"/>
   <concept>
-    <code value="probability-scale"/>
-    <display value="Probability Scale"/>
+    <code value="salt"/>
+    <display value="Salt of substance"/>
   </concept>
   <concept>
-    <code value="bayesian"/>
-    <display value="Bayesian"/>
-  </concept>
-  <concept>
-    <code value="checklist"/>
-    <display value="Checklist"/>
+    <code value="base"/>
+    <display value="Base of substance"/>
   </concept>
 </CodeSystem>

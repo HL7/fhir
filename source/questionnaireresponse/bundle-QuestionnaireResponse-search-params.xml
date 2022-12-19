@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="QuestionnaireResponse-authored"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="QuestionnaireResponse.authored"/>
@@ -141,7 +141,7 @@
       <SearchParameter>
         <id value="QuestionnaireResponse-questionnaire"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="QuestionnaireResponse.questionnaire"/>
@@ -179,7 +179,7 @@
       <SearchParameter>
         <id value="QuestionnaireResponse-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="QuestionnaireResponse.status"/>
@@ -216,6 +216,9 @@
     <resource>
       <SearchParameter>
         <id value="QuestionnaireResponse-item-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <url value="http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-item-subject"/>
         <version value="5.0.0"/>
         <name value="item-subject"/>

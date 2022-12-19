@@ -1,848 +1,850 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="SpecimenDefinition"/>
-	<meta>
-		<lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Specialized.Definitional Artifacts"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="anonymous"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="oo"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="MetadataResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="SpecimenDefinition"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Definitional Artifacts"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="anonymous"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1069"/>
   </identifier>
-	<version value="5.0.0"/>
-	<name value="SpecimenDefinition"/>
-	<status value="draft"/>
-	<date value="2021-01-02T08:58:31+11:00"/>
-	<publisher value="Health Level Seven International (Orders and Observations)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="A kind of specimen with associated set of requirements."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="v2"/>
-		<uri value="http://hl7.org/v2"/>
-		<name value="HL7 v2 Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="SpecimenDefinition"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="SpecimenDefinition">
-			<path value="SpecimenDefinition"/>
-			<short value="Kind of specimen"/>
-			<definition value="A kind of specimen with associated set of requirements."/>
-			<min value="0"/>
-			<max value="*"/>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="Role[classCode=SPEC]"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="clinical.diagnostics"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.url">
-			<path value="SpecimenDefinition.url"/>
-			<short value="Logical canonical URL to reference this SpecimenDefinition (globally unique)"/>
-			<definition value="An absolute URL that is used to identify this SpecimenDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions."/>
-			<comment value="Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred. This is the URI that will be used when making canonical references to this resource."/>
-			<requirements value="Allows the SpecimenDefinition to be referenced by a single globally unique identifier."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.identifier">
-			<path value="SpecimenDefinition.identifier"/>
-			<short value="Business identifier"/>
-			<definition value="A business identifier assigned to this SpecimenDefinition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.version">
-			<path value="SpecimenDefinition.version"/>
-			<short value="Business version of the SpecimenDefinition"/>
-			<definition value="The identifier that is used to identify this version of the SpecimenDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the SpecimenDefinition author and is not expected to be globally unique."/>
-			<comment value="There may be multiple different instances of a SpecimenDefinition that have the same identifier but different versions."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="SpecimenDefinition.title"/>
-			<short value="Name for this SpecimenDefinition (Human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the SpecimenDefinition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.derivedFromCanonical">
-			<path value="SpecimenDefinition.derivedFromCanonical"/>
-			<short value="Based on FHIR definition of another SpecimenDefinition"/>
-			<definition value="The canonical URL pointing to another FHIR-defined SpecimenDefinition that is adhered to in whole or in part by this definition."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.derivedFromUri">
-			<path value="SpecimenDefinition.derivedFromUri"/>
-			<short value="Based on external definition"/>
-			<definition value="The URL pointing to an externally-defined type of specimen, guideline or other definition that is adhered to in whole or in part by this definition."/>
-			<requirements value="Specimen definitions may be refinements of other definitions."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.status">
-			<path value="SpecimenDefinition.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The current state of theSpecimenDefinition."/>
-			<comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="Not known why this is labelled a modifier"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Codes identifying the status of a SpecimenDefinition resource."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.experimental">
-			<path value="SpecimenDefinition.experimental"/>
-			<short value="If this SpecimenDefinition is not for real usage"/>
-			<definition value="A flag to indicate that this SpecimenDefinition is not authored for  genuine usage."/>
-			<comment value="Allows filtering of SpecimenDefinition that are appropriate for use vs. not."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.subject[x]">
-			<path value="SpecimenDefinition.subject[x]"/>
-			<short value="Type of subject for specimen collection"/>
-			<definition value="A code or group definition that describes the intended subject  from which this kind of specimen is to be collected."/>
-			<comment value="Examples: person, animal, device, water &#x2026;."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.date">
-			<path value="SpecimenDefinition.date"/>
-			<short value="Date status first applied"/>
-			<definition value="For draft definitions, indicates the date of initial creation. For active definitions, represents the date of activation. For withdrawn definitions, indicates the date of withdrawal."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="SpecimenDefinition.publisher"/>
-			<short value="The name of the individual or organization that published the SpecimenDefinition"/>
-			<definition value="Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact."/>
-			<requirements value="Usually an organization, but may be an individual. The publisher (or steward) of the SpecimenDefinition is the organization or individual primarily responsible for the maintenance and upkeep of the SpecimenDefinition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the SpecimenDefinition. This item SHOULD be populated unless the information is available from context."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type> 
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.contact">
-			<path value="SpecimenDefinition.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="SpecimenDefinition.description"/>
-			<short value="Natural language description of the SpecimenDefinition"/>
-			<definition value="A free text natural language description of the SpecimenDefinition from the consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.useContext">
-			<path value="SpecimenDefinition.useContext"/>
-			<short value="Content intends to support these contexts"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of specimen definitions."/>
-			<comment value="When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.jurisdiction">
-			<path value="SpecimenDefinition.jurisdiction"/>
-			<short value="Intended jurisdiction for this SpecimenDefinition (if applicable)"/>
-			<definition value="A jurisdiction in which the SpecimenDefinition is intended to be used."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="SpecimenDefinition.purpose"/>
-			<short value="Why this SpecimenDefinition is defined"/>
-			<definition value="Explains why this SpecimeDefinition is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the SpecimenDefinition. Rather it is for traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this SpecimenDefinition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="SpecimenDefinition.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition."/>
-			<requirements value="Consumers of the SpecimenDefinition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
-			<alias value="License"/>
-			<alias value="Restrictions"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.approvalDate">
-			<path value="SpecimenDefinition.approvalDate"/>
-			<short value="When SpecimenDefinition was approved by publisher"/>
-			<definition value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The date may be more recent than the approval date because of minor changes / editorial corrections."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.lastReviewDate">
-			<path value="SpecimenDefinition.lastReviewDate"/>
-			<short value="The date on which the asset content was last reviewed"/>
-			<definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn&#39;t change the original approval date."/>
-			<comment value="If specified, this is usually after the approval date."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.effectivePeriod">
-			<path value="SpecimenDefinition.effectivePeriod"/>
-			<short value="The effective date range for the SpecimenDefinition"/>
-			<definition value="The period during which the SpecimenDefinition content was or is planned to be effective."/>
-			<comment value="The effective period for a SpecimenDefinition determines when the content is applicable for usage and is independent of publication and review dates."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-			<isSummary value="true"/>
-		</element>
-		<element id="SpecimenDefinition.typeCollected">
-			<path value="SpecimenDefinition.typeCollected"/>
-			<short value="Kind of material to collect"/>
-			<definition value="The kind of material to be collected."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="CollectedSpecimenType"/>
-				</extension>
-				<strength value="example"/>
-				<description value="The type of the specimen to be collected."/>
-				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-6"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.patientPreparation">
-			<path value="SpecimenDefinition.patientPreparation"/>
-			<short value="Patient preparation for collection"/>
-			<definition value="Preparation of the patient for specimen collection."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PreparePatient"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="Checks on the patient prior specimen collection."/>
-				</extension>
-				<strength value="example"/>
-				<description value="SCT descendants of 703763000 |Precondition value (qualifier value)|"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/prepare-patient-prior-specimen-collection"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM1-37"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.timeAspect">
-			<path value="SpecimenDefinition.timeAspect"/>
-			<short value="Time aspect for collection"/>
-			<definition value="Time aspect of specimen collection (duration or offset)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueString value="24 hour, 20&#39; post charge"/>
-			</example>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM1-43, OM1-44"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.collection">
-			<path value="SpecimenDefinition.collection"/>
-			<short value="Specimen collection procedure"/>
-			<definition value="The action to be performed for collecting the specimen."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="SpecimenCollection"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="The action to collect a type of specimen."/>
-				</extension>
-				<strength value="example"/>
-				<description value="SCT actions and procedures for specimen collection"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-collection"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested">
-			<path value="SpecimenDefinition.typeTested"/>
-			<short value="Specimen in container intended for testing by lab"/>
-			<definition value="Specimen conditioned in a container as expected by the testing laboratory."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.isDerived">
-			<path value="SpecimenDefinition.typeTested.isDerived"/>
-			<short value="Primary or secondary specimen"/>
-			<definition value="Primary of secondary specimen."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueBoolean value="false"/>
-			</example>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-2"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.type">
-			<path value="SpecimenDefinition.typeTested.type"/>
-			<short value="Type of intended specimen"/>
-			<definition value="The kind of specimen conditioned for testing expected by lab."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="IntendedSpecimenType"/>
-				</extension>
-				<strength value="example"/>
-				<description value="The type of specimen conditioned in a container for lab testing."/>
-				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.preference">
-			<path value="SpecimenDefinition.typeTested.preference"/>
-			<short value="preferred | alternate"/>
-			<definition value="The preference for this type of conditioned specimen."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueCode value="preferred, alternate"/>
-			</example>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="SpecimenContainedPreference"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Degree of preference of a type of conditioned specimen."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-contained-preference"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-16"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container">
-			<path value="SpecimenDefinition.typeTested.container"/>
-			<short value="The specimen&#39;s container"/>
-			<definition value="The specimen&#39;s container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.material">
-			<path value="SpecimenDefinition.typeTested.container.material"/>
-			<short value="The material type used for the container"/>
-			<definition value="The type of material of the container."/>
-			<comment value="Examples: glass, plastic, metal."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerMaterial"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="Types of material for specimen containers."/>
-				</extension>
-				<strength value="example"/>
-				<description value="SCT 32039001 |Glass|, 61088005 |Plastic|, 425620007 |Metal|"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/container-material"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.type">
-			<path value="SpecimenDefinition.typeTested.container.type"/>
-			<short value="Kind of container associated with the kind of specimen"/>
-			<definition value="The type of container used to contain this kind of specimen."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-					<valueString value="Type of specimen container."/>
-				</extension>
-				<strength value="example"/>
-				<description value="SCT descendants of 706041008 |Device for body fluid and tissue collection/transfer/processing (physical object)|"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.cap">
-			<path value="SpecimenDefinition.typeTested.container.cap"/>
-			<short value="Color of container cap"/>
-			<definition value="Color of container cap."/>
-			<requirements value="From ISO 6710-2017 Table F.1 Recommended colour codes."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerCap"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Color of the container cap."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/container-cap"/>
-			</binding>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.description">
-			<path value="SpecimenDefinition.typeTested.container.description"/>
-			<short value="The description of the kind of container"/>
-			<definition value="The textual description of the kind of container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueString value="Blue top tube with citrate"/>
-			</example>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-3"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.capacity">
-			<path value="SpecimenDefinition.typeTested.container.capacity"/>
-			<short value="The capacity of this kind of container"/>
-			<definition value="The capacity (volume or other measure) of this kind of container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Quantity"/>
-				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-4, OM4-5"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.minimumVolume[x]">
-			<path value="SpecimenDefinition.typeTested.container.minimumVolume[x]"/>
-			<short value="Minimum volume"/>
-			<definition value="The minimum volume to be conditioned in the container."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Quantity"/>
-				<profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
-			</type>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-11"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.additive">
-			<path value="SpecimenDefinition.typeTested.container.additive"/>
-			<short value="Additive associated with container"/>
-			<definition value="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-7"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.additive.additive[x]">
-			<path value="SpecimenDefinition.typeTested.container.additive.additive[x]"/>
-			<short value="Additive associated with container"/>
-			<definition value="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ContainerAdditive"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Substance added to specimen container."/>
-				<valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-7"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.container.preparation">
-			<path value="SpecimenDefinition.typeTested.container.preparation"/>
-			<short value="Special processing applied to the container for this specimen type"/>
-			<definition value="Special processing that should be applied to the container for this kind of specimen."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-8"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.requirement">
-			<path value="SpecimenDefinition.typeTested.requirement"/>
-			<short value="Requirements for specimen delivery and special handling"/>
-			<definition value="Requirements for delivery and special handling of this kind of conditioned specimen."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-12"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.retentionTime">
-			<path value="SpecimenDefinition.typeTested.retentionTime"/>
-			<short value="The usual time for retaining this kind of specimen"/>
-			<definition value="The usual time that a specimen of this kind is retained after the ordered tests are completed, for the purpose of additional testing."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Duration"/>
-			</type>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-14"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.singleUse">
-			<path value="SpecimenDefinition.typeTested.singleUse"/>
-			<short value="Specimen for single use only"/>
-			<definition value="Specimen can be used by only one test or panel if the value is &quot;true&quot;."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.rejectionCriterion">
-			<path value="SpecimenDefinition.typeTested.rejectionCriterion"/>
-			<short value="Criterion specified for specimen rejection"/>
-			<definition value="Criterion for rejection of the specimen in its container by the laboratory."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="RejectionCriterion"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Criterion for rejection of the specimen by laboratory."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/rejection-criteria"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM1-39"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.handling">
-			<path value="SpecimenDefinition.typeTested.handling"/>
-			<short value="Specimen handling before testing"/>
-			<definition value="Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.handling.temperatureQualifier">
-			<path value="SpecimenDefinition.typeTested.handling.temperatureQualifier"/>
-			<short value="Qualifies the interval of temperature"/>
-			<definition value="It qualifies the interval of temperature, which characterizes an occurrence of handling. Conditions that are not related to temperature may be handled in the instruction element."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="HandlingConditionSet"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Set of handling instructions prior testing of the specimen."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/handling-condition"/>
-			</binding>
-			<mapping>
-				<identity value="v2"/>
-				<map value="OM4-15"/>
-			</mapping>
-		</element>
-		<element id="SpecimenDefinition.typeTested.handling.temperatureRange">
-			<path value="SpecimenDefinition.typeTested.handling.temperatureRange"/>
-			<short value="Temperature range for these handling instructions"/>
-			<definition value="The temperature interval for this set of handling instructions."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Range"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.handling.maxDuration">
-			<path value="SpecimenDefinition.typeTested.handling.maxDuration"/>
-			<short value="Maximum preservation time"/>
-			<definition value="The maximum time interval of preservation of the specimen with these conditions."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Duration"/>
-			</type>
-		</element>
-		<element id="SpecimenDefinition.typeTested.handling.instruction">
-			<path value="SpecimenDefinition.typeTested.handling.instruction"/>
-			<short value="Preservation instruction"/>
-			<definition value="Additional textual instructions for the preservation or transport of the specimen. For instance, &#39;Protect from light exposure&#39;."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<example>
-				<label value="General"/>
-				<valueString value="freeze within 4 hours"/>
-			</example>
-		</element>
-		<element id="SpecimenDefinition.typeTested.testingDestination">
-			<path value="SpecimenDefinition.typeTested.testingDestination"/>
-			<short value="Where the specimen will be tested"/>
-			<definition value="Where the specimen will be tested: e.g., lab, sector, device or any combination of these."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="TestingDestination"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes specifying where the specimen will be tested."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
-			</binding>
-		</element>
-	</differential>
+  <version value="5.0.0"/>
+  <name value="SpecimenDefinition"/>
+  <title value="SpecimenDefinition"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A kind of specimen with associated set of requirements."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="SpecimenDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="SpecimenDefinition">
+      <path value="SpecimenDefinition"/>
+      <short value="Kind of specimen"/>
+      <definition value="A kind of specimen with associated set of requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Role[classCode=SPEC]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="clinical.diagnostics"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.url">
+      <path value="SpecimenDefinition.url"/>
+      <short value="Logical canonical URL to reference this SpecimenDefinition (globally unique)"/>
+      <definition value="An absolute URL that is used to identify this SpecimenDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions."/>
+      <comment value="Can be a urn:uuid: or a urn:oid:, but real http: addresses are preferred. This is the URI that will be used when making canonical references to this resource."/>
+      <requirements value="Allows the SpecimenDefinition to be referenced by a single globally unique identifier."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.identifier">
+      <path value="SpecimenDefinition.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="A business identifier assigned to this SpecimenDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.version">
+      <path value="SpecimenDefinition.version"/>
+      <short value="Business version of the SpecimenDefinition"/>
+      <definition value="The identifier that is used to identify this version of the SpecimenDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the SpecimenDefinition author and is not expected to be globally unique."/>
+      <comment value="There may be multiple different instances of a SpecimenDefinition that have the same identifier but different versions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.title"/>
+      <short value="Name for this SpecimenDefinition (Human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the SpecimenDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.derivedFromCanonical">
+      <path value="SpecimenDefinition.derivedFromCanonical"/>
+      <short value="Based on FHIR definition of another SpecimenDefinition"/>
+      <definition value="The canonical URL pointing to another FHIR-defined SpecimenDefinition that is adhered to in whole or in part by this definition."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SpecimenDefinition"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.derivedFromUri">
+      <path value="SpecimenDefinition.derivedFromUri"/>
+      <short value="Based on external definition"/>
+      <definition value="The URL pointing to an externally-defined type of specimen, guideline or other definition that is adhered to in whole or in part by this definition."/>
+      <requirements value="Specimen definitions may be refinements of other definitions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.status">
+      <path value="SpecimenDefinition.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The current state of theSpecimenDefinition."/>
+      <comment value="A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation&#xA;Unknown does not represent &quot;other&quot; - one of the defined statuses must apply. Unknown is used when the authoring system is not sure what the current status is."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Not known why this is labelled a modifier"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Codes identifying the status of a SpecimenDefinition resource."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.experimental">
+      <path value="SpecimenDefinition.experimental"/>
+      <short value="If this SpecimenDefinition is not for real usage"/>
+      <definition value="A flag to indicate that this SpecimenDefinition is not authored for  genuine usage."/>
+      <comment value="Allows filtering of SpecimenDefinition that are appropriate for use vs. not."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.subject[x]">
+      <path value="SpecimenDefinition.subject[x]"/>
+      <short value="Type of subject for specimen collection"/>
+      <definition value="A code or group definition that describes the intended subject  from which this kind of specimen is to be collected."/>
+      <comment value="Examples: person, animal, device, water …."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.date">
+      <path value="SpecimenDefinition.date"/>
+      <short value="Date status first applied"/>
+      <definition value="For draft definitions, indicates the date of initial creation. For active definitions, represents the date of activation. For withdrawn definitions, indicates the date of withdrawal."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.publisher"/>
+      <short value="The name of the individual or organization that published the SpecimenDefinition"/>
+      <definition value="Helps establish the &quot;authority/credibility&quot; of the SpecimenDefinition. May also allow for contact."/>
+      <requirements value="Usually an organization, but may be an individual. The publisher (or steward) of the SpecimenDefinition is the organization or individual primarily responsible for the maintenance and upkeep of the SpecimenDefinition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the SpecimenDefinition. This item SHOULD be populated unless the information is available from context."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.contact">
+      <path value="SpecimenDefinition.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.description"/>
+      <short value="Natural language description of the SpecimenDefinition"/>
+      <definition value="A free text natural language description of the SpecimenDefinition from the consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.useContext">
+      <path value="SpecimenDefinition.useContext"/>
+      <short value="Content intends to support these contexts"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of specimen definitions."/>
+      <comment value="When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.jurisdiction">
+      <path value="SpecimenDefinition.jurisdiction"/>
+      <short value="Intended jurisdiction for this SpecimenDefinition (if applicable)"/>
+      <definition value="A jurisdiction in which the SpecimenDefinition is intended to be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Codes for country, country subdivision and region for indicating where a resource is intended to be used."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.purpose"/>
+      <short value="Why this SpecimenDefinition is defined"/>
+      <definition value="Explains why this SpecimeDefinition is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the SpecimenDefinition. Rather it is for traceability of ''why'' the resource is either needed or ''why'' it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this SpecimenDefinition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="SpecimenDefinition.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="Copyright statement relating to the SpecimenDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the SpecimenDefinition."/>
+      <requirements value="Consumers of the SpecimenDefinition must be able to determine any legal restrictions on the use of the artifact and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.approvalDate">
+      <path value="SpecimenDefinition.approvalDate"/>
+      <short value="When SpecimenDefinition was approved by publisher"/>
+      <definition value="The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The date may be more recent than the approval date because of minor changes / editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.lastReviewDate">
+      <path value="SpecimenDefinition.lastReviewDate"/>
+      <short value="The date on which the asset content was last reviewed"/>
+      <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
+      <comment value="If specified, this is usually after the approval date."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.effectivePeriod">
+      <path value="SpecimenDefinition.effectivePeriod"/>
+      <short value="The effective date range for the SpecimenDefinition"/>
+      <definition value="The period during which the SpecimenDefinition content was or is planned to be effective."/>
+      <comment value="The effective period for a SpecimenDefinition determines when the content is applicable for usage and is independent of publication and review dates."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="SpecimenDefinition.typeCollected">
+      <path value="SpecimenDefinition.typeCollected"/>
+      <short value="Kind of material to collect"/>
+      <definition value="The kind of material to be collected."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="CollectedSpecimenType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of the specimen to be collected."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-6"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.patientPreparation">
+      <path value="SpecimenDefinition.patientPreparation"/>
+      <short value="Patient preparation for collection"/>
+      <definition value="Preparation of the patient for specimen collection."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PreparePatient"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Checks on the patient prior specimen collection."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SCT descendants of 703763000 |Precondition value (qualifier value)|"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/prepare-patient-prior-specimen-collection"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-37"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.timeAspect">
+      <path value="SpecimenDefinition.timeAspect"/>
+      <short value="Time aspect for collection"/>
+      <definition value="Time aspect of specimen collection (duration or offset)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueString value="24 hour, 20' post charge"/>
+      </example>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-43, OM1-44"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.collection">
+      <path value="SpecimenDefinition.collection"/>
+      <short value="Specimen collection procedure"/>
+      <definition value="The action to be performed for collecting the specimen."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenCollection"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The action to collect a type of specimen."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SCT actions and procedures for specimen collection"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-collection"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.typeTested">
+      <path value="SpecimenDefinition.typeTested"/>
+      <short value="Specimen in container intended for testing by lab"/>
+      <definition value="Specimen conditioned in a container as expected by the testing laboratory."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.isDerived">
+      <path value="SpecimenDefinition.typeTested.isDerived"/>
+      <short value="Primary or secondary specimen"/>
+      <definition value="Primary of secondary specimen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueBoolean value="false"/>
+      </example>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-2"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.type">
+      <path value="SpecimenDefinition.typeTested.type"/>
+      <short value="Type of intended specimen"/>
+      <definition value="The kind of specimen conditioned for testing expected by lab."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="IntendedSpecimenType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The type of specimen conditioned in a container for lab testing."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0487"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.typeTested.preference">
+      <path value="SpecimenDefinition.typeTested.preference"/>
+      <short value="preferred | alternate"/>
+      <definition value="The preference for this type of conditioned specimen."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueCode value="preferred, alternate"/>
+      </example>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SpecimenContainedPreference"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Degree of preference of a type of conditioned specimen."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-contained-preference"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-16"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container">
+      <path value="SpecimenDefinition.typeTested.container"/>
+      <short value="The specimen's container"/>
+      <definition value="The specimen's container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.material">
+      <path value="SpecimenDefinition.typeTested.container.material"/>
+      <short value="The material type used for the container"/>
+      <definition value="The type of material of the container."/>
+      <comment value="Examples: glass, plastic, metal."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContainerMaterial"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Types of material for specimen containers."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SCT 32039001 |Glass|, 61088005 |Plastic|, 425620007 |Metal|"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/container-material"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.type">
+      <path value="SpecimenDefinition.typeTested.container.type"/>
+      <short value="Kind of container associated with the kind of specimen"/>
+      <definition value="The type of container used to contain this kind of specimen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContainerType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="Type of specimen container."/>
+        </extension>
+        <strength value="example"/>
+        <description value="SCT descendants of 706041008 |Device for body fluid and tissue collection/transfer/processing (physical object)|"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/specimen-container-type"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.cap">
+      <path value="SpecimenDefinition.typeTested.container.cap"/>
+      <short value="Color of container cap"/>
+      <definition value="Color of container cap."/>
+      <requirements value="From ISO 6710-2017 Table F.1 Recommended colour codes."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContainerCap"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Color of the container cap."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/container-cap"/>
+      </binding>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.description">
+      <path value="SpecimenDefinition.typeTested.container.description"/>
+      <short value="The description of the kind of container"/>
+      <definition value="The textual description of the kind of container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueString value="Blue top tube with citrate"/>
+      </example>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-3"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.capacity">
+      <path value="SpecimenDefinition.typeTested.container.capacity"/>
+      <short value="The capacity of this kind of container"/>
+      <definition value="The capacity (volume or other measure) of this kind of container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-4, OM4-5"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.minimumVolume[x]">
+      <path value="SpecimenDefinition.typeTested.container.minimumVolume[x]"/>
+      <short value="Minimum volume"/>
+      <definition value="The minimum volume to be conditioned in the container."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-11"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.additive">
+      <path value="SpecimenDefinition.typeTested.container.additive"/>
+      <short value="Additive associated with container"/>
+      <definition value="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-7"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.additive.additive[x]">
+      <path value="SpecimenDefinition.typeTested.container.additive.additive[x]"/>
+      <short value="Additive associated with container"/>
+      <definition value="Substance introduced in the kind of container to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ContainerAdditive"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Substance added to specimen container."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v2-0371"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-7"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.container.preparation">
+      <path value="SpecimenDefinition.typeTested.container.preparation"/>
+      <short value="Special processing applied to the container for this specimen type"/>
+      <definition value="Special processing that should be applied to the container for this kind of specimen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-8"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.requirement">
+      <path value="SpecimenDefinition.typeTested.requirement"/>
+      <short value="Requirements for specimen delivery and special handling"/>
+      <definition value="Requirements for delivery and special handling of this kind of conditioned specimen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-12"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.retentionTime">
+      <path value="SpecimenDefinition.typeTested.retentionTime"/>
+      <short value="The usual time for retaining this kind of specimen"/>
+      <definition value="The usual time that a specimen of this kind is retained after the ordered tests are completed, for the purpose of additional testing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-14"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.singleUse">
+      <path value="SpecimenDefinition.typeTested.singleUse"/>
+      <short value="Specimen for single use only"/>
+      <definition value="Specimen can be used by only one test or panel if the value is &quot;true&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.rejectionCriterion">
+      <path value="SpecimenDefinition.typeTested.rejectionCriterion"/>
+      <short value="Criterion specified for specimen rejection"/>
+      <definition value="Criterion for rejection of the specimen in its container by the laboratory."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="RejectionCriterion"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Criterion for rejection of the specimen by laboratory."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/rejection-criteria"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM1-39"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.handling">
+      <path value="SpecimenDefinition.typeTested.handling"/>
+      <short value="Specimen handling before testing"/>
+      <definition value="Set of instructions for preservation/transport of the specimen at a defined temperature interval, prior the testing process."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.handling.temperatureQualifier">
+      <path value="SpecimenDefinition.typeTested.handling.temperatureQualifier"/>
+      <short value="Qualifies the interval of temperature"/>
+      <definition value="It qualifies the interval of temperature, which characterizes an occurrence of handling. Conditions that are not related to temperature may be handled in the instruction element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="HandlingConditionSet"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Set of handling instructions prior testing of the specimen."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/handling-condition"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="OM4-15"/>
+      </mapping>
+    </element>
+    <element id="SpecimenDefinition.typeTested.handling.temperatureRange">
+      <path value="SpecimenDefinition.typeTested.handling.temperatureRange"/>
+      <short value="Temperature range for these handling instructions"/>
+      <definition value="The temperature interval for this set of handling instructions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.handling.maxDuration">
+      <path value="SpecimenDefinition.typeTested.handling.maxDuration"/>
+      <short value="Maximum preservation time"/>
+      <definition value="The maximum time interval of preservation of the specimen with these conditions."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+    </element>
+    <element id="SpecimenDefinition.typeTested.handling.instruction">
+      <path value="SpecimenDefinition.typeTested.handling.instruction"/>
+      <short value="Preservation instruction"/>
+      <definition value="Additional textual instructions for the preservation or transport of the specimen. For instance, 'Protect from light exposure'."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <example>
+        <label value="General"/>
+        <valueString value="freeze within 4 hours"/>
+      </example>
+    </element>
+    <element id="SpecimenDefinition.typeTested.testingDestination">
+      <path value="SpecimenDefinition.typeTested.testingDestination"/>
+      <short value="Where the specimen will be tested"/>
+      <definition value="Where the specimen will be tested: e.g., lab, sector, device or any combination of these."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TestingDestination"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes specifying where the specimen will be tested."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
+      </binding>
+    </element>
+  </differential>
 </StructureDefinition>

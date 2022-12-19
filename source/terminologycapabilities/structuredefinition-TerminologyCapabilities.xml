@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="TerminologyCapabilities"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -32,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TerminologyCapabilities"/>
+  <title value="TerminologyCapabilities"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -85,20 +87,20 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
         <key value="tcp-3"/>
         <severity value="error"/>
         <human value="If kind = instance, implementation must be present and software may be present"/>
-        <expression value="(kind != &#39;instance&#39;) or implementation.exists()"/>
+        <expression value="(kind != 'instance') or implementation.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
         <key value="tcp-2"/>
         <severity value="error"/>
-				<human value="A Terminology Capability statement SHALL have at least one of description, software, or implementation element"/>
+        <human value="A Terminology Capability statement SHALL have at least one of description, software, or implementation element"/>
         <expression value="(description.count() + software.count() + implementation.count()) &gt; 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
@@ -106,23 +108,23 @@
         <key value="tcp-5"/>
         <severity value="error"/>
         <human value="If kind = requirements, implementation and software must be absent"/>
-        <expression value="(kind!=&#39;requirements&#39;) or (implementation.exists().not() and software.exists().not())"/>
+        <expression value="(kind!='requirements') or (implementation.exists().not() and software.exists().not())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
       <constraint>
         <key value="tcp-4"/>
         <severity value="error"/>
         <human value="If kind = capability, implementation must be absent, software must be present"/>
-        <expression value="(kind != &#39;capability&#39;) or (implementation.exists().not() and software.exists())"/>
-		<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-	  </constraint>
-	  <constraint>
-		<key value="tcp-6"/>
-		<severity value="error"/>
-		<human value="Each instance of the codeSystem element must represent a distinct code system."/>
-		<expression value="codeSystem.uri.isDistinct()"/>
-		<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-	  </constraint>
+        <expression value="(kind != 'capability') or (implementation.exists().not() and software.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+      </constraint>
+      <constraint>
+        <key value="tcp-6"/>
+        <severity value="error"/>
+        <human value="Each instance of the codeSystem element must represent a distinct code system."/>
+        <expression value="codeSystem.uri.isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
@@ -147,7 +149,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches(&#39;([^|#])*&#39;)"/>
+        <expression value="url.matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -208,9 +210,9 @@
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.title"/>
       <short value="Name for this terminology capabilities (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the terminology capabilities."/>
@@ -272,8 +274,8 @@
     <element id="TerminologyCapabilities.date">
       <path value="TerminologyCapabilities.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the terminology capabilities was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the terminology capabilities. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the terminology capabilities was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the terminology capabilities changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the terminology capabilities. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="1"/>
       <max value="1"/>
@@ -287,12 +289,12 @@
       </mapping>
     </element>
     <element id="TerminologyCapabilities.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the terminology capabilities."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the terminology capabilities."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the terminology capabilities is the organization or individual primarily responsible for the maintenance and upkeep of the terminology capabilities. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the terminology capabilities. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the terminology capabilities.  May also allow for contact."/>
       <min value="0"/>
@@ -319,13 +321,13 @@
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.description"/>
       <short value="Natural language description of the terminology capabilities"/>
-      <definition value="A free text natural language description of the terminology capabilities from a consumer&#39;s perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the terminology capabilities as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the terminology capabilities is presumed to be the predominant language in the place the terminology capabilities was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
+      <definition value="A free text natural language description of the terminology capabilities from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the terminology capabilities as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the terminology capabilities is presumed to be the predominant language in the place the terminology capabilities was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -369,13 +371,13 @@
       </binding>
     </element>
     <element id="TerminologyCapabilities.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.purpose"/>
       <short value="Why this terminology capabilities is defined"/>
       <definition value="Explanation of why this terminology capabilities is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the terminology capabilities. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this terminology capabilities."/>
+      <comment value="This element does not describe the usage of the terminology capabilities. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this terminology capabilities."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -391,9 +393,9 @@
       </mapping>
     </element>
     <element id="TerminologyCapabilities.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the terminology capabilities and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the terminology capabilities."/>
@@ -489,9 +491,9 @@
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.implementation.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="TerminologyCapabilities.implementation.description"/>
       <short value="Describes this specific instance"/>
       <definition value="Information about the specific installation that this terminology capability statement relates to."/>
@@ -545,21 +547,21 @@
         <expression value="version.count() &gt; 1 implies version.all(code.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
       </constraint>
-	  <constraint>
-		<key value="tcp-7"/>
-		<severity value="error"/>
-		<human value="Each version.code element must be distinct for a particular code system."/>
-		<expression value="version.code.isDistinct()"/>
-		<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-	  </constraint>
-	  <constraint>
-		<key value="tcp-8"/>
-		<severity value="error"/>
-		<human value="A codeSystem element instance may have at most one version.isDefault element with a value of 'true'."/>
-		<expression value="version.where(isDefault = true).count() &lt;= 1"/>
-		<source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
-	  </constraint>
-	</element>
+      <constraint>
+        <key value="tcp-7"/>
+        <severity value="error"/>
+        <human value="Each version.code element must be distinct for a particular code system."/>
+        <expression value="version.code.isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+      </constraint>
+      <constraint>
+        <key value="tcp-8"/>
+        <severity value="error"/>
+        <human value="A codeSystem element instance may have at most one version.isDefault element with a value of 'true'."/>
+        <expression value="version.where(isDefault = true).count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/TerminologyCapabilities"/>
+      </constraint>
+    </element>
     <element id="TerminologyCapabilities.codeSystem.uri">
       <path value="TerminologyCapabilities.codeSystem.uri"/>
       <short value="Canonical identifier for the code system, represented as a URI"/>

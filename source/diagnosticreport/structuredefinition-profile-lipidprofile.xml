@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="lipidprofile"/>
   <text>
     <status value="generated"/>
@@ -26,6 +28,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Example Lipid Profile"/>
+  <title value="Example Lipid Profile"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-05-12"/>
@@ -76,7 +79,7 @@
       <path value="DiagnosticReport.code"/>
       <short value="LOINC Code for Lipid Panel with LDL"/>
       <definition value="LOINC Code for Lipid Panel with LDL."/>
-      <comment value="LOINC code includes &#34;direct&#34; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
+      <comment value="LOINC code includes &quot;direct&quot; LDL - does this mean LDL derived by measuring VLDL by ultracentrifugation? This panel includes both measured and calculated LDL."/>
       <min value="1"/>
       <max value="1"/>
       <type>

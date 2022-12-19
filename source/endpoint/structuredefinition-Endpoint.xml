@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Endpoint"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Endpoint"/>
+  <title value="Endpoint"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -249,7 +252,7 @@
       <path value="Endpoint.period"/>
       <short value="Interval the endpoint is expected to be operational"/>
       <definition value="The interval during which the endpoint is expected to be operational."/>
-	  <comment value="Temporary downtimes or other short-term changes in availability would not be represented in this property."/>
+      <comment value="Temporary downtimes or other short-term changes in availability would not be represented in this property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -322,7 +325,7 @@
       <path value="Endpoint.address"/>
       <short value="The technical base address for connecting to this endpoint"/>
       <definition value="The uri that describes the actual end-point to connect to."/>
-      <comment value="For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)&#xA;&#xA;This address will be to the service base, without any parameters, or sub-services or resources tacked on.&#xA;&#xA;E.g. for a WADO-RS endpoint, the url should be &#34;https://pacs.hospital.org/wado-rs&#34;&#xA;&#xA;and not &#34;https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/...&#34;."/>
+      <comment value="For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)&#xA;&#xA;This address will be to the service base, without any parameters, or sub-services or resources tacked on.&#xA;&#xA;E.g. for a WADO-RS endpoint, the url should be &quot;https://pacs.hospital.org/wado-rs&quot;&#xA;&#xA;and not &quot;https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/...&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>

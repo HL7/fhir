@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/cited-artifact-abstract-type"/>
+      <system value="http://hl7.org/fhir/cited-artifact-abstract-type"/>
     </include>
   </compose>
 </ValueSet>

@@ -37,7 +37,7 @@
   <description value="State values for FHIR Subscriptions."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/subscription-status"/>
+      <system value="http://hl7.org/fhir/subscription-status"/>
     </include>
   </compose>
 </ValueSet>

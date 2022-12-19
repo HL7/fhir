@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+      <system value="http://hl7.org/fhir/certainty-type"/>
     </include>
   </compose>
 </ValueSet>

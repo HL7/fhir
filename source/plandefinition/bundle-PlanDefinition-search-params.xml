@@ -16,7 +16,7 @@
         <description value="What resource is being referenced"/>
         <code value="composed-of"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
+        <expression value="PlanDefinition.relatedArtifact.where(type='composed-of').resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -131,7 +131,7 @@
       <SearchParameter>
         <id value="PlanDefinition-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -159,7 +159,7 @@
         <description value="Activity or plan definitions used by plan definition"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.action.definition"/>
+        <expression value="PlanDefinition.action.definition.as(canonical) | PlanDefinition.action.definition.as(uri)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -178,7 +178,7 @@
         <description value="What resource is being referenced"/>
         <code value="depends-on"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.relatedArtifact.where(type=&#39;depends-on&#39;).resource | PlanDefinition.library"/>
+        <expression value="PlanDefinition.relatedArtifact.where(type='depends-on').resource | PlanDefinition.library"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +197,7 @@
         <description value="What resource is being referenced"/>
         <code value="derived-from"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <expression value="PlanDefinition.relatedArtifact.where(type='derived-from').resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -207,7 +207,7 @@
       <SearchParameter>
         <id value="PlanDefinition-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.description"/>
@@ -283,7 +283,7 @@
       <SearchParameter>
         <id value="PlanDefinition-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -311,7 +311,7 @@
         <description value="What resource is being referenced"/>
         <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <expression value="PlanDefinition.relatedArtifact.where(type='predecessor').resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -321,7 +321,7 @@
       <SearchParameter>
         <id value="PlanDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -340,7 +340,7 @@
       <SearchParameter>
         <id value="PlanDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -368,7 +368,7 @@
         <description value="What resource is being referenced"/>
         <code value="successor"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
+        <expression value="PlanDefinition.relatedArtifact.where(type='successor').resource"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -378,7 +378,7 @@
       <SearchParameter>
         <id value="PlanDefinition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.title"/>
@@ -435,7 +435,7 @@
       <SearchParameter>
         <id value="PlanDefinition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -454,7 +454,7 @@
       <SearchParameter>
         <id value="PlanDefinition-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>

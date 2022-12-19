@@ -50,9 +50,7 @@
       <display value="Peter Chalmers"/>
     </resource>
   </fixture>
-  <profile id="bundle-profile">
-    <reference value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
-  </profile>
+  <profile id="bundle-profile" value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
   <variable>
     <name value="PatientCreateLocation"/>
     <headerField value="Location"/>

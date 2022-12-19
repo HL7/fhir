@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-compose-include-valueSetTitle"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -6,13 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-compose-include-valueSetTitle"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1185"/>
   </identifier>
-  <name value="valueset-compose-include-valueSetTitle"/>
   <version value="5.0.0"/>
+  <name value="VSIncludeVSTitle"/>
+  <title value="ValueSet Include ValueSet Title"/>
   <status value="draft"/>
   <publisher value="HL7"/>
   <description value="Human readable name for the included Value Set."/>
@@ -50,7 +56,7 @@
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
-	  <min value="1"/>
+      <min value="1"/>
       <type>
         <code value="string"/>
       </type>

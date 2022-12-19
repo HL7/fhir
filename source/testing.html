@@ -304,7 +304,7 @@ See <a href="valueset-assert-response-code-types.html">response codes</a> for co
 </action>
 </xmp></div>
 <p>The <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> element is pointed to the <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a> value of the search operation. If no <a href="testscript-definitions.html#TestScript.setup.action.assert.sourceId">sourceId</a> is specified, then test engines will use the response of the last operation in the test script even if <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a> was not specified in the operation.</p>
-<p>The <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> element holds an XPath or JSONPath expression against the response body contents.</p>
+<p>The <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> element holds a FHIRPath expression against the response body contents.</p>
 </li>
 <li>
 <p>Compare the elements in response to elements in another fixture that is either dynamically set by <a href="testscript-definitions.html#TestScript.setup.action.operation.responseId">responseId</a> or defined statically by the <a href="testscript-definitions.html#TestScript.fixture">fixture</a> element at the top of the script:</p>

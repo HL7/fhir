@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Basic"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Basic"/>
+  <title value="Basic"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -121,7 +124,7 @@
           <valueString value="Codes for identifying types of resources not yet defined by FHIR."/>
         </extension>
         <strength value="example"/>
-        <description value="HL7-maintained set of codes for &#34;Basic&#34; resources"/>
+        <description value="HL7-maintained set of codes for &quot;Basic&quot; resources"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/basic-resource-type"/>
       </binding>
       <mapping>
@@ -136,7 +139,7 @@
     <element id="Basic.subject">
       <path value="Basic.subject"/>
       <short value="Identifies the focus of this resource"/>
-      <definition value="Identifies the patient, practitioner, device or any other resource that is the &#34;focus&#34; of this resource."/>
+      <definition value="Identifies the patient, practitioner, device or any other resource that is the &quot;focus&quot; of this resource."/>
       <comment value="Optional as not all potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension."/>
       <requirements value="Needed for partitioning the resource by Patient."/>
       <min value="0"/>

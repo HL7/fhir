@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Device"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -29,6 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Device"/>
+  <title value="Device"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -131,7 +134,7 @@
     <element id="Device.displayName">
       <path value="Device.displayName"/>
       <short value="The name used to display by default when the device is referenced"/>
-      <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.deviceName, or may be another simple name."/>
+      <definition value="The name used to display by default when the device is referenced. Based on intent of use by the resource creator, this may reflect one of the names in Device.name, or may be another simple name."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -337,7 +340,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/> 
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -370,15 +373,6 @@
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
-<!--      <mapping>
-        <identity value="rim"/>
-        <map value=".lotNumberText"/>
-      </mapping>
-      <mapping>
-        <identity value="udi"/>
-        <map value="The lot or batch number within which a device was manufactured - which is a component of the production identifier (PI), a conditional, variable portion of a UDI."/>
-      </mapping>
--->
     </element>
     <element id="Device.manufacturer">
       <path value="Device.manufacturer"/>
@@ -499,11 +493,12 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-    <element id="Device.deviceName">
+
+    <element id="Device.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
       </extension>
-      <path value="Device.deviceName"/>
+      <path value="Device.name"/>
       <short value="The name or names of the device as known to the manufacturer and/or patient"/>
       <definition value="This represents the manufacturer's name of the device as provided by the device, from a UDI label, or by a person describing the Device.  This typically would be used when a person provides the name(s) or when the device represents one of the names available from DeviceDefinition."/>
       <min value="0"/>
@@ -516,29 +511,31 @@
         <map value="Participant.name"/>
       </mapping>
     </element>
-    <element id="Device.deviceName.name">
-      <path value="Device.deviceName.name"/>
-      <short value="The name that identifies the device"/>
-      <definition value="The name that identifies the device."/>
+    <element id="Device.name.value">
+      <path value="Device.name.value"/>
+      <short value="The term that names the device"/>
+      <definition value="The actual name that identifies the device."/>
       <alias value="Σ"/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
-    <element id="Device.deviceName.type">
+    <element id="Device.name.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="W5 note what = what.productidentification."/>
       </extension>
-      <path value="Device.deviceName.type"/>
+      <path value="Device.name.type"/>
       <short value="registered-name | user-friendly-name | patient-reported-name"/>
-      <definition value="The type of deviceName. Note that ManufactureDeviceName means that the name is the name as given by the manufacturer, not the name of the manufacturer.&#xA;RegisteredName | UserFriendlyName | PatientReportedName."/>
+      <definition value="Indicates the kind of name. RegisteredName | UserFriendlyName | PatientReportedName."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
@@ -555,6 +552,37 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=MANU].code"/>
       </mapping>
+    </element>
+    <element id="Device.name.display">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="W5 note what = what.productidentification."/>
+      </extension>
+      <path value="Device.name.display"/>
+      <short value="The preferred device name"/>
+      <definition value="Indicates the default or preferred name to be displayed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="statusCode"/>
+      </mapping>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
     </element>
     <element id="Device.modelNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -710,7 +738,6 @@
         <code value="string"/>
       </type>
     </element>
-
     <element id="Device.specialization">
       <path value="Device.specialization"/>
       <short value="The standard(s) the device supports"/>
@@ -740,16 +767,16 @@
       </binding>
     </element>
     <element id="Device.specialization.version">
-        <path value="Device.specialization.version"/>
-        <short value="Standard version used"/>
-        <definition value="The version of the standard that is used to operate and communicate."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="string"/>
-        </type>
-      </element>
-      <element id="Device.specialization.category">
+      <path value="Device.specialization.version"/>
+      <short value="Standard version used"/>
+      <definition value="The version of the standard that is used to operate and communicate."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Device.specialization.category">
       <path value="Device.specialization.category"/>
       <short value="communication | performance | measurement"/>
       <definition value="Kind of standards that the device adheres to, e.g., communication, performance or communication."/>
@@ -767,7 +794,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
       </binding>
     </element>
-    
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>
@@ -828,31 +854,6 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <!-- <element id="Device.subject">
-      <path value="Device.subject"/>
-      <short value="Patient to whom Device is affixed"/>
-      <definition value="Patient information, if the device is affixed to, or associated to a patient for their specific use, irrespective of the procedure, use, observation, or other activity that the device is involved in. The use of Patient is also appropriate for the use of devices outside a healthcare setting, such as a fitness tracker."/>
-      <requirements value="If the device is implanted, or otherwise in use by the patient (e.g., wheelchair, oxygen tank), without further describing its specific use, then the device needs to be associated to the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-      </type>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.subject"/>
-      </mapping>
-    </element> -->
     <element id="Device.operation">
       <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
@@ -879,7 +880,7 @@
         <strength value="example"/>
         <description value="Operational status of a device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operationstatus"/>
-      </binding>      
+      </binding>
     </element>
     <element id="Device.operation.statusReason">
       <path value="Device.operation.statusReason"/>
@@ -959,7 +960,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-       <isSummary value="true"/>
+      <isSummary value="true"/>
     </element>
     <element id="Device.association.status">
       <path value="Device.association.status"/>
@@ -978,7 +979,7 @@
         <strength value="example"/>
         <description value="Association status of a device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-association-status"/>
-      </binding>      
+      </binding>
     </element>
     <element id="Device.association.statusReason">
       <path value="Device.association.statusReason"/>
@@ -1017,7 +1018,6 @@
         <map value="FiveWs.where[x]"/>
       </mapping>
     </element>
-    
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
@@ -1056,7 +1056,6 @@
         <map value=".scopedRole[typeCode=CON].player"/>
       </mapping>
     </element>
-
     <element id="Device.distributor">
       <path value="The distributor of the model of device"/>
       <definition value="The distributor of the model of device, other than the manufacturer."/>
@@ -1073,30 +1072,28 @@
         <identity value="rim"/>
         <map value=".playedRole[typeCode=DIST].scoper.name"/>
       </mapping>
-      </element>
-      <element id="Device.distributor.name">
-        <path value="Device.distributor.name"/>
-        <short value="The name of the distributor"/>
-        <definition value="The human-readble name of the device distributor."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="string"/>
-        </type>
-      </element>
-      <element id="Device.distributor.organizationReference">
-        <path value="Device.distributor.organizationReference"/>
-        <short value="The organization of the device distributor"/>
-        <definition value="The organization that the distributor of the device belongs to."/>
-        <min value="0"/>
-        <max value="1"/>
-        <type>
-          <code value="Reference"/>
-          <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
-        </type>
-      </element>
-    
-
+    </element>
+    <element id="Device.distributor.name">
+      <path value="Device.distributor.name"/>
+      <short value="The name of the distributor"/>
+      <definition value="The human-readble name of the device distributor."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Device.distributor.organizationReference">
+      <path value="Device.distributor.organizationReference"/>
+      <short value="The organization of the device distributor"/>
+      <definition value="The organization that the distributor of the device belongs to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
     <element id="Device.location">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="#7418."/>
@@ -1165,36 +1162,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
     </element>
-    <!-- <element id="Device.gateway.relation">
-      <path value="Device.gateway.relation"/>
-      <short value="The type indicates the relationship of the related device to the device instance"/>
-      <definition value="The type indicates the relationship of the related device to the device instance."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceRelationType"/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="The type of relation between this and the linked device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-relationtype"/>
-      </binding>
-    </element>
-    <element id="Device.gateway.relatedDevice">
-      <path value="Device.gateway.relatedDevice"/>
-      <short value="Reference to the gateway device"/>
-      <definition value="A reference to the gateway device."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-    </element> -->
-
     <element id="Device.note">
       <path value="Device.note"/>
       <short value="Device notes and comments"/>
@@ -1214,15 +1181,11 @@
       <short value="Safety Characteristics of Device"/>
       <definition value="Provides additional safety characteristics about a medical device.  For example devices containing latex."/>
       <min value="0"/>
-      <max value="*"/> 
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="NA"/>
-      </mapping>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="Safety"/>
@@ -1230,6 +1193,10 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-safety"/>
       </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="NA"/>
+      </mapping>
     </element>
     <element id="Device.parent">
       <path value="Device.parent"/>

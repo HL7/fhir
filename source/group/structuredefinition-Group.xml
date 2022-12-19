@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Group"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Group"/>
+  <title value="Group"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -78,7 +81,7 @@
       <max value="*"/>
       <mapping>
         <identity value="rim"/>
-        <map value="Entity[determinerCode=&#34;GRP&#34; or determinerCode=&#34;GRP_KIND&#34;]"/>
+        <map value="Entity[determinerCode=&quot;GRP&quot; or determinerCode=&quot;GRP_KIND&quot;]"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -106,7 +109,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(./id[displayable=&#34;true&#34; and scope=&#34;OBJ&#34;])"/>
+        <map value="unique(./id[displayable=&quot;true&quot; and scope=&quot;OBJ&quot;])"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -124,6 +127,8 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="This resource is generally assumed to be active if no value is provided for the active element"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that a record should not be treated as valid"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -140,7 +145,7 @@
     </element>
     <element id="Group.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Do we need &#34;mixed&#34; groups?"/>
+        <valueString value="Do we need &quot;mixed&quot; groups?"/>
       </extension>
       <path value="Group.type"/>
       <short value="person | animal | practitioner | device | careteam | healthcareservice | location | organization | relatedperson | specimen"/>
@@ -167,14 +172,14 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="person: ./classCode=&#34;PSN&#34;  animal: ./classCode=&#34;ANM&#34;  device: ./classCode=&#34;DEV&#34;  medication: ./classCode=&#34;MMAT&#34; and ./playedRole[isNormalRole() and classCode=&#34;THER&#34;]  food: ./classCode=&#34;FOOD&#34;"/>
+        <map value="person: ./classCode=&quot;PSN&quot;  animal: ./classCode=&quot;ANM&quot;  device: ./classCode=&quot;DEV&quot;  medication: ./classCode=&quot;MMAT&quot; and ./playedRole[isNormalRole() and classCode=&quot;THER&quot;]  food: ./classCode=&quot;FOOD&quot;"/>
       </mapping>
     </element>
     <element id="Group.membership">
       <path value="Group.membership"/>
       <short value="definitional | enumerated"/>
       <definition value="Basis for membership in the Group:&#xA;&#xA;* 'definitional': The Group.characteristics specified are both necessary and sufficient to determine membership. All entities that meet the criteria are considered to be members of the group, whether referenced by the group or not. If members are present, they are individuals that happen to be known as meeting the Group.characteristics. The list cannot be presumed to be complete.&#xA;* 'enumerated': The Group.characteristics are necessary but not sufficient to determine membership. Membership is determined by being listed as one of the Group.member."/>
-      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &#34;types&#34; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
+      <requirements value="There are use-cases for groups that define specific collections of individuals, and other groups that define &quot;types&quot; of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this element."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -190,7 +195,7 @@
     <element id="Group.code">
       <path value="Group.code"/>
       <short value="Kind of Group members"/>
-      <definition value="Provides a specific type of resource the group includes; e.g. &#34;cow&#34;, &#34;syringe&#34;, etc."/>
+      <definition value="Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc."/>
       <comment value="This would generally be omitted for Person resources."/>
       <min value="0"/>
       <max value="1"/>
@@ -227,7 +232,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="./name[type=&#34;ST&#34;]"/>
+        <map value="./name[type=&quot;ST&quot;]"/>
       </mapping>
       <mapping>
         <identity value="interface"/>
@@ -294,7 +299,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=&#34;SBJ&#34;]/act[isNormalAct and classCode=&#34;OBS&#34; and moodCode=&#34;EVN&#34;]"/>
+        <map value="./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=&quot;SBJ&quot;]/act[isNormalAct and classCode=&quot;OBS&quot; and moodCode=&quot;EVN&quot;]"/>
       </mapping>
     </element>
     <element id="Group.characteristic.code">
@@ -360,7 +365,7 @@
       <path value="Group.characteristic.exclude"/>
       <short value="Group includes or excludes"/>
       <definition value="If true, indicates the characteristic is one that is NOT held by members of the group."/>
-      <comment value="This is labeled as &#34;Is Modifier&#34; because applications cannot wrongly include excluded members as included or vice versa."/>
+      <comment value="This is labeled as &quot;Is Modifier&quot; because applications cannot wrongly include excluded members as included or vice versa."/>
       <requirements value="Sometimes group membership is determined by characteristics not possessed."/>
       <min value="1"/>
       <max value="1"/>
@@ -385,7 +390,7 @@
     </element>
     <element id="Group.member">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Is &#34;group of groups&#34; in the 80%?"/>
+        <valueString value="Is &quot;group of groups&quot; in the 80%?"/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="200,180"/>
@@ -393,7 +398,7 @@
       <path value="Group.member"/>
       <short value="Who or what is in group"/>
       <definition value="Identifies the resource instances that are members of the group."/>
-      <requirements value="Often the only thing of interest about a group is &#34;who's in it&#34;."/>
+      <requirements value="Often the only thing of interest about a group is &quot;who's in it&quot;."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -401,7 +406,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./scopedRole[isNormalRole() and classCode=&#34;MBR&#34;]/player"/>
+        <map value="./scopedRole[isNormalRole() and classCode=&quot;MBR&quot;]/player"/>
       </mapping>
     </element>
     <element id="Group.member.entity">

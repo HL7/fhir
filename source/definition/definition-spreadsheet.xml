@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>McKenzie, Lloyd</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2022-08-13T19:02:51Z</LastSaved>
+  <LastSaved>2022-12-13T00:29:28Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -11,7 +11,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <SupBook>
-   <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
+   <Path>ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
   
@@ -19,8 +19,8 @@
   
   
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
-  <MaxChange>0.0001</MaxChange>
+  <ActiveSheet>8</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -778,31 +778,21 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s160">
+  <Style ss:ID="s160" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s161">
    <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s161">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
   <Style ss:ID="s162">
-   <Alignment ss:Horizontal="Center" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="1"/>
-    <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="3"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
-  </Style>
-  <Style ss:ID="s164">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
-  </Style>
-  <Style ss:ID="s165">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="3"/>
@@ -810,7 +800,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s166" ss:Parent="s63">
+  <Style ss:ID="s163" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Top" ss:Weight="1"/>
@@ -820,7 +810,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s167">
+  <Style ss:ID="s164">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
@@ -828,7 +818,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s168" ss:Parent="s63">
+  <Style ss:ID="s165" ss:Parent="s63">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:LineStyle="Continuous" ss:Position="Bottom" ss:Weight="3"/>
@@ -1735,7 +1725,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1756,7 +1745,7 @@
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R21C4:R26C4,R29C4:R33C4,R2C4:R19C4</Range>
    <Type>List</Type>
-   <Value>'\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
+   <Value>'ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
@@ -4125,9 +4114,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s159"><Data ss:Type="String">DefinitionStatus</Data></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">Codes identifying the lifecycle stage of a definition</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">#definition-status</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/definition-status" ss:StyleID="s160"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/definition-status</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -4138,7 +4127,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">Reference may be too long ie there was a limit on the length of the code list name.</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">DefinitionSubject</Data></Cell>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">DefinitionSubject</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Codes identifying the type of subject intended to be the recpient or focus of the defined action.  These should ideally be consistent across definition resources.</Data></Cell>
     <Cell><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s131"/>
@@ -4169,6 +4158,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4195,72 +4185,6 @@
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C13">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="definition-status">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" ss:StyleID="s105" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="79.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s161" ss:Width="34.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="93.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="61.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="100.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="185.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="76.0"/>
-   <Column ss:StyleID="s105" ss:Width="103.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s105" ss:Width="112.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s151">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code to be sent over the wire</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s162"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">System</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Parent</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The code this code is a specialization of (if any).  Content should be "#" + the Id of the parent code</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Display</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Definition</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v2 codes - See Confluence for syntax</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Mappings to v3 codes - See Confluence for syntax</Font></ss:Data></Comment></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font></ss:Data></Comment></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43">
-    <Cell><Data ss:Type="String">draft</Data></Cell>
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Draft</Data></Cell>
-    <Cell><Data ss:Type="String">The definition is in the design stage and is not yet considered to be "ready for use"</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.new</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="29">
-    <Cell><Data ss:Type="String">active</Data></Cell>
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Active</Data></Cell>
-    <Cell><Data ss:Type="String">The definition is considered ready for use</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.active</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">withdrawn</Data></Cell>
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Withdrawn</Data></Cell>
-    <Cell><Data ss:Type="String">The definition should no longer be used</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s164"><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The authoring/source system does not know which of the status values currently applies for this resource.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply,  but the authoring/source system does not know which.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>600</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
  <Worksheet ss:Name="some-code-list">
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='some-code-list'!R1C1:R1C9"/>
@@ -4285,15 +4209,15 @@
     <Cell ss:StyleID="s119"><Data ss:Type="String">Committee Notes</Data><Comment ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Additional notes about the code.  Not published</Font></ss:Data></Comment><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s162"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
+    <Cell ss:StyleID="s163"/>
+    <Cell ss:StyleID="s163"/>
+    <Cell ss:StyleID="s163"/>
     <Cell ss:StyleID="s141"/>
     <Cell ss:StyleID="s141"/>
-    <Cell ss:StyleID="s167"/>
+    <Cell ss:StyleID="s164"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s153"/>
@@ -4816,9 +4740,9 @@
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s168"/>
-    <Cell ss:StyleID="s168"/>
-    <Cell ss:StyleID="s168"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
+    <Cell ss:StyleID="s165"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s147"/>
     <Cell ss:StyleID="s157"/>

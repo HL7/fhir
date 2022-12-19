@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ManufacturedItemDefinition"/>
   <meta>
     <lastUpdated value="2020-12-31T07:32:20.021+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ManufacturedItemDefinition"/>
+  <title value="ManufacturedItemDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -114,7 +117,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -228,7 +231,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    
     <element id="ManufacturedItemDefinition.ingredient">
       <path value="ManufacturedItemDefinition.ingredient"/>
       <short value="The ingredients of this manufactured item. Only needed if these are not specified by incoming references from the Ingredient resource"/>
@@ -320,7 +322,6 @@
         <map value="Physical Characteristics, attribute's value"/>
       </mapping>
     </element>
-
     <element id="ManufacturedItemDefinition.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="275,180"/>
@@ -367,8 +368,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.amount">
       <path value="ManufacturedItemDefinition.component.amount"/>
-        <short value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)"/>
-        <definition value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)."/>
+      <short value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of total quantity of all substances in the component, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -392,8 +393,8 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.amount">
       <path value="ManufacturedItemDefinition.component.constituent.amount"/>
-        <short value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)"/>
-        <definition value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)."/>
+      <short value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)"/>
+      <definition value="The measurable amount of the substance, expressable in different ways (e.g. by mass or volume)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -403,9 +404,9 @@
     </element>
     <element id="ManufacturedItemDefinition.component.constituent.location">
       <path value="ManufacturedItemDefinition.component.constituent.location"/>
-      <short value="The type of location of the constituent within this component e.g. intragranular, blend"/>
-      <definition value="The type of location of the constituent within this component e.g. intragranular, blend."/>
-      <min value="0"/>
+    	<short value="The physical location of the constituent/ingredient within the component"/>
+    	<definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc."/>
+    	<min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
@@ -423,21 +424,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <!--element id="ManufacturedItemDefinition.component.ingredient.amountType">
-      <path value="ManufacturedItemDefinition.component.ingredient.amountType"/>
-      <short value="mass | volume"/>
-      <definition value="Whether the amount is a volume or a mass."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <isSummary value="true"/>
-    </element-->
-    <element id="ManufacturedItemDefinition.component.constituent.locationForIngredient">
-      <path value="ManufacturedItemDefinition.component.constituent.locationForIngredient"/>
-      <short value="An ingredient that this component is the location of in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it"/>
-      <definition value="An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it."/>
+    <element id="ManufacturedItemDefinition.component.constituent.hasIngredient">
+      <path value="ManufacturedItemDefinition.component.constituent.hasIngredient"/>
+    	<short value="The ingredient that is the constituent of the given component"/>
+    	<definition value="The ingredient that is the constituent of the given component."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -464,6 +454,5 @@
       <contentReference value="#ManufacturedItemDefinition.component"/>
       <isSummary value="true"/>
     </element>
-    
   </differential>
 </StructureDefinition>

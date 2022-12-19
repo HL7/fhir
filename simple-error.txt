@@ -1,1 +1,1 @@
-﻿Error parsing /home/013841_connect_linux/bvdh/github-public/fhir-bvdh/source/bundle/implementationguide-Bundle-common.xml: /home/013841_connect_linux/bvdh/github-public/fhir-bvdh/source/bundle/implementationguide-Bundle-common.xml (No such file or directory)
+﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/device/structuredefinition-Device.xml: markup not allowed inside attribute value - illegal <  (position: TEXT seen ...<expression value="Device.name.where(display = true).count() <... @581:71) 

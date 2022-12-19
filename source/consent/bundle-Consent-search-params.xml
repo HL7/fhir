@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="Consent-search-params"/>
@@ -121,7 +121,7 @@
       <SearchParameter>
         <id value="Consent-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.date"/>
@@ -231,7 +231,6 @@
       </SearchParameter>
     </resource>
   </entry>
-
   <entry>
     <resource>
       <SearchParameter>
@@ -275,7 +274,7 @@
       <SearchParameter>
         <id value="Consent-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.status"/>
@@ -313,7 +312,7 @@
       <SearchParameter>
         <id value="Consent-verified"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.verification.verified"/>
@@ -332,7 +331,7 @@
       <SearchParameter>
         <id value="Consent-verified-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Consent.verification.verificationDate"/>

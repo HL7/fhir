@@ -20,7 +20,7 @@
   <description value="Identifier subgroups in a population for measuring purposes."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-stratifier-example"/>
+      <system value="http://hl7.org/fhir/measure-stratifier-example"/>
     </include>
   </compose>
 </ValueSet>

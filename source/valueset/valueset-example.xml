@@ -92,7 +92,8 @@
 		<lockedDate value="2012-06-13"/>
 		<!--
     Including inactive codes means that retired and deprecated codes may still be used in the
-    value set
+    value set. Note that not all retired or deprecated codes are explicitly marked 'inactive' - this 
+		is a matter of code system policy
     -->
 		<inactive value="true"/>
 		<!--   you could have multiple includes, if you wanted to include codes from more than

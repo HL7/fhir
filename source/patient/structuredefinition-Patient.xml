@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Patient"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -31,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Patient"/>
+  <title value="Patient"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -177,7 +180,7 @@
       <path value="Patient.name"/>
       <short value="A name associated with the patient"/>
       <definition value="A name associated with the individual."/>
-      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &#34;HumanName&#34; in the sense that is assigned and used by humans and has the same patterns. Animal names may be communicated as given names, and optionally may include a family name."/>
+      <comment value="A patient may have multiple names with different uses or applicable periods. For animals, the name is a &quot;HumanName&quot; in the sense that is assigned and used by humans and has the same patterns. Animal names may be communicated as given names, and optionally may include a family name."/>
       <requirements value="Need to be able to track the patient by multiple names. Examples are your official name and a partner name."/>
       <min value="0"/>
       <max value="*"/>
@@ -238,7 +241,7 @@
       <path value="Patient.gender"/>
       <short value="male | female | other | unknown"/>
       <definition value="Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes."/>
-      <comment value="The gender might not match the biological sex as determined by genetics or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than male and female, though the vast majority of systems and contexts only support male and female.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific sex or gender aspect of interest (anatomical, chromosomal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosomal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overridable error, not a &#34;hard&#34; error.  See the Patient Gender and Sex section for additional information about communicating patient gender and sex."/>
+      <comment value="The gender might not match the biological sex as determined by genetics or the individual's preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than male and female, though the vast majority of systems and contexts only support male and female.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific sex or gender aspect of interest (anatomical, chromosomal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosomal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overridable error, not a &quot;hard&quot; error.  See the Patient Gender and Sex section for additional information about communicating patient gender and sex."/>
       <requirements value="Needed for identification of the individual, in combination with (at least) name and birth date."/>
       <min value="0"/>
       <max value="1"/>
@@ -287,7 +290,7 @@
       <path value="Patient.birthDate"/>
       <short value="The date of birth for the individual"/>
       <definition value="The date of birth for the individual."/>
-      <comment value="Partial dates are allowed if the specific date of birth is unknown. There is a standard extension &#34;patient-birthTime&#34; available that should be used where Time is required (such as in maternity/infant care systems)."/>
+      <comment value="Partial dates are allowed if the specific date of birth is unknown. There is a standard extension &quot;patient-birthTime&quot; available that should be used where Time is required (such as in maternity/infant care systems)."/>
       <requirements value="Age of the individual drives many clinical processes."/>
       <min value="0"/>
       <max value="1"/>
@@ -683,7 +686,7 @@
     </element>
     <element id="Patient.communication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is &#34;no&#34; on modeCode and preferenceInd."/>
+        <valueString value="Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is &quot;no&quot; on modeCode and preferenceInd."/>
       </extension>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="40,270"/>
@@ -714,7 +717,7 @@
     <element id="Patient.communication.language">
       <path value="Patient.communication.language"/>
       <short value="The language which can be used to communicate with the patient about his or her health"/>
-      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &#34;en&#34; for English, or &#34;en-US&#34; for American English versus &#34;en-AU&#34; for Australian English."/>
+      <definition value="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. &quot;en&quot; for English, or &quot;en-US&quot; for American English versus &quot;en-AU&quot; for Australian English."/>
       <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type."/>
       <requirements value="Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect."/>
       <min value="1"/>
@@ -783,7 +786,7 @@
       <path value="Patient.generalPractitioner"/>
       <short value="Patient's nominated primary care provider"/>
       <definition value="Patient's nominated care provider."/>
-      <comment value="This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disability setting, or even organization that will provide people to perform the care provider roles.  It is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.&#xA;Multiple GPs may be recorded against the patient for various reasons, such as a student that has his home GP listed along with the GP at university during the school semesters, or a &#34;fly-in/fly-out&#34; worker that has the onsite GP also included with his home GP to remain aware of medical issues.&#xA;&#xA;Jurisdictions may decide that they can profile this down to 1 if desired, or 1 per type."/>
+      <comment value="This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disability setting, or even organization that will provide people to perform the care provider roles.  It is not to be used to record Care Teams, these should be in a CareTeam resource that may be linked to the CarePlan or EpisodeOfCare resources.&#xA;Multiple GPs may be recorded against the patient for various reasons, such as a student that has his home GP listed along with the GP at university during the school semesters, or a &quot;fly-in/fly-out&quot; worker that has the onsite GP also included with his home GP to remain aware of medical issues.&#xA;&#xA;Jurisdictions may decide that they can profile this down to 1 if desired, or 1 per type."/>
       <alias value="careProvider"/>
       <min value="0"/>
       <max value="*"/>

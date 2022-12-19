@@ -83,7 +83,7 @@
       <SearchParameter>
         <id value="Goal-lifecycle-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Goal.lifecycleStatus"/>
@@ -182,6 +182,9 @@
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Goal.addresses"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Issues addressed by this goal"/>
         <code value="addresses"/>

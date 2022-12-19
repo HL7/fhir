@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <meta>
     <lastUpdated value="2017-10-26T19:59:50.038+02:00"/>
   </meta>
@@ -8,6 +10,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1174"/>
   </identifier>
   <name value="Catalog"/>
+  <title value="Catalog"/>
   <status value="draft"/>
   <date value="2017-10-26T19:52:27.62+02:00"/>
   <fhirVersion value="3.0.1"/>

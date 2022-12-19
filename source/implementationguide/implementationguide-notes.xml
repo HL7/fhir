@@ -64,7 +64,7 @@ An implementation guide specifies which versions of FHIR it describes in the
 </p>
 <div class="json">
 <pre>
-  "fhirVersions" : ["4.0", "5.0"],
+  "fhirVersion" : ["4.0", "5.0"],
 </pre>
 </div>
 <p>
@@ -79,6 +79,14 @@ It is up to the importing IG ad/or the tooling that supports Implementation Guid
 whether it's safe and/or appropriate to reference the different resources from the new IG, and
 what to make of this.
 </p>
+[%dragons-start%]
+<p>
+As yet, there is no experience with multi-version implementation guides and current publication tooling 
+does not support creation of such IGs.  As we work to evolve the tools to provide such support, 
+additional guidance on how such guides should be created, what types of content can safely be 
+shared across versions, and how such sharing should occur will be forthcoming.
+</p>
+[%dragons-end%]
 
 <a name="default"></a>
 <h3>Default Profiles</h3>

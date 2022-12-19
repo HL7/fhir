@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BodyStructure"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="BodyStructure"/>
+  <title value="BodyStructure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -169,8 +172,8 @@
         <map value="SPM-4/SPM-5"/>
       </mapping>
     </element>
-<element id="BodyStructure.includedStructure">
-  <path value="BodyStructure.includedStructure"/>
+    <element id="BodyStructure.includedStructure">
+      <path value="BodyStructure.includedStructure"/>
       <short value="Included anatomic location(s)"/>
       <definition value="The anatomical location(s) or region(s) of the specimen, lesion, or body structure."/>
       <min value="1"/>
@@ -178,8 +181,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-</element>
-<element id="BodyStructure.includedStructure.structure">
+    </element>
+    <element id="BodyStructure.includedStructure.structure">
       <path value="BodyStructure.includedStructure.structure"/>
       <short value="Code that represents the included structure"/>
       <definition value="Code that represents the included structure."/>
@@ -216,8 +219,8 @@
         <identity value="openehr"/>
         <map value="Name of location"/>
       </mapping>
-  </element>
-  <element id="BodyStructure.includedStructure.laterality">
+    </element>
+    <element id="BodyStructure.includedStructure.laterality">
       <path value="BodyStructure.includedStructure.laterality"/>
       <short value="Code that represents the included structure laterality"/>
       <definition value="Code that represents the included structure laterality."/>
@@ -250,8 +253,8 @@
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
       </mapping>
-  </element>
-  <element id="BodyStructure.includedStructure.qualifier">
+    </element>
+    <element id="BodyStructure.includedStructure.qualifier">
       <path value="BodyStructure.includedStructure.qualifier"/>
       <short value="Code that represents the included structure qualifier"/>
       <definition value="Code that represents the included structure qualifier."/>
@@ -284,18 +287,18 @@
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
       </mapping>
-  </element>
-<element id="BodyStructure.excludedStructure">
-  <path value="BodyStructure.excludedStructure"/>
+    </element>
+    <element id="BodyStructure.excludedStructure">
+      <path value="BodyStructure.excludedStructure"/>
       <short value="Excluded anatomic locations(s)"/>
       <definition value="The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
-      </type>   
-</element>
-<element id="BodyStructure.excludedStructure.structure">
+      </type>
+    </element>
+    <element id="BodyStructure.excludedStructure.structure">
       <path value="BodyStructure.excludedStructure.structure"/>
       <short value="Code that represents the excluded structure"/>
       <definition value="Code that represents the excluded structure."/>
@@ -304,7 +307,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <isSummary value="true"/> 
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -332,8 +335,8 @@
         <identity value="openehr"/>
         <map value="Name of location"/>
       </mapping>
-  </element>
-  <element id="BodyStructure.excludedStructure.laterality">
+    </element>
+    <element id="BodyStructure.excludedStructure.laterality">
       <path value="BodyStructure.excludedStructure.laterality"/>
       <short value="Code that represents the excluded structure laterality"/>
       <definition value="Code that represents the excluded structure laterality."/>
@@ -366,8 +369,8 @@
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
       </mapping>
-  </element>
-  <element id="BodyStructure.excludedStructure.qualifier">
+    </element>
+    <element id="BodyStructure.excludedStructure.qualifier">
       <path value="BodyStructure.excludedStructure.qualifier"/>
       <short value="Code that represents the excluded structure qualifier"/>
       <definition value="Code that represents the excluded structure qualifier."/>
@@ -400,7 +403,7 @@
         <identity value="openehr"/>
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
       </mapping>
-  </element>
+    </element>
     <element id="BodyStructure.description">
       <path value="BodyStructure.description"/>
       <short value="Text description"/>

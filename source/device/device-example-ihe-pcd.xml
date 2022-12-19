@@ -13,10 +13,10 @@
   </identifier>
 	<manufacturer value="Acme Devices, Inc"/>
   <lotNumber value="12345"/>
-  <deviceName>
-    <name value="Acme Patient Monitor" />
+  <name>
+    <value value="Acme Patient Monitor" />
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
 	<modelNumber value="A.1.1"/>
   <type>
     <text value="Vital Signs Monitor"/>

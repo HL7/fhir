@@ -26,7 +26,7 @@
       <SearchParameter>
         <id value="ValueSet-context"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueCodeableConcept"/>
@@ -45,7 +45,7 @@
       <SearchParameter>
         <id value="ValueSet-context-quantity"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange"/>
@@ -188,7 +188,7 @@
       <SearchParameter>
         <id value="ValueSet-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.identifier"/>
@@ -207,7 +207,7 @@
       <SearchParameter>
         <id value="ValueSet-jurisdiction"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
+          <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.jurisdiction"/>
@@ -379,10 +379,13 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ValueSet.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="A resource that the ValueSet is derived from"/>
         <code value="derived-from"/>
         <type value="reference"/>
-        <expression value="ValueSet.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
+        <expression value="ValueSet.relatedArtifact.where(type='derived-from').resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -392,10 +395,13 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ValueSet.relatedArtifact.resource"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The predecessor of the ValueSet"/>
         <code value="predecessor"/>
         <type value="reference"/>
-        <expression value="ValueSet.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
+        <expression value="ValueSet.relatedArtifact.where(type='predecessor').resource"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -404,6 +410,9 @@
       <SearchParameter>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ValueSet.topic"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
         </extension>
         <description value="Topics associated with the ValueSet"/>
         <code value="topic"/>

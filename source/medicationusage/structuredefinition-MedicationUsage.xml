@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MedicationUsage"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationUsage"/>
+  <title value="MedicationUsage"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -191,7 +194,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&#34;type of medication usage&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=&quot;type of medication usage&quot;].value"/>
       </mapping>
     </element>
     <element id="MedicationUsage.medication">
@@ -277,14 +280,14 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&#34;type of encounter or episode&#34;]"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
       </mapping>
     </element>
     <element id="MedicationUsage.effective[x]">
       <path value="MedicationUsage.effective[x]"/>
       <short value="The date/time or interval when the medication is/was/will be taken"/>
       <definition value="The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationUsage.adherence element is Not Taking)."/>
-      <comment value="This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Usages. If the medication is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &#34;end&#34; date will be omitted.  If the end date is known, then it is included as the &#34;end date&#34;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
+      <comment value="This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Usages. If the medication is still being taken and is expected to continue indefinitely at the time the usage is recorded, the &quot;end&quot; date will be omitted.  If the end date is known, then it is included as the &quot;end date&quot;.  The date/time attribute supports a variety of dates - year, year/month and exact date.  If something more than this is required, this should be conveyed as text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -414,7 +417,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&#34;annotation&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
     <element id="MedicationUsage.relatedClinicalInformation">
@@ -455,7 +458,7 @@
       <path value="MedicationUsage.dosage"/>
       <short value="Details of how medication is/was taken or should be taken"/>
       <definition value="Indicates how the medication is/was or should be taken by the patient."/>
-      <comment value="The dates included in the dosage on a Medication Usage reflect the dates for a given dose.  For example, &#34;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&#34;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Usage is derived from a MedicationRequest."/>
+      <comment value="The dates included in the dosage on a Medication Usage reflect the dates for a given dose.  For example, &quot;from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.&quot;  It is expected that this specificity may only be populated where the patient brings in their labeled container or where the Medication Usage is derived from a MedicationRequest."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -507,7 +510,7 @@
       <path value="MedicationUsage.adherence.reason"/>
       <short value="Details of the reason for the current use of the medication"/>
       <definition value="Captures the reason for the current use or adherence of a medication."/>
-      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;entered-in-error&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;entered-in-error&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <min value="0"/>
       <max value="1"/>
       <type>

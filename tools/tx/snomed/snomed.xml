@@ -10921,6 +10921,12 @@
     <display value="Yellow fever (disorder)"/>
     <display value="YF - Yellow fever"/>
   </concept>
+  <concept id="165747007" display="Rhesus positive">
+    <display value="Rhesus positive"/>
+    <display value="Rh positive"/>
+    <display value="RhD positive (finding)"/>
+    <display value="RhD positive"/>
+  </concept>
   <concept id="166643006" display="Liver enzymes abnormal">
     <display value="Liver enzymes abnormal"/>
     <display value="Liver enzymes abnormal (finding)"/>
