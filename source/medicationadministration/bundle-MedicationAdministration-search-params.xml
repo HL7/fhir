@@ -169,7 +169,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-performer"/>
         <description value="The identity of the individual who administered the medication"/>
-        <code value="performer"/>
+        <code value="performer-device-code"/>
         <type value="token"/>
         <expression value="MedicationAdministration.performer.actor.concept"/>
         <!--<xpath value="f:MedicationAdministration/f:performer/f:actor"/> -->
