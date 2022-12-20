@@ -91,7 +91,7 @@
         <map value="clinical.diagnostics"/>
       </mapping>
     </element>
-    <!-- <element id="SpecimenDefinition.url">
+    <element id="SpecimenDefinition.url">
       <path value="SpecimenDefinition.url"/>
       <short value="Logical canonical URL to reference this SpecimenDefinition (globally unique)"/>
       <definition value="An absolute URL that is used to identify this SpecimenDefinition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this SpecimenDefinition is (or will be) published. The URL SHOULD include the major version of the SpecimenDefinition. For more information see Technical and Business Versions."/>
@@ -118,7 +118,7 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
-    </element> -->
+    </element>
     <element id="SpecimenDefinition.identifier">
       <path value="SpecimenDefinition.identifier"/>
       <short value="Business identifier"/>
