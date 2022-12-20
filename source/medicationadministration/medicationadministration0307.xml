@@ -83,7 +83,9 @@
     <reference value="MedicationRequest/medrx0315"/>
   </request>
   <device>
+    <reference>
     <reference value="Device/f001"></reference>
+    </reference>
   </device>
   <dosage>
     <text value="0.05 - 0.1mg/kg IV over 2-5 minutes every 15 minutes as needed" />
