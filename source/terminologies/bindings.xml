@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
-  <LastSaved>2022-09-05T06:09:33Z</LastSaved>
+  <LastSaved>2022-12-13T09:10:05Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -19,6 +19,7 @@
   
   <TabRatio>780</TabRatio>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -473,6 +474,12 @@
    <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
    <Interior ss:Color="#EEECE1" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s137" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
+  <Style ss:ID="s139">
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="='/Users/grahamegrieve/work/r5/source/terminologies/Users\grahamegrieve\work\r5\source\terminologies\Users\rhausam\git-repo\fhir\source\terminologies\ERICS-AIR-2\ehaas\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
@@ -773,8 +780,8 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s76"><Data ss:Type="String">DataAbsentReason</Data></Cell>
     <Cell><Data ss:Type="String">Used to specify why the normally expected content of the data element is missing.</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#data-absent-reason</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s139"><Data ss:Type="String">valueset-data-absent-reason</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:HRef="http://terminology.hl7.org/ValueSet/v3-NullFlavor" ss:Index="10" ss:StyleID="s97"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/v3-NullFlavor</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
@@ -1161,8 +1168,8 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s76"><Data ss:Type="String">SpecialValues</Data></Cell>
     <Cell><Data ss:Type="String">A set of generally useful codes defined so they can be included in value sets.</Data></Cell>
-    <Cell><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">#special-values</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/special-values" ss:Index="5" ss:StyleID="s137"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/special-values</Data></Cell>
     <Cell><Data ss:Type="String">y</Data></Cell>
     <Cell ss:Index="12" ss:StyleID="s76"><Data ss:Type="String">fhir</Data></Cell>
     <Cell ss:Index="14" ss:StyleID="s76"/>
@@ -1189,12 +1196,14 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
+   <TopRowVisible>14</TopRowVisible>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="FHIR-version">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="54" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="57" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s100" ss:Width="104.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s100" ss:Width="63.0"/>
    <Column ss:StyleID="s100" ss:Width="39.0"/>
@@ -1486,6 +1495,20 @@
     <Cell><Data ss:Type="String">FHIR Release 4B (Normative + STU).</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="Number">55</Data></Cell>
+    <Cell><Data ss:Type="String">4.3.0-cibuild</Data></Cell>
+    <Cell><Data ss:Type="String">4.3</Data></Cell>
+    <Cell><Data ss:Type="String">4.3.0-cibuild</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">FHIR Release 4B CI-Builld</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">56</Data></Cell>
+    <Cell><Data ss:Type="String">4.3.0-snapshot1</Data></Cell>
+    <Cell><Data ss:Type="String">4.3</Data></Cell>
+    <Cell><Data ss:Type="String">4.3.0-snapshot1</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">FHIR Release 4B Snapshot #1</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="Number">42</Data></Cell>
     <Cell><Data ss:Type="String">4.4</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">4.4</Data></Cell>
@@ -1565,6 +1588,13 @@
     <Cell><Data ss:Type="String">5.0.0-ballot</Data></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">R5 Ballot</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="Number">54</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot3</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0</Data></Cell>
+    <Cell><Data ss:Type="String">5.0.0-snapshot2</Data></Cell>
+    <Cell ss:StyleID="s100"><Data ss:Type="String">R5 January 2023 Staging Release + Connectathon 32</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1580,229 +1610,6 @@
    <Selected/>
    <TopRowVisible>24</TopRowVisible>
    
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="special-values">
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="7" x:FullColumns="1" x:FullRows="1">
-   <Column ss:AutoFitWidth="0" ss:Index="2" ss:Width="63.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="209.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="639.0"/>
-   <Column ss:AutoFitWidth="0" ss:Width="78.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">true</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Boolean true.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">false</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Boolean false.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">trace</Data></Cell>
-    <Cell><Data ss:Type="String">Trace Amount Detected</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The content is greater than zero, but too small to be quantified.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">sufficient</Data></Cell>
-    <Cell><Data ss:Type="String">Sufficient Quantity</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">used in formulations (e.g. 'Add 10mg of ingredient X, 50mg of ingredient Y, and sufficient quantity of water to 100mL.' This code would be used to express the quantity of water. )</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">withdrawn</Data></Cell>
-    <Cell><Data ss:Type="String">Value Withdrawn</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The value is no longer available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">nil-known</Data></Cell>
-    <Cell><Data ss:Type="String">Nil Known</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">The are no known applicable values in this context.</Data></Cell>
-    <Cell><Data ss:Type="String">The existence of this subject to review</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>600</HorizontalResolution>
-    <VerticalResolution>0</VerticalResolution>
-   </Print>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
- </Worksheet>
- <Worksheet ss:Name="data-absent-reason">
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="16" x:FullColumns="1" x:FullRows="1">
-   <Column ss:Width="19.0"/>
-   <Column ss:Width="84.0"/>
-   <Column ss:Width="49.0"/>
-   <Column ss:Width="109.0"/>
-   <Column ss:Width="478.0"/>
-   <Column ss:Width="967.0"/>
-   <Column ss:Width="88.0"/>
-   <Column ss:Width="323.0"/>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s102">
-    <Cell><Data ss:Type="String">Id</Data></Cell>
-    <Cell><Data ss:Type="String">Code</Data></Cell>
-    <Cell><Data ss:Type="String">Parent</Data></Cell>
-    <Cell><Data ss:Type="String">Display</Data></Cell>
-    <Cell><Data ss:Type="String">Definition</Data></Cell>
-    <Cell><Data ss:Type="String">Comment</Data></Cell>
-    <Cell><Data ss:Type="String">v3</Data></Cell>
-    <Cell><Data ss:Type="String">Committee Notes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">1</Data></Cell>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The value is expected to exist but is not known.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.UNK</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">2</Data></Cell>
-    <Cell><Data ss:Type="String">asked-unknown</Data></Cell>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="String">Asked But Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The source was asked but does not know the value.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.ASKU</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">asked-unknown' aligns better with V3 ASKU than 'asked'</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">3</Data></Cell>
-    <Cell><Data ss:Type="String">temp-unknown</Data></Cell>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="String">Temporarily Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">There is reason to expect (from the workflow) that the value may become known.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NAV</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">4</Data></Cell>
-    <Cell><Data ss:Type="String">not-asked</Data></Cell>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="String">Not Asked</Data></Cell>
-    <Cell><Data ss:Type="String">The workflow didn't lead to this value being known.</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NASK</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">5</Data></Cell>
-    <Cell><Data ss:Type="String">masked</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Masked</Data></Cell>
-    <Cell><Data ss:Type="String">The information is not available due to security, privacy or related reasons.</Data></Cell>
-    <Cell><Data ss:Type="String">Using "masked" may be breach of security or confidentiality, but there are times when its use is required to support alternate workflows for gaining access to denied information.</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.MSK</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">11</Data></Cell>
-    <Cell><Data ss:Type="String">not-applicable</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Not Applicable</Data></Cell>
-    <Cell><Data ss:Type="String">There is no proper value for this element (e.g. last menstrual period for a male)</Data></Cell>
-    <Cell ss:Index="7"><Data ss:Type="String" x:Ticked="1">=NullFlavor.NA</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">6</Data></Cell>
-    <Cell><Data ss:Type="String">unsupported</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Unsupported</Data></Cell>
-    <Cell><Data ss:Type="String">The source system wasn't capable of supporting this element.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">7</Data></Cell>
-    <Cell><Data ss:Type="String">as-text</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">As Text</Data></Cell>
-    <Cell><Data ss:Type="String">The content of the data is represented in the resource narrative.</Data></Cell>
-    <Cell><Data ss:Type="String">It may be linked by internal references (e.g. xml:id). This usually implies that the value could not be represented in the correct format - this may be due to system limitations, or this particular data value.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">8</Data></Cell>
-    <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Error</Data></Cell>
-    <Cell><Data ss:Type="String">Some system or workflow process error means that the information is not available.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">9</Data></Cell>
-    <Cell><Data ss:Type="String">not-a-number</Data></Cell>
-    <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">Not a Number (NaN)</Data></Cell>
-    <Cell><Data ss:Type="String">The numeric value is undefined or unrepresentable due to a floating point processing error.</Data></Cell>
-    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">10</Data></Cell>
-    <Cell><Data ss:Type="String">not-performed</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Not Performed</Data></Cell>
-    <Cell><Data ss:Type="String">The value is not available because the observation procedure (test, etc.) was not performed.</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">No accurate mapping to the V3 NullFlavor code system is available.</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">14</Data></Cell>
-    <Cell><Data ss:Type="String">not-permitted</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">Not Permitted</Data></Cell>
-    <Cell><Data ss:Type="String">The value is not permitted in this context (e.g. due to profiles, or the base data types)</Data></Cell>
-    <Cell><Data ss:Type="String">This is most often associated with required bindings that do not include the actual code used, but may be used with other data types.</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.OTH</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">12</Data></Cell>
-    <Cell><Data ss:Type="String">negative-infinity</Data></Cell>
-    <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">Negative Infinity (NINF)</Data></Cell>
-    <Cell><Data ss:Type="String">The numeric value is excessively low and unrepresentable due to a floating point processing error.</Data></Cell>
-    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.NINF</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">13</Data></Cell>
-    <Cell><Data ss:Type="String">positive-infinity</Data></Cell>
-    <Cell><Data ss:Type="String">error</Data></Cell>
-    <Cell><Data ss:Type="String">Positive Infinity (PINF)</Data></Cell>
-    <Cell><Data ss:Type="String">The numeric value is excessively high and unrepresentable due to a floating point processing error.</Data></Cell>
-    <Cell><Data ss:Type="String">This is sometimes an output value from measuring devices.</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">=NullFlavor.PINF</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="Number">15</Data></Cell>
-    <Cell><Data ss:Type="String">asked-declined</Data></Cell>
-    <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="String">Asked But Declined</Data></Cell>
-    <Cell><Data ss:Type="String">The source was asked but declined to answer.</Data></Cell>
-   </Row>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Print>
-    <ValidPrinterInfo/>
-    <PaperSizeIndex>9</PaperSizeIndex>
-    <HorizontalResolution>-1</HorizontalResolution>
-    <VerticalResolution>-1</VerticalResolution>
-   </Print>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>

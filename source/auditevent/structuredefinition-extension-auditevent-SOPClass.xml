@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="auditevent-SOPClass"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="sec"/>
@@ -6,13 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/auditevent-SOPClass"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1004"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="SOPClass"/>
+  <name value="AESOPClass"/>
+  <title value="AuditEvent SOPClass"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="Health Level Seven, Inc. - Security WG"/>
@@ -22,7 +28,7 @@
       <value value="http://www.hl7.org/Special/committees/security/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Required if ParticipantObjectIDTypeCode is (110180, DCM, &#34;Study Instance UID&#34;) and any of the optional fields (AccessionNumber, ContainsMPPS, NumberOfInstances, ContainsSOPInstances,Encrypted,Anonymized) are present in this Participant Object. May be present if ParticipantObjectIDTypeCode is (110180, DCM, &#34;Study Instance UID&#34;) even though none of the optional fields are present."/>
+  <description value="Required if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) and any of the optional fields (AccessionNumber, ContainsMPPS, NumberOfInstances, ContainsSOPInstances,Encrypted,Anonymized) are present in this Participant Object. May be present if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) even though none of the optional fields are present."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="dicom"/>
@@ -47,7 +53,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="UIDs of SOP classes referred to"/>
-      <definition value="Required if ParticipantObjectIDTypeCode is (110180, DCM, &#34;Study Instance UID&#34;) and any of the optional fields (AccessionNumber, ContainsMPPS, NumberOfInstances, ContainsSOPInstances,Encrypted,Anonymized) are present in this Participant Object. May be present if ParticipantObjectIDTypeCode is (110180, DCM, &#34;Study Instance UID&#34;) even though none of the optional fields are present."/>
+      <definition value="Required if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) and any of the optional fields (AccessionNumber, ContainsMPPS, NumberOfInstances, ContainsSOPInstances,Encrypted,Anonymized) are present in this Participant Object. May be present if ParticipantObjectIDTypeCode is (110180, DCM, &quot;Study Instance UID&quot;) even though none of the optional fields are present."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

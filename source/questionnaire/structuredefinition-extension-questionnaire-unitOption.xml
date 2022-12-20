@@ -1,75 +1,81 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="questionnaire-unitOption"/>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="1"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="questionnaire-unitOption"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1240"/>
   </identifier>
   <version value="5.0.0"/>
-	<name value="unitOption"/>
-	<status value="draft"/>
-	<date value="2013-07-04"/>
-	<publisher value="HL7"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="A unit that the user may choose when providing a quantity value."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<kind value="complex-type"/>
-	<abstract value="false"/>
-	<context>
-		<type value="element"/>
-		<expression value="Questionnaire.item"/>
-	</context>
-	<context>
-		<type value="element"/>
-		<expression value="ElementDefinition"/>
-	</context>
-	<contextInvariant value="type='quantity'"/>
-	<type value="Extension"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
-	<derivation value="constraint"/>
-	<differential>
-		<element id="Extension">
-			<path value="Extension"/>
-			<short value="Unit choice"/>
-			<definition value="A unit that the user may choose when providing a quantity value."/>
-			<comment value="Provide either unitOption(s) or unitValueSet.  If either of the extensions are present, the units for a Quantity element are constrained to only the units listed by the extensions - i.e. it is treated as a &#34;required&#34;, not an &#34;extensible&#34; binding.  In the absence of either, any unit is valid.  See additional guidance and examples in the [SDC implementation guide](http://build.fhir.org/ig/HL7/sdc/behavior.html#unitOption).  If this extension present and an answer is provided for the question item in the QuestionnaireResponse, then the valueQuantity **SHALL** have a Quantity.code and Quantity.system that match the Coding.code and system of one of the allowed values if the Coding has a code and/or system.  If the Coding only has a display, then the Quantity.unit must match.  (Note that Coding with only a display is strongly discouraged.)  If there is a match on code and system, but no match on display/unit, systems MAY raise a warning.  However, because of translation and bandwidth considerations, some systems **MAY** opt to drop the unit or express it in an alternate language."/>
-			<min value="0"/>
-			<max value="*"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (MIF-level)"/>
-			</mapping>
-		</element>
-		<element id="Extension.extension">
-			<path value="Extension.extension"/>
-			<max value="0"/>
-		</element>
-		<element id="Extension.url">
-			<path value="Extension.url"/>
-			<fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"/>
-		</element>
-		<element id="Extension.value[x]">
-			<path value="Extension.value[x]"/>
-			<min value="1"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-		</element>
-	</differential>
+  <name value="QRUnitOption"/>
+  <title value="QuestionnaireResponse Unit Option"/>
+  <status value="draft"/>
+  <date value="2013-07-04"/>
+  <publisher value="HL7"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="A unit that the user may choose when providing a quantity value."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="Questionnaire.item"/>
+  </context>
+  <context>
+    <type value="element"/>
+    <expression value="ElementDefinition"/>
+  </context>
+  <contextInvariant value="type='quantity'"/>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Unit choice"/>
+      <definition value="A unit that the user may choose when providing a quantity value."/>
+      <comment value="Provide either unitOption(s) or unitValueSet.  If either of the extensions are present, the units for a Quantity element are constrained to only the units listed by the extensions - i.e. it is treated as a &quot;required&quot;, not an &quot;extensible&quot; binding.  In the absence of either, any unit is valid.  See additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#unitOption).  If this extension present and an answer is provided for the question item in the QuestionnaireResponse, then the valueQuantity **SHALL** have a Quantity.code and Quantity.system that match the Coding.code and system of one of the allowed values if the Coding has a code and/or system.  If the Coding only has a display, then the Quantity.unit must match.  (Note that Coding with only a display is strongly discouraged.)  If there is a match on code and system, but no match on display/unit, systems MAY raise a warning.  However, because of translation and bandwidth considerations, some systems **MAY** opt to drop the unit or express it in an alternate language."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (MIF-level)"/>
+      </mapping>
+    </element>
+    <element id="Extension.extension">
+      <path value="Extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/questionnaire-unitOption"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+    </element>
+  </differential>
 </StructureDefinition>

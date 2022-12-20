@@ -27,7 +27,7 @@
   <description value="FHIR search modifiers allowed for use in Subscriptions and SubscriptionTopics."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/subscription-search-modifier"/>
+      <system value="http://hl7.org/fhir/subscription-search-modifier"/>
     </include>
   </compose>
 </ValueSet>

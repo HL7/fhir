@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="individual-recordedSexOrGender"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/individual-recordedSexOrGender"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1342"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="recordedSexOrGender"/>
-  <title value="recordedSexOrGender"/>
+  <name value="RecordedSexOrGender"/>
+  <title value="Person Recorded Sex Or Gender"/>
   <status value="draft"/>
   <date value="2022-01-28"/>
   <publisher value="HL7"/>
@@ -80,15 +85,15 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="recordedSexOrGender"/>
-		  </extension>
-		  <strength value="example"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
-	  </binding>
-    </element>	
-	<element id="Extension.extension:internationalEquivalent">
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="recordedSexOrGender"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/administrative-gender"/>
+      </binding>
+    </element>
+    <element id="Extension.extension:internationalEquivalent">
       <path value="Extension.extension"/>
       <sliceName value="internationalEquivalent"/>
       <short value="An international representation of the value found on the document"/>
@@ -116,20 +121,20 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="recordedSexOrGenderInternationalEquivilent"/>
-		  </extension>
-		  <strength value="extensible"/>
-		  <valueSet value="http://terminology.hl7.org/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
-	  </binding>
-    </element>	
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="recordedSexOrGenderInternationalEquivilent"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/international-civil-aviation-organization-sex-or-gender"/>
+      </binding>
+    </element>
     <element id="Extension.extension:type">
       <path value="Extension.extension"/>
       <sliceName value="type"/>
       <short value="Type of recorded sex or gender."/>
       <definition value="The type or category of sex or gender that is recorded."/>
-	  <comment value="Because the recorded sex and gender concept exists primarily as means to exchange sex and gender data concepts that are either use-case specific or that are historically not well defined, the type may either imply the indended use of the sex or gender value, or identify the sex or gender value as based on historical semanitcs."/>
+      <comment value="Because the recorded sex and gender concept exists primarily as means to exchange sex and gender data concepts that are either use-case specific or that are historically not well defined, the type may either imply the indended use of the sex or gender value, or identify the sex or gender value as based on historical semanitcs."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -151,17 +156,17 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="CodeableConcept"/>		
+        <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="recordedSexOrGenderType"/>
-		  </extension>
-		  <strength value="preferred"/>
-		  <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
-	  </binding>
-    </element>		
-	<element id="Extension.extension:effectivePeriod">
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="recordedSexOrGenderType"/>
+        </extension>
+        <strength value="preferred"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/recorded-sex-or-gender-type"/>
+      </binding>
+    </element>
+    <element id="Extension.extension:effectivePeriod">
       <path value="Extension.extension"/>
       <sliceName value="effectivePeriod"/>
       <short value="When the recorded sex or gender value applies"/>
@@ -185,12 +190,12 @@
     </element>
     <element id="Extension.extension:effectivePeriod.value[x]">
       <path value="Extension.extension.value[x]"/>
-	  <max value="1"/>
+      <max value="1"/>
       <type>
         <code value="Period"/>
       </type>
     </element>
-	<element id="Extension.extension:acquisitionDate">
+    <element id="Extension.extension:acquisitionDate">
       <path value="Extension.extension"/>
       <sliceName value="acquisitionDate"/>
       <short value="When the sex or gender value was recorded."/>
@@ -219,7 +224,7 @@
         <code value="dateTime"/>
       </type>
     </element>
-	<element id="Extension.extension:sourceDocument">
+    <element id="Extension.extension:sourceDocument">
       <path value="Extension.extension"/>
       <sliceName value="sourceDocument"/>
       <short value="The document the sex or gender property was acquired from."/>
@@ -247,10 +252,10 @@
       <min value="1"/>
       <type>
         <code value="CodeableReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
     </element>
-	<element id="Extension.extension:sourceField">
+    <element id="Extension.extension:sourceField">
       <path value="Extension.extension"/>
       <sliceName value="sourceField"/>
       <short value="The name of the field within the source document where this sex or gender property is initially recorded."/>
@@ -277,10 +282,10 @@
       <path value="Extension.extension.value[x]"/>
       <min value="1"/>
       <type>
-        <code value="string"/>		
+        <code value="string"/>
       </type>
     </element>
-	<element id="Extension.extension:jurisdiction">
+    <element id="Extension.extension:jurisdiction">
       <path value="Extension.extension"/>
       <sliceName value="jurisdiction"/>
       <short value="Who issued the document where the sex or gender was aquired"/>
@@ -309,13 +314,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="Jurisdiction ValueSet"/>
-		  </extension>
-		  <strength value="extensible"/>
-		  <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-	  </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction ValueSet"/>
+        </extension>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
     </element>
     <element id="Extension.extension:comment">
       <path value="Extension.extension"/>
@@ -352,7 +357,7 @@
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
-	  <min value="0"/>
+      <min value="0"/>
       <max value="0"/>
     </element>
   </differential>

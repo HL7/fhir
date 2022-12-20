@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-deprecated"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -6,17 +8,21 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-deprecated"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1187"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="deprecated"/>
+  <name value="VSDeprecated"/>
+  <title value="ValueSet Deprecated"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
-  <description value="if ture, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn."/>
+  <description value="if true, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -36,7 +42,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="The concept should not be used"/>
-      <definition value="if ture, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn."/>
+      <definition value="if true, indicates that the concept is deprecated from the value set - that is, it should not be used, and is planned to be withdrawn."/>
       <comment value="Ths status relates to a concept's inclusion in the value set, and might be different to the underlying status of the concept itself."/>
       <min value="0"/>
       <max value="1"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ServiceRequest"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ServiceRequest"/>
+  <title value="ServiceRequest"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -94,7 +97,6 @@
         <severity value="error"/>
         <human value="orderDetail SHALL only be present if code is present"/>
         <expression value="orderDetail.empty() or code.exists()"/>
-        <xpath value="exists(f:code) or not(exists(f:orderDetail))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
       <mapping>
@@ -190,7 +192,7 @@
       <max value="*"/>
       <type>
         <code value="uri"/>
-      </type> 
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -272,8 +274,8 @@
       <path value="ServiceRequest.requisition"/>
       <short value="Composite Request ID"/>
       <definition value="A shared identifier common to all service requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
-      <comment value="Requests are linked either by a &#34;basedOn&#34; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
-      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &#34;requisition&#34; for billing or other purposes."/>
+      <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
+      <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;requisition&quot; for billing or other purposes."/>
       <alias value="grouperId"/>
       <alias value="groupIdentifier"/>
       <min value="0"/>
@@ -354,7 +356,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -387,7 +389,7 @@
       </extension>
       <path value="ServiceRequest.category"/>
       <short value="Classification of service"/>
-      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g. &#34;Surgical Procedure&#34;)."/>
+      <definition value="A code that classifies the service for searching, sorting and display purposes (e.g. &quot;Surgical Procedure&quot;)."/>
       <comment value="There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what service request are retrieved and displayed."/>
       <min value="0"/>
@@ -414,7 +416,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;INT&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;INT&quot;].code"/>
       </mapping>
     </element>
     <element id="ServiceRequest.priority">
@@ -470,7 +472,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <meaningWhenMissing value="If missing, the request is a positive request e.g. &#34;do perform&#34;"/>
+      <meaningWhenMissing value="If missing, the request is a positive request e.g. &quot;do perform&quot;"/>
       <isModifier value="true"/>
       <isModifierReason value="If true this element negates the specified action. For Example,  instead of a request for a procedure, it is a request for the procedure to not occur."/>
       <isSummary value="true"/>
@@ -505,7 +507,7 @@
           <valueString value="ServiceRequestCode"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html)."/>
+        <description value="Codes for tests or services that can be carried out by a designated individual, organization or healthcare service.  For laboratory, LOINC is  [preferred](terminologies.html#preferred) and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
       </binding>
       <mapping>
@@ -741,7 +743,7 @@
       </extension>
       <path value="ServiceRequest.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -756,12 +758,12 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &#34;pain&#34;, &#34;on flare-up&#34;, etc."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&#34;Assertion&#34;].value"/>
+        <map value="boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=&quot;Assertion&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="quick"/>
@@ -866,7 +868,7 @@
           <valueString value="ServiceRequestParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &#34;Primary physician&#34;, &#34;Team coordinator&#34;, &#34;Caregiver&#34;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -1034,7 +1036,7 @@
       </extension>
       <path value="ServiceRequest.supportingInfo"/>
       <short value="Additional clinical information"/>
-      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &#34;ask at order entry questions (AOEs)&#34;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
+      <definition value="Additional clinical information about the patient or specimen that may influence the services or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &quot;ask at order entry questions (AOEs)&quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements."/>
       <comment value="To represent information about how the services are to be delivered use the `instructions` element."/>
       <alias value="Ask at order entry question"/>
       <alias value="AOE"/>
@@ -1133,15 +1135,14 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <isSummary value="true"/>
       <constraint>
         <key value="bdystr-1"/>
         <severity value="error"/>
         <human value="bodyStructure SHALL only be present if bodySite is not present"/>
         <expression value="bodySite.exists() or bodyStructure.exists()"/>
-        <xpath value="exists(f:bodySite) or exists(f:bodyStructure)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
+      <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
         <map value="SPM"/>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="StructureDefinition"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -35,6 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StructureDefinition"/>
+  <title value="StructureDefinition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -98,8 +100,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches(&#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, &#39;[A-Z]([A-Za-z0-9_]){1,254}&#39;)"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -107,17 +108,15 @@
         <requirements value="Because these 3 fields seem to be have overlapping meaning with the ones in the root of StructureDefinition"/>
         <severity value="error"/>
         <human value="In any snapshot or differential, no label, code or requirements on an element without a &quot;.&quot; in the path (e.g. the first element)"/>
-        <expression value="children().element.where(path.contains(&#39;.&#39;).not()).label.empty() and children().element.where(path.contains(&#39;.&#39;).not()).code.empty() and children().element.where(path.contains(&#39;.&#39;).not()).requirements.empty()"/>
-        <xpath value="not(exists(f:snapshot/f:element[not(contains(f:path/@value, &#39;.&#39;)) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, &#39;.&#39;)) and (f:label or f:code or f:requirements)]))"/>
+        <expression value="children().element.where(path.contains('.').not()).label.empty() and children().element.where(path.contains('.').not()).code.empty() and children().element.where(path.contains('.').not()).requirements.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
         <key value="sdf-15a"/>
         <requirements value="No Type on the root element (differential)"/>
         <severity value="error"/>
-        <human value="If the first element in a differential has no &quot;.&quot; in the path and it&#39;s not a logical model, it has no type"/>
-        <expression value="(kind!=&#39;logical&#39;  and differential.element.first().path.contains(&#39;.&#39;).not()) implies differential.element.first().type.empty()"/>
-        <xpath value="f:kind/@value=&#39;logical&#39; or not(f:differential/f:element[1][not(contains(f:path/@value, &#39;.&#39;))]/f:type)"/>
+        <human value="If the first element in a differential has no &quot;.&quot; in the path and it's not a logical model, it has no type"/>
+        <expression value="(kind!='logical'  and differential.element.first().path.contains('.').not()) implies differential.element.first().type.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -125,8 +124,7 @@
         <requirements value="custom types only in logical models"/>
         <severity value="error"/>
         <human value="FHIR Specification models only use FHIR defined types"/>
-        <expression value="url.startsWith(&#39;http://hl7.org/fhir/StructureDefinition&#39;) implies (differential | snapshot).element.type.code.all(matches(&#39;^[a-zA-Z0-9]+$&#39;) or matches(&#39;^http:\\/\\/hl7\\.org\\/fhirpath\\/System\\.[A-Z][A-Za-z]+$&#39;))"/>
-        <xpath value="not(starts-with(f:url/@value, &#39;http://hl7.org/fhir/StructureDefinition&#39;)) or count(f:differential/f:element/f:type/f:code[@value and not(matches(string(@value), &#39;^[a-zA-Z0-9]+$&#39;))]|f:snapshot/f:element/f:type/f:code[@value and not(matches(string(@value), &#39;^[a-zA-Z0-9]+$&#39;))]) =0"/>
+        <expression value="url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (differential | snapshot).element.type.code.all(matches('^[a-zA-Z0-9]+$') or matches('^http:\\/\\/hl7\\.org\\/fhirpath\\/System\\.[A-Z][A-Za-z]+$'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -134,8 +132,7 @@
         <requirements value="element ids need to be unique"/>
         <severity value="error"/>
         <human value="All element definitions must have unique ids (snapshot)"/>
-        <expression value="snapshot.element.all(id.exists()) and snapshot.element.id.trace(&#39;ids&#39;).isDistinct()"/>
-        <xpath value="count(f:snapshot/f:element)=count(f:snapshot/f:element/@id) and (count(f:snapshot/f:element)=count(distinct-values(f:snapshot/f:element/@id)))"/>
+        <expression value="snapshot.element.all(id.exists()) and snapshot.element.id.trace('ids').isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -143,8 +140,7 @@
         <requirements value="No Type on the root element (snapshot)"/>
         <severity value="error"/>
         <human value="The first element in a snapshot has no type unless model is a logical model."/>
-        <expression value="kind!=&#39;logical&#39;  implies snapshot.element.first().type.empty()"/>
-        <xpath value="f:kind/@value=&#39;logical&#39; or not(f:snapshot/f:element[1]/f:type)"/>
+        <expression value="kind!='logical'  implies snapshot.element.first().type.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -152,8 +148,7 @@
         <requirements value="contextInvariant"/>
         <severity value="error"/>
         <human value="Context Invariants can only be used for extensions"/>
-        <expression value="contextInvariant.exists() implies type = &#39;Extension&#39;"/>
-        <xpath value="not(exists(f:contextInvariant)) or (f:type/@value = &#39;Extension&#39;)"/>
+        <expression value="contextInvariant.exists() implies type = 'Extension'"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -161,8 +156,7 @@
         <requirements value="element ids need to be unique"/>
         <severity value="error"/>
         <human value="All element definitions must have unique ids (diff)"/>
-        <expression value="differential.element.all(id.exists()) and differential.element.id.trace(&#39;ids&#39;).isDistinct()"/>
-        <xpath value="count(f:differential/f:element)=count(f:differential/f:element/@id) and (count(f:differential/f:element)=count(distinct-values(f:differential/f:element/@id)))"/>
+        <expression value="differential.element.all(id.exists()) and differential.element.id.trace('ids').isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -170,17 +164,15 @@
         <requirements value="no sliceName on root"/>
         <severity value="error"/>
         <human value="No slice name on root"/>
-        <expression value="(snapshot | differential).element.all(path.contains(&#39;.&#39;).not() implies sliceName.empty())"/>
-        <xpath value="count(*[self::snapshot or self::differential]/f:element[not(contains(f:path/@value, &#39;.&#39;)) and f:sliceName])=0"/>
+        <expression value="(snapshot | differential).element.all(path.contains('.').not() implies sliceName.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
         <key value="sdf-11"/>
         <requirements value="Ensure that the type is not inconsistent with the other information in the structure"/>
         <severity value="error"/>
-        <human value="If there&#39;s a type, its content must match the path name in the first element of a snapshot"/>
-        <expression value="kind != &#39;logical&#39; implies snapshot.empty() or snapshot.element.first().path = type"/>
-        <xpath value="(f:kind/@value = &#39;logical&#39;) or not(exists(f:snapshot)) or (f:type/@value = f:snapshot/f:element[1]/f:path/@value)"/>
+        <human value="If there's a type, its content must match the path name in the first element of a snapshot"/>
+        <expression value="kind != 'logical' implies snapshot.empty() or snapshot.element.first().path = type"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -188,8 +180,7 @@
         <requirements value="no default values on data types or resources"/>
         <severity value="error"/>
         <human value="FHIR Specification models never have default values"/>
-        <expression value="url.startsWith(&#39;http://hl7.org/fhir/StructureDefinition&#39;) implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())"/>
-        <xpath value="not(starts-with(f:url/@value, &#39;http://hl7.org/fhir/StructureDefinition&#39;)) or (not(exists(f:snapshot/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])) and not(exists(f:differential/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])))"/>
+        <expression value="url.startsWith('http://hl7.org/fhir/StructureDefinition') implies (snapshot.element.defaultValue.empty() and differential.element.defaultValue.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -198,15 +189,13 @@
         <severity value="error"/>
         <human value="All element definitions must have an id"/>
         <expression value="snapshot.element.all(id.exists()) and differential.element.all(id.exists())"/>
-        <xpath value="count(*/f:element)=count(*/f:element/@id)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
         <key value="sdf-1"/>
         <severity value="error"/>
         <human value="Element paths must be unique unless the structure is a constraint"/>
-        <expression value="derivation = &#39;constraint&#39; or snapshot.element.select(path).isDistinct()"/>
-        <xpath value="(f:derivation/@value = &#39;constraint&#39;) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))"/>
+        <expression value="derivation = 'constraint' or snapshot.element.select(path).isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -214,8 +203,7 @@
         <requirements value="no default values on data types or resources"/>
         <severity value="error"/>
         <human value="Default values can only be specified on specializations"/>
-        <expression value="differential.element.defaultValue.exists() implies (derivation = &#39;specialization&#39;)"/>
-        <xpath value="not(exists(f:differential/f:element/*[starts-with(local-name(), &#39;defaultValue&#39;)])) or (f:derivation/@value = &#39;specialization&#39;)"/>
+        <expression value="differential.element.defaultValue.exists() implies (derivation = 'specialization')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -223,15 +211,13 @@
         <severity value="error"/>
         <human value="A structure must have either a differential, or a snapshot (or both)"/>
         <expression value="snapshot.exists() or differential.exists()"/>
-        <xpath value="exists(f:snapshot) or exists(f:differential)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
         <key value="sdf-5"/>
         <severity value="error"/>
         <human value="If the structure defines an extension then the structure must have context information"/>
-        <expression value="type != &#39;Extension&#39; or derivation = &#39;specialization&#39; or (context.exists())"/>
-        <xpath value="not(f:type/@value = &#39;extension&#39;) or (f:derivation/@value = &#39;specialization&#39;) or (exists(f:context))"/>
+        <expression value="type != 'Extension' or derivation = 'specialization' or (context.exists())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -240,7 +226,6 @@
         <severity value="error"/>
         <human value="If the structure is not abstract, then there SHALL be a baseDefinition"/>
         <expression value="abstract = true or baseDefinition.exists()"/>
-        <xpath value="(f:abstract/@value=true()) or exists(f:baseDefinition)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -248,14 +233,12 @@
         <severity value="error"/>
         <human value="If there's a base definition, there must be a derivation "/>
         <expression value="baseDefinition.exists() implies derivation.exists()"/>
-        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
       <constraint>
         <key value="sdf-29"/>
         <severity value="warning"/>
         <human value="Elements in Resources must have a min cardinality or 0 or 1 and a max cardinality of 1 or *"/>
         <expression value="((kind in 'resource' | 'complex-type') and (specialization = 'derivation')) implies differential.element.where((min != 0 and min != 1) or (max != '1' and max != '*')).empty()"/>
-        <xpath value="not(exists(f:baseDefinition)) or exists(f:derivation)"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
@@ -366,10 +349,13 @@
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.title"/>
       <short value="Name for this structure definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the structure definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.Applications don&#39;t have to use this name but can always fall back to it. The title also corresponds to the label for the root element."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.Applications don't have to use this name but can always fall back to it. The title also corresponds to the label for the root element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -435,8 +421,8 @@
     <element id="StructureDefinition.date">
       <path value="StructureDefinition.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the structure definition was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the structure definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the structure definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the structure definition. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -450,9 +436,12 @@
       </mapping>
     </element>
     <element id="StructureDefinition.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition."/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the structure definition is the organization or individual primarily responsible for the maintenance and upkeep of the structure definition. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the structure definition. This item SHOULD be populated unless the information is available from context."/>
       <requirements value="Helps establish the &quot;authority/credibility&quot; of the structure definition.  May also allow for contact."/>
       <min value="0"/>
@@ -486,10 +475,13 @@
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.description"/>
       <short value="Natural language description of the structure definition"/>
-      <definition value="A free text natural language description of the structure definition from a consumer&#39;s perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the &#39;text&#39; field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
+      <definition value="A free text natural language description of the structure definition from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -536,10 +528,13 @@
       </binding>
     </element>
     <element id="StructureDefinition.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.purpose"/>
       <short value="Why this structure definition is defined"/>
       <definition value="Explanation of why this structure definition is needed and why it has been designed as it has."/>
-      <comment value="This element does not describe the usage of the structure definition. Instead, it provides traceability of &#39;&#39;why&#39;&#39; the resource is either needed or &#39;&#39;why&#39;&#39; it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this structure definition."/>
+      <comment value="This element does not describe the usage of the structure definition. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this structure definition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -555,6 +550,9 @@
       </mapping>
     </element>
     <element id="StructureDefinition.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.copyright"/>
       <short value="Use and/or publishing restrictions"/>
       <definition value="A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.  The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element."/>
@@ -573,6 +571,9 @@
       </mapping>
     </element>
     <element id="StructureDefinition.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
       <path value="StructureDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
@@ -585,13 +586,17 @@
       </type>
     </element>
     <element id="StructureDefinition.keyword">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="deprecated"/>
-			</extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="deprecated">
+          <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+            <valueMarkdown value="Use the artifact-keyword extension instead"/>
+          </extension>
+        </valueCode>
+      </extension>
       <path value="StructureDefinition.keyword"/>
       <short value="Assist with indexing and finding"/>
-			<definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
-			<comment value="Note that this element is deprecated. Use the artifact-keyword extension instead."/>
+      <definition value="(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes."/>
+      <comment value="Note that this element is deprecated. Use the artifact-keyword extension instead."/>
       <requirements value="Assist in searching for appropriate StructureDefinitions."/>
       <min value="0"/>
       <max value="*"/>
@@ -652,7 +657,6 @@
         <severity value="error"/>
         <human value="Must have at least a name or a uri (or both)"/>
         <expression value="name.exists() or uri.exists()"/>
-        <xpath value="exists(f:uri) or exists(f:name)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
     </element>
@@ -789,8 +793,8 @@
     <element id="StructureDefinition.type">
       <path value="StructureDefinition.type"/>
       <short value="Type defined or constrained by this structure"/>
-      <definition value="The type this structure describes. If the derivation kind is &#39;specialization&#39; then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models."/>
-      <comment value="Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing. &#xA;&#xA;The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type SHALL be a fully specified URL, the type name SHOULD start with the final path segment of the type URL where required. E.g. If the type was &quot;http://example.org/fhir/MyLogicalModelType&quot;, the type name should start with 'MyLogicalModelType'."/>
+      <definition value="The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models, where they are required."/>
+      <comment value="Note that in the case of constraints, the type could be determined by chasing through the baseDefinition references until a type defining structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the type directly makes for simpler tooling and indexing. &#xA;&#xA;The type must match the elements defined in the differential and the snapshot. For all FHIR defined types, the path name of the element will start with the type name. For logical models, where the type SHALL be a fully specified URL, the type name SHOULD start with the final path segment of the type URL where required. E.g. If the type was &quot;http://example.org/fhir/MyLogicalModelType&quot;, the type name should start with 'MyLogicalModelType'."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -863,9 +867,8 @@
       <constraint>
         <key value="sdf-8"/>
         <severity value="error"/>
-        <human value="All snapshot elements must start with the StructureDefinition&#39;s specified type for non-logical models, or with the same type name for logical models"/>
-        <expression value="(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;&#39;.&#39;))"/>
-        <xpath value="f:element[1]/f:path/@value=parent::f:StructureDefinition/f:type/@value and count(f:element[position()!=1])=count(f:element[position()!=1][starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, &#39;.&#39;))])"/>
+        <human value="All snapshot elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models"/>
+        <expression value="(%resource.kind = 'logical' or element.first().path = %resource.type) and element.tail().all(path.startsWith(%resource.snapshot.element.first().path&amp;'.'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -873,7 +876,6 @@
         <severity value="error"/>
         <human value="Each element definition in a snapshot must have a formal definition and cardinalities, unless model is a logical model"/>
         <expression value="%resource.kind = 'logical' or element.all(definition.exists() and min.exists() and max.exists())"/>
-        <xpath value="count(f:element) = count(f:element[exists(f:definition) and exists(f:min) and exists(f:max)])"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -881,7 +883,6 @@
         <severity value="error"/>
         <human value="All snapshot elements must have a base definition"/>
         <expression value="element.all(base.exists())"/>
-        <xpath value="count(f:element) = count(f:element/f:base)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -889,14 +890,12 @@
         <severity value="error"/>
         <human value="For CodeableReference elements, target profiles must be listed on the CodeableReference, not the CodeableReference.reference"/>
         <expression value="element.where(type.where(code='Reference').exists() and path.endsWith('.reference') and type.targetProfile.exists() and (path.substring(0,$this.path.length()-10) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
-        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.reference') and f:type/f:code/@value='Reference' and exists(f:type/f:targetProfile)]))"/>
       </constraint>
       <constraint>
         <key value="sdf-25"/>
         <severity value="error"/>
         <human value="For CodeableReference elements, bindings must be listed on the CodeableReference, not the CodeableReference.concept"/>
         <expression value="element.where(type.where(code='CodeableConcept').exists() and path.endsWith('.concept') and binding.exists() and (path.substring(0,$this.path.length()-8) in %context.element.where(type.where(code='CodeableReference').exists()).path)).exists().not()"/>
-        <xpath value="not(exists(for $cr in f:element[f:type/f:code/@value='CodeableReference'] return $cr/following-sibling::f:element[@id=concat($cr/@id, '.concept') and f:type/f:code/@value='CodeableConcept' and exists(f:binding)]))"/>
       </constraint>
       <constraint>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
@@ -909,7 +908,6 @@
         <severity value="error"/>
         <human value="The root element of a profile should not have mustSupport = true"/>
         <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
-        <xpath value="not(exists(f:snapshot/f:element[1][f:mustSupport/@value='true']))"/>
       </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
@@ -928,7 +926,6 @@
         <severity value="error"/>
         <human value="provide either a binding reference or a description (or both)"/>
         <expression value="binding.empty() or binding.valueSet.exists() or binding.description.exists()"/>
-        <xpath value="not(exists(f:binding)) or exists(f:binding/f:valueSet) or exists(f:binding/f:description)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
@@ -936,7 +933,6 @@
         <severity value="error"/>
         <human value="If there are no discriminators, there must be a definition"/>
         <expression value="slicing.exists().not() or (slicing.discriminator.exists() or slicing.description.exists())"/>
-        <xpath value="empty(f:slicing) or f:slicing[f:discriminator | f:description]"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <mapping>
@@ -962,16 +958,14 @@
         <requirements value="no slicing on root"/>
         <severity value="error"/>
         <human value="No slicing on the root element"/>
-        <expression value="element.where(path.contains(&#39;.&#39;).not()).slicing.empty()"/>
-        <xpath value="not(f:element[1]/f:slicing)"/>
+        <expression value="element.where(path.contains('.').not()).slicing.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
       <constraint>
         <key value="sdf-8a"/>
         <severity value="error"/>
-        <human value="In any differential, all the elements must start with the StructureDefinition&#39;s specified type for non-logical models, or with the same type name for logical models"/>
-        <expression value="(%resource.kind = &#39;logical&#39; or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches(&#39;\\..*&#39;,&#39;&#39;)&amp;&#39;.&#39;)))"/>
-        <xpath value="count(f:element)=count(f:element[f:path/@value=ancestor::f:StructureDefinition/f:type/@value or starts-with(f:path/@value, concat(ancestor::f:StructureDefinition/f:type/@value, &#39;.&#39;))])"/>
+        <human value="In any differential, all the elements must start with the StructureDefinition's specified type for non-logical models, or with the same type name for logical models"/>
+        <expression value="(%resource.kind = 'logical' or element.first().path.startsWith(%resource.type)) and (element.tail().empty() or  element.tail().all(path.startsWith(%resource.differential.element.first().path.replaceMatches('\\..*','')&amp;'.')))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </constraint>
     </element>

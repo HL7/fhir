@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir">
   <id value="MedicationRequest-search-params"/>
   <entry>
     <resource>
       <SearchParameter>
         <id value="MedicationRequest-authoredon"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.authoredOn"/>
@@ -17,7 +17,6 @@
         <code value="authoredon"/>
         <type value="date"/>
         <expression value="MedicationRequest.authoredOn"/>
-        <!--<xpath value="f:MedicationRequest/f:authoredOn"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="category"/>
         <type value="token"/>
         <expression value="MedicationRequest.category"/>
-        <!--<xpath value="f:MedicationRequest/f:category"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -47,7 +45,7 @@
       <SearchParameter>
         <id value="MedicationRequest-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.medication.concept"/>
@@ -57,7 +55,6 @@
         <code value="code"/>
         <type value="token"/>
         <expression value="MedicationRequest.medication.concept"/>
-        <!--<xpath value="f:MedicationRequest/f:medication/f:concept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="combo-date"/>
         <type value="date"/>
         <expression value="MedicationRequest.dose.dosageInstruction.timing.event | (MedicationRequest.dose.dosageInstruction.timing.repeat.bounds as Period)"/>
-        <!--<xpath value="f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:event | f:MedicationRequest/f:dose.dosageInstruction/f:timing/f:repeat/f:boundsPeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="encounter"/>
         <type value="reference"/>
         <expression value="MedicationRequest.encounter"/>
-        <!--<xpath value="f:MedicationRequest/f:encounter"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +132,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="MedicationRequest.identifier"/>
-        <!--<xpath value="f:MedicationRequest/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +151,6 @@
         <code value="intended-dispenser"/>
         <type value="reference"/>
         <expression value="MedicationRequest.dispenseRequest.dispenser"/>
-        <!--<xpath value="f:MedicationRequest/f:dispenseRequest/f:dispenser"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +170,6 @@
         <code value="intended-performer"/>
         <type value="reference"/>
         <expression value="MedicationRequest.performer"/>
-        <!--<xpath value="f:MedicationRequest/f:performer"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -197,7 +189,6 @@
         <code value="intended-performertype"/>
         <type value="token"/>
         <expression value="MedicationRequest.performerType"/>
-        <!--<xpath value="f:MedicationRequest/f:performerType"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -207,7 +198,7 @@
       <SearchParameter>
         <id value="MedicationRequest-intent"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.intent"/>
@@ -217,7 +208,6 @@
         <code value="intent"/>
         <type value="token"/>
         <expression value="MedicationRequest.intent"/>
-        <!--<xpath value="f:MedicationRequest/f:intent"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -227,7 +217,7 @@
       <SearchParameter>
         <id value="MedicationRequest-medication"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="draft"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.medication.reference"/>
@@ -237,7 +227,6 @@
         <code value="medication"/>
         <type value="reference"/>
         <expression value="MedicationRequest.medication.reference"/>
-        <!--<xpath value="f:MedicationRequest/f:medication/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -257,7 +246,6 @@
         <code value="patient"/>
         <type value="reference"/>
         <expression value="MedicationRequest.subject.where(resolve() is Patient)"/>
-        <!--<xpath value="f:MedicationRequest/f:subject"/> -->
         <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
@@ -268,7 +256,7 @@
       <SearchParameter>
         <id value="MedicationRequest-priority"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.priority"/>
@@ -278,7 +266,6 @@
         <code value="priority"/>
         <type value="token"/>
         <expression value="MedicationRequest.priority"/>
-        <!--<xpath value="f:MedicationRequest/f:priority"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -298,7 +285,6 @@
         <code value="requester"/>
         <type value="reference"/>
         <expression value="MedicationRequest.requester"/>
-        <!--<xpath value="f:MedicationRequest/f:requester"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -308,7 +294,7 @@
       <SearchParameter>
         <id value="MedicationRequest-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="MedicationRequest.status"/>
@@ -318,7 +304,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="MedicationRequest.status"/>
-        <!--<xpath value="f:MedicationRequest/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -338,7 +323,6 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="MedicationRequest.subject"/>
-        <!--<xpath value="f:MedicationRequest/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

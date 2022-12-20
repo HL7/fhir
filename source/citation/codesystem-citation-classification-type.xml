@@ -12,12 +12,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/citation-classification-type"/>
+  <url value="http://hl7.org/fhir/citation-classification-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1888"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="CitationClassificationType"/>
   <title value="CitationClassificationType"/>
   <status value="draft"/>

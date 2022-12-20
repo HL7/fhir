@@ -21,7 +21,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>
 					<em>request</em> resources</a>.</strong>
 		</p>
 		<p>
-The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process.  This includes supplies specifically
+The scope of the SupplyRequest resource is for recording the request of supplies used in the healthcare process to be delivered to a particular location. This includes supplies specifically
 used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from
 materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
 services.
@@ -38,6 +38,11 @@ These instances can be linked in different ways, depending on the needs of the w
 		<p>Note that the SupplyRequest records the fact that a request was made. To actually act on that request, additional workflow beyond simply the existence of a SupplyRequest is required. This can be achieved by using an <a href="task.html">Task</a> resource, with the SupplyRequest referenced from the Task.focus, or by using the SupplyRequest resource in the context of an messaging or service workflow where the request is explicit or implicit.  The <a href="supplydelivery.html">SupplyDelivery</a> resource represents the fulfillment as a result of SupplyRequest being acted upon.
 		</p>
 		<p>The SupplyRequest resource is used for <em>inventory management</em>.  When requesting medication, substances and devices when there is a patient focus or instructions regarding their use, <a href="devicerequest.html">DeviceRequest</a> or <a href="medicationrequest.html">MedicationRequest</a> should be used instead.
+		</p>
+		<p>
+        For <a href="devicedispense.html">DeviceDispense</a>, 
+		<a href="medicationdispense.html">MedicationDispense</a>,
+		and BiologicallyDerivedProductDispense (planned), a SupplyRequest does not document the formal association of a device, medication, biologically derived product, or supply item to a patient.  The DeviceDispense (or MedicationDispense or BiologicallyDerivceProductDispense) is used to formally document that the device, medication, biologically derived product or supply item is to be used by or for a patient in a medical activity. 
 		</p>
 		<p>
         To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.

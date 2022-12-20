@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="ArtifactAssessment-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -18,7 +18,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ArtifactAssessment.date"/>
-        <!--<xpath value="f:ArtifactAssessment/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

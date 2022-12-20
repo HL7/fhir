@@ -33,14 +33,14 @@
 		</strong>
 An example of a complex Micro Isolate and Sensitivities with 2 level nested Organism and Susceptibilty panels using the related Observation Structure.  The following diagram is provided above to help teh reader navigate the nested structures.</p>
 	<img src="cands1.png" alt="Micro Isolate and Sensitivities-1 structure" width="800px"/>
-	<p/>
+	<p></p>
 	<p>
 		<strong>
 			<a href="bundle-lri-example.html">Micro Isolate and Sensitivities-2: </a>
 		</strong>
 An collection Bundle showing an example of a complex Micro Isolate and Sensitivities based on the HL7 V2 Lab Reports Interface (LRI) example. This example has a single level nested Organism panels using the related Observation Structure.  The following diagram is provided  to help the reader navigate the nested structures.</p>
 	<img src="cands2.png" alt="Micro Isolate and Sensitivities-2 structure" width="800px"/>
-	<p/>
+	<p></p>
 	<h3>Imaging Studies</h3>
 	<p>The following examples of DiagnosticReport resources show examples of various imaging reports:
     </p>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImmunizationRecommendation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -19,7 +21,7 @@
     <valueCode value="pher"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-    <valueCode value="Immunization recommendations are generated on &#34;just in time&#34; and typically are not retained by the system generating them so there isn't an expected workflow where a previous recommendation would be re-evaluated and found to be &#34;in error&#34;."/>
+    <valueCode value="Immunization recommendations are generated on &quot;just in time&quot; and typically are not retained by the system generating them so there isn't an expected workflow where a previous recommendation would be re-evaluated and found to be &quot;in error&quot;."/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
   <identifier>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImmunizationRecommendation"/>
+  <title value="ImmunizationRecommendation"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Public Health)"/>
@@ -218,7 +221,6 @@
         <severity value="error"/>
         <human value="One of vaccineCode or targetDisease SHALL be present"/>
         <expression value="vaccineCode.exists() or targetDisease.exists()"/>
-        <xpath value="exists(f:vaccineCode) or exists(f:targetDisease)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
       </constraint>
       <isSummary value="true"/>
@@ -337,7 +339,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&#34;Immunization Forecast Status&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=SUBJ] .source[classCode=OBS, moodCode=EVN, code=&quot;Immunization Forecast Status&quot;].value"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.forecastReason">
@@ -534,7 +536,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&#34;immunization&#34;]"/>
+        <map value=".outboundRelationship[typeCode=RSON].target[classCode=SBADM, moodCode=EVN, code=&quot;immunization&quot;]"/>
       </mapping>
     </element>
     <element id="ImmunizationRecommendation.recommendation.supportingPatientInformation">

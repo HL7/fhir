@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImmunizationEvaluation"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImmunizationEvaluation"/>
+  <title value="ImmunizationEvaluation"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Public Health and Emergency Response)"/>
@@ -43,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Describes a comparison of an immunization event against published recommendations to determine if the administration is &#34;valid&#34; in relation to those  recommendations."/>
+  <description value="Describes a comparison of an immunization event against published recommendations to determine if the administration is &quot;valid&quot; in relation to those  recommendations."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -77,7 +80,7 @@
       </extension>
       <path value="ImmunizationEvaluation"/>
       <short value="Immunization evaluation information"/>
-      <definition value="Describes a comparison of an immunization event against published recommendations to determine if the administration is &#34;valid&#34; in relation to those  recommendations."/>
+      <definition value="Describes a comparison of an immunization event against published recommendations to determine if the administration is &quot;valid&quot; in relation to those  recommendations."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>

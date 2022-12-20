@@ -5,10 +5,10 @@
 <h2>Scope and Usage</h2>
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
 <p>
-The scope of the supply resource is for supplies used in the healthcare process.  This includes supplies specifically
-used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from 
-materials management to a service unit (nurse station).  This resource does not include the provisioning of transportation
-services.
+The SupplyDelivery is used to document actual movement of supplies (e.g., medications, devices, substances, biologically derived products) from one location to another, where the intended patient or person (e.g., doctor) may also be known. 
+This includes supplies specifically used in the treatment of patients as well as supply movement within an institution (transport a set of supplies from materials management to a service unit (nurse station). 
+This resource does not include the provisioning of transportation services.  The SupplyDelivery does not imply that this supply has already been dispensed to the that patient or person, while it could be reserved for that patient or person. 
+Those associations are done in dedicated resources such as the MedicationDispense and DeviceDispense.
 </p>
 </div>
 
@@ -16,11 +16,9 @@ services.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource overlaps with others such as <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>. 
-The <b>SupplyDelivery</b> resource may be used for medications, biologically derived products, and devices when handling them generically (as any other supply). 
-For example, when processing bulk orders, etc. However, when the medication, biologically derived product, device or other aspects of the resource are important, 
-(e.g. in a <a href="medicationrequest.html">MedicationRequest</a> or when identifying a device as a performer), the more detailed resource must be used.
-</p>
+This resource has a boundary with <a href="devicedispense.html">DeviceDispense</a> and <a href="medicationdispense.html">Medicationdispense</a>:
+The DeviceDispense and MedicationDispense resources are used to associate the device or medication with the specific patient for their use, while SupplyDelivery is solely focused on location and movement 
+where the targeted patient or other person (e.g., devices used by a clinician), if included, are for delivery context only.</p>
 
 <p>
 To determine the purchase date, a search of DeviceRequest, SupplyRequest, DeviceDispense, or SupplyDelivery as defined in an implementation guide can be done , as the context of the use case actually determines which date of either resource is considered the purchase date.

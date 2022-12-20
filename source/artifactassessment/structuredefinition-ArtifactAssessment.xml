@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ArtifactAssessment"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -26,6 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ArtifactAssessment"/>
+  <title value="ArtifactAssessment"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -127,7 +129,7 @@
       <path value="ArtifactAssessment.date"/>
       <short value="Date last changed"/>
       <definition value="The date  (and optionally time) when the artifact assessment was published. The date must change when the disposition changes and it must change if the workflow status code changes. In addition, it should change when the substantive content of the artifact assessment changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the artifact assessment. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -180,7 +182,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;approval&#34;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>
@@ -192,7 +194,7 @@
       <short value="When the artifact assessment was last reviewed"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
-      <requirements value="Gives a sense of how &#34;current&#34; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -201,7 +203,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;; subsetCode=&#34;RECENT&#34;].act[classCode=CACT;moodCode=EVN;code=&#34;review&#34;].effectiveTime"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>

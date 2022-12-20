@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="audit-event-action"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,17 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.453"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.446"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.263"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="AuditEventAction"/>
   <title value="AuditEventAction"/>
   <status value="draft"/>
@@ -45,8 +57,8 @@
   </concept>
   <concept>
     <code value="R"/>
-    <display value="Read/View/Print"/>
-    <definition value="Display or print data, such as a doctor census."/>
+    <display value="Read"/>
+    <definition value="Read data, such as to print or display to a doctor."/>
   </concept>
   <concept>
     <code value="U"/>

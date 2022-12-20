@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Communication"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Communication"/>
+  <title value="Communication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -177,7 +180,7 @@
       <path value="Communication.partOf"/>
       <short value="Part of referenced event (e.g. Communication, Procedure)"/>
       <definition value="A larger event (e.g. Communication, Procedure) of which this particular communication is a component or step."/>
-      <comment value="The event the communication was part of - e.g. if you disclosed as &#34;part&#34; of counselling, it would be partOf that Procedure."/>
+      <comment value="The event the communication was part of - e.g. if you disclosed as &quot;part&quot; of counselling, it would be partOf that Procedure."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -236,7 +239,7 @@
       <path value="Communication.statusReason"/>
       <short value="Reason for current status"/>
       <definition value="Captures the reason for the current state of the Communication."/>
-      <comment value="This is generally only used for &#34;exception&#34; statuses such as &#34;not-done&#34;, &#34;suspended&#34; or &#34;aborted&#34;. The reason for performing the event at all is captured in reasonCode, not here."/>
+      <comment value="This is generally only used for &quot;exception&quot; statuses such as &quot;not-done&quot;, &quot;suspended&quot; or &quot;aborted&quot;. The reason for performing the event at all is captured in reasonCode, not here."/>
       <alias value="Suspended Reason"/>
       <alias value="Cancelled Reason"/>
       <min value="0"/>

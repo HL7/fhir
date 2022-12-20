@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="allergyintolerance-substanceExposureRisk"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pc"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/allergyintolerance-substanceExposureRisk"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1296"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="substanceExposureRisk"/>
-  <title value="substanceExposureRisk"/>
+  <name value="AISubstanceExposureRisk"/>
+  <title value="AllergyIntolerance Substance Exposure Risk"/>
   <status value="draft"/>
   <date value="2015-02-21"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
@@ -49,7 +54,7 @@
       <path value="Extension"/>
       <short value="Exposure risk of adverse reaction (allergy or intolerance) to the specified substance/product"/>
       <definition value="A complex extension allowing structured capture of the exposure risk of the patient for an adverse reaction (allergy or intolerance) to the specified substance/product."/>
-      <comment value="This extension is available and is intended to be used as a more completely structured and flexible alternative to the 'code' element for representing positive and negative allergy and intolerance statements.  If this extension element is present, the AllergyIntolerance.code element SHALL be omitted (see invariant &#34;code or substanceExposureRisk&#34;)."/>
+      <comment value="This extension is available and is intended to be used as a more completely structured and flexible alternative to the 'code' element for representing positive and negative allergy and intolerance statements.  If this extension element is present, the AllergyIntolerance.code element SHALL be omitted (see invariant &quot;code or substanceExposureRisk&quot;)."/>
       <min value="0"/>
       <max value="1"/>
       <constraint>
@@ -57,7 +62,6 @@
         <severity value="error"/>
         <human value="If the substanceExposureRisk extension element is present, the AllergyIntolerance.code element must be omitted."/>
         <expression value="substanceExposureRisk.exists() and code.empty()"/>
-        <xpath value="exists(f:substanceExposureRisk) and not(exists(f:code))"/>
       </constraint>
     </element>
     <element id="Extension.extension:substance">

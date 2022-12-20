@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="ImagingStudy"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImagingStudy"/>
+  <title value="ImagingStudy"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
@@ -133,7 +136,7 @@
       <path value="ImagingStudy.status"/>
       <short value="registered | available | cancelled | entered-in-error | unknown"/>
       <definition value="The current state of the ImagingStudy resource. This is not the status of any ServiceRequest or Task resources associated with the ImagingStudy."/>
-      <comment value="Unknown does not represent &#34;other&#34; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
+      <comment value="Unknown does not represent &quot;other&quot; - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -341,6 +344,31 @@
         <map value="Accession Number and Issuer (0080,0050)+(0080,0051) | Requested Procedure Code Sequence (0032,1064)"/>
       </mapping>
     </element>
+    <element id="ImagingStudy.partOf">
+      <path value="ImagingStudy.partOf"/>
+      <short value="Part of referenced event"/>
+      <definition value="A larger event of which this particular ImagingStudy is a component or step.  For example,  an ImagingStudy as part of a procedure."/>
+      <comment value="To link an ImagingStudy to an Encounter use `encounter`."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.partOf"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="Varies by domain"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=FLFS].target"/>
+      </mapping>
+    </element>
     <element id="ImagingStudy.referrer">
       <path value="ImagingStudy.referrer"/>
       <short value="Referring physician"/>
@@ -365,32 +393,6 @@
       <mapping>
         <identity value="dicom"/>
         <map value="(0008,0090)+(0008,0096)"/>
-      </mapping>
-    </element>
-    <element id="ImagingStudy.interpreter">
-      <path value="ImagingStudy.interpreter"/>
-      <short value="Who interpreted images"/>
-      <definition value="Who read the study and interpreted the images or other content."/>
-      <alias value="Name of Physician(s) Reading Study"/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
-      </type>
-      <isSummary value="true"/>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.witness"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".participation[typeCode=PRF].role"/>
-      </mapping>
-      <mapping>
-        <identity value="dicom"/>
-        <map value="(0008,1060)"/>
       </mapping>
     </element>
     <element id="ImagingStudy.endpoint">
@@ -454,12 +456,13 @@
     <element id="ImagingStudy.procedure">
       <path value="ImagingStudy.procedure"/>
       <short value="The performed procedure or code"/>
-      <definition value="The procedure or code from which this ImagingStudy was part of."/>
+      <definition value="This field corresponds to the DICOM Procedure Code Sequence (0008,1032). This is different from the FHIR Procedure resource that may include the ImagingStudy."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -601,9 +604,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="ImagingStudy.series"/>
       <short value="Each study has one or more series of instances"/>
       <definition value="Each study has one or more series of images or other content."/>
@@ -770,7 +773,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -863,9 +866,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.performer">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="down"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
       <path value="ImagingStudy.series.performer"/>
       <short value="Who performed the series"/>
       <definition value="Indicates who or what performed the series and how they were involved."/>
@@ -948,9 +951,9 @@
       </mapping>
     </element>
     <element id="ImagingStudy.series.instance">
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-            <valueCode value="right"/>
-        </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
       <path value="ImagingStudy.series.instance"/>
       <short value="A single SOP instance from the series"/>
       <definition value="A single SOP instance within the series, e.g. an image, or presentation state."/>
@@ -1012,7 +1015,7 @@
       </binding>
       <mapping>
         <identity value="rim"/>
-        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&#34;sop class&#34;].value"/>
+        <map value=".inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=&quot;sop class&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="dicom"/>

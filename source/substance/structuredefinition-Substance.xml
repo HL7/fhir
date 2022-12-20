@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Substance"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="4.5.0"/>
   <name value="Substance"/>
+  <title value="Substance"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -95,7 +98,6 @@
       <path value="Substance.identifier"/>
       <short value="Unique identifier"/>
       <definition value="Unique identifier for the substance. For an instance, an identifier associated with the package/container (usually a label affixed directly)."/>
-      <comment value="This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -227,7 +229,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
       <mapping>

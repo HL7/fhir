@@ -13,6 +13,16 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.502"/>
   </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.495"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.295"/>
+  </identifier>
   <name value="SubscriptionStatusCodes"/>
   <title value="Subscription Status"/>
   <status value="active"/>
@@ -27,7 +37,7 @@
   <description value="State values for FHIR Subscriptions."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/subscription-status"/>
+      <system value="http://hl7.org/fhir/subscription-status"/>
     </include>
   </compose>
 </ValueSet>

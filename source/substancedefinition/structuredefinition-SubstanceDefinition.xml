@@ -28,6 +28,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceDefinition"/>
+  <title value="SubstanceDefinition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -441,9 +442,108 @@
         <map value="Amount.Amount_Type"/>
       </mapping>
     </element>
-    <element id="SubstanceDefinition.property">
+    
+      <element id="SubstanceDefinition.characterization">
+          <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+          	<valueCode value="450,558"/> 
+          </extension>
+          <path value="SubstanceDefinition.characterization"/>
+          <short value="General specifications for this substance"/>
+          <definition value="General specifications for this substance."/>
+          <min value="0"/>
+          <max value="*"/>
+          <type>
+              <code value="BackboneElement"/>
+          </type>
+          <isSummary value="true"/>
+          <mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+      <element id="SubstanceDefinition.characterization.technique">
+          <path value="SubstanceDefinition.characterization.technique"/>
+  		<short value="The method used to find the characterization e.g. HPLC"/>
+  		<definition value="The method used to elucidate the characterization of the drug substance. Example: HPLC."/>
+  		<min value="0"/>
+          <max value="1"/>
+          <type>
+              <code value="CodeableConcept"/>
+          </type>
+          <isSummary value="true"/>
+  		<binding>
+  			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+  				<valueString value="SubstanceStructureTechnique"/>
+  			</extension>
+  			<strength value="example"/>
+  			<description value="The method used to elucidate the characterization of the drug substance."/>
+  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
+  		</binding>
+  		<mapping>
+              <identity value="idmp"/>
+              <map value="n/a"/>
+          </mapping>
+      </element>
+  	<element id="SubstanceDefinition.characterization.form">
+  		<path value="SubstanceDefinition.characterization.form"/>
+  		<short value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base"/>
+  		<definition value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base."/>
+  		<min value="0"/>
+  		<max value="1"/>
+  		<type>
+  			<code value="CodeableConcept"/>
+  		</type>
+  		<isSummary value="true"/>
+  		<binding>
+  			<!--extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+  				<valueString value="SNOMEDCTCharacteristicCodes"/>
+  			</extension-->
+  			<strength value="example"/>
+  			<!--description value="This value set includes all observable entity codes from SNOMED CT - provided as an exemplar value set."/-->
+  			<valueSet value="http://hl7.org/fhir/ValueSet/substance-form"/>
+  		</binding>
+  		<mapping>
+  			<identity value="idmp"/>
+  			<map value="n/a"/>
+  		</mapping>
+  	</element>
+  	<element id="SubstanceDefinition.characterization.description">
+  		<path value="SubstanceDefinition.characterization.description"/>
+  		<short value="Narrative text, data, tables about the characterization"/>
+  		<definition value="Narrative text, data, tables about the characterization."/>
+  		<min value="0"/>
+  		<max value="1"/>
+  		<type>
+  			<code value="markdown"/>
+  		</type>
+  		<isSummary value="true"/>
+  		<mapping>
+  			<identity value="idmp"/>
+  			<map value="n/a"/>
+  		</mapping>
+  	</element>
+  	<element id="SubstanceDefinition.characterization.file">
+  		<path value="SubstanceDefinition.characterization.file"/>
+  		<short value="An image or data file that characterizes this substance"/>
+  		<definition value="An image or data file that characterizes this substance."/>
+  		<min value="0"/>
+  		<max value="*"/>
+  		<type>
+  			<code value="Attachment"/>
+  		</type>
+  		<!--type>
+  			<code value="Reference"/>
+  			<targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
+  		</type-->
+  		<isSummary value="true"/>
+  		<mapping>
+  			<identity value="idmp"/>
+  			<map value="n/a"/>
+  		</mapping>
+  	</element>
+  	<element id="SubstanceDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,825"/>      
+        <valueCode value="375,835"/>      
       </extension>
       <path value="SubstanceDefinition.property"/>
       <short value="General specifications for this substance"/>
@@ -527,11 +627,11 @@
     </element>
     <element id="SubstanceDefinition.molecularWeight">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="468,733"/>
+        <valueCode value="750,640"/><!-- 650,660 -->
       </extension>
       <path value="SubstanceDefinition.molecularWeight"/>
-      <short value="The molecular weight or weight range"/>
-      <definition value="The molecular weight or weight range (for proteins, polymers or nucleic acids)."/>
+        <short value="The average mass of a molecule of a compound"/>
+        <definition value="The average mass of a molecule of a compound compared to 1/12 the mass of carbon 12 and calculated as the sum of the atomic weights of the constituent atoms."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -602,7 +702,9 @@
     </element>
     <element id="SubstanceDefinition.structure">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="350,569"/>
+          <!--valueCode value="520,508"/--> <!-- 350,569 -->
+      	<valueCode value="405,690"/>      
+      	
       </extension>
       <path value="SubstanceDefinition.structure"/>
       <short value="Structural information"/>
@@ -666,8 +768,8 @@
     </element>
     <element id="SubstanceDefinition.structure.molecularFormula">
       <path value="SubstanceDefinition.structure.molecularFormula"/>
-      <short value="Molecular formula (e.g. using the Hill system)"/>
-      <definition value="Molecular formula of this substance, typically using the Hill system."/>
+        <short value="An expression which states the number and type of atoms present in a molecule of a substance"/>
+        <definition value="An expression which states the number and type of atoms present in a molecule of a substance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -710,7 +812,7 @@
     <element id="SubstanceDefinition.structure.technique">
       <path value="SubstanceDefinition.structure.technique"/>
       <short value="The method used to find the structure e.g. X-ray, NMR"/>
-      <definition value="The method used to elucidate the structure or characterization of the drug substance. Examples: X-ray, HPLC, NMR, Peptide mapping, Ligand binding assay."/>
+      <definition value="The method used to elucidate the structure of the drug substance. Examples: X-ray, NMR, Peptide mapping, Ligand binding assay."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -722,7 +824,7 @@
           <valueString value="SubstanceStructureTechnique"/>
         </extension>
         <strength value="example"/>
-        <description value="The method used to elucidate the structure or characterization of the drug substance."/>
+        <description value="The method used to elucidate the structure of the drug substance."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-structure-technique"/>
       </binding>
       <mapping>
@@ -748,11 +850,11 @@
     </element>
     <element id="SubstanceDefinition.structure.representation">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="730,630"/> <!-- was 691,580 -->
+        <valueCode value="750,830"/>
       </extension>
       <path value="SubstanceDefinition.structure.representation"/>
-      <short value="A depiction of the structure or characterization of the substance"/>
-      <definition value="A depiction of the structure or characterization of the substance."/>
+      <short value="A depiction of the structure of the substance"/>
+      <definition value="A depiction of the structure of the substance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -790,8 +892,8 @@
     </element>
     <element id="SubstanceDefinition.structure.representation.representation">
       <path value="SubstanceDefinition.structure.representation.representation"/>
-      <short value="The structural representation or characterization as a text string in a standard format"/>
-      <definition value="The structural representation or characterization as a text string in a standard format."/>
+      <short value="The structural representation as a text string in a standard format"/>
+      <definition value="The structural representation as a text string in a standard format."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -830,7 +932,7 @@
     <element id="SubstanceDefinition.structure.representation.document">
       <path value="SubstanceDefinition.structure.representation.document"/>
       <short value="An attachment with the structural representation e.g. a structure graphic or AnIML file"/>
-      <definition value="An attached file with the structural representation or characterization e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file."/>
+      <definition value="An attached file with the structural representation e.g. a molecular structure graphic of the substance, a JCAMP or AnIML file."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -845,7 +947,7 @@
     </element>
     <element id="SubstanceDefinition.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="300,922"/> <!-- was 221,880 -->
+        <valueCode value="290,922"/> <!-- was 290,972 -->
       </extension>
       <path value="SubstanceDefinition.code"/>
       <short value="Codes associated with the substance"/>
@@ -947,7 +1049,7 @@
     </element>
     <element id="SubstanceDefinition.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="570,350"/> <!-- was 470,350 --> 
+        <valueCode value="544,350"/> <!-- 570 --> 
       </extension>
       <path value="SubstanceDefinition.name"/>
       <short value="Names applicable to this substance"/>
@@ -1147,7 +1249,7 @@
     </element>
     <element id="SubstanceDefinition.name.official">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="730,530"/> <!-- 757,472 --> 
+        <valueCode value="750,525"/> <!-- 757,472 --> 
       </extension>
       <path value="SubstanceDefinition.name.official"/>
       <short value="Details of the official nature of this name"/>
@@ -1279,8 +1381,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.type">
       <path value="SubstanceDefinition.relationship.type"/>
-      <short value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;"/>
-      <definition value="For example &#34;salt to parent&#34;, &#34;active moiety&#34;, &#34;starting material&#34;, &#34;polymorph&#34;, &#34;impurity of&#34;."/>
+      <short value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;"/>
+      <definition value="For example &quot;salt to parent&quot;, &quot;active moiety&quot;, &quot;starting material&quot;, &quot;polymorph&quot;, &quot;impurity of&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1354,8 +1456,8 @@
     </element>
     <element id="SubstanceDefinition.relationship.comparator">
       <path value="SubstanceDefinition.relationship.comparator"/>
-      <short value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;"/>
-      <definition value="An operator for the amount, for example &#34;average&#34;, &#34;approximately&#34;, &#34;less than&#34;."/>
+      <short value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;"/>
+      <definition value="An operator for the amount, for example &quot;average&quot;, &quot;approximately&quot;, &quot;less than&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1441,7 +1543,7 @@
     </element>
     <element id="SubstanceDefinition.sourceMaterial">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="285,350"/>
+        <valueCode value="270,350"/> <!-- was 285 -->
       </extension>
       <path value="SubstanceDefinition.sourceMaterial"/>
       <short value="Material or taxonomic/anatomical source"/>

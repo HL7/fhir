@@ -28,39 +28,54 @@
   
   <!-- this graph starts with a composition. We don't care what the specific profile is
      (though the statement above 'this case doesn't cross patients' implies that we do care a little) -->
-  <start value="Composition"/>
+  <start value="comp1"/>
   
+  <node>
+    <nodeId value="comp1"/>
+    <description value="The base composition"/>
+    <type value="Composition"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/clinicaldocument"/>
+  </node>
+  <node>
+    <nodeId value="list1"/>
+    <description value="A list resource that a section entry reference points to"/>
+    <type value="List"/>
+  </node>
+  <node>
+    <nodeId value="resN"/>
+    <description value="Generic resource that's the target of a list reference"/>
+    <type value="Resource"/>
+  </node>
+
   <!-- define the section -> list link -->
   <link>
+    <description value="Link from Composition.section to list"/>
+    <sourceId value="comp1"/>
     <!-- any section entry. Todo: this recurses; are we profiling this at all levels? --> 
     <path value="Composition.section.entry"/>
-    <description value="Link to List"/>
     <!-- 
       one target. This graph is not making rules about the content of the section entries - that
       would be done in a profile. it's just saying, if you see a reference to a list in a section
       entry, these are the rules that describe the graph
     -->
-    <target>
-      <type value="List"/>
-      <compartment>
-        <use value="requirement"/>
-        <code value="Patient"/>
-        <rule value="identical"/>
-      </compartment>
-      
-      <!-- and inside this list, any references -->
-      <link>
-        <path value="List.entry.item"/>
-        <description value="Include any list entries"/>
-        <target>
-          <type value="Resource"/> <!-- todo: is this the right way to do 'Any'? -->
-          <compartment>
-            <use value="requirement"/>
-            <code value="Patient"/>
-            <rule value="identical"/>
-          </compartment>
-        </target>
-      </link>      
-    </target>
-  </link>
+    <targetId value="list1"/>
+    <compartment>
+      <use value="requires"/>
+      <rule value="identical"/>
+      <code value="Patient"/>
+    </compartment>
+  </link>    
+
+  <!-- and from the list, any references -->
+  <link>
+    <description value="Include any list entries"/>
+    <sourceId value="list1"/>
+    <path value="List.entry.item"/>
+    <targetId value="resN"/>
+    <compartment>
+      <use value="requires"/>
+      <rule value="identical"/>
+      <code value="Patient"/>
+    </compartment>
+  </link>      
 </GraphDefinition>

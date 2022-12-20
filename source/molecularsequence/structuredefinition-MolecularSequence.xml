@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="MolecularSequence"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -18,7 +20,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cg"/>
   </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MolecularSequence"/>
+  <title value="MolecularSequence"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Genomics)"/>
@@ -253,7 +256,6 @@
         <severity value="error"/>
         <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
         <expression value="(genomeAssembly.count()+sequenceCodeableConcept.count()+ sequenceReference.count()+ sequenceString.count()) = 1"/>
-        <xpath value="count(f:genomeAssembly)+count(f:sequenceCodeableConcept)+count(f:sequenceReference)+count(f:sequenceString)=1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
@@ -261,7 +263,6 @@
         <severity value="error"/>
         <human value="Both genomeAssembly and chromosome must be both contained if either one of them is contained"/>
         <expression value="(chromosome.empty() and genomeAssembly.empty()) or (chromosome.exists() and genomeAssembly.exists())"/>
-        <xpath value="(exists(f:chromosome) and exists(f:genomeAssembly)) or (not(exists(f:chromosome)) and not(exists(f:genomeAssembly)))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <isSummary value="true"/>
@@ -355,7 +356,7 @@
     <element id="MolecularSequence.relative.startingSequence.orientation">
       <path value="MolecularSequence.relative.startingSequence.orientation"/>
       <short value="sense | antisense"/>
-      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &#34;sense&#34; strand, and the opposite complementary strand is the &#34;antisense&#34; strand."/>
+      <definition value="A relative reference to a DNA strand based on gene orientation. The strand that contains the open reading frame of the gene is the &quot;sense&quot; strand, and the opposite complementary strand is the &quot;antisense&quot; strand."/>
       <min value="0"/>
       <max value="1"/>
       <type>

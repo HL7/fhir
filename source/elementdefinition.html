@@ -59,17 +59,6 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 		ElementDefinition is used in [%dtusage ElementDefinition%]
 </p>
 
-[%ballot-note xpath%]
-The Jira task <a href="https://jira.hl7.org/browse/FHIR-37871">FHIR-37871</a> proposes
-to remove <code>ElementDefinition.constraint.xpath</code>. This is approved but removing 
-the xpath constraints will be difficult to reverse. The task proposes to remove them
-because no one is using them (or at least, no one is reporting errors in the xpaths).
-</p>
-<p>
-If you don't want the xpaths removed, raise this as a ballot issue, along with 
-justification.
-[%end-note%]
-
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 		Content
@@ -445,9 +434,52 @@ same path must conform.
 		<li>If there is no <code>StructureDefinition.baseDefinition</code>: min and max are always required</li>
 		<li>Otherwise, in <code>StructureDefinition.differential</code>: min and max are always optional; if they are not present, they default to the min and max from the base definition</li>
 		<li>In <code>StructureDefinition.snapshot</code>: min and max are always required</li>
-		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present</li>
+		<li>If min = 0, and there is a fixed or pattern value present, the fixed or pattern value only applies if the element is actually present.
+			If the element is omitted, it is NOT treated as though the fixed value or pattern had been specified</li>
 </ul>
+	
+<div class="trial-content">
+<p style="background-color: #ffcccc; border:1px solid grey; padding: 5px; max-width: 790px;">
+	This section and the elements <code>mustHaveValue</code> and <code>valueAlternatives</code>
+	are considered <a href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a> for FHIR Release 5.
+</p>
 
+<a name="primitives"></a>
+<h3>Primitive Values</h3>
+
+<p>
+All primitive data types have a value and also extensions. Even if the element is present, 
+the value might not be present; instead, an extension may be present the either provides information
+about why the value is not present, or provides an expression that might be used to generate a 
+value in a particular context. Some common extensions that might appear in place of a primitive value:
+</p>
+<ul>
+	<li><a href="extension-data-absent-reason.html">data-absent-reason</a></li>
+	<li><a href="extension-iso21090-nullflavor.html">nullflavor</a></li>
+	<li><a href="extension-originaltext.html">originalText</a></li>
+	<li><a href="extension-cqf-expression.html">expression</a></li>
+</ul>
+<p>
+In many cases, profiles want to make a primitive element required (min = 1), and also want to say
+that when a primitive element is present, the value must be present, since the value is what is 
+processed by applications. The flag <code>mustHaveValue</code> can be set to true to indicate that 
+the primitive data type must have value if present (so it has impact whatever the value of <code>min</code>). 
+Note that this flag is a short cut, equivalent to the 
+profile walking into the primitive data type and setting min = 1 for the value. The short cut is 
+preferable because it's simpler and more concise for implementers.
+</p>
+<p>
+Alternatively, profiles may wish to allow the primitive value to be replaced by some extensions 
+but not others. In this case, the profiles can list the allowable extensions using the 
+<code>valueAlternatives</code> element, which contains a list of the extensions that can appear 
+if the primitive value is not present. Note that this list is a short cut for actually profiling
+the extensions on the primitive data type and making a co-occurence constraint, 
+but <b>has no effect when the value is present</b>.
+</p>
+<p>
+For further discussion regarding populating primitive values, see <a href="exchanging.html#primitives">Exchanging Data using FHIR</a>.
+</p>
+</div>
 <a name="aggregation"> </a>
 <h3>Rules about Aggregation</h3>
 <ul>
@@ -489,7 +521,27 @@ same path must conform.
 	Note that default values can be defined in <a href="structuredefinition.html#logical">Logical Models</a>.
 </p>
 
+<a name="bindings"></a>
+<h3>Bindings / Additional Bindings</h3>
 
+<p>
+For further information about bindings, see <a href="terminologies.html#binding">Terminology bindings</a>.
+
+</p>
+<a name="must-support"></a>
+<h3>Must-support / Obligations</h3>
+
+<p>
+The primary focus of the FHIR specification is on correct application behavior around 
+what is exchanged and how: valid APIs and resource instances. But many FHIR implementation
+guides are interested in specifying additional obligations about how the applications 
+involved handle the data that is being exchanged. 
+</p>
+<p>
+Element Definitions feature two properties concerned with this: <code>mustSupport</code>	
+and <code>obligation</code>. See <a href="obligations.html">Implementation Obligations</a>
+for the proper use of these elements.
+</p>
 
 [%file newfooter%]
 

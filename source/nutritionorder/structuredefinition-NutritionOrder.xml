@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="NutritionOrder"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -29,6 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionOrder"/>
+  <title value="NutritionOrder"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -89,7 +92,6 @@
         <severity value="warning"/>
         <human value="Nutrition Order SHALL contain either Oral Diet , Supplement, or Enteral Formula class"/>
         <expression value="oralDiet.exists() or supplement.exists() or enteralFormula.exists()"/>
-        <xpath value="exists(f:oralDiet) or exists(f:supplement) or exists(f:enteralFormula)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
       </constraint>
       <mapping>
@@ -215,21 +217,21 @@
       </mapping>
     </element>
     <element id="NutritionOrder.basedOn">
-      <path value="NutritionOrder.basedOn"/> 
-      <short value="What this order fulfills"/> 
-      <definition value="A plan or request that is fulfilled in whole or in part by this nutrition order."/> 
-      <min value="0"/> 
-      <max value="*"/> 
-      <type> 
-        <code value="Reference"/> 
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/> 
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/> 
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/> 
-      </type> 
-      <mapping> 
-        <identity value="workflow"/> 
-        <map value="Request.basedOn"/> 
-      </mapping> 
+      <path value="NutritionOrder.basedOn"/>
+      <short value="What this order fulfills"/>
+      <definition value="A plan or request that is fulfilled in whole or in part by this nutrition order."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.basedOn"/>
+      </mapping>
     </element>
     <element id="NutritionOrder.status">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -238,7 +240,7 @@
       <path value="NutritionOrder.status"/>
       <short value="draft | active | on-hold | revoked | completed | entered-in-error | unknown"/>
       <definition value="The workflow status of the nutrition order/request."/>
-      <comment value="Typically the system placing the order sets the status to &#34;requested&#34;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
+      <comment value="Typically the system placing the order sets the status to &quot;requested&quot;. Thereafter, the order is maintained by the receiver that updates the status as the request is handled.  This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -279,7 +281,7 @@
       <path value="NutritionOrder.intent"/>
       <short value="proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"/>
       <definition value="Indicates the level of authority/intentionality associated with the NutrionOrder and where the request fits into the workflow chain."/>
-      <comment value="When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &#34;proposal, plan or order&#34;.  Can have multiple codes that map to one of these.  E.g. &#34;original order&#34;, &#34;encoded order&#34;, &#34;reflex order&#34; would all map to &#34;order&#34;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
+      <comment value="When resources map to this element, they are free to define as many codes as necessary to cover their space and will map to &quot;proposal, plan or order&quot;.  Can have multiple codes that map to one of these.  E.g. &quot;original order&quot;, &quot;encoded order&quot;, &quot;reflex order&quot; would all map to &quot;order&quot;.  Expectation is that the set of codes is mutually exclusive or a strict all-encompassing hierarchy."/>
       <requirements value="Proposals/recommendations, plans and orders all use the same structure and can exist in the same fulfillment chain."/>
       <alias value="category"/>
       <min value="1"/>
@@ -288,7 +290,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &#34;the time the request is recommended to occur&#34; vs. &#34;the time the request is authorized to occur&#34; or &#34;who is recommended to perform the request&#34; vs. &#34;who is authorized to perform the request"/>
+      <isModifierReason value="This element changes the interpretation of all descriptive attributes. For example &quot;the time the request is recommended to occur&quot; vs. &quot;the time the request is authorized to occur&quot; or &quot;who is recommended to perform the request&quot; vs. &quot;who is authorized to perform the request"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -316,34 +318,34 @@
       </mapping>
     </element>
     <element id="NutritionOrder.priority">
-      <path value="NutritionOrder.priority"/> 
-      <short value="routine | urgent | asap | stat"/> 
-      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other        requests."/> 
-      <min value="0"/> 
-      <max value="1"/> 
-      <type> 
-        <code value="code"/> 
-      </type> 
-      <binding> 
+      <path value="NutritionOrder.priority"/>
+      <short value="routine | urgent | asap | stat"/>
+      <definition value="Indicates how quickly the Nutrition Order should be addressed with respect to other        requests."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="NutritionOrderPriority"/> 
-        </extension> 
-        <strength value="required"/> 
-        <description value="Identifies the level of importance to be assigned to actioning the request."/> 
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0-cibuild"/> 
-      </binding> 
-      <mapping> 
-        <identity value="workflow"/> 
-        <map value="Request.priority"/> 
-      </mapping> 
-      <mapping> 
-        <identity value="w5"/> 
-        <map value="FiveWs.grade"/> 
-      </mapping> 
-      <mapping> 
-        <identity value="rim"/> 
-        <map value=".priorityCode"/> 
-      </mapping> 
+          <valueString value="NutritionOrderPriority"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Identifies the level of importance to be assigned to actioning the request."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.priority"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.grade"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".priorityCode"/>
+      </mapping>
     </element>
     <element id="NutritionOrder.subject">
       <path value="NutritionOrder.subject"/>
@@ -406,15 +408,15 @@
       </mapping>
     </element>
     <element id="NutritionOrder.supportingInformation">
-      <path value="NutritionOrder.supportingInformation"/> 
-      <short value="Information to support fulfilling of the nutrition order"/> 
+      <path value="NutritionOrder.supportingInformation"/>
+      <short value="Information to support fulfilling of the nutrition order"/>
       <definition value="Information to support fulfilling (i.e. dispensing or administering) of the nutrition,        for example, patient height and weight)."/>
-      <min value="0"/> 
-      <max value="*"/> 
-      <type> 
-        <code value="Reference"/> 
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/> 
-      </type> 
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
     </element>
     <element id="NutritionOrder.dateTime">
       <path value="NutritionOrder.dateTime"/>
@@ -530,7 +532,7 @@
       </binding>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &#34;P&#34;,ODS-3"/>
+        <map value="ODS-1 Value = &quot;P&quot;,ODS-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -592,7 +594,7 @@
       <condition value="nor-1"/>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &#34;D&#34;"/>
+        <map value="ODS-1 Value = &quot;D&quot;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -695,16 +697,16 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-			<binding> 
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a nutrition product."/> 
-					</extension> 
-					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-						<valueString value="OralDietAsNeededReason"/> 
-					</extension> 
-				<strength value="example"/> 
-			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
-			</binding> 
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a nutrition product."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="OralDietAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
     </element>
     <element id="NutritionOrder.oralDiet.nutrient">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
@@ -935,7 +937,7 @@
       <condition value="nor-1"/>
       <mapping>
         <identity value="v2"/>
-        <map value="ODS-1 Value = &#34;P&#34;"/>
+        <map value="ODS-1 Value = &quot;P&quot;"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -950,7 +952,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -984,7 +986,7 @@
       </extension>
       <path value="NutritionOrder.supplement.productName"/>
       <short value="Product or brand name of the nutritional supplement"/>
-      <definition value="The product or brand name of the nutritional supplement such as &#34;Acme Protein Shake&#34;."/>
+      <definition value="The product or brand name of the nutritional supplement such as &quot;Acme Protein Shake&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1057,16 +1059,16 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-			<binding> 
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a supplement."/> 
-					</extension> 
-					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-						<valueString value="SupplementAsNeededReason"/> 
-					</extension> 
-				<strength value="example"/> 
-			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
-			</binding> 
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a supplement."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SupplementAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
     </element>
     <element id="NutritionOrder.supplement.quantity">
       <path value="NutritionOrder.supplement.quantity"/>
@@ -1144,7 +1146,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/> 
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <isSummary value="true"/>
       <binding>
@@ -1178,7 +1180,7 @@
       </extension>
       <path value="NutritionOrder.enteralFormula.baseFormulaProductName"/>
       <short value="Product or brand name of the enteral or infant formula"/>
-      <definition value="The product or brand name of the enteral or infant formula product such as &#34;ACME Adult Standard Formula&#34;."/>
+      <definition value="The product or brand name of the enteral or infant formula product such as &quot;ACME Adult Standard Formula&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1226,7 +1228,7 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1413,16 +1415,16 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-			<binding> 
-				<extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-					<valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a enteral formula."/> 
-					</extension> 
-					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-						<valueString value="EnteralFormulaAsNeededReason"/> 
-					</extension> 
-				<strength value="example"/> 
-			  <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/> 
-			</binding> 
+      <binding>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
+          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a enteral formula."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnteralFormulaAsNeededReason"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
+      </binding>
     </element>
     <element id="NutritionOrder.enteralFormula.administration.quantity">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -1453,7 +1455,7 @@
       <path value="NutritionOrder.enteralFormula.administration.rate[x]"/>
       <short value="Speed with which the formula is provided per period of time"/>
       <definition value="The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule."/>
-      <comment value="Ratio is used when the quantity value in the denominator is not &#34;1&#34;, otherwise use Quantity. For example, the Ratio datatype is used for &#34;200 mL/4 hrs&#34; versus the Quantity datatype for &#34;50 mL/hr&#34;."/>
+      <comment value="Ratio is used when the quantity value in the denominator is not &quot;1&quot;, otherwise use Quantity. For example, the Ratio datatype is used for &quot;200 mL/4 hrs&quot; versus the Quantity datatype for &quot;50 mL/hr&quot;."/>
       <min value="0"/>
       <max value="1"/>
       <type>

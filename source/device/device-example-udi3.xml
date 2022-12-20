@@ -25,10 +25,10 @@
 	<manufactureDate value="2013-02-02"/>
 	<expirationDate value="2020-02-02"/>
 	<lotNumber value="LOT123456789012345"/>
-	<deviceName>
-      <name value="Ultra Implantable" />
+	<name>
+      <value value="Ultra Implantable" />
       <type value="user-friendly-name"/>
-    </deviceName>
+    </name>
 	<association>
 	  <status> 
 	     <coding>

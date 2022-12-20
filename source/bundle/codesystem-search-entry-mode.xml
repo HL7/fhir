@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="search-entry-mode"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -20,7 +22,17 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.623"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.615"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.328"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="SearchEntryMode"/>
   <title value="SearchEntryMode"/>
   <status value="active"/>
@@ -52,6 +64,13 @@
     <definition value="This resource is returned because it is referred to from another resource in the search set."/>
   </concept>
   <concept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="deprecated">
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason">
+          <valueMarkdown value="Use Bundle.issues instead"/>
+        </extension>
+      </valueCode>
+    </extension>
     <code value="outcome"/>
     <display value="Outcome"/>
     <definition value="An OperationOutcome that provides additional information about the processing of a search."/>

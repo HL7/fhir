@@ -13,10 +13,10 @@
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="883-9"/>
-			<display value="ABO group [Type] in Blood"/>
+			<code value="88027-8"/>
+			<display value="Rh group Ag [Type] on Red Blood Cells"/>
 		</coding>
-		<text value="Blood Group"/>
+		<text value="Rh Type"/>
 	</code>
 	<subject>
 		<reference value="Patient/infant"/>
@@ -25,9 +25,9 @@
 	<valueCodeableConcept>
 		<coding>
 			<system value="http://snomed.info/sct"/>
-			<code value="112144000"/>
-			<display value="Blood group A (finding)"/>
+			<code value="165747007"/>
+			<display value="Rh positive"/>
 		</coding>
-				<text value="A"/>
+				<text value="Rh(D) positive (finding)"/>
 	</valueCodeableConcept>
 </Observation>

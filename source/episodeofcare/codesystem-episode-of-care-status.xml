@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="episode-of-care-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,17 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.665"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.649"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.346"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="EpisodeOfCareStatus"/>
   <title value="EpisodeOfCareStatus"/>
   <status value="draft"/>
@@ -61,7 +73,7 @@
   <concept>
     <code value="finished"/>
     <display value="Finished"/>
-    <definition value="This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as &#34;closed&#34;, &#34;completed&#34; or other similar terms."/>
+    <definition value="This episode of care is finished and the organization is not expecting to be providing further care to the patient. Can also be known as &quot;closed&quot;, &quot;completed&quot; or other similar terms."/>
   </concept>
   <concept>
     <code value="cancelled"/>

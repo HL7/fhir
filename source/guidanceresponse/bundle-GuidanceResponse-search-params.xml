@@ -17,7 +17,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="GuidanceResponse.identifier"/>
-        <!--<xpath value="f:GuidanceResponse/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="patient"/>
         <type value="reference"/>
         <expression value="GuidanceResponse.subject.where(resolve() is Patient)"/>
-        <!--<xpath value="f:GuidanceResponse/f:subject"/> -->
         <processingMode value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
@@ -58,7 +56,6 @@
         <code value="request"/>
         <type value="token"/>
         <expression value="GuidanceResponse.requestIdentifier"/>
-        <!--<xpath value="f:GuidanceResponse/f:requestIdentifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -78,7 +75,6 @@
         <code value="subject"/>
         <type value="reference"/>
         <expression value="GuidanceResponse.subject"/>
-        <!--<xpath value="f:GuidanceResponse/f:subject"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -89,11 +85,13 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="GuidanceResponse.status"/>
         </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
         <description value="The status of the guidance response"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="GuidanceResponse.status"/>
-        <!--<xpath value="f:GuidanceResponse/f:status"/> -->
       </SearchParameter>
     </resource>
   </entry>

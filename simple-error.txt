@@ -1,1 +1,1 @@
-﻿C:\Users\lloyd.mckenzie\Documents\Git\_intelliJ\kindling\fhir\source\message-sync.html (The system cannot find the file specified)
+﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/task/structuredefinition-Task.xml: end tag name </type> must match start tag name <targetProfile> from line 765 (position: TEXT seen ...l7.org/fhir/StructureDefinition/RelatedPerson"/> -->\n      </type>... @771:14) 

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="valueset-authoritativeSource"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="vocab"/>
@@ -6,13 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/valueset-authoritativeSource"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1190"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="authoritativeSource"/>
+  <name value="VSAuthoritativeSource"/>
+  <title value="ValueSet Authoritative Source"/>
   <status value="draft"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7"/>
@@ -37,7 +43,7 @@
       <path value="Extension"/>
       <short value="Reference to the current trusted source of the ValueSet resource (metadata and definition)"/>
       <definition value="A reference to the authoritative accessible, persisted source of truth of the entire Value Set Definition, including textual information and available versions."/>
-      <comment value="If this extension is not present, then the canonical URL (ValueSet.url) also serves the purpose of specifying the authoritative source.  A difference between the canonical URL and the authoritiative source might arise in some cases due to ongoing organization restructuring, etc., and in those cases this extension may be used.  The URL of the authoritative source is intended to be resolvable but that cannot be guaranteed. The designated &#34;authoritative source&#34; is normally expected to be able to generate a valid expansion of the value set, and if for some reason it cannot then the valueset-trusted-expansion should be used."/>
+      <comment value="If this extension is not present, then the canonical URL (ValueSet.url) also serves the purpose of specifying the authoritative source.  A difference between the canonical URL and the authoritiative source might arise in some cases due to ongoing organization restructuring, etc., and in those cases this extension may be used.  The URL of the authoritative source is intended to be resolvable but that cannot be guaranteed. The designated &quot;authoritative source&quot; is normally expected to be able to generate a valid expansion of the value set, and if for some reason it cannot then the valueset-trusted-expansion should be used."/>
       <min value="0"/>
       <max value="1"/>
       <isModifier value="false"/>

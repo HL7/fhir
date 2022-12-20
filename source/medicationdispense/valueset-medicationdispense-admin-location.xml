@@ -28,7 +28,7 @@
   <description value="MedicationDispense Administration Location Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/fhir/CodeSystem/medicationdispense-admin-location"/>
+      <system value="http://hl7.org/fhir/medicationdispense-admin-location"/>
     </include>
   </compose>
 </ValueSet>

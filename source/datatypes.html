@@ -35,7 +35,7 @@ resource elements. There are five categories of datatypes:
   <li>The base abstract types that provide <a href="types.html">the foundation for all types</a></li>
   <li>Simple / primitive types, which are single elements with a primitive value (<a href="#primitive">below</a>)</li>
   <li>General-purpose complex types, which are re-usable clusters of elements (<a href="#complex">below</a>)</li>
-  <li><a href="metadatatypes.html">Metadatatypes</a>: A set of types for use with metadata resources</li>
+  <li><a href="metadatatypes.html">MetaDatatypes</a>: A set of types for use with metadata resources</li>
   <li>Special purpose datatypes - defined elsewhere in the specification for specific usages:
     [%dtref Reference%], [%dtref Meta%], [%dtref Narrative%], [%dtref Extension%], [%dtref xhtml%], [%dtref ElementDefinition%] and [%dtref Dosage%].
   </li>
@@ -105,7 +105,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable for this at this time</td>
+  <td style="border-top: 0px silver solid">There is no specified upper limit to the size of a binary, but systems will have to impose some implementation based limit to the size they support. This should be clearly documented, though there is no computable way for this at this time</td>
 </tr>
 
 <tr>
@@ -159,7 +159,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>date<a name="date"></a></td>
-  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates</td>
+  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates.</td>
   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
@@ -185,7 +185,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
 <tr>
   <td>decimal<a name="decimal"></a></td>
-  <td>Rational numbers that have a decimal representation. Decimals in FHIR can not have more than 18 digits and a decimal point. See below about the precision of the number</td>
+  <td>Rational numbers that have a decimal representation. Decimals in FHIR cannot have more than 18 digits and a decimal point. See below about the precision of the number</td>
   <td>union of xs:decimal and xs:double (see below for limitations)</td>
   <td>A JSON number (see below for limitations)</td>
 </tr>
@@ -257,7 +257,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>markdown<a name="markdown"></a></td>
-  <td>A FHIR <code>string</code> (see above) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
+  <td>A FHIR <code>string</code> (see below) that may contain markdown syntax for optional processing by a markdown presentation engine, in the GFM extension of CommonMark format (see below)</td>
   <td>xs:string</td>
   <td>JSON string</td>
 </tr>
@@ -395,56 +395,58 @@ Notes:
 </p>
 <ul>
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
- <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context</li>
+ <li>For string content,  parsers and serializers MAY retain, escape or strip unescaped non-supported UNICODE characters. If the characters are retained, a subsequent application-layer process can then determine appropriate handling based on context.</li>
  <li>For decimal values, the XML special values <code>INF</code>, <code>-INF</code> and <code>NaN</code> are not allowed, and JSON is restricted to the <a href="https://www.w3.org/TR/xmlschema-2/">precision limits documented in XML schema for xs:double and xs:decimal</a></li>
  <li>The precision of the decimal value has significance:<a name="precision"></a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>
-      <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes</li>
-      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance)</li>
-      <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a></li>
-      <li>In object code, implementations that might meet this constraint are GMP implementations or equivalents to Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field</li>
-      <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply</li>
+      <li>Implementations SHALL handle decimal values in ways that preserve and respect the precision of the value as represented for presentation purposes.</li>
+      <li>Implementations are not required to perform calculations with these numbers differently, though they may choose to do so (i.e. preserve significance).</li>
+      <li>See implementation comments for <a href="xml.html#schema-gen">XML</a>, <a href="json.html#decimal">JSON</a> and <a href="rdf.html#decimal">RDF</a>.</li>
+      <li>In object code, implementations that might meet this constraint are GMP implementations or equivalents to Java BigDecimal that implement arbitrary precision, or a combination of a (64 bit) floating point value with a precision field.</li>
+      <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply.</li>
     </ul>
  </li>
- <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
+ <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
  <li>Issues with the specified regexes:
    <ul>
-     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes</li>
+     <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes.</li>
      <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used.
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
-     <li>The unicode issues also apply to the regex for <code>code</code></li>
+     <li>The unicode issues also apply to the regex for <code>code</code>.</li>
      <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
-     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed</li>
+     <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed.</li>
    </ul>
  </li>
- <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds</li>
+ <li>Leap second are allowed in the datetime, instant and time types. Note, though, that many systems and libraries do not support leap seconds. Applications reading times SHOULD accept and handle leap seconds gracefully, and applications producing them MAY choose to avoid encoding leap seconds.</li>
  <li>About the id datatype:
    <ul>
-     <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters</li>
+     <li>Ids are case sensitive. UUIDs SHALL be sent using lowercase letters.</li>
      <li>The ID type includes identifiers consistent with <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=38610">ISO 18232</a>, but also includes other identifier formats as well, and is not case insensitive like ISO 18232.</li>
-     <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype</li>
-     <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b)</li>
+     <li>In a typical FHIR URL, like <code>http://example.com/fhir/Patient/<span style="color: maroon">1234</span></code>, the last part "1234" (highlighted in red) is the part that is an id datatype.</li>
+     <li>A full UUID is a <code>uri</code>, not an <code>id</code>. UUIDs in URIs SHALL also be represented in lowercase (urn:uuid:59bf0ef4-e89c-4628-9b51-12ae3fdbe22b).</li>
    </ul>
  </li>
  <li>About the <code>uri</code>, <code>url</code> and <code>canonical</code> datatypes:
    <ul>
-     <li>They all contain URIs, but differ in how applications resolve the reference</li>
-     <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other</li>
-     <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case</li>
-     <li>A general URI may be either a URL or a canonical URL or some other kind of URI</li>
+     <li>They all contain URIs, but differ in how applications resolve the reference.</li>
+     <li>Although the <code>url</code> and <code>canonical</code> are specializations of <code>uri</code>, they are never substituted for each other.</li>
+     <li>They are all case sensitive for comparison purposes. Applications SHOULD not create URIs that only differ by case.</li>
+     <li>A general URI may be either a URL or a canonical URL or some other kind of URI.</li>
    </ul>
  </li>
  <li>About the markdown datatype:
    <ul>
-     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format</li>
-     <li>Note that GFM prohibits Raw HTML</li>
-     <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy</li>
-     <li>Markdown content SHALL NOT contain Unicode character points below 32, except for u0009 (horizontal tab), u000D (carriage return) and u000A (line feed)</li>
-     <li>Markdown is a <code>string</code>, and subject to the same rules (e.g. length limit)</li>
+     <li>Markdown is a string, and subject to the same rules (e.g. length limit, valid characters)</li>
+     <li>This specification requires and uses the <a href="https://github.github.com/gfm/">GFM (Github Flavored Markdown)</a> extensions 
+         on <a href="http://spec.commonmark.org/0.28/">CommonMark</a> format, with the exception of support for inline HTML which is not supported.</li>
+     <li>Processors SHALL treat embedded XML tags as string content, not as tags. This may be done by pre-processing and escaping any <code>"&gt;"</code> 
+        characters preceding character content (<code>"&gt;"</code> becomes <code>"\&gt;"</code>) before processing the content or by using a markdown 
+        processor-specific flag that accomplishes the same effect. This means that HTML content cannot be embedded in markdown to influence rendering.</li>
+     <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
-		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes)</li>
+		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
    </ul>
  </li>
 </ul>
@@ -495,7 +497,7 @@ The full representation, with id, extensions and value, showing the id and exten
 </pre>
 <p><b>RDF</b></p>
 <p>
-The value is represented in RDF as a relationship with the URI "http://h;7.org/fhir/value". Using the normal prefix, this becomes:
+The value is represented in RDF as a relationship with the URI "http://hl7.org/fhir/value". Using the normal prefix, this becomes:
 </p>
 <pre class="rdf">
   fhir:Type.count [ fhir:value "2"^^xsd:integer ]

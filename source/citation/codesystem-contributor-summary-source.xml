@@ -12,12 +12,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/contributor-summary-source"/>
+  <url value="http://hl7.org/fhir/contributor-summary-source"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1886"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="ContributorSummarySource"/>
   <title value="ContributorSummarySource"/>
   <status value="draft"/>

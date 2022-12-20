@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="EvidenceVariable"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -31,6 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EvidenceVariable"/>
+  <title value="EvidenceVariable"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -90,7 +93,6 @@
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
         <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-        <xpath value="not(exists(f:name/@value)) or matches(f:name/@value, '[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <mapping>
@@ -114,7 +116,6 @@
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
         <expression value="url.matches('([^|#])*')"/>
-        <xpath value="not(exists(@value)) or matches(@value, '([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -219,7 +220,7 @@
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This is labeled as &#34;Is Modifier&#34; because applications should not use a retired {{title}} without due consideration"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -246,13 +247,13 @@
       <type>
         <code value="boolean"/>
       </type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
     </element>
     <element id="EvidenceVariable.date">
       <path value="EvidenceVariable.date"/>
       <short value="Date last changed"/>
-      <definition value="The date  (and optionally time) when the evidence variable was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes."/>
-      <comment value="Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the evidence variable. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <definition value="The date  (and optionally time) when the evidence variable was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the evidence variable changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the evidence variable. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
       <alias value="Revision Date"/>
       <min value="0"/>
       <max value="1"/>
@@ -270,7 +271,7 @@
       <short value="Name of the publisher/steward (organization or individual)"/>
       <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the evidence variable."/>
       <comment value="Usually an organization but may be an individual. The publisher (or steward) of the evidence variable is the organization or individual primarily responsible for the maintenance and upkeep of the evidence variable. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the evidence variable. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &#34;authority/credibility&#34; of the evidence variable.  May also allow for contact."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the evidence variable.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -286,7 +287,7 @@
       <path value="EvidenceVariable.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -373,7 +374,7 @@
       <path value="EvidenceVariable.author"/>
       <short value="Who authored the content"/>
       <definition value="An individiual or organization primarily involved in the creation and maintenance of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -388,7 +389,7 @@
       <path value="EvidenceVariable.editor"/>
       <short value="Who edited the content"/>
       <definition value="An individual or organization primarily responsible for internal coherence of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -399,7 +400,7 @@
       <path value="EvidenceVariable.reviewer"/>
       <short value="Who reviewed the content"/>
       <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -414,7 +415,7 @@
       <path value="EvidenceVariable.endorser"/>
       <short value="Who endorsed the content"/>
       <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
-      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (Details at: http://build.fhir.org/clinicalreasoning-module.html)."/>
+      <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -450,7 +451,7 @@
     <element id="EvidenceVariable.characteristic">
       <path value="EvidenceVariable.characteristic"/>
       <short value="A defining factor of the EvidenceVariable"/>
-      <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &#34;and&#34; semantics."/>
+      <definition value="A defining factor of the EvidenceVariable. Multiple characteristics are applied with &quot;and&quot; semantics."/>
       <comment value="Characteristics can be defined flexibly to accommodate different use cases for membership criteria, ranging from simple codes, all the way to using an expression language to express the criteria."/>
       <min value="0"/>
       <max value="*"/>
@@ -462,7 +463,6 @@
         <severity value="error"/>
         <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
         <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
-        <xpath value="count(f:definitionReference)+count(f:definitionCanonical)+count(f:definitionCodeableConcept)+count(f:definitionExpression)+count(f:definitionId)+count(f:definitionByTypeAndValue)+count(f:definitionByCombination)  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <isSummary value="true"/>
@@ -500,7 +500,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.exclude">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="This was called &#34;inclusiveness&#34; with a code list of &#34;presence, absence&#34;. Changed to &#34;exclude&#34; boolean to simplify representation and to align with Group characteristic expression."/>
+        <valueString value="This was called &quot;inclusiveness&quot; with a code list of &quot;presence, absence&quot;. Changed to &quot;exclude&quot; boolean to simplify representation and to align with Group characteristic expression."/>
       </extension>
       <path value="EvidenceVariable.characteristic.exclude"/>
       <short value="Whether the characteristic is an inclusion criterion or exclusion criterion"/>
@@ -694,7 +694,7 @@
       <path value="EvidenceVariable.characteristic.definitionByCombination.code"/>
       <short value="all-of | any-of | at-least | at-most | statistical | net-effect | dataset"/>
       <definition value="Used to specify if two or more characteristics are combined with OR or AND."/>
-      <requirements value="If code is &#34;at-least&#34; or &#34;at-most&#34; then threshold SHALL be used. If code is neither &#34;at-least&#34; nor &#34;at-most&#34; then threshold SHALL NOT be used."/>
+      <requirements value="If code is &quot;at-least&quot; or &quot;at-most&quot; then threshold SHALL be used. If code is neither &quot;at-least&quot; nor &quot;at-most&quot; then threshold SHALL NOT be used."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -710,8 +710,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionByCombination.threshold">
       <path value="EvidenceVariable.characteristic.definitionByCombination.threshold"/>
-      <short value="Provides the value of &#34;n&#34; when &#34;at-least&#34; or &#34;at-most&#34; codes are used"/>
-      <definition value="Provides the value of &#34;n&#34; when &#34;at-least&#34; or &#34;at-most&#34; codes are used."/>
+      <short value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used"/>
+      <definition value="Provides the value of &quot;n&quot; when &quot;at-least&quot; or &quot;at-most&quot; codes are used."/>
       <min value="0"/>
       <max value="1"/>
       <type>

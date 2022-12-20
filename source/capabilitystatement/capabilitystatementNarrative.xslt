@@ -46,7 +46,7 @@
               <xsl:for-each select="status[@value=('draft', 'retired')]">
                 <xsl:value-of select="concat('(', @value, ')')"/>
               </xsl:for-each>
-              <xsl:if test="experimental/@value='true'">
+              <xsl:if test="xs:string(experimental/@value)='true'">
                 <xsl:text> - experimental</xsl:text>
               </xsl:if>
             </xsl:variable>
@@ -639,7 +639,7 @@
     </tr>
   </xsl:template>
   <xsl:template name="doCapabilityStatement" as="node()">
-    <xsl:variable name="documentation" as="xs:string">
+    <xsl:variable name="documentation" as="xs:string?">
       <xsl:if test="normalize-space(documentation/@value)!=''">
         <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)),'')"/>
       </xsl:if>

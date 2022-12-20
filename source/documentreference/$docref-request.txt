@@ -1,0 +1,19 @@
+// example of $docref on a DocumentReference
+
+POST /open/DocumentReference/$docref
+[some headers]
+
+{
+  "resourceType": "Parameters",
+  "id": "example",
+  "parameter": [
+    {
+      "name": "patient",
+  	  "valueId": "Patient/example"
+    },
+    {
+      "name": "on-demand",
+      "valueBoolean": "true"
+    }
+  ]
+}

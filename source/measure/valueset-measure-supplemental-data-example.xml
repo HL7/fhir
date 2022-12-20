@@ -20,7 +20,7 @@
   <description value="Supplemental data in a population for measuring purposes."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/measure-supplemental-data-example"/>
+      <system value="http://hl7.org/fhir/measure-supplemental-data-example"/>
     </include>
   </compose>
 </ValueSet>

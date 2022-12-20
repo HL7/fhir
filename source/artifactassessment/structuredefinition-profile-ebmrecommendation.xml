@@ -18,7 +18,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1263"/>
   </identifier>
-  <version value="5.0.0-snapshot1"/>
+  <version value="5.0.0"/>
   <name value="EBMRecommendation"/>
   <title value="EBM Recommendation"/>
   <status value="draft"/>
@@ -26,7 +26,6 @@
   <date value="2021-12-12"/>
   <publisher value="HL7"/>
   <description value="Represents justification for a recommendation"/>
-  <fhirVersion value="5.0.0-snapshot1"/>
   <mapping>
     <identity value="rim"/>
     <uri value="http://hl7.org/v3"/>

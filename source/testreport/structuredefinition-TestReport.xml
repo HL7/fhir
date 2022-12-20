@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="TestReport"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TestReport"/>
+  <title value="TestReport"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -199,7 +202,7 @@
       <short value="Name of the tester producing this report (Organization or individual)"/>
       <definition value="Name of the tester producing this report (Organization or individual)."/>
       <comment value="Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context."/>
-      <requirements value="Helps establish the &#34;authority/credibility&#34; of the TestReport.  May also allow for contact."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the TestReport.  May also allow for contact."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -312,7 +315,6 @@
         <severity value="error"/>
         <human value="Setup action SHALL contain either an operation or assert but not both."/>
         <expression value="operation.exists() xor assert.exists()"/>
-        <xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
       </constraint>
     </element>
@@ -478,7 +480,6 @@
         <severity value="error"/>
         <human value="Test action SHALL contain either an operation or assert but not both."/>
         <expression value="operation.exists() xor assert.exists()"/>
-        <xpath value="(f:operation or f:assert) and not(f:operation and f:assert)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestReport"/>
       </constraint>
     </element>

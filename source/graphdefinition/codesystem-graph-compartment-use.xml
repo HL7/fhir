@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="graph-compartment-use"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.283"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="GraphCompartmentUse"/>
   <title value="GraphCompartmentUse"/>
   <status value="draft"/>
@@ -39,13 +41,13 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/graph-compartment-use"/>
   <content value="complete"/>
   <concept>
-    <code value="condition"/>
-    <display value="Condition"/>
+    <code value="where"/>
+    <display value="Where"/>
     <definition value="This compartment rule is a condition for whether the rule applies."/>
   </concept>
   <concept>
-    <code value="requirement"/>
-    <display value="Requirement"/>
+    <code value="requires"/>
+    <display value="requires"/>
     <definition value="This compartment rule is enforced on any relationships that meet the conditions."/>
   </concept>
 </CodeSystem>

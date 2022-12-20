@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="Kinsa"/>
   <serialNumber value="1i9JfKh"/>
-  <deviceName>
-    <name value="KS_1i9JfKh"/>
+  <name>
+    <value value="KS_1i9JfKh"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="KS_1i9JfKh"/>
   <type>
     <coding>

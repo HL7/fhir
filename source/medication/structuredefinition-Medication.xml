@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Medication"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Medication"/>
+  <title value="Medication"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -117,7 +120,7 @@
       <path value="Medication.code"/>
       <short value="Codes that identify this medication"/>
       <definition value="A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems."/>
-      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &#34;A coding may be marked as a &#34;userSelected&#34; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
+      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -153,7 +156,7 @@
       <path value="Medication.status"/>
       <short value="active | inactive | entered-in-error"/>
       <definition value="A code to indicate if the medication is in active use."/>
-      <comment value="This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product &#34;ABC Hospital Special Cream&#34; with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to &#34;entered in error&#34;.   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status."/>
+      <comment value="This status is intended to identify if the medication in a local system is in active use within a drug database or inventory.  For example, a pharmacy system may create a new drug file record for a compounded product &quot;ABC Hospital Special Cream&quot; with an active status.  At some point in the future, it may be determined that the drug record was created with an error and the status is changed to &quot;entered in error&quot;.   This status is not intended to specify if a medication is part of a particular formulary.  It is possible that the drug record may be referenced by multiple formularies or catalogues and each of those entries would have a separate status."/>
       <min value="0"/>
       <max value="1"/>
       <type>

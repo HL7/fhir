@@ -17,7 +17,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ExampleScenario.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:ExampleScenario/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ExampleScenario.useContext.value as Quantity) | (ExampleScenario.useContext.value as Range)"/>
-        <!--<xpath value="f:ExampleScenario/f:useContext/f:valueQuantity | f:ExampleScenario/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ExampleScenario.useContext.code"/>
-        <!--<xpath value="f:ExampleScenario/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -115,7 +112,7 @@
       <SearchParameter>
         <id value="ExampleScenario-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -125,7 +122,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ExampleScenario.date"/>
-        <!--<xpath value="f:ExampleScenario/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -145,7 +141,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ExampleScenario.identifier"/>
-        <!--<xpath value="f:ExampleScenario/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ExampleScenario.jurisdiction"/>
-        <!--<xpath value="f:ExampleScenario/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -175,7 +169,7 @@
       <SearchParameter>
         <id value="ExampleScenario-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -185,7 +179,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ExampleScenario.name"/>
-        <!--<xpath value="f:ExampleScenario/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -195,7 +188,7 @@
       <SearchParameter>
         <id value="ExampleScenario-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -205,7 +198,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ExampleScenario.publisher"/>
-        <!--<xpath value="f:ExampleScenario/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -215,7 +207,7 @@
       <SearchParameter>
         <id value="ExampleScenario-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -225,7 +217,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ExampleScenario.status"/>
-        <!--<xpath value="f:ExampleScenario/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -235,7 +226,7 @@
       <SearchParameter>
         <id value="ExampleScenario-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -245,7 +236,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ExampleScenario.url"/>
-        <!--<xpath value="f:ExampleScenario/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -255,7 +245,7 @@
       <SearchParameter>
         <id value="ExampleScenario-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>
@@ -265,7 +255,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ExampleScenario.version"/>
-        <!--<xpath value="f:ExampleScenario/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

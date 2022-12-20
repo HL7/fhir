@@ -309,6 +309,23 @@ expression is evaluated, and how the result of the expression is used.
 [%tx Expression%]
 </div>
 
+<p><b>Language support</b></p>
+<p>
+While the expression data type supports any language, a few 
+specific languages defined by HL7 at particularly of interest
+for the purposes of this specification:
+</p>
+<ul>
+  <li><b>text/fhirpath</b>: See <a href="fhirpath.html">FHIRPath Documentation</a></li>
+  <li><b>text/x-fhir-query</b>: See <a href="fhir-xquery.html">FHIR X-Query Documentation</a></li>
+  <li><b>text/cql</b>: See <a href="https://cql.hl7.org">CQL (Clinical Quality Language) Documentation</a>. There are also 2 CQL variants:
+    <ul>
+      <li><b>text/cql-identifier</b>: See <a href="https://cql.hl7.org/07-physicalrepresentation.html#media-types-and-namespaces">CQL Identifier</a></li>
+      <li><b>text/cql-expression</b>: See <a href="https://cql.hl7.org/07-physicalrepresentation.html#media-types-and-namespaces">CQL Expression</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>
 Expression is used in the following places: [%dtusage Expression%]
 </p>

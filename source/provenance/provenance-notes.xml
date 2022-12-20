@@ -108,4 +108,9 @@ Examples of this activity with Provenance profile can be found in the <a href="h
 <p>
 Where a provenance activity impacts more than one Patient/Subject; multiple Provenance resources should be recorded, one for each Patient/Subject. This best enables segmentation of the Provenance details so as to limit the Privacy impact. The use of multiple Provenance is a best-practice and should be driven by a Policy. There will be cases where the use of multiple Provenance resources is not necessary, such as public health reporting.
 </p>
+<a name="relevant"></a>
+<h3>Relevant History Provenance</h3>
+<p>
+Some <a href="event.html">Event</a> pattern or <a href="request.html">Request</a> pattern resources will have a <code>relevantHistory</code> element. These elements would point to a subset of all Provenance about that resource that are considered relevant. For further guidance on <code>relevantHistory</code> see <a href="event.html#history">Event history</a> pattern or  <a href="request.html#history">Request history</a> pattern.
+</p>
 </div>

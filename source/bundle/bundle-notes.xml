@@ -149,7 +149,7 @@ in the Bundle, a UUID SHALL be used in fullUrl (urn:uuid:...).
 <p>
 For transactions and batches, entries MAY omit fullURLs when the entry.request.method = POST, 
 and the resource has no identity. Note that even in this case, there may still be a fullURL in a 
-transaction on a POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
+transaction when entry.request.method = POST so that relationships between resources can be represented (see <a href="http.html#transaction">Transactions</a>).
 </p>
 <p>
 A given version of a resource SHALL only appear once in each Bundle. There MAY, however, 

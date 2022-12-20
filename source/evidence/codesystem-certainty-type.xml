@@ -12,12 +12,12 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/certainty-type"/>
+  <url value="http://hl7.org/fhir/certainty-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1939"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="EvidenceCertaintyType"/>
   <title value="EvidenceCertaintyType"/>
   <status value="draft"/>

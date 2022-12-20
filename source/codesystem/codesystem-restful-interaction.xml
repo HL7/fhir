@@ -81,6 +81,11 @@
       <display value="search-system"/>
       <definition value="Search all resources based on some filter criteria."/>
     </concept>
+    <concept>
+      <code value="search-compartment"/>
+      <display value="search-compartment"/>
+      <definition value="Search resources in a compartment based on some filter criteria."/>
+    </concept>
   </concept>
   <concept>
     <code value="capabilities"/>

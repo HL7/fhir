@@ -67,26 +67,6 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/valueset-effectiveDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-expirationDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-author"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/valueset-steward"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/valueset-trusted-expansion"/>
       </reference>
     </resource>

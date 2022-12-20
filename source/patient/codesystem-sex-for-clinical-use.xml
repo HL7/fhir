@@ -20,7 +20,7 @@
   <content value="complete"/>
   <property> 
     <code value="usage-note"/>
-	<uri value="http://hl7.org/fhir/sex-for-clinical-use/property/usage-note"/>
+	<uri value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use/property/usage-note"/>
     <description value="Usage notes for the concept."/> 
     <type value="string"/> 
   </property> 

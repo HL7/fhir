@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-sexForClinicalUse"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1347"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="sexForClinicalUse"/>
-  <title value="sexForClinicalUse"/>
+  <name value="PatSexForClinicalUse"/>
+  <title value="Patient Sex For Clinical Use"/>
   <status value="draft"/>
   <date value="2022-01-24T16:55:11+11:00"/>
   <publisher value="HL7"/>
@@ -45,7 +50,7 @@
       <sliceName value="value"/>
       <short value="A context-specific sex for clinical use"/>
       <definition value="A context-specific categorization of a patient's sex for the purpose of clinical use"/>
-	  <comment value="Sex for clinical use may be contexual. For example, the sex for clinical use for mammogram health maintenance may by different than the sex for clinical use for the purpose of selecting a reference range for a lab test.  There may also be a patient-context sex for clinical use that is a general categorization that would apply across all contexts if more specific information is not available."/>
+      <comment value="Sex for clinical use may be contexual. For example, the sex for clinical use for mammogram health maintenance may by different than the sex for clinical use for the purpose of selecting a reference range for a lab test.  There may also be a patient-context sex for clinical use that is a general categorization that would apply across all contexts if more specific information is not available."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -69,13 +74,13 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-	  <binding>
-		  <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-			<valueString value="sexForClinicalUse"/>
-		  </extension>
-		  <strength value="required"/>
-		  <valueSet value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
-	  </binding>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="sexForClinicalUse"/>
+        </extension>
+        <strength value="required"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
+      </binding>
     </element>
     <element id="Extension.extension:period">
       <path value="Extension.extension"/>
@@ -162,16 +167,16 @@
       <min value="1"/>
       <type>
         <code value="CodeableReference"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
-    </element>	
-	<element id="Extension.url">
+    </element>
+    <element id="Extension.url">
       <path value="Extension.url"/>
       <fixedUri value="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse"/>
     </element>
     <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
-	  <min value="0"/>
+      <min value="0"/>
       <max value="0"/>
     </element>
   </differential>

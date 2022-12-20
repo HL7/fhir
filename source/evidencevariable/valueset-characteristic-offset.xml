@@ -17,7 +17,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3061"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="CharacteristicOffset"/>
   <title value="CharacteristicOffset"/>
   <status value="draft"/>
@@ -38,7 +38,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/characteristic-offset"/>
+      <system value="http://hl7.org/fhir/characteristic-offset"/>
     </include>
   </compose>
 </ValueSet>

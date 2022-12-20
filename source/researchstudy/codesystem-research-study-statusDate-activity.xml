@@ -13,7 +13,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-  <url value="http://terminology.hl7.org/CodeSystem/research-study-statusDate-activity"/>
+  <url value="http://hl7.org/fhir/research-study-statusDate-activity"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1969"/>

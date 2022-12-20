@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-precheck-behavior"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.806"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.789"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="ActionPrecheckBehavior"/>
   <title value="ActionPrecheckBehavior"/>
   <status value="draft"/>
@@ -41,11 +48,11 @@
   <concept>
     <code value="yes"/>
     <display value="Yes"/>
-    <definition value="An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider &#34;pre-checking&#34; such an action as a convenience for the user."/>
+    <definition value="An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider &quot;pre-checking&quot; such an action as a convenience for the user."/>
   </concept>
   <concept>
     <code value="no"/>
     <display value="No"/>
-    <definition value="An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not &#34;pre-check&#34; such an action."/>
+    <definition value="An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not &quot;pre-check&quot; such an action."/>
   </concept>
 </CodeSystem>

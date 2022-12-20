@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Composition"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Composition"/>
+  <title value="Composition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Structured Documents)"/>
@@ -90,7 +93,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="Document[classCode=&#34;DOC&#34; and moodCode=&#34;EVN&#34; and isNormalAct()]"/>
+        <map value="Document[classCode=&quot;DOC&quot; and moodCode=&quot;EVN&quot; and isNormalAct()]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -177,7 +180,7 @@
       <path value="Composition.status"/>
       <short value="registered | partial | preliminary | final | amended | corrected | appended | cancelled | entered-in-error | deprecated | unknown"/>
       <definition value="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document."/>
-      <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &#34;entered-in-error&#34; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
+      <comment value="If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag &quot;entered-in-error&quot; is why this element is labeled as a modifier of other elements.   &#xA;&#xA;Some reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required."/>
       <requirements value="Need to be able to mark interim, amended, or withdrawn compositions or documents."/>
       <min value="1"/>
       <max value="1"/>
@@ -208,7 +211,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="interim: .completionCode=&#34;IN&#34; &amp; ./statusCode[isNormalDatatype()]=&#34;active&#34;;  final: .completionCode=&#34;AU&#34; &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;complete&#34; and not(./inboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()]/source[subsumesCode(&#34;ActClass#CACT&#34;) and moodCode=&#34;EVN&#34; and domainMember(&#34;ReviseComposition&#34;, code) and isNormalAct()]);  amended: .completionCode=&#34;AU&#34; &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;complete&#34; and ./inboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()]/source[subsumesCode(&#34;ActClass#CACT&#34;) and moodCode=&#34;EVN&#34; and domainMember(&#34;ReviseComposition&#34;, code) and isNormalAct() and statusCode=&#34;completed&#34;];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&#34;obsolete&#34;"/>
+        <map value="interim: .completionCode=&quot;IN&quot; &amp; ./statusCode[isNormalDatatype()]=&quot;active&quot;;  final: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and not(./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseComposition&quot;, code) and isNormalAct()]);  amended: .completionCode=&quot;AU&quot; &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;complete&quot; and ./inboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()]/source[subsumesCode(&quot;ActClass#CACT&quot;) and moodCode=&quot;EVN&quot; and domainMember(&quot;ReviseComposition&quot;, code) and isNormalAct() and statusCode=&quot;completed&quot;];  withdrawn : .completionCode=NI &amp;&amp;  ./statusCode[isNormalDatatype()]=&quot;obsolete&quot;"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -285,7 +288,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;COMP].target[classCode=&#34;LIST&#34;, moodCode=&#34;EVN&#34;].code"/>
+        <map value=".outboundRelationship[typeCode=&quot;COMP].target[classCode=&quot;LIST&quot;, moodCode=&quot;EVN&quot;].code"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -315,7 +318,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;SBJ&#34;].role[typeCode=&#34;PAT&#34;]"/>
+        <map value=".participation[typeCode=&quot;SBJ&quot;].role[typeCode=&quot;PAT&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -356,7 +359,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="unique(highest(./outboundRelationship[typeCode=&#34;SUBJ&#34; and isNormalActRelationship()], priorityNumber)/target[moodCode=&#34;EVN&#34; and classCode=(&#34;ENC&#34;, &#34;PCPR&#34;) and isNormalAct])"/>
+        <map value="unique(highest(./outboundRelationship[typeCode=&quot;SUBJ&quot; and isNormalActRelationship()], priorityNumber)/target[moodCode=&quot;EVN&quot; and classCode=(&quot;ENC&quot;, &quot;PCPR&quot;) and isNormalAct])"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -389,7 +392,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".effectiveTime[type=&#34;TS&#34;]"/>
+        <map value=".effectiveTime[type=&quot;TS&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -440,7 +443,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;AUT&#34;].role[classCode=&#34;ASSIGNED&#34;]"/>
+        <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -468,7 +471,7 @@
       <path value="Composition.title"/>
       <short value="Human Readable name/title"/>
       <definition value="Official human-readable label for the composition."/>
-      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &#34;consultation&#34; or &#34;progress note&#34;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
+      <comment value="For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a &quot;consultation&quot; or &quot;progress note&quot;). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -514,7 +517,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;AUTHEN&#34;].role[classCode=&#34;ASSIGNED&#34;]"/>
+        <map value=".participation[typeCode=&quot;AUTHEN&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -564,7 +567,7 @@
       </type>
       <mapping>
         <identity value="rim"/>
-        <map value="./time[type=&#34;TS&#34; and isNormalDatatype()]"/>
+        <map value="./time[type=&quot;TS&quot; and isNormalDatatype()]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -592,7 +595,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="./role[classCode=&#34;ASSIGNED&#34; and isNormalRole]/player[determinerCode=&#34;INST&#34; and classCode=(&#34;DEV&#34;, &#34;PSN&#34;) and isNormalEntity()] or ./role[classCode=&#34;ASSIGNED&#34; and isNormalRole and not(player)]/scoper[determinerCode=&#34;INST&#34; and classCode=&#34;ORG&#34; and isNormalEntity()]"/>
+        <map value="./role[classCode=&quot;ASSIGNED&quot; and isNormalRole]/player[determinerCode=&quot;INST&quot; and classCode=(&quot;DEV&quot;, &quot;PSN&quot;) and isNormalEntity()] or ./role[classCode=&quot;ASSIGNED&quot; and isNormalRole and not(player)]/scoper[determinerCode=&quot;INST&quot; and classCode=&quot;ORG&quot; and isNormalEntity()]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -614,7 +617,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;RCV&#34;].role[classCode=&#34;CUST&#34;].scoper[classCode=&#34;ORG&#34; and determinerCode=&#34;INST&#34;]"/>
+        <map value=".participation[typeCode=&quot;RCV&quot;].role[classCode=&quot;CUST&quot;].scoper[classCode=&quot;ORG&quot; and determinerCode=&quot;INST&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -632,7 +635,7 @@
       <path value="Composition.relatesTo"/>
       <short value="Relationships to other compositions/documents"/>
       <definition value="Relationships that this composition has with other compositions or documents that already exist."/>
-      <comment value="To reference (using relatesTo) a Bundle of type &#34;document&#34; or another Composition where you only have the identifier, use a resourceReference with an identifier.&#10;Here is an example of using relatesTo to reference another Bundle of type &#34;document&#34; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&#34;replaces&#34; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&#34;...&#34; /&gt;&#xA;&lt;value value=&#34;...&#34; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
+      <comment value="To reference (using relatesTo) a Bundle of type &quot;document&quot; or another Composition where you only have the identifier, use a resourceReference with an identifier.&#xA;Here is an example of using relatesTo to reference another Bundle of type &quot;document&quot; or Composition where you only have the identifier:&#xA;```&#xA;&lt;relatesTo  &gt;&#xA;    &lt;type value=&quot;replaces&quot; /&gt;&#xA;&lt;resourceReference&gt;&#xA;&lt;identifier&gt;&#xA;&lt;system value=&quot;...&quot; /&gt;&#xA;&lt;value value=&quot;...&quot; /&gt;&#xA;&lt;/identifier&gt;&#xA;&lt;/resourceReference&gt;&#xA;&lt;/relatesTo&gt;&#xA;```"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -668,7 +671,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value="outboundRelationship[typeCode=&#34;SUBJ&#34;].target[classCode&lt;'ACT']"/>
+        <map value="outboundRelationship[typeCode=&quot;SUBJ&quot;].target[classCode&lt;'ACT']"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -682,8 +685,8 @@
     <element id="Composition.event.code">
       <path value="Composition.event.code"/>
       <short value="Code(s) that apply to the event being documented"/>
-      <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &#34;History and Physical Report&#34; in which the procedure being documented is necessarily a &#34;History and Physical&#34; act."/>
-      <comment value="An event can further specialize the act inherent in the typeCode, such as where it is simply &#34;Procedure Report&#34; and the procedure was a &#34;colonoscopy&#34;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
+      <definition value="This list of codes represents the main clinical acts, such as a colonoscopy or an appendectomy, being documented. In some cases, the event is inherent in the typeCode, such as a &quot;History and Physical Report&quot; in which the procedure being documented is necessarily a &quot;History and Physical&quot; act."/>
+      <comment value="An event can further specialize the act inherent in the typeCode, such as where it is simply &quot;Procedure Report&quot; and the procedure was a &quot;colonoscopy&quot;. If one or more eventCodes are included, they SHALL NOT conflict with the values inherent in the classCode, practiceSettingCode or typeCode, as such a conflict would create an ambiguous situation. This short list of codes is provided to be used as key words for certain types of queries."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -747,7 +750,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=&#34;SUBJ&#34;].target"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].target"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -774,7 +777,6 @@
         <severity value="error"/>
         <human value="A section must contain at least one of text, entries, or sub-sections"/>
         <expression value="text.exists() or entry.exists() or section.exists()"/>
-        <xpath value="exists(f:text) or exists(f:entry) or exists(f:section)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <constraint>
@@ -782,12 +784,11 @@
         <severity value="error"/>
         <human value="A section can only have an emptyReason if it is empty"/>
         <expression value="emptyReason.empty() or entry.empty()"/>
-        <xpath value="not(exists(f:emptyReason) and exists(f:entry))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </constraint>
       <mapping>
         <identity value="rim"/>
-        <map value="./outboundRelationship[typeCode=&#34;COMP&#34; and isNormalActRelationship()]/target[moodCode=&#34;EVN&#34; and classCode=&#34;DOCSECT&#34; and isNormalAct]"/>
+        <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -867,7 +868,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".participation[typeCode=&#34;AUT&#34;].role[classCode=&#34;ASSIGNED&#34;]"/>
+        <map value=".participation[typeCode=&quot;AUT&quot;].role[classCode=&quot;ASSIGNED&quot;]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -893,7 +894,7 @@
     <element id="Composition.section.text">
       <path value="Composition.section.text"/>
       <short value="Text summary of the section, for human interpretation"/>
-      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &#34;clinically safe&#34; for a human to just read the narrative."/>
+      <definition value="A human-readable narrative that contains the attested content of the section, used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it &quot;clinically safe&quot; for a human to just read the narrative."/>
       <comment value="Document profiles may define what content should be represented in the narrative to ensure clinical safety."/>
       <min value="0"/>
       <max value="1"/>
@@ -935,7 +936,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&#34;].value"/>
+        <map value=".outBoundRelationship[typeCode=COMP].target[classCode=OBS&quot;].value"/>
       </mapping>
       <mapping>
         <identity value="cda"/>
@@ -999,7 +1000,7 @@
       <short value="Why the section is empty"/>
       <definition value="If the section is empty, why the list is empty. An empty section typically has some text explaining the empty reason."/>
       <comment value="The various reasons for an empty section make a significant interpretation to its interpretation. Note that this code is for use when the entire section content has been suppressed, and not for when individual items are omitted - implementers may consider using a text note or a flag on an entry in these cases."/>
-      <requirements value="Allows capturing things like &#34;none exist&#34; or &#34;not asked&#34; which can be important for most lists."/>
+      <requirements value="Allows capturing things like &quot;none exist&quot; or &quot;not asked&quot; which can be important for most lists."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1037,7 +1038,7 @@
       <condition value="cmp-1"/>
       <mapping>
         <identity value="rim"/>
-        <map value="./outboundRelationship[typeCode=&#34;COMP&#34; and isNormalActRelationship()]/target[moodCode=&#34;EVN&#34; and classCode=&#34;DOCSECT&#34; and isNormalAct]"/>
+        <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>
       </mapping>
       <mapping>
         <identity value="cda"/>

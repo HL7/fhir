@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="data-absent-reason"/> 
+  <meta> 
+    <lastUpdated value="2022-12-13T10:04:31.106+11:00"/> 
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/> 
+  </meta> 
+  <text> 
+    <status value="generated"/> 
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <ul> 
+        <li> Include all codes defined in 
+          <a href="codesystem-data-absent-reason.html">
+            <code> http://terminology.hl7.org/CodeSystem/data-absent-reason</code> 
+          </a> 
+        </li> 
+      </ul> 
+    </div> 
+  </text> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="normative"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-normative-version">
+    <valueCode value="4.0.0"/> 
+  </extension> 
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="5"/> 
+  </extension> 
+  <url value="http://hl7.org/fhir/ValueSet/data-absent-reason"/> 
+  <identifier> 
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.5"/> 
+  </identifier> 
+  <version value="5.0.0"/> 
+  <name value="DataAbsentReason"/> 
+  <title value="DataAbsentReason"/> 
+  <status value="active"/> 
+  <experimental value="false"/> 
+  <date value="2022-12-13T10:04:31+11:00"/> 
+  <publisher value="HL7 (FHIR Project)"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+    <telecom> 
+      <system value="email"/> 
+      <value value="fhir@lists.hl7.org"/> 
+    </telecom> 
+  </contact> 
+  <description value="Used to specify why the normally expected content of the data element is missing."/> 
+  <jurisdiction> 
+    <coding> 
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/> 
+      <code value="001"/> 
+      <display value="World"/> 
+    </coding> 
+  </jurisdiction> 
+  <immutable value="true"/> 
+  <compose> 
+    <include> 
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/> 
+    </include> 
+  </compose> 
+</ValueSet> 

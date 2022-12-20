@@ -17,7 +17,6 @@
         <code value="composed-of"/>
         <type value="reference"/>
         <expression value="ActivityDefinition.relatedArtifact.where(type=&#39;composed-of&#39;).resource"/>
-        <!--<xpath value="f:ActivityDefinition/f:relatedArtifact[f:type/@value=&#39;composed-of&#39;]/f:resource"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="context"/>
         <type value="token"/>
         <expression value="(ActivityDefinition.useContext.value as CodeableConcept)"/>
-        <!--<xpath value="f:ActivityDefinition/f:useContext/f:valueCodeableConcept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="context-quantity"/>
         <type value="quantity"/>
         <expression value="(ActivityDefinition.useContext.value as Quantity) | (ActivityDefinition.useContext.value as Range)"/>
-        <!--<xpath value="f:ActivityDefinition/f:useContext/f:valueQuantity | f:ActivityDefinition/f:useContext/f:valueRange"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="context-type"/>
         <type value="token"/>
         <expression value="ActivityDefinition.useContext.code"/>
-        <!--<xpath value="f:ActivityDefinition/f:useContext/f:code"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -135,7 +131,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-date"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.date"/>
@@ -145,7 +141,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="ActivityDefinition.date"/>
-        <!--<xpath value="f:ActivityDefinition/f:date"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -165,7 +160,6 @@
         <code value="depends-on"/>
         <type value="reference"/>
         <expression value="ActivityDefinition.relatedArtifact.where(type=&#39;depends-on&#39;).resource | ActivityDefinition.library"/>
-        <!--<xpath value="f:ActivityDefinition/f:relatedArtifact[f:type/@value=&#39;depends-on&#39;]/f:resource | f:ActivityDefinition/f:library"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -185,7 +179,6 @@
         <code value="derived-from"/>
         <type value="reference"/>
         <expression value="ActivityDefinition.relatedArtifact.where(type=&#39;derived-from&#39;).resource"/>
-        <!--<xpath value="f:ActivityDefinition/f:relatedArtifact[f:type/@value=&#39;derived-from&#39;]/f:resource"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -195,7 +188,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-description"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.description"/>
@@ -205,7 +198,6 @@
         <code value="description"/>
         <type value="string"/>
         <expression value="ActivityDefinition.description"/>
-        <!--<xpath value="f:ActivityDefinition/f:description"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -225,7 +217,6 @@
         <code value="effective"/>
         <type value="date"/>
         <expression value="ActivityDefinition.effectivePeriod"/>
-        <!--<xpath value="f:ActivityDefinition/f:effectivePeriod"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -245,7 +236,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="ActivityDefinition.identifier"/>
-        <!--<xpath value="f:ActivityDefinition/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -265,7 +255,6 @@
         <code value="jurisdiction"/>
         <type value="token"/>
         <expression value="ActivityDefinition.jurisdiction"/>
-        <!--<xpath value="f:ActivityDefinition/f:jurisdiction"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -285,7 +274,6 @@
         <code value="kind"/>
         <type value="token"/>
         <expression value="ActivityDefinition.kind"/>
-        <!--<xpath value="f:ActivityDefinition/f:kind"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -295,7 +283,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-name"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.name"/>
@@ -305,7 +293,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="ActivityDefinition.name"/>
-        <!--<xpath value="f:ActivityDefinition/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -325,7 +312,6 @@
         <code value="predecessor"/>
         <type value="reference"/>
         <expression value="ActivityDefinition.relatedArtifact.where(type=&#39;predecessor&#39;).resource"/>
-        <!--<xpath value="f:ActivityDefinition/f:relatedArtifact[f:type/@value=&#39;predecessor&#39;]/f:resource"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -335,7 +321,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-publisher"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.publisher"/>
@@ -345,7 +331,6 @@
         <code value="publisher"/>
         <type value="string"/>
         <expression value="ActivityDefinition.publisher"/>
-        <!--<xpath value="f:ActivityDefinition/f:publisher"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -355,7 +340,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-status"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.status"/>
@@ -365,7 +350,6 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="ActivityDefinition.status"/>
-        <!--<xpath value="f:ActivityDefinition/f:status"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -385,7 +369,6 @@
         <code value="successor"/>
         <type value="reference"/>
         <expression value="ActivityDefinition.relatedArtifact.where(type=&#39;successor&#39;).resource"/>
-        <!--<xpath value="f:ActivityDefinition/f:relatedArtifact[f:type/@value=&#39;successor&#39;]/f:resource"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -395,7 +378,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-title"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.title"/>
@@ -405,7 +388,6 @@
         <code value="title"/>
         <type value="string"/>
         <expression value="ActivityDefinition.title"/>
-        <!--<xpath value="f:ActivityDefinition/f:title"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -425,7 +407,6 @@
         <code value="topic"/>
         <type value="token"/>
         <expression value="ActivityDefinition.topic"/>
-        <!--<xpath value="f:ActivityDefinition/f:topic"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -435,7 +416,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-url"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.url"/>
@@ -445,7 +426,6 @@
         <code value="url"/>
         <type value="uri"/>
         <expression value="ActivityDefinition.url"/>
-        <!--<xpath value="f:ActivityDefinition/f:url"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -455,7 +435,7 @@
       <SearchParameter>
         <id value="ActivityDefinition-version"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="{{name}}.version"/>
@@ -465,7 +445,6 @@
         <code value="version"/>
         <type value="token"/>
         <expression value="ActivityDefinition.version"/>
-        <!--<xpath value="f:ActivityDefinition/f:version"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -485,7 +464,6 @@
         <code value="kind"/>
         <type value="token"/>
         <expression value="ActivityDefinition.kind"/>
-        <!--<xpath value="f:ActivityDefinition/f:kind"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

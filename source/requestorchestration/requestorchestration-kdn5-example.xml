@@ -147,7 +147,7 @@
 
           <!-- list of regimen entry references for this regimen part -->
           <!-- references would duplicated in each cycle definition option
-          (see http://build.fhir.org/codesystem-action-grouping-behavior.html#sentence-group)-->
+          (see codesystem-action-grouping-behavior.html#sentence-group)-->
           <action id="action-1">
             <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
               <extension url="day">

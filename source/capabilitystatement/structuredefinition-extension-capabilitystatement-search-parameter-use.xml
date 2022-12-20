@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="capabilitystatement-search-parameter-use"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fhir"/>
@@ -6,14 +8,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/capabilitystatement-search-parameter-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1045"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="search-parameter-use"/>
-  <title value="Search Parameter Use"/>
+  <name value="CSSearchParameterUse"/>
+  <title value="CapabilityStatement Search Parameter Use"/>
   <status value="draft"/>
   <date value="2022-08-12"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
@@ -24,7 +29,6 @@
     </telecom>
   </contact>
   <description value="This extension defines if a search parameter is only allowed in certain contexts"/>
-  <fhirVersion value="5.0.0-cibuild"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>

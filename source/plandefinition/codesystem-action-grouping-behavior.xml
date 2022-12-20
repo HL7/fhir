@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="action-grouping-behavior"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.800"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.783"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="ActionGroupingBehavior"/>
   <title value="ActionGroupingBehavior"/>
   <status value="draft"/>
@@ -51,6 +58,6 @@
   <concept>
     <code value="sentence-group"/>
     <display value="Sentence Group"/>
-    <definition value="A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are &#34;aspirin, 500 mg, 2 times per day&#34; and &#34;aspirin, 300 mg, 3 times per day&#34;. In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of &#34;AtMostOne&#34;, unless it's a required action, in which case, it would be &#34;ExactlyOne&#34;."/>
+    <definition value="A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are &quot;aspirin, 500 mg, 2 times per day&quot; and &quot;aspirin, 300 mg, 3 times per day&quot;. In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of &quot;AtMostOne&quot;, unless it's a required action, in which case, it would be &quot;ExactlyOne&quot;."/>
   </concept>
 </CodeSystem>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="provenance-activity-type"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
     <valueBoolean value="true"/>
@@ -7,6 +9,11 @@
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.438"/>
+  </identifier>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.429"/>
   </identifier>
   <version value="2.0.0"/>
   <name value="ProvenanceActivityType"/>

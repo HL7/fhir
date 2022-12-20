@@ -151,7 +151,8 @@ Notes:
  <li>All pages in the specification identify their status explicitly. A few pages are Table of contents or other kinds of navigational pages, and are <i>Informative</i></li>
  <li>Some content is labeled with the status "External", which means that the content is maintained in another standard, and the status must be found by consulting that other standard. In this case, the Maturity Model does not apply</li>
  <li>When a shared <a href="searchparameter.html">SearchParameter</a> is marked as normative and is used on a non-normative resource, the SearchParameter definition is considered to be normative and its definition is subject
-   to normative inter-version compatibility rules.  However, its use (and path expression) with respect to any informative resources it applies to is still considered to be STU and subject to change as the associated STU resource(s) evolve.</li>
+   to normative inter-version compatibility rules.  However, its use (and path expression) with respect to any trial-use or informative resources it applies to is still considered to be trial-use and subject to change as the associated trial-use resource(s) evolve.
+   Non-normative resources that use the search parameter could be dropped and new resources sharing the search parameter can be added.</li>
 </ul>
 
 <p>
@@ -269,7 +270,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
    <td valign="top">label</td>
    <td>
      <ul>
-       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g. 5.0.0-ballot1, 5.0.0-snapshot2, etc.</li>
+       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g. 5.0.0-ballot1, 5.0.0-snapshot3, etc.</li>
        <li>The content preceding the label indicates the 'intended' release number that will result at the conclusion of ballot, review, etc.</li>
        <li>label can be any string, however typical labels will be:
          <ul>
@@ -869,7 +870,7 @@ While implementation of this mixed <i>Normative</i> and <i>Trial Use</i> release
 This next release will include additional clarifications, resources, profiles and quality enhancements over the current release based on
 implementation experience and ongoing development work.
 It will also incorporate fixes for issues raised with the <a href="http://hl7.org/fhir-issues">FHIR issue tracker</a>.  It may be useful for implementers
-of the STU to review the candidate current release (at <a href="http://build.fhir.org">http://build.fhir.org</a>) to get a sense of what changes are
+of the STU to review the candidate current release (at <a href="https://build.fhir.org">http://build.fhir.org</a>) to get a sense of what changes are
 likely coming and perhaps to find more robust definitions and guidance than are available in this release.  Some implementers who are dependent
 on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
 will limit their potential communication partners.

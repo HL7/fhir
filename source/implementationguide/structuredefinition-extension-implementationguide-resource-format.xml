@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="implementationguide-resource-format"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhiri"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1372"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="IGResourceFormat"/>
+  <title value="ImplementationGuide Resource Format"/>
+  <status value="draft"/>
+  <date value="2015-03-02"/>
+  <publisher value="Health Level Seven, Inc. - FHIR-I WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/special/committees/fiwg"/>
+    </telecom>
+  </contact>
+  <description value="This extension specifies the format (= mime type) of a binary resource, when the binary resource is provided as raw content (rather than as a FHIR binary resource with base64 content). Tooling support is required to import "/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="complex-type"/>
+  <abstract value="false"/>
+  <context>
+    <type value="element"/>
+    <expression value="ImplementationGuide.definition"/>
+  </context>
+  <type value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Extension">
+      <path value="Extension"/>
+      <short value="Additional files used in publication"/>
+      <definition value="Identifies files used as part of the the publication process other than resources referenced in definition.resource."/>
+      <comment value="When 'exporting' the referenced file for use in publication, if storing the content as a resource, the exported syntax (XML, JSON, or RDF) should be driven by the file extension of the specified location."/>
+      <min value="0"/>
+      <max value="*"/>
+    </element>
+    <element id="Extension.extension:file">
+      <path value="Extension.extension"/>
+      <sliceName value="file"/>
+      <short value="Location on server"/>
+      <definition value="The location of the file on a server used by the IG publication process"/>
+      <comment value="This will often be a DocumentReference or Media resource (depending on FHIR version) containing the relevant content."/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:file.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:file.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="file"/>
+    </element>
+    <element id="Extension.extension:file.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="Extension.extension:location">
+      <path value="Extension.extension"/>
+      <sliceName value="location"/>
+      <short value="Path for publisher"/>
+      <definition value="The relative path (with respect to the IG base folder) and name of the file as it should be positioned prior to processing by the IG publisher"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:location.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:location.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="file"/>
+    </element>
+    <element id="Extension.extension:location.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Extension.extension:keepAsResource">
+      <path value="Extension.extension"/>
+      <sliceName value="keepAsResource"/>
+      <short value="Use attachment or resource?"/>
+      <definition value="The default behavior if the Reference is to a Media or DocumentReference is for the 'attachment' to be what is persisted in the 'location'.  If this flag is set to true, then the referenced resource will be persisted 'as is' - I.e. a Media or DocumentReference."/>
+      <min value="0"/>
+      <max value="1"/>
+    </element>
+    <element id="Extension.extension:keepAsResource.extension">
+      <path value="Extension.extension.extension"/>
+      <max value="0"/>
+    </element>
+    <element id="Extension.extension:keepAsResource.url">
+      <path value="Extension.extension.url"/>
+      <fixedUri value="file"/>
+    </element>
+    <element id="Extension.extension:keepAsResource.value[x]">
+      <path value="Extension.extension.value[x]"/>
+      <min value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Extension.url">
+      <path value="Extension.url"/>
+      <fixedUri value="http://hl7.org/fhir/StructureDefinition/implementationguide-resource-format"/>
+    </element>
+    <element id="Extension.value[x]">
+      <path value="Extension.value[x]"/>
+      <max value="0"/>
+    </element>
+  </differential>
+</StructureDefinition>

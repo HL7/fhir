@@ -12,7 +12,7 @@ family history or other information typically handled via <b>List</b>, they have
     (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
     <a href="medicationusage.html">MedicationUsage</a>, etc.), possibly filtering by time, etc.</li>
   <li>They can query against the resource endpoint, requesting one of the 
-  <a href="http://build.fhir.org/lifecycle.html#current">Current</a> resource lists</li>
+  <a href="lifecycle.html#current">Current</a> resource lists</li>
 </ul>
 <p>
 Querying directly against the clinical resource endpoints will provide an un-curated view of information.  
@@ -30,7 +30,7 @@ that the list author's notion of "current" or "relevant" may differ from the per
 the query.  Also, there's the challenge that multiple lists may exist, with different author and different perspectives
 </p>
 <p>
-The <a href="http://build.fhir.org/lifecycle.html#current">Current</a> resource lists get around the problem
+The <a href="lifecycle.html#current">Current</a> resource lists get around the problem
 of multiple lists and make it clear which list is considered authoritative, but not all systems will necessarily
 support this capability, and there's still the possibility that the list won't be completely up-to-date or will
 exclude information that is of interest to the querying system.

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="Organization"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -28,6 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="Organization"/>
+  <title value="Organization"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -87,7 +90,6 @@
         <severity value="error"/>
         <human value="The organization SHALL at least have a name or an identifier, and possibly more than one"/>
         <expression value="(identifier.count() + name.count()) &gt; 0"/>
-        <xpath value="count(f:identifier | f:name) &gt; 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <mapping>
@@ -222,7 +224,7 @@
     </element>
     <element id="Organization.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="If you need multiple names to cater for acronyms and &#34;trading under&#34; names, use an extension &#34;alias&#34; instead."/>
+        <valueString value="If you need multiple names to cater for acronyms and &quot;trading under&quot; names, use an extension &quot;alias&quot; instead."/>
       </extension>
       <path value="Organization.name"/>
       <short value="Name used for the organization"/>
@@ -272,7 +274,7 @@
         <map value=".name"/>
       </mapping>
     </element>
-	<element id="Organization.description">
+    <element id="Organization.description">
       <path value="Organization.description"/>
       <short value="Additional details about the Organization that could be displayed as further information to identify the Organization beyond its name"/>
       <definition value="Description of the organization, which helps provide additional general context on the organization to ensure that the correct organization is selected."/>
@@ -307,7 +309,6 @@
         <severity value="error"/>
         <human value="The telecom of an organization can never be of use 'home'"/>
         <expression value="telecom.where(use = 'home').empty()"/>
-        <xpath value="f:telecom.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <constraint>
@@ -315,7 +316,6 @@
         <severity value="error"/>
         <human value="The address of an organization can never be of use 'home'"/>
         <expression value="address.where(use = 'home').empty()"/>
-        <xpath value="f:address.count(f:use[@value='home']) = 0"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </constraint>
       <mapping>

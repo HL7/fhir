@@ -7,7 +7,7 @@
       <SearchParameter>
         <id value="Schedule-active"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="normative"/>
+          <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Schedule.active"/>
@@ -17,7 +17,6 @@
         <code value="active"/>
         <type value="token"/>
         <expression value="Schedule.active"/>
-        <!--<xpath value="f:Schedule/f:active"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -37,7 +36,6 @@
         <code value="actor"/>
         <type value="reference"/>
         <expression value="Schedule.actor"/>
-        <!--<xpath value="f:Schedule/f:actor"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -57,7 +55,6 @@
         <code value="date"/>
         <type value="date"/>
         <expression value="Schedule.planningHorizon"/>
-        <!--<xpath value="f:Schedule/f:planningHorizon"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -77,7 +74,6 @@
         <code value="identifier"/>
         <type value="token"/>
         <expression value="Schedule.identifier"/>
-        <!--<xpath value="f:Schedule/f:identifier"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -97,7 +93,6 @@
         <code value="service-category"/>
         <type value="token"/>
         <expression value="Schedule.serviceCategory"/>
-        <!--<xpath value="f:Schedule/f:serviceCategory"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -117,7 +112,6 @@
         <code value="service-type"/>
         <type value="token"/>
         <expression value="Schedule.serviceType.concept"/>
-        <!--<xpath value="f:Schedule/f:serviceType/f:concept"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -137,7 +131,6 @@
         <code value="service-type-reference"/>
         <type value="reference"/>
         <expression value="Schedule.serviceType.reference"/>
-        <!--<xpath value="f:Schedule/f:serviceType/f:reference"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -157,7 +150,6 @@
         <code value="specialty"/>
         <type value="token"/>
         <expression value="Schedule.specialty"/>
-        <!--<xpath value="f:Schedule/f:specialty"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -177,7 +169,6 @@
         <code value="name"/>
         <type value="string"/>
         <expression value="Schedule.name"/>
-        <!--<xpath value="f:Schedule/f:name"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -28,7 +28,7 @@
   <description value="DeviceDispense Status Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/devicedispense-status"/>
+      <system value="http://hl7.org/fhir/devicedispense-status"/>
     </include>
   </compose>
 </ValueSet>

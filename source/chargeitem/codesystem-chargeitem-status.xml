@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="chargeitem-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -17,7 +19,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.847"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <identifier>
+    <use value="old"/>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.1.822"/>
+  </identifier>
+  <version value="5.0.0"/>
   <name value="ChargeItemStatus"/>
   <title value="ChargeItemStatus"/>
   <status value="draft"/>
@@ -71,6 +78,6 @@
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for &#34;other&#34; - one of the listed statuses is presumed to apply, it's just not known which one."/>
+    <definition value="The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one."/>
   </concept>
 </CodeSystem>
