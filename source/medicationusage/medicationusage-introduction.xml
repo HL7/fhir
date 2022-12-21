@@ -66,5 +66,6 @@
             instances of any of the preceding three types may be used to infer a medication
             statement. However, medication statements can also be captured on the basis of other
             information, including an assertion by the patient or a care-giver, the results of a lab
-            test, etc. </p>  </div>
+            test, etc. </p>
+        <p> To indicate the link between a MedicationUsage instance and the Medication Request, Dispense, or Administration that was used to derive the MedicationUsage, the reference should be placed in the MedicationUsage.derivedFrom element.</p>  </div>
 </div>

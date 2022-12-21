@@ -90,6 +90,7 @@
         <li><a href="medicationrequest0319.html">Request for Intravenous Antibiotic with a Dosage Rate (as RateQuantity) - Piperacillin - completed with reason code</a></li>
         <li><a href="medicationrequest0309.html">Oral Chemotherapy Request - Capecitabine - active medication with dosing by Body Surface Area (BSA) (mg/m2)</a></li>
         <li><a href="medicationrequest0308.html">Request for as needed (PRN) dosage - Vicodin - completed with dosageInstruction with additionalInstruction (coded) and as needed with reason, dispenseRequest and substitution</a></li>
+        <li><a href="medicationrequestexample3.html">Request that uses both calculated and ordered dosage.</a></li>
     </ul>
     
 </div>
