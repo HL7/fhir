@@ -508,4 +508,16 @@
       <display value="Grouped MedicationRequest for same drug with different route of administrations"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request that uses both calculated and ordered dosage"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequestexample3"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx003"/>
+      <display value="Text Dose"/>
+    </item>
+  </entry>
 </List>

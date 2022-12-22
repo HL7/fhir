@@ -11,10 +11,10 @@
   </identifier>
   <status value="active"/>
   <manufacturer value="Vanderbilt Genetics Institute"/>
-  <deviceName>
-    <name value="Triodenovo Software"/>
+  <name>
+    <value value="Triodenovo Software"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <type>
     <coding>
       <system value="http://snomed.info/sct"/>

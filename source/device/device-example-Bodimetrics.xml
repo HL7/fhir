@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="BodiMetrics"/>
   <serialNumber value="1607124656"/>
-  <deviceName>
-    <name value="BM-88   4656"/>
+  <name>
+    <value value="BM-88   4656"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="6611"/>
   <type>
     <coding>

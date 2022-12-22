@@ -32,10 +32,10 @@
 	<manufacturer value="Acme Devices, Inc"/>
 	<expirationDate value="2014-11-20"/>
 	<lotNumber value="7654321D"/>
-	<deviceName>
-      <name value="PM/Octane 2014" />
+	<name>
+      <value value="PM/Octane 2014" />
       <type value="user-friendly-name"/>
-    </deviceName>
+    </name>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
