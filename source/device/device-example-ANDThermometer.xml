@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="A&amp;D Medical" />
   <serialNumber value="5160800011" />
-  <deviceName>
-    <name value="A&amp;D_UT201BLEA_321226"/>
+  <name>
+    <value value="A&amp;D_UT201BLEA_321226"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="UT-201BLE-A" />
   <type>
     <coding>

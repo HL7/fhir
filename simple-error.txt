@@ -1,1 +1,1 @@
-﻿Exception inserting section numbers in secpriv-module.html: Malformed XHTML: Found "</p>" expecting "</div>" at line 582 column 6
+﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/task/structuredefinition-Task.xml: end tag name </type> must match start tag name <targetProfile> from line 765 (position: TEXT seen ...l7.org/fhir/StructureDefinition/RelatedPerson"/> -->\n      </type>... @771:14) 

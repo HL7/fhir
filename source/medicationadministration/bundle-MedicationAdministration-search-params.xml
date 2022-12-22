@@ -48,13 +48,14 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationAdministration.device"/>
+          <valueString value="MedicationAdministration.device.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-device"/>
         <description value="Return administrations with this administration device identity"/>
         <code value="device"/>
         <type value="reference"/>
-        <expression value="MedicationAdministration.device"/>
+        <expression value="MedicationAdministration.device.reference"/>
+        <!--<xpath value="f:MedicationAdministration/f:device"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -144,13 +145,34 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MedicationAdministration.performer.actor"/>
+          <valueString value="MedicationAdministration.performer.actor.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-performer"/>
         <description value="The identity of the individual who administered the medication"/>
         <code value="performer"/>
         <type value="reference"/>
-        <expression value="MedicationAdministration.performer.actor"/>
+        <expression value="MedicationAdministration.performer.actor.reference"/>
+        <!--<xpath value="f:MedicationAdministration/f:performer/f:actor"/> -->
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="MedicationAdministration-performer-device-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="MedicationAdministration.performer.actor.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/MedicationAdministration-performer"/>
+        <description value="The identity of the individual who administered the medication"/>
+        <code value="performer-device-code"/>
+        <type value="token"/>
+        <expression value="MedicationAdministration.performer.actor.concept"/>
+        <!--<xpath value="f:MedicationAdministration/f:performer/f:actor"/> -->
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
