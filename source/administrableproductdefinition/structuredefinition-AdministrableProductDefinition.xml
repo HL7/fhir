@@ -317,7 +317,14 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="markdown"/>
+      </type>
+      <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
       </type>
       <isSummary value="true"/>
       <mapping>
