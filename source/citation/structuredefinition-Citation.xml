@@ -1187,6 +1187,7 @@
     <element id="Citation.citedArtifact.publicationForm.lastRevisionDate">
       <path value="Citation.citedArtifact.publicationForm.lastRevisionDate"/>
       <short value="The date the article was last revised or updated in the database"/>
+	  <comment value="The lastRevisionDate is used for the cited article and not the date the Citation Resource is last revised."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1195,8 +1196,8 @@
     </element>
     <element id="Citation.citedArtifact.publicationForm.language">
       <path value="Citation.citedArtifact.publicationForm.language"/>
-      <short value="Language in which this form of the article is published"/>
-      <comment value="Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource. Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute)."/>
+      <short value="Language(s) in which this form of the article is published"/>
+      <definition value="The language or languages in which this form of the article is published."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1216,6 +1217,7 @@
     <element id="Citation.citedArtifact.publicationForm.accessionNumber">
       <path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
       <short value="Entry number or identifier for inclusion in a database"/>
+	  <comment value="Accession numbers may be used instead of or in addition to page numbers.  Accession numbers are functionally identifiers when coupled with the identity of the database for which they are accession numbers. Accession numbers which are used for indexing citations in a dataset of citations should NOT be entered in Citation.citedArtifact.publicationForm.accessionNumber -- this use would be a type of Citation.identifier for the citation record itself."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1252,7 +1254,7 @@
     <element id="Citation.citedArtifact.publicationForm.pageCount">
       <path value="Citation.citedArtifact.publicationForm.pageCount"/>
       <short value="Number of pages or screens"/>
-      <definition value="Actual or approximate number of pages or screens."/>
+      <definition value="Actual or approximate number of pages or screens. Distinct from reporting the page numbers."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1262,6 +1264,7 @@
     <element id="Citation.citedArtifact.publicationForm.copyright">
       <path value="Citation.citedArtifact.publicationForm.copyright"/>
       <short value="Copyright notice for the full article or artifact"/>
+	  <comment value="It is possible that different publication forms have different copyright notices."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1280,6 +1283,8 @@
     <element id="Citation.citedArtifact.webLocation.classifier">
       <path value="Citation.citedArtifact.webLocation.classifier"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
+      <definition value="A characterization of the object expected at the web location."/>
+	  <comment value="Categories that may be frequently used for study citations may include abstract, full-text, supplement, webpage, and doi-based."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1346,7 +1351,8 @@
     </element>
     <element id="Citation.citedArtifact.classification.artifactAssessment">
       <path value="Citation.citedArtifact.classification.artifactAssessment"/>
-      <short value="Complex or externally created classification&#xA;"/>
+      <short value="Complex or externally created classification"/>
+	  <comment value="Examples relevant to study citations include MeSH Headings or Keywords that contain qualifier codings or sub-classifications, and include risk of bias assessments created by persons different from the creator of the citation record."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1368,7 +1374,7 @@
     <element id="Citation.citedArtifact.contributorship.complete">
       <path value="Citation.citedArtifact.contributorship.complete"/>
       <short value="Indicates if the list includes all authors and/or contributors"/>
-      <comment value="If list is incomplete &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
+      <comment value="If list is incomplete, &quot;et al&quot; can be appended to Contributorship.summary.value for display purposes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1377,8 +1383,8 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry">
       <path value="Citation.citedArtifact.contributorship.entry"/>
-      <short value="An individual entity named in the list"/>
-      <definition value="An individual entity named in the author list or contributor list."/>
+      <short value="An individual entity named as a contributor"/>
+      <definition value="An individual entity named as a contributor, for example in the author list or contributor list."/>
       <comment value="Used to report contributorship in individualized ways."/>
       <min value="0"/>
       <max value="*"/>
@@ -1388,7 +1394,8 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.contributor">
       <path value="Citation.citedArtifact.contributorship.entry.contributor"/>
-      <short value="The identity of the individual entity"/>
+      <short value="The identity of the individual contributor"/>
+	  <comment value="If naming a contributor without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1400,7 +1407,7 @@
     <element id="Citation.citedArtifact.contributorship.entry.forenameInitials">
       <path value="Citation.citedArtifact.contributorship.entry.forenameInitials"/>
       <short value="Initials for forename"/>
-      <comment value="This element is used in Medline based citations, but not supported fully by FHIR HumanName datatype."/>
+      <comment value="This element is used to support a data element used for citations that is not otherwise supported fully by FHIR HumanName datatype. In some citation summary styles (e.g. Medline), authors are presented with full spelling of their last name (family name) and initials for all forenames (first names, middle names, preceding names, given names). As the FHIR HumanName Datatype does not have a specific element for forename initials and this is common in citation usage, the element is added to contributorship.entry directly."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1410,7 +1417,8 @@
     <element id="Citation.citedArtifact.contributorship.entry.affiliation">
       <path value="Citation.citedArtifact.contributorship.entry.affiliation"/>
       <short value="Organizational affiliation"/>
-      <definition value="Organization affiliated with the entity."/>
+      <definition value="Organization affiliated with the contributor."/>
+	  <comment value="If naming an organization without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1423,7 +1431,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.contributionType"/>
       <short value="The specific contribution"/>
       <definition value="This element identifies the specific nature of an individual’s contribution with respect to the cited work."/>
-      <comment value="The CreDiT taxonomy provides a way to encode contribution information inside article XML files. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
+      <comment value="The CreDiT taxonomy provides a way to encode contribution information. The purpose of CRediT is to provide transparency in contributions to scholarly published work, to enable improved systems of attribution, credit, and accountability."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1439,7 +1447,7 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.role">
       <path value="Citation.citedArtifact.contributorship.entry.role"/>
-      <short value="The role of the contributor (e.g. author, editor, reviewer)"/>
+      <short value="The role of the contributor (e.g. author, editor, reviewer, funder)"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1489,7 +1497,8 @@
     </element>
     <element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
       <path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
-      <short value="Indication of which contributor is the corresponding contributor for the role"/>
+      <short value="Whether the contributor is the corresponding contributor for the role"/>
+	  <comment value="If there are multiple authors and one serves as the corresponding author, then that one would have correspondingContact = true."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1500,6 +1509,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
       <short value="Ranked order of contribution"/>
       <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
+	  <comment value="Used to retain order of authorship as structured data"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1511,7 +1521,7 @@
         <valueString value="ContributorshipSummary"/>
       </extension>
       <path value="Citation.citedArtifact.contributorship.summary"/>
-      <short value="Used to record a display of the author/contributor list without separate coding for each list member"/>
+      <short value="Used to record a display of the author/contributor list without separate data element for each list member"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1538,6 +1548,7 @@
     <element id="Citation.citedArtifact.contributorship.summary.style">
       <path value="Citation.citedArtifact.contributorship.summary.style"/>
       <short value="The format for the display string"/>
+      <definition value="The format for the display string, such as author last name with first letter capitalized followed by forename initials."/>
       <min value="0"/>
       <max value="1"/>
       <type>
