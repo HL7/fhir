@@ -8,8 +8,6 @@ In terms of scope and usage, the  Orders and Observations workgroups wish to
 draw the attention of reviewers and implementers to the following issues and changes.
 </p>
 			<ol>
-				<li>We are seeking input from the implementation community on whether to combine SupplyRequest and  <a href="devicerequest.html">DeviceRequest</a> for R5.
- </li>
 				<li>The <a href="supplyrequest-definitions.html#parameters">parameters</a> element  was added to SupplyRequest for representing custom details for ordering devices.
 </li>
 			</ol>
