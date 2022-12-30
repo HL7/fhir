@@ -912,7 +912,7 @@
     <element id="TestScript.variable.expression">
       <path value="TestScript.variable.expression"/>
       <short value="The FHIRPath expression against the fixture body"/>
-      <definition value="The FHIRPath expression to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
+      <definition value="The FHIRPath expression for a specific value to evaluate against the fixture body. When variables are defined, only one of either expression, headerField or path must be specified."/>
       <comment value="If headerField is defined, then the variable will be evaluated against the headers that sourceId is pointing to.  If expression or path is defined, then the variable will be evaluated against the fixture body that sourceId is pointing to.  It is an error to define any combination of expression, headerField and path."/>
       <min value="0"/>
       <max value="1"/>
@@ -1388,7 +1388,7 @@
     <element id="TestScript.setup.action.assert.compareToSourceExpression">
       <path value="TestScript.setup.action.assert.compareToSourceExpression"/>
       <short value="The FHIRPath expression to evaluate against the source fixture"/>
-      <definition value="The FHIRPath expression to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
+      <definition value="The FHIRPath expression for a specific value to evaluate against the source fixture. When compareToSourceId is defined, either compareToSourceExpression or compareToSourcePath must be defined, but not both."/>
       <comment value="Thefhirpath expression to be evaluated against the expected fixture to compare to. Ignored if &quot;assert.value&quot; is used. The evaluation will be done before the assertion is evaluated."/>
       <min value="0"/>
       <max value="1"/>
@@ -1440,7 +1440,7 @@
       <path value="TestScript.setup.action.assert.expression"/>
       <short value="The FHIRPath expression to be evaluated"/>
       <definition value="The FHIRPath expression to be evaluated against the request or response message contents - HTTP headers and payload."/>
-      <comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId.  If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions."/>
+      <comment value="If both &quot;expression&quot; and a &quot;fixtureId&quot; are specified, then the expression will be evaluated against the request or response body mapped to the fixtureId. If &quot;expression&quot; is specified and a &quot;fixtureId&quot; is not, then the expression will be evaluated against the response body of the last operation. Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.&#xA;&#xA;The FHIRPath expression can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource. When the FHIRPath is a boolean expression, the assert.value element is not used. See [Testing FHIR Use Expressions](testing.html#expressions)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1651,6 +1651,31 @@
       <max value="1"/>
       <type>
         <code value="boolean"/>
+      </type>
+    </element>
+    <element id="TestScript.setup.action.assert.requirement">
+      <path value="TestScript.setup.action.assert.requirement"/>
+      <short value="Links or references to the testing requirements"/>
+      <definition value="Links or references providing traceability to the testing requirements for this assert."/>
+      <comment value="TestScript and TestReport instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestScript.setup.action.assert.requirement.link[x]">
+      <path value="TestScript.setup.action.assert.requirement.link[x]"/>
+      <short value="Link or reference to the testing requirement"/>
+      <definition value="Link or reference providing traceability to the testing requirement for this test."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
     </element>
     <element id="TestScript.test">

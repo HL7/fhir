@@ -55,28 +55,38 @@
 
   <status value="current"/>
 
+  <modality>
+      <!-- modality -->
+      <coding>
+        <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+        <code value="US"/>
+      </coding>
+  </modality>
   <subject>
     <reference value="Patient/example"/>
   </subject>
+
   <event>
-  <concept>
-    <!-- modality -->
-    <coding>
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <code value="US"/>
-    </coding>
-	</concept>
+    <concept>
+    <!-- view -->
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="399067008"/>
+        <display value="Lateral projection"/>
+      </coding>
+    </concept>
   </event>
-  <event>
-  <concept>
-	<!-- view -->
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="399067008"/>
-      <display value="Lateral projection"/>
-    </coding>
-	</concept>
-  </event>
+  <bodySite>
+	  <concept>
+		  <coding>
+			<!-- Added body site to support duplicate checking example -->
+			<system value="http://snomed.info/sct"/>
+			<code value="67734004"/>
+			<display value="Upper Trunk Structure"/>
+		  </coding>
+	  </concept>
+	</bodySite>  
+
   <author>
     <display value="G.E. Medical Systems"/>
   </author>

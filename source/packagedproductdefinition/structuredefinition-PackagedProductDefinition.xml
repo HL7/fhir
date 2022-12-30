@@ -629,8 +629,8 @@
     </element>
     <element id="PackagedProductDefinition.packaging.containedItem.amount">
       <path value="PackagedProductDefinition.packaging.containedItem.amount"/>
-      <short value="The number of this type of item within this packaging"/>
-      <definition value="The number of this type of item within this packaging."/>
+      <short value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml)"/>
+      <definition value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

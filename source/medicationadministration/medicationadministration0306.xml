@@ -41,8 +41,11 @@
         <display value="Performer"/>
       </coding>
     </function>
-    <actor><reference value="Practitioner/f007"/>
-    <display value="Patrick Pump"/>
+    <actor>
+      <reference>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+      </reference>
     </actor>
   </performer>
   <request>

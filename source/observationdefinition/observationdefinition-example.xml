@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ObservationDefinition xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <id value="example"/>
-  <status value="active"/>  <category>
+  <status value="active"/>  
+  <category>
     <coding>
       <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
       <code value="laboratory"/>
