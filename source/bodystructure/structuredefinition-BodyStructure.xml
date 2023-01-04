@@ -266,7 +266,7 @@
     </element>
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription"/>
-      <short value="Landmark description"/>
+      <short value="Body ]andmark description"/>
       <definition value="A description of a landmark on the body used as a reference to locate something else."/>
       <min value="0"/>
       <max value="*"/>
@@ -352,7 +352,7 @@
     </element>
      <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"/>
-      <short value="Landmark surface orientation "/>
+      <short value="Landmark body surface orientation "/>
       <definition value="The surface area a body location is in relation to a landmark."/>
       <min value="0"/>
       <max value="*"/>
