@@ -1060,6 +1060,43 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </action>
 </xmp></div>
 
+<hr/><!-- =========================================================================================================================================================== -->
+<a name="expressions"></a>
+<h4 id="howToUseExpressions">Use Expressions</h4>
+<p>All of the previous assert examples illustrate the use of the <a href="testscript-definitions.html#TestScript.setup.action.assert.path">path</a> element for the evaluation of <a href="https://www.w3.org/TR/xpath">XPath</a> or <a href="https://github.com/json-path/JsonPath">JsonPath</a> formatted expressions. The use of <a href="http://hl7.org/fhirpath/r2">FHIRPath</a> expressions is also available and supported via the <a href="testscript-definitions.html#TestScript.variable.expression">TestScript.variable.expression</a>, <a href="testscript-definitions.html#TestScript.setup.action.assert.compareToSourceExpression">TestScript.setup.action.assert.compareToSourceExpression</a> and <a href="testscript-definitions.html#TestScript.setup.action.assert.expression">TestScript.setup.action.assert.expression</a> elements.</p>
+
+<p><a href="http://hl7.org/fhirpath/r2">FHIRPath</a> expressions evaluate the FHIR resources and data types using the Logical views (or the UML diagrams) rather than the JSON, XML or TTL formats. When used within the supported TestScript elements, the FHIRPath expressions can be evaluated as either a path to a specific value or as a boolean expression against the given FHIR resource.</p>
+
+<p>Using the previous search operation example, here are the 3 asserts re-written using FHIRPath expressions to extract the comparison element values. Note the use of the '[0]' index to extract the first instance of any repeating elements.</p>
+<div class="xmlCode"><xmp>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.name[0].given[0]" />
+    <value value="${PatientGivenName}" />
+  </assert>
+</action>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.name[0].family" />
+    <value value="${PatientFamilyName}" />
+  </assert>
+</action>
+<action>
+  <assert>
+    <expression value="Bundle.entry[0].resource.birthdate" />
+    <value value="${PatientDOB}" />
+  </assert>
+</action>
+</xmp></div>
+
+<p>Also using the previous search operation example, here is an assert using a FHIRPath expression that evaluates to a boolean testing for a specific number (count) of Bundle.entry instances equal to 1. In this case the assert.value element is not used.</p>
+<div class="xmlCode"><xmp>
+<action>
+  <assert>
+    <expression value="Bundle.entry.count() = 1" />
+  </assert>
+</action>
+</xmp></div>
 
 <hr/><!-- =========================================================================================================================================================== -->
 <a name="format"></a>

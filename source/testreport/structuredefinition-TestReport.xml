@@ -426,6 +426,31 @@
         <code value="string"/>
       </type>
     </element>
+    <element id="TestReport.setup.action.assert.requirement">
+      <path value="TestReport.setup.action.assert.requirement"/>
+      <short value="Links or references to the testing requirements"/>
+      <definition value="Links or references providing traceability to the testing requirements for this assert."/>
+      <comment value="TestScript and TestReport instances are typically (and expected to be) based on known, defined test requirements and documentation. These links provide traceability from the executable/executed TestScript and TestReport tests to these requirements."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestReport.setup.action.assert.requirement.link[x]">
+      <path value="TestReport.setup.action.assert.requirement.link[x]"/>
+      <short value="Link or reference to the testing requirement"/>
+      <definition value="Link or reference providing traceability to the testing requirement for this test."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
+      </type>
+    </element>
     <element id="TestReport.test">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="580,270"/>
