@@ -352,7 +352,7 @@
     </element>
      <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"/>
-      <short value="Landmark body surface orientation "/>
+      <short value="Relative landmark surface orientation"/>
       <definition value="The surface area a body location is in relation to a landmark."/>
       <min value="0"/>
       <max value="*"/>
