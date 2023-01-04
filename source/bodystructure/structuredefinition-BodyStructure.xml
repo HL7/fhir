@@ -254,8 +254,8 @@
         <map value="Combines Side, Numerical identifier, Anatomical plane,and Aspect"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation"/>
       <short value="Landmark relative location"/>
       <definition value="Body locations in relation to a specific body landmark (tatoo, scar, other body structure)."/>
       <min value="0"/>
@@ -264,8 +264,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.LandmarkDescription">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.LandmarkDescription"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription"/>
       <short value="Landmark description"/>
       <definition value="A description of a landmark on the body used as a reference to locate something else."/>
       <min value="0"/>
@@ -275,7 +275,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyLandmarkOrientationLandmarkDescription"/>
+          <valueString value="bodyLandmarkOrientationLandmarkDescription"/>
         </extension>
         <strength value="example"/>
         <description value="Select SNOMED code system values. Values used in a podiatry setting to decsribe landmarks on the body."/>
@@ -286,8 +286,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.ClockFacePosition">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.ClockFacePosition"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.clockFacePosition">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.clockFacePosition"/>
       <short value="Clockface orientation"/>
       <definition value="An description of the direction away from a landmark something is located based on a radial clock dial."/>
       <min value="0"/>
@@ -297,7 +297,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyLandmarkOrientationClockFacePosition"/>
+          <valueString value="bodyLandmarkOrientationClockFacePosition"/>
         </extension>
         <strength value="example"/>
         <description value="Select SNOMED CT codes. A set of codes that describe a things orientation based on a hourly positions of a clock face."/>
@@ -308,8 +308,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark"/>
       <short value="Landmark relative location"/>
       <definition value="The distance in centimeters a certain observation is made from a body landmark."/>
       <min value="0"/>
@@ -318,8 +318,8 @@
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark.Device">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark.Device"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.device">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.device"/>
       <short value="Measurement device"/>
       <definition value="An instrument, tool, analyzer, etc. used in the measurement."/>
       <min value="0"/>
@@ -329,7 +329,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyLandmarkOrientationDistsanceFromLandmarkWoundMeasurementDevice"/>
+          <valueString value="bodyLandmarkOrientationDistsanceFromLandmarkWoundMeasurementDevice"/>
         </extension>
         <strength value="example"/>
         <description value="Select SNOMED CT codes. A set of codes that describe what was used to make the measurements of the wound dimensions."/>
@@ -340,8 +340,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark.MeasurementDevice">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.DistanceFromLandmark.MeasurementDevice"/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.measurementDevice">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.measurementDevice"/>
       <short value="Distance device measured"/>
       <definition value="The measured distance in cm a certain observation is made from a body landmark."/>
       <min value="0"/>
@@ -350,8 +350,8 @@
         <code value="Quantity"/>
       </type>
     </element>
-     <element id="BodyStructure.includedStructure.BodyLandmarkOrientation.SurfaceOrientation">
-      <path value="BodyStructure.includedStructure.BodyLandmarkOrientation.SurfaceOrientation"/>
+     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"/>
       <short value="Landmark surface orientation "/>
       <definition value="The surface area a body location is in relation to a landmark."/>
       <min value="0"/>
@@ -361,7 +361,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BodyLandmarkOrientationSurfaceOrientation"/>
+          <valueString value="bodyLandmarkOrientationSurfaceOrientation"/>
         </extension>
         <strength value="preferred"/>
         <description value="Select SNOMED code system values. The surface area a body location is in relation to a landmark."/>
