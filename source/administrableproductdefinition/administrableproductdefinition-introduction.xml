@@ -15,5 +15,17 @@
 			It is a definitional resource, representing the properties of a product, but not the actual instance given to someone.
 			When necessary to record that, a <a href="medication.html">Medication</a> resource is used. 
 		</p>
+		
+		<p>
+			<i>
+			This resource corresponds to the Pharmaceutical Product as defined by the ISO IDMP set of standards, 
+			see <a href="https://www.iso.org/obp/ui/#iso:std:iso:11615:ed-2:v1:en:term:3.1.2">ISO 11615</a> and <a href="https://www.iso.org/obp/ui/#iso:std:iso:11616:ed-2:v1:en:term:3.1.24">ISO 11616</a>. 
+			To better align with the HL7 guidelines for supporting different product concepts and to avoid possible confusion 
+			with the resources defined in the <a href="medication.html">Medications module</a> of HL7 FHIR, the concept "Administrable Product" has been adopted for the name, 
+			whereas the terms and definitions of other core resources in the <a href="medication-definition-module.html">Medication Definition module</a> do correspond 
+			directly to the ISO IDMP terms. 
+			See also the <a href="administrableproductdefinition-mappings.html">mapping table</a> for a detailed mapping of this resource to the IDMP Pharmaceutical Product definition.
+			</i>
+		</p>
 	</div>
 </div>
