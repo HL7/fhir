@@ -30,7 +30,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Patient reports they were taking Amoxycillin in the past but are not taking it now"/>
+      <valueString value="Patient reports they were taking Amoxicillin in the past but are not taking it now"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="medicationusageexample4"/>
@@ -42,7 +42,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Patient reports they previous said they took Amoxycillin but really didn&#39;t"/>
+      <valueString value="Patient reports they previous said they took Amoxicillin but really didn&#39;t"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="medicationusageexample5"/>
