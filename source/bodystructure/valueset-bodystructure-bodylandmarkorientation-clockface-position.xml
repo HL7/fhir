@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="bodystructure-bodylandmarkorientation-clockface-position"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-clockface-position"/>
+  <version value="5.0.0"/>
+  <name value="Bodystructure BodyLandmark Clock Face Position"/>
+  <title value="Bodystructure BodyLandmark Clock Face Position"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Select SNOMED CT codes. A set of codes that describe a things orientation based on a hourly positions of a clock face."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+  <compose>
+    <include>
+			<system value="http://snomed.info/sct"/>
+			<concept>	
+				<code value ="260318004"/>
+				<display value ="1 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260328008"/>
+				<display value ="2 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260330005"/>
+				<display value ="3 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260333007"/>
+				<display value ="4 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260335000"/>
+				<display value ="5 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260337008"/>
+				<display value ="6 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260339006"/>
+				<display value ="7 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260341007"/>
+				<display value ="8 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260343005"/>
+				<display value ="9 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260322009"/>
+				<display value ="10 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260324005"/>
+				<display value ="11 o'clock position"/>
+			</concept>	
+			<concept>	
+				<code value ="260326007"/>
+				<display value ="12 o'clock position"/>
+			</concept>
+		</include>
+  </compose>
+</ValueSet>
