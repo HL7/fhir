@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeSystem xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <id value="additional-binding-purpose"/>
-  <url value="http://hl7.org/fhir/tools/CodeSystem/additional-binding-purpose"/>
+  <url value="http://hl7.org/fhir/CodeSystem/additional-binding-purpose"/>
   <name value="AdditionalBindingPurposeCodes"/>
   <title value="Additional Binding Purpose Codes"/>
   <status value="active"/>
@@ -12,7 +12,8 @@
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
       <code value="001"/>
     </coding>
-  </jurisdiction>  <caseSensitive value="true"/>
+  </jurisdiction>  
+  <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="maximum"/>
