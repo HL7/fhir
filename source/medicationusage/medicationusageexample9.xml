@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This example where a patient reports is not taking now but will be taking in future  -->
+<MedicationUsage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
+  xmlns="http://hl7.org/fhir">
+  <id value="example009"/>
+  <contained>
+    <Medication>
+      <id value="med0315"/>
+      <code>
+        <coding>
+          <system value="http://hl7.org/fhir/sid/ndc"/>
+          <code value="358793"/>
+          <display value="Nigroglycerin patch"/>
+        </coding>
+      </code>
+        <doseForm>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="376251004"/>
+            <display value="Nitroglycerin 200 microgram/hour prolonged-release transdermal patch"/>
+          </coding>
+        </doseForm>
+      
+    </Medication>
+  </contained>
+  <partOf>
+       <reference value="MedicationUsage/example008"></reference>
+   </partOf>
+  <status value="recorded"/>
+  <medication> <!-- Linked to a RESOURCE Medication -->
+    <reference>
+    <reference value="#med0315"/>
+    </reference>
+  </medication> 
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
+   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
+  <dateAsserted value="2015-02-22"/>
+  <informationSource>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </informationSource>
+ 
+ <note>
+    <text value="Patient reports they used the medication patch on this day."/>
+  </note>  
+
+</MedicationUsage>

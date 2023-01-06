@@ -88,7 +88,7 @@
       <display value="Little pink pill"/>
     </item>
   </entry>
-<!--   <entry>
+  <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Patient reports they used the given patches over the last 30 days."/>
     </extension>
@@ -111,5 +111,5 @@
       <reference value="MedicationUsage/example009"/>
       <display value="Daily patch"/>
     </item>
-  </entry> -->
+  </entry>
 </List>
