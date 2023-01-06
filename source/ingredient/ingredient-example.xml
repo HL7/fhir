@@ -60,15 +60,15 @@
 				</denominator>
 			</concentrationRatio>
 			<!-- A reference strength is a different strength value for the same substance, 
-				 expressed in terms of related but different substance.
-				 This other substance is usually a closely related one e.g. the "salt" form of the active igredient, 
+				 expressed in terms of a related but different substance.
+				 This other substance is usually another chemical form of the same thing e.g. the "salt" form of the active igredient, 
 			     for example a chloride or sulfate. The salt may be the form of the substance molecule that is 
 			     actually present, even though the strength is usually expressed in terms of only the active "base" 
 			     part of the molecule.
-				 A tablet of morphine sulfate may acually have a stated active ingredient of just morpine, 
+				 A tablet of morphine sulfate may acually have a stated active ingredient of just morphine, 
 				 and may express the amount (strength) of the active ingredient as 
 				 the mass of morphine - ignoring the mass of the sulfate group. 
-				 Reference strength allows for additionally expressing the amount in terms of the entire molecule.
+				 Reference strength allows for additionally expressing the amount accurately in terms of the entire molecule.
 			-->
 			<referenceStrength>
 				<substance>
