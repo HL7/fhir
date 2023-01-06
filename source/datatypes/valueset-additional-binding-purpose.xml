@@ -14,7 +14,7 @@
     </coding>
   </jurisdiction>  <compose>
     <include>
-      <system value="http://hl7.org/fhir/tools/CodeSystem/additional-binding-purpose"/>
+      <system value="http://hl7.org/fhir/CodeSystem/additional-binding-purpose"/>
     </include>
   </compose>
 </ValueSet>
