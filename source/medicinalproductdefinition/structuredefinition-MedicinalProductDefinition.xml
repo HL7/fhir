@@ -1227,14 +1227,14 @@
       <path value="MedicinalProductDefinition.characteristic.value[x]"/>
       <short value="A value for the characteristic"/>
       <definition value="A value for the characteristic.text."/>
-      <comment value="String is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept. (temporary text to make build work: The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc.)."/>
+      <comment value="Text, as markdown, is intended to be used only when the item cannot ever reasonably be coded. Otherwise, for cases where a code is not available, but is feasible, use CodeableConcept.text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="Quantity"/>
