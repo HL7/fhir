@@ -120,7 +120,7 @@
     <note>
         <text value="Patient told to take with food"/>
     </note>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="one to two tablets every 4-6 hours as needed for rib pain" />
@@ -186,7 +186,7 @@
         </doseAndRate>
         
     </dosageInstruction>
-    </dose>
+    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>

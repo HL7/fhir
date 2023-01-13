@@ -825,23 +825,9 @@
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
-    </element>
-    <element id="MedicationRequest.dose">
-      <path value="MedicationRequest.dose"/>
-      <short value="How the medication should be taken"/>
-      <definition value="Indicates how the medication is to be used by the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="SubstanceAdministration &gt; ActRelationship[COMP] &gt; SubstanceAdministration"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.dose.renderedDosageInstruction">
-      <path value="MedicationRequest.dose.renderedDosageInstruction"/>
+    </element>   
+    <element id="MedicationRequest.renderedDosageInstruction">
+      <path value="MedicationRequest.renderedDosageInstruction"/>
       <short value="Full representation of the dosage instructions"/>
       <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
       <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
@@ -855,8 +841,8 @@
         <map value="SubstanceAdministration.text"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dose.effectiveDosePeriod">
-      <path value="MedicationRequest.dose.effectiveDosePeriod"/>
+    <element id="MedicationRequest.effectiveDosePeriod">
+      <path value="MedicationRequest.effectiveDosePeriod"/>
       <short value="Period over which the medication is to be taken"/>
       <definition value="The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
       <min value="0"/>
@@ -869,8 +855,8 @@
         <map value="substanceAdministration.effectiveTime"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dose.dosageInstruction">
-      <path value="MedicationRequest.dose.dosageInstruction"/>
+    <element id="MedicationRequest.dosageInstruction">
+      <path value="MedicationRequest.dosageInstruction"/>
       <short value="Specific instructions for how the medication should be taken"/>
       <definition value="Specific instructions for how the medication is to be used by the patient."/>
       <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request. &#xA;&#xA;When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to &quot;completed&quot; or &quot;cancelled&quot;, changing another order status to &quot;on-hold&quot;, the method to &quot;group&quot; all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  &#xA;&#xA;There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestOrchestration should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug &quot;xyz&quot; with dose 123, then taper the same drug to a different dose after some interval of time&#xA;precedence:&#xA;e.g. give drug &quot;abc&quot; followed by drug &quot;def&quot;&#xA;e.g. give drug 30 minutes before some procedure was performed&#xA;more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.&#xA;Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders."/>

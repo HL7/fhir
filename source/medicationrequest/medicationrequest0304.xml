@@ -38,7 +38,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="10 drops four times daily - apply in mouth using cotton swab or finger"/>
@@ -66,7 +66,7 @@
         </doseAndRate>
         
     </dosageInstruction>
-    </dose>
+    
     <dispenseRequest>
         <validityPeriod>
             <start value="2015-01-15"/>
