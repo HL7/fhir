@@ -49,6 +49,11 @@
   <description value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
     <identity value="idmp"/>
     <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
@@ -86,6 +91,10 @@
         <source value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
       </constraint>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
+      <mapping>
         <identity value="idmp"/>
         <map value="Contraindication, Therapeutic Indication, Interactions, Undesirable Effects"/>
       </mapping>
@@ -104,6 +113,10 @@
         <code value="Identifier"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
@@ -177,6 +190,10 @@
       </type>
       <isSummary value="true"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.subject"/>
+      </mapping>
+      <mapping>
         <identity value="idmp"/>
         <map value="(the link between the IDMP class and Medicinal Product)"/>
       </mapping>
@@ -199,6 +216,10 @@
         <description value="The lifecycle status of an artifact."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.status"/>
+      </mapping>
       <mapping>
         <identity value="idmp"/>
         <map value="n/a"/>
