@@ -490,7 +490,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="700,117"/>
+        <valueCode value="750,117"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
@@ -510,7 +510,7 @@
       <path value="Ingredient.substance.strength.referenceStrength.substance"/>
       <short value="Relevant reference substance"/>
       <definition value="Relevant reference substance."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
