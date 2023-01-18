@@ -17,7 +17,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1950"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="TestScriptScopePhaseType"/>
   <title value="TestScriptScopePhaseType"/>
   <status value="draft"/>
@@ -40,17 +40,17 @@
   <content value="complete"/>
   <concept>
     <code value="unit"/>
-    <display value="unit"/>
+    <display value="Unit"/>
     <definition value="The development or implementation phase."/>
   </concept>
   <concept>
     <code value="integration"/>
-    <display value="integration"/>
+    <display value="Integration"/>
     <definition value="The internal system to system phase."/>
   </concept>
   <concept>
     <code value="production"/>
-    <display value="production"/>
+    <display value="Production"/>
     <definition value="The live system to system phase (Note, this may involve pii/phi data)."/>
   </concept>
 </CodeSystem>

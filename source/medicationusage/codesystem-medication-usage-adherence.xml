@@ -42,6 +42,36 @@
     <code value="not-taking"/>
     <display value="Not Taking"/>
     <definition value="The medication is not being taken."/>
+    <concept>
+      <code value="on-hold"/>
+      <display value="On Hold"/>
+      <definition value="The medication is on hold."/>
+        <concept>
+          <code value="on-hold-as-directed"/>
+          <display value="On Hold As Directed"/>
+          <definition value="The medication is on hold as directed."/>
+        </concept>
+        <concept>
+          <code value="on-hold-not-as-directed"/>
+          <display value="On Hold Not As Directed"/>
+          <definition value="The medication is on hold not as directed."/>
+        </concept>
+    </concept>
+    <concept>
+      <code value="stopped"/>
+      <display value="Stopped"/>
+      <definition value="The medication is stopped."/>
+        <concept>
+          <code value="stopped-as-directed"/>
+          <display value="Stopped As Directed"/>
+          <definition value="The medication is stopped as directed."/>
+        </concept>
+        <concept>
+          <code value="stopped-not-as-directed"/>
+          <display value="Stopped Not As Directed"/>
+          <definition value="The medication is stopped not as directed."/>
+        </concept>
+    </concept>
   </concept>
   <concept>
     <code value="unknown"/>

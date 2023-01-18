@@ -438,8 +438,8 @@
 		<publish>true</publish>
 	</space>
 	<space>
-		<url>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</url>
-		<link>https://en.wikipedia.org/wiki/Identification_of_medicinal_products</link>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11615</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11615</link>
 		<columnName>IDMP Mapping</columnName>
 		<title>IDMP Mapping</title>
 		<id>idmp</id>

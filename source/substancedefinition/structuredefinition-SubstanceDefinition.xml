@@ -48,7 +48,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -485,9 +485,9 @@
           </mapping>
       </element>
   	<element id="SubstanceDefinition.characterization.form">
-  		<path value="SubstanceDefinition.characterization.form"/>
-  		<short value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base"/>
-  		<definition value="The specific chemical entity of the substance being characterized, to distinguish for example salt or base."/>
+  	  <path value="SubstanceDefinition.characterization.form"/>
+  	  <short value="Describes the nature of the chemical entity and explains, for instance, whether this is a base or a salt form"/>
+  	  <definition value="Describes the nature of the chemical entity and explains, for instance, whether this is a base or a salt form."/>
   		<min value="0"/>
   		<max value="1"/>
   		<type>
@@ -509,8 +509,8 @@
   	</element>
   	<element id="SubstanceDefinition.characterization.description">
   		<path value="SubstanceDefinition.characterization.description"/>
-  		<short value="Narrative text, data, tables about the characterization"/>
-  		<definition value="Narrative text, data, tables about the characterization."/>
+  	  <short value="The description or justification in support of the interpretation of the data file"/>
+  	  <definition value="The description or justification in support of the interpretation of the data file."/>
   		<min value="0"/>
   		<max value="1"/>
   		<type>
@@ -524,8 +524,8 @@
   	</element>
   	<element id="SubstanceDefinition.characterization.file">
   		<path value="SubstanceDefinition.characterization.file"/>
-  		<short value="An image or data file that characterizes this substance"/>
-  		<definition value="An image or data file that characterizes this substance."/>
+  	  <short value="The data produced by the analytical instrument or a pictorial representation of that data. Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis"/>
+  	  <definition value="The data produced by the analytical instrument or a pictorial representation of that data. Examples: a JCAMP, JDX, or ADX file, or a chromatogram or spectrum analysis."/>
   		<min value="0"/>
   		<max value="*"/>
   		<type>

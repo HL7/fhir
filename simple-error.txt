@@ -1,1 +1,1 @@
-﻿Exception inserting section numbers in secpriv-module.html: Malformed XHTML: Found "</p>" expecting "</div>" at line 582 column 6
+﻿Broken ValueSet reference http://hl7.org/fhir/ValueSet/bodystructure-clockface-position

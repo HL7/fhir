@@ -28,8 +28,10 @@
 </occurencePeriod>
   <performer>
 <actor>
-  <reference value="Practitioner/f007"/>
-  <display value="Patrick Pump"/>
+  <reference>
+    <reference value="Practitioner/f007"/>
+    <display value="Patrick Pump"/>
+  </reference>
 </actor>
   </performer>
   <request>

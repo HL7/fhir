@@ -29,7 +29,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.2.360"/>
   </identifier>
-  <version value="5.0.0-cibuild"/>
+  <version value="5.0.0"/>
   <name value="AssertionOperatorType"/>
   <title value="AssertionOperatorType"/>
   <status value="draft"/>
@@ -104,5 +104,10 @@
     <code value="eval"/>
     <display value="evaluate"/>
     <definition value="Evaluate the FHIRPath expression as a boolean condition."/>
+  </concept>
+  <concept>
+    <code value="manualEval"/>
+    <display value="manualEvaluate"/>
+    <definition value="Manually evaluate the condition described by this assert. The test engine SHALL pause and provide an input mechanism to set the outcome of this assert to 'pass', 'fail', 'skip' or 'stop'."/>
   </concept>
 </CodeSystem>

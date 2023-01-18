@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -314,7 +314,14 @@
         <code value="boolean"/>
       </type>
       <type>
+        <code value="markdown"/>
+      </type>
+      <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Binary"/>
       </type>
       <isSummary value="true"/>
       <mapping>
