@@ -332,7 +332,7 @@
         </extension>
         <strength value="required"/>
         <description value="Identifies the level of importance to be assigned to actioning the request."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0-cibuild"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/request-priority|5.0.0"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="A&amp;D Medical" />
   <serialNumber value="5091100966" />
-  <deviceName>
-    <name value="AND BP UA-767PBT-C" />
+  <name>
+    <value value="AND BP UA-767PBT-C" />
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="UA-767PBT-C"/>
   <type>
     <coding>

@@ -127,6 +127,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -471,8 +472,9 @@
     </element>
     <element id="MedicationUsage.adherence">
       <path value="MedicationUsage.adherence"/>
-      <short value="Indicates if the medication is being consumed or administered as instructed"/>
-      <definition value="Indicates if the medication is being consumed or administered as instructed."/>
+      <short value="Indicates whether the medication is or is not being consumed or administered"/>
+      <definition value="Indicates whether the medication is or is not being consumed or administered."/>
+      <comment value="This element can be used to indicate whether a patient is following a course of treatment as instructed/prescribed or whether they are taking medications of their own volition.  It can also be used to indicate that a patient is not taking a medication, either because they were told not to or because they decided on their own."/>
       <min value="0"/>
       <max value="1"/>
       <type>

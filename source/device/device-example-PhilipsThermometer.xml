@@ -32,10 +32,10 @@
   </udiCarrier>
   <manufacturer value="Philips"/>
   <serialNumber value="162502000528"/>
-  <deviceName>
-    <name value="Philips ear thermometer"/>
+  <name>
+    <value value="Philips ear thermometer"/>
     <type value="user-friendly-name"/>
-  </deviceName>
+  </name>
   <modelNumber value="DL8740"/>
   <type>
     <coding>
