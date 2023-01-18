@@ -12,13 +12,14 @@
 		<code value="admin-notify"/>
 	</eventCoding>
 	<destination>
+		<endpoint value="llp:10.11.12.14:5432"/>
 		<name value="Acme Message Gateway"/>
 		<!-- this is to indicate to the Acme Message Gateway that this particular message 
        is intended for Practitioner "xcda" -->
 		<target>
 			<reference value="Device/example"/>
 		</target>
-		<endpoint value="llp:10.11.12.14:5432"/>
+		
 		<receiver>
 			<reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
 		</receiver>
@@ -34,6 +35,7 @@
 		<reference value="Practitioner/example"/>
 	</author>
 	<source> 
+		<endpoint value="llp:10.11.12.13:5432"/>
 		<name value="Acme Central Patient Registry"/>
 		<software value="FooBar Patient Manager"/>
 		<version value="3.1.45.AABB"/>
@@ -41,7 +43,7 @@
 			<system value="phone"/>
 			<value value="+1 (555) 123 4567"/>
 		</contact>
-		<endpoint value="llp:10.11.12.13:5432"/>
+		
 	</source>
 	<reason>
 		<coding>
