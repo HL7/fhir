@@ -28,9 +28,6 @@
 		<reference value="Organization/1"/>
 	</sender>
 	<!--   <timestamp value="2012-01-04T09:10:14Z"/> -->
-	<enterer>
-		<reference value="Practitioner/example"/>
-	</enterer>
 	<author>
 		<reference value="Practitioner/example"/>
 	</author>
