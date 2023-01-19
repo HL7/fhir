@@ -252,7 +252,7 @@ correct action to take depends on what is received:
 </p>
 <table class="grid">
  <tr><td>Both the Bundle.id and MessageHeader.id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
- <tr><td>Both envelope and message already received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
+ <tr><td>Both the Bundle.id and MessageHeader.id have been received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
  <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
  <tr><td>The Bundle.id has already been received, but the MessageHeader.id is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
 </table>
@@ -351,7 +351,7 @@ information content of the individual resources.
 The simplest way to handle messages where there are also <a href="http.html">RESTful interactions</a>
 occurring is to use the <a href="messageheader-operation-process-message.html">$process-message</a>.
 This operation accepts a message, processes it according to the definition of the event in the message header, and returns a one or more response messages.
-See the opreation definition for further details.
+See the operation definition for further details.
 </p>
 
 <a name="endpoints"></a>
