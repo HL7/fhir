@@ -313,7 +313,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-19 / PRT-5:PRT-4='AUT' / ROL where ROL.3 is IP or ORC.12"/>
+        <map value="ORC-19 / PRT-5:PRT-4='AUT' / ROL where ROL-3 ='IP' or ORC-12"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -474,7 +474,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="ORC-12 /  PRT-5:PRT-4='OP' /  PRT-8:PRT-4='OP' / ROL where ROL.3 is RO or ORC.11"/>
+        <map value="ORC-12 /  PRT-5:PRT-4='OP' /  PRT-8:PRT-4='OP' / ROL where ROL-3 is 'RO' or ORC-11"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -506,7 +506,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication"/>
+        <map value="EVN-4 / ORC-16 / OBR-31 / BPO-13 / RXO-20 / RXE-27 / RXD-21 / RXG-22 / RXA-19"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
