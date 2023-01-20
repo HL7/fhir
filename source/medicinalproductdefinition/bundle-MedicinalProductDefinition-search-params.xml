@@ -16,7 +16,7 @@
         <description value="Allows the key product features to be recorded, such as &quot;sugar free&quot;, &quot;modified release&quot;, &quot;parallel import&quot;"/>
         <code value="characteristic"/>
         <type value="token"/>
-        <expression value="MedicinalProductDefinition.characteristic.value.as(Quantity) | MedicinalProductDefinition.characteristic.value.as(CodeableConcept)"/>
+        <expression value="MedicinalProductDefinition.characteristic.value.ofType(Quantity) | MedicinalProductDefinition.characteristic.value.ofType(CodeableConcept)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

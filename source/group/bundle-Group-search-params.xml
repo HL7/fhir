@@ -75,7 +75,7 @@
         <description value="An entity referenced in a characteristic"/>
         <code value="characteristic-reference"/>
         <type value="reference"/>
-        <expression value="(Group.characteristic.value as Reference)"/>
+        <expression value="(Group.characteristic.value.ofType(Reference))"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -207,7 +207,7 @@
         <description value="Value held by characteristic"/>
         <code value="value"/>
         <type value="token"/>
-        <expression value="(Group.characteristic.value as CodeableConcept) | (Group.characteristic.value as boolean)"/>
+        <expression value="(Group.characteristic.value.ofType(CodeableConcept)) | (Group.characteristic.value.ofType(boolean))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
