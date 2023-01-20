@@ -35,7 +35,7 @@
         <description value="A use context assigned to the plan definition"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(PlanDefinition.useContext.value as CodeableConcept)"/>
+        <expression value="(PlanDefinition.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -54,7 +54,7 @@
         <description value="A quantity- or range-valued use context assigned to the plan definition"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(PlanDefinition.useContext.value as Quantity) | (PlanDefinition.useContext.value as Range)"/>
+        <expression value="(PlanDefinition.useContext.value.ofType(Quantity)) | (PlanDefinition.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -159,7 +159,7 @@
         <description value="Activity or plan definitions used by plan definition"/>
         <code value="definition"/>
         <type value="reference"/>
-        <expression value="PlanDefinition.action.definition.as(canonical) | PlanDefinition.action.definition.as(uri)"/>
+        <expression value="PlanDefinition.action.definition.ofType(canonical) | PlanDefinition.action.definition.ofType(uri)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -73,7 +73,7 @@
         <description value="Date when patient was taking (or not taking) the medication"/>
         <code value="effective"/>
         <type value="date"/>
-        <expression value="MedicationUsage.effective.as(dateTime) | MedicationUsage.effective.as(Period)"/>
+        <expression value="MedicationUsage.effective.ofType(dateTime) | MedicationUsage.effective.ofType(Period)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

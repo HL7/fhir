@@ -150,7 +150,7 @@
         <description value="Likelihood of specified outcome"/>
         <code value="probability"/>
         <type value="number"/>
-        <expression value="RiskAssessment.prediction.probability.as(decimal)"/>
+        <expression value="RiskAssessment.prediction.probability.ofType(decimal)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

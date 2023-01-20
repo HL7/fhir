@@ -66,7 +66,7 @@ In FHIRPath, choice elements are labeled according to the name without the '[x]'
 as a specific type using the <code>as</code> operation:</p>
 
 <pre class="fhirpath">
-(Observation.value as Quantity).unit
+(Observation.value.ofType(Quantity)).unit
 </pre>
 
 <p>
@@ -259,7 +259,7 @@ then %rootResource is the same as %resource.
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the output will be empty.</p>
 
-<p><b>as(type : identifier) : collection</b></p>
+<p><b>ofType(type : identifier) : collection</b></p>
 <p>An alias for ofType() maintained purely for backwards compatibility.</p>
 
   
