@@ -131,7 +131,7 @@
         <description value="When goal pursuit begins"/>
         <code value="start-date"/>
         <type value="date"/>
-        <expression value="(Goal.start as date)"/>
+        <expression value="(Goal.start.ofType(date))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -169,7 +169,7 @@
         <description value="Reach goal on or before"/>
         <code value="target-date"/>
         <type value="date"/>
-        <expression value="(Goal.target.due as date)"/>
+        <expression value="(Goal.target.due.ofType(date))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
