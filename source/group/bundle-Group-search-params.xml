@@ -59,7 +59,7 @@
         </component>
         <component>
           <definition value="value"/>
-          <expression value="(value as CodeableConcept) | (value as boolean)"/>
+          <expression value="(value.ofType(CodeableConcept)) | (value.ofType(boolean))"/>
         </component>
       </SearchParameter>
     </resource>

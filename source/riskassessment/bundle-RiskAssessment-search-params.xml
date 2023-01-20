@@ -35,7 +35,7 @@
         <description value="When was assessment made?"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="(RiskAssessment.occurrence as dateTime)"/>
+        <expression value="(RiskAssessment.occurrence.ofType(dateTime))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

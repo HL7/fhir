@@ -358,7 +358,7 @@
         <description value="The date of death has been provided and satisfies this search value"/>
         <code value="death-date"/>
         <type value="date"/>
-        <expression value="(Practitioner.deceased as dateTime)"/>
+        <expression value="(Practitioner.deceased.ofType(dateTime))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
