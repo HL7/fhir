@@ -149,7 +149,7 @@
         <description value="A component of the substance"/>
         <code value="substance-reference"/>
         <type value="reference"/>
-        <expression value="(Substance.ingredient.substance as Reference)"/>
+        <expression value="(Substance.ingredient.substance.ofType(Reference))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
