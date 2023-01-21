@@ -378,6 +378,9 @@
       <type>
         <code value="Period"/>
       </type>
+      <type>
+        <code value="Timing"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
