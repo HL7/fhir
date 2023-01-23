@@ -165,7 +165,7 @@
       <SearchParameter>
         <id value="clinical-identifier"/>
         <code value="identifier"/>
-        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
+        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
         <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
       </SearchParameter>
     </resource>
@@ -175,7 +175,7 @@
       <SearchParameter>
         <id value="clinical-patient"/>
         <code value="patient"/>
-        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DeviceUsage"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
+        <base value="AllergyIntolerance"/><base value="CarePlan"/><base value="CareTeam"/><base value="ClinicalImpression"/><base value="Composition"/><base value="Condition"/><base value="Consent"/><base value="DetectedIssue"/><base value="DeviceRequest"/><base value="DeviceUsage"/><base value="DiagnosticReport"/><base value="ServiceRequest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/><base value="FamilyMemberHistory"/><base value="Flag"/><base value="Goal"/><base value="ImagingStudy"/><base value="Immunization"/><base value="List"/><base value="NutritionOrder"/><base value="Observation"/><base value="Procedure"/><base value="ServiceRequest"/><base value="RiskAssessment"/><base value="SupplyDelivery"/><base value="SupplyRequest"/><base value="VisionPrescription"/>
         <base value="MedicationAdministration"/><base value="MedicationDispense"/><base value="MedicationRequest"/><base value="MedicationUsage"/>
       </SearchParameter>
     </resource>
@@ -185,7 +185,7 @@
       <SearchParameter>
         <id value="clinical-type"/>
         <code value="type"/>
-        <base value="AllergyIntolerance"/><base value="Composition"/><base value="DocumentManifest"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/>
+        <base value="AllergyIntolerance"/><base value="Composition"/><base value="DocumentReference"/><base value="Encounter"/><base value="EpisodeOfCare"/>
       </SearchParameter>
     </resource>
   </entry>
