@@ -1,1 +1,2 @@
+﻿Resource Examples failed instance validation
 ﻿unable to find resource 'DocumentManifest'
