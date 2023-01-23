@@ -53,7 +53,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-body-structure"/>
         <description value="The body structure resource associated with the ImagingStudy"/>
         <code value="body-structure"/>
-        <type value="token"/>
+        <type value="reference"/>
         <expression value="ImagingStudy.series.bodySite.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>

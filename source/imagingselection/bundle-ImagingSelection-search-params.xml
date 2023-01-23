@@ -206,8 +206,27 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-body-structure"/>
         <description value="The body structure associated with the imaging selection"/>
         <code value="body-structure"/>
+        <type value="reference"/>
+        <expression value="ImagingSelection.bodySite.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingSelection-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-status"/>
+        <description value="The status of the imaging selection"/>
+        <code value="status"/>
         <type value="token"/>
-        <expression value="ImagingSelection.bodySite.structure"/>
+        <expression value="ImagingSelection.status"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
