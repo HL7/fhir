@@ -184,11 +184,30 @@
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingSelection.bodySite.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-code"/>
-        <description value="The body site associated with the imaging selection"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-body-site"/>
+        <description value="The body site code associated with the imaging selection"/>
         <code value="body-site"/>
         <type value="token"/>
         <expression value="ImagingSelection.bodySite.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingSelection-body-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingSelection.bodySite.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingSelection-body-structure"/>
+        <description value="The body structure associated with the imaging selection"/>
+        <code value="body-structure"/>
+        <type value="token"/>
+        <expression value="ImagingSelection.bodySite.structure"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
