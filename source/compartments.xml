@@ -333,14 +333,6 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DocumentManifest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | author | recipient</Data></Cell>
-    <Cell><Data ss:Type="String">related-ref</Data></Cell>
-    <Cell><Data ss:Type="String">author | recipient</Data></Cell>
-    <Cell><Data ss:Type="String">subject | author | recipient </Data></Cell>
-    <Cell><Data ss:Type="String">subject | author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference</Data></Cell>
     <Cell><Data ss:Type="String">subject | author </Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">context</Data></Cell>
