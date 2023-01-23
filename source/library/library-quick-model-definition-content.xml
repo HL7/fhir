@@ -924,7 +924,6 @@
         <ns4:element name="DeviceUsage" type="QUICK.DeviceUsage"/>
         <ns4:element name="DiagnosticOrder" type="QUICK.DiagnosticOrder"/>
         <ns4:element name="DiagnosticReport" type="QUICK.DiagnosticReport"/>
-        <ns4:element name="DocumentManifest" type="QUICK.DocumentManifest"/>
         <ns4:element name="DocumentReference" type="QUICK.DocumentReference"/>
         <ns4:element name="EligibilityRequest" type="QUICK.EligibilityRequest"/>
         <ns4:element name="EligibilityResponse" type="QUICK.EligibilityResponse"/>
@@ -1039,20 +1038,6 @@
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.BindingStrength" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DocumentManifest" baseType="QUICK.DomainResource">
-        <ns4:element name="masterIdentifier" type="QUICK.Identifier"/>
-        <ns4:element name="identifier" type="list&lt;QUICK.Identifier&gt;"/>
-        <ns4:element name="subject" type="System.Any"/>
-        <ns4:element name="recipient" type="list&lt;System.Any&gt;"/>
-        <ns4:element name="type" type="System.Concept"/>
-        <ns4:element name="author" type="list&lt;System.Any&gt;"/>
-        <ns4:element name="created" type="System.DateTime"/>
-        <ns4:element name="source" type="System.String"/>
-        <ns4:element name="status" type="QUICK.DocumentReferenceStatus"/>
-        <ns4:element name="description" type="System.String"/>
-        <ns4:element name="content" type="list&lt;QUICK.DocumentManifest.Content&gt;"/>
-        <ns4:element name="related" type="list&lt;QUICK.DocumentManifest.Related&gt;"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.Provenance.Agent" baseType="QUICK.BackboneElement">
         <ns4:element name="role" type="System.Code"/>
@@ -3394,10 +3379,6 @@
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ParticipantRequired" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DocumentManifest.Related" baseType="QUICK.BackboneElement">
-        <ns4:element name="identifier" type="QUICK.Identifier"/>
-        <ns4:element name="ref" type="System.Any"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ClinicalImpression" baseType="QUICK.DomainResource">
         <ns4:element name="patient" type="System.Any"/>
         <ns4:element name="assessor" type="System.Any"/>
@@ -3497,10 +3478,6 @@
         <ns4:element name="media" type="System.Code"/>
         <ns4:element name="network" type="QUICK.AuditEvent.Network"/>
         <ns4:element name="purposeOfUse" type="list&lt;System.Code&gt;"/>
-    </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DocumentManifest.Content" baseType="QUICK.BackboneElement">
-        <ns4:element name="pAttachment" type="QUICK.Attachment"/>
-        <ns4:element name="pReference" type="System.Any"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.MessageHeader.Response" baseType="QUICK.BackboneElement">
         <ns4:element name="identifier" type="System.String"/>
