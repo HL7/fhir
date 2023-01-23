@@ -5,16 +5,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ImagingStudy-basedon"/>
+        <id value="ImagingStudy-based-on"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingStudy.basedOn"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-basedon"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-based-on"/>
         <description value="The order for the image, such as Accession Number associated with a ServiceRequest"/>
-        <code value="basedon"/>
+        <code value="based-on"/>
         <type value="reference"/>
         <expression value="ImagingStudy.basedOn"/>
         <processingMode value="normal"/>
@@ -24,18 +24,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ImagingStudy-bodysite"/>
+        <id value="ImagingStudy-body-site"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ImagingStudy.series.bodySite.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-bodysite"/>
-        <description value="The body site studied"/>
-        <code value="bodysite"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-body-site"/>
+        <description value="The body site code studied"/>
+        <code value="body-site"/>
         <type value="token"/>
         <expression value="ImagingStudy.series.bodySite.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ImagingStudy-body-structure"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ImagingStudy.series.bodySite.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ImagingStudy-body-structure"/>
+        <description value="The body structure resource associated with the ImagingStudy"/>
+        <code value="body-structure"/>
+        <type value="reference"/>
+        <expression value="ImagingStudy.series.bodySite.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
