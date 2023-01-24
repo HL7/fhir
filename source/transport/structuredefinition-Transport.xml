@@ -1272,10 +1272,6 @@
         <identity value="workflow"/>
         <map value="Event.location"/>
       </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.what[x]"/>
-      </mapping>
     </element>
     <element id="Transport.reasonCode">
       <path value="Transport.reasonCode"/>
