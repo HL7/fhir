@@ -530,8 +530,8 @@
     <element id="MedicationRequest.supportingInformation">
       <path value="MedicationRequest.supportingInformation"/>
       <short value="Information to support fulfilling of the medication"/>
-      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationUsage for the patient)."/>
-      <comment value="This attribute can be used to reference a MedicationUsage about the patients' medication use."/>
+      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)."/>
+      <comment value="This attribute can be used to reference a MedicationStatement about the patients' medication use."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1183,7 +1183,7 @@
       <path value="MedicationRequest.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource."/>
-      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed &quot;relevant&quot; or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a &quot;relevant&quot; change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

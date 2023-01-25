@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example where a patient reports is not taking now but will be taking in future  -->
-<MedicationUsage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationusage.xsd"
+<MedicationStatement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationstatement.xsd"
   xmlns="http://hl7.org/fhir">
-  <id value="example008"/>
-  
+  <id value="example009"/>
   <contained>
     <Medication>
-    <id value="med0309"/>
+      <id value="med0315"/>
       <code>
         <coding>
           <system value="http://hl7.org/fhir/sid/ndc"/>
@@ -25,28 +24,28 @@
       
     </Medication>
   </contained>
+  <partOf>
+       <reference value="MedicationStatement/example008"></reference>
+   </partOf>
   <status value="recorded"/>
   <medication> <!-- Linked to a RESOURCE Medication -->
     <reference>
-    <reference value="#med0309"/>
+    <reference value="#med0315"/>
     </reference>
   </medication> 
   <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </subject>
-  <note>
-    <text value="Patient reports they used the given patches over the last 30 days"/>
-  </note>
-  <dosage>
-  <doseAndRate>
-    <doseQuantity>
-      <value value="1"/>
-      <unit value="patch"/>
-      <system value="http://terminology.hl7.org/CodeSystem/v3-orderableDrugForm"/>
-      <code value="TPATH24"/>
-    </doseQuantity>
-  </doseAndRate>
-  </dosage>
+   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
+  <dateAsserted value="2015-02-22"/>
+  <informationSource>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </informationSource>
+ 
+ <note>
+    <text value="Patient reports they used the medication patch on this day."/>
+  </note>  
 
-</MedicationUsage>
+</MedicationStatement>

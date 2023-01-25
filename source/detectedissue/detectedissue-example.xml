@@ -7,7 +7,7 @@
       <p><b>Severity: High</b> - Risk of internal bleeding</p>
       <p>Those who take acetaminophen along with the widely used blood-thinning drug warfarin may face the risk of serious internal bleeding. People on warfarin who take acetaminophen for at least seven days in a row should be closely watched for bleeding.</p>
       <ul>
-        <li><a href="MedicationUsage/tylenol">500 mg Acetaminophen tablet 1/day, PRN since 2010</a></li>
+        <li><a href="MedicationStatement/tylenol">500 mg Acetaminophen tablet 1/day, PRN since 2010</a></li>
         <li><a href="MedicationRequest/warfarin">Warfarin 1 MG TAB prescribed Jan. 5, 2014</a></li>
       </ul>
       <p>Mitigation: Jan 5, 2014 by Dr. Adam Careful: </p>
@@ -35,7 +35,7 @@
   </subject>
   <identifiedDateTime value="2014-01-05"/>
   <implicated>
-    <reference value="MedicationUsage/example001"/>
+    <reference value="MedicationStatement/example001"/>
     <display value="500 mg Acetaminophen tablet 1/day, PRN since 2010"/>
   </implicated>
   <implicated>

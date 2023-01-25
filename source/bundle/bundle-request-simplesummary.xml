@@ -23,12 +23,12 @@
       <url value="/Condition?patient=example"/>
     </request>
   </entry>
-  <!-- This request will retrieve the MedicationUsages for the patient
+  <!-- This request will retrieve the MedicationStatements for the patient
        requested above -->
   <entry>
     <request>
       <method value="GET"/>
-      <url value="/MedicationUsage?patient=example"/>
+      <url value="/MedicationStatement?patient=example"/>
     </request>
   </entry>
   <!-- This request will retrieve blood pressure readings for the
