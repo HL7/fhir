@@ -43,18 +43,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-focus"/>
+        <id value="ResearchStudy-focus-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.focus"/>
+          <valueString value="ResearchStudy.focus.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus"/>
-        <description value="Drugs, devices, etc. under study"/>
-        <code value="focus"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus-code"/>
+        <description value="Drugs, devices, etc. under study, as a code"/>
+        <code value="focus-code"/>
         <type value="token"/>
-        <expression value="ResearchStudy.focus"/>
+        <expression value="ResearchStudy.focus.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-focus-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ResearchStudy.focus.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus-reference"/>
+        <description value="Drugs, devices, etc. under study, as a reference"/>
+        <code value="focus-reference"/>
+        <type value="reference"/>
+        <expression value="ResearchStudy.focus.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -404,6 +423,5 @@
       </SearchParameter>
     </resource>
   </entry>  
-  
   
 </Bundle>
