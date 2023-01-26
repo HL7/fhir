@@ -424,4 +424,81 @@
     </resource>
   </entry>  
   
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-progress-status-state-period"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-period"/>
+        <description value="Status of study by state and period"/>
+        <code value="progress-status-state-period"/>
+        <type value="composite"/>
+        <expression value="ResearchStudy.progressStatus"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="state"/>
+          <expression value="state"/>
+        </component>
+        <component>
+          <definition value="period"/>
+          <expression value="period"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-progress-status-state-actual"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-actual"/>
+        <description value="Status of study by state and actual"/>
+        <code value="progress-status-state-actual"/>
+        <type value="composite"/>
+        <expression value="ResearchStudy.progressStatus"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="state"/>
+          <expression value="state"/>
+        </component>
+        <component>
+          <definition value="actual"/>
+          <expression value="actual"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ResearchStudy-progress-status-state-period-actual"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-progress-status-state-period-actual"/>
+        <description value="Status of study by state, period and actual"/>
+        <code value="progress-status-state-period-actual"/>
+        <type value="composite"/>
+        <expression value="ResearchStudy.progressStatus"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="state"/>
+          <expression value="state"/>
+        </component>
+        <component>
+          <definition value="period"/>
+          <expression value="period"/>
+        </component>
+        <component>
+          <definition value="actual"/>
+          <expression value="actual"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>
+  
 </Bundle>
