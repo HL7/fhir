@@ -66,6 +66,11 @@
     <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."/>
   </concept>
   <concept>
+    <code value="iri-stem"/>
+    <display value="IRI stem"/>
+    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See https://build.fhir.org/rdf.html#iri-stem for details on how this value may be used."/>
+  </concept>
+  <concept>
     <code value="v2csmnemonic"/>
     <display value="V2CSMNemonic"/>
     <definition value="A short string published by HL7 for use in the V2 family of standsrds to idenfify a code system in the V12 coded data types CWE, CNE, and CF. The code values are also published by HL7 at http://www.hl7.org/Special/committees/vocab/table_0396/index.cfm"/>
