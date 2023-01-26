@@ -922,7 +922,7 @@
         <map value="Arm"/>
       </mapping>
     </element>
-    <element id="ResearchStudy.comparisonGroup.id">
+    <element id="ResearchStudy.comparisonGroup.linkId">
       <path value="ResearchStudy.comparisonGroup.id"/>
       <short value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily"/>
       <definition value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily."/>
