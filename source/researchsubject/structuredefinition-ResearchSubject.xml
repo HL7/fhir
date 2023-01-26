@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A physical entity which is the primary unit of operational and/or administrative interest in a study."/>
+  <description value="A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="BRIDG5.1"/>
@@ -76,8 +76,8 @@
   <differential>
     <element id="ResearchSubject">
       <path value="ResearchSubject"/>
-      <short value="Physical entity which is the primary unit of interest in the study"/>
-      <definition value="A physical entity which is the primary unit of operational and/or administrative interest in a study."/>
+      <short value="Participant or object which is the recipient of investigative activities in a study"/>
+      <definition value="A ResearchSubject is a participant or object which is the recipient of investigative activities in a research study."/>
       <comment value="Need to make sure we encompass public health studies."/>
       <alias value="Study Subject"/>
       <min value="0"/>
@@ -379,7 +379,7 @@
       <short value="Agreement to participate in study"/>
       <definition value="A record of the patient's informed agreement to participate in the study."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Consent"/>
