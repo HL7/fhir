@@ -339,35 +339,35 @@
         <map value="StudySubject"/>
       </mapping>
     </element>
-    <element id="ResearchSubject.assignedArm">
+    <element id="ResearchSubject.assignedComparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
         <valueString value="This ought to have an identifer as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
       </extension>
-      <path value="ResearchSubject.assignedArm"/>
+      <path value="ResearchSubject.assignedComparisonGroup"/>
       <short value="What path should be followed"/>
       <definition value="The name of the arm in the study the subject is expected to follow as part of this study."/>
       <comment value="Maybe this is really PlanDefinition."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="id"/>
       </type>
       <mapping>
         <identity value="BRIDG5.1"/>
         <map value="Arm &gt; ExperimentalUnit &gt; BiologicEntity &gt; Subject &gt; StudySubject"/>
       </mapping>
     </element>
-    <element id="ResearchSubject.actualArm">
+    <element id="ResearchSubject.actualComparisonGroup">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/todo">
         <valueString value="This ought to have an identifer as well as a name&#xA;&#xA;OR - allocation is to a Group which is part of a planDefinition which represents an Arm."/>
       </extension>
-      <path value="ResearchSubject.actualArm"/>
+      <path value="ResearchSubject.actualComparisonGroup"/>
       <short value="What path was followed"/>
       <definition value="The name of the arm in the study the subject actually followed as part of this study."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="id"/>
       </type>
       <mapping>
         <identity value="BRIDG5.1"/>
