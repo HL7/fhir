@@ -923,7 +923,7 @@
       </mapping>
     </element>
     <element id="ResearchStudy.comparisonGroup.linkId">
-      <path value="ResearchStudy.comparisonGroup.id"/>
+      <path value="ResearchStudy.comparisonGroup.linkId"/>
       <short value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily"/>
       <definition value="Allows the comparisonGroup for the study and the comparisonGroup for the subject to be linked easily."/>
       <min value="0"/>
