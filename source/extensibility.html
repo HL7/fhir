@@ -55,7 +55,7 @@ that must be met as part of their use and definition.
 <a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every resource or datatype element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
+Every resource or datatype element may include one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
 </p>
 <p>The Extension definition is shown below:</p>
 <%dt Extension 1%>
@@ -72,10 +72,12 @@ Notes:
  <li>There are a few resources (ones that do not specialize <a href="domainresource.html">DomainResource</a>) where extensions are not allowed on the root element, but extensions can appear elsewhere through the resource</li>
  <li>If the meaning of an extension is clearly defined by a code, that code SHOULD be declared on the extension's root code 
   (<code>StructureDefinition.differential.element[0].code</code>)</li>
- <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
+ <li>In FHIR XML and JSON, the <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
   <ul class="dense">
    [%extension-type-list%]
   </ul>
+     In FHIR RDF (Turtle), the property name for a <i>value[x]</i> element such as <code>valueCode</code> is <code>fhir:value</code>, and the type (<code>Code</code>) is indicated in an additional assertion, such as <code>... a fhir:Code</code>.  See <a href="rdf.html#propertyNames">FHIR RDF Property Names</a> for
+     further explanation.
  </li>
 </ul>
 <div class="example">
@@ -109,6 +111,24 @@ In JSON, extensions are represented similarly:
   "text": "Chief Red Cloud"
 }
 </pre>
+<p>
+In RDF (Turtle), the same extension looks like this:
+</p>
+<pre class="rdf" fragment="HumanName">
+...
+  fhir:extension (
+    [
+      fhir:url [
+        fhir:v "http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use"^^xsd:anyURI
+      ] ;
+      fhir:value [
+        a fhir:code ;
+        fhir:v "I"
+      ]
+    ]
+  ) ;
+  fhir:text [ fhir:v "Chief Red Cloud" ] ;
+</pre>  
 </div>
 <p>
 Making the types explicit in the representation means that all systems can read and write
@@ -268,8 +288,8 @@ by a fake organization, and not appropriate for re-use by implementers.
 
 <p>
 Primitive datatypes can carry extensions. The extensions may appear in place of the value of the primitive datatype. 
-The <a href="xml.html#primitive">XML</a> and <a href="json.html#primitive">JSON</a> pages describe how this 
-looks like in those respective formats.
+The <a href="xml.html#primitive">XML</a>, <a href="json.html#primitive">JSON</a> and <a href="rdf.html#primitiveExtension">RDF</a> pages describe how this 
+looks in those respective formats.
 Implementers should be aware that a mandatory primitive datatype (i.e. mininum cardinality=1) may
 be present with extensions but no value. Type use case are extensions such as 
 <a href="extension-data-absent-reason.html">DataAbsentReason</a>,
@@ -341,7 +361,7 @@ When defining a new modifier extension, it is designated as being a 'modifier' r
 modifiers can appear in modifierExtension. A regular extension cannot be 'constrained' to be a modifier.
 </p>
 <p>
-In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has same content as the
+In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has the same content as the
 <code>extension</code> element documented above:
 </p>
 <div class="example">
@@ -375,6 +395,8 @@ Or in JSON:
   .. other content ...
 }
 </pre>
+<p>See the <a href="rdf.html#modifierExtension">RDF page</a> for an example in RDF (Turtle).
+</p>
 </div>
 
 <p>
