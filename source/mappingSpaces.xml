@@ -482,4 +482,13 @@
 		<sort>51</sort>
 		<publish>true</publish>
 	</space>
+	<space>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11238</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11238</link>
+		<columnName>IDMP Mapping (Substance)</columnName>
+		<title>IDMP Mapping (Substance)</title>
+		<id>idmp-substance</id>
+		<sort>52</sort>
+		<publish>true</publish>
+	</space>
 </mappingSpaces>
