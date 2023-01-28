@@ -1127,27 +1127,20 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.publicationDateYear">
-      <path value="Citation.citedArtifact.publicationForm.publicationDateYear"/>
-      <short value="Year in which the cited artifact was published"/>
+    <element id="Citation.citedArtifact.publicationForm.articleDate">
+      <path value="Citation.citedArtifact.publicationForm.articleDate"/>
+      <short value="The date the article was added to the database, or the date the article was released"/>
+	  <comment value="The articleDate is the preferred element for expressing the publication date as structured data."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="dateTime"/>
       </type>
     </element>
-    <element id="Citation.citedArtifact.publicationForm.publicationDateMonth">
-      <path value="Citation.citedArtifact.publicationForm.publicationDateMonth"/>
-      <short value="Month in which the cited artifact was published"/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.publicationDateDay">
-      <path value="Citation.citedArtifact.publicationForm.publicationDateDay"/>
-      <short value="Day on which the cited artifact was published"/>
+    <element id="Citation.citedArtifact.publicationForm.publicationDateText">
+      <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
+      <short value="Text representation of the date on which the issue of the cited artifact was published"/>
+	  <comment value="The publicationDateText element is prefererntially used when a date is not represented in a form that can be handled as structured data in other elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1162,26 +1155,6 @@
       <max value="1"/>
       <type>
         <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.publicationDateText">
-      <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
-      <short value="Text representation of the date on which the issue of the cited artifact was published"/>
-	  <comment value="The publicationDateText element is prefererntially used when a date is not represented in a form that can be handled as structured data in other elements."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Citation.citedArtifact.publicationForm.articleDate">
-      <path value="Citation.citedArtifact.publicationForm.articleDate"/>
-      <short value="The date the article was added to the database, or the date the article was released"/>
-	  <comment value="The articleDate is the preferred element for expressing the publication date as structured data."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
       </type>
     </element>
     <element id="Citation.citedArtifact.publicationForm.lastRevisionDate">

@@ -57,12 +57,32 @@ href="#turtle-template">Turtle
             Template for Resources</a></li>
         <li><a href="#example">FHIR RDF Example</a></li>
         <li><a href="#serialization-conventions">FHIR RDF Serialization
-            Conventions</a></li>
+            Conventions</a>
+	   <ul>
+            <li><a href="#resources">Representing Resources</a></li>
+            <li><a href="#caseSensitivity">Case Sensitivity</a></li>
+            <li><a href="#nestedNodes">Nested Anonymous Nodes</a></li>
+            <li><a href="#propertyNames">Property Names</a></li>
+            <li><a href="#rdflist">Representing Repeating Elements -- RDF Lists</a></li>
+            <li><a href="#primitive">Representing Primitive Elements</a></li>
+            <li><a href="#reference">Representing References</a></li>
+            <li><a href="#contained">Representing Inline (Contained) Resources</a></li>
+            <li><a href="#representing-concepts">Representing Concepts</a></li>
+            <li><a href="#iri-stem">Concept IRIs and IRI Stems</a></li>
+            <li><a href="#extension">Non-modifier Extensions</a></li>
+            <li><a href="#modifierExtension">Modifier Extensions</a></li>
+	   </ul>
+	</li>
         <li><a href="#fhir-definitions">RDF Representation of FHIR
             Definitions</a></li>
         <li><a href="#relationship">Relationship between RDF, FHIR, and
             ontologies</a></li>
-        <li><a href="#guidance">Usage Guidance</a></li>
+        <li><a href="#guidance">Usage Guidance</a>
+	  <ul>
+          <li><a href="#fhir-rdf-with-owl">Using FHIR RDF with OWL</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+	  </ul>
+        </li>
         <li><a href="#concept-iri-algorithm">Appendix 1: Algorithm for
             creating a Concept IRI</a><br/>
         </li>
@@ -161,7 +181,7 @@ PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
   owl:versionIRI &lt;http://example.org/fhir/Observation/Obs123.ttl&gt;.</pre>
         <p> In this example, </p>
         <ul>
-          <li>the subject IRI is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
+          <li>the subject <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> is wrapped with '<code class="rdf">&lt; ... &gt;</code>'.</li>
           <li>the type (<code class="rdf">fhir:Observation</code>) and
             following predicates (e.g. <code class="rdf">fhir:status</code>)
             are prefixed names (like XML namespaced names),</li>
@@ -223,7 +243,7 @@ href="fhir.shex">fhir.shex</a>
           <h4>Nested Anonymous Nodes</h4>
           <p> Content within a resource is always represented with
             anonymous nodes (a/k/a "blank nodes").&nbsp; Only FHIR
-            Resource nodes can be IRIs. For example, this Turtle:
+            Resource nodes can be <a href="https://www.rfc-editor.org/rfc/rfc3987">IRIs</a>. For example, this Turtle:
           </p>
 
 	  &nbsp;&nbsp;&nbsp;&nbsp;<span class="rdf">&lt;http://example.org/fhir/Observation/Obs123&gt; fhir:status [ fhir:v "final" ]</span> 
@@ -256,7 +276,7 @@ href="fhir.shex">fhir.shex</a>
           <pre class="rdf">  fhir:value [ a fhir:Quantity; ... ]</pre>
 
         <a name="rdflist"></a>
-          <h4>Representing Repeating Elements</h4>
+          <h4>Representing Repeating Elements -- RDF Lists</h4>
           <p> Elements that can repeat are represented with <a href="https://www.w3.org/TR/turtle/#collections">RDF lists</a>
             (officially called "RDF collections") in order to retain the
             order of their elements.  In the <a href="#ex-list">above
@@ -318,12 +338,12 @@ href="fhir.shex">fhir.shex</a>
               class="rdf">"185"</span> is given the datatype <code>xsd:decimal</code>.
           </p>
 
-        <a name="reference"></a>
           <p> The fhir:v property can never be empty. Either the
             relationship is absent, or it is present with at least one
             character of content. XHTML is represented as an escaped
             xsd:string.&nbsp; <br/>
           </p>
+        <a name="reference"></a>
           <h4>Representing References</h4>
           <p> A <a href="references.html#Reference">Reference</a>
             element is represented using the same rules as above: </p>
@@ -353,7 +373,7 @@ href="fhir.shex">fhir.shex</a>
             raw references into RDF-suitable references. </p>
 
         <a name="contained"></a>
-          <h4>Representing Inline Resources</h4>
+          <h4>Representing Inline (Contained) Resources</h4>
           <p> Inline resources -- when a resource is contained directly
             in another element -- occur in the following places: </p>
           <ul>
@@ -396,7 +416,7 @@ href="fhir.shex">fhir.shex</a>
 ];</pre>
           <p> For reasoners using the RDF graph, it's very useful to
             make the implicit concept references in these Codings
-            explicit, by specifying a <i>concept IRI</i> in an
+            explicit, by specifying a <i>concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a></i> in an
             (optional) rdf:type assertion, written as <b><code class="rdf" style="font-size: larger">a</code></b> in
             Turtle: </p>
           <pre class="rdf">fhir:code [
@@ -420,7 +440,7 @@ href="fhir.shex">fhir.shex</a>
           <h4>Concept IRIs and IRI Stems</h4>
 
           <p> 
-          A concept IRI uniquely identifies a concept that would otherwise
+          A concept <a href="https://www.rfc-editor.org/rfc/rfc3987">IRI</a> uniquely identifies a concept that would otherwise
           be identified by a &lt;<code>Coding.system, Coding.code</code>&gt; pair.  A concept
           IRI has two parts: an IRI stem and a code.
 	  </p>
@@ -471,8 +491,8 @@ href="fhir.shex">fhir.shex</a>
 	  see <a href="#registering-iri-stems">Appendix 2: Registering an IRI Stem on the HL7 Terminology Website</a>.
           </p>
 
-        <a name="modifierExtension"></a>
-          <h4>Extensions and Modifier Extensions</h4>
+        <a name="extension"></a>
+          <h4>Non-modifier Extensions</h4>
           <p> A Resource may have any number of non-modifier extensions,
 	  represented as an RDF list like this:
           </p>
@@ -498,6 +518,33 @@ href="fhir.shex">fhir.shex</a>
   <b>)</b>
   ...
 </pre>
+
+          <a name="primitiveExtension"></a>
+	  <p>A primitive element such as <code>fhir:birthDate</code> can have a list of extensions attached like this:
+	  </p>
+	  <pre>
+...
+fhir:birthDate [
+  fhir:v "1970-03-30"^^xsd:date ;
+  <b>fhir:extension (</b>
+    [
+      fhir:url [
+        fhir:v "http://example.org/fhir/StructureDefinition/text"^^xsd:anyURI
+      ] ;
+      fhir:value [
+        a fhir:string ;
+        fhir:v "Easter 1970"
+      ]
+    ]
+  <b>)</b> ;
+] ;
+	  </pre>
+
+	  <p>See <a href="extensibility.html">Extensibility</a> for additional guidance on FHIR extensibility.
+	  </p>
+
+        <a name="modifierExtension"></a>
+          <h4>Modifier Extensions</h4>
           <p> <a name="underbar-prefix"></a> FHIR allows <code class="rdf">modifierExtension</code>s
             on <a
               href="domainresource.html#DomainResource">DomainResources</a>,
@@ -544,7 +591,9 @@ href="fhir.shex">fhir.shex</a>
       ]
     ) ;
   ]</pre>
-
+<p>See <a href="extensibility.html#modifierExtension">Modifier Extensions</a> for
+additional requirements around modifier extensions.
+</p>
           
           <h3><a name="fhir-definitions"></a>RDF Representation of FHIR
             Definitions</h3>
