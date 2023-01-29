@@ -283,6 +283,7 @@ signatures.html
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>

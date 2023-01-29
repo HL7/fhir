@@ -305,6 +305,9 @@
 		<translation lang="es">Dispositivo</translation>
 		<translation lang="zh">装置</translation>
 	</item>
+	<item id="DeviceAssociation">
+		<translation lang="en">DeviceAssociation</translation>
+	</item>
 	<item id="DeviceDefinition">
 		<translation lang="en">DeviceDefinition</translation>
 		<translation lang="fr">DéfinitionDeDispositif</translation>
