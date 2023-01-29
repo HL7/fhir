@@ -89,7 +89,7 @@ define "Time Since Returned From Travel":
   singleton from (
     "Zika Exposure Assessment Result".component C
       where C.code.coding[0] = "CDE: Time Since Returned From Travel"
-      return C.value as Quantity
+      return C.value.ofType(Quantity)
   )
 
 define "Recent Sexual Encounter With Traveler to Zika Area":
@@ -103,7 +103,7 @@ define "Time Since Sexual Encounter":
   singleton from (
     "Zika Exposure Assessment Result".component C
       where C.code.coding[0] = "CDE: Time Since Sexual Encounter"
-      return C.value as Quantity
+      return C.value.ofType(Quantity)
   )
 
 define "Time Since Possible Exposure":

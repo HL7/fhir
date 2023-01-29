@@ -16,7 +16,7 @@
         <description value="Vaccination  (non)-Administration Date"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="(Immunization.occurrence as dateTime)"/>
+        <expression value="(Immunization.occurrence.ofType(dateTime))"/>
       </SearchParameter>
     </resource>
   </entry>

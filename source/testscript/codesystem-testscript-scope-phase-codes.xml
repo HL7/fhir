@@ -40,17 +40,17 @@
   <content value="complete"/>
   <concept>
     <code value="unit"/>
-    <display value="unit"/>
+    <display value="Unit"/>
     <definition value="The development or implementation phase."/>
   </concept>
   <concept>
     <code value="integration"/>
-    <display value="integration"/>
+    <display value="Integration"/>
     <definition value="The internal system to system phase."/>
   </concept>
   <concept>
     <code value="production"/>
-    <display value="production"/>
+    <display value="Production"/>
     <definition value="The live system to system phase (Note, this may involve pii/phi data)."/>
   </concept>
 </CodeSystem>

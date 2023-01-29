@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Ingredient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/ingredient.xsd">
+	<id value="example"/>
+	<status value="active"/> 
+	<role>
+		<coding>
+			<system value="http://ema.europa.eu/example/ingredientRole"/>
+			<code value="ActiveBase"/>
+		</coding>
+	</role>
+	<manufacturer>
+		<manufacturer>
+			<reference value="Organization/example"/>
+		</manufacturer>
+	</manufacturer>
+	<substance>
+		<code>
+			<concept>
+			<coding>
+				<system value="http://ema.europa.eu/example/substance"/>
+				<code value="Wizzohaler"/>
+			</coding>
+			</concept>
+		</code>
+		<!-- A single drug only has a single strength (amount of active ingredient).
+		     However it can be measured in different ways, giving rise to different values of what is basically the same underlying strength.
+		     In these cases the "strength" attribute can repeat.
+		     This is common with inhalers, where the strength is the amount of ingredient found in a spray or puff, but which differs at
+		     different distances from the nozzle. The effective strength is therefore different when the inhaler is used with a spacer device, 
+		     which changes the distance. Different countries may also chose to measure at different standard distances.
+		     This is a separate concept to presentation vs. concentration strength (which are two ways of expressing the same numeric value).
+		     Concentration strength could be in the example below, in each "strength", but is omitted for clarity.
+		     All these are different from reference strength (a strength in terms of a different substance). 
+		-->
+		<strength>
+			<presentationRatio>
+				<numerator>
+					<value value="730"/>
+					<unit value="mcg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="ug"/>
+				</numerator>
+				<denominator>
+					<value value="1"/>
+					<unit value="delivered dose"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="{delivered dose}"/>
+				</denominator>
+			</presentationRatio>
+			<measurementPoint value="2cm"/>
+		</strength>
+		<!-- show a different strength value for the same ingredient, measured at a different distance -->
+		<strength>
+			<presentationRatio>
+				<numerator>
+					<value value="460"/>
+					<unit value="mcg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="ug"/>
+				</numerator>
+				<denominator>
+					<value value="1"/>
+					<unit value="delivered dose"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="{delivered dose}"/>
+				</denominator>
+			</presentationRatio>
+			<measurementPoint value="5cm"/>
+		</strength>
+	</substance>
+</Ingredient>

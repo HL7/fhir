@@ -42,6 +42,18 @@
         <code value="51440002"/>
         <display value="Bilateral"/>
       </concept>
+      <concept>	
+				<code value ="46053002"/>
+				<display value ="Distal"/>
+			</concept>	
+			<concept>	
+				<code value ="255554000"/>
+				<display value ="Dorsal"/>
+			</concept>	
+			<concept>	
+				<code value ="264147007"/>
+				<display value ="Plantar"/>
+			</concept>		
       <concept>
         <code value="261183002"/>
         <display value="Upper"/>

@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -202,7 +202,7 @@
     </element>
     <element id="PackagedProductDefinition.containedItemQuantity">
       <path value="PackagedProductDefinition.containedItemQuantity"/>
-      <short value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size"/>
+      <short value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. See also packaging.containedItem.amount (especially the long definition)"/>
       <definition value="A total of the complete count of contained items of a particular type/form, independent of sub-packaging or organization. This can be considered as the pack size. This attribute differs from containedItem.amount in that it can give a single aggregated count of all tablet types in a pack, even when these are different manufactured items. For example a pill pack of 21 tablets plus 7 sugar tablets, can be denoted here as '28 tablets'. This attribute is repeatable so that the different item types in one pack type can be counted (e.g. a count of vials and count of syringes). Each repeat must have different units, so that it is clear what the different sets of counted items are, and it is not intended to allow different counts of similar items (e.g. not '2 tubes and 3 tubes'). Repeats are not to be used to represent different pack sizes (e.g. 20 pack vs. 50 pack) - which would be different instances of this resource."/>
       <min value="0"/>
       <max value="*"/>
@@ -629,8 +629,8 @@
     </element>
     <element id="PackagedProductDefinition.packaging.containedItem.amount">
       <path value="PackagedProductDefinition.packaging.containedItem.amount"/>
-      <short value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml)"/>
-      <definition value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml)."/>
+      <short value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml). See also PackagedProductDefinition.containedItemQuantity (especially the long definition)"/>
+      <definition value="The number of this type of item within this packaging or for continuous items such as liquids it is the quantity (for example 25ml). See also PackagedProductDefinition.containedItemQuantity (especially the long definition)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

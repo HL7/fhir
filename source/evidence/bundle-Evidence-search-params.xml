@@ -16,7 +16,7 @@
         <description value="A use context assigned to the evidence"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(Evidence.useContext.value as CodeableConcept)"/>
+        <expression value="(Evidence.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="A quantity- or range-valued use context assigned to the evidence"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(Evidence.useContext.value as Quantity) | (Evidence.useContext.value as Range)"/>
+        <expression value="(Evidence.useContext.value.ofType(Quantity)) | (Evidence.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

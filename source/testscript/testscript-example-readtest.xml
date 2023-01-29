@@ -193,7 +193,7 @@
     <action>
       <assert>
         <description value="Confirm that the returned HTTP status is 400(Bad Request)."/>
-        <response value="bad"/>
+        <response value="badRequest"/>
         <stopTestOnFail value="false"/>
         <warningOnly value="false"/>
       </assert>

@@ -2050,7 +2050,7 @@
     <Cell><Data ss:Type="String">token</Data></Cell>
     <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String">{{name}}.useContext.valueCodeableConcept</Data></Cell>
-    <Cell><Data ss:Type="String">({{name}}.useContext.value as CodeableConcept)</Data></Cell>
+    <Cell><Data ss:Type="String">({{name}}.useContext.value.ofType(CodeableConcept))</Data></Cell>
     <Cell><Data ss:Type="String">A use context assigned to the {{title}}</Data></Cell>
     <Cell><Data ss:Type="String"/></Cell>
    </Row>
@@ -2059,7 +2059,7 @@
     <Cell><Data ss:Type="String">quantity</Data></Cell>
     <Cell><Data ss:Type="String"/></Cell>
     <Cell><Data ss:Type="String">{{name}}.useContext.valueQuantity,{{name}}.useContext.valueRange</Data></Cell>
-    <Cell><Data ss:Type="String">({{name}}.useContext.value as Quantity) | ({{name}}.useContext.value as Range)</Data></Cell>
+    <Cell><Data ss:Type="String">({{name}}.useContext.value.ofType(Quantity)) | ({{name}}.useContext.value.ofType(Range))</Data></Cell>
     <Cell><Data ss:Type="String">A quantity- or range-valued use context assigned to the {{title}}</Data></Cell>
     <Cell><Data ss:Type="String"/></Cell>
    </Row>

@@ -17,16 +17,21 @@
 	<substance>
 		<code>
 			<concept>
-			<coding>
-				<system value="http://ema.europa.eu/example/substance"/>
-				<code value="EQUIXABAN"/>
-			</coding>
+				<coding>
+					<system value="http://ema.europa.eu/example/substance"/>
+					<code value="EQUIXABAN"/>
+				</coding>
 			</concept>
 		</code>
 		<strength>
+			<!-- a single strength is commonly expressed in two ways: 
+				 presentation - per item (e.g. per tablet), 
+				 and concentration - per unit of measure (usually with a unitary demoninator) -->
+			<!-- these are not different strengths - and have the same real value - but are different ways of expressing the same single strength -->
+			<!-- presentation is meant for humans/consumers, concentration is meant for calculations/experts -->
 			<presentationRatio>
 				<numerator>
-					<value value="2.5"/>
+					<value value="50"/>
 					<unit value="mg"/>
 					<system value="http://unitsofmeasure.org"/> 
 					<code value="mg"/>
@@ -38,6 +43,57 @@
 					<code value="{tablet}"/>
 				</denominator>
 			</presentationRatio>
+			<concentrationRatio>
+				<!-- 5mg/1mg (which means - because the presentation is 50mg/tablet - it must be a 10mg tablet) -->
+				<numerator>
+					<value value="5"/> 
+					<unit value="mg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mg"/>
+				</numerator>
+				<denominator>
+					<!-- since this is for caculations, this is normally "1", a unitary ratio -->
+					<value value="1"/> 
+					<unit value="mg"/>
+					<system value="http://unitsofmeasure.org"/> 
+					<code value="mg"/>
+				</denominator>
+			</concentrationRatio>
+			<!-- A reference strength is a different strength value for the same substance, 
+				 expressed in terms of a related but different substance.
+				 This other substance is usually another chemical form of the same thing e.g. the "salt" form of the active igredient, 
+			     for example a chloride or sulfate. The salt may be the form of the substance molecule that is 
+			     actually present, even though the strength is usually expressed in terms of only the active "base" 
+			     part of the molecule.
+				 A tablet of morphine sulfate may acually have a stated active ingredient of just morphine, 
+				 and may express the amount (strength) of the active ingredient as 
+				 the mass of morphine - ignoring the mass of the sulfate group. 
+				 Reference strength allows for additionally expressing the amount accurately in terms of the entire molecule.
+			-->
+			<referenceStrength>
+				<substance>
+					<concept>
+						<coding>
+							<system value="http://ema.europa.eu/example/substance"/>
+							<code value="EQUIXABAN-SULPHATE"/>
+						</coding>
+					</concept>
+				</substance>
+				<strengthRatio>
+					<numerator>
+						<value value="5.03"/> 
+						<unit value="mg"/>
+						<system value="http://unitsofmeasure.org"/> 
+						<code value="mg"/>
+					</numerator>
+					<denominator>
+						<value value="1"/> 
+						<unit value="mg"/>
+						<system value="http://unitsofmeasure.org"/> 
+						<code value="mg"/>
+					</denominator>
+				</strengthRatio>
+			</referenceStrength>
 		</strength>
 	</substance>
 </Ingredient>
