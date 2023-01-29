@@ -121,6 +121,9 @@
 	<item id="BiologicallyDerivedProduct">
 		<translation lang="en">BiologicallyDerivedProduct</translation>
 	</item>
+	<item id="BiologicalProductDispense">
+		<translation lang="en">BiologicalProductDispense</translation>
+	</item>
 	<item id="BodyStructure">
 		<translation lang="en">BodyStructure</translation>
 		<translation lang="es">EstructuraDelCuerpo</translation>
