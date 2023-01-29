@@ -20,5 +20,20 @@
 			allow specifying a basic ingredient representation. When more detail is needed such as for manufacturing or regulatory use, 
 			use the Ingredient resource.
 		</p>
+		<p>
+			Ingredient is represented as a resource, instead of, for example, a backbone or a datatype within other resources, 
+			due to some practical considerations for certain use cases.
+			In some situations, an ingredient could have been represented "in line" within another resource 
+			(e.g. embedded within MedicinalProductDefiniton or ManufacturedItemDefinition).			
+			However there are cases where it is necessary to refer to an ingredient from another resource - for example when the 
+			ingredient associated with a product also has an authorization, or when a multi-part tablet needs to state which ingredient 
+			is contained in which component of that tablet (as well as linking the ingredient to the whole tablet and/or the whole product).
+			These cases can only be served by representing the ingredient as an externally referenceable entity, that can be linked from other resources, 
+			hence the rationale for Ingredient being a resource in its own right.
+			If such cases are not in scope of a given project, and it is preferred to avoid ingredient being a separate resource, 
+			then there is the option for that project to represent an ingredient using a contained Ingredient resource. 
+			Even simpler situations, where only a coded or free text ingredient is necessary, can use attributes such as MedicinalProductDefinition.ingredient. 
+		</p>
+		
 	</div>
 </div>

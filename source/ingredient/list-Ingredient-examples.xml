@@ -6,7 +6,7 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="General example of an active ingredient"/>
+      <valueString value="General example of an active ingredient, with presentation, concentration and reference strength"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="ingredient-example"/>
@@ -14,6 +14,18 @@
     <item>
       <reference value="Ingredient/example"/>
       <display value="General Example"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Example of an inhaler ingredient, showing multiple strength measurements"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="ingredient-example-strength-repeat"/>
+    </extension>
+    <item>
+      <reference value="Ingredient/example"/>
+      <display value="General Example with multiple strenghs"/>
     </item>
   </entry>
 </List>

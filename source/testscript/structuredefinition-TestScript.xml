@@ -1436,6 +1436,29 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
       </binding>
     </element>
+    <element id="TestScript.setup.action.assert.defaultManualCompletion">
+      <path value="TestScript.setup.action.assert.defaultManualCompletion"/>
+      <short value="fail | pass | skip | stop"/>
+      <definition value="The default manual completion outcome applied to this assertion."/>
+      <comment value="Manual completion is used to pause the test engine execution and evaluation allowing an external review of the defined assert condition. The defaultManualCompletion defines the default manual completion outcome applied if one of the enumerated values is not applied."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If defaultManualCompletion is not specified, then the default manual completion outcome will be 'skip'."/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AssertionManualCompletionType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The type of operator to use for assertion."/>
+        </extension>
+        <strength value="required"/>
+        <description value="The default type of manual completion to use for assertion."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/assert-manual-completion-codes"/>
+      </binding>
+    </element>
     <element id="TestScript.setup.action.assert.expression">
       <path value="TestScript.setup.action.assert.expression"/>
       <short value="The FHIRPath expression to be evaluated"/>
@@ -1461,8 +1484,8 @@
     <element id="TestScript.setup.action.assert.minimumId">
       <path value="TestScript.setup.action.assert.minimumId"/>
       <short value="Fixture Id of minimum content resource"/>
-      <definition value="The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId."/>
-      <comment value="Asserts that the response contains all the element/content in another fixture pointed to by minimumId.  This can be a statically defined fixture or one that is dynamically set via responseId."/>
+      <definition value="The ID of a fixture. Asserts that the response contains at a minimum the fixture specified by minimumId."/>
+      <comment value="Asserts that the response contains all the element/content in another fixture pointed to by minimumId. This can be a statically defined fixture or one that is dynamically set via responseId.&#xA;&#xA;See [Testing FHIR Use minimumId](testing.html##minimumId) for a more complete description of the test engine's comparison logic."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1482,14 +1505,15 @@
     </element>
     <element id="TestScript.setup.action.assert.operator">
       <path value="TestScript.setup.action.assert.operator"/>
-      <short value="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval"/>
-      <definition value="The operator type defines the conditional behavior of the assert. If not defined, the default is equals."/>
-      <comment value="Operators are useful especially for negative testing.  If operator is not specified, then the &quot;equals&quot; operator is assumed; e.g. ```&lt;code&gt;   &lt;assert&gt;  &lt;operator value=&quot;in&quot; /&gt;  &lt;responseCode value=&quot;200,201,204&quot; /&gt;    &lt;/assert&gt;    &lt;assert&gt;  &lt;operator value=&quot;notEquals&quot; /&gt;  &lt;response value=&quot;okay&quot;/&gt;   &lt;/assert&gt;    &lt;assert&gt;  &lt;operator value=&quot;greaterThan&quot; /&gt;    &lt;responseHeader&gt;     &lt;field value=&quot;Content-Length&quot; /&gt;     &lt;value value=&quot;0&quot; /&gt;    &lt;/responseHeader/&gt;   &lt;/assert&gt; &lt;/code&gt; ```."/>
+      <short value="equals | notEquals | in | notIn | greaterThan | lessThan | empty | notEmpty | contains | notContains | eval | manualEval"/>
+      <definition value="The operator type defines the conditional behavior of the assert."/>
+      <comment value="Operators are useful for both positive and negative testing. If operator is not specified, then the default conditional behavior is implemented as defined in [Testing FHIR Assertions](testing.html#assertion-table)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
+      <meaningWhenMissing value="If operator is not specified, then the default conditional behavior is implemented as defined in the Testing FHIR page Assertions table - see Comments."/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionOperatorType"/>
@@ -1567,8 +1591,8 @@
     </element>
     <element id="TestScript.setup.action.assert.response">
       <path value="TestScript.setup.action.assert.response"/>
-      <short value="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable"/>
-      <definition value="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable."/>
+      <short value="continue | switchingProtocols | okay | created | accepted | nonAuthoritativeInformation | noContent | resetContent | partialContent | multipleChoices | movedPermanently | found | seeOther | notModified | useProxy | temporaryRedirect | permanentRedirect | badRequest | unauthorized | paymentRequired | forbidden | notFound | methodNotAllowed | notAcceptable | proxyAuthenticationRequired | requestTimeout | conflict | gone | lengthRequired | preconditionFailed | contentTooLarge | uriTooLong | unsupportedMediaType | rangeNotSatisfiable | expectationFailed | misdirectedRequest | unprocessableContent | upgradeRequired | internalServerError | notImplemented | badGateway | serviceUnavailable | gatewayTimeout | httpVersionNotSupported"/>
+      <definition value="continue | switchingProtocols | okay | created | accepted | nonAuthoritativeInformation | noContent | resetContent | partialContent | multipleChoices | movedPermanently | found | seeOther | notModified | useProxy | temporaryRedirect | permanentRedirect | badRequest | unauthorized | paymentRequired | forbidden | notFound | methodNotAllowed | notAcceptable | proxyAuthenticationRequired | requestTimeout | conflict | gone | lengthRequired | preconditionFailed | contentTooLarge | uriTooLong | unsupportedMediaType | rangeNotSatisfiable | expectationFailed | misdirectedRequest | unprocessableContent | upgradeRequired | internalServerError | notImplemented | badGateway | serviceUnavailable | gatewayTimeout | httpVersionNotSupported."/>
       <comment value="This is a shorter way of achieving similar verifications via &quot;assert.responseCode&quot;.  If you need more control, then use &quot;assert.responseCode&quot;  e.g. &lt;assert&gt;  &lt;contentType value=&quot;json&quot; /&gt;  &lt;response value=&quot;okay&quot;/&gt; &lt;/assert&gt;."/>
       <min value="0"/>
       <max value="1"/>
