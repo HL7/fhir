@@ -257,9 +257,24 @@
         <map value="Pharmaceutical Product.Device"/>
       </mapping>
     </element>
+    <element id="AdministrableProductDefinition.description">
+      <path value="AdministrableProductDefinition.description"/>
+      <short value="A general description of the product, when in its final form, suitable for administration e.g. effervescent blue liquid, to be swallowed"/>
+      <definition value="A general description of the product, when in its final form, suitable for administration e.g. effervescent blue liquid, to be swallowed. Intended to be used when the other structured properties of this resource are insufficient or cannot be supported. It is not intended to duplicate information already carried elswehere."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="AdministrableProductDefinition.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="500,25"/>
+        <valueCode value="500,35"/>
       </extension>
       <path value="AdministrableProductDefinition.property"/>
       <short value="Characteristics e.g. a product's onset of action"/>
@@ -360,7 +375,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="57,205"/>
+        <valueCode value="60,215"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration"/>
       <short value="The path by which the product is taken into or makes contact with the body"/>
@@ -476,7 +491,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,239"/>
+        <valueCode value="380,239"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies"/>
       <short value="A species for which this route applies"/>
@@ -517,7 +532,7 @@
     </element>
     <element id="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="650,229"/>
+        <valueCode value="700,224"/>
       </extension>
       <path value="AdministrableProductDefinition.routeOfAdministration.targetSpecies.withdrawalPeriod"/>
       <short value="A species specific time during which consumption of animal product is not appropriate"/>
