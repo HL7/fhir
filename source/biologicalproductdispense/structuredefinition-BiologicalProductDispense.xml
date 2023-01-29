@@ -109,7 +109,7 @@
     </element>
     <element id="BiologicalProductDispense.status">
       <path value="BiologicalProductDispense.status"/>
-      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <short value="requested | in-progress | on-hold | completed | stopped | discarded | entered-in-error | unknown"/>
       <definition value="BiologicalProductDispenseStatusCodes (Required)."/>
       <min value="1"/>
       <max value="1"/>
@@ -133,7 +133,7 @@
 
 
     </element>
-    <!-- <element id="BiologicalProductDispense.originRelationshipType">
+    <element id="BiologicalProductDispense.originRelationshipType">
       <path value="BiologicalProductDispense.originRelationshipType"/>
       <short value="Relationship between the donor and intended recipient"/>
       <definition value="Relationship between the donor and intended recipient."/>
@@ -142,7 +142,22 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-    </element> -->
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicalProductDispenseOriginRelationship"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the relationship between the recipient and origin of the dispensed product."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Describes the relationship between the recipient and origin of the dispensed product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-origin-relationship"/>
+      </binding>
+
+    </element>
     <element id="BiologicalProductDispense.product">
       <path value="BiologicalProductDispense.product"/>
       <short value="The BiologicallyDerivedProduct that is dispensed"/>
@@ -174,6 +189,23 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicalProductDispenseMatchStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the type of matching between the recipient and origin of the dispensed product."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Describes the type of matching between the recipient and origin of the dispensed product."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-match-status"/>
+      </binding>
+
+
     </element>
     <element id="BiologicalProductDispense.performer">
       <path value="BiologicalProductDispense.performer"/>
@@ -194,6 +226,23 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicalProductDispensPerformerFunction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the role or function of the performer in the dispense."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Describes the the role or function of the performer in the dispense."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-performer-function"/>
+      </binding>
+
+
     </element>
     <element id="BiologicalProductDispense.performer.actor">
       <path value="BiologicalProductDispense.performer.actor"/>

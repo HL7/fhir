@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="biologicalproductdispense-origin-relationship"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <ul>
+        <li>Include all codes defined in 
+          <a href="CodeSystem-biologicalproductdispense-performer-function.html">
+            <code>http://hl7.org/fhir/biologicalproductdispense-origin-relationship</code>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-origin-relationship"/>
+  <version value="5.0.0-snapshot3"/>
+  <name value="BiologicallyDerivedProductDispenseOriginRelationship"/>
+  <title value="Biologically derived product dispense - origin relationship"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2023-01-29T21:19:50+01:00"/>
+  <publisher value="Example Publisher"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Biologically derived product dispense - origin relationship"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/CodeSystem/biologicalproductdispense-origin-relationship"/>
+    </include>
+  </compose>
+</ValueSet>

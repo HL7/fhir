@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="biologicalproductdispense-performer-function"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This code system <code>http://hl7.org/fhir/biologicalproductdispense-origin-relationship</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">grouping<a name="biologicalproductdispense-performer-function-grouping"> </a></td><td>Grouping</td><td>ABO and RhD blood grouping procedure</td></tr><tr><td style="white-space:nowrap">antibody-screening<a name="biologicalproductdispense-performer-function-antibody-screening"> </a></td><td>Antibody Screening</td><td>Antibody screening procedure</td></tr><tr><td style="white-space:nowrap">antibody-identification<a name="biologicalproductdispense-performer-function-antibody-identification"> </a></td><td>Antibody Identification</td><td>Antibody identification procedure</td></tr><tr><td style="white-space:nowrap">crossmatch<a name="biologicalproductdispense-performer-function-crossmatch"> </a></td><td>Crossmatch</td><td>Serological or electronic crossmatch procedure</td></tr><tr><td style="white-space:nowrap">release<a name="biologicalproductdispense-performer-function-release"> </a></td><td>Release</td><td>Approval for release for clinical application</td></tr><tr><td style="white-space:nowrap">transport<a name="biologicalproductdispense-performer-function-transport"> </a></td><td>Transport</td><td>Transfer of product from the supply department to the site of clinical use</td></tr><tr><td style="white-space:nowrap">receipt<a name="biologicalproductdispense-performer-function-receipt"> </a></td><td>Receipt</td><td>Receipt of product for clinical application</td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/biologicalproductdispense-performer-function"/>
+  <version value="0.1.0"/>
+  <name value="BiologicallyDerivedProductDispensePerformerFunction"/>
+  <title value="Biologically derived product dispense - performer function"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-01-29T21:19:50+01:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Biologically derived product dispense - performer function"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-performer-function"/>
+  <content value="complete"/>
+  <count value="7"/>
+  <concept>
+    <code value="grouping"/>
+    <display value="Grouping"/>
+    <definition value="ABO and RhD blood grouping procedure"/>
+  </concept>
+  <concept>
+    <code value="antibody-screening"/>
+    <display value="Antibody Screening"/>
+    <definition value="Antibody screening procedure"/>
+  </concept>
+  <concept>
+    <code value="antibody-identification"/>
+    <display value="Antibody Identification"/>
+    <definition value="Antibody identification procedure"/>
+  </concept>
+  <concept>
+    <code value="crossmatch"/>
+    <display value="Crossmatch"/>
+    <definition value="Serological or electronic crossmatch procedure"/>
+  </concept>
+  <concept>
+    <code value="release"/>
+    <display value="Release"/>
+    <definition value="Approval for release for clinical application"/>
+  </concept>
+  <concept>
+    <code value="transport"/>
+    <display value="Transport"/>
+    <definition value="Transfer of product from the supply department to the site of clinical use"/>
+  </concept>
+  <concept>
+    <code value="receipt"/>
+    <display value="Receipt"/>
+    <definition value="Receipt of product for clinical application"/>
+  </concept>
+</CodeSystem>

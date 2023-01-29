@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="biologicalproductdispense-match-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This code system <code>http://hl7.org/fhir/biologicalproductdispense-match-status</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">crossmatched<a name="biologicalproductdispense-match-status-crossmatched"> </a></td><td>Crossmatched</td><td>The product has been serologically or electronically crossmatched for the recipient</td></tr><tr><td style="white-space:nowrap">selected<a name="biologicalproductdispense-match-status-selected"> </a></td><td>Selected</td><td>The product has been selected for the specific use of the recipient</td></tr><tr><td style="white-space:nowrap">unmatched<a name="biologicalproductdispense-match-status-unmatched"> </a></td><td>Unmatched</td><td>No specific matching has been carried out</td></tr><tr><td style="white-space:nowrap">least-incompatible<a name="biologicalproductdispense-match-status-least-incompatible"> </a></td><td>least incompatible</td><td>The product has been selected through crossmatching as least incompatible</td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/biologicalproductdispense-match-status"/>
+  <version value="0.1.0"/>
+  <name value="BiologicallyDerivedProductDispenseMatchStatus"/>
+  <title value="Biologically derived product dispense - match status"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-01-29T21:19:50+01:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Biologically derived product dispense - match status"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-match-status"/>
+  <content value="complete"/>
+  <count value="4"/>
+  <concept>
+    <code value="crossmatched"/>
+    <display value="Crossmatched"/>
+    <definition value="The product has been serologically or electronically crossmatched for the recipient"/>
+  </concept>
+  <concept>
+    <code value="selected"/>
+    <display value="Selected"/>
+    <definition value="The product has been selected for the specific use of the recipient"/>
+  </concept>
+  <concept>
+    <code value="unmatched"/>
+    <display value="Unmatched"/>
+    <definition value="No specific matching has been carried out"/>
+  </concept>
+  <concept>
+    <code value="least-incompatible"/>
+    <display value="least incompatible"/>
+    <definition value="The product has been selected through crossmatching as least incompatible"/>
+  </concept>
+</CodeSystem>
