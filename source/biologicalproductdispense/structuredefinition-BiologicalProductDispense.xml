@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+  <id value="BiologicalProductDispense"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/BiologicalProductDispense"/>
+  <version value="4.5.0"/>
+  <name value="BiologicalProductDispense"/>
+  <title value="BiologicalProductDispense"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A record of dispensation of a biologically derived product."/>
+  <fhirVersion value="4.5.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="BiologicalProductDispense"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="BiologicalProductDispense">
+      <path value="BiologicalProductDispense"/>
+      <short value="A record of dispensation of a biologically derived product"/>
+      <definition value="A record of dispensation of a biologically derived product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.device"/>
+      </mapping>
+    </element>
+    <element id="BiologicalProductDispense.identifier">
+      <path value="BiologicalProductDispense.identifier"/>
+      <short value="Business identifier for this dispense"/>
+      <definition value="Business identifier for this dispense."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.basedOn">
+      <path value="BiologicalProductDispense.basedOn"/>
+      <short value="The order or request that this dispense is fulfilling"/>
+      <definition value="The order or request that this dispense is fulfilling."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.partOf">
+      <path value="BiologicalProductDispense.partOf"/>
+      <short value="Short description"/>
+      <definition value="Long description."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicalProductDispense"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.status">
+      <path value="BiologicalProductDispense.status"/>
+      <short value="preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"/>
+      <definition value="BiologicalProductDispenseStatusCodes (Required)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="BiologicalProductDispenseStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the state of the dispense event."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the lifecycle of the dispense."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-status"/>
+      </binding>
+
+
+    </element>
+    <!-- <element id="BiologicalProductDispense.originRelationshipType">
+      <path value="BiologicalProductDispense.originRelationshipType"/>
+      <short value="Relationship between the donor and intended recipient"/>
+      <definition value="Relationship between the donor and intended recipient."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element> -->
+    <element id="BiologicalProductDispense.product">
+      <path value="BiologicalProductDispense.product"/>
+      <short value="The BiologicallyDerivedProduct that is dispensed"/>
+      <definition value="The BiologicallyDerivedProduct that is dispensed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.subject">
+      <path value="BiologicalProductDispense.subject"/>
+      <short value="The intended recipient of the dispensed product"/>
+      <definition value="The intended recipient of the dispensed product."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.matchStatus">
+      <path value="BiologicalProductDispense.matchStatus"/>
+      <short value="Indicates the type of matching associated with the dispense"/>
+      <definition value="Indicates the type of matching associated with the dispense."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.performer">
+      <path value="BiologicalProductDispense.performer"/>
+      <short value="Indicates who or what performed an action"/>
+      <definition value="Indicates who or what performed an action."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.performer.function">
+      <path value="BiologicalProductDispense.performer.function"/>
+      <short value="Identifies the function of the performer during the dispense"/>
+      <definition value="Identifies the function of the performer during the dispense."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.performer.actor">
+      <path value="BiologicalProductDispense.performer.actor"/>
+      <short value="Who performed the action"/>
+      <definition value="Who performed the action."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.location">
+      <path value="BiologicalProductDispense.location"/>
+      <short value="Where the dispense occurred"/>
+      <definition value="Where the dispense occurred."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.quantity">
+      <path value="BiologicalProductDispense.quantity"/>
+      <short value="Amount dispensed"/>
+      <definition value="Amount dispensed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.preparedDate">
+      <path value="BiologicalProductDispense.preparedDate"/>
+      <short value="When product was selected/matched"/>
+      <definition value="When product was selected/matched."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.whenHandedOver">
+      <path value="BiologicalProductDispense.whenHandedOver"/>
+      <short value="When the product was dispatched"/>
+      <definition value="When the product was dispatched."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.destination">
+      <path value="BiologicalProductDispense.destination"/>
+      <short value="Where the product was dispatched to"/>
+      <definition value="Where the product was dispatched to."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.note">
+      <path value="BiologicalProductDispense.note"/>
+      <short value="Additional notes"/>
+      <definition value="Additional notes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+    </element>
+    <element id="BiologicalProductDispense.usageInstruction">
+      <path value="BiologicalProductDispense.usageInstruction"/>
+      <short value="Specific instructions for use"/>
+      <definition value="Specific instructions for use."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

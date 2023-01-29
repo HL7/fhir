@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="biologicalproductdispense-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/biologicalproductdispense-status"/>
+  <version value="4.5.0"/>
+  <name value="BiologicalProductDispenseCodes"/>
+  <title value="BiologicalProductDispense Status Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="BiologicalProductDispense Status Codes"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/biologicalproductdispense-status"/>
+    </include>
+  </compose>
+</ValueSet>
