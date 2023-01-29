@@ -5443,10 +5443,6 @@
         <ns4:element name="systemType" elementType="FHIR.string"/>
         <ns4:element name="version" elementType="FHIR.string"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DocumentManifest.Related" retrievable="false" baseType="FHIR.BackboneElement">
-        <ns4:element name="identifier" elementType="FHIR.Identifier"/>
-        <ns4:element name="ref" elementType="FHIR.Reference"/>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="Composition.Event" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="code">
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
@@ -9279,30 +9275,6 @@
             <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.CodeableConcept"/>
         </ns4:element>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="DocumentManifest" retrievable="true" baseType="FHIR.DomainResource">
-        <ns4:element name="masterIdentifier" elementType="FHIR.Identifier"/>
-        <ns4:element name="identifier">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Identifier"/>
-        </ns4:element>
-        <ns4:element name="status" elementType="FHIR.DocumentReferenceStatus"/>
-        <ns4:element name="type" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="subject" elementType="FHIR.Reference"/>
-        <ns4:element name="created" elementType="FHIR.dateTime"/>
-        <ns4:element name="author">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="recipient">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="source" elementType="FHIR.uri"/>
-        <ns4:element name="description" elementType="FHIR.string"/>
-        <ns4:element name="content">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.Reference"/>
-        </ns4:element>
-        <ns4:element name="related">
-            <ns4:elementTypeSpecifier xsi:type="ns4:ListTypeSpecifier" elementType="FHIR.DocumentManifest.Related"/>
-        </ns4:element>
-    </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="CapabilityStatement.Operation" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="name" elementType="FHIR.string"/>
         <ns4:element name="definition" elementType="FHIR.canonical"/>
@@ -9599,7 +9571,6 @@
         <ns4:element name="DeviceRequest" elementType="FHIR.DeviceRequest"/>
         <ns4:element name="DeviceUsage" elementType="FHIR.DeviceUsage"/>
         <ns4:element name="DiagnosticReport" elementType="FHIR.DiagnosticReport"/>
-        <ns4:element name="DocumentManifest" elementType="FHIR.DocumentManifest"/>
         <ns4:element name="DocumentReference" elementType="FHIR.DocumentReference"/>
         <ns4:element name="EffectEvidenceSynthesis" elementType="FHIR.EffectEvidenceSynthesis"/>
         <ns4:element name="Encounter" elementType="FHIR.Encounter"/>

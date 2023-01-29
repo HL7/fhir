@@ -372,6 +372,21 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
+    <element id="BodyStructure.includedStructure.spatialReference">
+      <path value="BodyStructure.includedStructure.spatialReference"/>
+      <short value="Cartesian reference for structure"/>
+      <definition value="XY or XYZ-coordinate orientation for structure."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingSelection"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+    </element>
     <element id="BodyStructure.includedStructure.qualifier">
       <path value="BodyStructure.includedStructure.qualifier"/>
       <short value="Code that represents the included structure qualifier"/>

@@ -4316,7 +4316,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s129"><Data ss:Type="String">basedOn</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Condition; ChargeItem; ClinicalImpression; Composition; Consent; Coverage; DetectedIssue; DocumentManifest; EpisodeOfCare; ExplanationOfBenefit; FamilyMemberHistory; ImmunizationEvaluation; InventoryReport; MedicationUsage; PaymentNotice; PaymentReconciliation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Condition; ChargeItem; ClinicalImpression; Composition; Consent; Coverage; DetectedIssue; EpisodeOfCare; ExplanationOfBenefit; FamilyMemberHistory; ImmunizationEvaluation; InventoryReport; MedicationUsage; PaymentNotice; PaymentReconciliation</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Based On</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">fulfills</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>

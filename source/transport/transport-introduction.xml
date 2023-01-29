@@ -31,7 +31,9 @@ Sample use cases involving patients include
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Transport resource can be requested by a ServiceRequest or by a Task, as shown in the diagram below. Also, this resource is only for the documentation of the physical movement of material items (people, animals, things). To operationalize the movement of people and things, Task should be used. Provenance can be used to document the steps but that is for the resource aspect, not the actual movement history of the item. 
+The Transport resource can be requested by a ServiceRequest or by a Task, as shown in the diagram below. Also, this resource is only for the documentation of the physical movement of material items (people, animals, things). To operationalize the movement of people and things, Task should be used. Provenance can be used to document the steps but that is for the resource aspect, not the actual movement history of the item.
+
+During the movement of a patient, the business status (change in the level of care/patient class) might change. To allow for the capture of the current business status of the patient, the reason element should be used. 
 </p>
 <img src="transport-resource-event.png" alt="Diagram showing Transport resource event flow"/>
 

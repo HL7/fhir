@@ -1,1 +1,2 @@
-﻿Errors executing build. Details logged.
+﻿Resource Examples failed instance validation
+﻿unable to find resource 'DocumentManifest'

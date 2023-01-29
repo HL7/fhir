@@ -137,7 +137,6 @@ signatures.html
       <page type="resource" resource="List"/>
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
-      <page type="resource" resource="DocumentManifest"/>
 <!--      <page type="resource" resource="ItemInstance"/> -->
 
       <page type="resource" resource="OperationOutcome"/>
