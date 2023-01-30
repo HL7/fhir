@@ -1457,7 +1457,7 @@
     <Cell ss:StyleID="s105"><Data ss:Type="String">A particular element of interest in the target resource (by limited FHIRPath)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">Indicates that the reference has a  particular focus in the target resource, a particular element of interest, identified by a FHIRPath statement. The FHIRPath expression is limited to a the [simple subset](fhirpath.html#simple) with the additional limitation that .resolve() that is not allowed</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">In many places where resources are referenced, there is a need to indicate which particular part of the resource is relevant for the reference</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">This extension can be used when the target element has no explicit id associated with it. When there is an id on the telement of interest, the extension http://hl7.org/fhir/StructureDefinition/targetPath can be used since it is much simpler to implement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">This extension can be used when the target element has no explicit id associated with it. When there is an id on the telement of interest, the extension http://hl7.org/fhir/StructureDefinition/targetElement can be used since it is much simpler to implement</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
