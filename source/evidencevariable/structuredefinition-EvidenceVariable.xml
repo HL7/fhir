@@ -161,6 +161,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="EvidenceVariable.versionAlgorithm[x]">
+      <path value="EvidenceVariable.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 is newer, and a 0 if the version ordering can't successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
     <element id="EvidenceVariable.name">
       <path value="EvidenceVariable.name"/>
       <short value="Name for this evidence variable (computer friendly)"/>
@@ -330,6 +349,25 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="EvidenceVariable.purpose">
+      <path value="EvidenceVariable.purpose"/>
+      <short value="Why this EvidenceVariable is defined"/>
+      <definition value="Explanation of why this EvidenceVariable is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the EvidenceVariable. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is. This may be used to point to source materials or specifications that drove the structure of this EvidenceVariable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+    </element>
     <element id="EvidenceVariable.copyright">
       <path value="EvidenceVariable.copyright"/>
       <short value="Use and/or publishing restrictions"/>
@@ -338,6 +376,21 @@
       <max value="1"/>
       <type>
         <code value="markdown"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="EvidenceVariable.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
       </type>
     </element>
     <element id="EvidenceVariable.approvalDate">
@@ -461,8 +514,8 @@
       <constraint>
         <key value="evv-1"/>
         <severity value="error"/>
-        <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
-        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
+        <human value="In a characteristic, at most one of these six elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionId or definitionByTypeAndValue or definitionByCombination"/>
+        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <isSummary value="true"/>
@@ -562,7 +615,12 @@
       <type>
         <code value="Expression"/>
       </type>
-      <condition value="evv-1"/>
+      <constraint>
+        <key value="evv-2"/>
+        <severity value="warning"/>
+        <human value="When another element provides a definition of the characteristic, the definitionExpression content SHALL match the definition (only adding technical concepts necessary for implementation) without changing the meaning."/>
+        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionId">
