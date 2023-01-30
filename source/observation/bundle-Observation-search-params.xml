@@ -765,4 +765,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.value[x]"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-reference"/>
+        <description value="Value reference"/>
+        <code value="value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.value.ofType(reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

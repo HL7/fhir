@@ -719,6 +719,14 @@
       <type>
         <code value="Attachment"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
       <condition value="obs-7"/>
       <isSummary value="true"/>
       <mapping>
@@ -1371,6 +1379,12 @@
       </type>
       <type>
         <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+      <type>
+        <code value="canonical"/>
       </type>
       <isSummary value="true"/>
       <mapping>
