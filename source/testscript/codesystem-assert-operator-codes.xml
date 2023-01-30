@@ -105,4 +105,9 @@
     <display value="evaluate"/>
     <definition value="Evaluate the FHIRPath expression as a boolean condition."/>
   </concept>
+  <concept>
+    <code value="manualEval"/>
+    <display value="manualEvaluate"/>
+    <definition value="Manually evaluate the condition described by this assert. The test engine SHALL pause and provide an input mechanism to set the outcome of this assert to 'pass', 'fail', 'skip' or 'stop'."/>
+  </concept>
 </CodeSystem>

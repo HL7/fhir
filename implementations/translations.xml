@@ -337,12 +337,6 @@
 		<translation lang="es">InformeDiagnostico</translation>
 		<translation lang="it">RefertoDiagnostico</translation>
 	</item>
-	<item id="DocumentManifest">
-		<translation lang="en">DocumentManifest</translation>
-		<translation lang="zh">文档清单</translation>
-		<translation lang="fr">Manifeste</translation>
-		<translation lang="es">ManifestoDocumento</translation>
-	</item>
 	<item id="DocumentReference">
 		<translation lang="en">DocumentReference</translation>
 		<translation lang="es">ReferenciaDocumento</translation>

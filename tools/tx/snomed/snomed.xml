@@ -98,6 +98,12 @@
     <display value="Araucana chicken (organism)"/>
     <display value="Araucana chicken"/>
   </concept>
+  <concept id="10770001" display="Distal phalanx of little toe">
+    <display value="Distal phalanx of little toe"/>
+    <display value="Distal phalanx of fifth toe"/>
+    <display value="Structure of distal phalanx of little toe"/>
+    <display value="Structure of distal phalanx of little toe (body structure)"/>
+  </concept>
   <concept id="108252007" display="Laboratory procedure">
     <display value="Laboratory procedure"/>
     <display value="Laboratory procedure (procedure)"/>
@@ -177,6 +183,13 @@
     <display value="Lactic acid dehydrogenase measurement"/>
     <display value="Lactate dehydrogenase measurement (procedure)"/>
     <display value="Lactate dehydrogenase level"/>
+  </concept>
+  <concept id="113225006" display="Lateral malleolus of fibula">
+    <display value="Lateral malleolus of fibula"/>
+    <display value="Structure of lateral malleolus of fibula"/>
+    <display value="Lateral malleolus"/>
+    <display value="Structure of lateral malleolus of fibula (body structure)"/>
+    <display value="LM - Lateral malleolus"/>
   </concept>
   <concept id="11403006" display="Economic deprivation">
     <display value="Economic deprivation"/>
@@ -456,6 +469,16 @@
     <display value="Drainage procedure"/>
     <display value="Drainage procedure (procedure)"/>
     <display value="Evacuation of liquid contents by gravity"/>
+  </concept>
+  <concept id="122474001" display="Medial condyle of femur">
+    <display value="Medial condyle of femur"/>
+    <display value="Structure of medial condyle of femur"/>
+    <display value="Structure of medial condyle of femur (body structure)"/>
+  </concept>
+  <concept id="122475000" display="Lateral condyle of femur">
+    <display value="Lateral condyle of femur"/>
+    <display value="Structure of lateral condyle of femur"/>
+    <display value="Structure of lateral condyle of femur (body structure)"/>
   </concept>
   <concept id="122555007" display="Venous blood specimen">
     <display value="Venous blood specimen"/>
@@ -10817,6 +10840,11 @@
     <display value="Hepatitis A vaccine"/>
     <display value="Hep A - Hepatitis A vaccine"/>
   </concept>
+  <concept id="14747002" display="Elective immunization for international travel">
+    <display value="Elective immunization for international travel"/>
+    <display value="Elective immunisation for international travel"/>
+    <display value="Elective immunization for international travel (procedure)"/>
+  </concept>
   <concept id="14766002" display="Removal by suction">
     <display value="Removal by suction"/>
     <display value="Aspiration procedure"/>
@@ -10857,6 +10885,11 @@
   <concept id="15220000" display="Laboratory test">
     <display value="Laboratory test"/>
     <display value="Laboratory test (procedure)"/>
+  </concept>
+  <concept id="15368009" display="Base of fourth metatarsal bone">
+    <display value="Base of fourth metatarsal bone"/>
+    <display value="Structure of base of fourth metatarsal bone"/>
+    <display value="Structure of base of fourth metatarsal bone (body structure)"/>
   </concept>
   <concept id="15443006" display="Yuca pig">
     <display value="Yuca pig"/>
@@ -11194,6 +11227,13 @@
     <display value="Effeminacy in boy"/>
     <display value="Behavioral characteristics of a boy which are considered typical of the gender role of a female."/>
   </concept>
+  <concept id="19193007" display="Intermediate cuneiform bone">
+    <display value="Intermediate cuneiform bone"/>
+    <display value="Second tarsal bone"/>
+    <display value="Second cuneiform bone"/>
+    <display value="Bone structure of intermediate cuneiform"/>
+    <display value="Bone structure of intermediate cuneiform (body structure)"/>
+  </concept>
   <concept id="19265001" display="Tularemia">
     <display value="Tularemia"/>
     <display value="Infection by Francisella tularensis"/>
@@ -11357,6 +11397,11 @@
   <concept id="224565004" display="Renal nurse">
     <display value="Renal nurse"/>
     <display value="Renal nurse (occupation)"/>
+  </concept>
+  <concept id="22457002" display="Head of fibula">
+    <display value="Head of fibula"/>
+    <display value="Head of fibula structure"/>
+    <display value="Head of fibula structure (body structure)"/>
   </concept>
   <concept id="224687002" display="Prison hospital">
     <display value="Prison hospital"/>
@@ -11783,10 +11828,21 @@
     <display value="Basal cell carcinoma of skin (disorder)"/>
     <display value="Cancer of skin, basal cell"/>
   </concept>
+  <concept id="255549009" display="Front of">
+    <display value="Front of"/>
+    <display value="Ventral"/>
+    <display value="Anterior"/>
+    <display value="Anterior (qualifier value)"/>
+  </concept>
   <concept id="255551008" display="Posterior">
     <display value="Posterior"/>
     <display value="Posterior (qualifier value)"/>
     <display value="Back of"/>
+  </concept>
+  <concept id="255554000" display="Dorsal">
+    <display value="Dorsal"/>
+    <display value="Dx - Dorsal"/>
+    <display value="Dorsal (qualifier value)"/>
   </concept>
   <concept id="255559005" display="IM - Intramuscular">
     <display value="IM - Intramuscular"/>
@@ -12027,6 +12083,54 @@
     <display value="Renal pelvis structure"/>
     <display value="Renal pelvis structure (body structure)"/>
   </concept>
+  <concept id="260318004" display="1 o'clock position">
+    <display value="1 o'clock position"/>
+    <display value="1 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260322009" display="10 o'clock position">
+    <display value="10 o'clock position"/>
+    <display value="10 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260324005" display="11 o'clock position">
+    <display value="11 o'clock position"/>
+    <display value="11 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260326007" display="12 o'clock position">
+    <display value="12 o'clock position"/>
+    <display value="12 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260328008" display="2 o'clock position">
+    <display value="2 o'clock position"/>
+    <display value="2 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260330005" display="3 o'clock position">
+    <display value="3 o'clock position"/>
+    <display value="3 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260333007" display="4 o'clock position">
+    <display value="4 o'clock position"/>
+    <display value="4 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260335000" display="5 o'clock position">
+    <display value="5 o'clock position"/>
+    <display value="5 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260337008" display="6 o'clock position">
+    <display value="6 o'clock position"/>
+    <display value="6 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260339006" display="7 o'clock position">
+    <display value="7 o'clock position"/>
+    <display value="7 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260341007" display="8 o'clock position">
+    <display value="8 o'clock position"/>
+    <display value="8 o'clock position (qualifier value)"/>
+  </concept>
+  <concept id="260343005" display="9 o'clock position">
+    <display value="9 o'clock position"/>
+    <display value="9 o'clock position (qualifier value)"/>
+  </concept>
   <concept id="260385009" display="Negative">
     <display value="Negative"/>
     <display value="Negative for"/>
@@ -12114,6 +12218,10 @@
   <concept id="263929005" display="Volar">
     <display value="Volar"/>
     <display value="Volar (qualifier value)"/>
+  </concept>
+  <concept id="264147007" display="Plantar">
+    <display value="Plantar"/>
+    <display value="Plantar (qualifier value)"/>
   </concept>
   <concept id="264217000" display="Superior">
     <display value="Superior"/>
@@ -12442,6 +12550,18 @@
     <display value="Syndrome of carbohydrate intolerance"/>
     <display value="Syndrome of carbohydrate intolerance (disorder)"/>
   </concept>
+  <concept id="2979003" display="Medial cuneiform bone">
+    <display value="Medial cuneiform bone"/>
+    <display value="First tarsal bone"/>
+    <display value="First cuneiform bone"/>
+    <display value="Bone structure of medial cuneiform"/>
+    <display value="Bone structure of medial cuneiform (body structure)"/>
+  </concept>
+  <concept id="29850006" display="Iliac crest">
+    <display value="Iliac crest"/>
+    <display value="Iliac crest structure"/>
+    <display value="Iliac crest structure (body structure)"/>
+  </concept>
   <concept id="29881002" display="Connor prairie pig">
     <display value="Connor prairie pig"/>
     <display value="Connor prairie pig (organism)"/>
@@ -12629,6 +12749,11 @@
     <display value="Lung mass"/>
     <display value="Lung mass (finding)"/>
   </concept>
+  <concept id="30980004" display="Base of fifth metatarsal bone">
+    <display value="Base of fifth metatarsal bone"/>
+    <display value="Structure of base of fifth metatarsal bone"/>
+    <display value="Structure of base of fifth metatarsal bone (body structure)"/>
+  </concept>
   <concept id="309898008" display="Psychogeriatric day hospital">
     <display value="Psychogeriatric day hospital"/>
     <display value="Psychogeriatric day hospital (environment)"/>
@@ -12686,6 +12811,11 @@
   <concept id="312824007" display="Family history of cancer of colon">
     <display value="Family history of cancer of colon"/>
     <display value="Family history of cancer of colon (situation)"/>
+  </concept>
+  <concept id="3134008" display="Head of fourth metatarsal bone">
+    <display value="Head of fourth metatarsal bone"/>
+    <display value="Structure of head of fourth metatarsal bone"/>
+    <display value="Structure of head of fourth metatarsal bone (body structure)"/>
   </concept>
   <concept id="314079002" display="Hyperlipidaemia screening test">
     <display value="Hyperlipidaemia screening test"/>
@@ -13088,6 +13218,11 @@
     <display value="Malignant tumor of lung (disorder)"/>
     <display value="CA - Lung cancer"/>
   </concept>
+  <concept id="363670009" display="Interphalangeal joint structure of great toe">
+    <display value="Interphalangeal joint structure of great toe"/>
+    <display value="Interphalangeal joint structure of big toe"/>
+    <display value="Interphalangeal joint structure of great toe (body structure)"/>
+  </concept>
   <concept id="363679005" display="Imaging">
     <display value="Imaging (procedure)"/>
     <display value="Imaging"/>
@@ -13181,6 +13316,46 @@
   <concept id="371041009" display="Embolic stroke">
     <display value="Embolic stroke (disorder)"/>
     <display value="Embolic stroke"/>
+  </concept>
+  <concept id="371203008" display="Distal interphalangeal joint structure of fifth toe">
+    <display value="Distal interphalangeal joint structure of fifth toe (body structure)"/>
+    <display value="Distal interphalangeal joint structure of fifth toe"/>
+    <display value="Distal interphalangeal joint of fifth toe"/>
+  </concept>
+  <concept id="371205001" display="Distal interphalangeal joint structure of fourth toe">
+    <display value="Distal interphalangeal joint structure of fourth toe (body structure)"/>
+    <display value="Distal interphalangeal joint structure of fourth toe"/>
+    <display value="Distal interphalangeal joint of fourth toe"/>
+  </concept>
+  <concept id="371216008" display="Distal interphalangeal joint structure of second toe">
+    <display value="Distal interphalangeal joint structure of second toe (body structure)"/>
+    <display value="Distal interphalangeal joint structure of second toe"/>
+    <display value="Distal interphalangeal joint of second toe"/>
+  </concept>
+  <concept id="371219001" display="Distal interphalangeal joint structure of third toe">
+    <display value="Distal interphalangeal joint structure of third toe (body structure)"/>
+    <display value="Distal interphalangeal joint structure of third toe"/>
+    <display value="Distal interphalangeal joint of third toe"/>
+  </concept>
+  <concept id="371255009" display="Proximal interphalangeal joint structure of third toe">
+    <display value="Proximal interphalangeal joint structure of third toe (body structure)"/>
+    <display value="Proximal interphalangeal joint structure of third toe"/>
+    <display value="Proximal interphalangeal joint of third toe"/>
+  </concept>
+  <concept id="371284000" display="Proximal interphalangeal joint structure of fifth toe">
+    <display value="Proximal interphalangeal joint structure of fifth toe (body structure)"/>
+    <display value="Proximal interphalangeal joint structure of fifth toe"/>
+    <display value="Proximal interphalangeal joint of fifth toe"/>
+  </concept>
+  <concept id="371288002" display="Proximal interphalangeal joint structure of fourth toe">
+    <display value="Proximal interphalangeal joint structure of fourth toe (body structure)"/>
+    <display value="Proximal interphalangeal joint structure of fourth toe"/>
+    <display value="Proximal interphalangeal joint of fourth toe"/>
+  </concept>
+  <concept id="371292009" display="Proximal interphalangeal joint structure of second toe">
+    <display value="Proximal interphalangeal joint structure of second toe (body structure)"/>
+    <display value="Proximal interphalangeal joint structure of second toe"/>
+    <display value="Proximal interphalangeal joint of second toe"/>
   </concept>
   <concept id="371900001" display="Medication not administered">
     <display value="Medication not administered"/>
@@ -13339,6 +13514,11 @@
     <display value="Assessment"/>
     <display value="Clinical evaluation"/>
     <display value="Determination of a value, conclusion, or inference by evaluating evidence"/>
+  </concept>
+  <concept id="38607000" display="Styloid process of fifth metatarsal bone">
+    <display value="Styloid process of fifth metatarsal bone"/>
+    <display value="Structure of styloid process of fifth metatarsal bone"/>
+    <display value="Structure of styloid process of fifth metatarsal bone (body structure)"/>
   </concept>
   <concept id="386089008" display="Collection of coughed sputum">
     <display value="Collection of coughed sputum (procedure)"/>
@@ -15028,6 +15208,11 @@
     <display value="Type II diabetes mellitus"/>
     <display value="Diabetes mellitus type 2 (disorder)"/>
   </concept>
+  <concept id="44056008" display="Caliper">
+    <display value="Caliper"/>
+    <display value="Caliper, device (physical object)"/>
+    <display value="Caliper, device"/>
+  </concept>
   <concept id="440655000" display="Outpatient environment">
     <display value="Outpatient environment (environment)"/>
     <display value="Outpatient environment"/>
@@ -15415,6 +15600,12 @@
     <display value="American Albino horse"/>
     <display value="American Albino horse (organism)"/>
   </concept>
+  <concept id="45879002" display="Tibial tuberosity">
+    <display value="Tibial tuberosity"/>
+    <display value="Structure of tibial tuberosity"/>
+    <display value="Structure of tibial tuberosity (body structure)"/>
+    <display value="Tibial tubercle"/>
+  </concept>
   <concept id="45896001" display="Aspartate aminotransferase measurement">
     <display value="Aspartate aminotransferase measurement"/>
     <display value="AST measurement"/>
@@ -15426,6 +15617,11 @@
   <concept id="45899008" display="Free-standing laboratory facility">
     <display value="Free-standing laboratory facility"/>
     <display value="Free-standing laboratory facility (environment)"/>
+  </concept>
+  <concept id="46053002" display="Distal">
+    <display value="Distal"/>
+    <display value="Far from"/>
+    <display value="Distal (qualifier value)"/>
   </concept>
   <concept id="46224007" display="Vaccination clinic">
     <display value="Vaccination clinic"/>
@@ -15455,6 +15651,11 @@
     <display value="Chiropractic manipulation"/>
     <display value="Chiropractic manipulation (procedure)"/>
     <display value="A manipulation done by a chiropractor"/>
+  </concept>
+  <concept id="46971007" display="Head of third metatarsal bone">
+    <display value="Head of third metatarsal bone"/>
+    <display value="Structure of head of third metatarsal bone"/>
+    <display value="Structure of head of third metatarsal bone (body structure)"/>
   </concept>
   <concept id="47002008" display="Pustule">
     <display value="Pustule"/>
@@ -15660,6 +15861,11 @@
     <display value="Montdale sheep"/>
     <display value="Montdale sheep (organism)"/>
   </concept>
+  <concept id="51791000" display="Measuring tape">
+    <display value="Measuring tape"/>
+    <display value="Measuring tape, device (physical object)"/>
+    <display value="Measuring tape, device"/>
+  </concept>
   <concept id="51937006" display="Jersey cattle">
     <display value="Jersey cattle breed (organism)"/>
     <display value="Jersey cattle"/>
@@ -15691,6 +15897,12 @@
     <display value="Dexter cattle breed (organism)"/>
     <display value="Dexter cattle"/>
     <display value="Dexter cattle breed"/>
+  </concept>
+  <concept id="53075003" display="Distal phalanx of great toe">
+    <display value="Distal phalanx of great toe"/>
+    <display value="Distal phalanx of hallux"/>
+    <display value="Structure of distal phalanx of great toe"/>
+    <display value="Structure of distal phalanx of great toe (body structure)"/>
   </concept>
   <concept id="53360003" display="Oxford Down sheep">
     <display value="Oxford Down sheep"/>
@@ -15732,6 +15944,11 @@
   <concept id="54251000" display="Australorp chicken">
     <display value="Australorp chicken"/>
     <display value="Australorp chicken (organism)"/>
+  </concept>
+  <concept id="54333003" display="Distal phalanx of fourth toe">
+    <display value="Distal phalanx of fourth toe"/>
+    <display value="Structure of distal phalanx of fourth toe"/>
+    <display value="Structure of distal phalanx of fourth toe (body structure)"/>
   </concept>
   <concept id="5438004" display="French alpine goat">
     <display value="French alpine goat"/>
@@ -16075,6 +16292,12 @@
     <display value="Angora goat"/>
     <display value="Angora goat (organism)"/>
   </concept>
+  <concept id="6417001" display="Medial malleolus">
+    <display value="Medial malleolus"/>
+    <display value="Medial malleolus structure"/>
+    <display value="Medial malleolus structure (body structure)"/>
+    <display value="MM - Medial malleolus"/>
+  </concept>
   <concept id="64305001" display="Urticaria">
     <display value="Urticaria"/>
     <display value="Wheal"/>
@@ -16124,6 +16347,11 @@
     <display value="Distilled spirits (substance)"/>
     <display value="Spirits"/>
     <display value="Alcoholic spirits"/>
+  </concept>
+  <concept id="65258003" display="Distal phalanx of third toe">
+    <display value="Distal phalanx of third toe"/>
+    <display value="Structure of distal phalanx of third toe"/>
+    <display value="Structure of distal phalanx of third toe (body structure)"/>
   </concept>
   <concept id="65344003" display="Marchigiana cattle">
     <display value="Marchigiana cattle breed (organism)"/>
@@ -16186,6 +16414,11 @@
     <display value="Sebright chicken"/>
     <display value="Sebright chicken (organism)"/>
   </concept>
+  <concept id="67169006" display="Head of first metatarsal bone">
+    <display value="Head of first metatarsal bone"/>
+    <display value="Structure of head of first metatarsal bone"/>
+    <display value="Structure of head of first metatarsal bone (body structure)"/>
+  </concept>
   <concept id="67209003" display="Turken chicken">
     <display value="Turken chicken"/>
     <display value="Turken chicken (organism)"/>
@@ -16196,6 +16429,13 @@
     <display value="Moderate (severity modifier) (qualifier value)"/>
     <display value="Moderate (severity modifier)"/>
   </concept>
+  <concept id="67411009" display="Lateral cuneiform bone">
+    <display value="Lateral cuneiform bone"/>
+    <display value="Third tarsal bone"/>
+    <display value="Third cuneiform bone"/>
+    <display value="Bone structure of lateral cuneiform"/>
+    <display value="Bone structure of lateral cuneiform (body structure)"/>
+  </concept>
   <concept id="67414001" display="Cotswold sheep">
     <display value="Cotswold sheep"/>
     <display value="Cotswold sheep (organism)"/>
@@ -16204,6 +16444,12 @@
     <display value="German Fleck-Vieh cattle breed (organism)"/>
     <display value="German Fleck-Vieh cattle"/>
     <display value="German Fleck-Vieh cattle breed"/>
+  </concept>
+  <concept id="67453005" display="Talus">
+    <display value="Talus"/>
+    <display value="Tibial tarsal bone"/>
+    <display value="Bone structure of talus"/>
+    <display value="Bone structure of talus (body structure)"/>
   </concept>
   <concept id="67515002" display="Corriedale sheep">
     <display value="Corriedale sheep"/>
@@ -16267,6 +16513,11 @@
     <display value="Poples"/>
     <display value="Popliteal region structure"/>
     <display value="Popliteal region structure (body structure)"/>
+  </concept>
+  <concept id="69030007" display="Ischial tuberosity">
+    <display value="Ischial tuberosity"/>
+    <display value="Ischial tuberosity structure"/>
+    <display value="Ischial tuberosity structure (body structure)"/>
   </concept>
   <concept id="69067004" display="Shetland pony">
     <display value="Shetland pony"/>
@@ -16480,6 +16731,11 @@
     <display value="No known allergy"/>
     <display value="NKA - No known allergy"/>
   </concept>
+  <concept id="71822005" display="Head of fifth metatarsal bone">
+    <display value="Head of fifth metatarsal bone"/>
+    <display value="Structure of head of fifth metatarsal bone"/>
+    <display value="Structure of head of fifth metatarsal bone (body structure)"/>
+  </concept>
   <concept id="718705001" display="Functionally dependent">
     <display value="Functionally dependent (finding)"/>
     <display value="Functionally dependent"/>
@@ -16689,6 +16945,12 @@
     <display value="Pic pig"/>
     <display value="Pic pig (organism)"/>
   </concept>
+  <concept id="75772009" display="Navicular bone of foot">
+    <display value="Navicular bone of foot"/>
+    <display value="Navicular bone of hindfoot"/>
+    <display value="Bone structure of navicular"/>
+    <display value="Bone structure of navicular (body structure)"/>
+  </concept>
   <concept id="7598004" display="Wyandotte chicken">
     <display value="Wyandotte chicken"/>
     <display value="Wyandotte chicken (organism)"/>
@@ -16742,6 +17004,11 @@
   <concept id="76902006" display="Tetanus">
     <display value="Tetanus"/>
     <display value="Tetanus (disorder)"/>
+  </concept>
+  <concept id="76986006" display="Distal phalanx of second toe">
+    <display value="Distal phalanx of second toe"/>
+    <display value="Structure of distal phalanx of second toe"/>
+    <display value="Structure of distal phalanx of second toe (body structure)"/>
   </concept>
   <concept id="7700003" display="Nebraskan spotted turkey">
     <display value="Nebraskan spotted turkey"/>
@@ -16899,6 +17166,14 @@
     <display value="Landrace pig"/>
     <display value="Landrace pig (organism)"/>
   </concept>
+  <concept id="80144004" display="Calcaneus">
+    <display value="Calcaneus"/>
+    <display value="Os calcis"/>
+    <display value="Fibular tarsal bone"/>
+    <display value="Bone structure of calcaneum"/>
+    <display value="Bone structure of calcaneum (body structure)"/>
+    <display value="Calcaneum"/>
+  </concept>
   <concept id="80146002" display="Appendectomy">
     <display value="Appendectomy"/>
     <display value="Excision of appendix"/>
@@ -16957,6 +17232,12 @@
   <concept id="80993008" display="Sussex chicken">
     <display value="Sussex chicken"/>
     <display value="Sussex chicken (organism)"/>
+  </concept>
+  <concept id="81012005" display="Cuboid">
+    <display value="Cuboid"/>
+    <display value="Centroquartal tarsal bone"/>
+    <display value="Bone structure of cuboid"/>
+    <display value="Bone structure of cuboid (body structure)"/>
   </concept>
   <concept id="81234003" display="Walk-in clinic">
     <display value="Walk-in clinic"/>
@@ -17196,6 +17477,11 @@
     <display value="Oral temperature taking"/>
     <display value="Oral temperature taking (procedure)"/>
   </concept>
+  <concept id="89221001" display="Base of first metatarsal bone">
+    <display value="Base of first metatarsal bone"/>
+    <display value="Structure of base of first metatarsal bone"/>
+    <display value="Structure of base of first metatarsal bone (body structure)"/>
+  </concept>
   <concept id="89648005" display="Fjord horse">
     <display value="Fjord horse"/>
     <display value="Fjord horse (organism)"/>
@@ -17231,6 +17517,11 @@
   <concept id="89972002" display="Hospital-based outpatient oncology clinic">
     <display value="Hospital-based outpatient oncology clinic"/>
     <display value="Hospital-based outpatient oncology clinic (environment)"/>
+  </concept>
+  <concept id="89995006" display="Base of third metatarsal bone">
+    <display value="Base of third metatarsal bone"/>
+    <display value="Structure of base of third metatarsal bone"/>
+    <display value="Structure of base of third metatarsal bone (body structure)"/>
   </concept>
   <concept id="900000000000003001" display="Fully specified name">
     <display value="Fully specified name"/>
@@ -17268,6 +17559,11 @@
   <concept id="90885005" display="Gloucester old spot pig">
     <display value="Gloucester old spot pig"/>
     <display value="Gloucester old spot pig (organism)"/>
+  </concept>
+  <concept id="90894004" display="Base of second metatarsal bone">
+    <display value="Base of second metatarsal bone"/>
+    <display value="Structure of base of second metatarsal bone"/>
+    <display value="Structure of base of second metatarsal bone (body structure)"/>
   </concept>
   <concept id="91154008" display="Free-standing birthing center">
     <display value="Free-standing birthing center"/>
@@ -17339,5 +17635,10 @@
     <display value="Nursing procedure"/>
     <display value="Nursing procedure (procedure)"/>
     <display value="Nursing care treatments and procedures"/>
+  </concept>
+  <concept id="9677004" display="Head of second metatarsal bone">
+    <display value="Head of second metatarsal bone"/>
+    <display value="Structure of head of second metatarsal bone"/>
+    <display value="Structure of head of second metatarsal bone (body structure)"/>
   </concept>
 </snomed>

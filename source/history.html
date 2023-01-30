@@ -716,7 +716,7 @@ notes: do not list revision in the version
         <li>InstitutionalClaim, OralHealthClaim, PharmacyClaim, ProfessionalClaim, VisionClaim -&gt; collapsed into Claim</li>
         <li>Other - use Basic instead</li>
         <li>PendedRequest,Readjudicate, Reversal, StatusRequest, StatusResponse - use ProcessRequest/Response instead</li>
-        <li>SupportingDocumentation - use DocumentManifest instead</li>
+        <li>SupportingDocumentation - use DocumentReference instead</li>
 		<li>ProcessRequest, ProcessResponse - use Task instead</li>
       </ul>
 
@@ -750,7 +750,6 @@ notes: do not list revision in the version
         <li><a href="devicerequest.html">DeviceRequest</a>/<a href="deviceusage.html">DeviceUsage</a> - change to bodySite = code or Reference(BodySite)</li>
         <li>DiagnosticRequest- change to bodySite = code or Reference(BodySite)</li>
         <li><a href="diagnosticreport.html">DiagnosticReport</a> - add encounter</li>
-        <li><a href="documentmanifest.html">DocumentManifest</a> - add options for how content is referred to </li>
         <li><a href="documentreference.html">DocumentReference</a> - add format, remove policyManager, make content : Attachment, and remove several related attributes, remove service reference and add context.practiceSetting, sourcePatientInfo, and related</li>
         <li><a href="encounter.html">Encounter</a> - add incomingReferralRequest, allow reason to repeat, rename diet to dietPreference</li>
         <li><a href="episodeofcare.html">EpisodeOfCare</a> - rename currentStatus to status, allow referralRequest to repeat, </li>

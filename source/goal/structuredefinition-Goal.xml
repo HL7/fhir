@@ -491,7 +491,7 @@
     </element>
     <element id="Goal.addresses">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="GF#19335."/>
+        <valueString value="GF#19335, J#28213"/>
       </extension>
       <path value="Goal.addresses"/>
       <short value="Issues addressed by this goal"/>
@@ -508,6 +508,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <mapping>
         <identity value="w5"/>

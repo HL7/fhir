@@ -50,7 +50,7 @@
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
-    <uri value="https://en.wikipedia.org/wiki/Identification_of_medicinal_products"/>
+    <uri value="https://www.iso.org/obp/ui/#iso:std:iso:11615"/>
     <name value="IDMP Mapping"/>
   </mapping>
   <mapping>
@@ -237,6 +237,21 @@
         <map value="Ingredient.Allergenic Indicator"/>
       </mapping>
     </element>
+    <element id="Ingredient.description">
+      <path value="Ingredient.description"/>
+      <short value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying"/>
+      <definition value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>    
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="160,300"/>
@@ -490,7 +505,7 @@
     </element>
     <element id="Ingredient.substance.strength.referenceStrength">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="700,117"/>
+        <valueCode value="750,117"/>
       </extension>
       <path value="Ingredient.substance.strength.referenceStrength"/>
       <short value="Strength expressed in terms of a reference substance"/>
@@ -510,7 +525,7 @@
       <path value="Ingredient.substance.strength.referenceStrength.substance"/>
       <short value="Relevant reference substance"/>
       <definition value="Relevant reference substance."/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>

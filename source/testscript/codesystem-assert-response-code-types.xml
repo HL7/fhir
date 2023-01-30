@@ -51,63 +51,223 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/assert-response-code-types"/>
   <content value="complete"/>
   <concept>
+    <code value="continue"/>
+    <display value="Continue"/>
+    <definition value="Response code is 100."/>
+  </concept>
+  <concept>
+    <code value="switchingProtocols"/>
+    <display value="Switching Protocols"/>
+    <definition value="Response code is 101."/>
+  </concept>
+  <concept>
     <code value="okay"/>
-    <display value="okay"/>
+    <display value="OK"/>
     <definition value="Response code is 200."/>
   </concept>
   <concept>
     <code value="created"/>
-    <display value="created"/>
+    <display value="Created"/>
     <definition value="Response code is 201."/>
   </concept>
   <concept>
+    <code value="accepted"/>
+    <display value="Accepted"/>
+    <definition value="Response code is 202."/>
+  </concept>
+  <concept>
+    <code value="nonAuthoritativeInformation"/>
+    <display value="Non-Authoritative Information"/>
+    <definition value="Response code is 203."/>
+  </concept>
+  <concept>
     <code value="noContent"/>
-    <display value="noContent"/>
+    <display value="No Content"/>
     <definition value="Response code is 204."/>
   </concept>
   <concept>
+    <code value="resetContent"/>
+    <display value="Reset Content"/>
+    <definition value="Response code is 205."/>
+  </concept>
+  <concept>
+    <code value="partialContent"/>
+    <display value="Partial Content"/>
+    <definition value="Response code is 206."/>
+  </concept>
+  <concept>
+    <code value="multipleChoices"/>
+    <display value="Multiple Choices"/>
+    <definition value="Response code is 300."/>
+  </concept>
+  <concept>
+    <code value="movedPermanently"/>
+    <display value="Moved Permanently"/>
+    <definition value="Response code is 301."/>
+  </concept>
+  <concept>
+    <code value="found"/>
+    <display value="Found"/>
+    <definition value="Response code is 302."/>
+  </concept>
+  <concept>
+    <code value="seeOther"/>
+    <display value="See Other"/>
+    <definition value="Response code is 303."/>
+  </concept>
+  <concept>
     <code value="notModified"/>
-    <display value="notModified"/>
+    <display value="Not Modified"/>
     <definition value="Response code is 304."/>
   </concept>
   <concept>
-    <code value="bad"/>
-    <display value="bad"/>
+    <code value="useProxy"/>
+    <display value="Use Proxy"/>
+    <definition value="Response code is 305."/>
+  </concept>
+  <concept>
+    <code value="temporaryRedirect"/>
+    <display value="Temporary Redirect"/>
+    <definition value="Response code is 307."/>
+  </concept>
+  <concept>
+    <code value="permanentRedirect"/>
+    <display value="Permanent Redirect"/>
+    <definition value="Response code is 308."/>
+  </concept>
+  <concept>
+    <code value="badRequest"/>
+    <display value="Bad Request"/>
     <definition value="Response code is 400."/>
   </concept>
   <concept>
+    <code value="unauthorized"/>
+    <display value="Unauthorized"/>
+    <definition value="Response code is 401."/>
+  </concept>
+  <concept>
+    <code value="paymentRequired"/>
+    <display value="Payment Required"/>
+    <definition value="Response code is 402."/>
+  </concept>
+  <concept>
     <code value="forbidden"/>
-    <display value="forbidden"/>
+    <display value="Forbidden"/>
     <definition value="Response code is 403."/>
   </concept>
   <concept>
     <code value="notFound"/>
-    <display value="notFound"/>
+    <display value="Not Found"/>
     <definition value="Response code is 404."/>
   </concept>
   <concept>
     <code value="methodNotAllowed"/>
-    <display value="methodNotAllowed"/>
+    <display value="Method Not Allowed"/>
     <definition value="Response code is 405."/>
   </concept>
   <concept>
+    <code value="notAcceptable"/>
+    <display value="Not Acceptable"/>
+    <definition value="Response code is 406."/>
+  </concept>
+  <concept>
+    <code value="proxyAuthenticationRequired"/>
+    <display value="Proxy Authentication Required"/>
+    <definition value="Response code is 407."/>
+  </concept>
+  <concept>
+    <code value="requestTimeout"/>
+    <display value="Request Timeout"/>
+    <definition value="Response code is 408."/>
+  </concept>
+  <concept>
     <code value="conflict"/>
-    <display value="conflict"/>
+    <display value="Conflict"/>
     <definition value="Response code is 409."/>
   </concept>
   <concept>
     <code value="gone"/>
-    <display value="gone"/>
+    <display value="Gone"/>
     <definition value="Response code is 410."/>
   </concept>
   <concept>
+    <code value="lengthRequired"/>
+    <display value="Length Required"/>
+    <definition value="Response code is 411."/>
+  </concept>
+  <concept>
     <code value="preconditionFailed"/>
-    <display value="preconditionFailed"/>
+    <display value="Precondition Failed"/>
     <definition value="Response code is 412."/>
   </concept>
   <concept>
-    <code value="unprocessable"/>
-    <display value="unprocessable"/>
+    <code value="contentTooLarge"/>
+    <display value="Content Too Large"/>
+    <definition value="Response code is 413."/>
+  </concept>
+  <concept>
+    <code value="uriTooLong"/>
+    <display value="URI Too Long"/>
+    <definition value="Response code is 414."/>
+  </concept>
+  <concept>
+    <code value="unsupportedMediaType"/>
+    <display value="Unsupported Media Type"/>
+    <definition value="Response code is 415."/>
+  </concept>
+  <concept>
+    <code value="rangeNotSatisfiable"/>
+    <display value="Range Not Satisfiable"/>
+    <definition value="Response code is 416."/>
+  </concept>
+  <concept>
+    <code value="expectationFailed"/>
+    <display value="Expectation Failed"/>
+    <definition value="Response code is 417."/>
+  </concept>
+  <concept>
+    <code value="misdirectedRequest"/>
+    <display value="Misdirected Request"/>
+    <definition value="Response code is 421."/>
+  </concept>
+  <concept>
+    <code value="unprocessableContent"/>
+    <display value="Unprocessable Content"/>
     <definition value="Response code is 422."/>
+  </concept>
+  <concept>
+    <code value="upgradeRequired"/>
+    <display value="Upgrade Required"/>
+    <definition value="Response code is 426."/>
+  </concept>
+  <concept>
+    <code value="internalServerError"/>
+    <display value="Internal Server Error"/>
+    <definition value="Response code is 500."/>
+  </concept>
+  <concept>
+    <code value="notImplemented"/>
+    <display value="Not Implemented"/>
+    <definition value="Response code is 501."/>
+  </concept>
+  <concept>
+    <code value="badGateway"/>
+    <display value="Bad Gateway"/>
+    <definition value="Response code is 502."/>
+  </concept>
+  <concept>
+    <code value="serviceUnavailable"/>
+    <display value="Service Unavailable"/>
+    <definition value="Response code is 503."/>
+  </concept>
+  <concept>
+    <code value="gatewayTimeout"/>
+    <display value="Gateway Timeout"/>
+    <definition value="Response code is 504."/>
+  </concept>
+  <concept>
+    <code value="httpVersionNotSupported"/>
+    <display value="HTTP Version Not Supported"/>
+    <definition value="Response code is 505."/>
   </concept>
 </CodeSystem>

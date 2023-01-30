@@ -86,7 +86,7 @@
         <code value="context"/>
         <base value="Questionnaire"/>
         <type value="token"/>
-        <expression value="(Questionnaire.useContext.value as CodeableConcept)"/>
+        <expression value="(Questionnaire.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -108,7 +108,7 @@
         <code value="context-quantity"/>
         <base value="Questionnaire"/>
         <type value="quantity"/>
-        <expression value="(Questionnaire.useContext.value as Quantity) | (Questionnaire.useContext.value as Range)"/>
+        <expression value="(Questionnaire.useContext.value.ofType(Quantity)) | (Questionnaire.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
