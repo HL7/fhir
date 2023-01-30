@@ -461,8 +461,8 @@
       <constraint>
         <key value="evv-1"/>
         <severity value="error"/>
-        <human value="In a characteristic, at most one of these seven elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionExpression or definitionId or definitionByTypeAndValue or definitionByCombination"/>
-        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionExpression.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
+        <human value="In a characteristic, at most one of these six elements shall be used: definitionReference or definitionCanonical or definitionCodeableConcept or definitionId or definitionByTypeAndValue or definitionByCombination"/>
+        <expression value="(definitionReference.count() + definitionCanonical.count() + definitionCodeableConcept.count() + definitionId.count() + definitionByTypeAndValue.count() + definitionByCombination.count())  &lt; 2"/>
         <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </constraint>
       <isSummary value="true"/>
@@ -562,7 +562,12 @@
       <type>
         <code value="Expression"/>
       </type>
-      <condition value="evv-1"/>
+      <constraint>
+        <key value="evv-2"/>
+        <severity value="warning"/>
+        <human value="When another element provides a definition of the characteristic, the definitionExpression content SHALL match the definition (only adding technical concepts necessary for implementation) without changing the meaning."/>
+        <source value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="EvidenceVariable.characteristic.definitionId">
