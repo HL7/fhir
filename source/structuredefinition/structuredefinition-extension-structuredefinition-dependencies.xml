@@ -49,7 +49,7 @@
       <path value="Extension"/>
       <short value="Dependent Profiles - must be valid against these too"/>
       <definition value="Instances can only be valid against this StructureDefinition, if they also successfully validate against the dependent profile identified in this extension."/>
-      <comment value="Ideally, a profile will restate the constraints of it's base profile and all it's dependent profiles, but this can get pretty complicated once slicing enters the picture. Tools SHOULD not assume that this profile includes all the constraints from the dependent profile."/>
+      <comment value="Ideally, a profile will restate the constraints of its base profile and all its dependent profiles, but this can get pretty complicated once slicing enters the picture. Tools SHOULD not assume that this profile includes all the constraints from the dependent profile."/>
       <min value="0"/>
       <max value="*"/>
     </element>
