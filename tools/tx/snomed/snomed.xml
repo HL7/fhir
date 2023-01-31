@@ -10840,6 +10840,11 @@
     <display value="Hepatitis A vaccine"/>
     <display value="Hep A - Hepatitis A vaccine"/>
   </concept>
+  <concept id="14747002" display="Elective immunization for international travel">
+    <display value="Elective immunization for international travel"/>
+    <display value="Elective immunisation for international travel"/>
+    <display value="Elective immunization for international travel (procedure)"/>
+  </concept>
   <concept id="14766002" display="Removal by suction">
     <display value="Removal by suction"/>
     <display value="Aspiration procedure"/>

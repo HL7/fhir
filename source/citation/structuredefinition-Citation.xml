@@ -155,6 +155,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="Citation.versionAlgorithm[x]">
+      <path value="Citation.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 is newer, and a 0 if the version ordering can't successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
     <element id="Citation.name">
       <path value="Citation.name"/>
       <short value="Name for this citation record (computer friendly)"/>
@@ -351,6 +370,21 @@
       <max value="1"/>
       <type>
         <code value="markdown"/>
+      </type>
+    </element>
+    <element id="Citation.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Citation.copyrightLabel"/>
+      <short value="Copyright holder and year(s) for the ciation record, not for the cited artifact"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
       </type>
     </element>
     <element id="Citation.approvalDate">
