@@ -216,13 +216,15 @@
 		</tr>
 		<tr>
 			<td>
-				The appointment is cancelled<br/>(Role: Scheduler)
+				The appointment is cancelled (typically the cancellationDate will be populated, along with a cancellation reason if applicable, this is often selected by the scheduler as could be used by the billing engine)<br/>(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = FREE</td>
 			<!-- Slot -->
 			<td>
 				status = cancelled<br/>
+				cancellationDate = (date of cancellation)<br/>
+				cancellationReason = (cancellation reason if applicable)<br/>
 				participant.status = declined
 			</td>
 			<!-- Appointment -->

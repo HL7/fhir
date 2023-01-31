@@ -126,6 +126,13 @@
         <expression value="originatingAppointment.exists().not() or recurrenceTemplate.exists().not()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </constraint>
+      <constraint>
+        <key value="app-7"/>
+        <severity value="error"/>
+        <human value="Cancellation date is only used for appointments that have been cancelled, or noshow"/>
+        <expression value="cancellationDate.exists() implies (status='noshow' or status='cancelled')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
@@ -729,6 +736,17 @@
         <identity value="ical"/>
         <map value="CREATED"/>
       </mapping>
+    </element>
+    <element id="Appointment.cancellationDate">
+      <path value="Appointment.cancellationDate"/>
+      <short value="When the appointment was cancelled"/>
+      <definition value="The date/time describing when the appointment was cancelled."/>
+      <comment value="If the appointment was cancelled multiple times, this would reflect the most recent cancellation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
     </element>
     <element id="Appointment.note">
       <path value="Appointment.note"/>
