@@ -109,7 +109,7 @@
     </element>
     <element id="BiologicallyDerivedProductDispense.status">
       <path value="BiologicallyDerivedProductDispense.status"/>
-      <short value="requested | in-progress | on-hold | completed | stopped | discarded | entered-in-error | unknown"/>
+      <short value="in-progress | on-hold | completed | stopped | cancelled | preparation | declined | entered-in-error | unknown"/>
       <definition value="BiologicallyDerivedProductDispenseStatusCodes (Required)."/>
       <min value="1"/>
       <max value="1"/>

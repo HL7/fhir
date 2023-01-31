@@ -791,7 +791,7 @@
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">BiologicalProductDispense</Data></Cell>
+    <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
    </Row>

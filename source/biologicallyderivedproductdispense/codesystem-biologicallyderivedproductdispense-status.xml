@@ -19,11 +19,6 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
   <content value="complete"/>
   <concept>
-    <code value="requested"/>
-    <display value="Requested"/>
-    <definition value="A request has been received, but activity has not yet commenced"/>
-  </concept>
-  <concept>
     <code value="in-progress"/>
     <display value="In Progress"/>
     <definition value="The requested product has been allocated and is ready for transport."/>
@@ -44,9 +39,19 @@
     <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
   </concept>
   <concept>
-    <code value="discarded"/>
-    <display value="Declined"/>
-    <definition value="The dispensed product was not clinically applied and was discarded."/>
+    <code value="cancelled"/>
+    <display value="cancelled"/>
+    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
+  </concept>
+  <concept>
+    <code value="preparation"/>
+    <display value="preparation"/>
+    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
+  </concept>
+  <concept>
+    <code value="declined"/>
+    <display value="declined"/>
+    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
