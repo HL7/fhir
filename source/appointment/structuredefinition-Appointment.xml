@@ -462,7 +462,7 @@
     <element id="Appointment.description">
       <path value="Appointment.description"/>
       <short value="Shown on a subject line in a meeting request, or appointment list"/>
-      <definition value="The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field."/>
+      <definition value="The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the note field."/>
       <min value="0"/>
       <max value="1"/>
       <type>
