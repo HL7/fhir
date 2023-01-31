@@ -66,6 +66,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="cancellationReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The coded cancellation reason for the encounter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/appointment-cancellation-reason"/>
+      </binding>
     </element>
   </differential>
 </StructureDefinition>
