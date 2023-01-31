@@ -28,7 +28,7 @@
       <value value="http://hl7.org/special/committees/FHIR"/>
     </telecom>
   </contact>
-  <description value="Instances can only be valid against this StructureDefinition, if they also sucessfully validate against the dependent profile identified in this extension."/>
+  <description value="Instances can only be valid against this StructureDefinition, if they also successfully validate against the dependent profile identified in this extension."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -48,7 +48,7 @@
     <element id="Extension">
       <path value="Extension"/>
       <short value="Dependent Profiles - must be valid against these too"/>
-      <definition value="Instances can only be valid against this StructureDefinition, if they also sucessfully validate against the dependent profile identified in this extension."/>
+      <definition value="Instances can only be valid against this StructureDefinition, if they also successfully validate against the dependent profile identified in this extension."/>
       <comment value="Ideally, a profile will restate the constraints of it's base profile and all it's dependent profiles, but this can get pretty complicated once slicing enters the picture. Tools SHOULD not assume that this profile includes all the constraints from the dependent profile."/>
       <min value="0"/>
       <max value="*"/>
