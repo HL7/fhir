@@ -1,1 +1,1 @@
-﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/specimen/structuredefinition-Specimen.xml: start tag unexpected character < (position: TEXT seen ...ed."/>\n      <comment value="[Notes](specimen.html#notes)"\n      <... @307:8) 
+﻿Errors executing build. Details logged.

@@ -229,7 +229,7 @@
 
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="BiologicalProductDispensPerformerFunction"/>
+          <valueString value="BiologicallyDerivedProductDispensPerformerFunction"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
           <valueString value="A coded concept specifying the role or function of the performer in the dispense."/>
