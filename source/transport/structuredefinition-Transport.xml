@@ -207,7 +207,6 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
       </type>
       <isSummary value="true"/>
       <mapping>

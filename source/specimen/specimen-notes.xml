@@ -1,5 +1,15 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<!-- insert xhtml content here -->
-
+	<a name="notes">
+		</a>
+		<h2>Notes:</h2>
+	  <a name="specimengrouping"></a>
+<h3>Specimen Grouping</h3>
+<p>
+Specimens can be grouped at the Observation level via two ways:
+<ul>
+  <li>A group at Observation.specimen with a reference to a group</li>
+  <li>By creating a group of specimens independent of observations</li>
+</ul>
+Additionally, a parent specimen can have multiple child specimens. 
+</p>
 </div>

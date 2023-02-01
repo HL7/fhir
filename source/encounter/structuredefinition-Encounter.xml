@@ -1053,8 +1053,8 @@
         <valueString value="This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in."/>
       </extension>
       <path value="Encounter.admission.reAdmission"/>
-      <short value="The type of re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission"/>
-      <definition value="Whether this admission is a readmission and why if known."/>
+      <short value="Indicates that the patient is being re-admitted"/>
+      <definition value="Indicates that this encounter is directly related to a prior admission, often because the conditions addressed in the prior admission were not fully addressed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
