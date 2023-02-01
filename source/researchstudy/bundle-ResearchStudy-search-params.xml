@@ -138,16 +138,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-partof"/>
+        <id value="ResearchStudy-part-of"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="ResearchStudy.partOf"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-partof"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-part-of"/>
         <description value="Part of larger study"/>
-        <code value="partof"/>
+        <code value="part-of"/>
         <type value="reference"/>
         <expression value="ResearchStudy.partOf"/>
         <processingMode value="normal"/>
@@ -176,16 +176,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-recruitment_actual"/>
+        <id value="ResearchStudy-recruitment-actual"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.recruitment_actual"/>
+          <valueString value="ResearchStudy.recruitment-actual"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment_actual"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment-actual"/>
         <description value="Actual number of participants enrolled in study across all groups"/>
-        <code value="recruitment_actual"/>
+        <code value="recruitment-actual"/>
         <type value="number"/>
         <expression value="ResearchStudy.recruitment.actualNumber"/>
         <processingMode value="normal"/>
@@ -195,16 +195,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="ResearchStudy-recruitment_target"/>
+        <id value="ResearchStudy-recruitment-target"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="ResearchStudy.recruitment_target"/>
+          <valueString value="ResearchStudy.recruitment-target"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment_target"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-recruitment-target"/>
         <description value="Target number of participants enrolled in study across all groups"/>
-        <code value="recruitment_target"/>
+        <code value="recruitment-target"/>
         <type value="number"/>
         <expression value="ResearchStudy.recruitment.targetNumber"/>
         <processingMode value="normal"/>
