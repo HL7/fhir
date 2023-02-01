@@ -14,13 +14,6 @@
 		<description value="The ACME FHIR Terminology Server"/>
 	</implementation>
 	<codeSystem>
-		<uri value="http://hl7.org/fhir/gender-identity"/>
-		<version>
-			<code value="4.0.1"/>
-		</version>
-		<content value="complete"/>
-	</codeSystem>
-	<codeSystem>
 		<uri value="http://snomed.info/sct"/>
 		<version>
 			<code value="http://snomed.info/sct/32506021000036107/version/20220831"/>
