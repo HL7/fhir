@@ -777,8 +777,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>
-      <short value="Observation time from study specified event"/>
-      <definition value="Observation time from study specified event."/>
+      <short value="Timing in which the characteristic is determined"/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -833,8 +832,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent.quantity">
       <path value="EvidenceVariable.characteristic.timeFromEvent.quantity"/>
-      <short value="Used to express the observation at a defined amount of time after the study start"/>
-      <definition value="Used to express the observation at a defined amount of time after the study start."/>
+      <short value="Used to express the observation at a defined amount of time before or after the event"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -843,8 +841,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent.range">
       <path value="EvidenceVariable.characteristic.timeFromEvent.range"/>
-      <short value="Used to express the observation within a period after the study start"/>
-      <definition value="Used to express the observation within a period after the study start."/>
+      <short value="Used to express the observation within a period before and/or after the event"/>
       <min value="0"/>
       <max value="1"/>
       <type>
