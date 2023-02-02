@@ -86,13 +86,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Endpoint.payloadType"/>
+          <valueString value="Endpoint.payload.Type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Endpoint-payload-type"/>
         <description value="The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)"/>
         <code value="payload-type"/>
         <type value="token"/>
-        <expression value="Endpoint.payloadType"/>
+        <expression value="Endpoint.payload.Type"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
