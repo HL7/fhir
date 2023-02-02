@@ -1,0 +1,71 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+    <div>
+        <a name="scope"></a>
+        <h2>Scope and Usage</h2>
+        <p> Common usage includes: </p>
+        <ul>
+            <li>the recording of non-prescription and/or recreational drugs</li>
+            <li>the recording of an intake medication list upon admission to hospital</li>
+            <li>the summarization of a patient's "active medications" in a patient profile</li>
+        </ul>
+        <p>A MedicationStatement may be used to record substance abuse or the use of other agents such as tobacco or alcohol.  This would typically be done if these substances are intended to be included in clinical decision support checking (for example, interaction checking) and as part of an active medication list.  If the intent is to populate social history and/or to include additional information (for example, desire to quit, amount per day, negative health effects), then it is better to record as an Observation that could then be used to populate Social History.</p>
+        <p> This resource does not produce a medication list, but it does produce individual
+            medication statements that may be used in the List resource to construct various types
+            of medication lists. Note that other medication lists can also be constructed from the
+            other Pharmacy resources (e.g., MedicationRequest, MedicationAdministration). </p><p> A
+            medication statement is not a part of the prescribe -> dispense -> administer sequence,
+            but is a report by a patient, significant other or a clinician that one or more of the
+            prescribe, dispense or administer actions has occurred, resulting is a belief that the
+            patient is, has, or will be using a particular medication. </p>
+        <p>MedicationStatement includes an adherence element.  Note that this adherence is specific to that instance of MedicationStatement.  If MedicationStatement.adherence is being tracked over time, then instances of MedicationStatement would report adherence for the interval noted in effectivePeriod.</p>
+        <p>MedicationStatement is an event resource from a FHIR workflow perspective - see <a
+                href="workflow.html#event">Workflow Event</a></p>
+    </div>
+    <div>
+        <a name="bnr"></a>
+        <h2>Boundaries and Relationships</h2>
+        <p>
+            <p>The MedicationStatement resource is used to record a medications or substances that the patient reports as being taken, not taking, have taken in the past or may take in the future.  It can also be used to record medication use that is derived from other records such as a MedicationRequest. The statement is not used to request or order a medication, supply or device. When requesting medication, supplies or devices when there is a patient focus or instructions regarding their use, a <a href="medicationrequest.html">MedicationRequest</a>, <a href="supplyrequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a> should be used instead</p>
+        </p>
+        <p>
+            <b>The Medication domain includes a number of related resources</b>
+        </p>
+        <table border="1" cellpadding="1" cellspacing="2" frame="box">
+            <tr>
+                <td><a href="medicationrequest.html">MedicationRequest</a></td>
+                <td>An order for both supply of the medication and the instructions for
+                    administration of the medicine to a patient.</td>
+            </tr>
+            <tr>
+                <td><a href="medicationdispense.html">MedicationDispense</a></td>
+                <td>Provision of a supply of a medication with the intention that it is subsequently
+                    consumed by a patient (usually in response to a prescription). </td>
+            </tr>
+            <tr>
+                <td><a href="medicationadministration.html">MedicationAdministration</a></td>
+                <td>When a patient actually consumes a medicine, or it is otherwise administered to
+                    them</td>
+            </tr>
+            <tr>
+                <td>MedicationStatement</td>
+                <td>This is a record of a medication being taken by a patient or that a medication
+                    has been given to a patient, where the record is the result of a report from the
+                    patient or another clinician, or derived from supporting information (for
+                    example, Claim, Observation or MedicationRequest). A medication statement is
+                    not a part of the prescribe->dispense->administer sequence but is a report that
+                    such a sequence (or at least a part of it) did take place, resulting in a belief
+                    that the patient has received a particular medication. </td>
+            </tr>
+        </table>
+        <p> This resource is distinct from <a href="medicationrequest.html">MedicationRequest</a>,
+                <a href="medicationdispense.html">MedicationDispense</a> and <a
+                href="medicationadministration.html">MedicationAdministration</a>. Each of those
+            resources refers to specific events - an individual order, an individual provisioning of
+            medication or an individual dosing. MedicationStatement is a broader assertion covering
+            a wider timespan and is independent of specific events. The existence of resource
+            instances of any of the preceding three types may be used to infer a medication
+            statement. However, medication statements can also be captured on the basis of other
+            information, including an assertion by the patient or a care-giver, the results of a lab
+            test, etc. </p>
+        <p> To indicate the link between a MedicationStatement instance and the Medication Request, Dispense, or Administration that was used to derive the MedicationStatement, the reference should be placed in the MedicationStatement.derivedFrom element.</p>  </div>
+</div>

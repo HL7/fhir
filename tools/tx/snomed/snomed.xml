@@ -10840,6 +10840,11 @@
     <display value="Hepatitis A vaccine"/>
     <display value="Hep A - Hepatitis A vaccine"/>
   </concept>
+  <concept id="14747002" display="Elective immunization for international travel">
+    <display value="Elective immunization for international travel"/>
+    <display value="Elective immunisation for international travel"/>
+    <display value="Elective immunization for international travel (procedure)"/>
+  </concept>
   <concept id="14766002" display="Removal by suction">
     <display value="Removal by suction"/>
     <display value="Aspiration procedure"/>
@@ -13404,6 +13409,11 @@
     <display value="Ceftriaxone sodium 500mg powder for injection"/>
     <display value="Ceftriaxone sodium 500mg powder for injection solution vial (product)"/>
     <display value="Ceftriaxone sodium 500mg powder for injection solution vial"/>
+  </concept>
+  <concept id="376251004" display="Nitroglycerin 200 microgram/hour prolonged-release transdermal patch">
+    <display value="Nitroglycerin 200 microgram/hour prolonged-release transdermal patch"/>
+    <display value="Product containing precisely glyceryl trinitrate 200 microgram/1 hour prolonged-release transdermal patch (clinical drug)"/>
+    <display value="Glyceryl trinitrate 200 microgram/hour prolonged-release transdermal patch"/>
   </concept>
   <concept id="376877002" display="Timolol maleate 0.5% ophthalmic solution">
     <display value="Timolol maleate 0.5% ophthalmic solution (product)"/>

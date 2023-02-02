@@ -49,7 +49,7 @@
         <display value="Patrick Pump"/>
     </requester>
 
-<dose>
+
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Administer 500mg IM as a single dose" />
@@ -82,5 +82,5 @@
         </doseAndRate>
         
     </dosageInstruction>
-</dose>
+
 </MedicationRequest>

@@ -10,7 +10,7 @@ family history or other information typically handled via <b>List</b>, they have
   <li>They can query for List instances of the appropriate type; or </li>
   <li>They can query against the resource endpoint for the resources that make up the list
     (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
-    <a href="medicationusage.html">MedicationUsage</a>, etc.), possibly filtering by time, etc.</li>
+    <a href="medicationstatement.html">MedicationStatement</a>, etc.), possibly filtering by time, etc.</li>
   <li>They can query against the resource endpoint, requesting one of the 
   <a href="lifecycle.html#current">Current</a> resource lists</li>
 </ul>

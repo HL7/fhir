@@ -596,8 +596,8 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationUsage">
-		<translation lang="en">MedicationUsage</translation>
+	<item id="MedicationStatement">
+		<translation lang="en">MedicationStatement</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>

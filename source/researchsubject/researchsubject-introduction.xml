@@ -1,20 +1,19 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="scope"></a>
-<h2>Scope and Usage</h2>
- <p>A research subject is the entity of interest in a research study, typically a human being or an animal, but can also be a device, group of humans or animals, or a tissue sample. The ResearchSubject resource describes essential information about the subject, including the gender, birthdate, study, study arm, consent status, and other key items. Human research subjects are usually not traceable to a particular person to protect the subject’s privacy.</p>
-    <p>The ResearchSubject resource is used in the following research activities:</p>
-    <ul>
-      <li>Consent and registration to a research study
-      </li>
-      <li>Exposure to test therapy
-      </li>
-      <li>Assessment of test therapy results
-	  </li>
-      <li>Reporting of adverse events
-      </li>
-    </ul>
+  <a name="scope"></a>
+  <h2>Scope and Usage</h2>
+  <p>A research subject is typically a human being or an animal, but can also be a device, drug product or biological product, substance, or a tissue or other sort of sample. Research subject can also be a group or part of any of the above.</p>
+  <p>The ResearchSubject resource describes information about the subject in the context of a research study.</p>
+  <p>Human research subjects are traceable to a particular person but their identifying characteristics are usually hidden to protect study integrity and to protect the subject's privacy.</p>
+  <p>Note that in a human drug trial the human is the research subject even though the drug is what is being investigated.</p>
+  <p>The scope of ResearchSubject is intended to support the following use cases:</p>
+  <ul>
+   <li>Humans and Animals for Clinical and Pre-clinical Trials</li>
+   <li>Drug Products for Stability Studies and other Tests</li>
+   <li>Devices for non-clinical laboratory studies - in-vivo and in-vitro</li>
+   <li>Tissue Sample for bench science studies</li>
+  </ul>
 </div>
 
 </div>

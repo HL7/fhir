@@ -249,10 +249,10 @@
 			</valueCodeableReference>
 		</extension>
 		<extension url="supportingInfo">
-			<!-- MedicationUsage indicating patient underwent hormone therapy -->
+			<!-- MedicationStatement indicating patient underwent hormone therapy -->
 			<valueCodeableReference>
 			  <reference>
-				  <reference value="MedicationUsage/2"/>
+				  <reference value="MedicationStatement/2"/>
 			  </reference>
 			</valueCodeableReference>
 		</extension>
