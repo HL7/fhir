@@ -168,7 +168,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="='Status Codes'!R1C1:R137C35"/>
   </Names>
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="137" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="136" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Width="224.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="66.0"/>
    <Column ss:AutoFitWidth="0" ss:Width="70.0"/>
@@ -597,7 +597,7 @@
    <Row>
     <Cell ss:StyleID="s65"><Data ss:Type="String">AppointmentResponse.participantStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s64"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">entered-in-error</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="6" ss:StyleID="s66"><Data ss:Type="String">tentative</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s65"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4355,7 +4355,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>5</SplitHorizontal>
-   <TopRowBottomPane>29</TopRowBottomPane>
+   <TopRowBottomPane>5</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
