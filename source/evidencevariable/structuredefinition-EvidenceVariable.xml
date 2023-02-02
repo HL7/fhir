@@ -713,8 +713,8 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionByTypeAndValue.offset">
       <path value="EvidenceVariable.characteristic.definitionByTypeAndValue.offset"/>
-      <short value="Reference point for valueQuantity"/>
-      <definition value="Defines the reference point for comparison when valueQuantity is not compared to zero."/>
+      <short value="Reference point for valueQuantity or valueRange"/>
+      <definition value="Defines the reference point for comparison when valueQuantity or valueRange is not compared to zero."/>
       <min value="0"/>
       <max value="1"/>
       <type>
