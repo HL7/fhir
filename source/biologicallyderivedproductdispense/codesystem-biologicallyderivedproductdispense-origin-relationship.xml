@@ -53,7 +53,7 @@
     <definition value="The donor has been specifically selected to provide product for the recipient"/>
   </concept>
   <concept>
-    <code value="allogeneic&quot;"/>
+    <code value="allogeneic"/>
     <display value="Allogeneic"/>
     <definition value="The donor and the recipient are unrelated"/>
   </concept>

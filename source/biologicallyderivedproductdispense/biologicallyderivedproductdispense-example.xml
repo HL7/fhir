@@ -5,7 +5,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
-  <status value= "completed"/>
+  <status value= "allocated"/>
   <product>
     <reference value="BiologicallyDerivedProduct/prod1"/>
   </product>

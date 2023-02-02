@@ -38,13 +38,13 @@
   <content value="complete"/>
   <count value="7"/>
   <concept>
-    <code value="grouping"/>
-    <display value="Grouping"/>
+    <code value="group-and-type"/>
+    <display value="Group and Type"/>
     <definition value="ABO and RhD blood grouping procedure"/>
   </concept>
   <concept>
     <code value="antibody-screening"/>
-    <display value="Antibody Screening"/>
+    <display value="Antibody Screen"/>
     <definition value="Antibody screening procedure"/>
   </concept>
   <concept>

@@ -19,39 +19,34 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
   <content value="complete"/>
   <concept>
+    <code value="preparation"/>
+    <display value="Preparation"/>
+    <definition value="The dispense process has started but not yet completed."/>
+  </concept>
+  <concept>
     <code value="in-progress"/>
     <display value="In Progress"/>
+    <definition value="The dispense process is in progress."/>
+  </concept>
+  <concept>
+    <code value="allocated"/>
+    <display value="Allocated"/>
     <definition value="The requested product has been allocated and is ready for transport."/>
   </concept>
   <concept>
-    <code value="on-hold"/>
-    <display value="On Hold"/>
-    <definition value="The dispense process is paused while waiting for an external event to reactivate the dispense.  For example, new stock has arrived or the prescriber has called."/>
-  </concept>
-  <concept>
-    <code value="completed"/>
-    <display value="Completed"/>
+    <code value="issued"/>
+    <display value="Issued"/>
     <definition value="The dispensed product has been picked up."/>
   </concept>
   <concept>
-    <code value="stopped"/>
-    <display value="Stopped"/>
-    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
+    <code value="unfulfilled"/>
+    <display value="Unfulfilled"/>
+    <definition value="The dispense could not be completed."/>
   </concept>
   <concept>
-    <code value="cancelled"/>
-    <display value="cancelled"/>
-    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
-  </concept>
-  <concept>
-    <code value="preparation"/>
-    <display value="preparation"/>
-    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
-  </concept>
-  <concept>
-    <code value="declined"/>
-    <display value="declined"/>
-    <definition value="Actions implied by the dispense have been permanently halted, before all of them occurred."/>
+    <code value="returned"/>
+    <display value="Returned"/>
+    <definition value="The dispensed product was returned."/>
   </concept>
   <concept>
     <code value="entered-in-error"/>
