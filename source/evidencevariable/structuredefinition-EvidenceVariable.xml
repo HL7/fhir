@@ -219,16 +219,6 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="EvidenceVariable.subtitle">
-      <path value="EvidenceVariable.subtitle"/>
-      <short value="Subordinate title of the EvidenceVariable"/>
-      <definition value="An explanatory or alternate title for the EvidenceVariable giving additional information about its content."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
     <element id="EvidenceVariable.status">
       <path value="EvidenceVariable.status"/>
       <short value="draft | active | retired | unknown"/>
