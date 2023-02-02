@@ -4,13 +4,13 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/ValueSet/medication-usage-category"/>
+  <url value="http://hl7.org/fhir/ValueSet/medication-statement-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3089"/>
   </identifier>
-  <name value="MedicationUsageCategoryCodes"/>
-  <title value="MedicationUsage Category Codes"/>
+  <name value="MedicationStatementCategoryCodes"/>
+  <title value="MedicationStatement Category Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -20,10 +20,10 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="MedicationUsage Category Codes"/>
+  <description value="MedicationStatement Category Codes"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/medication-usage-category"/>
+      <system value="http://terminology.hl7.org/CodeSystem/medication-statement-category"/>
     </include>
   </compose>
 </ValueSet>

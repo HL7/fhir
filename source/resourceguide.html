@@ -55,7 +55,7 @@ Where to find common concepts in this specification:
  <tr><td>Past Surgical History</td><td>Appendectomy, Hernia repair</td><td><a href="procedure.html">Procedure</a> </td></tr>
  <tr><td>Past Medical History</td><td>Diabetes, Congestive heart failure</td><td><a href="condition.html">Condition</a> </td></tr>
  <tr><td>MAR (Medication Administration Record)</td><td>Warfarin 5mg PO administered on 12/10/2013 at 3pm</td><td><a href="medicationadministration.html">MedicationAdministration</a> </td></tr>
- <tr><td>Home Meds</td><td>Warfarin 5mg, 30 day supply, dispensed on 12/01/2013</td><td><a href="medicationusage.html">MedicationUsage</a> </td></tr>
+ <tr><td>Home Meds</td><td>Warfarin 5mg, 30 day supply, dispensed on 12/01/2013</td><td><a href="medicationstatement.html">MedicationStatement</a> </td></tr>
  <tr><td>Social History</td><td>Sexual behavior, Smoking status, Alcohol intake, Illicit drug use</td><td><a href="observation.html">Observation</a> </td></tr>
  <tr><td>Family History</td><td>Mother has diabetes</td><td><a href="familymemberhistory.html">FamilyMemberHistory</a> </td></tr>
  <tr><td>Signs &amp; Symptoms</td><td>from a review of systems- Pain, Fever</td><td><a href="condition.html">Condition</a> </td></tr>
@@ -204,7 +204,7 @@ Supports the medication and immunization processes. Some points of note:
 </p>
 <ul>
  <li>Prescription = a <code>MedicationRequest</code></li>
- <li>In some records, medication orders, administration, and statements might not be well differentiated. Generally, use <code>MedicationUsage</code> if records are unclear</li>
+ <li>In some records, medication orders, administration, and statements might not be well differentiated. Generally, use <code>MedicationStatement</code> if records are unclear</li>
  <li>A medication chart (or variants) will use multiple different types of medication resources</li>
  <li>When prescribing is done by an external system (e.g. most ambulatory e-prescribing), the <code>Medication</code> resource is not used. It is generally used to represent information in formularies and to describe custom formulations</li>
 </ul>
@@ -216,7 +216,7 @@ Supports the medication and immunization processes. Some points of note:
 <tr><td><a href="medicationdispense.html">MedicationDispense</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
  <tr><td><a href="medicationknowledge.html">MedicationKnowledge</a></td><td><a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#clinical">Clinical Workflow</a></td></tr>
 <tr><td><a href="medicationrequest.html">MedicationRequest</a></td><td><a href="#future">Future</a></td><td>Act</td><td><a href="lifecycle.html#order">Request/Order</a>. This has a <a href="lifecycle.html#current">current List</a></td></tr>
-<tr><td><a href="medicationusage.html">MedicationUsage</a></td><td><a href="#ongoing">Ongoing</a> / <a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a>. This has a <a href="lifecycle.html#current">Current List</a></td></tr>
+<tr><td><a href="medicationstatement.html">MedicationStatement</a></td><td><a href="#ongoing">Ongoing</a> / <a href="#past">Past</a></td><td>Act</td><td><a href="lifecycle.html#entity">Entity Availability Workflow</a>. This has a <a href="lifecycle.html#current">Current List</a></td></tr>
 <tr><td><a href="immunization.html">Immunization</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="immunizationevaluation.html">ImmunizationEvaluation</a></td><td><a href="#past">Past</a></td><td>Act</td><td></td></tr>
 <tr><td><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></td><td><a href="#future">Future</a></td><td>Act</td><td></td></tr>

@@ -175,7 +175,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="[%test-server%]/MedicationUsage?_format=application/fhir+xml&amp;search-id=804eee4a-0a54-4414-9c07-169952f929&amp;&amp;patient=example&amp;_list=%24current%2Dmedications&amp;_sort=_id"/>
+                    <url value="[%test-server%]/MedicationStatement?_format=application/fhir+xml&amp;search-id=804eee4a-0a54-4414-9c07-169952f929&amp;&amp;patient=example&amp;_list=%24current%2Dmedications&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>
@@ -238,7 +238,7 @@
                 <total value="0"/>
                 <link>
                     <relation value="self"/>
-                    <url value="[%test-server%]/MedicationUsage?_format=application/fhir+xml&amp;search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&amp;&amp;patient=example&amp;_sort=_id"/>
+                    <url value="[%test-server%]/MedicationStatement?_format=application/fhir+xml&amp;search-id=31d4af75-cdcf-4f85-9666-4bafadebb5&amp;&amp;patient=example&amp;_sort=_id"/>
                 </link>
             </Bundle>
         </resource>

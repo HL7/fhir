@@ -21,7 +21,7 @@ These instances can be linked in different ways, depending on the needs of the w
 <div>
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
-    <p>The MedicationRequest resource is used to request or order medication for a subject. It may also be used to report a medication request or order from one organization or source to another.  When requesting supplies or devices when there is a patient focus or instructions regarding their use, <a href="supplyrequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a> should be used instead.  When reporting on the usage of a medication by a patient, the <a href="medicationusage.html">MedicationUsage</a> resource should be used.</p>
+    <p>The MedicationRequest resource is used to request or order medication for a subject. It may also be used to report a medication request or order from one organization or source to another.  When requesting supplies or devices when there is a patient focus or instructions regarding their use, <a href="supplyrequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a> should be used instead.  When reporting on the usage of a medication by a patient, the <a href="medicationstatement.html">MedicationStatement</a> resource should be used.</p>
 <p>
 <b>The Medication domain includes a number of related resources</b>
 </p>
@@ -39,7 +39,7 @@ These instances can be linked in different ways, depending on the needs of the w
         <td>When a patient actually consumes a medicine, or it is otherwise administered to them</td>
     </tr>
     <tr>
-        <td><a href="medicationusage.html">MedicationUsage</a></td>
+        <td><a href="medicationstatement.html">MedicationStatement</a></td>
         <td>This is a record of medication being taken by a patient, or that the medication has been given to a patient where the record is the result of a report from the patient, or another clinician.
           A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place resulting in a belief that the patient has received a particular medication.
         </td>
