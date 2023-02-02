@@ -111,6 +111,19 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ArtifactAssessment.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ArtifactAssessment.title"/>
+      <short value="A short title for the assessment for use in displaying and selecting"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="ArtifactAssessment.citeAs[x]">
       <path value="ArtifactAssessment.citeAs[x]"/>
       <short value="How to cite the comment or rating"/>
