@@ -10,11 +10,16 @@
 	<managingOrganization>
 		<reference value="Organization/299"/>
 	</managingOrganization>
-	<payloadType>
-		<coding>
-			<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
-			<code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
-		</coding>
-	</payloadType>
+	<payload>
+		<type>
+			<coding>
+				<system value="urn:oid:1.3.6.1.4.1.19376.1.2.3"/>
+				<code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
+			</coding>
+		</type>
+		<mimeType value="text/x-hl7-text+xml"/>
+		<mimeType value="application/fhir+xml"/>
+		<mimeType value="application/fhir+json"/>
+	</payload>
 	<address value="mailto:MARTIN.SMIETANKA@directnppes.com"/>	
 </Endpoint>

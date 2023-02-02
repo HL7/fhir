@@ -32,13 +32,15 @@
           <system value="http://hl7.org/fhir/http-verb" />
           <code value="[%method%]" />
         </method>-->
-        <payloadType>
-          <coding>
-              <!--<system value="http://hl7.org/fhir/fhir-types" />-->
-            <code value="[%payloadType%]" />
-          </coding>
-        </payloadType>
-        <payloadMimeType value="[%payloadFormat%]"/>
+        <payload>
+          <type>
+            <coding>
+                <!--<system value="http://hl7.org/fhir/fhir-types" />-->
+              <code value="[%payloadType%]" />
+            </coding>
+          </type>
+          <mimeType value="[%payloadFormat%]"/>
+        </payload>
         <address value="[%address%]"/>
       </Endpoint>
     </resource>
