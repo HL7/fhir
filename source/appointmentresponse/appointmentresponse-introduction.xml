@@ -42,6 +42,10 @@
 					(and the main system marking the appointment participant records with the AppointmentResponse
 					statuses) then the overall status of the Appointment is updated.
 				</p>
+				<p>
+					To "invalidate" an appointment response it should have the status changed to entered-in-error,
+					or simply delete the resource.
+				</p>
 			</li>
 		</ul>
 
