@@ -881,7 +881,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PRT, RF!-3"/>
+        <map value="PRT, RF1-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1043,7 +1043,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
