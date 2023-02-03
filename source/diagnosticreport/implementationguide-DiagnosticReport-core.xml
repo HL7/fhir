@@ -41,6 +41,11 @@
       </reference>
     </resource>
     <resource>
+      <reference>
+        <reference value="StructureDefinition/diagnosticReport-focus"/>
+      </reference>
+    </resource>
+    <resource>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
         <valueCode value="core"/>
       </extension>
