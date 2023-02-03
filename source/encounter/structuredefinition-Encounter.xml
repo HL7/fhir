@@ -552,7 +552,7 @@
     <element id="Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the colonoscopy example on the Encounter examples tab."/>
       <min value="0"/>
       <max value="1"/>
       <type>
