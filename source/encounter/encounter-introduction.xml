@@ -71,9 +71,10 @@ implementer-specific code, while the Encounter.status could be completed or canc
 on whether the patient had received some care before leaving, or other local business rules that could impact billing.
 </p>
 <p>
-The "on leave" subject status might or might not be a part of the admission, for example if the patient 
+The "on-leave" subject status might or might not be a part of the admission, for example if the patient 
 was permitted to go home for a weekend or some other form of external event.<br/>
-During this time the encounter status itself might be marked as on-hold.
+During this time the encounter status itself might be marked as "on-hold". Local systems may have multiple different
+types of leave/hold and these can use appropriate combinations fo the status/subjectStatus fields to represent this.<br/>
 The location is also likely to be filled in with a location status of "active".<br/>
 For other examples such as an outpatient visit (day procedure - colonoscopy), the patient could also be 
 considered to be admitted, hence the encounter doesn't have a fixed definition of admitted.
