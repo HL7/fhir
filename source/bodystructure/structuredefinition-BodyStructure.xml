@@ -347,7 +347,7 @@
     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.value">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.value"/>
       <short value="Measured distance from body landmark"/>
-      <definition value="The measured distance a certain observation is made from a body landmark."/>
+      <definition value="The measured distance (e.g., in cm) from a body landmark."/>
       <min value="0"/>
       <max value="*"/>
       <type>
