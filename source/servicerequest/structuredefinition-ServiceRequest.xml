@@ -1185,8 +1185,8 @@
         <map value="ClinicalStatement.additionalText"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.patientInstructions">
-      <path value="ServiceRequest.patientInstructions"/>
+    <element id="ServiceRequest.patientInstruction">
+      <path value="ServiceRequest.patientInstruction"/>
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
@@ -1203,8 +1203,8 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.patientInstructions.instructions[x]">
-      <path value="ServiceRequest.patientInstructions.instructions[x]"/>
+    <element id="ServiceRequest.patientInstruction.instruction[x]">
+      <path value="ServiceRequest.patientInstruction.instruction[x]"/>
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
