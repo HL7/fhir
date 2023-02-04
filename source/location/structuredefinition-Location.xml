@@ -71,8 +71,8 @@
   <differential>
     <element id="Location">
       <path value="Location"/>
-      <short value="Details and position information for a physical place"/>
-      <definition value="Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
+      <short value="Details and position information for a place"/>
+      <definition value="Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
