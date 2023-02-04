@@ -1185,14 +1185,18 @@
         <map value="ClinicalStatement.additionalText"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.patientInstruction">
-      <path value="ServiceRequest.patientInstruction"/>
+    <element id="ServiceRequest.patientInstructions[x]">
+      <path value="ServiceRequest.patientInstructions[x]"/>
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>
