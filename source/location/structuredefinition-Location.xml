@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Details and position information for a physical place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
+  <description value="Details and position information for a place where services are provided and resources and participants may be stored, found, contained, or accommodated."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
