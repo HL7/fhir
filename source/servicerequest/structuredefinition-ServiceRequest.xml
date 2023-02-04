@@ -1185,12 +1185,30 @@
         <map value="ClinicalStatement.additionalText"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.patientInstructions[x]">
-      <path value="ServiceRequest.patientInstructions[x]"/>
+    <element id="ServiceRequest.patientInstructions">
+      <path value="ServiceRequest.patientInstructions"/>
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
       <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.patientInstructions.instructions[x]">
+      <path value="ServiceRequest.patientInstructions.instructions[x]"/>
+      <short value="Patient or consumer-oriented instructions"/>
+      <definition value="Instructions in terms that are understood by the patient or consumer."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
         <code value="markdown"/>
       </type>
