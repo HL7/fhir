@@ -281,6 +281,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
       </type>
       <isSummary value="true"/>
       <binding>
