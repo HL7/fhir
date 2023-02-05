@@ -417,12 +417,10 @@
       <max value="1"/>
       <type>
         <code value="integer"/>
-      </type>
-      <type>
         <code value="string"/>
-      </type>
-      <type>
         <code value="boolean"/>
+        <code value="dateTime"/>
+        <code value="SimpleQuantity"/>
       </type>
     </element>
     <element id="InventoryItem.instance">
