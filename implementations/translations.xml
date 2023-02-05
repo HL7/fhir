@@ -531,6 +531,9 @@
 	<item id="InventoryReport">
 		<translation lang="en">InventoryReport</translation>
 	</item>
+	<item id="InventoryItem">
+		<translation lang="en">InventoryItem</translation>
+	</item>
 	<item id="Invoice">
 		<translation lang="en">Invoice</translation>
 	</item>
