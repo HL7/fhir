@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="BiologicallyDerivedProductDispense-search-params"/>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProductDispense-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProductDispense.product"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProductDispense-code"/>
+        <description value="Search for products that match this code"/>
+        <code value="product"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProductDispense.product"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProductDispense-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProductDispense.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProductDispense-subject"/>
+        <description value="The identity of a patient for whom to list dispenses"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProductDispense.subject"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="BiologicallyDerivedProductDispense-performer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="BiologicallyDerivedProductDispense.performer.actor"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/BiologicallyDerivedProductDispense-performer"/>
+        <description value="The identity of a patient for whom to list dispenses"/>
+        <code value="performer"/>
+        <type value="reference"/>
+        <expression value="BiologicallyDerivedProductDispense.performer.actor"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
+
+</Bundle>

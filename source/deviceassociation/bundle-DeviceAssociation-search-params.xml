@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
+  <id value="DeviceAssociation-search-params"/>
+    <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAssociation-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAssociation.device"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-code"/>
+        <description value="Search for products that match this code"/>
+        <code value="device"/>
+        <type value="reference"/>
+        <expression value="DeviceAssociation.device"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAssociation-subject"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAssociation.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-subject"/>
+        <description value="The identity of a patient for whom to list associations"/>
+        <code value="subject"/>
+        <type value="reference"/>
+        <expression value="DeviceAssociation.subject"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceAssociation-operator"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceAssociation.operator"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-operator"/>
+        <description value="The identity of a patient for whom to list associations"/>
+        <code value="operator"/>
+        <type value="reference"/>
+        <expression value="DeviceAssociation.operator"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>  
+
+</Bundle>

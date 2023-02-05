@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="biologicallyderivedproductdispense-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/biologicallyderivedproductdispense-status"/>
+  <version value="4.5.0"/>
+  <name value="BiologicallyDerivedProductDispense"/>
+  <title value="BiologicallyDerivedProductDispense Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="BiologicallyDerivedProductDispense Status Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="preparation"/>
+    <display value="Preparation"/>
+    <definition value="The dispense process has started but not yet completed."/>
+  </concept>
+  <concept>
+    <code value="in-progress"/>
+    <display value="In Progress"/>
+    <definition value="The dispense process is in progress."/>
+  </concept>
+  <concept>
+    <code value="allocated"/>
+    <display value="Allocated"/>
+    <definition value="The requested product has been allocated and is ready for transport."/>
+  </concept>
+  <concept>
+    <code value="issued"/>
+    <display value="Issued"/>
+    <definition value="The dispensed product has been picked up."/>
+  </concept>
+  <concept>
+    <code value="unfulfilled"/>
+    <display value="Unfulfilled"/>
+    <definition value="The dispense could not be completed."/>
+  </concept>
+  <concept>
+    <code value="returned"/>
+    <display value="Returned"/>
+    <definition value="The dispensed product was returned."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The dispense was entered in error and therefore nullified."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The authoring system does not know which of the status values applies for this dispense. Note: this concept is not to be used for other - one of the listed statuses is presumed to apply, it's just not known which one."/>
+  </concept>
+</CodeSystem>
