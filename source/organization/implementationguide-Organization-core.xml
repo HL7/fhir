@@ -10,20 +10,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Organization resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/organization-period"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/organization-preferredContact"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/extended-contact-availability"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

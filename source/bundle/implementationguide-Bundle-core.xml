@@ -9,20 +9,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR Core WG"/>
   <description value="Defines &quot;common&quot; extensions for use with the Bundle resource and contained elements"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/http-response-header"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/match-grade"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/location-distance"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
