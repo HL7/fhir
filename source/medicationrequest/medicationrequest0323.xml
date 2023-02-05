@@ -77,7 +77,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="1000mL infused at 50ml/hour for 4 hours - hung at 2200 hours" />
@@ -138,5 +138,5 @@
         
         
     </dosageInstruction>
-    </dose>
+    
 </MedicationRequest>

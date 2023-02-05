@@ -48,7 +48,7 @@
         </coding>
       </concept>
     </reason>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text
@@ -84,5 +84,5 @@
         </doseAndRate>
 
     </dosageInstruction>
-    </dose>
+    
 </MedicationRequest>

@@ -172,9 +172,9 @@ patient. For this reason, systems SHOULD:
 <p>
 Following these practices will make for consistent identification of concepts and real-world entities across 
 healthcare eco-systems. For example, medication orders can be represented as 
-<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationusage.html">MedicationUsage</a>. 
+<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationstatement.html">MedicationStatement</a>. 
 Some systems - primary sources - will provide the medication order as a MedicationRequest 
-while other secondary systems will provide them as a MedicationUsage. Any system processing 
+while other secondary systems will provide them as a MedicationStatement. Any system processing 
 the resources will need to reconcile these, and the presence of consistent identifiers will 
 considerably simplify the reconciliation process.
 </p>
