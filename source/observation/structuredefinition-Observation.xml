@@ -721,11 +721,10 @@
       </type>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <condition value="obs-7"/>
       <isSummary value="true"/>
@@ -1382,6 +1381,7 @@
       </type>
       <type>
         <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
       <type>
         <code value="canonical"/>
