@@ -21,7 +21,7 @@ Biologics prepared from large pool donor sources such as human albumin solutions
 The request to initiate a BiologicallyDerivedProductDispense may be via a <a href="servicerequest.html">ServiceRequest</a> resource.
 </p>
 <p>
-The details of the clinical application of the dispensed product may be captured in a <a href="procedure.html">Procedure</a> resource.
+The details of the clinical application of the dispensed product may be captured in a <a href="procedure.html">Procedure</a>resource.
 </p>
 </div>
 
