@@ -85,7 +85,7 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </requester>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Dopamine 4mcg/kg/min" />
@@ -119,5 +119,5 @@
         
         
     </dosageInstruction> 
-    </dose>
+    
 </MedicationRequest>

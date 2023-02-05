@@ -46,7 +46,7 @@
         </coding>
       </concept>
     </reason>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="4.5 grams in D5W 250 ml. IV every 6 hours.Infuse over 30 min at 8L/min " />
@@ -86,5 +86,5 @@
         </doseAndRate>
 
     </dosageInstruction>
-    </dose>
+    
 </MedicationRequest>

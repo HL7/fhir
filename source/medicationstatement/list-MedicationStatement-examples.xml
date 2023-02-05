@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<List xmlns="http://hl7.org/fhir">
+  <id value="MedicationStatement-examples"/>
+  <status value="current"/>
+  <mode value="working"/>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they are taking Tylenol PM and has the bottle"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample1"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example001"/>
+      <display value="Fully Populated"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they are not taking Tylenol PM"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample2"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example002"/>
+      <display value="Not Taking"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they were taking Amoxicillin in the past but are not taking it now"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample4"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example004"/>
+      <display value="Past"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they previous said they took Amoxicillin but really didn&#39;t"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample5"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example005"/>
+      <display value="Nullified"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Care Giver reports that the Patient took Amoxicillin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample6"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example006"/>
+      <display value="Care Giver"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they intend to use Mometasone in the future"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample7"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example007"/>
+      <display value="Intend"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports that they are taking the &quot;little pink pill&quot;"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample3"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example003"/>
+      <display value="Little pink pill"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they used the given patches over the last 30 days."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample8"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example008"/>
+      <display value="Medication patches"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Patient reports they used the medication patch on this day."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationstatementexample9"/>
+    </extension>
+    <item>
+      <reference value="MedicationStatement/example009"/>
+      <display value="Daily patch"/>
+    </item>
+  </entry>
+</List>

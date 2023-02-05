@@ -33,7 +33,7 @@ cases, it might be used for home-health reporting, such as recording self-admini
         <td>When a patient actually consumes a medicine, or it is otherwise administered to them.</td>
     </tr>
     <tr>
-        <td><a href="medicationusage.html">MedicationUsage</a></td>
+        <td><a href="medicationstatement.html">MedicationStatement</a></td>
         <td>This is a record of a medication being taken by a patient or that a medication has been given to a patient, where the record is the result of a report from the patient or another clinician. 
           A medication statement is not a part of the prescribe->dispense->administer sequence but is a report that such a sequence (or at least a part of it) did take place, resulting in a belief that the patient has received a particular medication.
         </td>
