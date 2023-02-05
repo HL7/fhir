@@ -9,7 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-status"/>
-  <version value="4.5.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceAssociation"/>
   <title value="DeviceAssociation Status Codes"/>
   <status value="draft"/>

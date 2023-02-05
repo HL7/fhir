@@ -9,7 +9,7 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
-  <version value="4.5.0"/>
+  <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductDispenseCodes"/>
   <title value="BiologicallyDerivedProductDispense Status Codes"/>
   <status value="draft"/>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="inventoryitem-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/inventoryitem-status"/>
+  <version value="5.0.0"/>
+  <name value="InventoryItemStatus"/>
+  <title value="InventoryItem Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="InventoryItem Status Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The item is active and can be referenced."/>
+  </concept>
+  <concept>
+    <code value="inactive"/>
+    <display value="Inactive"/>
+    <definition value="The item is presently inactive - there may be references to it but the item is not expected to be used."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="The item record was entered in error."/>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="The item status has not been determined."/>
+  </concept>
+</CodeSystem>

@@ -331,12 +331,18 @@
       <max value="1"/>
       <type>
         <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="InventoryReport.inventoryListing.items.lot">
+    <!-- <element id="InventoryReport.inventoryListing.items.lot">
       <path value="InventoryReport.inventoryListing.items.lot"/>
       <short value="The lot number of the item or items"/>
       <definition value="The lot number of the item or items."/>
@@ -375,7 +381,7 @@
       <type>
         <code value="dateTime"/>
       </type>
-    </element>
+    </element> -->
     <element id="InventoryReport.note">
       <path value="InventoryReport.note"/>
       <short value="A note associated with the InventoryReport"/>
