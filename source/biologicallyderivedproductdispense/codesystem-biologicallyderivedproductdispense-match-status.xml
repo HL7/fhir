@@ -54,7 +54,7 @@
   </concept>
   <concept>
     <code value="least-incompatible"/>
-    <display value="least incompatible"/>
+    <display value="Least incompatible"/>
     <definition value="The product has been selected through crossmatching as least incompatible"/>
   </concept>
 </CodeSystem>

@@ -43,7 +43,7 @@
     <definition value="ABO and RhD blood grouping procedure"/>
   </concept>
   <concept>
-    <code value="antibody-screening"/>
+    <code value="antibody-screen"/>
     <display value="Antibody Screen"/>
     <definition value="Antibody screening procedure"/>
   </concept>
