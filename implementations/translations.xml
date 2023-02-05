@@ -1049,6 +1049,9 @@
 		<translation lang="es">CapacidadTerminologica</translation>
 		<translation lang="zh">术语服务能力</translation>
 	</item>
+	<item id="TestPlan">
+		<translation lang="en">TestPlan</translation>
+	</item>
 	<item id="TestReport">
 		<translation lang="en">TestReport</translation>
 		<translation lang="es">ReporteDePrueba</translation>
