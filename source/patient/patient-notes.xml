@@ -268,7 +268,7 @@ further advice. All patient records should have a score from 0 to 1, where
   &lt;/entry&gt; 
 </pre>
 <p>
-The match-grade extension has one of the <a href="valueset-match-grade.html">following codes</a>:
+The match-grade extension has one of the <a href="[%extensions-location%]ValueSet-match-grade.html">following codes</a>:
 </p>
 [%codelist-nh http://terminology.hl7.org/CodeSystem/match-grade%]
 <p>

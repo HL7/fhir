@@ -9,20 +9,5 @@
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="This profile describes common extensions that are used with OperationOutcomes"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/operationoutcome-issue-source"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/operationoutcome-authority"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/operationoutcome-detectedIssue"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

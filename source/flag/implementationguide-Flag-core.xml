@@ -10,15 +10,5 @@
   <publisher value="Health Level Seven, Inc. - Patient Care WG"/>
   <description value="Defines common extensions used with or related to the Flag resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/flag-detail"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/flag-priority"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

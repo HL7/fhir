@@ -102,7 +102,7 @@
         </component>
         <component>
           <definition value="value-date"/>
-          <expression value="value.ofType(DateTime) | value.ofType(Period)"/>
+          <expression value="value.ofType(dateTime) | value.ofType(Period)"/>
         </component>
       </SearchParameter>
     </resource>

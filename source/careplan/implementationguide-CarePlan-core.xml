@@ -9,10 +9,5 @@
   <publisher value="Health Level Seven, Inc. - Patient Care WG"/>
   <description value="A set of commonly used extensions that don&#39;t make the usage requirements for inclusion in the resource itself"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/careplan-activity-title"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
