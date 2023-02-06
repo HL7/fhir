@@ -9,10 +9,5 @@
   <publisher value="Health Level Seven, Inc. - InM Work Group"/>
   <description value="Defines &quot;common&quot; extensions for use with the messageheader resource and contained elements"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/messageheader-response-request"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

@@ -10,30 +10,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Specimen resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/specimen-sequenceNumber"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/specimen-collectionPriority"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/specimen-specialHandling"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/specimen-isDryWeight"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/specimen-processingTime"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

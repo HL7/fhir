@@ -10,40 +10,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the AllergyIntolerance resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-resolutionAge"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-reasonRefuted"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-duration"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-substanceExposureRisk"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-certainty"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-assertedDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/allergyintolerance-abatement"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

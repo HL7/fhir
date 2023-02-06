@@ -17,7 +17,7 @@
   
   
   
-  <ActiveSheet>5</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -528,37 +528,8 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s126">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s128">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Left" ss:Weight="1"/>
-   </Borders>
-   <Font ss:Bold="1" ss:Color="#000000" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s129">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
-  <Style ss:ID="s130">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:Color="#333399" ss:FontName="Calibri" ss:Size="11" x:Family="Swiss"/>
-  </Style>
   <Style ss:ID="s131">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-  </Style>
-  <Style ss:ID="s132">
-   <Alignment ss:Horizontal="Left" ss:ShrinkToFit="1" ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:LineStyle="Continuous" ss:Position="Right" ss:Weight="3"/>
-   </Borders>
   </Style>
   <Style ss:ID="s133">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
@@ -878,7 +849,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -956,7 +926,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -3609,7 +3578,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4098,7 +4066,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -4122,7 +4089,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R1C23"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="66" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="1" ss:StyleID="s84" x:FullColumns="1" x:FullRows="1">
    <Column ss:StyleID="s85" ss:Width="227.0"/>
    <Column ss:StyleID="s84" ss:Width="51.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s84" ss:Width="120.0"/>
@@ -4172,846 +4139,6 @@
     <Cell><Data ss:Type="String">standards-status</Data></Cell>
     <Cell><Data ss:Type="String">standards-status-reason</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">QualityOfEvidenceRating</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The quality of the evidence</Data></Cell>
-    <Cell><Data ss:Type="String">The quality of the evidence described. The code system used specifies the quality scale used to grade this evidence source while the code specifies the actual quality score (represented as a coded value) associated with the evidence</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">StrengthOfRecommendationRating</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The strength of the recommendation</Data></Cell>
-    <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system used specifies the rating scale used to rate this recommendation while the code specifies the actual recommendation rating (represented as a coded value) associated with this recommendation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">citation</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">citation</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14" ss:StyleID="s106"><Data ss:Type="String">Bibliographic citation for the resource</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A bibliographic citation for the related resource. This text SHOULD be formatted according to an accepted citation format</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Additional structured information about citations should be captured as extensions</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">library</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">library</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">canonical(Library)</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">A library containing logic used by the artifact</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">A reference to a Library containing the formal logic used by the artifact</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#cqf-library).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">expression</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">expression</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">An dynamic expression</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">An expression that, when evaluated, provides the value for the element on which it appears</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#cqf-expression).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">initialValue</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">initialValue</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">An initial value expression</Data></Cell>
-    <Cell><Data ss:Type="String">An expression that determines an initial value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
-    <Cell><Data ss:Type="String">An expression that determines a calculated value. The expression may be simply the name of a expression in a referenced library, or it may be a complete inline expression</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">For questionnaires, see additional guidance and examples in the [SDC implementation guide](http://hl7.org/fhir/uv/sdc/behavior.html#cqf-calculatedValue).</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!parameter</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">parameter</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Parameter to any logic within the scope</Data></Cell>
-    <Cell><Data ss:Type="String">The definition of a parameter that is available to any expressions within the scope of the parameter. Parameter values are provided as part of the evaluation request</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">parameterDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">TriggerDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">parameterDefinition</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">ParameterDefinition</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What parameter</Data></Cell>
-    <Cell><Data ss:Type="String">The definition of a parameter that is expected to be provided as part of the invocation of the trigger</Data></Cell>
-    <Cell><Data ss:Type="String">For each event, what data are expected to be provided to event handlers</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">isPrefetchToken</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">ParameterDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">isPrefetchToken</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Usable to parameterize prefetch queries</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">Allows an indication of whether this parameter can be used to parameterize prefetch templates (i.e. queries that can be used to identify data-of-interest to be sent as part of a triggered request</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!dataRequirement</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">dataRequirement</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">DataRequirement</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Data requirements for any logic within the scope</Data></Cell>
-    <Cell><Data ss:Type="String">The definition of required data that is available to any logic within the scope</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!optionCode</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
-    <Cell><Data ss:Type="String">optionCode</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Meaning of the response option</Data></Cell>
-    <Cell><Data ss:Type="String">A CodeableConcept that assigns meaning to the response object on which it appears</Data></Cell>
-    <Cell><Data ss:Type="String">Need to be able to determine the semantics of each potential response in order to interpret the meaning when processing the questionnaire response.  For example, the response option "Severe migraines within the past year" to the question "Select all that apply" needs detailed coding (such as via CodeableConcept) at the option level, as well as a way to represent that an affirmation/negative response should result in (perhaps) an Observation in the QuestionnaireResponse tied to a clinical model (such as CIMI). This is key to support sophisticated CDS based on the semantics of the QuestionnaireResponse -- not just the codes</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">measureInfo</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Measure criteria for the resource</Data></Cell>
-    <Cell><Data ss:Type="String">The measure criteria that resulted in the resource being included in a particular evaluatedResources bundle</Data></Cell>
-    <Cell><Data ss:Type="String">When reporting measure evaluation data, it is important to be able to determine why a particular resource was included in the result</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">measureInfo.measure</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">canonical(Measure)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The measure being calculated</Data></Cell>
-    <Cell><Data ss:Type="String">The measure that resulted in this resource being included in the measure report</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">measureInfo.groupId</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The group identifier</Data></Cell>
-    <Cell><Data ss:Type="String">The group within the measure that resulted in this resource being included in the measure report</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">measureInfo.populationId</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The population identifier</Data></Cell>
-    <Cell><Data ss:Type="String">The population within the measure that resulted in this resource being included in the measure report</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">initiatingOrganization</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">initiatingOrganization</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Organization)</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The organization initiating the request</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">initiatingPerson</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">initiatingPerson</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Person|Patient|Practitioner|RelatedPerson)</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The person initiating the request</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">systemUserType</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">systemUserType</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">The type of user initiating the request</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">systemUserLanguage</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">systemUserLanguage</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Language</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Preferred language of the person using the system</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">systemUserTaskContext</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">systemUserTaskContext</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">The task the system user is performing</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">receivingOrganization</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">receivingOrganization</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Organization)</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The organization that will receive the response</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">receivingPerson</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">receivingPerson</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Person|Patient|Practitioner|RelatedPerson)</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The person in the receiving organization that will receive the response</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">recipientType</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">recipientType</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">recipientLanguage</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">recipientLanguage</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Language</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Preferred language of the person that will consume the content</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">encounterClass</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">encounterClass</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">!EncounterClass</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The class of encounter (inpatient, outpatient, etc.)</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">encounterType</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">encounterType</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">!EncounterType</Data></Cell>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">The type of the encounter</Data></Cell>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s107"/>
-    <Cell ss:StyleID="s108"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s109"/>
-    <Cell ss:StyleID="s110"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">relativeDateTime</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Relative Date Time</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A date/time that is specified relative to another event</Data></Cell>
-    <Cell><Data ss:Type="String">A date/time value that is determined based on a duration offset from a target event</Data></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">deprecated</Data></Cell>
-    <Cell><Data ss:Type="String">This extension is deprecated, use the [relative-date](extension-relative-date.html) extension instead</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">relativeDateTime.target</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference(Any)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Relative to what event</Data></Cell>
-    <Cell><Data ss:Type="String">The event that the date/time value is relative to</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="165">
-    <Cell><Data ss:Type="String">relativeDateTime.targetPath</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Relative to which element on the event</Data></Cell>
-    <Cell><Data ss:Type="String">The path to the element that defines the effective period for the event that the date/time value is relative to</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The specified path must be resolvable from the type of the target. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell><Data ss:Type="String">relativeDateTime.relationship</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">ActionRelationshipType</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end</Data></Cell>
-    <Cell><Data ss:Type="String">The relationship to the effective period of the target event that the date/time value is relative to</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">relativeDateTime.offset</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Duration|Range</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">How long</Data></Cell>
-    <Cell><Data ss:Type="String">A duration or range of durations that specifies the offset between the date/time value and the target event. For example, 30-60 minutes before</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">cdsHooksEndpoint</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">CDS Hooks Endpont</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Surface this ECA Rule here</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies the URI of a CDS Hooks service that uses this PlanDefinition as its implementation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">contactReference</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
-    <Cell><Data ss:Type="String">Conact Reference</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference(Person | Group | Device | Organization)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Who or what the contact is</Data></Cell>
-    <Cell><Data ss:Type="String">A reference to a Person, Group, Device, or Organization that is the contact</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">contributionTime</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
-    <Cell><Data ss:Type="String">Contribution Time</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">When the contribution was made</Data></Cell>
-    <Cell><Data ss:Type="String">When the contribution was made by this contributor</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">contactAddress</Data></Cell>
-    <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">ContactDetail</Data></Cell>
-    <Cell><Data ss:Type="String">Contact Address</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Address</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Contributor address</Data></Cell>
-    <Cell><Data ss:Type="String">The address of the contributor</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">certainty</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Certainty</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Certainty or quality rating</Data></Cell>
-    <Cell><Data ss:Type="String">An assessment of certainty, confidence, or quality of the item on which it appears</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">certainty.description</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Textual description of certainty</Data></Cell>
-    <Cell><Data ss:Type="String">A textual description of the certainty</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">certainty.note</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Annotation</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Footnotes and/or explanatory notes</Data></Cell>
-    <Cell><Data ss:Type="String">Footnotes and/or explanatory notes about the certainty</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">certainty.type</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">CertaintyType</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Aspect of certainty being rated</Data></Cell>
-    <Cell><Data ss:Type="String">The aspect of the certainty being rated</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">certainty.rating</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">CertaintyRating</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Assessment or judgement of the aspect</Data></Cell>
-    <Cell><Data ss:Type="String">The assessment, rating, or judgement of the aspect being rated</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">certainty.rater</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Who provided the rating</Data></Cell>
-    <Cell><Data ss:Type="String">The individual or group who provided the rating</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell><Data ss:Type="String">knowledgeCapability</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Knowledge Capability</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">KnowledgeCapability</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">shareable | computable | publishable | executable</Data></Cell>
-    <Cell><Data ss:Type="String">Defines a knowledge capability afforded by this knowledge artifact</Data></Cell>
-    <Cell><Data ss:Type="String">Consumers of knowledge artifacts need to understand the general capabilities afforded by a particular artifact, especially as categorized for packaging and distribution within a knowledge artifact repository</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="180">
-    <Cell><Data ss:Type="String">knowledgeRepresentationLevel</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Knowledge Representation Level</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">narrative | semi-structured | structured | executable</Data></Cell>
-    <Cell><Data ss:Type="String">Defines a knowledge representation level provided by this knowledge artifact</Data></Cell>
-    <Cell><Data ss:Type="String">Consumers of knowledge artifacts need to understand the knowledge representation levels provided by a particular artifact, especially with respect to categorization, searching, and display within a knowledge artifact repository</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">artifactComment</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Artifact Comment</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Additional documentation, review, or usage guidance</Data></Cell>
-    <Cell><Data ss:Type="String">A comment containing additional documentation, a review comment, usage guidance, or other relevant information from a particular user</Data></Cell>
-    <Cell><Data ss:Type="String">Supporting the process of authoring, reviewing, and implementing artifacts requires comments that can be provided by specific users or organizations, and related to specific aspects of the artifact</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">artifactComment.type</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">ArtifactCommentType</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">documentation | review | guidance</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates whether the comment is  providing additional documentation, a review comment that requires resolution, or providing usage guidance to an artifact consumer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">artifactComment.text</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">markdown</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The comment</Data></Cell>
-    <Cell><Data ss:Type="String">The text content of the comment</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">artifactComment.target</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What the comment is directed to</Data></Cell>
-    <Cell><Data ss:Type="String">A URI that points to what the comment is about, such as a line of text in the CQL, or a specific element in a resource</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The target element is used to point the comment to aspect of the artifact, typically a text range within a CQL library (e.g. Library/example#content?0:0-120:80)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">artifactComment.reference</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Supporting reference for the comment</Data></Cell>
-    <Cell><Data ss:Type="String">Provides additional supporting information relevant to the comment</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The reference element is used to reference other relevant information. For example, a comment may point to a citation in a relatedArtifact element (e.g. Library/example#relatedArtifact[ABC])</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">artifactComment.user</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Who commented</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Specifies the user or organization that authored the comment</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">directReferenceCode</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Direct Reference Code</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A code directly referenced by the artifact</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Defines a code directly referenced by artifact logic, as opposed to a value set. Direct reference codes may be the target of data requirements</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">A computable artifact must specify terminology requirements. Direct reference codes SHALL be at least the set of all codes defined in the primary artifact library and any referenced libraries, recursively, and SHOULD be limited to only those direct reference codes that are actually referenced in expressions used by the artifact</Data></Cell>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">logicDefinition</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Logic Definition</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A logic definition used in the artifact</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">Represents a specific logic definition used by the artifact</Data></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">A computable artifact must specify all the definitions used in order to provide a complete, human-readable narrative for the artifact</Data></Cell>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">logicDefinition.libraryName</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Which library</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The name of the library that contains this definition. This is the library name, not the library alias within any particular library usage, and SHOULD be the fully qualified name of the library (i.e. namespace included)</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">logicDefinition.name</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Which definition</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The name of the definition, e.g. Initial Population. For function definitions, this SHOULD include the function parameters (e.g. "Measure Observation"(Encounter Encounter))</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">logicDefinition.statement</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Complete declaration statement</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">The complete declaration statement for the definition. For example, `define "Initial Population": [Encounter: "Inpatient"] E where duration in days of E.period &gt; 2`</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">logicDefinition.displayCategory</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What category?</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">A string value providing a display category for the logic definition displayed in any human readable representation</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s128"><Data ss:Type="String">logicDefinition.displaySequence</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">integer</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What order?</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">An integer value indicating the order in which this definition should be displayed in any human readable representation</Data></Cell>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s129"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s132"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="135">
-    <Cell><Data ss:Type="String">inputParameters</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">input Parameters</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Reference(Parameters)</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What parameters</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies the input parameters to the operation (such as a test case description or a data requirements or evaluate operation)</Data></Cell>
-    <Cell><Data ss:Type="String">As part of defining test cases or interpreting the results of a given evaluation, it is critical to understand (and capture when possible) the input parameters to an operation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="195">
-    <Cell><Data ss:Type="String">targetInvariant</Data></Cell>
-    <Cell><Data ss:Type="String">Element</Data></Cell>
-    <Cell><Data ss:Type="String">*</Data></Cell>
-    <Cell><Data ss:Type="String">Target Invariant</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">A constraint on the target resource</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies an invariant that is enforced in the context of an instantiated resource</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Can be used on any definitional artifact to define an invariant that is enforced in the context of an instantiated resource. The invariant expression will have access to `%target` and `%definition` variables, where target is the instantiated resource, and definition is the definition used to instantiate</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">targetInvariant.key</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">id</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Unique identifier</Data></Cell>
-    <Cell><Data ss:Type="String">A unique identifier for the invariant (unique in the context of the resource)</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">Any error or outcome messages or warnings should include this id to allow the source of the message to be determined</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">targetInvariant.requirements</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Why the invariant is defined</Data></Cell>
-    <Cell><Data ss:Type="String">A brief description of why the invariant is necessary or appropriate</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">targetInvariant.severity</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:Index="10"><Data ss:Type="String">ConstraintSeverity</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">error | warning</Data></Cell>
-    <Cell><Data ss:Type="String">Whether the invariant indicates an error condition or a warning</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">targetInvariant.expression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">The invariant expression</Data></Cell>
-    <Cell><Data ss:Type="String">An expression providing a formal representation of the invariant condition</Data></Cell>
-    <Cell ss:Index="17"><Data ss:Type="String">The expression will have access to `%target` (the resource that was instantiated) and `%definition` (the definition for the instantiated resource)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">alternativeExpression</Data></Cell>
-    <Cell><Data ss:Type="String">Element</Data></Cell>
-    <Cell><Data ss:Type="String">Expression</Data></Cell>
-    <Cell><Data ss:Type="String">Alternative Expression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">Expression</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Equivalent expression in an alternate language</Data></Cell>
-    <Cell><Data ss:Type="String">Specifies an alternative, equivalent expression in another formal language. For example, given a condition expression in CQL, an alternative formulation in SQL could be provided</Data></Cell>
-    <Cell><Data ss:Type="String">Ability to specify formal expressions in multiple languages</Data></Cell>
-    <Cell><Data ss:Type="String">This extension can be used on any Expression, including other Expression extensions such as cqf-expression, cqf-initialValue, and cqf-calculatedValue</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="105">
-    <Cell><Data ss:Type="String">supportedCqlVersion</Data></Cell>
-    <Cell><Data ss:Type="String">Resource</Data></Cell>
-    <Cell><Data ss:Type="String">CapabilityStatement.rest</Data></Cell>
-    <Cell><Data ss:Type="String">Supported CQL Version</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
-    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">What version of CQL is supported</Data></Cell>
-    <Cell><Data ss:Type="String">Indicates that the server supports the given version of Clinical Quality Language (CQL). Valid values are major.minor and optionally the patch version of any published version of the CQL specification</Data></Cell>
-    <Cell><Data ss:Type="String">Servers must be able to advertise what version of CQL they support</Data></Cell>
-   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5019,16 +4146,16 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>59</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5036,130 +4163,8 @@
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C6:R28C6,R5C6:R6C6</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>"0..0,0..1,1..1,0..*,1..*,[n]..[m]"</Value>
-   <ErrorHide/>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C10:R28C10,R5C10:R6C10</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>"Bindings!A2..A30"</Value>
-   <ErrorHide/>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C9:R28C9,R5C9:R6C9</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>"Y,N"</Value>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C8:R28C8,R5C8:R6C8</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>"*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData"</Value>
-   <ErrorHide/>
-  </DataValidation>
-  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C19:R28C21</Range>
-   <Type>List</Type>
-   <CellRangeList/>
-   <Value>"N/A"</Value>
-   <ErrorHide/>
-  </DataValidation>
   <AutoFilter xmlns="urn:schemas-microsoft-com:office:excel" x:Range="R1C1:R1C23">
   </AutoFilter>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C14:R28C14</Range>
-   <Condition>
-    <Value1>(RC1="")&lt;&gt;(RC="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:yellow"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R6C13,R18C1:R28C23</Range>
-   <Condition>
-    <Value1>RC6="0..0"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#F2F2F2"/>
-   </Condition>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;"",RC1="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C2:R28C2,R5C2:R6C2</Range>
-   <Condition>
-    <Value1>AND(RC[-1]&lt;&gt;"",ISERR(SEARCH(".",RC[-1])),RC="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C3:R28C3,R5C3:R6C3</Range>
-   <Condition>
-    <Value1>(RC[-1]="")&lt;&gt;(RC="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C6:R28C6,R18C15:R28C15,R5C6:R6C6</Range>
-   <Condition>
-    <Value1>(RC1="")&lt;&gt;(RC="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C11:R28C13,R5C11:R6C13</Range>
-   <Condition>
-    <Value1>AND(SEARCH("|",RC8)&lt;&gt;0,RC&lt;&gt;"")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C13:R28C13,R5C13:R6C13</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;"",NOT(EXACT(LEFT(RC8,1),LOWER(LEFT(RC8,1)))))</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C14:R28C15</Range>
-   <Condition>
-    <Value1>AND(RC14&lt;&gt;"",RC14=RC15)</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R6C13,R18C1:R28C23</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)="!"</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:#A5A5A5"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R5C1:R6C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;"",#REF!="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C1:R28C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;"",R[-1]C="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:red"/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R18C19:R28C20</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;"",ISERR(SEARCH("N/A",#REF!)),RC="")</Value1>
-    <Format Style="border:.5pt solid #D8D8D8;background:orange"/>
-   </Condition>
-  </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Bindings">
   <Names>
@@ -5269,34 +4274,12 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">KnowledgeCapability</Data></Cell>
-    <Cell><Data ss:Type="String">A knowledge capability provided by a knowledge artifact</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-capability" ss:StyleID="s136"><Data ss:Type="String">valueset-knowledge-capability</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s137"><Data ss:Type="String">KnowledgeRepresentationLevel</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">A level of knowledge representation provided by this artifact</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">required</Data></Cell>
     <Cell ss:HRef="http://hl7.org/fhir/ValueSet/knowledge-representation-level" ss:StyleID="s134"><Data ss:Type="String">valueset-knowledge-representation-level</Data></Cell>
     <Cell ss:Index="13" ss:StyleID="s138"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">ArtifactCommentType</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">The type of artifact comment (documentation, review, guidance)</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:HRef="http://hl7.org/fhir/ValueSet/artifact-comment-type" ss:StyleID="s134"><Data ss:Type="String">valueset-artifact-comment-type</Data></Cell>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s103"><Data ss:Type="String">ConstraintSeverity</Data></Cell>
@@ -5501,13 +4484,11 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5750,7 +4731,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6340,7 +5320,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
@@ -6930,7 +5909,6 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
-   
    <Print>
     <ValidPrinterInfo/>
     <HorizontalResolution>600</HorizontalResolution>
