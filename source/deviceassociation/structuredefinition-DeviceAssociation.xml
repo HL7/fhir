@@ -18,7 +18,7 @@
     <valueCode value=".status = entered-in-error"/>
   </extension>
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceAssociation"/>
-  <version value="4.5.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceAssociation"/>
   <title value="DeviceAssociation"/>
   <status value="draft"/>
@@ -37,7 +37,7 @@
     </telecom>
   </contact>
   <description value="A record of association of a device."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>
