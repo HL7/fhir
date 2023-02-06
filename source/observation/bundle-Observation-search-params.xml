@@ -826,9 +826,6 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="{{name}}.url"/>
-        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
         <description value="URL contained in valueCanonical."/>
         <code value="component-value-canonical"/>
