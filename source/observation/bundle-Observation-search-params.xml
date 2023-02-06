@@ -759,7 +759,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-markdown"/>
         <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
         <code value="value-markdown"/>
-        <type value="markdown"/>
+        <type value="string"/>
         <expression value="Observation.value.ofType(markdown) | Observation.value.ofType(CodeableConcept).text"/>
         <processingMode value="normal"/>
       </SearchParameter>
