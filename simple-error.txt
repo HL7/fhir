@@ -1,1 +1,1 @@
-﻿Resource Examples failed instance validation
+﻿Error parsing /Users/jdln/workspace/fhir/fhir/source/observation/bundle-Observation-search-params.xml: Unknown SearchParamType code 'markdown'

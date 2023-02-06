@@ -42,7 +42,7 @@
 					<reference value="Organization/f001"/>
 					<display value="Burgers University Medical Centre"/>
 				</performer>
-				<result>
+				<!-- <result>
 					<reference value="Observation/f001"/>
 				</result>
 				<result>
@@ -56,7 +56,7 @@
 				</result>
 				<result>
 					<reference value="Observation/f005"/>
-				</result>
+				</result> -->
 				<conclusion value="Core lab"/>
 			</DiagnosticReport>
 		</resource>
