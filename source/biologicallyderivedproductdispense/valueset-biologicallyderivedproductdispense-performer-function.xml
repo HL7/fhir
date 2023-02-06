@@ -27,7 +27,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function"/>
-  <version value="5.0.0-snapshot3"/>
+  <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductDispensePerformerFunction"/>
   <title value="Biologically derived product dispense - performer function"/>
   <status value="draft"/>
