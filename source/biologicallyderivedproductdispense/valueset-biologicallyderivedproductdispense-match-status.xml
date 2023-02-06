@@ -27,7 +27,7 @@
     <valueInteger value="0"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"/>
-  <version value="5.0.0-snapshot3"/>
+  <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductDispenseMatchStatus"/>
   <title value="Biologically derived product dispense - match status"/>
   <status value="draft"/>

@@ -972,15 +972,6 @@
     <Cell ss:Index="16" ss:StyleID="s77"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="16">
-    <Cell><Data ss:Type="String">ObjectLifecycleEvents</Data></Cell>
-    <Cell><Data ss:Type="String">Lifecycle events from multiple code systems</Data></Cell>
-    <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">extensible</Data></Cell>
-    <Cell><Data ss:Type="String">valueset-object-lifecycle-events</Data></Cell>
-    <Cell><Data ss:Type="String">y</Data></Cell>
-    <Cell ss:Index="12"><Data ss:Type="String">sec</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell><Data ss:Type="String">Operation outcome (see translations.xml)</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
