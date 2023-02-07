@@ -110,7 +110,7 @@
     <a name="query-status"/>
     <h3>Query Status</h3>
     <p>
-      Clients can ask a server at any time for the current status of a Subscription via the <a href="subscription-operation-status.html">$status operation</a>.
+      Clients can ask a server at any time for the current status of a Subscription, for example via the <a href="subscription-operation-status.html">$status operation</a>.
     </p>
     <p>
       Since the <code>$status</code> operation is part of the FHIR REST API, the guidance below assumes that a user has been authenticated and is allowed access to all relevant resources.
@@ -132,7 +132,10 @@
     <a name="query-event"/>
     <h3>Query Event</h3>
     <p>
-      Some servers may allow clients to ask for events which have already occurred.  Notification bundles returned by such operations or queries should use the <code>query-event</code> type.
+      Some servers may allow clients to ask for events which have already occurred, for example via the <a href="subscription-operation-events.html">$events operation</a>.
+    </p>
+    <p>
+      Since the <code>$events</code> operation is part of the FHIR REST API, the guidance below assumes that a user has been authenticated and the server has filtered any results according to what the user is allowed access.
     </p>
     <table class="grid">
       <tr><th>Element</th><th>Optionality</th><th>Notes</th></tr>
