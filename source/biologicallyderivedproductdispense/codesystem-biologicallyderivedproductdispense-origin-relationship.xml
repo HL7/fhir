@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="biologicallyderivedproductdispense-origin-relationship"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p>This code system <code>http://hl7.org/fhir/biologicallyderivedproductdispense-origin-relationship</code> defines the following codes:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">autologous<a name="biologicallyderivedproductdispense-origin-relationship-autologous"> </a></td><td>Autologous</td><td>The product was pre-donated by the recipient</td></tr><tr><td style="white-space:nowrap">related<a name="biologicallyderivedproductdispense-origin-relationship-related"> </a></td><td>Related</td><td>The product is from a blood relation of the recipient</td></tr><tr><td style="white-space:nowrap">directed<a name="biologicallyderivedproductdispense-origin-relationship-directed"> </a></td><td>Directed</td><td>The donor has been specifically selected to provide product for the recipient</td></tr><tr><td style="white-space:nowrap">allogeneic&quot;<a name="biologicallyderivedproductdispense-origin-relationship-allogeneic.34"> </a></td><td>Allogeneic</td><td>The donor and the recipient are unrelated</td></tr><tr><td style="white-space:nowrap">xenogenic<a name="biologicallyderivedproductdispense-origin-relationship-xenogenic"> </a></td><td>Xenogenic</td><td>The product is from a different species to the recipient</td></tr></table></div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/biologicallyderivedproductdispense-origin-relationship"/>
+  <version value="0.1.0"/>
+  <name value="BiologicallyDerivedProductDispenseOriginRelationship"/>
+  <title value="Biologically derived product dispense - origin relationship"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2023-01-29T21:19:50+01:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Biologically derived product dispense - origin relationship"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship"/>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="autologous"/>
+    <display value="Autologous"/>
+    <definition value="The product was pre-donated by the recipient"/>
+  </concept>
+  <concept>
+    <code value="related"/>
+    <display value="Related"/>
+    <definition value="The product is from a blood relation of the recipient"/>
+  </concept>
+  <concept>
+    <code value="directed"/>
+    <display value="Directed"/>
+    <definition value="The donor has been specifically selected to provide product for the recipient"/>
+  </concept>
+  <concept>
+    <code value="allogeneic"/>
+    <display value="Allogeneic"/>
+    <definition value="The donor and the recipient are unrelated"/>
+  </concept>
+  <concept>
+    <code value="xenogenic"/>
+    <display value="Xenogenic"/>
+    <definition value="The product is from a different species to the recipient"/>
+  </concept>
+</CodeSystem>

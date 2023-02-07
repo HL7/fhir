@@ -11,36 +11,6 @@
   <description value="Defines common extensions used with or related to the DiagnosticReport resource"/>
   <definition>
     <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-locationPerformed"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-summaryOf"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-replaces"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-extends"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-addendumOf"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-risk"/>
-      </reference>
-    </resource>
-    <resource>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
         <valueCode value="core"/>
       </extension>

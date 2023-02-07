@@ -8,7 +8,7 @@
             <li>the recording of an intake medication list upon admission to hospital</li>
             <li>the summarization of a patient's "active medications" in a patient profile</li>
         </ul>
-        <p>A MedicationStatement may be used to record substance abuse or the use of other agents such as tobacco or alcohol.  This would typically be done if these substances are intended to be included in clinical decision support checking (for example, interaction checking) and as part of an active medication list.  If the intent is to populate social history and/or to include additional information (for example, desire to quit, amount per day, negative health effects), then it is better to record as an Observation that could then be used to populate Social History.</p>
+        <p>A MedicationStatement SHALL NOT be used to record substance abuse or the use of other agents such as tobacco or alcohol UNLESS those agents have been prescribed, eg. nicotine patches or gum, long term care alcohol, etc.  These should recorded as Social History Observations.</p>
         <p> This resource does not produce a medication list, but it does produce individual
             medication statements that may be used in the List resource to construct various types
             of medication lists. Note that other medication lists can also be constructed from the

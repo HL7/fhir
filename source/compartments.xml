@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame Grieve</LastAuthor>
+  <LastAuthor>Jose</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2022-08-30T06:09:05Z</LastSaved>
+  <LastSaved>2023-02-05T14:48:27Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,7 +18,6 @@
   
   
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -790,6 +789,20 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
    </Row>
+   <Row>
+    <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
+    <Cell><Data ss:Type="String">subject | operator</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">operator</Data></Cell>
+    <Cell><Data ss:Type="String">device</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Index="153">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
@@ -825,7 +838,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>74</TopRowBottomPane>
+   <TopRowBottomPane>131</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

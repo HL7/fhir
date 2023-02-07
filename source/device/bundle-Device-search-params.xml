@@ -14,7 +14,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
         <description value="The definition / type of the device (code)"/>
-        <code value="definition"/>
+        <code value="code"/>
         <type value="token"/>
         <expression value="Device.definition.concept"/>
         <processingMode value="normal"/>

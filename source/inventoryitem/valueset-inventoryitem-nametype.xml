@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="inventoryitem-nametype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/inventoryitem-nametype"/>
+  <version value="5.0.0"/>
+  <name value="InventoryItemStatusCodes"/>
+  <title value="InventoryItem Name Typess"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="InventoryItem Name Types"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/inventoryitem-nametype"/>
+    </include>
+  </compose>
+</ValueSet>

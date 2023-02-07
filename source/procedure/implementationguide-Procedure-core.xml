@@ -10,40 +10,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Procedure resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-targetBodyStructure"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-approachBodyStructure"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-method"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-progressStatus"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-incisionDateTime"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-causedBy"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/procedure-directedBy"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

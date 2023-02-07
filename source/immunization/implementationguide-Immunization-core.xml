@@ -10,10 +10,5 @@
   <publisher value="HL7"/>
   <description value="Defines common extensions used with or related to the Immunization resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/immunization-procedure"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

@@ -25,5 +25,8 @@
 			<periodUnit value="wk"/>
 		</repeat>
 	</occurrenceTiming>
-	<patientInstruction value="Start with 30kg 10-15 repetitions for three sets and increase in increments of 5kg when you feel ready"/>
+	<patientInstruction>
+        <instructionMarkdown value="Start with 30kg 10-15 repetitions for three sets and increase in increments of 5kg when you feel ready" />
+	</patientInstruction>
+	
 </ServiceRequest>
