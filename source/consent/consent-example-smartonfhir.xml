@@ -58,15 +58,14 @@
     </coding>
   </regulatoryBasis>
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
+  <decision value="permit"/>
   <provision>
-    <type value="deny"/>
     <period>
       <start value="2016-06-23T17:02:33+10:00"/>
       <end value="2016-06-23T17:32:33+10:00"/>
     </period>
     <provision>
       <!-- this rule corresponds to MedicationRequest/read -->
-      <type value="permit"/>
       <!-- no actors here, or anything, just read/write and the resource type -->
       <action>
         <coding>

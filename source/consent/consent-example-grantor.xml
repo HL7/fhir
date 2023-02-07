@@ -43,39 +43,37 @@
       <code value="INFAO"/>
     </coding>
   </regulatoryBasis>
+  <decision value="deny"/>
   <provision>
-    <type value="deny"/>
-    <provision>
-      <type value="permit"/>
-      <actor>
-        <role>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="CST"/>
-          </coding>
-        </role>
-        <reference>
-          <reference value="Organization/f203"/>
-        </reference>
-      </actor>
-      <actor>
-        <role>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="PRCP"/>
-          </coding>
-        </role>
-        <reference>
-          <reference value="Practitioner/f007"/>
-          <display value="Simone Heps"/>
-        </reference>
-      </actor>
-      <action>
+    <actor>
+      <role>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-          <code value="access"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="CST"/>
         </coding>
-      </action>
-    </provision>
+      </role>
+      <reference>
+        <reference value="Organization/f203"/>
+      </reference>
+    </actor>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="PRCP"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Practitioner/f007"/>
+        <display value="Simone Heps"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+        <code value="access"/>
+      </coding>
+    </action>
   </provision>
+
 </Consent>
