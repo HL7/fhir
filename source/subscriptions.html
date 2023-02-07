@@ -102,7 +102,7 @@
     </li>
     <li>
       <p>FHIRcast is designed around short-lived sessions</p>
-      <p>Subscriptions are intented to be long-lived resources</p>
+      <p>Subscriptions are intended to be long-lived resources</p>
     </li>
   </ul>
 </p>
@@ -181,7 +181,7 @@
   </ul>
 </p>
 <p>
-  Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
+  Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be defined in a computable way whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressible in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
 </p>
 <p>
   More details about defining and deriving subscriptions topics can be found on the <a href="subscriptiontopic.html">SubscriptionTopic</a> resource page, specifically in the sections <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> and <a href="subscriptiontopic.html#deriving">Deriving from Existing Subscription Topics</a>.
@@ -202,7 +202,7 @@
   When a FHIR Server accepts a request to create a <code>Subscription</code>, the server is indicating to the client that the server:
   <ul>
     <li>is capable of detecting when events covered by the requested <code>SubscriptionTopic</code> occur, and</li>
-    <li>is willing to make a <a href="https://tools.ietf.org/html/rfc5290">simple best effort</a> attempt at delivering a notification for each occurance of a matching event.</li>
+    <li>is willing to make a <a href="https://tools.ietf.org/html/rfc5290">simple best effort</a> attempt at delivering a notification for each occurrence of a matching event.</li>
   </ul>
 </p>
 <p>
@@ -308,10 +308,10 @@
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses HTTP response's the Location header and saves the new Subscription's logical id for use in subsequent operations.
+  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the HTTP response's Location header and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
-  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
+  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 </p>
 <p>
   The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
