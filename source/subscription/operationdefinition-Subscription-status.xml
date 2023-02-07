@@ -71,6 +71,10 @@
     <max value="*"/>
     <documentation value="At the Instance level, this parameter is ignored. At the Resource level, a Subscription status to filter by (e.g., &#34;active&#34;). In the absence of any specified status values, the server does not filter contents based on the status. Multiple values are joined via OR (e.g., &#34;error&#34; OR &#34;off&#34;)."/>
     <type value="code"/>
+    <binding>
+      <strength value="required"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/subscription-status"/>
+    </binding>
   </parameter>
   <parameter>
     <name value="return"/>
