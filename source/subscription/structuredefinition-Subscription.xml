@@ -406,8 +406,8 @@
     </element>
     <element id="Subscription.maxCount">
       <path value="Subscription.maxCount"/>
-      <short value="Maximum number of triggering resources included in notification bundles"/>
-      <definition value="If present, the maximum number of triggering resources that will be included in a notification bundle (e.g., a server will not include more than this number of trigger resources in a single notification).  Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included."/>
+      <short value="Maximum number of events that can be combined in a single notification"/>
+      <definition value="If present, the maximum number of events that will be included in a notification bundle.  Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
