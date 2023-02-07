@@ -109,7 +109,7 @@ If the Extension minimum cardinality is 0, then the extension is, by default,
 optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that
 defines the use of an extension may make the minimum cardinality any number up
 to the maximum cardinality of the extension itself. Example: 
-<a href="extension-patient-birthplace.html">Patient birthplace</a>.
+<a href="[%extensions-location%]StructureDefinition-patient-birthPlace.html">Patient birthplace</a>.
 </p>
 <p>
 If the Extension minimum cardinality is &gt; 1, then the extension must have a
@@ -118,7 +118,7 @@ that defines the use of the extension. The minimum cardinality may be any number
 to the maximum cardinality of the extension. Even with a minimum cardinality &gt; 0, the
 extension is only required to be present in instances if the instances explicitly
 or implicitly conform to a profile that defines the use of the extension. Example:
-<a href="extension-capabilitystatement-expectation.html">CapabilityStatement Expectation</a>.
+<a href="[%extensions-location%]StructureDefinition-capabilitystatement-expectation.html">CapabilityStatement Expectation</a>.
 </p>
 <p><b>Maximum Cardinality</b></p>
 <p>
@@ -126,14 +126,14 @@ If the Extension maximum cardinality is 1, then the extension is only allowed on
 any element on which it appears. A <a href="profiling.html#resource">profile</a> that
 defines the use of an extension can only make the maximum cardinality 1 (or zero if
 the minimum cardinality is 0, and the profile constrains another profile that allows
-the extension). Example: <a href="extension-patient-mothersmaidenname.html">Mother's Maiden Name</a>.
+the extension). Example: <a href="[%extensions-location%]StructureDefinition-patient-mothersMaidenName.html">Mother's Maiden Name</a>.
 </p>
 <p>
 If the Extension maximum cardinality is &gt;1, then the extension is allowed up to
 the specified number of times on any element on which it appears.
 A <a href="profiling.html#resource">profile</a> that defines the use of an
 extension may make the maximum cardinality any value up to the specified maximum.
-Example: <a href="extension-patient-disability.html">Patient Disability</a>.
+Example: <a href="[%extensions-location%]StructureDefinition-patient-disability.html">Patient Disability</a>.
 </p>
 <p><b>Context Invariants</b></p>
 <p>
@@ -143,7 +143,7 @@ check that local requirements around cardinality and other business rules are
 met. 
 </p>
 <p>
-For example, if you use <a href="extension-iso21090-adxp-housenumber.html">the extension for house number</a>, 
+For example, if you use <a href="[%extensions-location%]StructureDefinition-iso21090-adxp-houseNumber.html">the extension for house number</a>, 
 the Address.line needs to be filled as well:
 </p>
 <pre>
