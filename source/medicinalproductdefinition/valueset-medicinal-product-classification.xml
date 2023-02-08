@@ -11,7 +11,7 @@
   <url value="http://hl7.org/fhir/ValueSet/medicinal-product-classification"/>
   <version value="4.3.0-CIBUILD"/>
   <name value="ProductClassification"/>
-  <title value="ProductClassification"/>
+  <title value="Product Classification"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="package-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -16,11 +18,11 @@
   <url value="http://hl7.org/fhir/package-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-     <value value="urn:oid:2.16.840.1.113883.4.642.4.1963"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1963"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="PackageType"/>
-   <title value="PackageType"/>
+  <title value="Package Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -35,20 +37,20 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-   <description value="A high level categorisation of a package."/>
+  <description value="A high level categorisation of a package."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/package-type"/>
   <content value="complete"/>
-   <concept>
-      <code value="MedicinalProductPack"/>
-      <display value="Medicinal product pack"/>
-   </concept>
-   <concept>
-      <code value="RawMaterialPackage"/>
-      <display value="Raw material package"/>
-   </concept>
-   <concept>
-      <code value="Shipping-TransportContainer"/>
-      <display value="Shipping or transport container"/>
-   </concept>
+  <concept>
+    <code value="MedicinalProductPack"/>
+    <display value="Medicinal product pack"/>
+  </concept>
+  <concept>
+    <code value="RawMaterialPackage"/>
+    <display value="Raw material package"/>
+  </concept>
+  <concept>
+    <code value="Shipping-TransportContainer"/>
+    <display value="Shipping or transport container"/>
+  </concept>
 </CodeSystem>

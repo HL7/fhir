@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
   <id value="valueset-extensions-ValueSet-keyword"/>
   <url value="http://hl7.org/fhir/SearchParameter/valueset-extensions-ValueSet-keyword"/>
   <version value="5.0.0"/>
-  <name value="keyword"/>
+  <name value="Keyword"/>
+  <title value="keyword"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="Optional Extensions Element"/>

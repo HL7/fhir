@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SecurityRoleType"/>
+  <title value="Security Role Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2017-07-28T18:00:00+01:00"/>

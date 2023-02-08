@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="UserLevel"/>
+  <title value="User Level"/>
   <experimental value="true"/>
   <description value="UserLevel"/>
   <concept>

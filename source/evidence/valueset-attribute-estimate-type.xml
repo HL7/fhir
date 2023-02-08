@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="attribute-estimate-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AttributeEstimateType"/>
-  <title value="AttributeEstimateType"/>
+  <title value="Attribute Estimate Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-08-05T12:00:00+11:00"/>

@@ -1,231 +1,401 @@
-﻿<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library xmlns="http://hl7.org/fhir">
   <id value="library-exclusive-breastfeeding-cqm-logic"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Id: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Library/library-exclusive-breastfeeding-cqm-logic</td>
-            </tr>
-         </table>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Identifier: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>value: </b>
-                  <span>Exclusive_Breastfeeding_CQM_Logic</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Version: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">1.0.0</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Title: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding CQM Logic</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Type: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-right: 25px;">
-                  <span>
-                     <span>
-                        <span style="padding-left: 25px;">
-                           <b>code: </b>
-                           <span>logic-library</span>
-                        </span>
-                     </span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Status: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">active</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Description: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Topic: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-right: 25px;">
-                  <span style="padding-left: 25px;">
-                     <b>text: </b>
-                     <span>Exclusive Breastfeeding</span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Related: </b>
-               </td>
-            </tr>
-            <tr style="vertical-align: top;">
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <p style="margin-bottom: 5px;">
-                     <b>type: </b>
-                     <span>depends-on</span>
-                  </p>
-                  <p style="margin-bottom: 5px;">
-                     <b>Resource: </b>
-                     <br/>
-                     <span>
-                        <span style="padding-left: 25px;">
-                           <b>reference: </b>
-                           <span>Library/library-quick-model-definition</span>
-                        </span>
-                     </span>
-                  </p>
-               </td>
-            </tr>
-         </table>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Data Requirements: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <div>
-                     <p style="margin-bottom: 5px;">
-                        <b>type: </b>
-                        <span>Condition</span>
-                     </p>
-                     <p style="margin-bottom: 5px;">
-                        <b>code filter:</b>
-                        <br/>
-                        <span style="padding-left: 25px;">
-                           <b>path: </b>
-                           <span>code</span>
-                        </span>
-                        <br/>
-                        <span style="padding-left: 25px;">
-                           <b>valueset: </b>
-                           <span>Single Live Birth</span>
-                        </span>
-                     </p>
-                  </div>
-               </td>
-            </tr>
-         </table>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Content: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <p style="margin-bottom: 5px;">
-                     <b>type: </b>
-                     <span>text/cql</span>
-                  </p>
-                  <p style="margin-bottom: 5px;">
-                     <b>url: </b>
-                     <span>http://cqlrepository.org/CMS9v4_CQM.cql</span>
-                  </p>
-               </td>
-            </tr>
-         </table>
-      </div>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Id: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Library/library-exclusive-breastfeeding-cqm-logic</td>
+            
+        </tr>
+         
+      </table>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Identifier: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>value: </b>
+                  
+            <span>Exclusive_Breastfeeding_CQM_Logic</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Version: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">1.0.0</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Title: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding CQM Logic</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Type: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-right: 25px;">
+                  
+            <span>
+                     
+              <span>
+                        
+                <span style="padding-left: 25px;">
+                           
+                  <b>code: </b>
+                           
+                  <span>logic-library</span>
+                        
+                </span>
+                     
+              </span>
+                  
+            </span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Status: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">active</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Description: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Topic: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-right: 25px;">
+                  
+            <span style="padding-left: 25px;">
+                     
+              <b>text: </b>
+                     
+              <span>Exclusive Breastfeeding</span>
+                  
+            </span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Related: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr style="vertical-align: top;">
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>type: </b>
+                     
+              <span>depends-on</span>
+                  
+            </p>
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>Resource: </b>
+                     
+              <br/>
+                     
+              <span>
+                        
+                <span style="padding-left: 25px;">
+                           
+                  <b>reference: </b>
+                           
+                  <span>Library/library-quick-model-definition</span>
+                        
+                </span>
+                     
+              </span>
+                  
+            </p>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Data Requirements: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <div>
+                     
+              <p style="margin-bottom: 5px;">
+                        
+                <b>type: </b>
+                        
+                <span>Condition</span>
+                     
+              </p>
+                     
+              <p style="margin-bottom: 5px;">
+                        
+                <b>code filter:</b>
+                        
+                <br/>
+                        
+                <span style="padding-left: 25px;">
+                           
+                  <b>path: </b>
+                           
+                  <span>code</span>
+                        
+                </span>
+                        
+                <br/>
+                        
+                <span style="padding-left: 25px;">
+                           
+                  <b>valueset: </b>
+                           
+                  <span>Single Live Birth</span>
+                        
+                </span>
+                     
+              </p>
+                  
+            </div>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Content: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>type: </b>
+                     
+              <span>text/cql</span>
+                  
+            </p>
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>url: </b>
+                     
+              <span>http://cqlrepository.org/CMS9v4_CQM.cql</span>
+                  
+            </p>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+      
+    </div>
   </text>
-
-    <identifier>
+  <identifier>
     <use value="official"/>
     <value value="Exclusive_Breastfeeding_CQM_Logic"/>
-    </identifier>
-    <version value="1.0.0"/>
-    <title value="Exclusive Breastfeeding CQM Logic"/>
-    <status value="active"/>
-    <experimental value="true"/>
-    <type>
-      <coding>
-        <code value="logic-library"/>
-      </coding>
-    </type>
-    <date value="2016-03-08"/>
-    <description value="Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns"/>
-    <topic>
+  </identifier>
+  <version value="1.0.0"/>
+  <name value="ExclusiveBreastfeedingCQMLogic"/>
+  <title value="Exclusive Breastfeeding CQM Logic"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <type>
+    <coding>
+      <code value="logic-library"/>
+    </coding>
+  </type>
+  <date value="2016-03-08"/>
+  <description value="Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns"/>
+  <topic>
     <text value="Exclusive Breastfeeding"/>
-    </topic>
-
+  </topic>
   <relatedArtifact>
     <type value="depends-on"/>
     <resource value="http://example.org/fhir/Library/library-quick-model-definition"/>
   </relatedArtifact>
-
-  <!--valueSet>
-    <name value="Female Administrative Sex"/>
-    <identifier value="2.16.840.1.113883.3.560.100.2"/>
-  </valueSet-->
-  <!--   ... other value sets as defined in the library   -->
-
   <dataRequirement>
     <type value="Condition"/>
     <codeFilter>
       <path value="code"/>
-      <valueSet value="urn:oid:2.16.840.1.113883.3.117.1.7.1.25"/> <!-- Single Live Birth -->
+      <valueSet value="urn:oid:2.16.840.1.113883.3.117.1.7.1.25"/>
     </codeFilter>
   </dataRequirement>
-  <!--   ... other data requirements as defined in the library   -->
-
   <content>
     <contentType value="text/cql"/>
     <url value="http://cqlrepository.org/CMS9v4_CQM.cql"/>
   </content>
-
 </Library>

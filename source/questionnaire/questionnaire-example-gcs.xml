@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
   <id value="gcs"/>
   <contained>
     <ValueSet>
@@ -116,11 +118,13 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.20.5"/>
   </identifier>
+  <name value="GlasgowComaScore"/>
   <title value="Glasgow Coma Score"/>
   <status value="draft"/>
   <subjectType value="Patient"/>
   <date value="2015-08-03"/>
   <publisher value="FHIR Project team"/>
+  <description value="Glasgow Coma Score"/>
   <code>
     <system value="http://loinc.org"/>
     <code value="9269-2"/>

@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="AllergyIntolerance-core"/>
   <version value="0.1"/>
-  <name value="AllergyIntolerance HL7 Extensions"/>
-  <title value="AllergyIntolerance HL7 Extensions"/>
+  <name value="AllergyIntoleranceHL7Extensions"/>
+  <title value="Allergy Intolerance  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the AllergyIntolerance resource"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

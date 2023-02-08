@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceComponentPropertyCode"/>
+  <title value="Device Component Property Code"/>
   <experimental value="true"/>
   <description value="DeviceComponentPropertyCode"/>
   <compose>

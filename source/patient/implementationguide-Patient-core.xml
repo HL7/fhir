@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Patient-core"/>
   <version value="0.01"/>
-  <name value="Patient HL7 Extensions"/>
-  <title value="Patient HL7 Extensions"/>
+  <name value="PatientHL7Extensions"/>
+  <title value="Patient  H L7  Extensions"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
   <description value="Defines common extensions used with or related to the Patient resource"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

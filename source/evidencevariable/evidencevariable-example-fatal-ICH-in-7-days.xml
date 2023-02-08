@@ -1,80 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-fatal-ICH-in-7-days"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
         &quot;Fatal Intracranial Hemorrhage Within Seven Days&quot; is an outcome used in expressing what an Evidence is about.
       </p>
-	</div>
+	
+    </div>
   </text>
+  <name value="FatalIntracranialHemorrhageWithinSevenDays"/>
   <title value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <status value="draft"/>
+  <description value="Fatal Intracranial Hemorrhage Within Seven Days"/>
   <note>
-	<text value="Death must be due to intracranial hemorrhage"/>
+    <text value="Death must be due to intracranial hemorrhage"/>
   </note>
   <actual value="true"/>
   <characteristic>
     <description value="intracranial hemorrhage within 7 days"/>
     <definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="1386000"/>
-				<display value="Intracranial hemorrhage (disorder)"/>
-			</coding>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="1386000"/>
+        <display value="Intracranial hemorrhage (disorder)"/>
+      </coding>
     </definitionCodeableConcept>
     <timeFromEvent>
-			<description value="within 7 days"/>
-			<eventCodeableConcept>
-				<coding>
-					<system value="http://hl7.org/fhir/evidence-variable-event"/>
-					<code value="study-start"/>
-					<display value="Study Start"/>
-				</coding>
-			</eventCodeableConcept>
-			<range>
-				<low>
-					<value value="0"/>
-					<unit value="day"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="d"/>
-				</low>
-				<high>
-					<value value="7"/>
-					<unit value="day"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="d"/>
-				</high>
-			</range>
+      <description value="within 7 days"/>
+      <eventCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/evidence-variable-event"/>
+          <code value="study-start"/>
+          <display value="Study Start"/>
+        </coding>
+      </eventCodeableConcept>
+      <range>
+        <low>
+          <value value="0"/>
+          <unit value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="d"/>
+        </low>
+        <high>
+          <value value="7"/>
+          <unit value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="d"/>
+        </high>
+      </range>
     </timeFromEvent>
   </characteristic>
   <characteristic>
-		<description value="death within 7 days"/>
-		<definitionCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="419620001"/>
-				<display value="Death (event)"/>
-			</coding>
-		</definitionCodeableConcept>
-		<timeFromEvent>
-			<description value="within 7 days"/>
-			<range>
-				<low>
-					<value value="0"/>
-					<unit value="day"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="d"/>
-				</low>
-				<high>
-					<value value="7"/>
-					<unit value="day"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="d"/>
-				</high>
-			</range>
-		</timeFromEvent>
+    <description value="death within 7 days"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="419620001"/>
+        <display value="Death (event)"/>
+      </coding>
+    </definitionCodeableConcept>
+    <timeFromEvent>
+      <description value="within 7 days"/>
+      <range>
+        <low>
+          <value value="0"/>
+          <unit value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="d"/>
+        </low>
+        <high>
+          <value value="7"/>
+          <unit value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="d"/>
+        </high>
+      </range>
+    </timeFromEvent>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

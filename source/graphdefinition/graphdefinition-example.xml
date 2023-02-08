@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><GraphDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GraphDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://h7.org/fhir/GraphDefinition/example"/>
-  <name value="Document Generation Template"/>
+  <name value="DocumentGenerationTemplate"/>
+  <title value="Document Generation Template"/>
   <status value="draft"/>
   <date value="2015-08-04"/>
   <publisher value="FHIR Project"/>
@@ -12,24 +15,7 @@
     </telecom>
   </contact>
   <description value="Specify to include list references when generating a document using the $document operation"/>
-  <!-- 
-    the $document operation will include everything directly linked to by the composition resource.
-    In our case, we want any resources referred to by lists referenced from the composition to 
-    be included as well. 
-    
-    We do this by defining a 'graph' of resources - and then we'll say to the $document server,
-    aggregate this graph as well as other resources. So we define a graph that starts at composition,
-    goes from section to list, and includes all the resources the list includes. 
-    
-    While we're at it, we're going to say that all these resources must be about the same patient.
-    Note that there are use cases for crossing patient record boundaries in documents, but not *this case*.
-    
-  -->
-  
-  <!-- this graph starts with a composition. We don't care what the specific profile is
-     (though the statement above 'this case doesn't cross patients' implies that we do care a little) -->
   <start value="comp1"/>
-  
   <node>
     <nodeId value="comp1"/>
     <description value="The base composition"/>
@@ -46,27 +32,17 @@
     <description value="Generic resource that's the target of a list reference"/>
     <type value="Resource"/>
   </node>
-
-  <!-- define the section -> list link -->
   <link>
     <description value="Link from Composition.section to list"/>
     <sourceId value="comp1"/>
-    <!-- any section entry. Todo: this recurses; are we profiling this at all levels? --> 
     <path value="Composition.section.entry"/>
-    <!-- 
-      one target. This graph is not making rules about the content of the section entries - that
-      would be done in a profile. it's just saying, if you see a reference to a list in a section
-      entry, these are the rules that describe the graph
-    -->
     <targetId value="list1"/>
     <compartment>
       <use value="requires"/>
       <rule value="identical"/>
       <code value="Patient"/>
     </compartment>
-  </link>    
-
-  <!-- and from the list, any references -->
+  </link>
   <link>
     <description value="Include any list entries"/>
     <sourceId value="list1"/>
@@ -77,5 +53,5 @@
       <rule value="identical"/>
       <code value="Patient"/>
     </compartment>
-  </link>      
+  </link>
 </GraphDefinition>

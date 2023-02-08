@@ -7,6 +7,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3172"/>
   </identifier>
   <name value="ConditionStatusPresent"/>
+  <title value="Condition Status Present"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2014-10-28T18:09:16.978+10:00"/>

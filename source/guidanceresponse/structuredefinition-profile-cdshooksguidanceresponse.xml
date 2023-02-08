@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1485"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="CDS Hooks GuidanceResponse"/>
-  <title value="CDS Hooks GuidanceResponse"/>
+  <name value="CDSHooksGuidanceResponse"/>
+  <title value="C D S  Hooks  Guidance Response"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
