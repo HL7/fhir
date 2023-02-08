@@ -1,10 +1,14 @@
 ﻿_language
 _query
+excluded_structure
 _in
 _security
 _type
 _lastupdated
 _list
+lifecycle
+subject_state
+included_structure
 _profile
 _tag
 _source

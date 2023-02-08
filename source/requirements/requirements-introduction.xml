@@ -48,7 +48,7 @@ statement has:
 <h2>Boundaries and Relationships</h2>
 
 <p>
-Requirements may by referenced from almost any resource by the <a href="extension-satisfies-requirement.html">Requirements Satisfied</a> extension.
+Requirements may by referenced from almost any resource by the <a href="[%extensions-location%]StructureDefinition-satisfies-requirement.html">Requirements Satisfied</a> extension.
 Generally, this extension will be found in the <a href="canonicalresource.html">Canonical Resources</a> but this is 
 not a hard rule.
 </p>

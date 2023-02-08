@@ -24,7 +24,7 @@ as a pair using a <a href="http.html#transaction">transaction</a>.
 The <a href="provenance.html#header">Provenance http header</a> may be used if supported. 
 </p>
 <p>
-The <i>Provenance.target</i> may point at a specific element within the targetted resource using the <a href="extension-targetelement.html">target element extension</a> or <a href="extension-targetpath.html">target path extension</a>. For example when updating a Patient resource with a new official name, such as shown in <a href="provenance-example1.html">example 1</a>, where the Provenance is indicating that the official name was provided by the Patient themselves.
+The <i>Provenance.target</i> may point at a specific element within the targetted resource using the <a href="[%extensions-location%]StructureDefinition-targetElement.html">target element extension</a> or <a href="[%extensions-location%]StructureDefinition-targetPath.html">target path extension</a>. For example when updating a Patient resource with a new official name, such as shown in <a href="provenance-example1.html">example 1</a>, where the Provenance is indicating that the official name was provided by the Patient themselves.
 </p>
 <a name="header"> </a>
 <h4>HTTP Header</h4>
