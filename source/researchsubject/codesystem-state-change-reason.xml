@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="state-change-reason"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StateChangeReason"/>
-  <title value="StateChangeReason"/>
+  <title value="State Change Reason"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -134,7 +136,6 @@
     <display value="withdrawn consent"/>
     <definition value="withdrawn consent."/>
   </concept>
-
   <concept>
     <code value="diseaseRelapse"/>
     <display value="Disease Relapse"/>
@@ -145,7 +146,7 @@
     <display value="Failed Randomization"/>
     <definition value="Subject failed randomization."/>
   </concept>
-    <concept>
+  <concept>
     <code value="lackOfEfficacy"/>
     <display value="Lack Of Efficacy"/>
     <definition value="The study activities were not efficient in dealing with the underlying issue."/>
@@ -160,12 +161,12 @@
     <display value="Physician Decision"/>
     <definition value="A physician has decided the subject should no longer continue on the study."/>
   </concept>
-<concept>
+  <concept>
     <code value="pregnancy"/>
     <display value="Pregnancy"/>
     <definition value="Subject is now pregnant and no longer meets the inclusion criteria."/>
   </concept>
-    <concept>
+  <concept>
     <code value="progressiveDisease"/>
     <display value="Progressive Disease"/>
     <definition value="The subject has a disease that has progressed to far to allow them to continue in the study."/>

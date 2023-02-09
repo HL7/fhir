@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="phr"/>
@@ -6,25 +6,35 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
      
+      
       <p>Prototype Capability Statement for September 2013 Connectathon</p>
      
+      
       <p>The server offers read and search support on the following resource types:</p>
      
+      
       <ul>
       
+        
         <li>Patient</li>
       
+        
         <li>DocumentReference</li>
       
+        
         <li>Condition</li>
       
+        
         <li>DiagnosticReport</li>
     
+      
       </ul>
+    
     
     </div>
   </text>
-  <name value="PHR Template"/>
+  <name value="PHRTemplate"/>
+  <title value="PHR Template"/>
   <status value="draft"/>
   <date value="2013-06-18"/>
   <publisher value="FHIR Project"/>
@@ -39,11 +49,7 @@
   <software>
     <name value="ACME PHR Server"/>
   </software>
-<!--  while the FHIR infrastructure is turning over prior to development, a version is required. Note that this may be rescinded later  -->
   <fhirVersion value="5.0.0"/>
-<!-- 
-    for the connectathon, servers should support both xml and json. Clients can use only one. 
-   -->
   <format value="json"/>
   <format value="xml"/>
   <rest>
@@ -56,7 +62,6 @@
       <description value="We recommend that PHR servers use standard OAuth using a          standard 3rd party provider. We are not testing the ability to provide an          OAuth authentication/authorization service itself, and nor is providing          any security required for the connectathon at all"/>
     </security>
     <resource>
-    <!--  patient resource: read and search for patients the authenticated user has access too  -->
       <type value="Patient"/>
       <interaction>
         <code value="read"/>
@@ -67,7 +72,6 @@
       </interaction>
     </resource>
     <resource>
-    <!--  document reference resource: read and search   -->
       <type value="DocumentReference"/>
       <interaction>
         <code value="read"/>
@@ -81,9 +85,7 @@
         <documentation value="_id parameter always supported. For the connectathon, servers may elect which search parameters are supported"/>
       </searchParam>
     </resource>
-  <!--  for the purposes of the connectathon, servers can choose which additional resources to support. Here's a couple of examples  -->
     <resource>
-    <!--  Condition - let the patient see a list of their Conditions  -->
       <type value="Condition"/>
       <interaction>
         <code value="read"/>
@@ -98,7 +100,6 @@
       </searchParam>
     </resource>
     <resource>
-    <!--  Diagnostic Reports - can be lots of these, so we'll suggest that at least service category should be supported as a search criteria  -->
       <type value="DiagnosticReport"/>
       <interaction>
         <code value="read"/>

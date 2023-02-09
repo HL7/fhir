@@ -3,7 +3,7 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="family-member-history-genetics"/>
   <version value="0.2"/>
-  <name value="Family member history for genetics analysis"/>
+  <name value="FamilyMemberHistoryForGeneticsAnalysis"/>
   <title value="Family member history for genetics analysis"/>
   <status value="draft"/>
   <date value="2019-05-29T00:00:00.000"/>

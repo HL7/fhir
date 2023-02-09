@@ -17,6 +17,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ActionList"/>
+  <title value="Action List"/>
   <experimental value="true"/>
   <description value="ActionList"/>
   <compose>

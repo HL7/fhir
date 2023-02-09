@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="substance-relationship-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceRelationshipType"/>
-  <title value="SubstanceRelationshipType"/>
+  <title value="Substance Relationship Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,10 +41,10 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/substance-relationship-type"/>
   <content value="complete"/>
-   <concept>
-     <code value="Salt"/>
-     <display value="Salt to parent"/>
-   </concept>
+  <concept>
+    <code value="Salt"/>
+    <display value="Salt to parent"/>
+  </concept>
   <concept>
     <code value="ActiveMoiety"/>
     <display value="Active moiety"/>

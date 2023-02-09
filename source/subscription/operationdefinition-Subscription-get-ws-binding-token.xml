@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Subscription-get-ws-binding-token"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +35,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Subscription-get-ws-binding-token"/>
   <version value="5.0.0"/>
-  <name value="get-ws-binding-token"/>
+  <name value="Getwsbindingtoken"/>
   <title value="Get a binding token for use in a websocket connection"/>
   <status value="draft"/>
   <kind value="operation"/>

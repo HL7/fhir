@@ -2,6 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Currencies"/>
+  <title value="Currencies"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - FHIR-Infrastructure"/>

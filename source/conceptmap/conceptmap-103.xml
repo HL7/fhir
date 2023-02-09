@@ -1,63 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
-    <id value="103"/>
-    <url value="http://hl7.org/fhir/ConceptMap/103"/>
-    <identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="103"/>
+  <url value="http://hl7.org/fhir/ConceptMap/103"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.14.7"/>
   </identifier>
   <identifier>
-        <system value="urn:ietf:rfc:3986"/>
-        <value value="urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"/>
-    </identifier>
-    <!--  for version, we are going to simply use the day of publication. This is also 
-    arbitrary - whatever is here is what people use to refer to the version. 
-    Could also be a UUID too  -->
-    <version value="20120613"/>
-    <!--  example SNOMED CT to ICD-10-CM rule-based maps for fracture of ulna  -->
-    <name value="SNOMED CT to ICD-10-CM mappings for fracture of ulna"/>
-    <status value="draft"/>
-    <experimental value="true"/>
-    <date value="2012-06-13"/>
-    <publisher value="HL7, Inc"/>
-    <contact>
-        <name value="FHIR project team (example)"/>
-        <telecom>
-            <system value="url"/>
-            <value value="http://hl7.org/fhir"/>
-        </telecom>
-    </contact>
-    <description value="Example rule-based mappings between SNOMED CT to ICD-10-CM for fracture of ulna"/>
-    <jurisdiction>
-        <coding>
-            <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
-            <code value="840"/>
-            <display value="United States of America"/>
-        </coding>
-    </jurisdiction>
-    <purpose value="Show example rule based mappings"/>
-    <copyright value="Creative Commons 0"/>
-    <sourceScopeCanonical value="http://snomed.info/sct?fhir_vs"/>
-    <!-- <targetScopeCanonical value="http://hl7.org/fhir/sid/icd-10-cm"/> -->
-    <group>
-        <source value="http://snomed.info/sct"/>
-        <target value="http://hl7.org/fhir/sid/icd-10-cm"/>
-        <!-- Unspecified fracture of shaft of unspecified ulna (initial encounter for closed fracture) -->
-        <element>
-            <!-- Fracture of shaft of ulna -->
-            <code value="263204007"/>
-            <target>
-                <code value="S52.209A"/>
-                <relationship value="source-is-broader-than-target"/>
-                <comment value="The target mapping to ICD-10-CM is 'source-is-broader-than-target', since additional patient data on the encounter (initial vs. subsequent) and fracture type is required for a valid ICD-10-CM mapping."/>
-            </target>
-        </element>
-        <element>
-            <code value="263204007"/>
-            <target>
-                <code value="S52.209D"/>
-                <relationship value="source-is-broader-than-target"/>
-                <comment value="The target mapping to ICD-10-CM is 'source-is-broader-than-target', since additional patient data on the encounter (initial vs. subsequent), fracture type and healing (for subsequent encounter) is required for a valid ICD-10-CM mapping."/>
-            </target>
-        </element>
-    </group>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:uuid:53cd62ee-033e-414c-9f58-3ca97b5ffc3b"/>
+  </identifier>
+  <version value="20120613"/>
+  <name value="SNOMEDCTToICD10CMMappingsForFractureOfUlna"/>
+  <title value="SNOMED CT to ICD-10-CM mappings for fracture of ulna"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2012-06-13"/>
+  <publisher value="HL7, Inc"/>
+  <contact>
+    <name value="FHIR project team (example)"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="Example rule-based mappings between SNOMED CT to ICD-10-CM for fracture of ulna"/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="840"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Show example rule based mappings"/>
+  <copyright value="Creative Commons 0"/>
+  <sourceScopeCanonical value="http://snomed.info/sct?fhir_vs"/>
+  <group>
+    <source value="http://snomed.info/sct"/>
+    <target value="http://hl7.org/fhir/sid/icd-10-cm"/>
+    <element>
+      <code value="263204007"/>
+      <target>
+        <code value="S52.209A"/>
+        <relationship value="source-is-broader-than-target"/>
+        <comment value="The target mapping to ICD-10-CM is 'source-is-broader-than-target', since additional patient data on the encounter (initial vs. subsequent) and fracture type is required for a valid ICD-10-CM mapping."/>
+      </target>
+    </element>
+    <element>
+      <code value="263204007"/>
+      <target>
+        <code value="S52.209D"/>
+        <relationship value="source-is-broader-than-target"/>
+        <comment value="The target mapping to ICD-10-CM is 'source-is-broader-than-target', since additional patient data on the encounter (initial vs. subsequent), fracture type and healing (for subsequent encounter) is required for a valid ICD-10-CM mapping."/>
+      </target>
+    </element>
+  </group>
 </ConceptMap>

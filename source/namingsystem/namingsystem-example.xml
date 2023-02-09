@@ -1,26 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?><NamingSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<NamingSystem xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>
+        
         <b>SNOMED CT</b>
+      
       </p>
+      
       
       <p> oid: 2.16.840.1.113883.6.96</p>
       
+      
       <p> uri: http://snomed.info/sct</p>
+    
     
     </div>
   </text>
-  <!-- this url identifies the *registration* of the IHI number, not the IH number itself -->
   <url value="http://hl7.org/fhir/NamingSystem/example"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.22.1"/>
   </identifier>
-  <name value="SNOMED CT"/>
+  <name value="SNOMEDCT"/>
+  <title value="SNOMED CT"/>
   <status value="active"/>
   <kind value="codesystem"/>
   <date value="2014-12-13"/>
@@ -31,9 +39,9 @@
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
-  </contact> 
+  </contact>
   <responsible value="IHTSDO &amp; affiliates"/>
-  <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid &#34;semantic drift&#34; so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.    SNOMED CT's concepts are interrelated hierarchically and using description logic.    SNOMED CT concepts have a unique &#34;fully-specified name&#34;, a preferred term, and, optionally, synonyms.  The description languages include English and Spanish."/>
+  <description value="SNOMED CT is a concept-based, scientifically validated terminology that provides a unique and permanent concept identifier that can be included in multiple HL7 data types including CD and CE.  The concepts are managed to avoid &quot;semantic drift&quot; so the meaning remains constant.  If the concept is found to be ambiguous or the meaning changes, the concept is inactivated but still retained and the identifier is never reused.    SNOMED CT's concepts are interrelated hierarchically and using description logic.    SNOMED CT concepts have a unique &quot;fully-specified name&quot;, a preferred term, and, optionally, synonyms.  The description languages include English and Spanish."/>
   <uniqueId>
     <type value="oid"/>
     <value value="2.16.840.1.113883.6.96"/>

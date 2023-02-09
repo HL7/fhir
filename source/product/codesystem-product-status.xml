@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProductStatus"/>
+  <title value="Product Status"/>
   <experimental value="true"/>
   <description value="ProductStatus"/>
   <concept>

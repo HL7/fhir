@@ -1,74 +1,138 @@
-<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="knowledge-repository"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <h2>Knowledge Repository Service Conformance Statement</h2>
+      
       <div>
+        
         <p>Basic conformance statement for a Knowledge Repository Service. A server can support more functionality
            than defined here, but this is the minimum amount</p>
 
+      
       </div>
+      
       <table>
+        
         <tr>
+          
           <td>Mode</td>
+          
           <td>SERVER</td>
+        
         </tr>
+        
         <tr>
+          
           <td>Description</td>
+          
           <td>RESTful Knowledge Repository Server</td>
+        
         </tr>
+        
         <tr>
+          
           <td>Transaction</td>
+          
           <td/>
+        
         </tr>
+        
         <tr>
+          
           <td>System History</td>
+          
           <td/>
+        
         </tr>
+        
         <tr>
+          
           <td>System Search</td>
+          
           <td/>
+        
         </tr>
+      
       </table>
+      
       <table>
+        
         <tr>
+          
           <th>
+            
             <b>Resource Type</b>
+          
           </th>
+          
           <th>
+            
             <b>Profile</b>
+          
           </th>
+          
           <th>
+            
             <b>Read</b>
+          
           </th>
+          
           <th>
+            
             <b>V-Read</b>
+          
           </th>
+          
           <th>
+            
             <b>Search</b>
+          
           </th>
+          
           <th>
+            
             <b>Update</b>
+          
           </th>
+          
           <th>
+            
             <b>Updates</b>
+          
           </th>
+          
           <th>
+            
             <b>Create</b>
+          
           </th>
+          
           <th>
+            
             <b>Delete</b>
+          
           </th>
+          
           <th>
+            
             <b>History</b>
+          
           </th>
+        
         </tr>
+      
       </table>
+    
     </div>
   </text>
   <url value="http://hl7.org/fhir/knowledge-repository"/>
-  <name value="Knowledge Repository Service Conformance Statement"/>
+  <name value="KnowledgeRepositoryServiceConformanceStatement"/>
+  <title value="Knowledge Repository Service Conformance Statement"/>
   <status value="draft"/>
   <date value="2017-02-25"/>
   <publisher value="HL7, Inc"/>
@@ -106,10 +170,10 @@
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the libraries"/>
       </interaction>
-	  <interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="Search allows clients to filter libraries based on a provided search parameter"/>
-	  </interaction>
+      </interaction>
       <searchParam>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Library-description"/>
@@ -166,17 +230,17 @@
         <type value="reference"/>
       </searchParam>
     </resource>
-	<resource>
+    <resource>
       <type value="PlanDefinition"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the plan definitions"/>
       </interaction>
-	  <interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="Search allows clients to filter plan definitions based on a provided search parameter"/>
-	  </interaction>
+      </interaction>
       <searchParam>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/PlanDefinition-description"/>
@@ -233,17 +297,17 @@
         <type value="reference"/>
       </searchParam>
     </resource>
-	<resource>
+    <resource>
       <type value="ActivityDefinition"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the activity definitions"/>
       </interaction>
-	  <interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="Search allows clients to filter activity definitions based on a provided search parameter"/>
-	  </interaction>
+      </interaction>
       <searchParam>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/ActivityDefinition-description"/>
@@ -300,17 +364,17 @@
         <type value="reference"/>
       </searchParam>
     </resource>
-	<resource>
+    <resource>
       <type value="Measure"/>
       <profile value="http://hl7.org/fhir/StructureDefinition/Measure"/>
       <interaction>
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the measures"/>
       </interaction>
-	  <interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="Search allows clients to filter measures based on a provided search parameter"/>
-	  </interaction>
+      </interaction>
       <searchParam>
         <name value="description"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-description"/>
@@ -367,17 +431,17 @@
         <type value="reference"/>
       </searchParam>
     </resource>
-	<resource>
-		<type value="Questionnaire"/>
-		<profile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-	  <interaction>
-		<code value="read"/>
-		<documentation value="Read allows clients to get the logical definitions of the measures"/>
-	  </interaction>
-	  <interaction>
-		<code value="search-type"/>
-		<documentation value="Search allows clients to filter measures based on a provided search parameter"/>
-	  </interaction>
+    <resource>
+      <type value="Questionnaire"/>
+      <profile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      <interaction>
+        <code value="read"/>
+        <documentation value="Read allows clients to get the logical definitions of the measures"/>
+      </interaction>
+      <interaction>
+        <code value="search-type"/>
+        <documentation value="Search allows clients to filter measures based on a provided search parameter"/>
+      </interaction>
       <searchParam>
         <name value="code"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-code"/>
@@ -418,10 +482,10 @@
         <definition value="http://hl7.org/fhir/SearchParameter/Questionnaire-version"/>
         <type value="token"/>
       </searchParam>
-	</resource>
+    </resource>
     <operation>
-		<name value="data-requirements"/>
-		<definition value="http://hl7.org/fhir/OperationDefinition/Library-data-requirements"/>
-	</operation>
+      <name value="data-requirements"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Library-data-requirements"/>
+    </operation>
   </rest>
 </CapabilityStatement>

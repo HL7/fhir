@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><MessageDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MessageDefinition xmlns="http://hl7.org/fhir">
   <id value="patient-link-notification"/>
   <text>
     <status value="generated"/>
@@ -10,7 +12,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.15.2"/>
   </identifier>
   <version value="1"/>
-  <name value="PATIENT-LINK-NOTIFICATION"/>
+  <name value="PATIENTLINKNOTIFICATION"/>
   <title value="Link Patients Notification"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -56,7 +58,6 @@
     <min value="2"/>
     <max value="2"/>
   </focus>
-
   <allowedResponse>
     <message value="http://hl7.org/fhir/MessageDefinition/patient-link-response"/>
     <situation value="Optional response message that may provide additional information"/>
