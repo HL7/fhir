@@ -699,10 +699,20 @@ the meaning of the code by an application that is not aware of the <code>system<
 </p>
 <p>
 If the 'display' element is populated, the string used in <code>display</code> SHALL be one of the display strings defined for
-that code by the code system (code systems may define multiple display strings for a single code).
-If one of the available display strings is labeled as preferred, it SHOULD be used. If the code system does not define a text representation
-for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be populated, and the meaning of the code won't be
-accessible to systems that don't understand the code expression.
+that code by the code system. Code systems may define multiple display strings for a single code, by use of:
+</p>
+<ul>
+  <li><code>CodeSystem.concept.display</code></li>
+  <li><code>CodeSystem.concept.designation.value</code> (including in supplements)</li>
+</ul>
+<p>Note that displays defined in value sets (<code>ValueSet.include.concept.display</code> and <code>ValueSet.include.concept.designation.value</code>) 
+are not allowed in <code>Coding.display</code>.
+</p>
+<p>
+If one of the available display strings is labeled as preferred, it SHOULD be used (note that <code>CodeSystem.concept.display</code> is preferred 
+for the base resource language if it is populated, but other display strings may be preferred in other languages, or for other usages). 
+If the code system does not define a text representation for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be 
+populated, and the meaning of the code won't be accessible to systems that don't understand the code expression.
 </p>
 
 <p>
