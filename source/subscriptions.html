@@ -261,7 +261,7 @@
   When sending an event notification, applications can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
 </p>
 <p>
-  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
+  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.). Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in a <code>Subscription.parameter</code> to verify that a message is from the desired source).
 </p>
 <p>
   Each notification sent by the application could reveal information about the application and subscriber relationship, as well as sensitive administrative or clinical information. Applications are responsible for ensuring appropriate security is employed for each channel they support. The <code>Subscription</code> resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, an application might maintain a whitelist of acceptable endpoints or trusted certificate authorities for <code>rest-hook</code> channels.
@@ -308,7 +308,7 @@
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the HTTP response's Location header and saves the new Subscription's logical id for use in subsequent operations.
+  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the HTTP response's <code>Location</code> header and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
   When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.

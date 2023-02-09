@@ -121,7 +121,7 @@
     </p>
     <ul>
       <li>The <code>content-type</code> of the POST SHALL match the MIME type on the Subscription <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a>.</li>
-      <li>Each <a href="subscription-definitions.html#Subscription.header">Subscription.header</a> value SHALL be conveyed as an HTTP request header.</li>
+      <li>Each <a href="subscription-definitions.html#Subscription.parameter">Subscription.parameter</a> indicates an HTTP request header and SHALL be sent as <code>{parameter.name}: {parameter.value}</code>.</li>
     </ul>
 
     <p>
@@ -401,10 +401,10 @@
 		</p>
 		<ul>
       <li>A system for Subscription.channelType that reflects the publisher of the definition (e.g., "https://myorg.example.org" instead of "urn:uuid:be35238b-0ed6-4062-93cf-818b8023a103")</li>
-			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel0012')</li>
+			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel')</li>
 			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc.)</li>
-			<li>The meaning of the <code>Subscription.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
-			<li>Any variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
+			<li>The meaning of <code>Subscription.parameter</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as HTTP headers included in a POST). Note that channels can specify general behavior and/or specific parameters by <code>name</code>.</li>
+			<li>Any additions or variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
       <li>Whether <code>handshake</code> notifications are used, and guidance on usage if they are</li>
 			<li>Whether <code>heartbeat</code> notifications are used, and guidance on timings if they are</li>
 		</ul>
@@ -425,7 +425,7 @@
 	<a name="errors"/>
 	<h2>Managing Subscriptions and Errors</h2>
 	<p>
-		The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.
+		The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the <code>Location</code> header and saves the new Subscription's logical id for use in subsequent operations.
 	</p>
 	<p>
 		When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.

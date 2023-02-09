@@ -225,7 +225,7 @@
     <element id="Subscription.filterBy">
       <path value="Subscription.filterBy"/>
       <short value="Criteria for narrowing the subscription topic stream"/>
-      <definition value="The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions are met; otherwise it returns false.   (i.e., logical AND)."/>
+      <definition value="The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions are met; otherwise it returns false (i.e., logical AND)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -235,8 +235,8 @@
     </element>
     <element id="Subscription.filterBy.resourceType">
       <path value="Subscription.filterBy.resourceType"/>
-      <short value="Allowed Data type or Resource (reference to definition) for this Subscription"/>
-      <definition value="If the element is a reference to another resource, this element contains &quot;Reference&quot;, and the targetProfile element defines what resources can be referenced. The targetProfile may be a reference to the general definition of a resource (e.g. http://hl7.org/fhir/StructureDefinition/Patient)."/>
+      <short value="Allowed Resource (reference to definition) for this Subscription filter"/>
+      <definition value="A resource listed in the `SubscriptionTopic` this `Subscription` references (`SubscriptionTopic.canFilterBy.resource`). This element can be used to differentiate filters for topics that include more than one resource type."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -286,7 +286,7 @@
     <element id="Subscription.filterBy.value">
       <path value="Subscription.filterBy.value"/>
       <short value="Literal value or resource path"/>
-      <definition value="The literal value or resource path as is legal in search - for example, &quot;Patient/123&quot; or &quot;le1950&quot;."/>
+      <definition value="The literal value or resource path as is legal in search - for example, `Patient/123` or `le1950`."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -316,8 +316,8 @@
     <element id="Subscription.endpoint">
       <path value="Subscription.endpoint"/>
       <short value="Where the channel points to"/>
-      <definition value="The url that describes the actual end-point to send messages to."/>
-      <comment value="For rest-hook the end-point must be an http: or https: URL; for websocket ws: or wss:; for email, a mailto: url; and for message the endpoint can be in any form of url the server understands (usually, http/s: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)."/>
+      <definition value="The url that describes the actual end-point to send notifications to."/>
+      <comment value="For rest-hook the end-point must be an `http:` or `https:` URL; for websockets, `ws:` or `wss:`; for email, a `mailto:` url; and for message the endpoint can be in any form of url the server understands (usually, `http/s`: or `mllp:`). The URI is allowed to be relative; in which case, it is relative to the server end-point (since there may be more than one, clients should avoid using relative URIs)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -325,22 +325,41 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Subscription.header">
-      <path value="Subscription.header"/>
-      <short value="Usage depends on the channel type"/>
-      <definition value="Additional headers / information to send as part of the notification."/>
-      <comment value="Exactly what these mean depend on the channel type. They can convey additional information to the recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions."/>
+    <element id="Subscription.parameter">
+      <path value="Subscription.parameter"/>
+      <short value="Channel type"/>
+      <definition value="Channel-dependent information to send as part of the notification (e.g., HTTP Headers)."/>
+      <comment value="Exactly what these mean depend on the channel type. They can convey additional information to the server or recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions. Note that names are not required to be unique, but channel definitions can impose restrictions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Subscription.parameter.name">
+      <path value="Subscription.parameter.name"/>
+      <short value="Name of the parameter"/>
+      <definition value="Parameter name for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the name would be Authorization."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
         <code value="string"/>
       </type>
-      <isSummary value="true"/>
+    </element>
+    <element id="Subscription.parameter.value">
+      <path value="Subscription.parameter.value"/>
+      <short value="Value of the parameter"/>
+      <definition value="Parameter value for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the value would be `Bearer 0193...`."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
     </element>
     <element id="Subscription.heartbeatPeriod">
       <path value="Subscription.heartbeatPeriod"/>
       <short value="Interval in seconds to send 'heartbeat' notification"/>
-      <definition value="If present,  a 'hearbeat&quot; notification (keepalive) is sent via this channel with an the interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
+      <definition value="If present, a 'heartbeat' notification (keep-alive) is sent via this channel with an the interval period equal to this elements integer value in seconds. If not present, a heartbeat notification is not sent."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -362,7 +381,7 @@
     <element id="Subscription.contentType">
       <path value="Subscription.contentType"/>
       <short value="MIME type to send, or omit for no payload"/>
-      <definition value="The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. The MIME types &quot;text/plain&quot; and &quot;text/html&quot; may also be used for Email subscriptions."/>
+      <definition value="The mime type to send the payload in - e.g., `application/fhir+xml` or `application/fhir+json`. Note that additional MIME types can be allowed by channels. For example, `text/plain` and `text/html` are defined by the Email channel."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -407,7 +426,7 @@
     <element id="Subscription.maxCount">
       <path value="Subscription.maxCount"/>
       <short value="Maximum number of events that can be combined in a single notification"/>
-      <definition value="If present, the maximum number of events that will be included in a notification bundle.  Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included."/>
+      <definition value="If present, the maximum number of events that will be included in a notification bundle. Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included."/>
       <min value="0"/>
       <max value="1"/>
       <type>
