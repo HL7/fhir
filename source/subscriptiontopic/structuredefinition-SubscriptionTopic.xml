@@ -598,7 +598,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
     <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
@@ -778,7 +778,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy">
@@ -820,7 +820,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
@@ -902,7 +902,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
       <mapping>
         <identity value="rim"/>
