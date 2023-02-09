@@ -607,7 +607,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="markdown"/>
+        <code value="Annotation"/>
       </type>
       <mapping>
         <identity value="rim"/>
