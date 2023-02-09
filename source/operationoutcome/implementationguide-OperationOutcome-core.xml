@@ -2,12 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="OperationOutcome-core"/>
-  <name value="Standard OperationOutcome Extensions"/>
-  <title value="Standard OperationOutcome Extensions"/>
+  <name value="StandardOperationOutcomeExtensions"/>
+  <title value="Standard  Operation Outcome  Extensions"/>
   <status value="draft"/>
   <date value="2014-01-31T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="This profile describes common extensions that are used with OperationOutcomes"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

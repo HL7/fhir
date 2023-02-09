@@ -21,6 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceSafety"/>
+  <title value="Device Safety"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2017-02-17T23:28:06+00:00"/>

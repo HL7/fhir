@@ -1,176 +1,170 @@
-<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
-	<id value="opioidcds-05"/>
-	<url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-05"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="opioidcds-05"/>
+  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-05"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.1"/>
   </identifier>
   <identifier>
-		<use value="official"/>
-		<value value="cdc-opioid-guidance"/>
-	</identifier>
-	<version value="0.1.0"/>
-	<name value="cdc-opioid-05"/>
-	<title value="CDC Opioid Prescribing Guideline Recommendation #5"/>
-	<type>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-			<code value="eca-rule"/>
-			<display value="ECA Rule"/>
-		</coding>
-	</type>
-	<status value="draft"/>
-	<date value="2017-04-23"/>
-	<publisher value="Centers for Disease Control and Prevention (CDC)"/>
-	<description value="When opioids are started, providers should prescribe the lowest effective dosage."/>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="182888003"/>
-				<display value="Medication requested (situation)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="82423001"/>
-				<display value="Chronic pain (finding)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<jurisdiction>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-			<display value="United States of America"/>
-		</coding>
-	</jurisdiction>
-	<purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-	<usage value="Providers should use caution when prescribing opioids at any dosage, should carefully reassess evidence of individual benefits and risks when considering increasing dosage to ≥50 morphine milligram equivalents (MME)/day, and should avoid increasing dosage to ≥90 MME/day or carefully justify a decision to titrate dosage to &gt;90 MME/day"/>
-	<copyright value="© CDC 2016+."/>
-	<topic>
-		<text value="Opioid Prescribing"/>
-	</topic>
-    <author>
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </author>
-    <author>
-        <name value="Bryn Rhodes"/>
-    </author>
-    <author>
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </author>
-    <author>
-        <name value="Robert McClure, MD, MPH"/>
-    </author>
-	<relatedArtifact>
-		<type value="documentation"/>
-		<display value="CDC guideline for prescribing opioids for chronic pain"/>
+    <use value="official"/>
+    <value value="cdc-opioid-guidance"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="Cdcopioid05"/>
+  <title value="CDC Opioid Prescribing Guideline Recommendation #5"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+      <display value="ECA Rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <date value="2017-04-23"/>
+  <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+  <description value="When opioids are started, providers should prescribe the lowest effective dosage."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="182888003"/>
+        <display value="Medication requested (situation)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="82423001"/>
+        <display value="Chronic pain (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+  <usage value="Providers should use caution when prescribing opioids at any dosage, should carefully reassess evidence of individual benefits and risks when considering increasing dosage to ≥50 morphine milligram equivalents (MME)/day, and should avoid increasing dosage to ≥90 MME/day or carefully justify a decision to titrate dosage to &gt;90 MME/day"/>
+  <copyright value="© CDC 2016+."/>
+  <topic>
+    <text value="Opioid Prescribing"/>
+  </topic>
+  <author>
+    <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+  </author>
+  <author>
+    <name value="Bryn Rhodes"/>
+  </author>
+  <author>
+    <name value="Floyd Eisenberg, MD, MPH"/>
+  </author>
+  <author>
+    <name value="Robert McClure, MD, MPH"/>
+  </author>
+  <relatedArtifact>
+    <type value="documentation"/>
+    <display value="CDC guideline for prescribing opioids for chronic pain"/>
     <document>
-	    <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+      <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
     </document>
-	</relatedArtifact>
-	<relatedArtifact>
-		<type value="documentation"/>
-		<display value="MME Conversion Tables"/>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="documentation"/>
+    <display value="MME Conversion Tables"/>
     <document>
-	    <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+      <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
     </document>
-	</relatedArtifact>
-	<library value="http://example.org/fhir/Library/opioidcds-recommendation-05"/>
-	<action>
-		<title value="High risk for opioid overdose."/>
-		<description value="Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50."/>
-		<documentation>
-			<type value="documentation"/>
-			<document>
-				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-							<code value="strong"/>
-							<display value="Strong"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-							<code value="low"/>
-							<display value="Low quality"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-			</document>
-		</documentation>
-		<trigger>
-			<type value="named-event"/>
-			<name value="medication-prescribe"/>
-		</trigger>
-		<condition>
-			<kind value="applicability"/>
-            <expression>
-              <description value="Is total MME &gt;= 50?"/>
-			  <language value="text/cql"/>
-			  <expression value="Is MME 50 Or More?"/>
-		    </expression>
-		</condition>
-		<groupingBehavior value="visual-group"/>
-		<selectionBehavior value="exactly-one"/>
-		<dynamicValue>
-			<path value="action.title"/>
-            <expression>
-              <language value="text/cql"/>
-              <expression value="getSummary"/>
-	  		</expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="action.description"/>
-            <expression>
-              <language value="text/cql"/>
-	          <expression value="getDetail"/>
-	        </expression>
-		</dynamicValue>
-		<dynamicValue>
-			<path value="activity.extension"/>
-            <expression>
-              <language value="text/cql"/>
-	          <expression value="getIndicator"/>
-	        </expression>
-		</dynamicValue>
-		<!-- Will reduce dosage -->
-		<action>
-			<description value="Will reduce dosage"/>
-			<!-- Open Order Set, where available -->
-		</action>
-		<!-- Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo -->
-		<action>
-			<description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
-		</action>
-		<!-- Acute pain; snooze 1 mo -->
-		<action>
-			<description value="Acute pain; snooze 1 mo"/>
-		</action>
-		<!-- N/A - see comment (will be reviewed by medical director); snooze 3 mo -->
-		<action>
-			<!-- TODO: How do we indicate through the response that a comment must be captured? -->
-			<!-- TODO: How do we communicate the response back to the CDS service for persistence? -->
-			<description value="N/A - see comment (will be reviewed by medical director); snooze 3 mo"/>
-		</action>
-	</action>
+  </relatedArtifact>
+  <library value="http://example.org/fhir/Library/opioidcds-recommendation-05"/>
+  <action>
+    <title value="High risk for opioid overdose."/>
+    <description value="Total morphine milligram equivalent (MME) exceeds recommended amount. Taper to less than 50."/>
+    <documentation>
+      <type value="documentation"/>
+      <document>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+              <code value="strong"/>
+              <display value="Strong"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+              <code value="low"/>
+              <display value="Low quality"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </document>
+    </documentation>
+    <trigger>
+      <type value="named-event"/>
+      <name value="medication-prescribe"/>
+    </trigger>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <description value="Is total MME &gt;= 50?"/>
+        <language value="text/cql"/>
+        <expression value="Is MME 50 Or More?"/>
+      </expression>
+    </condition>
+    <groupingBehavior value="visual-group"/>
+    <selectionBehavior value="exactly-one"/>
+    <dynamicValue>
+      <path value="action.title"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="getSummary"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="action.description"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="getDetail"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="activity.extension"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="getIndicator"/>
+      </expression>
+    </dynamicValue>
+    <action>
+      <description value="Will reduce dosage"/>
+    </action>
+    <action>
+      <description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
+    </action>
+    <action>
+      <description value="Acute pain; snooze 1 mo"/>
+    </action>
+    <action>
+      <description value="N/A - see comment (will be reviewed by medical director); snooze 3 mo"/>
+    </action>
+  </action>
 </PlanDefinition>

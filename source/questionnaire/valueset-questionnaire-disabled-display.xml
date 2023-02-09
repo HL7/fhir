@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="QuestionnaireItemDisabledDisplay"/>
+  <title value="Questionnaire Item Disabled Display"/>
   <status value="active"/>
   <experimental value="true"/>
   <description value="Codes that guide the display of disabled questionnaire items"/>

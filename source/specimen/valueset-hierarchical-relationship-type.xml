@@ -2,6 +2,7 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="HierarchicalRelationshipType"/>
+  <title value="Hierarchical Relationship Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

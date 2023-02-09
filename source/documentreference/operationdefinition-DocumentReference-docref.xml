@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
-<id value="DocumentReference-docref"/>
-<meta>
-  <lastUpdated value="2022-12-14T10:01:24.148+11:00"/>
-</meta>
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="DocumentReference-docref"/>
+  <meta>
+    <lastUpdated value="2022-12-14T10:01:24.148+11:00"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="3"/>
   </extension>
@@ -36,10 +36,9 @@
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown value="The server either returns a search result containing a single DocumentReference, &#xA;or it returns an error."/>
   </extension>
-
   <url value="http://hl7.org/fhir/build/OperationDefinition/DocumentReference-docref"/>
   <version value="5.0.1"/>
-  <name value="docref"/>
+  <name value="Docref"/>
   <title value="Fetch DocumentReference"/>
   <status value="active"/>
   <kind value="operation"/>

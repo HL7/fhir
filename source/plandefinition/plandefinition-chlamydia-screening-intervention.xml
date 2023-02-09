@@ -1,132 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" 
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
->
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="chlamydia-screening-intervention"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Id: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/chlamydia-screening-intervention</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Identifier: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>value: </b>
-                  <span>ChlamydiaScreening_CDS_UsingCommon</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Title: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Chalmydia Screening CDS Example Using Common</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Status: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">draft</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Description: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Chlamydia Screening CDS Example Using Common</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Topic: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <span>
-                     <b>text: </b>
-                     <span>Chlamydia Screening</span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Library: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>reference: </b>
-                  <span>Library/example</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Id: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/chlamydia-screening-intervention</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Identifier: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>value: </b>
+                  
+            <span>ChlamydiaScreening_CDS_UsingCommon</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Title: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Chalmydia Screening CDS Example Using Common</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Status: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">draft</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Description: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Chlamydia Screening CDS Example Using Common</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Topic: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
             <span>
-               <b>Step: </b>
-               <br/>
-               <span style="padding-left: 25px;">
-                  <b>title: </b>
-                  <span>Patient has not had chlamydia screening within the recommended timeframe...</span>
-                  <br/>
-               </span>
-               <span style="padding-left: 25px;">
-                  <b>condition: </b>
-                  <br/>
-                  <span style="padding-left: 50px;">
-                     <b>type: </b>
-                     <span>applicability</span>
-                  </span>
-                  <br/>
-                  <span style="padding-left: 50px;">
-                     <b>expression: </b>
-                     <span>NoScreening</span>
-                  </span>
-               </span>
+                     
+              <b>text: </b>
+                     
+              <span>Chlamydia Screening</span>
+                  
             </span>
-         </p>
-      </div>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Library: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>reference: </b>
+                  
+            <span>Library/example</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <h2>Actions</h2>
+         
+      <p style="width: 100%;" class="hierarchy">
+            
+        <span>
+               
+          <b>Step: </b>
+               
+          <br/>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>title: </b>
+                  
+            <span>Patient has not had chlamydia screening within the recommended timeframe...</span>
+                  
+            <br/>
+               
+          </span>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>condition: </b>
+                  
+            <br/>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>type: </b>
+                     
+              <span>applicability</span>
+                  
+            </span>
+                  
+            <br/>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>expression: </b>
+                     
+              <span>NoScreening</span>
+                  
+            </span>
+               
+          </span>
+            
+        </span>
+         
+      </p>
+      
+    </div>
   </text>
   <identifier>
     <use value="official"/>
     <value value="ChlamydiaScreening_CDS_UsingCommon"/>
   </identifier>
   <version value="2.0.0"/>
+  <name value="ChalmydiaScreeningCDSExampleUsingCommon"/>
   <title value="Chalmydia Screening CDS Example Using Common"/>
   <status value="draft"/>
   <date value="2015-07-22"/>
@@ -138,14 +251,13 @@
   <action>
     <title value="Patient has not had chlamydia screening within the recommended timeframe..."/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <language value="text/cql"/>
         <expression value="NoScreening"/>
       </expression>
     </condition>
     <dynamicValue>
-      <!-- The '$this' here indicates the dynamic value is providing the entire result, rather than a value of a particular element -->
       <path value="$this"/>
       <expression>
         <language value="text/cql"/>

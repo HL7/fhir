@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="legal-status-of-supply"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -13,14 +15,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="1"/>
   </extension>
-   <url value="http://hl7.org/fhir/legal-status-of-supply"/>
+  <url value="http://hl7.org/fhir/legal-status-of-supply"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1912"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="LegalStatusOfSupply"/>
-   <title value="LegalStatusOfSupply"/>
+  <title value="Legal Status Of Supply"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -35,40 +37,40 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-   <description value="The prescription supply types appropriate to a medicinal product"/>
+  <description value="The prescription supply types appropriate to a medicinal product"/>
   <caseSensitive value="true"/>
-   <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/legal-status-of-supply"/>
   <content value="complete"/>
-   <concept>
-      <code value="100000072076"/>
-      <display value="Medicinal product not subject to medical prescription"/>
-   </concept>
-   <concept>
-      <code value="100000072077"/>
-      <display value="Medicinal product on medical prescription for renewable or non-renewable delivery"/>
-   </concept>
-   <concept>
-      <code value="100000072078"/>
-      <display value="Medicinal product subject to restricted medical prescription"/>
-   </concept>
-   <concept>
-      <code value="100000072079"/>
-      <display value="Medicinal product on medical prescription for non-renewable delivery"/>
-   </concept>
-   <concept>
-      <code value="100000072084"/>
-      <display value="Medicinal product subject to medical prescription"/>
-   </concept>
-   <concept>
-      <code value="100000072085"/>
-      <display value="Medicinal product subject to special medical prescription"/>
-   </concept>
-   <concept>
-      <code value="100000072086"/>
-      <display value="Medicinal product on medical prescription for renewable delivery"/>
-   </concept>
-   <concept>
-      <code value="100000157313"/>
-      <display value="Medicinal product subject to special and restricted medical prescription"/>
-   </concept>
+  <concept>
+    <code value="100000072076"/>
+    <display value="Medicinal product not subject to medical prescription"/>
+  </concept>
+  <concept>
+    <code value="100000072077"/>
+    <display value="Medicinal product on medical prescription for renewable or non-renewable delivery"/>
+  </concept>
+  <concept>
+    <code value="100000072078"/>
+    <display value="Medicinal product subject to restricted medical prescription"/>
+  </concept>
+  <concept>
+    <code value="100000072079"/>
+    <display value="Medicinal product on medical prescription for non-renewable delivery"/>
+  </concept>
+  <concept>
+    <code value="100000072084"/>
+    <display value="Medicinal product subject to medical prescription"/>
+  </concept>
+  <concept>
+    <code value="100000072085"/>
+    <display value="Medicinal product subject to special medical prescription"/>
+  </concept>
+  <concept>
+    <code value="100000072086"/>
+    <display value="Medicinal product on medical prescription for renewable delivery"/>
+  </concept>
+  <concept>
+    <code value="100000157313"/>
+    <display value="Medicinal product subject to special and restricted medical prescription"/>
+  </concept>
 </CodeSystem>

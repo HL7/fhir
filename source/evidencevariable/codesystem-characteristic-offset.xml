@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="characteristic-offset"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CharacteristicOffset"/>
-  <title value="CharacteristicOffset"/>
+  <title value="Characteristic Offset"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-04T16:55:11+11:00"/>

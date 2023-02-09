@@ -2,12 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="CarePlan-core"/>
-  <name value="Common Care Plan Extensions"/>
-  <title value="Common Care Plan Extensions"/>
+  <name value="CommonCarePlanExtensions"/>
+  <title value="Common  Care  Plan  Extensions"/>
   <status value="draft"/>
   <date value="2015-03-27T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - Patient Care WG"/>
-  <description value="A set of commonly used extensions that don&#39;t make the usage requirements for inclusion in the resource itself"/>
-  <definition>
-  </definition>
+  <description value="A set of commonly used extensions that don't make the usage requirements for inclusion in the resource itself"/>
 </ImplementationGuide>

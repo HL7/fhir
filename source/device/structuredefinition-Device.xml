@@ -493,7 +493,6 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-
     <element id="Device.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
@@ -565,6 +564,13 @@
       <type>
         <code value="boolean"/>
       </type>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
       <isSummary value="true"/>
@@ -576,13 +582,6 @@
         <identity value="rim"/>
         <map value="statusCode"/>
       </mapping>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
     </element>
     <element id="Device.modelNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-alive-independent-90day"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
         &quot;Alive and not functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
       </p>
-	</div>
+	
+    </div>
   </text>
+  <name value="AliveAndNotFunctionallyDependentAt90Days"/>
   <title value="Alive and not functionally dependent at 90 days"/>
   <status value="draft"/>
+  <description value="Alive and not functionally dependent at 90 days"/>
   <actual value="false"/>
   <characteristic>
     <description value="not functionally dependent at 90 days"/>
@@ -23,13 +28,13 @@
       </coding>
     </definitionCodeableConcept>
     <timeFromEvent>
-	  <eventCodeableConcept>
-		<coding>
-			<system value="http://hl7.org/fhir/evidence-variable-event"/>
-			<code value="study-start"/>
-			<display value="Study Start"/>
-		</coding>
-	  </eventCodeableConcept>
+      <eventCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/evidence-variable-event"/>
+          <code value="study-start"/>
+          <display value="Study Start"/>
+        </coding>
+      </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>
@@ -49,13 +54,13 @@
       </coding>
     </definitionCodeableConcept>
     <timeFromEvent>
-	  <eventCodeableConcept>
-		<coding>
-			<system value="http://hl7.org/fhir/evidence-variable-event"/>
-			<code value="study-start"/>
-			<display value="Study Start"/>
-		</coding>
-	  </eventCodeableConcept>
+      <eventCodeableConcept>
+        <coding>
+          <system value="http://hl7.org/fhir/evidence-variable-event"/>
+          <code value="study-start"/>
+          <display value="Study Start"/>
+        </coding>
+      </eventCodeableConcept>
       <quantity>
         <value value="90"/>
         <unit value="day"/>

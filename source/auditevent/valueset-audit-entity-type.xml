@@ -20,6 +20,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AuditEventEntityType"/>
+  <title value="Audit Event Entity Type"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-08-04"/>

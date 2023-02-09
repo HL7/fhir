@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="options-example"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
   <contained>
@@ -25,8 +26,10 @@
       </productCodeableConcept>
     </ActivityDefinition>
   </contained>
+  <name value="ThisExampleIllustratesRelationshipsBetweenActions"/>
   <title value="This example illustrates relationships between actions."/>
   <status value="draft"/>
+  <description value="This example illustrates relationships between actions."/>
   <action>
     <groupingBehavior value="logical-group"/>
     <selectionBehavior value="all"/>

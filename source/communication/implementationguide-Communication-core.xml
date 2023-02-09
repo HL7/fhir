@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Communication-core"/>
   <version value="0.1"/>
-  <name value="Communication HL7 Extensions"/>
-  <title value="Communication HL7 Extensions"/>
+  <name value="CommunicationHL7Extensions"/>
+  <title value="Communication  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Communication resource"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

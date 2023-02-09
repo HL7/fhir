@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CodeSystem"/>
-  <title value="CodeSystem"/>
+  <title value="Code System"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>

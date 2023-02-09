@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="package-characteristic"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -16,11 +18,11 @@
   <url value="http://hl7.org/fhir/package-characteristic"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-     <value value="urn:oid:2.16.840.1.113883.4.642.4.1965"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1965"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="PackageCharacteristic"/>
-  <title value="PackageCharacteristic"/>
+  <title value="Package Characteristic"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,16 +41,16 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/package-characteristic"/>
   <content value="complete"/>
-   <concept>
-     <code value="HospitalPack"/>
-      <display value="Hospital pack"/>
-   </concept>
-   <concept>
-     <code value="NursePrescribable"/>
-       <display value="Nurse prescribable"/>
-   </concept>
-   <concept>
-     <code value="CalendarPack"/>
-     <display value="Calendar pack"/>
-   </concept>
+  <concept>
+    <code value="HospitalPack"/>
+    <display value="Hospital pack"/>
+  </concept>
+  <concept>
+    <code value="NursePrescribable"/>
+    <display value="Nurse prescribable"/>
+  </concept>
+  <concept>
+    <code value="CalendarPack"/>
+    <display value="Calendar pack"/>
+  </concept>
 </CodeSystem>
