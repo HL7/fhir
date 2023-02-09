@@ -48,7 +48,7 @@ either:
 </ul>
 <p>
 A few compositions genuinely cover multiple subjects - different sections are about different subjects. In such
-case, <code>Composition.subject</code> is omitted, and the extension <a href="extension-composition-section-subject.html">section-subject</a>
+case, <code>Composition.subject</code> is omitted, and the extension <a href="[%extensions-location%]StructureDefinition-composition-section-subject.html">section-subject</a>
 is used on each section to indicate the subject.
 </p>
 

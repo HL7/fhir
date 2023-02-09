@@ -336,7 +336,7 @@ same path must conform.
 		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a datatype of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
-		<a href="extension-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
+		<a href="[%extensions-location%]StructureDefinition-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
 		For example, limiting the permitted value regex, length, etc. to the corresponding FHIR-defined datatype (but NOT permitting the additional elements such as id and extension).
 		If the extension is not present, no additional constraints apply.</li>
 </ul>
@@ -381,7 +381,7 @@ same path must conform.
 				<td><code>Extension</code></td>
 		</tr>
 		<tr>
-				<td>A defined Extension <br/>(example: <a href="extension-geolocation.html">Extension</a> - <a href="extension-geolocation.xml.html">XML</a>, <a href="extension-geolocation.json.html">JSON</a>)</td>
+				<td>A defined Extension <br/>(example: <a href="[%extensions-location%]StructureDefinition-geolocation.html">Extension</a> - <a href="[%extensions-location%]StructureDefinition-geolocation.xml.html">XML</a>, <a href="[%extensions-location%]StructureDefinition-geolocation.json.html">JSON</a>)</td>
 				<td><code>Extension</code></td>
 				<td><code>Extension.value[x]</code> or <code>Extension.extension</code> (for complex extensions)</td>
 				<td><code>Extension</code></td>
@@ -454,10 +454,10 @@ about why the value is not present, or provides an expression that might be used
 value in a particular context. Some common extensions that might appear in place of a primitive value:
 </p>
 <ul>
-	<li><a href="extension-data-absent-reason.html">data-absent-reason</a></li>
-	<li><a href="extension-iso21090-nullflavor.html">nullflavor</a></li>
-	<li><a href="extension-originaltext.html">originalText</a></li>
-	<li><a href="extension-cqf-expression.html">expression</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullflavor</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-cqf-expression.html">expression</a></li>
 </ul>
 <p>
 In many cases, profiles want to make a primitive element required (min = 1), and also want to say

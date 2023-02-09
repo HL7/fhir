@@ -377,7 +377,7 @@ There are a number of places in the specification where value sets are reference
  <tr><td><a href="questionnaire.html">Questionnaire</a>.item.answerValueSet</td><td>Indicates that answers to a set of questions come from a value set</td></tr>
  <tr><td><a href="valueset.html">ValueSet</a>.compose.include.valueSet</td><td>The content of a value set includes the content in the imported value set too</td></tr>
  <tr><td><a href="operationdefinition.html">OperationDefinition</a>.parameter.binding.valueSet</td><td>Used to bind a defined parameter to a value set</td></tr>
- <tr><td><a href="extension-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a coded value was chosen from the specified value set</td></tr>
+ <tr><td><a href="[%extensions-location%]StructureDefinition-valueset-reference.html">ValueSet Reference Extension</a></td><td>Indicates that a coded value was chosen from the specified value set</td></tr>
 </table>
 <p>
 When referencing value sets, the reference is usually made to the <a href="valueset.html#compositions">definition of a value set</a> - that is, a value set 
@@ -759,7 +759,7 @@ may bind the element to any value set they choose.
 <p>
 A binding strength of 'required' or 'extensible' does not indicate that ALL of the codes in the bound value set 
 will be supported. It constrains the set of codes that are allowed to be shared. If systems flag an element 
-as <a href="obligations.html">mustSupport</a>, the <a href="extension-elementdefinition-minvalueset.html">minimumValueSet 
+as <a href="obligations.html">mustSupport</a>, the <a href="[%extensions-location%]StructureDefinition-elementdefinition-minValueSet.html">minimumValueSet 
 extension</a> SHOULD be used to identify a specific subset (possibly the full set) of the bound codes 
 that must be supported by implementers.
 </p>
@@ -771,7 +771,7 @@ If no MIN value set is specified, then there is no guidance for implementers reg
 <a name="max"></a>
 <h3>Maximum Value Set</h3>
 <p>
-When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the <a href="extension-elementdefinition-maxvalueset.html">maxiumumValueSet extension</a>.
+When binding a ValueSet to an element, values may be limited by declaring a maximum value set with the <a href="[%extensions-location%]StructureDefinition-elementdefinition-maxValueSet.html">maxiumumValueSet extension</a>.
 </p>
 <p>
 A binding may be further constrained to declare a value set for use when the binding strength is 'extensible' or 'preferred'. This value set is the value set from which additional codes can be taken from. This defines a 'required' binding over the top of the 'extensible' binding.
@@ -819,7 +819,7 @@ may be sealed by defining a simple list of enumerated codes, or it may include
 codes by their properties, along with a non-version specific reference to an
 underlying code system, in which case the list of valid concepts may change over time.
 </li>
-<li><a href="extension-elementdefinition-minvalueset.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
+<li><a href="[%extensions-location%]StructureDefinition-elementdefinition-minValueSet.html">Extension minValueSet</a> may be used to define the minimum value set that is required for conformance. </li>
 </ul>
 <!--
   <a name="strings"></a>

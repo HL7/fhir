@@ -38,7 +38,7 @@ Example RelatedPersons are:
 </li>
 </ul>
 <p>
-	A standard extension <a href="extension-practitioner-animalspecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
+	A standard extension <a href="[%extensions-location%]StructureDefinition-practitioner-animalSpecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
 </p>
 </div>
 </div>
