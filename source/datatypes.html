@@ -715,7 +715,11 @@ be used in the absence of a known system.
 </p>
 <p>
 If the system is present, and there is no code, then this is understood to mean that there
-is no suitable code in the system in which to represent the code.
+is no suitable code in the system in which to represent the concept. The implication of this is 
+that implementers SHOULD never provide a system without a code unless this is the intended 
+meaning AND it is appropriate for the code system and version.  (E.g. the code system does 
+not have an 'OTHER' concept.)  This approach cannot be used if an appropriate code might 
+exist within the code system but does not exist within the bound ValueSet.
 </p>
 <p>
 If two codings have the same <code>system</code>, <code>version</code> and <code>code</code> then they have the same meaning.
