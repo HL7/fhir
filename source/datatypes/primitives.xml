@@ -131,7 +131,7 @@
     <Cell><Data ss:Type="String">Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</Data></Cell>
     <Cell><Data ss:Type="String">xs:decimal, xs:double</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range is-continuous</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">REAL</Data></Cell>
     <Cell><Data ss:Type="String">~NM</Data></Cell>
