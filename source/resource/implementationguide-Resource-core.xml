@@ -10,40 +10,5 @@
   <publisher value="HL7"/>
   <description value="Defines common extensions used across multiple different resources"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-approvalDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-lastReviewDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-effectivePeriod"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-pertainsToGoal"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/derivation-reference"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-instance-description"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/resource-instance-name"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

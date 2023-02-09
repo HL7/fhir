@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="inventoryitem-nametype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/inventoryitem-nametype"/>
+  <version value="5.0.0"/>
+  <name value="InventoryItemNameType"/>
+  <title value="InventoryItem Name Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="InventoryItem Name Type"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-nametype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="trade-name"/>
+    <display value="Trade Name"/>
+    <definition value="The official trade name of the item."/>
+  </concept>
+  <concept>
+    <code value="alias"/>
+    <display value="Alias"/>
+    <definition value="An alias or common name for the item."/>
+  </concept>
+  <concept>
+    <code value="original-name"/>
+    <display value="Original Name"/>
+    <definition value="The original name of the item."/>
+  </concept>
+  <concept>
+    <code value="preferred"/>
+    <display value="Preferred"/>
+    <definition value="The preferred name of the item."/>
+  </concept>
+</CodeSystem>

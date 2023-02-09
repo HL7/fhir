@@ -49,7 +49,7 @@ While <a href="observation.html">Observation</a>, with its nested <code>componen
 questions and answers, the focus is different.  First, <a href="observation.html">Observation</a> is used primarily for capturing data elements that
 are "true" observations - lab measurements, vital signs, social assessments, etc., while <b>QuestionnaireResponse</b> can be used to capture
 any types of data, including data that would typically map to other resources (<a href="procedure.html">Procedure</a>, <a href="patient.html">Patient</a>,
-<a href="medicationusage.html">MedicationUsage</a>, etc.).  Second, the focus of <b>QuestionnaireResponse</b> includes the specific phrasing
+<a href="medicationstatement.html">MedicationStatement</a>, etc.).  Second, the focus of <b>QuestionnaireResponse</b> includes the specific phrasing
 and organization of the questions.  All data must be explicitly captured as a question.  With <a href="observation.html">Observation</a>, the focus is
 only on the meaning of the answer, not what question was asked (assuming a question was even asked at all).  Additional information such as normal
 ranges, interpretation, date, etc., may also be captured.

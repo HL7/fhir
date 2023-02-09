@@ -9,10 +9,5 @@
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="Common extensions for use with the CanonicalResource resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/canonicalresource-short-description"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

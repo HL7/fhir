@@ -10,40 +10,5 @@
   <publisher value="Health Level Seven, Inc / openEHR project"/>
   <description value="A set of extensions that define how the parts of the openEHR RiskOfAdverseReaction archetype that are not generaly encountered by implementers are represented"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-location"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-exposureDate"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-exposureDuration"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-exposureDescription"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-administration"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-management"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/openEHR-careplan"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

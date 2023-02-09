@@ -1,2 +1,1 @@
-﻿Resource Examples failed instance validation
-﻿unable to find resource 'DocumentManifest'
+﻿Instruction <%id_regex%> not understood parsing page datatypes.html

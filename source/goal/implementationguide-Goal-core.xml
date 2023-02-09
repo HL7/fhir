@@ -9,20 +9,5 @@
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="This profile holds core Goal extensions"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/goal-reasonRejected"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/goal-relationship"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/goal-acceptance"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

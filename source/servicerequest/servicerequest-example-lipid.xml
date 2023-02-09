@@ -92,8 +92,10 @@
     </concept>
 	</reason>
 	<supportingInfo>
-		<reference value="#fasting"/>
-		<display value="Fasting status"/>
+		<reference>
+		   <reference value="#fasting"/>
+		   <display value="Fasting status"/> 
+		</reference>
 	</supportingInfo>
 	<specimen>
 		<reference value="#serum"/>

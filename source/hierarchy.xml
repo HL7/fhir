@@ -283,6 +283,7 @@ signatures.html
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
@@ -335,6 +336,7 @@ signatures.html
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
       <page type="resource" resource="BiologicallyDerivedProduct"/>
+      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
     </page>
 
 
@@ -342,7 +344,7 @@ signatures.html
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
-      <page type="resource" resource="MedicationUsage"/>
+      <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
@@ -391,6 +393,7 @@ signatures.html
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
+      <page type="resource" resource="InventoryItem"/>
       <page type="resource" resource="ExampleScenario"/>
     </page>
 

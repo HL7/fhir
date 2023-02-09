@@ -121,6 +121,9 @@
 	<item id="BiologicallyDerivedProduct">
 		<translation lang="en">BiologicallyDerivedProduct</translation>
 	</item>
+	<item id="BiologicallyDerivedProductDispense">
+		<translation lang="en">BiologicallyDerivedProductDispense</translation>
+	</item>
 	<item id="BodyStructure">
 		<translation lang="en">BodyStructure</translation>
 		<translation lang="es">EstructuraDelCuerpo</translation>
@@ -301,6 +304,9 @@
 		<translation lang="it">Dispositivo</translation>
 		<translation lang="es">Dispositivo</translation>
 		<translation lang="zh">装置</translation>
+	</item>
+	<item id="DeviceAssociation">
+		<translation lang="en">DeviceAssociation</translation>
 	</item>
 	<item id="DeviceDefinition">
 		<translation lang="en">DeviceDefinition</translation>
@@ -525,6 +531,9 @@
 	<item id="InventoryReport">
 		<translation lang="en">InventoryReport</translation>
 	</item>
+	<item id="InventoryItem">
+		<translation lang="en">InventoryItem</translation>
+	</item>
 	<item id="Invoice">
 		<translation lang="en">Invoice</translation>
 	</item>
@@ -596,8 +605,8 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationUsage">
-		<translation lang="en">MedicationUsage</translation>
+	<item id="MedicationStatement">
+		<translation lang="en">MedicationStatement</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>

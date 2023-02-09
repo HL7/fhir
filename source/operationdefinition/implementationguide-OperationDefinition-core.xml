@@ -9,10 +9,5 @@
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="This profile describes common extensions that are used with Operation Definitions"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/operationdefinition-profile"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

@@ -35,10 +35,10 @@
         <display value="Donald Duck"/> 
     </requester>
     <reported value="true"></reported>
-    <dose>
+    
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Apply to affected areas four times daily"/>
     </dosageInstruction>
-    </dose>
+    
 </MedicationRequest>

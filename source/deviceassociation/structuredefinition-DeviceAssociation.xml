@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+  <id value="DeviceAssociation"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/DeviceAssociation"/>
+  <version value="5.0.0"/>
+  <name value="DeviceAssociation"/>
+  <title value="DeviceAssociation"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A record of association of a device."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="DeviceAssociation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="DeviceAssociation">
+      <path value="DeviceAssociation"/>
+      <short value="A record of association or dissociation of a device with a patient"/>
+      <definition value="A record of association or dissociation of a device with a patient."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.device"/>
+      </mapping>
+    </element>
+    <element id="DeviceAssociation.identifier">
+      <path value="DeviceAssociation.identifier"/>
+      <short value="Instance identifier"/>
+      <definition value="Instance identifier."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.device">
+      <path value="DeviceAssociation.device"/>
+      <short value="Reference to the devices associated with the patient or group"/>
+      <definition value="Reference to the devices associated with the patient or group."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.category">
+      <path value="DeviceAssociation.category"/>
+      <short value="Describes the relationship between the device and subject"/>
+      <definition value="Describes the relationship between the device and subject."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.status">
+      <path value="DeviceAssociation.status"/>
+      <short value="implanted | explanted | attached | entered-in-error | unknown"/>
+      <definition value="Indicates the state of the Device association."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the state of the device association."/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/v3-map">
+          <valueString value="ActStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Describes the lifecycle of the association."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status"/>
+      </binding>
+
+    </element>
+    <element id="DeviceAssociation.statusReason">
+      <path value="DeviceAssociation.statusReason"/>
+      <short value="The reasons given for the current association status"/>
+      <definition value="The reasons given for the current association status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.subject">
+      <path value="DeviceAssociation.subject"/>
+      <short value="The individual, group of individuals or device that the device is on or associated with"/>
+      <definition value="The individual, group of individuals or device that the device is on or associated with."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.bodyStructure">
+      <path value="DeviceAssociation.bodyStructure"/>
+      <short value="Current anatomical location of the device in/on subject"/>
+      <definition value="Current anatomical location of the device in/on subject."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.period">
+      <path value="DeviceAssociation.period"/>
+      <short value="Begin and end dates and times for the device association"/>
+      <definition value="Begin and end dates and times for the device association."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
+    <!-- <element id="DeviceAssociation.operation">
+      <path value="DeviceAssociation.operation"/>
+      <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
+      <definition value="The details about the device when it is in use to describe the actions, conditions and status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element> -->
+    <element id="DeviceAssociation.operator">
+      <path value="DeviceAssociation.operator"/>
+      <short value="The individual performing the action enabled by the device"/>
+      <definition value="The individual performing the action enabled by the device."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -34,7 +34,7 @@
   <title value="NamingSystemIdentifierType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2021-01-05T10:01:24+11:00"/>
+  <date value="2023-01-26T15:53:48Z"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -64,6 +64,11 @@
     <code value="uri"/>
     <display value="URI"/>
     <definition value="A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org."/>
+  </concept>
+  <concept>
+    <code value="iri-stem"/>
+    <display value="IRI stem"/>
+    <definition value="An IRI string that can be prepended to the code to obtain a concept IRI for RDF applications. This should be a valid, absolute IRI as defined in RFC 3987. See https://build.fhir.org/rdf.html#iri-stem for details on how this value may be used."/>
   </concept>
   <concept>
     <code value="v2csmnemonic"/>

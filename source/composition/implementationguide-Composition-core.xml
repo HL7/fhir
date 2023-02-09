@@ -12,32 +12,12 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/composition-section-subject"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/clinicaldocument"/>
       </reference>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-versionNumber"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/catalog"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/cqm-ValidityPeriod"/>
       </reference>
     </resource>
   </definition>
