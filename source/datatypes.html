@@ -93,13 +93,15 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
-  <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
+  <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>). 
+    base64Binary content does not include any whitespace or line feeds, but reading applications should ignore whitespace characters (per <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)
+  </td>
   <td>xs:base64Binary</td>
   <td>A JSON string - base64 content</td>
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex base64Binary%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -116,7 +118,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>true|false</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex boolean%]</code></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -136,7 +138,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
  <td style="border-top: 0px silver solid"></td>
- <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+ <td style="border-top: 0px silver solid">Regex: <code>[%regex canonical%]</code></td>
  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.xml.html">XML Definition</a></td>
  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -151,7 +153,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[^\s]+( [^\s]+)*</code><br/>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex code%]</code><br/>
       This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
@@ -165,7 +167,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex date%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -178,7 +180,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?)?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex dateTime%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -191,7 +193,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex decimal%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -204,7 +206,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex id%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -222,7 +224,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9}})?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex instant%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -236,7 +238,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>-?([0]|([1-9][0-9]*))</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex integer%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -250,7 +252,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[0]|[-+]?[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex integer64%]</code></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -263,7 +265,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex markdown%]</code>  (can't put size limit in the regex - too large)</td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -276,7 +278,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex oid%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -299,7 +301,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[ \r\n\t\S]+</code> (see notes below)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex string%]</code> (see notes below)</td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -312,7 +314,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[1-9][0-9]*</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex positiveInt%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -326,7 +328,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex time%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -339,7 +341,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex unsignedInt%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -352,7 +354,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>\S*</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex uri%]</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -370,7 +372,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex url%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -383,7 +385,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex uuid%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.json.html">JSON Definition</a></td>
 </tr>
