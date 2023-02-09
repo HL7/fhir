@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-21T19:16:26Z</Created>
-  <LastSaved>2022-08-26T23:12:15Z</LastSaved>
+  <LastSaved>2023-02-09T09:58:37Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -14,6 +14,7 @@
   
   
   
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -77,11 +78,12 @@
   </Names>
   <Table ss:ExpandedColumnCount="10" ss:ExpandedRowCount="12" ss:StyleID="s62" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="67.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="177.0"/>
-   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="362.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="108.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s62" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s63" ss:Width="117.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="6" ss:Span="1" ss:StyleID="s63" ss:Width="181.0"/>
-   <Column ss:AutoFitWidth="0" ss:Index="8" ss:StyleID="s63" ss:Width="184.0"/>
+   <Column ss:AutoFitWidth="0" ss:Index="6" ss:StyleID="s63" ss:Width="338.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="181.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s63" ss:Width="184.0"/>
    <Column ss:AutoFitWidth="0" ss:Span="1" ss:StyleID="s63"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Data Type</Data></Cell>
@@ -109,7 +111,7 @@
     <Cell><Data ss:Type="String">32 bit number; for values larger than this, use decimal</Data></Cell>
     <Cell><Data ss:Type="String">int</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?([0]|([1-9][0-9]*))</Data></Cell>
+    <Cell><Data ss:Type="String">[0]|[-+]?[1-9][0-9]*</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">INT</Data></Cell>
     <Cell><Data ss:Type="String">~NM/~SI</Data></Cell>
@@ -120,7 +122,7 @@
     <Cell><Data ss:Type="String">Typically this is used for record counters (e.g. database keys)</Data></Cell>
     <Cell><Data ss:Type="String">long</Data></Cell>
     <Cell><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?([0]|([1-9][0-9]*))</Data></Cell>
+    <Cell><Data ss:Type="String">[0]|[-+]?[1-9][0-9]*</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">INT</Data></Cell>
     <Cell><Data ss:Type="String">~NM/~SI</Data></Cell>
@@ -131,7 +133,7 @@
     <Cell><Data ss:Type="String">Do not use an IEEE type floating point type, instead use something that works like a true decimal, with inbuilt precision (e.g. Java BigInteger)</Data></Cell>
     <Cell><Data ss:Type="String">xs:decimal, xs:double</Data></Cell>
     <Cell><Data ss:Type="String">number</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?</Data></Cell>
+    <Cell><Data ss:Type="String">-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range is-continuous</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">REAL</Data></Cell>
     <Cell><Data ss:Type="String">~NM</Data></Cell>
@@ -183,7 +185,7 @@
     <Cell ss:StyleID="s65"><ss:Data xmlns="http://www.w3.org/TR/REC-html40" ss:Type="String"><Font html:Color="#000000">A date or partial date (e.g. just year or year + month). There is no UTC offset. The format is a union of the schema types gYear, gYearMonth and date.  </Font><B><Font html:Color="#000000">Dates SHALL be valid dates.</Font><Font>       </Font></B><Font>      </Font></ss:Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
+    <Cell><Data ss:Type="String">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range is-continuous</Data></Cell>
     <Cell><Data ss:Type="String">Could get fancy and check legal days/month or even leap years, but not worth it.</Data></Cell>
     <Cell><Data ss:Type="String">TS</Data></Cell>
@@ -195,7 +197,7 @@
     <Cell><Data ss:Type="String">UTC offset is allowed for dates and partial dates </Data></Cell>
     <Cell><Data ss:Type="String">xs:gYear, xs:gYearMonth, xs:date, xs:dateTime</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?)?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?</Data></Cell>
+    <Cell><Data ss:Type="String">([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?)?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)?)?)?</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">has-range is-continuous</Data></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">TS</Data></Cell>
     <Cell><Data ss:Type="String">DTM</Data></Cell>
@@ -205,7 +207,7 @@
     <Cell><Data ss:Type="String">A time during the day, with no date specified </Data></Cell>
     <Cell ss:Index="4" ss:StyleID="s69"><Data ss:Type="String">time</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s69"><Data ss:Type="String" x:Ticked="1">([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String" x:Ticked="1">has-range is-continuous</Data></Cell>
     <Cell ss:StyleID="s69"/>
     <Cell ss:StyleID="s69"><Data ss:Type="String">n/a</Data></Cell>
@@ -224,7 +226,8 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
-   <Selected/>
+   <Zoom>217</Zoom>
+   <TopRowVisible>7</TopRowVisible>
    
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -345,6 +348,8 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
