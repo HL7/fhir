@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 [%settitle Datatype Examples%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -86,6 +86,7 @@ See also <a href="datatypes.html#Attachment">Base Definition</a>, <a href="datat
 </p>
 <div class="example">
 <p>A PDF document:</p>
+[%example-start%]
 <pre class="xml" fragment="Attachment">
   &lt;document&gt;
     &lt;contentType value="application/pdf" /&gt;
@@ -94,18 +95,21 @@ See also <a href="datatypes.html#Attachment">Base Definition</a>, <a href="datat
     &lt;title value="Definition of Procedure" /&gt;
   &lt;/document&gt;
 </pre>
-<pre class="json">
-  document : {
-    contentType :  { value : "application/pdf" },
-    language : { value : "en" },
-    data :  { value : "/9j/4...KAP//Z"},
-    title :  { value : "Definition of Procedure" }
+[%example-json%]
+<pre class="json" fragment="Attachment">
+  "document" : {
+    "contentType" : "application/pdf",
+    "language" : "en",
+    "data" : "/9j/4...KAP//Z",
+    "title" : "Definition of Procedure"
   }
 </pre>
+[%example-end%]
 <p>
 Since the JSON examples have the same structure as the XML, only XML is shown for the rest of the examples.
 </p>
 <p>A reference to a DICOM image via WADO:</p>
+[%example-start%]
 <pre class="xml" fragment="Attachment">
   &lt;image&gt;
     &lt;contentType value="application/dicom" /&gt;
@@ -113,6 +117,15 @@ Since the JSON examples have the same structure as the XML, only XML is shown fo
     &lt;hash value="EQH/..AgME" /&gt;
   &lt;/image&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Attachment">
+  "image" : {
+    "contentType" : "application/dicom",
+    "url" : "http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details...",
+    "hash" : "EQH/..AgME"
+  }
+</pre>
+[%example-end%]
 </div>
 
 <a name="Identifier"></a>
@@ -127,6 +140,7 @@ See also <a href="datatypes.html#Identifier">Base Definition</a>, <a href="datat
 <p><b>Examples</b></p>
 <p>A primary key from an application table (an OID in the space allocated by HL7
 to some organization to further sub-allocate):</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="official" /&gt;
@@ -134,8 +148,18 @@ to some organization to further sub-allocate):</p>
     &lt;value value="123" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "official",
+    "system" : "urn:oid:2.16.840.1.113883.16.4.3.2.5",
+    "value" : "123"
+  }
+</pre>
+[%example-end%]
 
 <p>A patient identifier defined by a hospital:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="official" /&gt;
@@ -146,18 +170,40 @@ to some organization to further sub-allocate):</p>
     &lt;/period&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "official",
+    "system" : "http://www.acmehosp.com/patients",
+    "value" : "44552",
+    "period" : {
+      "start" : "2003-05-03"
+    }
+  }
+</pre>
+[%example-end%]
 <p>In this case, the period is used to track when the identifier was first assigned to the patient.</p>
 
 <p>An identifier that refers to a patient FHIR resource on a particular system:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
-   &lt;system value="urn:ietf:rfc:3986" /&gt;
-   &lt;value value="http://pas-server/xxx/Patient/443556" /&gt;
+    &lt;system value="urn:ietf:rfc:3986" /&gt;
+    &lt;value value="http://pas-server/xxx/Patient/443556" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "http://pas-server/xxx/Patient/443556"
+  }
+</pre>
+[%example-end%]
 <p>This is not a resource reference - it's a logical reference by the patient identifier.</p>
 
 <p>A UUID:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="temp" /&gt;
@@ -165,20 +211,39 @@ to some organization to further sub-allocate):</p>
     &lt;value value="urn:uuid:a76d9bbf-f293-4fb7-ad4c-2851cac77162" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "temp",
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:uuid:a76d9bbf-f293-4fb7-ad4c-2851cac77162"
+  }
+</pre>
+[%example-end%]
 <p>UUIDs are often used for temporary identifiers, though this is not necessary.</p>
 
 <p>A DICOM OID:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;system value="urn:dicom:uid" /&gt;
     &lt;value value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "system" : "urn:dicom:uid",
+    "value" : "urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092901"
+  }
+</pre>
+[%example-end%]
 <p>The system value <code>urn:dicom:uid</code> can be used for any OID issued under the DICOM arrangements for OIDs. Such OIDs are typically
 found in DICOM messages, but this is not a requirement for using <code>urn:dicom:uid</code></p>
 
 
 <p>A US SSN:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="usual" /&gt;
@@ -192,8 +257,24 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;value value="000111111" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "usual",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "SSN"
+      }]
+    },
+    "system" : "http://hl7.org/fhir/sid/us-ssn",
+    "value" : "000111111"
+  }
+</pre>
+[%example-end%]
 
 <p>A bank card with Identifier.type.text communicating the human readable name of the identifier:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="usual" /&gt;
@@ -202,11 +283,26 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
         &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
         &lt;code value=&quot;BC&quot;/&gt;
       &lt;/coding&gt;
-	  &lt;text value=&quot;Visa&quot;/&gt;
+	    &lt;text value=&quot;Visa&quot;/&gt;
     &lt;/type&gt;
     &lt;value value="4111111111111111" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "usual",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "BC"
+      }],
+	    "text" : "Visa"
+    },
+    "value" : "4111111111111111"
+  }
+</pre>
+[%example-end%]
 <p>Notes:</p>
 <ul>
  <li>US SSNs are often presented like this: 000-11-1111, the dashes are for presentation and should be removed, as specified in the <a href="terminologies-systems.html#identifiersystems">definition of ssn-us</a></li>
@@ -214,6 +310,7 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
 </ul>
 
 <p>A medical record number assigned on 5-July 2009:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;use value="usual" /&gt;
@@ -230,6 +327,24 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;/period&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "use" : "usual",
+    "type" : {
+      "coding" : [{
+        "system" : "http://terminology.hl7.org/CodeSystem/v2-0203",
+        "code" : "MRN"
+      }]
+    },
+    "system" : "urn:oid:0.1.2.3.4.5.6.7",
+    "value" : "2356",
+    "period" : {
+      "start" : "2009-07-05"
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 
 <a name="ii"></a>
@@ -241,23 +356,41 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
   &lt;v3:id root="0.1.2.3.4.5"/&gt;
 </pre>
 <p>becomes:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;system value="urn:ietf:rfc:3986" /&gt;
     &lt;value value="urn:oid:0.1.2.3.4.5" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "system" : "urn:ietf:rfc:3986",
+    "value" : "urn:oid:0.1.2.3.4.5"
+  }
+</pre>
+[%example-end%]
 <p>A root with an extension:</p>
 <pre>
   &lt;v3:id root="0.1.2.3.4.5" extension="13412"/&gt;
 </pre>
 <p>becomes:</p>
+[%example-start%]
 <pre class="xml" fragment="Identifier">
   &lt;identifier&gt;
     &lt;system value="urn:oid:0.1.2.3.4.5" /&gt;
     &lt;value value="13412" /&gt;
   &lt;/identifier&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Identifier">
+  "identifier" : {
+    "system" : "urn:oid:0.1.2.3.4.5",
+    "value" : "13412"
+  }
+</pre>
+[%example-end%]
 <p>
 See <a href="datatypes-mappings.html#ii">v3 Mapping Notes</a>
 </p>
@@ -272,19 +405,37 @@ See also <a href="datatypes.html#Coding">Base Definition</a>, <a href="datatypes
 <div class="example">
 <p><b>Examples</b></p>
 <p>A simple code for headache, in ICD-10:</p>
+[%example-start%]
 <pre class="xml" fragment="Coding">
   &lt;code&gt;
     &lt;system value="http://hl7.org/fhir/sid/icd-10" /&gt;
     &lt;code value="G44.1" /&gt;
   &lt;/code&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Coding">
+  "code" : {
+    "system" : "http://hl7.org/fhir/sid/icd-10",
+    "code" : "G44.1"
+  }
+</pre>
+[%example-end%]
 <p>A SNOMED CT expression:</p>
+[%example-start%]
 <pre class="xml" fragment="Coding">
   &lt;problem&gt;
     &lt;system value="http://snomed.info/sct" /&gt;
     &lt;code value="128045006:{363698007=56459004}" /&gt;
   &lt;/problem&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Coding">
+  "problem" : {
+    "system" : "http://snomed.info/sct",
+    "code" : "128045006:{363698007=56459004}"
+  }
+</pre>
+[%example-end%]
 </div>
 
 
@@ -302,6 +453,7 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
 <div class="example">
 <p><b>Examples</b></p>
 <p>A simple code for headache initially coded in SNOMED CT (by picking the SNOMED CT code from a pick-list), and then translated to ICD-10:</p>
+[%example-start%]
 <pre class="xml" fragment="CodeableConcept">
   &lt;concept&gt;
     &lt;coding&gt;
@@ -317,7 +469,24 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
     &lt;text value="general headache" /&gt;
   &lt;/concept&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="CodeableConcept">
+  "concept" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/sid/icd-10",
+      "code" : "R51"
+    }, {
+      "system" : "http://snomed.info/sct",
+      "code" : "25064002",
+      "display" : "Headache",
+      "userSelected" : "true"
+    }],
+    "text" : "general headache"
+  }
+</pre>
+[%example-end%]
 <p>A concept represented in an institution's local coding systems for unit for which no UCUM equivalent exists:</p>
+[%example-start%]
 <pre class="xml" fragment="CodeableConcept">
   &lt;unit&gt;
     &lt;coding&gt;
@@ -330,7 +499,21 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
     &lt;/coding&gt;
   &lt;/unit&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="CodeableConcept">
+  "unit" : {
+    "coding" : [{
+      "system" : "urn:oid:2.16.840.1.113883.19.5.2",
+      "code" : "tab",
+      "display" : "Tablet"
+    }, {
+      "system" : "http://unitsofmeasure.org"
+    }]
+  }
+</pre>
+[%example-end%]
 <p>A SNOMED CT expression:</p>
+[%example-start%]
 <pre class="xml" fragment="CodeableConcept">
   &lt;diagnosis&gt;
     &lt;coding&gt;
@@ -340,21 +523,42 @@ See also <a href="datatypes.html#CodeableConcept">Base Definition</a>, <a href="
     &lt;text value="Cellulitis of the foot" /&gt;
   &lt;/diagnosis&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="CodeableConcept">
+  "diagnosis" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "128045006:{363698007=56459004}"
+    }],
+    "text" : "Cellulitis of the foot"
+  }
+</pre>
+[%example-end%]
 <p>
 In this case, there is no display element, because no display is defined for SNOMED CT expressions.
 </p>
 
 <p>Using the value set:</p>
 <p>The results on a urinalysis strip:</p>
+[%example-start%]
 <pre class="xml" fragment="Coding">
   &lt;valueCoding&gt;
     &lt;system value="http://example.org/codes/simple-grades" /&gt;
     &lt;code value="+" /&gt;
   &lt;/valueCoding&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Coding">
+  "valueCoding" : {
+    "system" : "http://example.org/codes/simple-grades",
+    "code" : "+"
+  }
+</pre>
+[%example-end%]
 <p>
 And where the value set would be something like this:
 </p>
+[%example-start%]
 <pre class="xml" fragment="ValueSet">
   &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
     &lt;text&gt;
@@ -402,6 +606,45 @@ And where the value set would be something like this:
     &lt;/compose&gt;
   &lt;/ValueSet&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="ValueSet">
+  {  
+    "resourceType" : "ValueSet",
+    "url" : "http://hl7.org/fhir/ValueSet/clinistix",
+    "name" : "Codes for Clinistix",
+    "publisher" : "HL7",
+    "contact" : [{
+        "name" : "FHIR project team",
+        "telecom" : [{
+          "system" : "url",
+          "value" : "http://hl7.org/fhir"
+        }]
+    }],
+    "description" : "Clinistix Codes",
+    "status" : "draft",
+    "experimental" : "true",
+    "date" : "2013-10-01",
+    "compose" : {
+      "include" : [{
+        "system" : "http://example.org/codes/simple-grades",
+        "concept" : [{
+          "code" : "neg"
+        }, {
+          "code" : "trace"
+        }, {
+          "code" : "+"
+        }, {
+          "code" : "+"
+        }, {
+          "code" : "++"
+        }, {
+          "code" : "+++"
+        }]
+      }]
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 <a name="Quantity"></a>
 <a name="Quantity"></a>
@@ -425,6 +668,7 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
 <div class="example">
 <p><b>Examples</b></p>
 <p>A duration:</p>
+[%example-start%]
 <pre class="xml" fragment="Quantity">
   &lt;time&gt;
     &lt;value value="25" /&gt;
@@ -433,7 +677,18 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
     &lt;code value="s" /&gt;
   &lt;/time&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Quantity">
+  "time" : {
+    "value" : "25",
+    "unit" : "sec",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "s"
+  }
+</pre>
+[%example-end%]
 <p>A concentration where the value was out of range:</p>
+[%example-start%]
 <pre class="xml" fragment="Quantity">
   &lt;result&gt;
     &lt;value value="40000" /&gt;
@@ -443,7 +698,19 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
     &lt;code value="ug" /&gt;
   &lt;/result&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Quantity">
+  "result" : {
+    "value" : "40000",
+    "comparator" : "&amp;gt;",
+    "unit" : "ug/L",
+    "system" : "http://unitsofmeasure.org",
+    "code" : "ug"
+  }
+</pre>
+[%example-end%]
 <p>An amount of prescribed medication:</p>
+[%example-start%]
 <pre class="xml" fragment="Quantity">
   &lt;dose&gt;
     &lt;value value="3" /&gt;
@@ -452,6 +719,16 @@ See also <a href="datatypes.html#Quantity">Base Definition</a>, <a href="datatyp
     &lt;code value="385049006" /&gt;
   &lt;/dose&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Quantity">
+  "dose" : {
+    "value" : "3",
+    "unit" : "capsules",
+    "system" : "http://snomed.info/sct",
+    "code" : "385049006"
+  }
+</pre>
+[%example-end%]
 </div>
 
 <a name="money"></a>
@@ -466,20 +743,39 @@ See also <a href="datatypes.html#Money">Base Definition</a>, <a href="datatypes-
 <div class="example">
 <p><b>Examples</b></p>
 <p>US Dollars:</p>
+[%example-start%]
 <pre class="xml" fragment="Money">
   &lt;time&gt;
     &lt;value value="25.00" /&gt;
     &lt;currency value="USD" /&gt;
   &lt;/time&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Money">
+  "time" : {
+    "value" : "25.00",
+    "currency" : "USD"
+  }
+</pre>
+[%example-end%]
 <p>Vietnamese Dong:</p>
+[%example-start%]
 <pre class="xml" fragment="Money">
   &lt;result&gt;
     &lt;value value="410000" /&gt;
     &lt;currency value="VND" /&gt;
   &lt;/result&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Money">
+  "result" : {
+    "value" : "410000",
+    "currency" : "VND"
+  }
+</pre>
+[%example-end%]
 <p>A quantity that represents a currency amount - used in Ratio where Money is not used:</p>
+[%example-start%]
 <pre class="xml" fragment="Quantity">
   &lt;numerator&gt;
     &lt;value value="25.45" /&gt;
@@ -488,6 +784,16 @@ See also <a href="datatypes.html#Money">Base Definition</a>, <a href="datatypes-
     &lt;code value="USD" /&gt;
   &lt;/numerator&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Quantity">
+  "numerator" : {
+    "value" : "25.45",
+    "unit" : "US$",
+    "system" : "urn:iso:std:iso:4217",
+    "code" : "USD"
+  }
+</pre>
+[%example-end%]
 <p>(See full example on <a href="#Ratio">Ratio</a>)</p>
 </div>
 
@@ -502,18 +808,33 @@ See also <a href="datatypes.html#Range">Base Definition</a>, <a href="datatypes-
 <div class="example">
 <p><b>Examples</b></p>
 <p>Range of Quantity (distance):</p>
+[%example-start%]
 <pre class="xml" fragment="Range">
   &lt;estimate&gt;
-   &lt;low&gt;
-     &lt;value value="1.6" /&gt;
-     &lt;unit value="m" /&gt;
-   &lt;/low&gt;
-   &lt;high&gt;
-     &lt;value value="1.9" /&gt;
-     &lt;unit value="m" /&gt;
-   &lt;/high&gt;
+    &lt;low&gt;
+      &lt;value value="1.6" /&gt;
+      &lt;unit value="m" /&gt;
+    &lt;/low&gt;
+    &lt;high&gt;
+      &lt;value value="1.9" /&gt;
+      &lt;unit value="m" /&gt;
+    &lt;/high&gt;
   &lt;/estimate&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Range">
+  "estimate" : {
+    "low" : {
+      "value" : "1.6",
+      "unit" : "m"
+    },
+    "high" : {
+      "value" : "1.9",
+      "unit" : "m"
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 <a name="Ratio"></a>
 <a name="ratio"></a>
@@ -526,33 +847,65 @@ See also <a href="datatypes.html#Ratio">Base Definition</a>, <a href="datatypes-
 <div class="example">
 <p><b>Examples</b></p>
 <p>Titer (Ratio of integer:integer)</p>
+[%example-start%]
 <pre class="xml" fragment="Ratio">
   &lt;result&gt;
-   &lt;numerator&gt;
-     &lt;value value="1" /&gt;
-   &lt;/numerator&gt;
-   &lt;denominator&gt;
-     &lt;value value="128" /&gt;
-   &lt;/denominator&gt;
+    &lt;numerator&gt;
+      &lt;value value="1" /&gt;
+    &lt;/numerator&gt;
+    &lt;denominator&gt;
+      &lt;value value="128" /&gt;
+    &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Ratio">
+  "result" : {
+    "numerator" : {
+      "value" : "1"
+    },
+    "denominator" : {
+      "value" : "128"
+    }
+  }
+</pre>
+[%example-end%]
 <p>Unit cost (Ratio of Money(as Quantity):Quantity):</p>
+[%example-start%]
 <pre class="xml" fragment="Ratio">
   &lt;charge&gt;
-   &lt;numerator&gt;
-     &lt;value value="103.50" /&gt;
-     &lt;unit value="US$" /&gt;
-     &lt;code value="USD" /&gt;
-     &lt;system value="urn:iso:std:iso:4217" /&gt;
-   &lt;/numerator&gt;
-   &lt;denominator&gt;
-     &lt;value value="1" /&gt;
-     &lt;unit value="day" /&gt;
-     &lt;code value="day" /&gt;
-     &lt;system value="http://unitsofmeasure.org" /&gt;
-   &lt;/denominator&gt;
+    &lt;numerator&gt;
+      &lt;value value="103.50" /&gt;
+      &lt;unit value="US$" /&gt;
+      &lt;code value="USD" /&gt;
+      &lt;system value="urn:iso:std:iso:4217" /&gt;
+    &lt;/numerator&gt;
+    &lt;denominator&gt;
+      &lt;value value="1" /&gt;
+      &lt;unit value="day" /&gt;
+      &lt;code value="day" /&gt;
+      &lt;system value="http://unitsofmeasure.org" /&gt;
+    &lt;/denominator&gt;
   &lt;/charge&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Ratio">
+  "charge" : {
+    "numerator" : {
+      "value" : "103.50",
+      "unit" : "US$",
+      "code" : "USD",
+      "system" : "urn:iso:std:iso:4217"
+    },
+    "denominator" : {
+      "value" : "1",
+      "unit" : "day",
+      "code" : "day",
+      "system" : "http://unitsofmeasure.org"
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 <a name="RatioRange"></a>
 <a name="ratiorange"></a>
@@ -565,65 +918,131 @@ See also <a href="datatypes.html#RatioRange">Base Definition</a>, <a href="datat
 <div class="example">
 <p><b>Examples</b></p>
 <p>Titer (Range of Ratio of integer:integer)</p>
+[%example-start%]
 <pre class="xml" fragment="RatioRange">
   &lt;result&gt;
-   &lt;lowNumerator&gt;
-     &lt;value value="1" /&gt;
-   &lt;/lowNumerator&gt;
-   &lt;highNumerator&gt;
-     &lt;value value="2" /&gt;
-   &lt;/highNumerator&gt;
-   &lt;denominator&gt;
-     &lt;value value="128" /&gt;
-   &lt;/denominator&gt;
+    &lt;lowNumerator&gt;
+      &lt;value value="1" /&gt;
+    &lt;/lowNumerator&gt;
+    &lt;highNumerator&gt;
+      &lt;value value="2" /&gt;
+    &lt;/highNumerator&gt;
+    &lt;denominator&gt;
+      &lt;value value="128" /&gt;
+    &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="RatioRange">
+  "result" : {
+    "lowNumerator" : {
+      "value" : "1"
+    },
+    "highNumerator" : {
+      "value" : "2"
+    },
+    "denominator" : {
+      "value" : "128"
+    }
+  }
+</pre>
+[%example-end%]
 <p>Unit cost (Range of Ratio of Money(as Quantity):Quantity):</p>
+[%example-start%]
 <pre class="xml" fragment="RatioRange">
   &lt;charge&gt;
-   &lt;lowNumerator&gt;
-     &lt;value value="103.50" /&gt;
-     &lt;unit value="US$" /&gt;
-     &lt;code value="USD" /&gt;
-     &lt;system value="urn:iso:std:iso:4217" /&gt;
-   &lt;/lowNumerator&gt;
-   &lt;highNumerator&gt;
-     &lt;value value="210.99" /&gt;
-     &lt;unit value="US$" /&gt;
-     &lt;code value="USD" /&gt;
-     &lt;system value="urn:iso:std:iso:4217" /&gt;
-   &lt;/highNumerator&gt;
-   &lt;denominator&gt;
-     &lt;value value="1" /&gt;
-     &lt;unit value="day" /&gt;
-     &lt;code value="day" /&gt;
-     &lt;system value="http://unitsofmeasure.org" /&gt;
-   &lt;/denominator&gt;
+    &lt;lowNumerator&gt;
+      &lt;value value="103.50" /&gt;
+      &lt;unit value="US$" /&gt;
+      &lt;code value="USD" /&gt;
+      &lt;system value="urn:iso:std:iso:4217" /&gt;
+    &lt;/lowNumerator&gt;
+    &lt;highNumerator&gt;
+      &lt;value value="210.99" /&gt;
+      &lt;unit value="US$" /&gt;
+      &lt;code value="USD" /&gt;
+      &lt;system value="urn:iso:std:iso:4217" /&gt;
+    &lt;/highNumerator&gt;
+    &lt;denominator&gt;
+      &lt;value value="1" /&gt;
+      &lt;unit value="day" /&gt;
+      &lt;code value="day" /&gt;
+      &lt;system value="http://unitsofmeasure.org" /&gt;
+    &lt;/denominator&gt;
   &lt;/charge&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="RatioRange">
+  "charge" : {
+    "lowNumerator" : {
+      "value" : "103.50",
+      "unit" : "US$",
+      "code" : "USD",
+      "system" : "urn:iso:std:iso:4217"
+    },
+    "highNumerator" : {
+      "value" : "210.99",
+      "unit" : "US$",
+      "code" : "USD",
+      "system" : "urn:iso:std:iso:4217"
+    },
+    "denominator" : {
+      "value" : "1",
+      "unit" : "day",
+      "code" : "day",
+      "system" : "http://unitsofmeasure.org"
+    }
+  }
+</pre>
+[%example-end%]
 <p>Range of strengths</p>
+[%example-start%]
 <pre class="xml" fragment="RatioRange">
   &lt;result&gt;
-   &lt;lowNumerator&gt;
-     &lt;value value="10" /&gt;
-	 &lt;unit value="milliliter" /&gt;
-	 &lt;code value="mL" /&gt;
-	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
-   &lt;/lowNumerator&gt;
-   &lt;highNumerator&gt;
-     &lt;value value="15" /&gt;
-	 &lt;unit value="milliliter" /&gt;
-	 &lt;code value="mL" /&gt;
-	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
-   &lt;/highNumerator&gt;
-   &lt;denominator&gt;
-     &lt;value value="100" /&gt;
-	 &lt;unit value="gram" /&gt;
-	 &lt;code value="g" /&gt;
-	 &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
-   &lt;/denominator&gt;
+    &lt;lowNumerator&gt;
+      &lt;value value="10" /&gt;
+	  &lt;unit value="milliliter" /&gt;
+	  &lt;code value="mL" /&gt;
+	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+    &lt;/lowNumerator&gt;
+    &lt;highNumerator&gt;
+      &lt;value value="15" /&gt;
+	  &lt;unit value="milliliter" /&gt;
+	  &lt;code value="mL" /&gt;
+	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+    &lt;/highNumerator&gt;
+    &lt;denominator&gt;
+      &lt;value value="100" /&gt;
+	  &lt;unit value="gram" /&gt;
+	  &lt;code value="g" /&gt;
+	  &lt;uri value="http://hl7.org/fhir/ValueSet/ucum-units" /&gt;
+    &lt;/denominator&gt;
   &lt;/result&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="RatioRange">
+  "result" : {
+    "lowNumerator" : {
+      "value" : "10",
+	  "unit" : "milliliter",
+	  "code" : "mL",
+	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+    },
+    "highNumerator" : {
+      "value" : "15",
+	  "unit" : "milliliter",
+	  "code" : "mL",
+	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+    },
+    "denominator" : {
+      "value" : "100",
+	  "unit" : "gram",
+	  "code" : "g",
+	  "uri" : "http://hl7.org/fhir/ValueSet/ucum-units"
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 <a name="Period"></a>
 <a name="period"></a>
@@ -637,12 +1056,21 @@ See also <a href="datatypes.html#Period">Base Definition</a>, <a href="datatypes
 <div class="example">
 <p><b>Examples</b></p>
 <p>23rd May 2011 to 27th May, including 27th May:</p>
+[%example-start%]
 <pre class="xml" fragment="Period">
   &lt;coverage&gt;
-   &lt;start value="2011-05-23" /&gt;
-   &lt;end value="2011-05-27" /&gt;
+    &lt;start value="2011-05-23" /&gt;
+    &lt;end value="2011-05-27" /&gt;
   &lt;/coverage&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Period">
+  "coverage" : {
+    "start" : "2011-05-23",
+    "end" : "2011-05-27"
+  }
+</pre>
+[%example-end%]
 </div>
 
 <a name="SampledData"></a>
@@ -656,20 +1084,37 @@ See also <a href="datatypes.html#SampledData">Base Definition</a>, <a href="data
 <div class="example">
 <p><b>Example</b></p>
 <p>The output from an EKG device:</p>
+[%example-start%]
 <pre class="xml" fragment="SampledData">
  &lt;sampledData&gt;
-  &lt;origin&gt;
-   &lt;value value="0"/&gt;
-   &lt;unit value="&mu;V"/&gt;
-   &lt;system value="http://unitsofmeasure.org"/&gt;
-   &lt;code value="uV"/&gt;
-  &lt;/origin&gt;
-  &lt;period value="2"/&gt;
-  &lt;factor value="2.5"/&gt;
-  &lt;dimensions value="1"/&gt;
-  &lt;data value="-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."/&gt;
+   &lt;origin&gt;
+     &lt;value value="0"/&gt;
+     &lt;unit value="&mu;V"/&gt;
+     &lt;system value="http://unitsofmeasure.org"/&gt;
+     &lt;code value="uV"/&gt;
+   &lt;/origin&gt;
+   &lt;period value="2"/&gt;
+   &lt;factor value="2.5"/&gt;
+   &lt;dimensions value="1"/&gt;
+   &lt;data value="-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."/&gt;
  &lt;/sampledData&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="SampledData">
+ "sampledData" : {
+   "origin" : {
+     "value" : "0",
+     "unit" : "&mu;V",
+     "system" : "http://unitsofmeasure.org",
+     "code" : "uV"
+   },
+   "period" : "2",
+   "factor" : "2.5",
+   "dimensions" : "1",
+   "data" : "-4 -13 -18 -18 -18 -17 -16 -16 -16 -16 -16 -17 -18 -18 -18 ...."
+ }
+</pre>
+[%example-end%]
 </div>
 <a name="HumanName"></a>
 <a name="humanname"></a>
@@ -682,6 +1127,7 @@ See also <a href="datatypes.html#HumanName">Base Definition</a>, <a href="dataty
 
 <div class="example">
 <p>A Simple example</p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
   &lt;family value="Everyman" /&gt;
@@ -689,14 +1135,31 @@ See also <a href="datatypes.html#HumanName">Base Definition</a>, <a href="dataty
   &lt;given value="A." /&gt;
 &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Everyman",
+    "given" : ["Adam", "A."] 
+  }
+</pre>
+[%example-end%]
 
 <p>Composite names</p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Contrata" /&gt;
-  &lt;given value="Mary Jane" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Contrata" /&gt;
+    &lt;given value="Mary Jane" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Contrata",
+    "given" : ["Mary Jane"]
+  }
+</pre>
+[%example-end%]
 <p>
 These cases can be quite ambiguous - is "Mary Jane" one name, or two? Different systems,
 and data enterers may treat this differently, and the person themselves might not know.
@@ -705,48 +1168,89 @@ these cases. Composite names separated by "-" should be treated as a single name
 </p>
 
 <p>A common pattern: a person is called by a name other than that expected from their official name (first given name in most cultures).</p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="official" /&gt;
-  &lt;family value="Chalmers" /&gt;
-  &lt;given value="Peter" /&gt;
-  &lt;given value="James" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value="usual" /&gt;
-  &lt;given value="Jim" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;
+    &lt;family value="Chalmers" /&gt;
+    &lt;given value="Peter" /&gt;
+    &lt;given value="James" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="usual" /&gt;
+    &lt;given value="Jim" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "Chalmers",
+    "given" : ["Peter", "James"]
+  }, {
+    "use" : "usual",
+    "given" : "Jim"
+  }]
+</pre>
+[%example-end%]
 <p>
 This same pattern is often encountered with immigrants, who retain their real name for official use, but adopt a localized name for everyday use:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="official" /&gt;
-  &lt;family value="Sczypinski" /&gt;
-  &lt;given value="Piotr" /&gt;
-  &lt;given value="Andre" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value="usual" /&gt;
-  &lt;family value="Skipper" /&gt;
-  &lt;given value="Jim" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;
+    &lt;family value="Sczypinski" /&gt;
+    &lt;given value="Piotr" /&gt;
+    &lt;given value="Andre" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="usual" /&gt;
+    &lt;family value="Skipper" /&gt;
+    &lt;given value="Jim" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "Sczypinski",
+    "given" : ["Piotr", "Andre"]
+  }, {
+    "use" : "usual",
+    "family" : "Skipper",
+    "given" : ["Jim"]
+  }]
+</pre>
+[%example-end%]
 <p>
 Some people may also have a nickname that needs to be recorded:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="official" /&gt;
-  &lt;family value="Brown" /&gt;
-  &lt;given value="Steven" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value="nickname" /&gt;
-  &lt;given value="Junior" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;
+    &lt;family value="Brown" /&gt;
+    &lt;given value="Steven" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="nickname" /&gt;
+    &lt;given value="Junior" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "Brown",
+    "given" : ["Steven"]
+  }, {
+    "use" : "nickname",
+    "given" : ["Junior"]
+  }]
+</pre>
+[%example-end%]
+
 <p>
 Note that there is some ambiguity in real life as to whether a non-official name is the patient's <code>usual</code> name, or whether it's their
 <code>nickname</code>. In principle, nick names are used occasionally and informally, whereas the usual name is used consistently, and in 
@@ -759,20 +1263,39 @@ their cases.
 <p>
 Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;van Hentenryck&quot; &gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-	   &lt;valueString value=&quot;van&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
-      &lt;valueString value=&quot;Hentenryck&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/family&gt;
-  &lt;given value=&quot;Karen&quot; /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;official&quot; /&gt;
+    &lt;family value=&quot;van Hentenryck&quot; &gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
+      &lt;valueString value=&quot;van&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
+        &lt;valueString value=&quot;Hentenryck&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;/family&gt;
+    &lt;given value=&quot;Karen&quot; /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "use" : "official",
+    "family" : "van Hentenryck",
+    "_family" : {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+        "valueString" : "van"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+        "valueString" : "Hentenryck"
+      }]
+    },
+    "given" : ["Karen"]
+  }
+</pre>
+[%example-end%]
 <p>
 See <a href="extensibility-examples.html">the Extensibility Example for more information</a> about the use of extensions.
 </p>
@@ -783,32 +1306,62 @@ See <a href="extensibility-examples.html">the Extensibility Example for more inf
 <p>Complex example from Germany: Dr.phil. Regina Johanna Maria von Hochheim-Weilenfels, NCFSA. This example shows extensive use of
 multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;von Hochheim-Weilenfels&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-      &lt;valueString value=&quot;von&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
-      &lt;valueString value="Hochheim-Weilenfels" /&gt;
-    &lt;/extension&gt;    
-  &lt;/family&gt;
-  &lt;given value=&quot;Regina&quot; /&gt;
-  &lt;given value=&quot;Johanna&quot; /&gt;
-  &lt;given value=&quot;Maria&quot; /&gt;
-  &lt;prefix value=&quot;Dr. phil.&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-      &lt;valueCode value=&quot;AC&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/prefix&gt;
-  &lt;suffix value=&quot;NCFSA&quot; /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value=&quot;maiden&quot; /&gt;
-  &lt;family value=&quot;Hochheim&quot; /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;official&quot; /&gt;
+    &lt;family value=&quot;von Hochheim-Weilenfels&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
+        &lt;valueString value=&quot;von&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
+        &lt;valueString value="Hochheim-Weilenfels" /&gt;
+      &lt;/extension&gt;    
+    &lt;/family&gt;
+    &lt;given value=&quot;Regina&quot; /&gt;
+    &lt;given value=&quot;Johanna&quot; /&gt;
+    &lt;given value=&quot;Maria&quot; /&gt;
+    &lt;prefix value=&quot;Dr. phil.&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
+        &lt;valueCode value=&quot;AC&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;/prefix&gt;
+    &lt;suffix value=&quot;NCFSA&quot; /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;maiden&quot; /&gt;
+    &lt;family value=&quot;Hochheim&quot; /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "von Hochheim-Weilenfels",
+    "_family" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-prefix",
+        "valueString" : "von"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-own-name",
+        "valueString" : "Hochheim-Weilenfels"
+      }]
+    },
+    "given" : ["Regina", "Johanna", "Maria"],
+    "prefix" : "Dr. phil.",
+    "_prefix" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+        "valueCode" : "AC"
+      }]
+    },
+    "suffix" : "NCFSA"
+  }, {
+    "use" : "maiden",
+    "family" : "Hochheim"
+  }]
+</pre>
+[%example-end%]
 <p>
 This example makes use of the ISO 21090 extensions to carry the rarely used ISO 21090 qualifier attribute "AC".
 </p>
@@ -816,29 +1369,56 @@ This example makes use of the ISO 21090 extensions to carry the rarely used ISO 
 
 <div class="example">
 <p>Japanese example in the three forms: ideographic (Kanji), syllabic (Hiragana) and alphabetic (Romaji).</p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-      &lt;valueCode value=&quot;IDE&quot; /&gt;
-  &lt;/extension&gt;
-  &lt;family value="木村" /&gt;
-  &lt;given value="通男" /&gt;
+  &lt;name&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+        &lt;valueCode value=&quot;IDE&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;family value="木村" /&gt;
+    &lt;given value="通男" /&gt;
+    &lt;/name&gt;
+  &lt;name&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+        &lt;valueCode value=&quot;SYL&quot; /&gt;
+    &lt;/extension&gt;
+  &lt;family value="きむら" /&gt;
+  &lt;given value="みちお" /&gt;
   &lt;/name&gt;
-&lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-      &lt;valueCode value=&quot;SYL&quot; /&gt;
-  &lt;/extension&gt;
- &lt;family value="きむら" /&gt;
- &lt;given value="みちお" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-      &lt;valueCode value=&quot;ABC&quot; /&gt;
-  &lt;/extension&gt;
-  &lt;family value="KIMURA" /&gt;
-  &lt;given value="MICHIO" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
+        &lt;valueCode value=&quot;ABC&quot; /&gt;
+    &lt;/extension&gt;
+    &lt;family value="KIMURA" /&gt;
+    &lt;given value="MICHIO" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "extension" : [{ 
+      "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+      "valueCode" : "IDE"
+    }],
+    "family" : "木村",
+    "given" : ["通男"]
+  }, {
+    "extension" : [{ 
+      "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+      "valueCode" : "SYL"
+    }],
+    "family" : "きむら",
+    "given" : ["みちお"]
+  }, {
+    "extension" : [{ 
+      "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation",
+      "valueCode" : "ABC"
+    }],
+    "family" : "KIMURA",
+    "given" : ["MICHIO"]
+  }]
+</pre>
+[%example-end%]
 <p>
 The three forms may be differentiated by the character subset each contains, but some systems
 require the differentiation to be made manually, which can be done using the ED representation
@@ -848,18 +1428,31 @@ extension.
 
 <div class="example">
 <p>Russian example in the two forms: Cyrillic and Latin:</p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="ЕМЕЛИН" /&gt;
-  &lt;given value="ИВАН" /&gt;
-  &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;family value="EMELIN" /&gt;
-  &lt;given value="IVAN" /&gt;
-  &lt;given value="VLADIMIROVICH" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="ЕМЕЛИН" /&gt;
+    &lt;given value="ИВАН" /&gt;
+    &lt;given value="ВЛАДИМИРОВИЧ" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="EMELIN" /&gt;
+    &lt;given value="IVAN" /&gt;
+    &lt;given value="VLADIMIROVICH" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "ЕМЕЛИН",
+    "given" : ["ИВАН", "ВЛАДИМИРОВИЧ"]
+  },
+  "name" : {
+    "family" : "EMELIN",
+    "given" : ["IVAN", "VLADIMIROVICH"]
+  }
+</pre>
+[%example-end%]
 <p>
 In  Russian  usage, these names are known as the domestic and foreign names respectively. 
 The two forms are differentiated by the character subset each contains.
@@ -870,22 +1463,41 @@ The two forms are differentiated by the character subset each contains.
 <p>
 Scandinavian example: Erikson is the family name. Jan Erik are the given names, and Östlund the family name of the mother, which is taken as a Mellannamn.
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="official" /&gt;
-  &lt;family value="Erikson" /&gt;
-  &lt;given value="Jan" /&gt;
-  &lt;given value="Erik" /&gt;
-  &lt;given value="&#214;stlund"&gt;
-    &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" &gt;
-      &lt;valueCoding&gt;
-         &lt;code value="MID" /&gt;
-         &lt;system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2" /&gt;
-      &lt;/valueCoding&gt;
-    &lt;/extension&gt;
-  &lt;/given&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;
+    &lt;family value="Erikson" /&gt;
+    &lt;given value="Jan" /&gt;
+    &lt;given value="Erik" /&gt;
+    &lt;given value="&#214;stlund"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" &gt;
+        &lt;valueCoding&gt;
+          &lt;code value="MID" /&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2" /&gt;
+        &lt;/valueCoding&gt;
+      &lt;/extension&gt;
+    &lt;/given&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "Erikson",
+    "given" : ["Jan", "Erik", "&#214;stlund"],
+    "_given" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+        "valueCoding" : {
+          "code" : "MID",
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2"
+        }
+      }]
+    }
+  }]
+</pre>
+[%example-end%]
 <p>
 This example makes use of the ISO 21090 extension to carry the culture specific ISO 21090 qualifier attribute "MID" for the Mellannamn.
 </p>
@@ -895,71 +1507,137 @@ name is "Margrete Jente" (Margrete's Girl) and the mother's family name, not the
 father's Family name is  not used at all. This is a known temporary name assigned directly after the birth of
 the child.
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="temp" /&gt;
-  &lt;!-- use could be OR+OLD, depends how record keeping is done --&gt;
-  &lt;family value="Hansen" /&gt;
-  &lt;given value="Margrete Jente" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="temp" /&gt;
+    &lt;!-- use could be OR+OLD, depends how record keeping is done --&gt;
+    &lt;family value="Hansen" /&gt;
+    &lt;given value="Margrete Jente" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "use" : "temp",
+    // use could be OR+OLD, depends how record keeping is done
+    "family" : "Hansen",
+    "given" : ["Margrete Jente"]
+  }
+</pre>
+[%example-end%]
 <p>
 The baby's name is subsequently changed to the fathers' family name, and to use the mother's name as
 mellomnamn.
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;Erikson&quot; /&gt;
-  &lt;given value=&quot;Karin&quot; /&gt;
-  &lt;given value=&quot;Hansen&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
-      &lt;valueCoding&gt;
-         &lt;code value=&quot;MID&quot; /&gt;
-         &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
-      &lt;/valueCoding&gt;
-    &lt;/extension&gt;
-  &lt;/given&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;official&quot; /&gt;
+    &lt;family value=&quot;Erikson&quot; /&gt;
+    &lt;given value=&quot;Karin&quot; /&gt;
+    &lt;given value=&quot;Hansen&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+        &lt;valueCoding&gt;
+          &lt;code value=&quot;MID&quot; /&gt;
+          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+        &lt;/valueCoding&gt;
+      &lt;/extension&gt;
+    &lt;/given&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "use" : "official",
+    "family" : "Erikson",
+    "given" : ["Karin", "Hansen"]
+    "_given" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
+        "valueCoding" : {
+          "code" : "MID",
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
+        }
+      }]
+    }
+  }
+</pre>
+[%example-end%]
 <p>
 Later, Karin gets married to Per Berg, and decides to adopt Berg as her family name, and also decides to use
 Erikson as the mellom navn. (Note: Karin could have chosen to use another mellom navn, e.g. the family name of
 her mother, her father or other family names as specified by naming laws of the country in question).
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value=&quot;old&quot; /&gt;
-  &lt;family value=&quot;Erikson&quot; /&gt;
-  &lt;given value=&quot;Karin&quot; /&gt;
-  &lt;given value=&quot;Hansen&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
-      &lt;valueCoding&gt;
-        &lt;code value=&quot;MID&quot; /&gt;
-        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
-      &lt;/valueCoding&gt;
-    &lt;/extension&gt;
-  &lt;/given&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value=&quot;official&quot; /&gt;
-  &lt;family value=&quot;Berg&quot; /&gt;
-  &lt;given value=&quot;Karin&quot; /&gt;
-  &lt;given value=&quot;Erikson&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
-      &lt;valueCoding&gt;
-        &lt;code value=&quot;MID&quot; /&gt;
-        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
-      &lt;/valueCoding&gt;
-    &lt;/extension&gt;
-  &lt;/given&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value=&quot;usual&quot; /&gt;
-  &lt;family value=&quot;Berg&quot; /&gt;
-  &lt;given value=&quot;Karin&quot; /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;old&quot; /&gt;
+    &lt;family value=&quot;Erikson&quot; /&gt;
+    &lt;given value=&quot;Karin&quot; /&gt;
+    &lt;given value=&quot;Hansen&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+        &lt;valueCoding&gt;
+          &lt;code value=&quot;MID&quot; /&gt;
+          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+        &lt;/valueCoding&gt;
+      &lt;/extension&gt;
+    &lt;/given&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;official&quot; /&gt;
+    &lt;family value=&quot;Berg&quot; /&gt;
+    &lt;given value=&quot;Karin&quot; /&gt;
+    &lt;given value=&quot;Erikson&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+        &lt;valueCoding&gt;
+          &lt;code value=&quot;MID&quot; /&gt;
+          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+        &lt;/valueCoding&gt;
+      &lt;/extension&gt;
+    &lt;/given&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value=&quot;usual&quot; /&gt;
+    &lt;family value=&quot;Berg&quot; /&gt;
+    &lt;given value=&quot;Karin&quot; /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "old",
+    "family" : "Erikson",
+    "given" : ["Karin", "Hansen"],
+    "_given" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
+        "valueCoding" : {
+          "code" : "MID",
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
+        }
+      }]
+    }
+  }, {
+    "use" : "official",
+    "family" : "Berg",
+    "given" : ["Karin", "Erikson"],
+    "_given" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier",
+        "valueCoding" : {
+          "code" : "MID",
+          "system" : "http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"
+        }
+      }]
+    }
+  }, {
+    "use" : "usual",
+    "family" : "Berg",
+    "given" : "Karin"
+  }]
+</pre>
+[%example-end%]
 </div>
 
 <h4>W3C International Examples</h4>
@@ -972,40 +1650,74 @@ which should be consulted for further information.
 <p>
 A patronymic is "The part of a name that links to the genealogy":
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;text value=&quot;Björk Guðmundsdóttir&quot;/&gt;
-  &lt;family value=&quot;Guðmundsdóttir&quot;/&gt;
-  &lt;given value=&quot;Björk&quot;/&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value=&quot;Björk Guðmundsdóttir&quot;/&gt;
+    &lt;family value=&quot;Guðmundsdóttir&quot;/&gt;
+    &lt;given value=&quot;Björk&quot;/&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "text" : "Björk Guðmundsdóttir",
+    "family" : "Guðmundsdóttir",
+    "given" : ["Björk"]
+  }
+</pre>
+[%example-end%]
 
 <p>
 A patronymic with a "son/daughter of" appellation:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;text value=&quot;Isa bin Osman&quot;/&gt;
-  &lt;family value=&quot;bin Osman&quot;/&gt;
-  &lt;given value=&quot;Isa&quot;/&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value=&quot;Isa bin Osman&quot;/&gt;
+    &lt;family value=&quot;bin Osman&quot;/&gt;
+    &lt;given value=&quot;Isa&quot;/&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "text" : "Isa bin Osman",
+    "family" : "bin Osman",
+    "given" : ["Isa"]
+  }
+</pre>
+[%example-end%]
 
 <p>
 A Chinese name with a generational name:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;text value=&quot;毛泽东&quot;/&gt; &lt;!-- left to right --&gt;
-  &lt;family value=&quot;毛&quot;/&gt;
-  &lt;given value=&quot;泽东&quot;/&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;text value=&quot;Mao Ze Dong&quot;/&gt; &lt;!-- left to right --&gt;
-  &lt;family value=&quot;Mao&quot;/&gt;
-  &lt;given value=&quot;Ze Dong&quot;/&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value=&quot;毛泽东&quot;/&gt; &lt;!-- left to right --&gt;
+    &lt;family value=&quot;毛&quot;/&gt;
+    &lt;given value=&quot;泽东&quot;/&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value=&quot;Mao Ze Dong&quot;/&gt; &lt;!-- left to right --&gt;
+    &lt;family value=&quot;Mao&quot;/&gt;
+    &lt;given value=&quot;Ze Dong&quot;/&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "text" : "毛泽东", // left to right 
+    "family" : "毛",
+    "given" : ["泽东"]
+  }, {
+    "text" : "Mao Ze Dong", // left to right 
+    "family" : "Mao",
+    "given" : ["Ze Dong"]
+  }]
+</pre>
+[%example-end%]
 <p>
 Note that many systems in China do not store family and given names separately, and just use <code>text</code>.
 </p>
@@ -1013,150 +1725,280 @@ Note that many systems in China do not store family and given names separately, 
 <p>
 Additional Western name (see also example above):
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;use value="official" /&gt;
-  &lt;family value="Yao" /&gt;
-  &lt;given value="Ming" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;use value="usual" /&gt;
-  &lt;given value="Fred" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="official" /&gt;
+    &lt;family value="Yao" /&gt;
+    &lt;given value="Ming" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;use value="usual" /&gt;
+    &lt;given value="Fred" /&gt;
+  &lt;/name&gt;
 </pre>
-
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "use" : "official",
+    "family" : "Yao",
+    "given" : ["Ming"]
+  }, {
+    "use" : "usual",
+    "given" : ["Fred"]
+  }]
+</pre>
+[%example-end%]
 <p>
 Composite Family name:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Carreño Quiñones" &gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-        &lt;valueString value=&quot;Carreño&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-        &lt;valueString value=&quot;Quiñones&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/family&gt;
-  &lt;given value="María-Jose" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Carreño Quiñones" &gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+          &lt;valueString value=&quot;Carreño&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+          &lt;valueString value=&quot;Quiñones&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;/family&gt;
+    &lt;given value="María-Jose" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Carreño Quiñones",
+    "_family" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
+        "valueString" : "Carreño"
+      }, {
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-mothers",
+        "valueString" : "Quiñones"
+      }]
+    },
+    "given" : ["María-Jose"]
+  }
+</pre>
+[%example-end%]
 <p>
 Note that it is optional whether to break down the family name to mother's and father's parts,
 and not always of value, as in this Brazilian Example:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Santos Tavares Melo Silva" /&gt;
-  &lt;given value="José" /&gt;
-  &lt;given value="Eduardo" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Santos Tavares Melo Silva" /&gt;
+    &lt;given value="José" /&gt;
+    &lt;given value="Eduardo" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Santos Tavares Melo Silva",
+    "given" : ["José", "Eduardo"]
+  }
+</pre>
+[%example-end%]
 <p>
 Note that this naming pattern can become quite 
 extreme ("Pedro de Alcântara João Carlos Leopoldo Salvador Bibiano Francisco Xavier de Paula Leocádio Miguel Gabriel Rafael Gonzaga").
 A more practical example is 
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Costa Teixeira" &gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-        &lt;valueString value=&quot;Costa&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-        &lt;valueString value=&quot;Teixeira&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/family&gt;
-  &lt;given value="Manuel" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Costa Teixeira" &gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+          &lt;valueString value=&quot;Costa&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+          &lt;valueString value=&quot;Teixeira&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;/family&gt;
+    &lt;given value="Manuel" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Costa Teixeira",
+    "_family" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
+        "valueString" : "Costa"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-mothers",
+        "valueString" : "Teixeira"
+      }]
+    },
+    "given" : ["Manuel"]
+  }
+</pre>
+[%example-end%]
 <p>
 After marriage, this may change to 
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Costa Teixeira Sanches" &gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-        &lt;valueString value=&quot;Costa&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-        &lt;valueString value=&quot;Teixeira&quot; /&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-partners-name&quot;&gt;
-        &lt;valueString value=&quot;Sanches&quot; /&gt;
-    &lt;/extension&gt;
-  &lt;/family&gt;
-  &lt;given value="Manuel" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Costa Teixeira Sanches" &gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
+          &lt;valueString value=&quot;Costa&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
+          &lt;valueString value=&quot;Teixeira&quot; /&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-partners-name&quot;&gt;
+          &lt;valueString value=&quot;Sanches&quot; /&gt;
+      &lt;/extension&gt;
+    &lt;/family&gt;
+    &lt;given value="Manuel" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Costa Teixeira Sanches",
+    "_family" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-fathers",
+        "valueString" : "Costa"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-mothers",
+        "valueString" : "Teixeira"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/humanname-partners-name",
+        "valueString" : "Sanches"
+      }]
+    },
+    "given" : ["Manuel"]
+  }
+</pre>
+[%example-end%]
 
 <p>
 Russian Examples (using Cyrillic):
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Ельцин" /&gt;
-  &lt;given value="Борис" /&gt;
-  &lt;given value="Николаевич" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Ельцин" /&gt;
+    &lt;given value="Борис" /&gt;
+    &lt;given value="Николаевич" /&gt;
+  &lt;/name&gt;
 
-&lt;name&gt;
-  &lt;family value="Ельцина" /&gt;
-  &lt;given value="Наина" /&gt;
-  &lt;given value="Иосифовна" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Ельцина" /&gt;
+    &lt;given value="Наина" /&gt;
+    &lt;given value="Иосифовна" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "family" : "Ельцин",
+    "given" : ["Борис", "Николаевич"]
+  }, {
+    "family" : "Ельцина",
+    "given" : ["Наина", "Иосифовна"]
+  }]
+</pre>
+[%example-end%]
 
 <p>
 Example with Initial:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;family value="Public" /&gt;
-  &lt;given value="John" /&gt;
-  &lt;given value="Q." /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;family value="Public" /&gt;
+    &lt;given value="John" /&gt;
+    &lt;given value="Q." /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : {
+    "family" : "Public",
+    "given" : ["John", "Q."]
+  }
+</pre>
+[%example-end%]
 
 <p>
 Other Examples:
 </p>
+[%example-start%]
 <pre class="xml" fragment="HumanName">
-&lt;name&gt;
-  &lt;text value="Velikkakathu Sankaran Achuthanandan"/&gt;
-  &lt;family value="Velikkakathu" /&gt;
-  &lt;given value="Sankaran" /&gt;
-  &lt;given value="Achuthanandan" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;text value="Kogaddu Birappa Timappa Nair"/&gt;
-  &lt;family value="Nair" /&gt;
-  &lt;given value="Birappa" /&gt;
-  &lt;given value="Timappa" /&gt;
-  &lt;prefix value="Kogaddu" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;text value="Aditya Pratap Singh Chauhan"/&gt;
-  &lt;family value="Singh" /&gt;
-  &lt;given value="Aditya" /&gt;
-  &lt;given value="Pratap" /&gt;
-  &lt;suffix value="Chauhan" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;text value="Madurai Mani Iyer"/&gt;
-  &lt;given value="Mani" /&gt;
-  &lt;prefix value="Madurai" /&gt;
-  &lt;suffix value="Iyer" /&gt;
-&lt;/name&gt;
-&lt;name&gt;
-  &lt;text value="Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini"/&gt;
-  &lt;family value="ibn Nidal ibn Abdulaziz" /&gt;
-  &lt;given value="Muhammad" /&gt;
-  &lt;given value="al-Jamil" /&gt;
-  &lt;prefix value="Abu Karim" /&gt;
-  &lt;suffix value="al-Filistini" /&gt;
-&lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value="Velikkakathu Sankaran Achuthanandan"/&gt;
+    &lt;family value="Velikkakathu" /&gt;
+    &lt;given value="Sankaran" /&gt;
+    &lt;given value="Achuthanandan" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value="Kogaddu Birappa Timappa Nair"/&gt;
+    &lt;family value="Nair" /&gt;
+    &lt;given value="Birappa" /&gt;
+    &lt;given value="Timappa" /&gt;
+    &lt;prefix value="Kogaddu" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value="Aditya Pratap Singh Chauhan"/&gt;
+    &lt;family value="Singh" /&gt;
+    &lt;given value="Aditya" /&gt;
+    &lt;given value="Pratap" /&gt;
+    &lt;suffix value="Chauhan" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value="Madurai Mani Iyer"/&gt;
+    &lt;given value="Mani" /&gt;
+    &lt;prefix value="Madurai" /&gt;
+    &lt;suffix value="Iyer" /&gt;
+  &lt;/name&gt;
+  &lt;name&gt;
+    &lt;text value="Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini"/&gt;
+    &lt;family value="ibn Nidal ibn Abdulaziz" /&gt;
+    &lt;given value="Muhammad" /&gt;
+    &lt;given value="al-Jamil" /&gt;
+    &lt;prefix value="Abu Karim" /&gt;
+    &lt;suffix value="al-Filistini" /&gt;
+  &lt;/name&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="HumanName">
+  "name" : [{
+    "text" : "Velikkakathu Sankaran Achuthanandan",
+    "family" : "Velikkakathu",
+    "given" : ["Sankaran", "Achuthanandan"]
+  }, {
+    "text" : "Kogaddu Birappa Timappa Nair",
+    "family" : "Nair",
+    "given" : ["Birappa", "Timappa"],
+    "prefix" : "Kogaddu"
+  }, {
+    "text" : "Aditya Pratap Singh Chauhan",
+    "family" : "Singh",
+    "given" : ["Aditya", "Pratap"],
+    "suffix" : "Chauhan"
+  }, {
+    "text" : "Madurai Mani Iyer",
+    "given" : ["Mani"],
+    "prefix" : "Madurai",
+    "suffix" : "Iyer"
+  }, {
+    "text" : "Abu Karim Muhammad al-Jamil ibn Nidal ibn Abdulaziz al-Filistini",
+    "family" : "ibn Nidal ibn Abdulaziz",
+    "given" : ["Muhammad", "al-Jamil"],
+    "prefix" : "Abu Karim",
+    "suffix" : "al-Filistini"
+  }]
+</pre>
+[%example-end%]
 <p>
 Note that collecting and storing the <i>text</i> element makes the
 primary purpose of the structured parts for index/searching, and
@@ -1186,42 +2028,86 @@ on the structured data elements of the address.
 <div class="example">
 <p><b>Example</b></p>
 <p>HL7 office's address.</p>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-   &lt;use value="work" /&gt;
-   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+    &lt;use value="work" /&gt;
+    &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
          5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
-   &lt;line value="1050 W Wishard Blvd" /&gt;
-   &lt;line value="RG 5th floor" /&gt;
-   &lt;city value="Indianapolis" /&gt;
-   &lt;state value="IN" /&gt;
-   &lt;postalCode value="46240" /&gt;
+    &lt;line value="1050 W Wishard Blvd" /&gt;
+    &lt;line value="RG 5th floor" /&gt;
+    &lt;city value="Indianapolis" /&gt;
+    &lt;state value="IN" /&gt;
+    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+   "use" : "work",
+   "text" : "1050 W Wishard Blvd&#13;&#10;RG,
+         5th floor&#13;&#10;Indianapolis, IN 46240",
+   "line" : ["1050 W Wishard Blvd", "RG 5th floor"],
+   "city" : "Indianapolis",
+   "state" : "IN",
+   "postalCode" : "46240"
+  }
+</pre>
+[%example-end%]
+
 <p>HL7 office's address with the codedString extension present</p>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-   &lt;use value="work" /&gt;
-   &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
+    &lt;use value="work" /&gt;
+    &lt;text value="1050 W Wishard Blvd&#13;&#10;RG
          5th floor&#13;&#10;Indianapolis, IN 46240" /&gt;
-   &lt;line value="1050 W Wishard Blvd" /&gt;
-   &lt;line value="RG 5th floor" /&gt;
-   &lt;city value="Indianapolis" /&gt;
-   &lt;state value="IN"&gt;
-     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
-       &lt;valueCoding value="IN"/&gt;
-     &lt;/extension>
-   &lt;/state&gt;	 
-   &lt;postalCode value="46240" /&gt;
-   &lt;state value="IN" /&gt;
-   &lt;country value="United States"&gt;
-     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
-       &lt;valueCoding value="US"/&gt;
-     &lt;/extension>
-	 &lt;/country&gt;
+    &lt;line value="1050 W Wishard Blvd" /&gt;
+    &lt;line value="RG 5th floor" /&gt;
+    &lt;city value="Indianapolis" /&gt;
+    &lt;state value="IN"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+        &lt;valueCoding value="IN"/&gt;
+      &lt;/extension>
+    &lt;/state&gt;	 
+    &lt;postalCode value="46240" /&gt;
+    &lt;state value="IN" /&gt;
+    &lt;country value="United States"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-codedString"&gt;
+        &lt;valueCoding value="US"/&gt;
+      &lt;/extension>
+	  &lt;/country&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "use" : "work",
+    "text" : "1050 W Wishard Blvd&#13;&#10;RG,
+         5th floor&#13;&#10;Indianapolis, IN 46240",
+    "line" : ["1050 W Wishard Blvd", "RG 5th floor"],
+    "city" : "Indianapolis",
+    "state" : "IN",
+    "_state" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
+        "valueCoding" : "IN"
+      }]
+    },
+    "postalCode" : "46240",
+    "state" : "IN",
+    "country" : "United States",
+    "_country" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-codedString",
+        "valueCoding" : "US"
+      }]
+    }
+  }
+</pre>
+[%example-end%]
 <p>A UK example address, with the county 'HUDDERSFIELD'.</p>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
@@ -1231,8 +2117,20 @@ on the structured data elements of the address.
     &lt;postalCode value=&quot;HD7 1HQ&quot;/&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "text" : "1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ",
+    "line" : ["1 Back Lane"],
+    "city" : "Holmfirth",
+    "district" : "HUDDERSFIELD",
+    "postalCode" : "HD7 1HQ"
+  }
+</pre>
+[%example-end%]
 
 <p>A temporary postal address - i.e. an address that it doesn't make sense to try and visit.</p>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;use value=&quot;temp&quot;/&gt; 
@@ -1242,8 +2140,20 @@ on the structured data elements of the address.
     &lt;postalCode value=&quot;0001&quot;/&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "use" : "temp" ,
+    "type" : "postal",
+    "line" : ["PO Box 31445"],
+    "city" : "Erewhon",
+    "postalCode" : "0001"
+  }
+</pre>
+[%example-end%]
 
 <p>An example of an address with the codedString extension present</p>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
    &lt;use value="work" /&gt;
@@ -1256,6 +2166,19 @@ on the structured data elements of the address.
    &lt;postalCode value="46240" /&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+   "use" : "work",
+   "text" : "1050 W Wishard Blvd&#13;&#10;RG,
+         5th floor&#13;&#10;Indianapolis, IN 46240",
+   "line" : ["1050 W Wishard Blvd", "RG 5th floor"],
+   "city" : "Indianapolis",
+   "state" : "IN",
+   "postalCode" : "46240"
+  }
+</pre>
+[%example-end%]
 
 <p>
 The next set of examples are taken from the official <a href="http://www.upu.int">international 
@@ -1270,6 +2193,7 @@ postal union</a> examples.
 <tr><td>Minsk</td><td>Region name of region</td></tr>
 <tr><td>BELARUS</td><td>Country</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;line value=&quot;Rue Lougoraïa 12, app. 10&quot;/&gt;
@@ -1279,6 +2203,17 @@ postal union</a> examples.
     &lt;country value="BELARUS" /&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : ["Rue Lougoraïa 12, app. 10"],
+    "city" : "Korolevo",
+    "district" : "Minsk",
+    "state" : "Minsk",
+    "country" : "BELARUS"
+  }
+</pre>
+[%example-end%]
 
 
 <table class="lines">
@@ -1288,6 +2223,7 @@ postal union</a> examples.
 <tr><td>DAR ES SALAM</td><td>province</td></tr>
 <tr><td>TANZANIA</td><td>country</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;line value=&quot;Protea Apt 12&quot;/&gt;
@@ -1298,6 +2234,17 @@ postal union</a> examples.
     &lt;country value="TANZANIA" /&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : ["Protea Apt 12", "22 Ally Hassan Mwinyi"],
+    "city" : "MSASANI",
+    "state" : "DAR ES SALAM",
+    "postalCode" : "14111",
+    "country" : "TANZANIA"
+  }
+</pre>
+[%example-end%]
 
 <table class="lines">
 <tr><td>15 Shiri</td><td>premise + sub-locality 2</td></tr>
@@ -1307,6 +2254,7 @@ postal union</a> examples.
 <tr><td>KILIMANJARO</td><td>province</td></tr>
 <tr><td>TANZANIA</td><td>country</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct&quot;&gt;
@@ -1320,6 +2268,22 @@ postal union</a> examples.
     &lt;country value="TANZANIA" /&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "extension" : [{ 
+      "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct",
+      "valueCode" : "Kimashuku Village"
+    }],
+    "line" : ["15 Shiri"],
+    "city" : "MACHAME KUSINI",
+    "district" : "HAI",
+    "state" : "KILIMANJARO",
+    "postalCode" : "25204",
+    "country" : "TANZANIA"
+  }
+</pre>
+[%example-end%]
 
 <table class="lines">
 <tr><td>705-1104</td><td>building number + door</td></tr>
@@ -1328,6 +2292,7 @@ postal union</a> examples.
 <tr><td>Rep. OF KOREA</td><td>country</td></tr>
 <tr><td>706-907</td><td>postcode</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;line value=&quot;705-1104&quot;/&gt;
@@ -1337,6 +2302,16 @@ postal union</a> examples.
     &lt;postalCode value=&quot;706-907&quot;/&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : ["705-1104", "56, Dalgubeol-daero 323beon-gil, Suseong-gu"],
+    "city" : "Daegu",
+    "country" : "Rep. OF KOREA",
+    "postalCode" : "706-907"
+  }
+</pre>
+[%example-end%]
 
 <table class="lines">
 <tr><td>3F</td><td>building floor</td></tr>
@@ -1346,6 +2321,7 @@ postal union</a> examples.
 <tr><td>Rep. OF KOREA</td><td>country</td></tr>
 <tr><td>200-066</td><td>postcode</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;line value=&quot;3F&quot;/&gt;
@@ -1356,6 +2332,17 @@ postal union</a> examples.
     &lt;postalCode value=&quot;200-066&quot;/&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : ["3F", "42, Toegye-ro 77beon-gil"],
+    "city" : "Chuncheon-si",
+    "state" : "Gangwon-do",
+    "country" : "Rep. OF KOREA",
+    "postalCode" : "200-066"
+  }
+</pre>
+[%example-end%]
 
 <table class="lines">
 <tr><td>Ga-B101</td><td>building number + door</td></tr>
@@ -1364,6 +2351,7 @@ postal union</a> examples.
 <tr><td>Rep. OF KOREA</td><td>country</td></tr>
 <tr><td>612-837</td><td>postcode</td></tr>
 </table>
+[%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
     &lt;line value=&quot;Ga-B101&quot;/&gt;
@@ -1373,6 +2361,17 @@ postal union</a> examples.
     &lt;postalCode value=&quot;612-837&quot;/&gt;
   &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : ["Ga-B101", "136, Sesil-ro"],
+    "city" : "Busan",
+    "country" : "Rep. OF KOREA",
+    "postalCode" : "612-837"
+  }
+</pre>
+[%example-end%]
+
 </div>
 
 <p>
@@ -1380,29 +2379,60 @@ Some of the extensions that provide further analysis
 of the parts of the address require duplication of 
 address content. 
 </p>
+[%example-start%]
 <pre class="xml" fragment="Address">
-&lt;address&gt;
-  &lt;line value=&quot;Care of: Dr Smith&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf&quot;&gt;
-      &lt;valueString value=&quot;Dr. Smith&quot;/&gt;
-    &lt;/extension&gt;
-  &lt;/line&gt;
-  &lt;line value=&quot;123 Somewhere Street NW&quot;&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber&quot;&gt;
-      &lt;valueString value=&quot;123&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-      &lt;valueString value=&quot;Somewhere&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-      &lt;valueString value=&quot;Street&quot;/&gt;
-    &lt;/extension&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-      &lt;valueString value=&quot;NW&quot;/&gt;
-    &lt;/extension&gt;
-  &lt;/line&gt;
-&lt;/address&gt;
+  &lt;address&gt;
+    &lt;line value=&quot;Care of: Dr Smith&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf&quot;&gt;
+        &lt;valueString value=&quot;Dr. Smith&quot;/&gt;
+      &lt;/extension&gt;
+    &lt;/line&gt;
+    &lt;line value=&quot;123 Somewhere Street NW&quot;&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber&quot;&gt;
+        &lt;valueString value=&quot;123&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+        &lt;valueString value=&quot;Somewhere&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+        &lt;valueString value=&quot;Street&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
+        &lt;valueString value=&quot;NW&quot;/&gt;
+      &lt;/extension&gt;
+    &lt;/line&gt;
+  &lt;/address&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Address">
+  "address" : {
+    "line" : "Care of: Dr Smith",
+    "_line" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf",
+        "valueString" : "Dr. Smith"
+      }]
+    },
+    "line" : ["123 Somewhere Street NW"],
+    "_line" : [{
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber",
+        "valueString" : "123"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+        "valueString" : "Somewhere"
+      } { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+        "valueString" : "Street"
+      }, { 
+        "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase",
+        "valueString" : "NW"
+      }]
+    }]
+  }
+</pre>
+[%example-end%]
+
 <p>
 In some case, this may mean that the extension repeats the full value of the address line. 
 However, this is not a given for all lines of the specified type in all jurisdictions, and 
@@ -1422,13 +2452,24 @@ See also <a href="datatypes.html#ContactPoint">Base Definition</a>, <a href="dat
 <div class="example">
 <p><b>Example</b></p>
 <p>Home phone number:</p>
+[%example-start%]
 <pre class="xml" fragment="ContactPoint">
   &lt;telecom&gt;
-   &lt;system value="phone" /&gt;
-   &lt;value value="(555) 675 5745" /&gt;
-   &lt;use value="home" /&gt;
+    &lt;system value="phone" /&gt;
+    &lt;value value="(555) 675 5745" /&gt;
+    &lt;use value="home" /&gt;
   &lt;/telecom&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="ContactPoint">
+  "telecom" : {
+    "system" : "phone",
+    "value" : "(555) 675 5745",
+    "use" : "home"
+  }
+</pre>
+[%example-end%]
+
 </div>
 
 <p>
@@ -1440,6 +2481,7 @@ the base FHIR type does not require the phone number to be conformant. An ISO 21
 <div class="example">
 <p><b>Example</b></p>
 <p>Formally correct URI:</p>
+[%example-start%]
 <pre class="xml" fragment="ContactPoint">
   &lt;telecom&gt;
     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address" &gt;
@@ -1450,6 +2492,20 @@ the base FHIR type does not require the phone number to be conformant. An ISO 21
     &lt;use value="home" /&gt;
   &lt;/telecom&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="ContactPoint">
+  "telecom" : {
+    "extension" : [{ 
+      "url" : "http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address",
+      "valueUri" : "tel:+15556755745"
+    }],
+    "system" : "phone",
+    "value" : "(555) 675 5745",
+    "use" : "home"
+  }
+</pre>
+[%example-end%]
+
 </div>
 
 <a name="Timing"></a>
@@ -1464,6 +2520,7 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
 <div class="example">
 <p><b>Example</b></p>
 <p>A series of appointments for radiotherapy:</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;event value="2012-01-07T09:00:00+10:00" /&gt;
@@ -1471,7 +2528,15 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
     &lt;event value="2012-01-22T11:00:00+10:00" /&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+    "event" : ["2012-01-07T09:00:00+10:00", "2012-01-14T09:00:00+10:00", "2012-01-22T11:00:00+10:00"]
+  }
+</pre>
+[%example-end%]
 <p>BID (twice a day) (no start or end specified):</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
    &lt;repeat&gt;
@@ -1481,7 +2546,19 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
    &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+   "repeat" : {
+     "frequency" : "2",
+     "period" : "1",
+     "periodUnit" : "d"
+   }
+  }
+</pre>
+[%example-end%]
 <p>1/2 an hour before breakfast for 10 days from 23-Dec 2011:</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;repeat&gt;
@@ -1494,10 +2571,25 @@ See also <a href="datatypes.html#Timing">Base Definition</a>, <a href="datatypes
     &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+    "repeat" : {
+      "boundsPeriod" : {
+        "start" : "2011-12-23",
+        "end" : "2012-01-02"
+      },
+      "when" : "ACM",
+      "offset" : "30"
+    }
+  }
+</pre>
+[%example-end%]
 <p>
 Note that the end date is inclusive like the end date of a Period.
 </p>
 <p>TID, for 14 days:</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;repeat&gt;
@@ -1513,7 +2605,25 @@ Note that the end date is inclusive like the end date of a Period.
     &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+    "repeat" : {
+      "boundsDuration" : {
+        "value" : "14",
+        "unit" : "d",
+        "system" : "http://unitsofmeasure.org",
+        "code" : "d"
+      },
+      "frequency" : "3",
+      "period" : "1",
+      "periodUnit" : "d"
+    }
+  }
+</pre>
+[%example-end%]
 <p>BID, start on 7/1/2015 at 1:00 PM:</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;repeat&gt;
@@ -1526,7 +2636,22 @@ Note that the end date is inclusive like the end date of a Period.
     &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+    "repeat" : {
+      "boundsPeriod" : {
+        "start" : "2015-07-01T13:00:00"
+      },
+      "frequency" : "2",
+      "period" : "1",
+      "periodUnit" : "d"
+    }
+  }
+</pre>
+[%example-end%]
 <p>Take just once, with no specified time</p>
+[%example-start%]
 <pre class="xml" fragment="Timing">
   &lt;schedule&gt;
     &lt;repeat&gt;
@@ -1534,6 +2659,15 @@ Note that the end date is inclusive like the end date of a Period.
     &lt;/repeat&gt;
   &lt;/schedule&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Timing">
+  "schedule" : {
+    "repeat" : {
+      "count" : "1"
+    }
+  }
+</pre>
+[%example-end%]
 </div>
 
 <a name="Signature"></a>
@@ -1548,6 +2682,7 @@ See also <a href="datatypes.html#Signature">Base Definition</a>, <a href="dataty
 <div class="example">
 <p><b>Example</b></p>
 
+[%example-start%]
 <pre class="xml" fragment="Signature">
   &lt;signature&gt;
     &lt;type&gt;
@@ -1563,6 +2698,23 @@ See also <a href="datatypes.html#Signature">Base Definition</a>, <a href="dataty
     &lt;data value=&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVudmVsb3BlIHhtbG5zPSJ1cm46ZW52ZWxvcGUiPgogIDxTaWduYXR1cmUgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogICAgPFNpZ25lZEluZm8+CiAgICAgIDxDYW5vbmljYWxpemF0aW9uTWV0aG9kIAogICAgICAgICAgIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tCjIwMDEwMzE1I1dpdGhDb21tZW50cyIvPgogICAgICA8U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS8KeG1sZHNpZyNkc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iIj4KICAgICAgICA8VHJhbnNmb3Jtcz4KICAgICAgICAgIDxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5Lwp4bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz4KICAgICAgICA8L1RyYW5zZm9ybXM+CiAgICAgICAgPERpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkvCnhtbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT51b29xYldZYTVWQ3FjSkNidXltQktxbTE3dlk9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CjxTaWduYXR1cmVWYWx1ZT4KS2VkSnVUb2I1Z3R2WXg5cU0zazNnbTdrYkxCd1ZiRVFSbDI2UzJ0bVhqcU5ORDdNUkd0b2V3PT0KICAgIDwvU2lnbmF0dXJlVmFsdWU+CiAgICA8S2V5SW5mbz4KICAgICAgPEtleVZhbHVlPgogICAgICAgIDxEU0FLZXlWYWx1ZT4KICAgICAgICAgIDxQPgovS2FDem80U3lyb203OHozRVE1U2JiQjRzRjdleTgwZXRLSUk4NjRXRjY0QjgxdVJwSDV0OWpRVHhlCkV1MEltYnpSTXF6VkRaa1ZHOXhEN25OMWt1Rnc9PQogICAgICAgICAgPC9QPgogICAgICAgICAgPFE+bGk3ZHpEYWN1bzY3Smc3bXRxRW0yVFJ1T01VPTwvUT4KICAgICAgICAgIDxHPlo0UnhzbnFjOUU3cEdrbkZGSDJ4cWFyeVJQQmFRMDFraHBNZExSUW5HNTQxQXd0eC8KWFBhRjVCcHN5NHBOV01PSENCaU5VME5vZ3BzUVc1UXZubE1wQT09CiAgICAgICAgICA8L0c+CiAgICAgICAgICA8WT5xVjM4SXFyV0pHMFYvCm1aUXZSVmkxT0h3OVpqODRuREM0ak84UDBheGkxZ2I2ZCs0NzV5aE1qU2MvCkJySVZDNThXM3lkYmtLK1JpNE9LYmFSWmxZZVJBPT0KICAgICAgICAgPC9ZPgogICAgICAgIDwvRFNBS2V5VmFsdWU+CiAgICAgIDwvS2V5VmFsdWU+CiAgICA8L0tleUluZm8+CiAgPC9TaWduYXR1cmU+CjwvRW52ZWxvcGU+IA==&quot;/&gt;
   &lt;/signature&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Signature">
+  "signature" : {
+    "type" : {
+      "system" : "urn:iso-astm:E1762-95:2013",
+      "code" : "1.2.840.10065.1.12.1.1",
+      "display" : "Author&apos;s Signature"
+    },
+    "when" : "2022-02-08T10:16:32.000+10:00",
+    "who" : {
+      "reference" : "Practitioner/example"
+    },
+    "targetFormat" : "application/fhir+xml",
+    "data" : "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVudmVsb3BlIHhtbG5zPSJ1cm46ZW52ZWxvcGUiPgogIDxTaWduYXR1cmUgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogICAgPFNpZ25lZEluZm8+CiAgICAgIDxDYW5vbmljYWxpemF0aW9uTWV0aG9kIAogICAgICAgICAgIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tCjIwMDEwMzE1I1dpdGhDb21tZW50cyIvPgogICAgICA8U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS8KeG1sZHNpZyNkc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iIj4KICAgICAgICA8VHJhbnNmb3Jtcz4KICAgICAgICAgIDxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5Lwp4bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz4KICAgICAgICA8L1RyYW5zZm9ybXM+CiAgICAgICAgPERpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkvCnhtbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT51b29xYldZYTVWQ3FjSkNidXltQktxbTE3dlk9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CjxTaWduYXR1cmVWYWx1ZT4KS2VkSnVUb2I1Z3R2WXg5cU0zazNnbTdrYkxCd1ZiRVFSbDI2UzJ0bVhqcU5ORDdNUkd0b2V3PT0KICAgIDwvU2lnbmF0dXJlVmFsdWU+CiAgICA8S2V5SW5mbz4KICAgICAgPEtleVZhbHVlPgogICAgICAgIDxEU0FLZXlWYWx1ZT4KICAgICAgICAgIDxQPgovS2FDem80U3lyb203OHozRVE1U2JiQjRzRjdleTgwZXRLSUk4NjRXRjY0QjgxdVJwSDV0OWpRVHhlCkV1MEltYnpSTXF6VkRaa1ZHOXhEN25OMWt1Rnc9PQogICAgICAgICAgPC9QPgogICAgICAgICAgPFE+bGk3ZHpEYWN1bzY3Smc3bXRxRW0yVFJ1T01VPTwvUT4KICAgICAgICAgIDxHPlo0UnhzbnFjOUU3cEdrbkZGSDJ4cWFyeVJQQmFRMDFraHBNZExSUW5HNTQxQXd0eC8KWFBhRjVCcHN5NHBOV01PSENCaU5VME5vZ3BzUVc1UXZubE1wQT09CiAgICAgICAgICA8L0c+CiAgICAgICAgICA8WT5xVjM4SXFyV0pHMFYvCm1aUXZSVmkxT0h3OVpqODRuREM0ak84UDBheGkxZ2I2ZCs0NzV5aE1qU2MvCkJySVZDNThXM3lkYmtLK1JpNE9LYmFSWmxZZVJBPT0KICAgICAgICAgPC9ZPgogICAgICAgIDwvRFNBS2V5VmFsdWU+CiAgICAgIDwvS2V5VmFsdWU+CiAgICA8L0tleUluZm8+CiAgPC9TaWduYXR1cmU+CjwvRW52ZWxvcGU+IA=="
+  }
+</pre>
+[%example-end%]
 
 </div>
 
@@ -1578,18 +2730,55 @@ See also <a href="datatypes.html#Annotation">Base Definition</a>, <a href="datat
 <div class="example">
 <p><b>Example</b></p>
 
+[%example-start%]
 <pre class="xml" fragment="Annotation">
   &lt;Annotation&gt;
-  &lt;authorReference&gt;
-    &lt;reference value=&quot;Patient/example&quot;/&gt;
-  &lt;/authorReference&gt;
-  &lt;time value=&quot;2022-02-08T10:18:14.034+10:00&quot;/&gt;
-  &lt;text value=&quot;I don&apos;t think that this is true, or what I said, and it should be corrected&quot;/&gt;
-&lt;/Annotation&gt;
+    &lt;authorReference&gt;
+      &lt;reference value=&quot;Patient/example&quot;/&gt;
+    &lt;/authorReference&gt;
+    &lt;time value=&quot;2022-02-08T10:18:14.034+10:00&quot;/&gt;
+    &lt;text value=&quot;I don&apos;t think that this is true, or what I said, and it should be corrected&quot;/&gt;
+  &lt;/Annotation&gt;
 </pre>
+[%example-json%]
+<pre class="json" fragment="Annotation">
+  "Annotation" : {
+    "authorReference" : {
+      "reference" : "Patient/example"
+    },
+    "time" : "2022-02-08T10:18:14.034+10:00",
+    "text" : "I don&apos;t think that this is true, or what I said, and it should be corrected"
+  }
+</pre>
+[%example-end%]
 
 </div>
 
 [%file newfooter%]
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-example-tab-index');
+ } catch(exception){
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+  [%example-init%] 
+
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){
+  }
+  [%example-change%] 
+  
+  document.activeElement.blur();
+}
+</script>
+
+
 </body>
 </html>
