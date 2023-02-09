@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="imagingselection-status"/>
   <meta>
     <lastUpdated value="2022-06-29T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImagingSelectionStatus"/>
-  <title value="ImagingSelectionStatus"/>
+  <title value="Imaging Selection Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-06-29T10:01:24+11:00"/>
@@ -47,11 +49,11 @@
   <concept>
     <code value="entered-in-error"/>
     <display value="Entered in Error"/>
-    <definition value="The imaging selection has been withdrawn following a release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &#34;cancelled&#34; rather than &#34;entered-in-error&#34;.)."/>
+    <definition value="The imaging selection has been withdrawn following a release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)."/>
   </concept>
   <concept>
     <code value="unknown"/>
     <display value="Unknown"/>
-    <definition value="The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &#34;other&#34; - one of the listed statuses is presumed to apply, it's just not known which one."/>
+    <definition value="The system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one."/>
   </concept>
 </CodeSystem>

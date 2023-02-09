@@ -2,12 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="StructureDefinition-core"/>
-  <name value="Standard Structure Definition Extensions"/>
-  <title value="Standard Structure Definition Extensions"/>
+  <name value="StandardStructureDefinitionExtensions"/>
+  <title value="Standard  Structure  Definition  Extensions"/>
   <status value="draft"/>
   <date value="2014-01-31T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="This profile describes common extensions that are used with Structure Definitions"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

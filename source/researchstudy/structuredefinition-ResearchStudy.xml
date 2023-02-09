@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudy"/>
-  <title value="ResearchStudy"/>
+  <title value="Research Study"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -419,9 +419,9 @@
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/EvidenceVariable"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1088,7 +1088,7 @@
       <path value="ResearchStudy.outcomeMeasure"/>
       <short value="A variable measured during the study"/>
       <definition value="An &quot;outcome measure&quot;, &quot;endpoint&quot;, &quot;effect measure&quot; or &quot;measure of effect&quot; is a specific measurement or observation used to quantify the effect of experimental variables on the participants in a study, or for observational studies, to describe patterns of diseases or traits or associations with exposures, risk factors or treatment."/>
-	  <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
+      <comment value="A study may have multiple distinct outcome measures that can be used to assess the overall goal for a study. The goal of a study is in the objective whereas the metric by which the goal is assessed is the outcomeMeasure. Examples: Time to Local Recurrence (TLR), Disease-free Survival (DFS), 30 Day Mortality, Systolic BP"/>
       <min value="0"/>
       <max value="*"/>
       <type>

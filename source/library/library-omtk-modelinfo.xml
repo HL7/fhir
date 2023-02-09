@@ -1,78 +1,81 @@
-<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
-	<id value="omtk-modelinfo"/>
-	<identifier>
-		<use value="official"/>
-		<value value="OMTKModelInfo"/>
-	</identifier>
-	<version value="0.1.0"/>
-	<title value="OMTK Model Info"/>
-	<status value="active"/>
-	<experimental value="true"/>
-	<type>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/library-type"/>
-			<code value="model-definition"/>
-		</coding>
-	</type>
-	<date value="2017-05-05"/>
-	<publisher value="Centers for Disease Control and Prevention (CDC)"/>
-	<description value="Opioid Management Terminology Knowledge Base Model Definition for use in implementing CDC Opioid Prescribing Guidelines."/>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="182888003"/>
-				<display value="Medication requested (situation)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="82423001"/>
-				<display value="Chronic pain (finding)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<jurisdiction>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-			<display value="United States of America"/>
-		</coding>
-	</jurisdiction>
-	<purpose value="This library defines the Opioid Management Terminology Knowledge Base model"/>
-	<usage value="This library is used to resolve data elements in the Opioid Management Terminology Knowledge Base model"/>
-	<copyright value="© CDC 2016+."/>
-	<topic>
-		<text value="Opioid Prescribing"/>
-	</topic>
-    <author>
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </author>
-    <author>
-        <name value="Bryn Rhodes"/>
-    </author>
-    <author>
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </author>
-    <author>
-        <name value="Robert McClure, MD, MPH"/>
-    </author>
-	<content>
-		<contentType value="application/xml"/>
-		<data value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pg0KPG5zNDptb2RlbEluZm8gbmFtZT0iT01USyIgdXJsPSJodHRwOi8vb3JnLm9wZW5jZHMvb3Bpb2lkLWNkcyIgdGFyZ2V0UXVhbGlmaWVyPSJjZGMiIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6bnM0PSJ1cm46aGw3LW9yZzplbG0tbW9kZWxpbmZvOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIg0KICAgICAgICAgICAgICAgdmVyc2lvbj0iMC4xLjAiPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RPU0VfRk9STSIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9OQU1FIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVRyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1RZUEUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX0dST1VQX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19WQUxVRV9TRVQiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RSVUdfV0lUSF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVNFX1RPX1BPUFVMQVRFX0RCIiB0eXBlPSJTeXN0ZW0uSW50ZWdlciIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU0tJUCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0lOR1JFRElFTlRfSU5fQ0xBU1MiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJNRURfQ0xBU1NfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJJTkdSRURJRU5UX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfSU5HUkVESUVOVF9UWVBFIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfVFlQRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfU0NEQyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTQ0RDX05BTUUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU1RSRU5HVEhfVkFMVUUiIHR5cGU9IlN5c3RlbS5EZWNpbWFsIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSF9VTklUIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9TQ0RDX0ZPUl9EUlVHIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRFJVR19SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLlZBTFVFX1NFVCIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlZBTFVFX1NFVF9JRCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkVYRUNVVEVfT1JERVIiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iREVTQ1JJUFRJT04iIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNRTCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iQ09NTUVOVFMiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KPC9uczQ6bW9kZWxJbmZvPg0K"/>
-		<url value="elm/OMTK-modelinfo-0.1.0.xml"/>
-	</content>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library xmlns="http://hl7.org/fhir">
+  <id value="omtk-modelinfo"/>
+  <identifier>
+    <use value="official"/>
+    <value value="OMTKModelInfo"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="OMTKModelInfo"/>
+  <title value="OMTK Model Info"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
+      <code value="model-definition"/>
+    </coding>
+  </type>
+  <date value="2017-05-05"/>
+  <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+  <description value="Opioid Management Terminology Knowledge Base Model Definition for use in implementing CDC Opioid Prescribing Guidelines."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="182888003"/>
+        <display value="Medication requested (situation)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="82423001"/>
+        <display value="Chronic pain (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="This library defines the Opioid Management Terminology Knowledge Base model"/>
+  <usage value="This library is used to resolve data elements in the Opioid Management Terminology Knowledge Base model"/>
+  <copyright value="© CDC 2016+."/>
+  <topic>
+    <text value="Opioid Prescribing"/>
+  </topic>
+  <author>
+    <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+  </author>
+  <author>
+    <name value="Bryn Rhodes"/>
+  </author>
+  <author>
+    <name value="Floyd Eisenberg, MD, MPH"/>
+  </author>
+  <author>
+    <name value="Robert McClure, MD, MPH"/>
+  </author>
+  <content>
+    <contentType value="application/xml"/>
+    <data value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pg0KPG5zNDptb2RlbEluZm8gbmFtZT0iT01USyIgdXJsPSJodHRwOi8vb3JnLm9wZW5jZHMvb3Bpb2lkLWNkcyIgdGFyZ2V0UXVhbGlmaWVyPSJjZGMiIHhtbG5zOnhzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYSIgeG1sbnM6bnM0PSJ1cm46aGw3LW9yZzplbG0tbW9kZWxpbmZvOnIxIiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIg0KICAgICAgICAgICAgICAgdmVyc2lvbj0iMC4xLjAiPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RPU0VfRk9STSIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRPU0VfRk9STV9OQU1FIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJET1NFX0ZPUk1fR1JPVVBfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVRyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1RZUEUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19ET1NFX0ZPUk1fR1JPVVAiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRE9TRV9GT1JNX0dST1VQX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfRFJVR19WQUxVRV9TRVQiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJEUlVHX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0RSVUdfV0lUSF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkRSVUdfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9JTkdSRURJRU5UIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVNFX1RPX1BPUFVMQVRFX0RCIiB0eXBlPSJTeXN0ZW0uSW50ZWdlciIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU0tJUCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KICAgIDxuczQ6dHlwZUluZm8geHNpOnR5cGU9Im5zNDpDbGFzc0luZm8iIG5hbWU9Ik9NVEsuTUVEX0lOR1JFRElFTlRfSU5fQ0xBU1MiIGJhc2VUeXBlPSJTeXN0ZW0uQW55IiByZXRyaWV2YWJsZT0idHJ1ZSI+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJNRURfQ0xBU1NfSUQiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJJTkdSRURJRU5UX1JYQ1VJIiB0eXBlPSJTeXN0ZW0uQ29kZSIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfSU5HUkVESUVOVF9UWVBFIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iSU5HUkVESUVOVF9SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfVFlQRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iVVBEQVRFX0RUTSIgdHlwZT0iU3lzdGVtLkRhdGVUaW1lIi8+DQogICAgPC9uczQ6dHlwZUluZm8+DQogICAgPG5zNDp0eXBlSW5mbyB4c2k6dHlwZT0ibnM0OkNsYXNzSW5mbyIgbmFtZT0iT01USy5NRURfU0NEQyIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTQ0RDX05BTUUiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IklOR1JFRElFTlRfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iU1RSRU5HVEhfVkFMVUUiIHR5cGU9IlN5c3RlbS5EZWNpbWFsIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJTVFJFTkdUSF9VTklUIiB0eXBlPSJTeXN0ZW0uU3RyaW5nIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLk1FRF9TQ0RDX0ZPUl9EUlVHIiBiYXNlVHlwZT0iU3lzdGVtLkFueSIgcmV0cmlldmFibGU9InRydWUiPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iRFJVR19SWENVSSIgdHlwZT0iU3lzdGVtLkNvZGUiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNDRENfUlhDVUkiIHR5cGU9IlN5c3RlbS5Db2RlIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJVUERBVEVfRFRNIiB0eXBlPSJTeXN0ZW0uRGF0ZVRpbWUiLz4NCiAgICA8L25zNDp0eXBlSW5mbz4NCiAgICA8bnM0OnR5cGVJbmZvIHhzaTp0eXBlPSJuczQ6Q2xhc3NJbmZvIiBuYW1lPSJPTVRLLlZBTFVFX1NFVCIgYmFzZVR5cGU9IlN5c3RlbS5BbnkiIHJldHJpZXZhYmxlPSJ0cnVlIj4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlZBTFVFX1NFVF9JRCIgdHlwZT0iU3lzdGVtLkludGVnZXIiLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IkVYRUNVVEVfT1JERVIiIHR5cGU9IlN5c3RlbS5JbnRlZ2VyIi8+DQogICAgICAgIDxuczQ6ZWxlbWVudCBuYW1lPSJWQUxVRV9TRVRfTkFNRSIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iREVTQ1JJUFRJT04iIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlNRTCIgdHlwZT0iU3lzdGVtLlN0cmluZyIvPg0KICAgICAgICA8bnM0OmVsZW1lbnQgbmFtZT0iQ09NTUVOVFMiIHR5cGU9IlN5c3RlbS5TdHJpbmciLz4NCiAgICAgICAgPG5zNDplbGVtZW50IG5hbWU9IlVQREFURV9EVE0iIHR5cGU9IlN5c3RlbS5EYXRlVGltZSIvPg0KICAgIDwvbnM0OnR5cGVJbmZvPg0KPC9uczQ6bW9kZWxJbmZvPg0K"/>
+    <url value="elm/OMTK-modelinfo-0.1.0.xml"/>
+  </content>
 </Library>

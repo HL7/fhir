@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AdverseEventSeverity"/>
+  <title value="Adverse Event Severity"/>
   <experimental value="false"/>
   <description value="AdverseEventSeverity"/>
   <concept>

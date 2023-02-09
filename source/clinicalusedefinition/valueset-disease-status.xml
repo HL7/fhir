@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="disease-status"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -7,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
+          
           <a href="codesystem-disease-status.html">
+            
             <code>http://hl7.org/fhir/disease-status</code>
+          
           </a>
+        
         </li>
+      
       </ul>disease-status
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -32,7 +42,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DiseaseStatus"/>
-  <title value="DiseaseStatus"/>
+  <title value="Disease Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -48,15 +58,15 @@
     </telecom>
   </contact>
   <description value="The status of a disease or symptom."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <immutable value="true"/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
-        <value value="288524001"/> <!-- Courses (qualifier value) -->
+        <value value="288524001"/>
       </filter>
     </include>
   </compose>

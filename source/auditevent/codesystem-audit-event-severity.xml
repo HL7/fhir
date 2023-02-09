@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="audit-event-severity"/>
   <meta>
     <lastUpdated value="2022-06-06T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AuditEventSeverity"/>
-  <title value="AuditEventSeverity"/>
+  <title value="Audit Event Severity"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-06-06T10:01:24+11:00"/>

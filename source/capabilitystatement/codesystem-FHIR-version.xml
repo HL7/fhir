@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRVersion"/>
-  <title value="FHIRVersion"/>
+  <title value="F H I R Version"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2022-05-13T13:40:33.463-04:00"/>

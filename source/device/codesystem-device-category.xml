@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceCategory"/>
-  <title value="FHIRDeviceCategory"/>
+  <title value="F H I R Device Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>

@@ -22,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ConditionState"/>
+  <title value="Condition State"/>
   <experimental value="true"/>
   <description value="active| inactive| resolved"/>
   <compose>

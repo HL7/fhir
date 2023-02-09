@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EntryDefinitionRelationType"/>
+  <title value="Entry Definition Relation Type"/>
   <experimental value="true"/>
   <description value="EntryDefinitionRelationType"/>
   <compose>

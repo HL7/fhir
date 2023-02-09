@@ -13,7 +13,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3291"/>
   </identifier>
-  <name value="genderIdentity"/>
+  <name value="GenderIdentity"/>
   <title value="Gender Identity"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -28,7 +28,7 @@
   <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-	  <system value="http://snomed.info/sct"/>
+      <system value="http://snomed.info/sct"/>
       <concept>
         <code value="446141000124107"/>
         <display value="Identifies as female gender (finding)"/>

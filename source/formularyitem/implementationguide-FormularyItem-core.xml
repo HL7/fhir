@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="FormularyItem-core"/>
   <version value="0.1"/>
-  <name value="FormularyItem HL7 Extensions"/>
-  <title value="FormularyItem HL7 Extensions"/>
+  <name value="FormularyItemHL7Extensions"/>
+  <title value="Formulary Item  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-19T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="citation-artifact-classifier"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CitationArtifactClassifier"/>
-  <title value="CitationArtifactClassifier"/>
+  <title value="Citation Artifact Classifier"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-03-11T10:55:11.085+11:00"/>
@@ -86,7 +88,7 @@
   <concept>
     <code value="Electronic-eCollection"/>
     <display value="Electronic-eCollection"/>
-    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &#34;issue&#34; date that is typically called an eCollection."/>
+    <definition value="used for electronic-only journals that publish individual articles first and then later collect them into an &quot;issue&quot; date that is typically called an eCollection."/>
   </concept>
   <concept>
     <code value="Electronic-Print"/>

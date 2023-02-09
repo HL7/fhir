@@ -29,7 +29,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ConditionalReadStatus"/>
-  <title value="ConditionalReadStatus"/>
+  <title value="Conditional Read Status"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
