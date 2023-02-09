@@ -569,5 +569,19 @@
         <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED]"/>
       </mapping>
     </element>
+    <element id="DetectedIssue.mitigation.note">
+      <path value="DetectedIssue.mitigation.note"/>
+      <short value="Additional notes about the mitigation"/>
+      <definition value="Clinicians may add additional notes or justifications about the mitigation action. For example, patient can have this drug because they have had it before without any issues. Multiple justifications may be provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED].note"/>
+      </mapping>
+    </element>
   </differential>
 </StructureDefinition>
