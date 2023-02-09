@@ -381,7 +381,8 @@
     <element id="Subscription.contentType">
       <path value="Subscription.contentType"/>
       <short value="MIME type to send, or omit for no payload"/>
-      <definition value="The mime type to send the payload in - e.g., `application/fhir+xml` or `application/fhir+json`. Note that additional MIME types can be allowed by channels. For example, `text/plain` and `text/html` are defined by the Email channel."/>
+      <definition value="The MIME type to send the payload in - e.g., `application/fhir+xml` or `application/fhir+json`. Note that:&#xA;&#xA;* clients may request notifications in a specific FHIR version by using the [FHIR Version Parameter](http.html#version-parameter) - e.g., `application/fhir+json; fhirVersion=4.0`.&#xA;&#xA;* additional MIME types can be allowed by channels - e.g., `text/plain` and `text/html` are defined by the Email channel."/>
+      <comment value=""/>
       <min value="0"/>
       <max value="1"/>
       <type>
