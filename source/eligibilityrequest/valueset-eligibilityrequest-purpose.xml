@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EligibilityRequestPurpose"/>
+  <title value="Eligibility Request Purpose"/>
   <experimental value="true"/>
   <description value="EligibilityRequestPurpose"/>
   <compose>

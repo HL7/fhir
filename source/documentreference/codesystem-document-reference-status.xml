@@ -28,7 +28,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DocumentReferenceStatus"/>
-  <title value="DocumentReferenceStatus"/>
+  <title value="Document Reference Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

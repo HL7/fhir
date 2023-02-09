@@ -12,7 +12,7 @@
     <valueString value="observation-vitalsigns-profile-notes.xml"/>
   </extension>
   <version value="0.01"/>
-  <name value="observation-vitalsigns"/>
+  <name value="Observationvitalsigns"/>
   <title value="Observation Vital Signs Panel Profile"/>
   <status value="draft"/>
   <date value="2018-08-11T08:17:46.560"/>

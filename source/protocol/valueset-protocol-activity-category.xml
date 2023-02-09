@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProtocolActivityDefinitionCategory"/>
+  <title value="Protocol Activity Definition Category"/>
   <experimental value="true"/>
   <description value="ProtocolActivityDefinitionCategory"/>
   <compose>

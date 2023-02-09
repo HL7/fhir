@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationRequest"/>
-  <title value="MedicationRequest"/>
+  <title value="Medication Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -825,7 +825,7 @@
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
-    </element>   
+    </element>
     <element id="MedicationRequest.renderedDosageInstruction">
       <path value="MedicationRequest.renderedDosageInstruction"/>
       <short value="Full representation of the dosage instructions"/>

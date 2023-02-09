@@ -31,7 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NutritionOrder"/>
-  <title value="NutritionOrder"/>
+  <title value="Nutrition Order"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>

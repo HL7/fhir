@@ -11,25 +11,33 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       
       
+      
       <ul>
+        
         
         
         <li>Include type codes defined in 
           
           
+          
           <a href="http://hl7.org/fhir/genomicstudy-type">
+            
             
             
             <code>http://hl7.org/fhir/genomicstudy-type</code>
           
           
+          
           </a>
+        
         
         
         </li>
       
       
+      
       </ul>
+    
     
     
     </div>
@@ -50,7 +58,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GenomicStudyType"/>
-  <title value="GenomicStudyType"/>
+  <title value="Genomic Study Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2022-08-17T16:25:11-05:00"/>
