@@ -32,7 +32,9 @@ business identifier - in this case the same as the request id
          <expirationDate value="2021-08-02T23:59:00-05:00" />
          <property>
             <type>
-               <code value="ABORhD" />
+              <coding>
+                 <code value="ABORhD" />
+              </coding>
             </type>
             <valueCodeableConcept>
                <coding>
@@ -44,7 +46,9 @@ business identifier - in this case the same as the request id
          </property>
          <property>
             <type>
-               <code value="V" />
+              <coding>
+                  <code value="Donor" />
+              </coding>
             </type>
             <valueCodeableConcept>
                <coding>
@@ -81,7 +85,9 @@ business identifier - in this case the same as the request id
          <expirationDate value="2021-07-31T23:59:00-05:00" />
          <property>
             <type>
-               <code value="ABORhD" />
+              <coding>
+                <code value="ABORhD" />
+              </coding>
             </type>
             <valueCodeableConcept>
                <coding>
@@ -93,7 +99,9 @@ business identifier - in this case the same as the request id
          </property>
          <property>
             <type>
-               <code value="V" />
+              <coding>
+                 <code value="Donor" />
+              </coding>
             </type>
             <valueCodeableConcept>
                <coding>
