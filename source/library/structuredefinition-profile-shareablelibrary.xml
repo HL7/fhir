@@ -96,82 +96,40 @@
 			<path value="Library.url"/>
 			<min value="1"/>
 			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-		</element>
-		<element id="Library.identifier">
-			<path value="Library.identifier"/>
 			<mustSupport value="true"/>
 		</element>
 		<element id="Library.version">
 			<path value="Library.version"/>
 			<min value="1"/>
 			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Library.versionAlgorithm[x]">
+		    <path value="Library.versionAlgorithm[x]"/>
+			<mustSupport value="true"/>
 		</element>
 		<element id="Library.name">
 			<path value="Library.name"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
+			<mustSupport value="true"/>
 		</element>
 		<element id="Library.title">
 			<path value="Library.title"/>
-			<min value="0"/>
+			<min value="1"/>
 			<max value="1"/>
 			<mustSupport value="true"/>
 		</element>
 		<element id="Library.experimental">
 			<path value="Library.experimental"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-		</element>
-		<element id="Library.date">
-			<path value="Library.date"/>
-			<min value="0"/>
-			<max value="1"/>
 			<mustSupport value="true"/>
 		</element>
 		<element id="Library.publisher">
 			<path value="Library.publisher"/>
-			<alias value="steward"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Library.contact">
-			<path value="Library.contact"/>
 			<mustSupport value="true"/>
 		</element>
 		<element id="Library.description">
 			<path value="Library.description"/>
-			<alias value="scope"/>
 			<min value="1"/>
 			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="Library.useContext">
-			<path value="Library.useContext"/>
-			<mustSupport value="true"/>
-		</element>
-		<element id="Library.jurisdiction">
-			<path value="Library.jurisdiction"/>
 			<mustSupport value="true"/>
 		</element>
 	</differential>

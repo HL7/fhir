@@ -15,10 +15,5 @@
         <reference value="StructureDefinition/cdshooksserviceplandefinition"/>
       </reference>
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/computableplandefinition"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>
