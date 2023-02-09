@@ -13,6 +13,7 @@
   <title value="Catalog"/>
   <status value="draft"/>
   <date value="2017-10-26T19:52:27.62+02:00"/>
+  <description value="Catalog"/>
   <fhirVersion value="3.0.1"/>
   <kind value="resource"/>
   <abstract value="false"/>

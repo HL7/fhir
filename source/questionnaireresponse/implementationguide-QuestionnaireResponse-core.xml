@@ -2,12 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="QuestionnaireResponse-core"/>
-  <name value="Core extensions for QuestionnaireResponse"/>
-  <title value="Core extensions for QuestionnaireResponse"/>
+  <name value="CoreExtensionsForQuestionnaireResponse"/>
+  <title value="Core extensions for  Questionnaire Response"/>
   <status value="draft"/>
   <date value="2013-07-04T00:00:00.000"/>
   <publisher value="HL7"/>
   <description value="Contains standard extensions for QuestionnaireResponse, amongst others for validation"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

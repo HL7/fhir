@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem-lookup"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-lookup"/>
   <version value="5.0.0"/>
-  <name value="lookup"/>
+  <name value="Lookup"/>
   <title value="Concept Look Up &amp; Decomposition"/>
   <status value="draft"/>
   <kind value="operation"/>

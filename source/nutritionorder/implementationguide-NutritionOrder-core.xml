@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="NutritionOrder-core"/>
   <version value="0.1"/>
-  <name value="NutritionOrder HL7 Extensions"/>
-  <title value="NutritionOrder HL7 Extensions"/>
+  <name value="NutritionOrderHL7Extensions"/>
+  <title value="Nutrition Order  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2017-10-18T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - Orders and Observations WG"/>
   <description value="Defines common extensions used with or related to the NutritionOrder resource"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

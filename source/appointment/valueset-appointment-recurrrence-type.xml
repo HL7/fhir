@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="appointment-recurrrence-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AppointmentRecurrenceType"/>
-  <title value="AppointmentRecurrenceType"/>
+  <title value="Appointment Recurrence Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-01"/>

@@ -1,268 +1,273 @@
-<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Evidence xmlns="http://hl7.org/fhir">
   <id value="example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        "Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior" is a comparative effect estimate.
+        &quot;Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior&quot; is a comparative effect estimate.
       </p>
-	</div>
+	
+    </div>
   </text>
   <url value="http://hl7.org/fhir/Evidence/example-stroke-3-4half-alteplase-vs-no-alteplase-mRS0-2"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.10.3"/>
   </identifier>
+  <name value="EffectOfAlteplaseVsNoAlteplaseOnMRS02At90DaysInStroke345HoursPrior"/>
   <title value="Effect of Alteplase vs No alteplase on mRS 0-2 at 90 days in Stroke 3-4.5 hours prior"/>
   <status value="draft"/>
   <relatedArtifact>
-  	<type value="citation"/>
-  	<label value="Lees 2016"/>
-  	<display value="Figure 2 Lees 2016"/>
-  	<citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
+    <type value="citation"/>
+    <label value="Lees 2016"/>
+    <display value="Figure 2 Lees 2016"/>
+    <citation value="Lees KR, Emberson J, Blackwell L, Bluhmki E, Davis SM, Donnan GA, et al; Stroke Thrombolysis Trialists’ Collaborators Group. Effects of alteplase for acute stroke on the distribution of functional outcomes: a pooled analysis of 9 trials. Stroke. 2016;47:2373-2379. PMID 27507856"/>
     <document>
-  	  <url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
+      <url value="https://doi.org/10.1161/STROKEAHA.116.013644"/>
     </document>
   </relatedArtifact>
   <description value="mRS 0-2 at 90 days Odds Ratio 1.2 for Alteplase vs. No Alteplase in patients with acute ischemic stroke 3-4.5 hours prior"/>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="population"/>
-				<display value="population"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
-			<type value="EvidenceVariable"/>
-			<display value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
-		</observed>
-		<intended>
-			<reference value="Group/AcuteIschemicStroke3-4halfHours"/>
-			<type value="Group"/>
-			<display value="stroke at 3-4.5 hours"/>
-		</intended>
-		<directnessMatch>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/directness"/>
-				<code value="moderate"/>
-				<display value="Moderate quality match"/>
-			</coding>
-		</directnessMatch>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="population"/>
+        <display value="population"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/Stroke-Thrombolysis-Trialists-2014-2016-IPD-MA-Cohort"/>
+      <type value="EvidenceVariable"/>
+      <display value="Stroke Thrombolysis Trialists’ 2014-2016 IPD-MA Cohort"/>
+    </observed>
+    <intended>
+      <reference value="Group/AcuteIschemicStroke3-4halfHours"/>
+      <type value="Group"/>
+      <display value="stroke at 3-4.5 hours"/>
+    </intended>
+    <directnessMatch>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/directness"/>
+        <code value="moderate"/>
+        <display value="Moderate quality match"/>
+      </coding>
+    </directnessMatch>
   </variableDefinition>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="measuredVariable"/>
-				<display value="measured variable"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
-			<type value="EvidenceVariable"/>
-			<display value="mRS 0-2 at 90 days"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-alive-independent-90day"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alive and not functionally dependent at 90 days"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="measuredVariable"/>
+        <display value="measured variable"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-mRS0-2-at-90days"/>
+      <type value="EvidenceVariable"/>
+      <display value="mRS 0-2 at 90 days"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-alive-independent-90day"/>
+      <type value="EvidenceVariable"/>
+      <display value="Alive and not functionally dependent at 90 days"/>
+    </intended>
   </variableDefinition>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="exposure"/>
-				<display value="exposure"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="exposure"/>
+        <display value="exposure"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <type value="EvidenceVariable"/>
+      <display value="Alteplase for Stroke"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <type value="EvidenceVariable"/>
+      <display value="Alteplase for Stroke"/>
+    </intended>
   </variableDefinition>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="referenceExposure"/>
-				<display value="reference exposure"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-no-alteplase"/>
-			<type value="EvidenceVariable"/>
-			<display value="no alteplase"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-no-alteplase"/>
-			<type value="EvidenceVariable"/>
-			<display value="no alteplase"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="referenceExposure"/>
+        <display value="reference exposure"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-no-alteplase"/>
+      <type value="EvidenceVariable"/>
+      <display value="no alteplase"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-no-alteplase"/>
+      <type value="EvidenceVariable"/>
+      <display value="no alteplase"/>
+    </intended>
   </variableDefinition>
-	<synthesisType>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
-			<code value="IPD-MA"/>
-			<display value="individual patient data meta-analysis"/>
-		</coding>
-	</synthesisType>
-	<studyDesign>
-		<coding>
-			<system value="http://hl7.org/fhir/research-study-classifiers"/>
-			<code value="SEVCO:01003"/>
-			<display value="randomized assignment"/>
-		</coding>
-	</studyDesign>
-	<statistic>
-		<statisticType>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-				<code value="C16932"/>
-				<display value="Odds Ratio"/>
-			</coding>
-		</statisticType>
-		<quantity>
-			<value value="1.2"/>
-		</quantity>
-		<sampleSize>
-			<numberOfStudies value="9"/>
-		</sampleSize>
-		<attributeEstimate>
-			<description value="95% CI 1.06 to 1.3"/>
-			<type>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
-					<code value="C53324"/>
-					<display value="Confidence interval"/>
-				</coding>
-			</type>
-			<level value="0.95"/>
-			<range>
-				<low>
-					<value value="1.06"/>
-				</low>
-				<high>
-					<value value="1.3"/>
-				</high>
-			</range>
-		</attributeEstimate>
-	</statistic>
-	<certainty>
-		<description value="Very low certainty due to risk of bias, inconsistency, imprecision, and indirectness"/>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/certainty-type"/>
-				<code value="Overall"/>
-				<display value="Overall quality"/>
-			</coding>
-		</type>
-		<rating>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-				<code value="very-low"/>
-				<display value="Very low quality"/>
-			</coding>
-		</rating>
-		<subcomponent>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="PublicationBias"/>
-					<display value="Publication bias"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<note>
-				<text value="IST-3 had inconsistent results and contributed large proportion of data"/>
-			</note>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Inconsistency"/>
-					<display value="Inconsistency"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="serious-concern"/>
-					<display value="serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<note>
-				<text value="results derived from figure with limited data reported to support the specific effect estimate; derived odds ratio in figure does not match results from rates of mRS 0-2 reported in Supplementary Figure 3b"/>
-			</note>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Imprecision"/>
-					<display value="Imprecision"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="serious-concern"/>
-					<display value="serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<note>
-				<text value="resuts derived for 3 - 4.5 hours assume data from 0 - 6 hours is informative"/>
-			</note>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Indirectness"/>
-					<display value="Indirectness"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="serious-concern"/>
-					<display value="serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<note>
-				<text value="results largely influenced by IST-3 trial which was unblinded and ECASS III which had baseline imbalances"/>
-			</note>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="RiskOfBias"/>
-					<display value="Risk of bias"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="serious-concern"/>
-					<display value="serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-	</certainty>
+  <synthesisType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
+      <code value="IPD-MA"/>
+      <display value="individual patient data meta-analysis"/>
+    </coding>
+  </synthesisType>
+  <studyDesign>
+    <coding>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+      <code value="SEVCO:01003"/>
+      <display value="randomized assignment"/>
+    </coding>
+  </studyDesign>
+  <statistic>
+    <statisticType>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
+        <code value="C16932"/>
+        <display value="Odds Ratio"/>
+      </coding>
+    </statisticType>
+    <quantity>
+      <value value="1.2"/>
+    </quantity>
+    <sampleSize>
+      <numberOfStudies value="9"/>
+    </sampleSize>
+    <attributeEstimate>
+      <description value="95% CI 1.06 to 1.3"/>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/attribute-estimate-type"/>
+          <code value="C53324"/>
+          <display value="Confidence interval"/>
+        </coding>
+      </type>
+      <level value="0.95"/>
+      <range>
+        <low>
+          <value value="1.06"/>
+        </low>
+        <high>
+          <value value="1.3"/>
+        </high>
+      </range>
+    </attributeEstimate>
+  </statistic>
+  <certainty>
+    <description value="Very low certainty due to risk of bias, inconsistency, imprecision, and indirectness"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/certainty-type"/>
+        <code value="Overall"/>
+        <display value="Overall quality"/>
+      </coding>
+    </type>
+    <rating>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+        <code value="very-low"/>
+        <display value="Very low quality"/>
+      </coding>
+    </rating>
+    <subcomponent>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="PublicationBias"/>
+          <display value="Publication bias"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <note>
+        <text value="IST-3 had inconsistent results and contributed large proportion of data"/>
+      </note>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Inconsistency"/>
+          <display value="Inconsistency"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="serious-concern"/>
+          <display value="serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <note>
+        <text value="results derived from figure with limited data reported to support the specific effect estimate; derived odds ratio in figure does not match results from rates of mRS 0-2 reported in Supplementary Figure 3b"/>
+      </note>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Imprecision"/>
+          <display value="Imprecision"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="serious-concern"/>
+          <display value="serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <note>
+        <text value="resuts derived for 3 - 4.5 hours assume data from 0 - 6 hours is informative"/>
+      </note>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Indirectness"/>
+          <display value="Indirectness"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="serious-concern"/>
+          <display value="serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <note>
+        <text value="results largely influenced by IST-3 trial which was unblinded and ECASS III which had baseline imbalances"/>
+      </note>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="RiskOfBias"/>
+          <display value="Risk of bias"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="serious-concern"/>
+          <display value="serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+  </certainty>
 </Evidence>

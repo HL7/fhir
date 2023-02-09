@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-eligibility-criteria-ada-rec-bariatric"/>
   <identifier>
     <type>
@@ -11,6 +12,7 @@
       <display value="Computable Publishing LLC"/>
     </assigner>
   </identifier>
+  <name value="RecommendationEligibilityCriteriaEligibilityCriteriaForBariatricSurgeryADARecommendation816"/>
   <title value="RecommendationEligibilityCriteria: Eligibility Criteria for Bariatric Surgery (ADA Recommendation 8.16)"/>
   <shortTitle value="Recommend bariatric surgery if BMI 35 or higher"/>
   <status value="active"/>
@@ -28,7 +30,7 @@
   </effectivePeriod>
   <author>
     <name value="Brian S. Alper"/>
-  </author>  
+  </author>
   <actual value="false"/>
   <characteristic>
     <description value="Adult."/>
@@ -236,7 +238,7 @@
   <characteristic>
     <description value="Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months."/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByCombination>
@@ -314,8 +316,8 @@
     </definitionByCombination>
     <timeFromEvent>
       <description value="in the past six months"/>
-	  <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      <note>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <range>
         <low>
@@ -336,10 +338,10 @@
   <characteristic>
     <description value="Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease."/>
     <note>
-      <text value="This may be possible to encode as presence of Disease(disorder) without &apos;in remission&apos;"/>
+      <text value="This may be possible to encode as presence of Disease(disorder) without 'in remission'"/>
     </note>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionCodeableConcept>
@@ -349,7 +351,7 @@
   <characteristic>
     <description value="Cardiac stress test indicating that surgery or IMM would not be safe."/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionCodeableConcept>
@@ -359,7 +361,7 @@
   <characteristic>
     <description value="Pulmonary embolus in the past six months."/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByTypeAndValue>
@@ -386,7 +388,7 @@
     <timeFromEvent>
       <description value="in the past six months"/>
       <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <range>
         <low>
@@ -407,7 +409,7 @@
   <characteristic>
     <description value="Thrombophlebitis in the past six months."/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByTypeAndValue>
@@ -434,7 +436,7 @@
     <timeFromEvent>
       <description value="in the past six months"/>
       <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <range>
         <low>
@@ -458,7 +460,7 @@
       <text value="This combination logic fails if the patient has both a basal cell skin cancer or cancer in situ and a cancer of another kind."/>
     </note>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByCombination>
@@ -551,7 +553,7 @@
         <timeFromEvent>
           <description value="for five years"/>
           <note>
-            <text value="presence throughout the range is equivalent to &apos;for five years&apos;"/>
+            <text value="presence throughout the range is equivalent to 'for five years'"/>
           </note>
           <range>
             <low>
@@ -574,7 +576,7 @@
   <characteristic>
     <description value="History of coagulopathy"/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionCodeableConcept>
@@ -584,7 +586,7 @@
   <characteristic>
     <description value="Significant anemia (hemoglobin 1.0 g or more below normal range)"/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByTypeAndValue>
@@ -614,7 +616,7 @@
   <characteristic>
     <description value="Serum creatinine ≥ 1.5 mg/dl"/>
     <note>
-      <text value="placeholder for now to represent &apos;screened surgical candidate&apos;"/>
+      <text value="placeholder for now to represent 'screened surgical candidate'"/>
     </note>
     <exclude value="true"/>
     <definitionByTypeAndValue>

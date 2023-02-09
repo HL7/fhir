@@ -17,6 +17,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.412"/>
   </identifier>
   <name value="GoalStatusReason"/>
+  <title value="Goal Status Reason"/>
   <status value="draft"/>
   <experimental value="false"/>
   <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and might not even be appropriate for some uses."/>

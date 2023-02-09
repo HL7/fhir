@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="interaction-incidence"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="InteractionIncidence"/>
-  <title value="InteractionIncidence"/>
+  <title value="Interaction Incidence"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,12 +41,12 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/interaction-incidence"/>
   <content value="complete"/>
-   <concept>
-     <code value="Theoretical"/>
-     <display value="Theoretical"/>
-   </concept>
-   <concept>
-     <code value="Observed"/>
-     <display value="Observed"/>
-   </concept>
+  <concept>
+    <code value="Theoretical"/>
+    <display value="Theoretical"/>
+  </concept>
+  <concept>
+    <code value="Observed"/>
+    <display value="Observed"/>
+  </concept>
 </CodeSystem>

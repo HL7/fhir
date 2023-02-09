@@ -20,6 +20,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.2.412"/>
   </identifier>
   <name value="GoalStatusReason"/>
+  <title value="Goal Status Reason"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>

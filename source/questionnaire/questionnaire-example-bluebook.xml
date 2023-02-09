@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
   <id value="bb"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <pre>
+        
         <b>Birth details - To be completed by health professional</b>
   Name of child: ____________________________________
             Sex: __
@@ -18,7 +22,9 @@
       Date given     : ___________
     Abnormalities noted at birth:
       _______________________________________________
+      
       </pre>
+    
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/bb"/>
@@ -26,11 +32,13 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.20.4"/>
   </identifier>
+  <name value="NSWGovernmentMyPersonalHealthRecord"/>
   <title value="NSW Government My Personal Health Record"/>
   <status value="draft"/>
   <subjectType value="Patient"/>
   <date value="2013-02-19"/>
   <publisher value="New South Wales Department of Health"/>
+  <description value="NSW Government My Personal Health Record"/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>

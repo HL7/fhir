@@ -12,6 +12,7 @@
   </identifier>
   <version value="1.9.0"/>
   <name value="ParticipationRoleType"/>
+  <title value="Participation Role Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-12-06T18:00:00+01:00"/>

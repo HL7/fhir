@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 
 
       
@@ -38,26 +38,45 @@ For a primitive datatype, patterns are typically used
 to fix the value of datatype, and leave the element
 id and extension unspecified. For example:
 </p>
+[%example-start%]
 <pre class="xml">
  &lt;patternString value=&quot;This is a string value&quot;/&gt;
 </pre>
+[%example-json%]
+<pre class="json">
+ "patternString" : "This is a string value"
+</pre>
+[%example-end%]
 <p>
 This pattern fixes the value of the string, so
 that this value is valid:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;element value=&quot;This is a string value&quot;/&gt;
 </pre>
+[%example-json%]
+<pre class="json">
+  "element" : "This is a string value"
+</pre>
+[%example-end%]
 <p>
 This pattern fixes the value of the string, so
 that this value is valid:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;element value=&quot;This is a string value&quot;/&gt;
 </pre>
+[%example-json%]
+<pre class="json">
+  "element" : "This is a string value"
+</pre>
+[%example-end%]
 <p>
 as is this:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;element value=&quot;This is a string value&quot;&gt;
     &lt;extension url=&quot;http://example.org&quot;&gt;
@@ -65,12 +84,29 @@ as is this:
     &lt;/extension&gt;
   &lt;/element&gt;
 </pre>
+[%example-json%]
+<pre class="json">
+  "element" : "This is a string value",
+  "_element" : {
+    "extension" : [{ 
+      "url" : "http://example.org",
+      "valueCode" : "something"
+    }]
+  }
+</pre>
+[%example-end%]
 <p>
 but this is not:  
 </p> 
+[%example-start%]
 <pre class="xml">
   &lt;element value=&quot;This is a string value with additional content&quot;/&gt;
 </pre>
+[%example-json%]
+<pre class="json">
+  "element" : "This is a string value with additional content"
+</pre>
+[%example-end%]
 <p>
 If a fixed value had been used, then the second 
 example would not be valid, because an extension could not be added.
@@ -80,24 +116,6 @@ the third example is valid - this can only be done
 with a <a href="fhirpath.html">FHIRPath constraint</a> using 
 the <a href="http://hl7.org/fhirpath/N1/#matchesregex-string-boolean">.matches() function</a>.
 </p>
-<p>
-Note also that the pattern value is not format specific. These 
-two JSON examples are also valid when tested against the pattern:
-</p>
-<pre class="json">
-  "element" : "This is a string value"
-</pre>
-<p>
-and
-</p>
-<pre class="json">
-  "element" : "This is a string value",
-  "_element" : [{
-    "url" : "http://example.org",
-    "valueCode" : "something"
-  }]
-</pre>
-
   
 <a name="pattern-complex"></a>
 <h4>Complex Types</h4>
@@ -107,6 +125,7 @@ For complex datatypes, the pattern contains
 a series of elements which are patterns in their own right.
 For example, this pattern:  
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;patternCoding&gt;
     &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
@@ -114,10 +133,20 @@ For example, this pattern:
     &lt;display value=&quot;A display value&quot;/&gt;
   &lt;/patternCoding&gt;  
 </pre>
+[%example-json%]
+<pre class="json">
+  "patternCoding" : {
+    "system" : "http://example.org/canonical",
+    "code" : "a-code",
+    "display" : "A display value"
+  }
+</pre>
+[%example-end%]
 <p>
 This pattern requires that any coding include these 
 three values, but other elements and extensions are allowed: 
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;coding&gt;
     &lt;system value=&quot;http://example.org/canonical&quot;/&gt;
@@ -126,15 +155,37 @@ three values, but other elements and extensions are allowed:
     &lt;display value=&quot;A display value&quot;&gt;
       &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/translation&quot;&gt;
         &lt;extension url=&quot;lang&quot;&gt;
-        &lt;valueCode value=&quot;es&quot;/&gt;
-      &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/translation&quot;&gt;
+          &lt;valueCode value=&quot;es&quot;/&gt;
+        &lt;/extension&gt;
         &lt;extension url=&quot;content&quot;&gt;
-        &lt;valueString value=&quot;Un valor de visualización&quot;/&gt;
-      &lt;/extension&gt;
+          &lt;valueString value=&quot;Un valor de visualización&quot;/&gt;
+        &lt;/extension&gt;
+     &lt;/extension&gt;
     &lt;/display&gt;
   &lt;/coding&gt;  
 </pre>
+[%example-json%]
+<pre class="json">
+  "coding" : {
+    "system" : "http://example.org/canonical",
+    "version" : "0.1.0" ,
+    "code" : "a-code",
+    "display" : "A display value",
+    "_display" : {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/StructureDefinition/translation",
+        "extension" : [{ 
+          "url" : "lang"" : {
+          "valueCode" : "es"
+        }, { 
+          "url" : "content"" : {
+          "valueString" : "Un valor de visualización"
+        }]
+      }]
+    }
+  }
+</pre>
+[%example-end%]
 <p>
 Note that a Coding with any of system, code or display missing does not 
 meet the requirements of the pattern.
@@ -147,6 +198,7 @@ meet the requirements of the pattern.
 Consider this pattern, specified for an element named "code" that has a 
 cardinality of 0..*:  
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;patternCodeableConcept&gt;
     &lt;coding&gt;
@@ -156,6 +208,17 @@ cardinality of 0..*:
     &lt;/coding&gt;      
   &lt;/patternCodeableConcept&gt;  
 </pre>
+[%example-json%]
+<pre class="json">
+  "patternCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://example.org/canonical",
+      "code" : "a-code",
+      "display" : "A display value"
+    }]
+  }
+</pre>
+[%example-end%]
 <p>
 This means that any code element present SHALL have at least one 
 coding with at least that system, code, and display. Other 
@@ -164,6 +227,7 @@ codings may be present, and the order does not matter.
 <p>
 So this is valid:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;code&gt;
     &lt;coding&gt;
@@ -179,9 +243,26 @@ So this is valid:
     &lt;text value=&quot;This is some text&quot;/&gt;   
   &lt;/code&gt;  
 </pre>
+[%example-json%]
+<pre class="json">
+  "code" : [{
+    "coding" : [{
+      "system" : "http://example.org/other-canonical",
+      "code" : "b-code",
+      "display" : "A different code"
+    }, {
+      "system" : "http://example.org/canonical",
+      "code" : "a-code",
+      "display" : "A display value"
+    }],
+    "text" : "This is some text"   
+  }]
+</pre>
+[%example-end%]
 <p>
 but this is not, since the required elements are present, but on different repeats:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;code&gt;
     &lt;coding&gt;
@@ -197,9 +278,26 @@ but this is not, since the required elements are present, but on different repea
     &lt;text value=&quot;This is some text&quot;/&gt;   
   &lt;/code&gt;  
 </pre>
+[%example-json%]
+<pre class="json">
+  "code" : [{
+    "coding" : [{
+      "system" : "http://example.org/canonical",
+      "code" : "b-code",
+      "display" : "A different code"
+    }, {
+      "system" : "http://example.org/other-canonical",
+      "code" : "a-code",
+      "display" : "A display value"
+    },
+    "text" : "This is some text"   
+  }]
+</pre>
+[%example-end%]
 <p>
 Nor is this valid, since the requirement applies to all the repeats:
 </p>
+[%example-start%]
 <pre class="xml">
   &lt;code&gt;
     &lt;coding&gt;
@@ -217,9 +315,49 @@ Nor is this valid, since the requirement applies to all the repeats:
     &lt;text value=&quot;This is some text&quot;/&gt;   
   &lt;/code&gt;  
 </pre>
-
-
+[%example-json%]
+<pre class="json">
+  "code" : [{
+    "coding" : [{
+      "system" : "http://example.org/other-canonical",
+      "code" : "b-code",
+      "display" : "A different code"
+    }]
+  }, {
+    "coding" : [{
+      "system" : "http://example.org/canonical",
+      "code" : "a-code",
+      "display" : "A display value"
+    }],
+    "text" : "This is some text"   
+  }]
+</pre>
+[%example-end%]
 
 [%file newfooter%]
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-example-tab-index');
+ } catch(exception){
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+  [%example-init%] 
+
+function store(currentTab) {
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){
+  }
+  [%example-change%] 
+  
+  document.activeElement.blur();
+}
+</script>
+
 </body>
 </html>

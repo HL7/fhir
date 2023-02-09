@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="BenefitCostApplicability"/>
+  <title value="Benefit Cost Applicability"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-06-05T14:06:02+00:00"/>

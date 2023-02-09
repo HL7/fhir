@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="StructureDefinition-snapshot"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +35,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureDefinition-snapshot"/>
   <version value="5.0.0"/>
-  <name value="snapshot"/>
+  <name value="Snapshot"/>
   <title value="Generate Snapshot"/>
   <status value="draft"/>
   <kind value="operation"/>

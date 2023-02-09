@@ -18,11 +18,11 @@
   <url value="http://hl7.org/fhir/substance-form"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-  	<value value="urn:oid:2.16.840.1.113883.4.642.4.2111"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2111"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="SubstanceForm"/>
-  <title value="SubstanceForm"/>
+  <title value="Substance Form"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
