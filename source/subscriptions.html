@@ -332,7 +332,10 @@
 <a name="errors-delivery"/>
 <h3>Detecting Delivery Errors</h3>
 <p>
-  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
+  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect some problem states.
+</p>
+<p>
+  Note that these scenarios are relevant to channels that do not provide guaranteed delivery of notifications. For example, the REST-Hook channel type DOES NOT provide guaranteed delivery - the specification leaves what to do with failed notifications up to the implementation; however, a channel defined around a message queue CAN provide guaranteed delivery, if messages added to the queue only removed by the intended receiver. This specification does not define any channel types with guaranteed delivery. For more detail about event numbering, please see the <a href="subscriptionstatus.html#event-numbering">Event Numbering</a> section of the <code>SubscriptionStatus</code> resource.
 </p>
 
 <a name="errors-missing-event"/>

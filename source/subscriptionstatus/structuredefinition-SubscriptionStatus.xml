@@ -70,13 +70,6 @@
       <definition value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
       <min value="0"/>
       <max value="*"/>
-      <constraint>
-        <key value="sst-1"/>
-        <severity value="error"/>
-        <human value="events listed in event notifications"/>
-        <expression value="type = 'event-notification' implies (notificationEvent.exists() and notificationEvent.first().exists())"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
-      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -112,7 +105,7 @@
     <element id="SubscriptionStatus.type">
       <path value="SubscriptionStatus.type"/>
       <short value="handshake | heartbeat | event-notification | query-status | query-event"/>
-      <definition value="The type of event being conveyed with this notificaiton."/>
+      <definition value="The type of event being conveyed with this notification."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -158,7 +151,8 @@
     <element id="SubscriptionStatus.notificationEvent.eventNumber">
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>
       <short value="Event number"/>
-      <definition value="The sequential number of this event in this subscription context."/>
+      <definition value="Either the sequential number of this event in this subscription context or a relative event number for this notification."/>
+      <comment value="In subscriptions where delivery of notifications IS NOT guaranteed (e.g., REST-Hook), this number is a unique and monotonically-increasing event number for a subscription. In channels where delivery of notifications IS guaranteed, this number is a relative index for the events present in the notification (e.g., 1, 2, etc.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -168,7 +162,7 @@
     <element id="SubscriptionStatus.notificationEvent.timestamp">
       <path value="SubscriptionStatus.notificationEvent.timestamp"/>
       <short value="The instant this event occurred"/>
-      <definition value="The actual time this event occured on the server."/>
+      <definition value="The actual time this event occurred on the server."/>
       <min value="0"/>
       <max value="1"/>
       <type>
