@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="observation-triggeredbytype"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -13,8 +15,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2098"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="triggeredBytype"/>
-  <title value="triggeredBytype"/>
+  <name value="TriggeredBytype"/>
+  <title value="triggered Bytype"/>
   <status value="active"/>
   <experimental value="true"/>
   <date value="2022-03-16T16:55:11+11:00"/>

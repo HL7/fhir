@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet-validate-code"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-validate-code"/>
   <version value="5.0.0"/>
-  <name value="validate-code"/>
+  <name value="Validatecode"/>
   <title value="Value Set based Validation"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -215,7 +217,7 @@
     <documentation value="The system for the code that was validated"/>
     <type value="uri"/>
   </parameter>
-   <parameter>
+  <parameter>
     <name value="version"/>
     <use value="out"/>
     <min value="0"/>
@@ -232,12 +234,11 @@
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
-   <name value="issues"/>
-   <use value="out"/>
-   <min value="0"/>
-   <max value="1"/>
-   <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
-   <type value="OperationOutcome"/>
+    <name value="issues"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
+    <type value="OperationOutcome"/>
   </parameter>
-
 </OperationDefinition>

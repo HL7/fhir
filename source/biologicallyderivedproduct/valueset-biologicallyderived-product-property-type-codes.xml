@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="biologicallyderived-product-property-type-codes"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -7,14 +9,13 @@
     <valueCode value="oo"/>
   </extension>
   <url value="http://hl7.org/fhir/ValueSet/biologicallyderived-product-property-type-codes"/>
-  
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3123"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductPropertyTypeCodes"/>
-  <title value="BiologicallyDerivedProductPropertyTypeCodes"/>
+  <title value="Biologically Derived Product Property Type Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -27,7 +28,7 @@
   </contact>
   <description value="This value set can enumerate ISBT 128 Codes published by ICCBBA as a part of the ISBT 128 standard. These example codes represent data elements defined in ST-027 ISBT 128 Dictionary of Standard Data Elements and are used to define data structure and format expectations for electronic exchange with the ISBT 128 standard."/>
   <copyright value="This content from ICCBBA® is copyright © 2021 ICCBBA."/>
-  <compose> 
+  <compose>
     <include>
       <system value="http://hl7.org/fhir/biologicallyderived-product-property-type-codes"/>
     </include>

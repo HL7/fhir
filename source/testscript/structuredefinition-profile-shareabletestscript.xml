@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1081"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Shareable TestScript"/>
-  <title value="Shareable TestScript"/>
+  <name value="ShareableTestScript"/>
+  <title value="Shareable  Test Script"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-11-08T17:15:11-04:00"/>

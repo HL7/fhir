@@ -28,7 +28,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AuditEventEntityDetailType"/>
-  <title value="AuditEventEntityDetailType"/>
+  <title value="Audit Event Entity Detail Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-10-02T16:55:11+11:00"/>

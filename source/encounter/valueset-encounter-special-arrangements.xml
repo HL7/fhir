@@ -25,6 +25,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SpecialArrangements"/>
+  <title value="Special Arrangements"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

@@ -17,6 +17,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MaxOccurs"/>
+  <title value="Max Occurs"/>
   <status value="active"/>
   <experimental value="true"/>
   <description value="MaxOccurs"/>

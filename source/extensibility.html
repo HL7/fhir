@@ -82,7 +82,7 @@ Notes:
 </ul>
 <div class="example">
 <p>
-Here is an example of an extension in XML (<a href="extension-iso21090-en-use.html">see definition</a>):
+Here is an example of an extension in XML (<a href="[%extensions-location%]StructureDefinition-iso21090-en-use.html">see definition</a>):
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
@@ -153,7 +153,7 @@ to the extension definition.
 <div class="example">
 
 <p>
-As an example, consider extending a patient with information about citizenship (<a href="extension-patient-citizenship.html">see definition</a>) containing 2 fields: code and period. In XML:
+As an example, consider extending a patient with information about citizenship (<a href="[%extensions-location%]StructureDefinition-patient-citizenship.html">see definition</a>) containing 2 fields: code and period. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
@@ -292,19 +292,19 @@ The <a href="xml.html#primitive">XML</a>, <a href="json.html#primitive">JSON</a>
 looks in those respective formats.
 Implementers should be aware that a mandatory primitive datatype (i.e. mininum cardinality=1) may
 be present with extensions but no value. Type use case are extensions such as 
-<a href="extension-data-absent-reason.html">DataAbsentReason</a>,
-<a href="extension-iso21090-nullflavor.html">nullFlavor</a> and
-<a href="extension-cqf-expression.html">expression</a>.
+<a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a>,
+<a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullFlavor</a> and
+<a href="[%extensions-location%]StructureDefinition-cqf-expression.html">expression</a>.
 </p>
 <p>
-However, the use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+However, the use of an extension such as <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a> 
 cannot be used to bypass a required binding requirements.
 </p>
 <p>
 Note that this restriction also applies to extensible bindings on Coding and CodeableConcept datatypes.
-The use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+The use of an extension such as <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a> 
 cannot be used to bypass a required or extensible binding requirements.  For example, if a value set includes
-the concept of "unknown", then a <a href="extension-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
+the concept of "unknown", then a <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
 cannot be sent without sending a Coding with the "unknown" concept.  
 (In which case also sending an 'unknown' code would be inappropriate and unnecessary.)
 </p>

@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="OperationOutcome"/>
-  <title value="OperationOutcome"/>
+  <title value="Operation Outcome"/>
   <status value="active"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>

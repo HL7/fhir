@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-no-alteplase"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
         &quot;No alteplase&quot; is an intended exposure concept that may be used in expressing what an Evidence is about.
       </p>
-	</div>
+	
+    </div>
   </text>
+  <name value="NoAlteplase"/>
   <title value="no alteplase"/>
-  <status value="draft" />
+  <status value="draft"/>
+  <description value="no alteplase"/>
   <actual value="false"/>
   <characteristic>
     <description value="no alteplase"/>
-	<exclude value="true"/>
+    <exclude value="true"/>
     <definitionCodeableConcept>
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>

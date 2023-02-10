@@ -25,6 +25,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResourceValidationMode"/>
+  <title value="Resource Validation Mode"/>
   <experimental value="true"/>
   <description value="ResourceValidationMode"/>
   <caseSensitive value="true"/>
