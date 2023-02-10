@@ -1,4 +1,4 @@
-<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+a<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
@@ -28,6 +28,24 @@ DocumentReference contains metadata, inline content or direct references to docu
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
+This resource captures data that may not be in FHIR format. The document can be any object (e.g. file), 
+and is not limited to the formal HL7 definitions of <a href="documents.html">Document</a>. This resource may be a report with 
+unstructured text or report that is not expressed in a DiagnosticReport. This resource may be an 
+<a href="observation.html">Observation</a> whose value is audio, video or image data. This resource is the preferred 
+representation of such forms of information as it exposes the metadata relevant for interpreting the 
+information. 
+</p>
+<p>
+This resource is able to contain medical images in a DICOM format. These images may also be made 
+accessible through an <ImagingStudy href="imagingstudy.html">ImagingStudy</a> resource, which provides a direct reference to the image to a 
+<a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS</a> server. For such images, the WADO-RS framework is a preferred method for representing the 
+images - the WADO-RS service may include rendering the image with annotations and display parameters 
+from an associated DICOM presentation state, for instance. On the other hand, the DocumentReference 
+resource allows for a robust transfer of an image across boundaries where the WADO-RS service is 
+not available. For this reason, medical images can also be represented in a DocumentReference resource, 
+but the DocumentReference.content.attachment.url should provide a reference to a source WADO-RS service for the image.
+</p>
+<p>
 FHIR defines both a <a href="documents.html">document format</a> and this document reference. FHIR documents are for documents
 that are authored and assembled in FHIR. DocumentReference is intended for general references to any type of media file <em>including</em> assembled documents.
 </p>
@@ -49,7 +67,6 @@ the document it references. Like all resources, there is overlap between the inf
 resource directly, and in the general <a href="provenance.html">Provenance</a> resource. This is
 discussed as <a href="provenance.html#overlap">part of the description of the Provenance resource</a>.
 </p>
-
 </div>
 
 </div>
