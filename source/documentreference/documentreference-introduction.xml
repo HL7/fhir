@@ -28,7 +28,7 @@ DocumentReference contains metadata, inline content or direct references to docu
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource captures data that may not be in FHIR format. The document can be any object (e.g. file), 
+This resource captures data that might not be in FHIR format. The document can be any object (e.g. file), 
 and is not limited to the formal HL7 definitions of <a href="documents.html">Document</a>. This resource may be a report with 
 unstructured text or report that is not expressed in a DiagnosticReport. This resource may be an 
 <a href="observation.html">Observation</a> whose value is audio, video or image data. This resource is the preferred 
