@@ -300,8 +300,8 @@
     </element>
     <element id="EncounterHistory.actualPeriod">
       <path value="EncounterHistory.actualPeriod"/>
-      <short value="The actual start and end time associated with this set of values associated with the encounter."/>
-      <definition value="The start and end time associated with this set of values associated with the encounter, may be different to the planned times for various reasons"/>
+      <short value="The actual start and end time associated with this set of values associated with the encounter"/>
+      <definition value="The start and end time associated with this set of values associated with the encounter, may be different to the planned times for various reasons."/>
       <min value="0"/>
       <max value="1"/>
       <type>
