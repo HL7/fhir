@@ -818,7 +818,7 @@
       <path value="StructureDefinition.baseDefinition"/>
       <short value="Definition that this type is constrained/specialized from"/>
       <definition value="An absolute URI that is the base structure from which this type is derived, either by specialization or constraint."/>
-      <comment value="If differential constraints are specified in this structure, they are applied to the base in a &quot;differential&quot; fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of &quot;Element&quot; or another logical model."/>
+      <comment value="If differential constraints are specified in this structure, they are applied to the base in a &quot;differential&quot; fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of &quot;Base&quot;, &quot;Element&quot; or another logical model."/>
       <min value="0"/>
       <max value="1"/>
       <type>
