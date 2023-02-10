@@ -75,6 +75,10 @@
       <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
       <min value="0"/>
       <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.encounter"/>
+      </mapping>
     </element>
     <element id="EncounterHistory.encounter">
       <path value="EncounterHistory.encounter"/>
