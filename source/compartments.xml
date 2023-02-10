@@ -119,7 +119,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="158" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="159" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -355,6 +355,11 @@
     <Cell><Data ss:Type="String">{def}</Data></Cell>
     <Cell><Data ss:Type="String">participant</Data></Cell>
     <Cell><Data ss:Type="String">practitioner | participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EncounterHistory</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Endpoint</Data></Cell>
@@ -803,7 +808,7 @@
    <Row>
     <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="153">
+   <Row ss:AutoFitHeight="0" ss:Index="154">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -838,7 +843,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>131</TopRowBottomPane>
+   <TopRowBottomPane>26</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
