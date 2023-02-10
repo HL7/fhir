@@ -73,17 +73,8 @@
       <path value="EncounterHistory"/>
       <short value="An interaction during which services are provided to the patient"/>
       <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
-      <alias value="Visit"/>
       <min value="0"/>
       <max value="*"/>
-      <mapping>
-        <identity value="rim"/>
-        <map value="PatientEncounter[@moodCode='EVN']"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="workflow.encounter"/>
-      </mapping>
     </element>
     <element id="EncounterHistory.encounter">
       <path value="EncounterHistory.encounter"/>
@@ -305,7 +296,7 @@
     </element>
     <element id="EncounterHistory.actualPeriod">
       <path value="EncounterHistory.actualPeriod"/>
-      <short value="The actual start and end time associated with this set of values associated with the encounter"/>
+      <short value="The actual start and end time associated with this set of values associated with the encounter."/>
       <definition value="The start and end time associated with this set of values associated with the encounter, may be different to the planned times for various reasons"/>
       <min value="0"/>
       <max value="1"/>
