@@ -3,27 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Encounter-core"/>
   <version value="0.1"/>
-  <name value="Encounter HL7 Extensions"/>
-  <title value="Encounter HL7 Extensions"/>
+  <name value="EncounterHL7Extensions"/>
+  <title value="Encounter  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Encounter resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/encounter-reasonCancelled"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/encounter-associatedEncounter"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/encounter-modeOfArrival"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

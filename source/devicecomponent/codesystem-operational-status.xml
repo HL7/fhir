@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceComponentOperationalStatus"/>
+  <title value="Device Component Operational Status"/>
   <experimental value="true"/>
   <description value="DeviceComponentOperationalStatus"/>
   <concept>

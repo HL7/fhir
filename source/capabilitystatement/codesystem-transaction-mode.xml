@@ -22,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TransactionMode"/>
+  <title value="Transaction Mode"/>
   <experimental value="false"/>
   <description value="TransactionMode"/>
   <concept>

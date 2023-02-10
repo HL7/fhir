@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-placebo"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-		<p>
+		
+      <p>
 			Placebo is a specific exposure that may be used in expressing what an Evidence is about.
 		</p>
-	</div>
+	
+    </div>
   </text>
+  <name value="Placebo"/>
   <title value="placebo"/>
-  <status value="draft" />
+  <status value="draft"/>
+  <description value="placebo"/>
   <actual value="true"/>
   <characteristic>
-	<description value="placebo"/>
-	<definitionCodeableConcept>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<code value="182886004"/>
-			<display value="Placebo given (situation)"/>
-		</coding>
-	</definitionCodeableConcept>
+    <description value="placebo"/>
+    <definitionCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="182886004"/>
+        <display value="Placebo given (situation)"/>
+      </coding>
+    </definitionCodeableConcept>
   </characteristic>
 </EvidenceVariable>

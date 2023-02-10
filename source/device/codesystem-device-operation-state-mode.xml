@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="device-operation-state-mode"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -16,7 +18,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceOperationStateMode"/>
-  <title value="FHIRDeviceOperationStateMode"/>
+  <title value="F H I R Device Operation State Mode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>

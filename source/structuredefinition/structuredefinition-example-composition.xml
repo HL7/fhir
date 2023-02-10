@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="example-composition"/>
   <url value="http://hl7.org/fhir/StructureDefinition/example-composition"/>
   <identifier>
@@ -10,6 +12,7 @@
   <status value="active"/>
   <experimental value="false"/>
   <date value="2018-11-05T17:47:00+11:00"/>
+  <description value="Document Structure (For testing section templates)"/>
   <kind value="resource"/>
   <abstract value="false"/>
   <type value="Composition"/>

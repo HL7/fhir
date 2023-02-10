@@ -22,6 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="UnknownContentCode"/>
+  <title value="Unknown Content Code"/>
   <experimental value="false"/>
   <description value="UnknownContentCode"/>
   <concept>

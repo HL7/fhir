@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example-history"/>
   <url value="http://hl7.org/fhir/TestScript/testscript-example-history"/>
   <identifier>
@@ -6,7 +8,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.12.1"/>
   </identifier>
   <version value="1.0"/>
-  <name value="TestScript Example History"/>
+  <name value="TestScriptExampleHistory"/>
+  <title value="TestScript Example History"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-01-18"/>

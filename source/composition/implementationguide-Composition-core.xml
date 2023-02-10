@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Composition-core"/>
   <version value="0.01"/>
-  <name value="Composition HL7 Extensions"/>
-  <title value="Composition HL7 Extensions"/>
+  <name value="CompositionHL7Extensions"/>
+  <title value="Composition  H L7  Extensions"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
@@ -12,32 +12,12 @@
   <definition>
     <resource>
       <reference>
-        <reference value="StructureDefinition/composition-section-subject"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/clinicaldocument"/>
       </reference>
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-otherConfidentiality"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/composition-clinicaldocument-versionNumber"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
         <reference value="StructureDefinition/catalog"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/cqm-ValidityPeriod"/>
       </reference>
     </resource>
   </definition>

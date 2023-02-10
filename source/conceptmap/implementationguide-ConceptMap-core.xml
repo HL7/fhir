@@ -20,10 +20,5 @@
         <reference value="StructureDefinition/publishableconceptmap"/>
       </reference>
     </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/concept-bidirectional"/>
-      </reference>
-    </resource>
   </definition>
 </ImplementationGuide>

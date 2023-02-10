@@ -1,24 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="DocumentReference-core"/>
   <version value="0.01"/>
-  <name value="DocumentReference HL7 Extensions"/>
-  <title value="DocumentReference HL7 Extensions"/>
+  <name value="DocumentReferenceHL7Extensions"/>
+  <title value="Document Reference  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2022-03-16T10:00:00+10:00"/>
   <publisher value="Health Level Seven, Inc. - OO WG"/>
   <description value="Defines common extensions used with or related to the DocumentReference resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/documentreference-thumbnail"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/documentreference-sourcepatient"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

@@ -20,8 +20,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.986"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="strandType"/>
-  <title value="strandType"/>
+  <name value="StrandType"/>
+  <title value="strand Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

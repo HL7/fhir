@@ -9,7 +9,9 @@
   <text>
     <div xmlns="http://www.w3.org/1999/xhtml">
       
+      
       <p>Hello world</p>
+    
     
     </div>
   </text>
@@ -29,7 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyPrimaryPurposeType"/>
-  <title value="ResearchStudyPrimaryPurposeType"/>
+  <title value="Research Study Primary Purpose Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

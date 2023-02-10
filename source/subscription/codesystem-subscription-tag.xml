@@ -17,6 +17,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubscriptionTag"/>
+  <title value="Subscription Tag"/>
   <experimental value="true"/>
   <description value="SubscriptionTag"/>
   <concept>

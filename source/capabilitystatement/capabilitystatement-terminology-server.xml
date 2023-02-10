@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="example-terminology-server"/>
   <url value="http://hl7.org/fhir/CapabilityStatement/terminology-server"/>
   <version value="20220901"/>
-  <name value="ACMETerminologyService—CapabilityStatement"/>
+  <name value="ACMETerminologyServiceCapabilityStatement"/>
   <title value="ACME Terminology Service — Capability Statement"/>
   <status value="draft"/>
   <date value="2022-09-01"/>
   <description value="Example capability statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
   <kind value="instance"/>
   <implementation>
-		<description value="The ACME FHIR Terminology Server"/>
-	</implementation>
+    <description value="The ACME FHIR Terminology Server"/>
+  </implementation>
   <fhirVersion value="5.0.0"/>
   <format value="json"/>
   <format value="xml"/>

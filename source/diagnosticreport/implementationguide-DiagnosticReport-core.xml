@@ -3,48 +3,13 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="DiagnosticReport-core"/>
   <version value="0.1"/>
-  <name value="DiagnosticReport HL7 Extensions"/>
-  <title value="DiagnosticReport HL7 Extensions"/>
+  <name value="DiagnosticReportHL7Extensions"/>
+  <title value="Diagnostic Report  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the DiagnosticReport resource"/>
   <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-locationPerformed"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-summaryOf"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-replaces"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-extends"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-addendumOf"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-risk"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/diagnosticReport-focus"/>
-      </reference>
-    </resource>
     <resource>
       <extension url="http://hl7.org/fhir/build/StructureDefinition/usage">
         <valueCode value="core"/>

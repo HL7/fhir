@@ -1,169 +1,167 @@
-<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
-    <id value="opioidcds-04"/>
-    <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-04"/>
-    <identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="opioidcds-04"/>
+  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-04"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.4"/>
   </identifier>
   <identifier>
-        <use value="official"/>
-        <value value="cdc-opioid-guidance"/>
-    </identifier>
-    <version value="0.1.0"/>
-    <name value="cdc-opioid-04"/>
-    <title value="CDC Opioid Prescribing Guideline Recommendation #4"/>
-    <type>
-        <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-            <code value="eca-rule"/>
-            <display value="ECA Rule"/>
-        </coding>
-    </type>
-    <status value="draft"/>
-    <date value="2018-03-19"/>
-    <publisher value="Centers for Disease Control and Prevention (CDC)"/>
-    <description value="When starting opioid therapy for chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids."/>
-    <useContext>
-        <code>
-            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-            <code value="focus"/>
-            <display value="Clinical Focus"/>
-        </code>
-        <valueCodeableConcept>
+    <use value="official"/>
+    <value value="cdc-opioid-guidance"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="Cdcopioid04"/>
+  <title value="CDC Opioid Prescribing Guideline Recommendation #4"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+      <display value="ECA Rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <date value="2018-03-19"/>
+  <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+  <description value="When starting opioid therapy for chronic pain, clinicians should prescribe immediate-release opioids instead of extended-release/long-acting (ER/LA) opioids."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="182888003"/>
+        <display value="Medication requested (situation)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="82423001"/>
+        <display value="Chronic pain (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+  <usage value="Providers should use caution when prescribing extended-release/long-acting (ER/LA) opioids as they carry a higher risk and negligible benefit compared to immediate-release opioids."/>
+  <copyright value="© CDC 2016+."/>
+  <topic>
+    <text value="Opioid Prescribing"/>
+  </topic>
+  <author>
+    <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+  </author>
+  <author>
+    <name value="Bryn Rhodes"/>
+  </author>
+  <author>
+    <name value="Floyd Eisenberg, MD, MPH"/>
+  </author>
+  <author>
+    <name value="Robert McClure, MD, MPH"/>
+  </author>
+  <relatedArtifact>
+    <type value="documentation"/>
+    <display value="CDC guideline for prescribing opioids for chronic pain"/>
+    <document>
+      <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+    </document>
+  </relatedArtifact>
+  <relatedArtifact>
+    <type value="documentation"/>
+    <display value="MME Conversion Tables"/>
+    <document>
+      <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
+    </document>
+  </relatedArtifact>
+  <library value="http://example.org/fhir/Library/opioidcds-recommendation-04"/>
+  <action>
+    <title value="Extended-release opioid prescription triggered."/>
+    <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow."/>
+    <documentation>
+      <type value="documentation"/>
+      <document>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+          <valueCodeableConcept>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="182888003"/>
-                <display value="Medication requested (situation)"/>
+              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+              <code value="strong"/>
+              <display value="Strong"/>
             </coding>
-        </valueCodeableConcept>
-    </useContext>
-    <useContext>
-        <code>
-            <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-            <code value="focus"/>
-            <display value="Clinical Focus"/>
-        </code>
-        <valueCodeableConcept>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+          <valueCodeableConcept>
             <coding>
-                <system value="http://snomed.info/sct"/>
-                <code value="82423001"/>
-                <display value="Chronic pain (finding)"/>
+              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+              <code value="low"/>
+              <display value="Low quality"/>
             </coding>
-        </valueCodeableConcept>
-    </useContext>
-    <jurisdiction>
-        <coding>
-            <system value="urn:iso:std:iso:3166"/>
-            <code value="US"/>
-            <display value="United States of America"/>
-        </coding>
-    </jurisdiction>
-    <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-    <usage value="Providers should use caution when prescribing extended-release/long-acting (ER/LA) opioids as they carry a higher risk and negligible benefit compared to immediate-release opioids."/>
-    <copyright value="© CDC 2016+."/>
-    <topic>
-        <text value="Opioid Prescribing"/>
-    </topic>
-    <author>
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </author>
-    <author>
-        <name value="Bryn Rhodes"/>
-    </author>
-    <author>
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </author>
-    <author>
-        <name value="Robert McClure, MD, MPH"/>
-    </author>
-    <relatedArtifact>
-        <type value="documentation"/>
-        <display value="CDC guideline for prescribing opioids for chronic pain"/>
-        <document>
-          <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
-        </document>
-    </relatedArtifact>
-    <relatedArtifact>
-        <type value="documentation"/>
-        <display value="MME Conversion Tables"/>
-        <document>
-          <url value="https://www.cdc.gov/drugoverdose/pdf/calculating_total_daily_dose-a.pdf"/>
-        </document>
-    </relatedArtifact>
-    <library value="http://example.org/fhir/Library/opioidcds-recommendation-04"/>
+          </valueCodeableConcept>
+        </extension>
+      </document>
+    </documentation>
+    <trigger>
+      <type value="named-event"/>
+      <name value="medication-prescribe"/>
+    </trigger>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <description value="Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days."/>
+        <language value="text/cql"/>
+        <expression value="Inclusion Criteria"/>
+      </expression>
+    </condition>
+    <groupingBehavior value="visual-group"/>
+    <selectionBehavior value="exactly-one"/>
+    <dynamicValue>
+      <path value="action.title"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Get Summary"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="action.description"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Get Detail"/>
+      </expression>
+    </dynamicValue>
+    <dynamicValue>
+      <path value="activity.extension"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Get Indicator"/>
+      </expression>
+    </dynamicValue>
     <action>
-        <!-- non-dynamic card summary -->
-        <title value="Extended-release opioid prescription triggered."/>
-        <description value="Checking if the trigger prescription meets the inclusion criteria for recommendation #4 workflow."/>
-        <documentation>
-            <type value="documentation"/>
-            <document>
-                <!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-                            <code value="strong"/>
-                            <display value="Strong"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-                <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-                    <valueCodeableConcept>
-                        <coding>
-                            <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-                            <code value="low"/>
-                            <display value="Low quality"/>
-                        </coding>
-                    </valueCodeableConcept>
-                </extension>
-            </document>
-        </documentation>
-        <trigger>
-            <type value="named-event"/>
-            <name value="medication-prescribe"/>
-        </trigger>
-        <condition>
-            <kind value="applicability"/>
-            <expression>
-              <description value="Check whether the opioid prescription for the existing patient is extended-release without any opioids-with-abuse-potential prescribed in the past 90 days."/>
-              <language value="text/cql"/>
-              <expression value="Inclusion Criteria"/>
-            </expression>
-        </condition>
-        <groupingBehavior value="visual-group"/>
-        <selectionBehavior value="exactly-one"/>
-        <!-- dynamic card detail -->
-        <dynamicValue>
-            <path value="action.title"/>
-            <expression>
-              <language value="text/cql"/>
-              <expression value="Get Summary"/>
-            </expression>
-        </dynamicValue>
-        <dynamicValue>
-            <path value="action.description"/>
-            <expression>
-              <language value="text/cql"/>
-              <expression value="Get Detail"/>
-		    </expression>
-        </dynamicValue>
-        <dynamicValue>
-            <path value="activity.extension"/>
-            <expression>
-              <language value="text/cql"/>
-              <expression value="Get Indicator"/>
-            </expression>
-        </dynamicValue>
-        <action>
-            <description value="Will precribe immediate release"/>
-            <!-- Open Order Set, where available -->
-        </action>
-        <action>
-            <description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
-        </action>
-        <action>
-            <description value="N/A - see comment; snooze 3 mo"/>
-        </action>
+      <description value="Will precribe immediate release"/>
     </action>
+    <action>
+      <description value="Risk of overdose carefully considered and outweighed by benefit; snooze 3 mo"/>
+    </action>
+    <action>
+      <description value="N/A - see comment; snooze 3 mo"/>
+    </action>
+  </action>
 </PlanDefinition>

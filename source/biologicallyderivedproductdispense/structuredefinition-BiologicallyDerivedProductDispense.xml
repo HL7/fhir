@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProductDispense"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="draft"/>
@@ -20,7 +20,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense"/>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductDispense"/>
-  <title value="BiologicallyDerivedProductDispense"/>
+  <title value="Biologically Derived Product Dispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -130,8 +130,6 @@
         <description value="Describes the lifecycle of the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.originRelationshipType">
       <path value="BiologicallyDerivedProductDispense.originRelationshipType"/>
@@ -156,7 +154,6 @@
         <description value="Describes the relationship between the recipient and origin of the dispensed product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship"/>
       </binding>
-
     </element>
     <element id="BiologicallyDerivedProductDispense.product">
       <path value="BiologicallyDerivedProductDispense.product"/>
@@ -189,7 +186,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductDispenseMatchStatus"/>
@@ -204,8 +200,6 @@
         <description value="Describes the type of matching between the recipient and origin of the dispensed product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.performer">
       <path value="BiologicallyDerivedProductDispense.performer"/>
@@ -226,7 +220,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductDispensPerformerFunction"/>
@@ -241,8 +234,6 @@
         <description value="Describes the the role or function of the performer in the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.performer.actor">
       <path value="BiologicallyDerivedProductDispense.performer.actor"/>

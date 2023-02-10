@@ -174,11 +174,11 @@ on BackboneElement would correspond to 'group', while simple types would normall
 In addition, extensions and elements that have corresponding extensions should also propagate.  Specifically:
 </p>
 <ul>
-  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="extension-maxsize.html">maxSize</a>) should propagate</li>
+  <li>Any extensions that have a context of both ElementDefinition and Questionnaire.item (e.g. <a href="[%extensions-location%]StructureDefinition-maxSize.html">maxSize</a>) should propagate</li>
   <li>Any extensions defined for Questionnaire.item that directly correspond to elements on ElementDefinition should also propagate.  E.g.:
     <ul>
-      <li>ElementDefinition.minValue[x] -> <a href="extension-minvalue.html">minValue</a></li>
-      <li>ElementDefinition.maxValue[x] -> <a href="extension-maxvalue.html">maxValue</a></li>
+      <li>ElementDefinition.minValue[x] -> <a href="[%extensions-location%]StructureDefinition-minValue.html">minValue</a></li>
+      <li>ElementDefinition.maxValue[x] -> <a href="[%extensions-location%]StructureDefinition-maxValue.html">maxValue</a></li>
       <li>There are Questionnaire extensions defined in the <a href="http://hl7.org/fhir/uv/sdc">SDC IG</a> that correspond to min, max, type.targetProfile and constraint</li>
     </ul>
   </li>
@@ -208,7 +208,7 @@ Note that LOINC codes <a href="https://terminology.hl7.org/LOINC.html">implicitl
 NOTE: Even if a standard question definition is provided<!--s are referenced using <code>concept</code> or the <code>deReference</code> extension-->, information such as the question text,
 data type and value set SHOULD still be declared for the question.  Systems processing the questionnaire might not have access to or support the ability to look
 up the question definitions from external sources.  If the information is not included in-line within the questionnaire, other systems might not be able to render
-or use the Questionnaire.  The <a href="extension-questionnaire-definitionbased.html">questionnaire-definitionBased</a> extension can be used to flag that a questionnaire requires the
+or use the Questionnaire.  The <a href="[%extensions-location%]StructureDefinition-questionnaire-definitionBased.html">questionnaire-definitionBased</a> extension can be used to flag that a questionnaire requires the
 ability to resolve and use item.definition information to fully understand the Questionnaire.  Systems that validate, render or otherwise process the questionnaire SHOULD check for this
 extension.
 </p>
@@ -311,7 +311,7 @@ guidance is provided by the parent question or group.
 <p>
 Many questionnaires involve computations on questionnaire answers, e.g. tabulating scores.
 
-To help with associating numeric values to coded answers, the <a href="extension-itemweight.html">itemweight</a> 
+To help with associating numeric values to coded answers, the <a href="[%extensions-location%]StructureDefinition-itemWeight.html">itemweight</a> 
 extension can be used to define the numeric weighting of a code defined in a value set or in the questionnaire itself.
 </p>
 
