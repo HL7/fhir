@@ -8642,7 +8642,7 @@
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">#2</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Bundled</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The resource the reference points to will be found in the same bundle as the resource that includes the reference.</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">When the resource is in a Bundle, the resource the reference points to will be found in the same bundle as the resource that includes the reference.</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">This can only be used if the profile is specifying a bundle</Data></Cell>
