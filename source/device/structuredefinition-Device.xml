@@ -798,8 +798,9 @@
         <valueCode value="400,180"/>
       </extension>
       <path value="Device.property"/>
-      <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="Characteristics or features of the device that are otherwise not captured in available attributes, e.g., actual configuration settings, time or timing attributes, resolution, accuracy, and physical attributes.  The focus is on properties of the device actually in use while DeviceDefinition focuses on properties that are available to be used."/>
+      <short value="Inherent, essentially fixed, characteristics of the device.  e.g., time properties, size, material, etc."/>
+      <definition value="Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes."/>
+      <comment value="Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific [DeviceMetric] and recorded using [Observation].  Static characteristics of a device could also be documented in an associated [DeviceDefinition] instance. The Device instance's properties, and their values, could be, but need not be, the same as those described in an associated DeviceDefinition."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -809,7 +810,7 @@
     <element id="Device.property.type">
       <path value="Device.property.type"/>
       <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://terminology.hl7.org/MDC.html."/>
+      <definition value="Code that specifies the property, such as resolution, color, size, being represented"/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -826,9 +827,9 @@
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
-      <short value="Property value - as a code, quantity, boolean, string or attachment"/>
-      <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
-      <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
+      <short value="Value of the property"/>
+      <definition value="The value of the property specified by the associated [property.type] code."/>
+      <comment value="The text element of the [valueCodeableConcept] choice type is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g. a custom implant size, or a security classification which depends on configuration). Otherwise the valueString choice type is used for descriptive properties, or instructions."/>
       <min value="1"/>
       <max value="1"/>
       <type>
