@@ -1,4 +1,4 @@
-a<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">a<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
 <a name="scope"></a>
@@ -37,7 +37,7 @@ information.
 </p>
 <p>
 This resource is able to contain medical images in a DICOM format. These images may also be made 
-accessible through an <ImagingStudy href="imagingstudy.html">ImagingStudy</a> resource, which provides a direct reference to the image to a 
+accessible through an <a href="imagingstudy.html">ImagingStudy</a> resource, which provides a direct reference to the image to a 
 <a href="ftp://medical.nema.org/medical/dicom/final/sup161_ft.pdf">WADO-RS</a> server. For such images, the WADO-RS framework is a preferred method for representing the 
 images - the WADO-RS service may include rendering the image with annotations and display parameters 
 from an associated DICOM presentation state, for instance. On the other hand, the DocumentReference 
@@ -69,4 +69,5 @@ discussed as <a href="provenance.html#overlap">part of the description of the Pr
 </p>
 </div>
 
+</div>
 </div>
