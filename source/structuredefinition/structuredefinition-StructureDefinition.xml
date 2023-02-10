@@ -298,7 +298,7 @@
     <element id="StructureDefinition.version">
       <path value="StructureDefinition.version"/>
       <short value="Business version of the structure definition"/>
-      <definition value="The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <definition value="The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. There is no expectation that versions can be placed in a lexicographical sequence, so authors are encouraged to populate the StructureDefinition.versionAlgorithm[x] element to enable comparisons. If there is no managed version available, authors can consider using ISO date/time syntax (e.g., '2023-01-01')."/>
       <comment value="There may be different structure definition instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the structure definition with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
       <min value="0"/>
       <max value="1"/>
