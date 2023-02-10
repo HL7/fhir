@@ -174,7 +174,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
-   If hours and minutes are specified, a time zone offset SHALL be populated. Actual time zone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
+   If hours and minutes are specified, a time zone offset SHALL be populated. Actual time zone codes can be sent using the <%extension http://hl7.org/fhir/StructureDefinition/timezone%> extension, if desired.
    Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
@@ -1241,26 +1241,38 @@ Period is used in the following places: [%dtusage Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R4 Conversions</a>.
 </p>
-
 <p>
-Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The datatype also supports more than one dimension in the data.
-</p>
-<p>
-A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
-factor. These are interpreted such that
+A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency.
+A typical use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly 
+simple integers) or codes, along with adjustments for scale and factor. These are interpreted such that
 </p>
 <pre>
 original measured value[i] = SampledData.data[i] * SampledData.factor + SampledData.origin.value
 </pre>
 
 [%dt SampledData 8%]
+
 <p>
-The digits are a set of decimal values separated by a single space (Unicode character u20).
-In addition to decimal values, the special values "E" (error), "L" (below detection limit)
-and "U" (above detection limit) can also be used. If there is more than one dimension, the
-different dimensions are interlaced - all the data points for a particular time are
-represented together.
+SampledData supports multi-dimensional data, where there is more than one measurement
+for each time point. If there is more than one dimension, the different dimensions are 
+interlaced - all the data points for a particular time are represented together.
+</p>
+<p>
+Data points are separated by by a single space (Unicode character u20). Each data 
+point is either a decimal value or a code. Three special codes are defined:
+</p>
+<ul>
+  <li><code>E</code>: error - no valid measurement available for this data point</li>
+  <li><code>L</code>: below detection point - the value was below the device's detection limit (<code>lowerLimit</code>, which must be provided if this code is used)</li>
+  <li><code>U</code>: above detection point - the value was above the device's detection limit (<code>upperLimit</code>, which must be provided if this code is used)</li>
+</ul>
+<p>
+Other codes may be used. In this case, the meaning of the codes is specified by the <code>codeMap</code>
+property which references a <a href="conceptmap.html">ConceptMap</a> that defines the codes used 
+in the data, and maps the codes to properly defined concepts in a <a href="codesystem.html">CodeSystem</a>.
+Note that in this case, source system defined in the ConceptMap is not used in the SampledData and is 
+ignored. There SHALL only be one group in the ConceptMap. The ConceptMap cannot define meanings for 
+the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'), since they always have the meaning as defined above.
 </p>
 
 <p>
