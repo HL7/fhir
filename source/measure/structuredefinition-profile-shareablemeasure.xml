@@ -22,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ShareableMeasure"/>
-  <title value="Shareable  Measure"/>
+  <title value="Shareable Measure"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -60,86 +60,77 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+		<element id="Measure.extension:knowledgeCapability">
+			<path value="Measure.extension"/>
+			<sliceName value="knowledgeCapability"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Measure.extension:knowledgeRepresentationLevel">
+			<path value="Measure.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="Measure.extension:artifactComment">
+			<path value="Measure.extension"/>
+			<sliceName value="artifactComment"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
     <element id="Measure.url">
       <path value="Measure.url"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="Measure.identifier">
-      <path value="Measure.identifier"/>
       <mustSupport value="true"/>
     </element>
     <element id="Measure.version">
       <path value="Measure.version"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.versionAlgorithm[x]">
+      <path value="Measure.versionAlgorithm[x]"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Measure.name">
       <path value="Measure.name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="Measure.title">
       <path value="Measure.title"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
     <element id="Measure.experimental">
       <path value="Measure.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="Measure.date">
-      <path value="Measure.date"/>
-      <min value="0"/>
-      <max value="1"/>
       <mustSupport value="true"/>
     </element>
     <element id="Measure.publisher">
       <path value="Measure.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="Measure.contact">
-      <path value="Measure.contact"/>
       <mustSupport value="true"/>
     </element>
     <element id="Measure.description">
       <path value="Measure.description"/>
-      <alias value="scope"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="Measure.useContext">
-      <path value="Measure.useContext"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="Measure.jurisdiction">
-      <path value="Measure.jurisdiction"/>
       <mustSupport value="true"/>
     </element>
   </differential>

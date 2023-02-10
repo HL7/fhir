@@ -69,17 +69,15 @@
       </type>
       <mustSupport value="true"/>
     </element>
-    <element id="Library.title">
-      <path value="Library.title"/>
-      <min value="1"/>
-      <max value="1"/>
+    <element id="Library.identifier">
+      <path value="Library.identifier"/>
       <mustSupport value="true"/>
     </element>
     <element id="Library.type">
       <path value="Library.type"/>
       <min value="1"/>
       <max value="1"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.date">
       <path value="Library.date"/>
@@ -87,16 +85,32 @@
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
+    <element id="Library.contact">
+      <path value="Library.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.useContext">
+      <path value="Library.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.jurisdiction">
+      <path value="Library.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="Library.purpose">
       <path value="Library.purpose"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.usage">
       <path value="Library.usage"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.copyright">
       <path value="Library.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Library.copyrightLabel">
+      <path value="Library.copyrightLabel"/>
       <mustSupport value="true"/>
     </element>
     <element id="Library.approvalDate">
@@ -113,28 +127,23 @@
     </element>
     <element id="Library.topic">
       <path value="Library.topic"/>
-      <mustSupport value="false"/>
-      <binding>
-        <strength value="preferred"/>
-        <description value="Topics for categorization and searching of artifacts"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/definition-topic"/>
-      </binding>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.author">
       <path value="Library.author"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.editor">
       <path value="Library.editor"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.reviewer">
       <path value="Library.reviewer"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.endorser">
       <path value="Library.endorser"/>
-      <mustSupport value="false"/>
+      <mustSupport value="true"/>
     </element>
     <element id="Library.relatedArtifact">
       <path value="Library.relatedArtifact"/>
