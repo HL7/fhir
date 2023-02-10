@@ -310,6 +310,37 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
+    <element id="DetectedIssue.encounter">
+      <path value="DetectedIssue.encounter"/>
+      <short value="Encounter detected issue is part of"/>
+      <definition value="The encounter during which this issue was detected."/>
+      <comment value="This will typically be the encounter the DetectedIssue was created during, but some DetectedIssues may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission lab tests)."/>
+      <requirements value="Links this detected issue to the Encounter context."/>
+      <alias value="context"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.encounter"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.context"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19 Visit Number"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=&quot;type of encounter or episode&quot;]"/>
+      </mapping>
+    </element>
     <element id="DetectedIssue.identified[x]">
       <path value="DetectedIssue.identified[x]"/>
       <short value="When identified"/>
@@ -567,6 +598,20 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED]"/>
+      </mapping>
+    </element>
+    <element id="DetectedIssue.mitigation.note">
+      <path value="DetectedIssue.mitigation.note"/>
+      <short value="Additional notes about the mitigation"/>
+      <definition value="Clinicians may add additional notes or justifications about the mitigation action. For example, patient can have this drug because they have had it before without any issues. Multiple justifications may be provided."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Annotation"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role[classCode=ASSIGNED].note"/>
       </mapping>
     </element>
   </differential>
