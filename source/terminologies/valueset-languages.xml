@@ -1424,14 +1424,14 @@
       </concept>
       <concept>
         <code value="fy"/>
-        <display value="Frysian"/>
+        <display value="Frisian"/>
         <designation>
           <language value="en"/>
           <use>
             <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
             <code value="display"/>
           </use>
-          <value value="Frysian"/>
+          <value value="Frisian"/>
         </designation>
         <designation>
           <language value="nl"/>
@@ -1468,14 +1468,14 @@
       </concept>
       <concept>
         <code value="fy-NL"/>
-        <display value="Frysian (Netherlands)"/>
+        <display value="Frisian (Netherlands)"/>
         <designation>
           <language value="en"/>
           <use>
             <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
             <code value="display"/>
           </use>
-          <value value="Frysian (Netherlands)"/>
+          <value value="Frisian (Netherlands)"/>
         </designation>
         <designation>
           <language value="nl"/>
@@ -2584,14 +2584,14 @@
       </concept>
       <concept>
         <code value="te"/>
-        <display value="Telegu"/>
+        <display value="Telugu"/>
         <designation>
           <language value="en"/>
           <use>
             <system value="http://terminology.hl7.org/CodeSystem/designation-usage"/>
             <code value="display"/>
           </use>
-          <value value="Telegu"/>
+          <value value="Telugu"/>
         </designation>
         <designation>
           <language value="nl"/>
