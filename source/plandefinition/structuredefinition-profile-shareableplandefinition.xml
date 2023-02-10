@@ -21,7 +21,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1077"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Shareable PlanDefinition"/>
+  <name value="ShareablePlanDefinition"/>
   <title value="Shareable PlanDefinition"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -64,82 +64,40 @@
       <path value="PlanDefinition.url"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.identifier">
-      <path value="PlanDefinition.identifier"/>
       <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.version">
       <path value="PlanDefinition.version"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.versionAlgorithm[x]">
+      <path value="PlanDefinition.versionAlgorithm[x]"/>
+      <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.name">
       <path value="PlanDefinition.name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.title">
       <path value="PlanDefinition.title"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.experimental">
       <path value="PlanDefinition.experimental"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.date">
-      <path value="PlanDefinition.date"/>
-      <min value="0"/>
-      <max value="1"/>
       <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.publisher">
       <path value="PlanDefinition.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="PlanDefinition.contact">
-      <path value="PlanDefinition.contact"/>
       <mustSupport value="true"/>
     </element>
     <element id="PlanDefinition.description">
       <path value="PlanDefinition.description"/>
-      <alias value="scope"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="PlanDefinition.useContext">
-      <path value="PlanDefinition.useContext"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="PlanDefinition.jurisdiction">
-      <path value="PlanDefinition.jurisdiction"/>
       <mustSupport value="true"/>
     </element>
   </differential>

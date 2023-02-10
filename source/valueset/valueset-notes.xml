@@ -54,7 +54,7 @@ VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose
  </ol>
  <li>Computable Expression Option 2</li>
  <ol>
-	<li><a href="extension-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
 	<ol>
 		<li>If valued with <code>ValueSet.compose</code>, must be an expression that aligns with the <code>ValueSet.compose</code></li>
 		<li>If valued without <code>ValueSet.compose</code>, must be a computable expression (e.g., ECL)</li>
@@ -62,7 +62,7 @@ VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose
  </ol>
  <li>Non-computable Expression</li>
  <ol>
-	<li><a href="extension-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
 	<ol>
 		<li>An expression that is not computable and is meant to be interpreted by a human</li>
 		<li>May be valued <em>with</em> or <em>without</em> <code>ValueSet.compose</code></li>
@@ -166,7 +166,7 @@ Union:
 For expansion guidance, and how to manage <em>exclude</em>, see <a href="valueset.html#expansion">Value Set Expansion</a>
 </p>
 <p>
-When a ValueSet definition includes other ValueSets, use the <a href="extension-valueset-compose-include-valuesettitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
+When a ValueSet definition includes other ValueSets, use the <a href="[%extensions-location%]StructureDefinition-valueset-compose-include-valueSetTitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
 </p>
 
 <a name="fragments"></a>
@@ -237,7 +237,7 @@ Example:
 <a name="name-title"></a>
 <h3>Name and Title</h3>
 <p>
-The VSD element <em>Name</em> aligns with <code>ValueSet.title</code> which does not support preference or language. Use the <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle extension</a> when a language or preference is necessary. <code>ValueSet.title</code> or <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle</a> must be valued.
+The VSD element <em>Name</em> aligns with <code>ValueSet.title</code> which does not support preference or language. Use the <a href="[%extensions-location%]StructureDefinition-valueset-otherTitle.html">ValueSet.valueset-otherTitle extension</a> when a language or preference is necessary. <code>ValueSet.title</code> or <a href="[%extensions-location%]StructureDefinition-valueset-otherTitle.html">ValueSet.valueset-otherTitle</a> must be valued.
 </p>
 
 <a name="activeonly"></a>
@@ -321,7 +321,7 @@ Any display name for a concept provided in the value set is for display to a hum
 The display in the <a href="datatypes.html#Coding">Coding</a> that results from a user 
 selecting a concept from the expansion must be taken from the underlying code system 
 definition, even if a value set is referenced explicitly in the Coding (e.g. by an 
-<a href="extension-valueset-reference.html">extension</a>). The correct display for a 
+<a href="[%extensions-location%]StructureDefinition-valueset-reference.html">extension</a>). The correct display for a 
 code can be determined by a <a href="codesystem-operation-lookup.html">$lookup operation</a>. 
 Any alternative display specified in the value set would go in 
 <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, perhaps appended to 

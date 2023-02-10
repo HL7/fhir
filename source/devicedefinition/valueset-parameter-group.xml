@@ -17,6 +17,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinitionParameterGroup"/>
+  <title value="Device Definition Parameter Group"/>
   <experimental value="true"/>
   <description value="DeviceDefinitionParameterGroup"/>
   <compose>

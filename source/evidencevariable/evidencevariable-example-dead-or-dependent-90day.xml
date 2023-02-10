@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-dead-or-dependent-90day"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
         &quot;Dead or functionally dependent at 90 days&quot; is an outcome used in expressing what an Evidence is about.
       </p>
-	</div>
+	
+    </div>
   </text>
+  <name value="DeadOrFunctionallyDependentAt90Days"/>
   <title value="Dead or functionally dependent at 90 days"/>
   <status value="draft"/>
+  <description value="Dead or functionally dependent at 90 days"/>
   <actual value="false"/>
   <characteristic>
-	  <description value="Dead or functionally dependent at 90 days"/>
-	  <definitionByCombination>
-		  <code value="any-of" />
-		  <characteristic>
-				<description value="functionally dependent at 90 days"/>
-				<definitionCodeableConcept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="718705001"/>
-						<display value="Functionally dependent (finding)"/>
-					</coding>
-				</definitionCodeableConcept>
-				<timeFromEvent>
-					<eventCodeableConcept>
-						<coding>
-							<system value="http://hl7.org/fhir/evidence-variable-event"/>
-							<code value="study-start"/>
-							<display value="Study Start"/>
-						</coding>
-					</eventCodeableConcept>
-					<quantity>
-						<value value="90"/>
-						<unit value="day"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="d"/>
-					</quantity>
-				</timeFromEvent>
-		  </characteristic>
-		  <characteristic>
-				<description value="dead at 90 days"/>
-				<definitionCodeableConcept>
-					<coding>
-						<system value="http://snomed.info/sct"/>
-						<code value="419099009"/>
-						<display value="Dead (finding)"/>
-					</coding>
-				</definitionCodeableConcept>
-				<timeFromEvent>
-					<quantity>
-						<value value="90"/>
-						<unit value="day"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="d"/>
-					</quantity>
-				</timeFromEvent>
-		  </characteristic>
-	  </definitionByCombination>
+    <description value="Dead or functionally dependent at 90 days"/>
+    <definitionByCombination>
+      <code value="any-of"/>
+      <characteristic>
+        <description value="functionally dependent at 90 days"/>
+        <definitionCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="718705001"/>
+            <display value="Functionally dependent (finding)"/>
+          </coding>
+        </definitionCodeableConcept>
+        <timeFromEvent>
+          <eventCodeableConcept>
+            <coding>
+              <system value="http://hl7.org/fhir/evidence-variable-event"/>
+              <code value="study-start"/>
+              <display value="Study Start"/>
+            </coding>
+          </eventCodeableConcept>
+          <quantity>
+            <value value="90"/>
+            <unit value="day"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+          </quantity>
+        </timeFromEvent>
+      </characteristic>
+      <characteristic>
+        <description value="dead at 90 days"/>
+        <definitionCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="419099009"/>
+            <display value="Dead (finding)"/>
+          </coding>
+        </definitionCodeableConcept>
+        <timeFromEvent>
+          <quantity>
+            <value value="90"/>
+            <unit value="day"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/>
+          </quantity>
+        </timeFromEvent>
+      </characteristic>
+    </definitionByCombination>
   </characteristic>
   <handling value="dichotomous"/>
 </EvidenceVariable>

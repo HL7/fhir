@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExampleScenario xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<ExampleScenario xmlns="http://hl7.org/fhir">
   <id value="example-laborder"/>
   <text>
     <status value="additional"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"><p> <b> ExampleScenario - Lab order tracking with Task</b> <a name="example-laborder"> </a> </p> <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource ExampleScenario &quot;example-laborder&quot; </p> </div> <p> <b> status</b> : draft</p> <p> <b> purpose</b> : Purpose: this serves to demonstrate a scenario that uses service requests and Task resources to establish a handshake for order tracking.</p> 
-     <img src="./examplescenario-example-laborder.png" alt="ExampleScenario diagram - IHE MMA example"></img></div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> 
+        <b> ExampleScenario - Lab order tracking with Task</b> 
+        <a name="example-laborder"> </a> 
+      </p> 
+      <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%">
+        <p style="margin-bottom: 0px">Resource ExampleScenario &quot;example-laborder&quot; </p> 
+      </div> 
+      <p> 
+        <b> status</b> : draft
+      </p> 
+      <p> 
+        <b> purpose</b> : Purpose: this serves to demonstrate a scenario that uses service requests and Task resources to establish a handshake for order tracking.
+      </p> 
+     
+      <img src="./examplescenario-example-laborder.png" alt="ExampleScenario diagram - IHE MMA example"/>
+    </div>
   </text>
+  <name value="LabOrderTrackingWithTask"/>
   <title value="Lab order tracking with Task"/>
   <status value="draft"/>
   <description value="In this example, the clinician creates an order in the CPOE. Then a Task is created and updated by both the CPOE and the Lab system..."/>

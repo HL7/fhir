@@ -268,7 +268,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-
     <element id="Endpoint.payload">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>

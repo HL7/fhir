@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet-expand"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-expand"/>
   <version value="5.0.0"/>
-  <name value="expand"/>
+  <name value="Expand"/>
   <title value="Value Set Expansion"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -108,7 +110,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [TerminologyCapabilities](terminologycapabilities.html)..expansion.textFilter. Typical usage of this parameter includes functionality like:&#xA;&#xA;* using left matching e.g. &#34;acut ast&#34;&#xA;* allowing for wild cards such as %, &amp;, ?&#xA;* searching on definition as well as display(s)&#xA;* allowing for search conditions (and / or / exclusions)&#xA;&#xA;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems"/>
+    <documentation value="A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [TerminologyCapabilities](terminologycapabilities.html)..expansion.textFilter. Typical usage of this parameter includes functionality like:&#xA;&#xA;* using left matching e.g. &quot;acut ast&quot;&#xA;* allowing for wild cards such as %, &amp;, ?&#xA;* searching on definition as well as display(s)&#xA;* allowing for search conditions (and / or / exclusions)&#xA;&#xA;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems"/>
     <type value="string"/>
   </parameter>
   <parameter>

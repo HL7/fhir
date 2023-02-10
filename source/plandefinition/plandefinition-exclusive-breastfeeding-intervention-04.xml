@@ -1,146 +1,281 @@
-﻿<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="exclusive-breastfeeding-intervention-04"/>
   <text>
     <status value="generated"/>
-	<div xmlns="http://www.w3.org/1999/xhtml">
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Id: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/exclusive-breastfeeding-intervention-04</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Identifier: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>value: </b>
-                  <span>exclusive-breastfeeding-intervention-04</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Title: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding Intervention-04</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Status: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">active</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Description: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by creating a lactation consult for the mother if appropriate.</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Topic: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <span>
-                     <b>text: </b>
-                     <span>Exclusive Breastfeeding</span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Library: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>reference: </b>
-                  <span>Library/library-exclusive-breastfeeding-cds-logic</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <h2>Actions</h2>
-         <p style="width: 100%;" class="hierarchy">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Id: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">PlanDefinition/exclusive-breastfeeding-intervention-04</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Identifier: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>value: </b>
+                  
+            <span>exclusive-breastfeeding-intervention-04</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Title: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Exclusive Breastfeeding Intervention-04</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Status: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">active</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Description: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by creating a lactation consult for the mother if appropriate.</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Topic: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
             <span>
-               <b>Step: </b>
-               <br/>
-               <span style="padding-left: 25px;">
-                  <b>title: </b>
-                  <span>Mother should be referred to a lactation specialist for consultation.</span>
-                  <br/>
-               </span>
-               <span style="padding-left: 25px;">
-                  <b>condition: </b>
-                  <br/>
-                  <span style="padding-left: 50px;">
-                     <b>type: </b>
-                     <span>applicability</span>
-                     <br/>
-                  </span>
-                  <span style="padding-left: 50px;">
-                     <b>expression: </b>
-                     <span>Should Create Lactation Consult</span>
-                     <br/>
-                  </span>
-               </span>
-               <span style="padding-left: 25px;">
-                  <span>
-                     <b>Step: </b>
-                     <br/>
-                     <span style="padding-left: 50px;">
-                        <b>title: </b>
-                        <span>Create a lactation consult request.</span>
-                        <br/>
-                     </span>
-                     <span style="padding-left: 50px;">
-                        <b>text: </b>
-                        <span>Create a lactation consult request</span>
-                        <br/>
-                     </span>
-                     <span style="padding-left: 50px;"/>
-                  </span>
-               </span>
+                     
+              <b>text: </b>
+                     
+              <span>Exclusive Breastfeeding</span>
+                  
             </span>
-         </p>
-      </div>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Library: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>reference: </b>
+                  
+            <span>Library/library-exclusive-breastfeeding-cds-logic</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <h2>Actions</h2>
+         
+      <p style="width: 100%;" class="hierarchy">
+            
+        <span>
+               
+          <b>Step: </b>
+               
+          <br/>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>title: </b>
+                  
+            <span>Mother should be referred to a lactation specialist for consultation.</span>
+                  
+            <br/>
+               
+          </span>
+               
+          <span style="padding-left: 25px;">
+                  
+            <b>condition: </b>
+                  
+            <br/>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>type: </b>
+                     
+              <span>applicability</span>
+                     
+              <br/>
+                  
+            </span>
+                  
+            <span style="padding-left: 50px;">
+                     
+              <b>expression: </b>
+                     
+              <span>Should Create Lactation Consult</span>
+                     
+              <br/>
+                  
+            </span>
+               
+          </span>
+               
+          <span style="padding-left: 25px;">
+                  
+            <span>
+                     
+              <b>Step: </b>
+                     
+              <br/>
+                     
+              <span style="padding-left: 50px;">
+                        
+                <b>title: </b>
+                        
+                <span>Create a lactation consult request.</span>
+                        
+                <br/>
+                     
+              </span>
+                     
+              <span style="padding-left: 50px;">
+                        
+                <b>text: </b>
+                        
+                <span>Create a lactation consult request</span>
+                        
+                <br/>
+                     
+              </span>
+                     
+              <span style="padding-left: 50px;"/>
+                  
+            </span>
+               
+          </span>
+            
+        </span>
+         
+      </p>
+      
+    </div>
   </text>
   <identifier>
     <use value="official"/>
     <value value="exclusive-breastfeeding-intervention-04"/>
   </identifier>
   <version value="1.0.0"/>
+  <name value="ExclusiveBreastfeedingIntervention04"/>
   <title value="Exclusive Breastfeeding Intervention-04"/>
   <status value="active"/>
   <date value="2015-03-08"/>
@@ -182,7 +317,9 @@
       <title value="Create a lactation consult request."/>
       <textEquivalent value="Create a lactation consult request"/>
       <type>
-        <coding><code value="create"/></coding>
+        <coding>
+          <code value="create"/>
+        </coding>
       </type>
       <dynamicValue>
         <path value="/"/>

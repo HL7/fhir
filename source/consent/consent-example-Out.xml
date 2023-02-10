@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-Out"/>
   <text>
     <status value="generated"/>
@@ -7,10 +9,10 @@
       <p>The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
 	    The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. 
       Withhold Authorization of sharing data for Treatment
-	</p>
+      </p>
       <p>
     Patient "P. van de Heuvel" wishes to have no data at the Burgers University Medical Center available for normal treatment use.
-   </p>
+      </p>
     </div>
   </text>
   <status value="active"/>
@@ -40,21 +42,19 @@
       <code value="INFA"/>
     </coding>
   </regulatoryBasis>
+  <decision value="permit"/>
   <provision>
-    <type value="permit"/>
-    <provision>
-      <type value="deny"/>
-      <actor>
-        <role>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="CST"/>
-          </coding>
-        </role>
-        <reference>
-          <reference value="Organization/f001"/>
-        </reference>
-      </actor>
-    </provision>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="CST"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Organization/f001"/>
+      </reference>
+    </actor>
   </provision>
+
 </Consent>

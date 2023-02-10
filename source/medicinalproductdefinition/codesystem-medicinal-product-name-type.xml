@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicinal-product-name-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProductNameType"/>
-  <title value="ProductNameType"/>
+  <title value="Product Name Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,9 +41,24 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-name-type"/>
   <content value="complete"/>
-  <concept><code value="BAN"/><display value="British Approved Name"/></concept>
-  <concept><code value="INN"/><display value="International Non-Proprietary Name"/></concept>
-  <concept><code value="INNM"/><display value="Modified International Non-Proprietary Name"/></concept>
-  <concept><code value="pINN"/><display value="Proposed International Non-Proprietary Name"/></concept>
-  <concept><code value="rINN"/><display value="Recommended International Non-Proprietary Name"/></concept>
+  <concept>
+    <code value="BAN"/>
+    <display value="British Approved Name"/>
+  </concept>
+  <concept>
+    <code value="INN"/>
+    <display value="International Non-Proprietary Name"/>
+  </concept>
+  <concept>
+    <code value="INNM"/>
+    <display value="Modified International Non-Proprietary Name"/>
+  </concept>
+  <concept>
+    <code value="pINN"/>
+    <display value="Proposed International Non-Proprietary Name"/>
+  </concept>
+  <concept>
+    <code value="rINN"/>
+    <display value="Recommended International Non-Proprietary Name"/>
+  </concept>
 </CodeSystem>

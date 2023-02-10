@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GoalAchievementStatus"/>
+  <title value="Goal Achievement Status"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>

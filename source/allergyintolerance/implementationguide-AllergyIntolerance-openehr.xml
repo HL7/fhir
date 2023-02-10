@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="allergyintolerance-openehr"/>
   <version value="0.01"/>
-  <name value="openEHR Archetype Profile"/>
-  <title value="openEHR Archetype Profile"/>
+  <name value="OpenEHRArchetypeProfile"/>
+  <title value="open E H R  Archetype  Profile"/>
   <status value="draft"/>
   <date value="2014-10-09T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc / openEHR project"/>
   <description value="A set of extensions that define how the parts of the openEHR RiskOfAdverseReaction archetype that are not generaly encountered by implementers are represented"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

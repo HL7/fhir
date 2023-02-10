@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="vitalspanel"/>
   <text>
     <status value="generated"/>
@@ -25,7 +27,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1458"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="observation-vitalspanel"/>
+  <name value="Observationvitalspanel"/>
   <title value="Observation Vital Signs Panel Profile"/>
   <status value="draft"/>
   <experimental value="false"/>

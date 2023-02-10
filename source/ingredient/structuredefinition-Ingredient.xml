@@ -251,7 +251,7 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
-    </element>    
+    </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="160,300"/>

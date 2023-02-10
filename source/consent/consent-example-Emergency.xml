@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-Emergency"/>
   <text>
     <status value="generated"/>
@@ -37,12 +39,22 @@
       <code value="INFA"/>
     </coding>
   </regulatoryBasis>
+  <decision value="deny"/>
   <provision>
-    <!-- this is opt-out - e.g. nothing approved unless otherwise stated. -->
-    <type value="deny"/>
-    <provision>
     <!-- deny Artis University Medical Center specifically -->
-      <type value="deny"/>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="CST"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Organization/f201"/>
+      </reference>
+    </actor>
+    <provision>
+      <!-- permit Artis University Medical Center for Emergency Treatment -->
       <actor>
         <role>
           <coding>
@@ -54,25 +66,10 @@
           <reference value="Organization/f201"/>
         </reference>
       </actor>
-      <provision>
-      <!-- permit Artis University Medical Center for Emergency Treatment -->
-        <type value="permit"/>
-        <actor>
-          <role>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-              <code value="CST"/>
-            </coding>
-          </role>
-          <reference>
-            <reference value="Organization/f201"/>
-          </reference>
-        </actor>
-        <purpose>
-          <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
-          <code value="ETREAT"/>
-        </purpose>
-      </provision>
+      <purpose>
+        <system value="http://terminology.hl7.org/CodeSystem/v3-ActReason"/>
+        <code value="ETREAT"/>
+      </purpose>
     </provision>
   </provision>
 </Consent>

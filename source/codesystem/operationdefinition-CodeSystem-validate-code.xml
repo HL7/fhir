@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem-validate-code"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-validate-code"/>
   <version value="5.0.0"/>
-  <name value="validate-code"/>
+  <name value="Validatecode"/>
   <title value="Code System based Validation"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -52,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters &#34;url&#34; or &#34;codeSystem&#34; must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.&#xA;&#xA;When invoking this operation, a client **SHALL** provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."/>
+  <description value="Validate that a coded value is in the code system. If the operation is not called at the instance level, one of the parameters &quot;url&quot; or &quot;codeSystem&quot; must be provided. The operation returns a result (true / false), an error message, and the recommended display for the code.&#xA;&#xA;When invoking this operation, a client **SHALL** provide one (and only one) of the parameters (code+system, coding, or codeableConcept). Other parameters (including version and display) are optional. When validating a code or a coding, then the code, system and version output parameters **SHOULD** be populated when possible. When a validating a CodeableConcept, then the codeableConcept output parameter **SHOULD** be populated when possible."/>
   <affectsState value="false"/>
   <code value="validate-code"/>
   <resource value="CodeSystem"/>
@@ -179,7 +181,7 @@
     <documentation value="The system for the code that was validated"/>
     <type value="uri"/>
   </parameter>
-   <parameter>
+  <parameter>
     <name value="version"/>
     <use value="out"/>
     <min value="0"/>
@@ -196,11 +198,11 @@
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
-   <name value="issues"/>
-   <use value="out"/>
-   <min value="0"/>
-   <max value="1"/>
-   <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
-   <type value="OperationOutcome"/>
+    <name value="issues"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
+    <type value="OperationOutcome"/>
   </parameter>
 </OperationDefinition>
