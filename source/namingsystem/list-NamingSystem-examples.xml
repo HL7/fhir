@@ -30,18 +30,6 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Examples of naming systems for Common US identification"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="namingsystem-registry"/>
-    </extension>
-    <item>
-      <reference value="NamingSystem/registry"/>
-      <display value="namingsystem-registry"/>
-    </item>
-  </entry>
-  <entry>
-    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Example Naming System Metadata"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
