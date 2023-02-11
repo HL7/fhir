@@ -16,7 +16,7 @@ The merge operation will have multiple stages, and some of these may take additi
 | Data Processing | The REST operation may have returned, and processing is ongoing to patch any other resource that references the source patient to reference the target patient.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source Patient record will be marked as inactive, and add the link property to the target patient (except where systems delete the record)
 | Completed (or failed) | All data processing is complete, and the Task is marked as completed (maybe with errors) |
 
-During the Data Processing stage the patient resource and resources referencing the source patient may be indeterminate until the merge processing operation completes.
+During the Data Processing stage any of the related patient resources (source, target, and result) and any resources referencing any of these patients may be indeterminate until the merge processing operation completes. These resources may be in the process of being changed or deleted, or having references updated, and there is no implied sequence for these updates to be made. There is also no implication that these changes are happening within a single transaction. Data consumers should wait until the merge process completes before querying for data about any of the relevant patients.
 
 **Note:** Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc.
 
