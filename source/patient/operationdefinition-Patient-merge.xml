@@ -56,7 +56,7 @@
   </contact>
   <description value="The Merge operation is used to request 2 patient resources be merged.&#xD;&#xD;The target is the remaining patient resource (survivor), the source will be marked as inactive (or in some systems deleted)&#xD;&#xD;The source-patient resource will be updated to add a new link reference to the target-patient resource (link-type=replaced-by), and also update the status to inactive (unless the resource was deleted)&#xD;&#xD;The target-patient resource will be updated to add a new link reference to the source-patient resource (link-type=replaces) - and must be included in the result-patient parameter if used (if the source patient is deleted, then this link is not required)"/>
   <affectsState value="true"/>
-  <code value="expand"/>
+  <code value="merge"/>
   <comment value="There must be at least 1 source patient/patient-identifier parameter and at least 1 target patient/patient-identifier parameter&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter)&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each old patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged."/>
   <resource value="Patient"/>
   <system value="false"/>
