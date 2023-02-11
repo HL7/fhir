@@ -1,4 +1,4 @@
-There must be at least 1 source patient/patient-identifier parameter and at least 1 target patient/patient-identifier parameter
+There must be exactly 1 source patient, which may  be identified by either the source-patient or source-patient-identifier parameters.  Similarly, there must be exactly 1 target patient, identified by either the target-patient or target-patient-identifier parameters.  In both cases, either a reference to the patient or a list of identifiers that can be used to identify the patient may be provided, but not both.
 
 The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter)
 
