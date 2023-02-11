@@ -20,7 +20,7 @@ During the Data Processing stage any of the related patient resources (source, t
 
 **Note:** Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc.
 
-**Note:** During the pre-merge validation stage, a system may perform other internal checks/business rules.
+**Note:** Systems may do any other internal checks or business rule validation when preparing for or performing a merge.
 
 ## Merging Identifiers
 If the result patient resource is provided in the parameters to the operation, then it is assumed that the caller has correctly included all the required identifiers desired to be in the target patient (though must include the identifiers specified in the input parameters).
