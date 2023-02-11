@@ -43,6 +43,7 @@
     <include>
       <system value="http://hl7.org/fhir/cited-artifact-status-type"/>
     </include>
+    <!--
     <include>
       <system value="http://hl7.org/fhir/publication-status"/>
       <concept>
@@ -54,5 +55,6 @@
         <display value="Unknown"/>
       </concept>
     </include>
+    -->
   </compose>
 </ValueSet>

@@ -1647,7 +1647,7 @@
     <Cell><Data ss:Type="String">Other</Data></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String">The administrative gender is a value other than male/female/unknown. Where this value is selected, systems may often choose to include an extension with the localized more specific value.</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">&lt;AdministrativeGender.UN</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A,&gt;0001.O(Source concept 'other' is broader than target concept 'Other' because target concept does not include 'Ambiguous')</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">&gt;0001.A(Source concept 'other' is broader than target concept 'Ambiguous' because target concept does not include 'Other'),&gt;0001.O(Source concept 'other' is broader than target concept 'Other' because target concept does not include 'Ambiguous')</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">☿</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="105">
