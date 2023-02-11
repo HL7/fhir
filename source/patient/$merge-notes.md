@@ -52,17 +52,15 @@ A Provenance resource MAY be created to link all of the resources that reference
 
 ## Post Merge Expectations
 ### Once the patient resources have been merged:
-A GET on the old Patient resource ID (e.g. `GET [base]/Patient/pat01`) will return either:
+A GET on the source Patient resource ID (e.g. `GET [base]/Patient/pat01`) will return either:
 
-* 200 OK and returns the old Patient which is now marked as inactive, and has the link (replaced-by) populated with the new Patient ID
+* 200 OK and returns the source Patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID 
 (Note: some systems may have cleared all the other properties making this a stub resource)
 * 404 not found (when the merge system deleted the resource)
 
-> **Review Note:** If the system "knows" that the resource was there it would be preferable to return a stub patient 202 as described above.
+**Note:** Security implications such as those from SMART tokens could restrict access here.
 
-> **Review Note:** Security implications such as those from SMART tokens could restrict access here.
-
-When performing a SEARCH by the old Patient Resource ID return: e.g. GET [base]/Patient?_id=pat01 (often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
+When performing a SEARCH by the old Patient Resource ID return: e.g. `GET [base]/Patient?_id=pat01` (often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
 
 * 200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)
 * 200 Ok Bundle with no patient resource (case where the old patient was deleted)
