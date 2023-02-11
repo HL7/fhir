@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceDefinition"/>
-  <title value="DeviceDefinition"/>
+  <title value="Device Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -852,33 +852,33 @@
       <path value="DeviceDefinition.guideline.indication"/>
       <short value="A clinical condition for which the device was designed to be used"/>
       <definition value="A clinical condition for which the device was designed to be used."/>
+      <comment value="A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.contraindication">
       <path value="DeviceDefinition.guideline.contraindication"/>
       <short value="A specific situation when a device should not be used because it may cause harm"/>
       <definition value="A specific situation when a device should not be used because it may cause harm."/>
+      <comment value="A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.warning">
       <path value="DeviceDefinition.guideline.warning"/>
       <short value="Specific hazard alert information that a user needs to know before using the device"/>
       <definition value="Specific hazard alert information that a user needs to know before using the device."/>
+      <comment value="A ClinicalUseDefinition that points to the DeviceDefinition can be used if more structured data is needed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableReference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ClinicalUseDefinition"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="DeviceDefinition.guideline.intendedUse">

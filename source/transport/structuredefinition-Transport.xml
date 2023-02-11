@@ -207,7 +207,6 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Transport"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Contract"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -1249,6 +1248,28 @@
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=LOC].role"/>
+      </mapping>
+    </element>
+    <element id="Transport.reason">
+      <path value="Transport.reason"/>
+      <short value="Business status of transported entity"/>
+      <definition value="The business status of the person or item being currently transported."/>
+      <comment value="This element should be used to capture the current business status of the entity being transported, not the status of transport."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates the current business status of the entity being transported."/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.location"/>
       </mapping>
     </element>
     <element id="Transport.reasonCode">

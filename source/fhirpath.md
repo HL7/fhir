@@ -86,7 +86,7 @@ Note: string constants are surrounded by either " or ', and use json type escapi
 4. Boolean evaluations
 ----------------------
 
-Collections can be evaluated as booleans in logical tests in criteria. When a collection is implicited converted to a boolean then:
+Collections can be evaluated.ofType(boolean)s in logical tests in criteria. When a collection is implicited converted to a boolean then:
 
 * if it has a single item that is a boolean:
   - it has the value of the boolean

@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ProtocolType"/>
+  <title value="Protocol Type"/>
   <experimental value="true"/>
   <description value="ProtocolType"/>
   <concept>

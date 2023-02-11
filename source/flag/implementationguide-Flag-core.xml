@@ -3,22 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Flag-core"/>
   <version value="0.1"/>
-  <name value="Flag HL7 Extensions"/>
-  <title value="Flag HL7 Extensions"/>
+  <name value="FlagHL7Extensions"/>
+  <title value="Flag  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - Patient Care WG"/>
   <description value="Defines common extensions used with or related to the Flag resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/flag-detail"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/flag-priority"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

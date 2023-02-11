@@ -4,7 +4,6 @@ excluded_structure
 _in
 _security
 _type
-recruitment_actual
 _lastupdated
 _list
 lifecycle
@@ -16,4 +15,3 @@ _source
 _id
 _content
 _text
-recruitment_target

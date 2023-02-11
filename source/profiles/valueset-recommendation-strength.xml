@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StrengthOfRecommendationRating"/>
+  <title value="Strength Of Recommendation Rating"/>
   <experimental value="true"/>
   <description value="StrengthOfRecommendationRating"/>
   <compose>

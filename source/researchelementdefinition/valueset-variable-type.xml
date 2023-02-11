@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="VariableType"/>
+  <title value="Variable Type"/>
   <experimental value="true"/>
   <description value="VariableType"/>
   <compose>

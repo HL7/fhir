@@ -3,29 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Parameters-core"/>
   <version value="0.1"/>
-  <name value="Parameters HL7 Extensions"/>
-  <title value="Parameters HL7 Extensions"/>
+  <name value="ParametersHL7Extensions"/>
+  <title value="Parameters  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Parameters resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/parameters-fullUrl"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/parameters-definition"/>
-      </reference>
-    </resource>
-    <!-- Results in an indexOutOfBounds exception in the publisher, I'm guessing because extensions haven't been loaded yet?
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/definedparameters"/>
-      </reference>
-    </resource>
-    -->
-  </definition>
 </ImplementationGuide>

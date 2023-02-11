@@ -1,0 +1,37 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>
+This resource covers the supply of biologically derived products to a patient. Examples include provision of highly matched cellular therapy products or crossmatched blood for a patient, supply of a cornea for ocular surgery, supply of a skin products for burn trauma therapy, provision of banked human milk for very low birthweight babies. The biologically derived product dispense can be the result of a transfusion laboratory or tissue bank system responding to a request or order.
+
+<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+</p>
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+This resource has boundaries with MedicationDispense and DeviceDispense. BiologicallyDerivedProductDispense should be used when the product is a biologic derived from a human donor or another biological entity.
+Biologics prepared from large pool donor sources such as human albumin solutions or immune globulin preparations are often handled through pharmacy and MedicationDispense may be more appropriate.
+</p>
+<p>
+The request to initiate a BiologicallyDerivedProductDispense may be via a <a href="servicerequest.html">ServiceRequest</a> resource.
+</p>
+<p>
+The details of the clinical application of the dispensed product may be captured in a <a href="procedure.html">Procedure</a>resource.
+</p>
+</div>
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

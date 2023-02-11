@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="InventoryItem"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+  <version value="5.0.0"/>
+  <name value="InventoryItem"/>
+  <title value="Inventory Item"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value=" functional description of an inventory item used in inventory and supply-related workflows."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="InventoryItem"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="InventoryItem">
+      <path value="InventoryItem"/>
+      <short value="A functional description of an inventory item used in inventory and supply-related workflows"/>
+      <definition value="A functional description of an inventory item used in inventory and supply-related workflows."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="administrative.entity"/>
+      </mapping>
+    </element>
+    <element id="InventoryItem.status">
+      <path value="InventoryItem.status"/>
+      <short value="active | inactive | entered-in-error | unknown"/>
+      <definition value="Status of the item entry."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="InventoryItemStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the status of the inventory item."/>
+        </extension>
+        <strength value="required"/>
+        <description value="Status of the inventory item."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-status"/>
+      </binding>
+    </element>
+    <element id="InventoryItem.category">
+      <path value="InventoryItem.category"/>
+      <short value="Category or class of the item"/>
+      <definition value="Category or class of the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.code">
+      <path value="InventoryItem.code"/>
+      <short value="Code deesignating the specific type of item"/>
+      <definition value="Code deesignating the specific type of item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.name">
+      <path value="InventoryItem.name"/>
+      <short value="The item name(s) - the brand name, or common name, functional name, generic name or others"/>
+      <definition value="The item name(s) - the brand name, or common name, functional name, generic name."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.name.nameType">
+      <path value="InventoryItem.name.nameType"/>
+      <short value="The type of name e.g. 'brand-name', 'functional-name', 'common-name'"/>
+      <definition value="The type of name e.g. 'brand-name', 'functional-name', 'common-name'."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NameType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The type of name for the item"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Name types."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-nametype"/>
+      </binding>
+    </element>
+    <element id="InventoryItem.name.language">
+      <path value="InventoryItem.name.language"/>
+      <short value="The language of the item name"/>
+      <definition value="The language of the item name."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="NameLanguage"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The languages for an item name"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Name languages."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
+    <element id="InventoryItem.name.name">
+      <path value="InventoryItem.name.name"/>
+      <short value="The name of the item"/>
+      <definition value="The name of the item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryItem.responsibleOrganization">
+      <path value="InventoryItem.responsibleOrganization"/>
+      <short value="Organization(s) responsible for the product"/>
+      <definition value="Organization(s) responsible for the product."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.responsibleOrganization.role">
+      <path value="InventoryItem.responsibleOrganization.role"/>
+      <short value="The role of the organization e.g. manufacturer, distributor, or other"/>
+      <definition value="The role of the organization e.g. manufacturer, distributor, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.responsibleOrganization.organization">
+      <path value="InventoryItem.responsibleOrganization.organization"/>
+      <short value="An organization that is associated with the item"/>
+      <definition value="An organization that has an association with the item, e.g. manufacturer, distributor, responsible, etc."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="InventoryItem.description">
+      <path value="InventoryItem.description"/>
+      <short value="The description of the item"/>
+      <definition value="The description of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.description.language">
+      <path value="InventoryItem.description.language"/>
+      <short value="The language of the item description"/>
+      <definition value="The language of the item description."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ItemDescriptionLanguage"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The languages for a description of an item"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Description languages."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+      </binding>
+    </element>
+    <element id="InventoryItem.description.description">
+      <path value="InventoryItem.description.description"/>
+      <short value="Textual description of the item"/>
+      <definition value="Textual description of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryItem.inventoryStatus">
+      <path value="InventoryItem.inventoryStatus"/>
+      <short value="The usage status like recalled, in use, discarded"/>
+      <definition value="The usage status e.g. recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.dimension">
+      <path value="InventoryItem.dimension"/>
+      <short value="The dimensions of the item"/>
+      <definition value="The dimensions of the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.dimension.dimensionName">
+      <path value="InventoryItem.dimension.dimensionName"/>
+      <short value="The type of dimension, e.g. weight, length, diameter"/>
+      <definition value="The type of dimension, e.g. weight, length, diameter. Dpending on the type of item, this can be a dimension of the packaging or of the product itself."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.dimension.dimensionValue">
+      <path value="InventoryItem.dimension.dimensionValue"/>
+      <short value="The dimension value"/>
+      <definition value="The dimension value."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
+    <element id="InventoryItem.storageHandling">
+      <path value="InventoryItem.storageHandling"/>
+      <short value="The storage and handling specifications of the item"/>
+      <definition value="The storage and handling specifications of the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.storageHandling.characteristic">
+      <path value="InventoryItem.storageHandling.characteristic"/>
+      <short value="The storage and handling characteristic being defined e.g. max storage temperature, atmospheric pressure range"/>
+      <definition value="The storage and handling characteristic being defined e.g. max storage temperature, atmospheric pressure range."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.storageHandling.value[x]">
+      <path value="InventoryItem.storageHandling.value[x]"/>
+      <short value="The actual interval for the storage characteristic"/>
+      <definition value="The actual interval for the storage characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryItem.baseUnit">
+      <path value="InventoryItem.baseUnit"/>
+      <short value="The base unit of measure - the unit in which the product is used or counted"/>
+      <definition value="The base unit of measure - the unit in which the product is used or counted."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.netContent">
+      <path value="InventoryItem.netContent"/>
+      <short value="Net content of the item"/>
+      <definition value="Net content of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="InventoryItem.association">
+      <path value="InventoryItem.association"/>
+      <short value="Association with other items or products"/>
+      <definition value="Association with other items or products."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.association.associationType">
+      <path value="InventoryItem.association.associationType"/>
+      <short value="The type of association"/>
+      <definition value="The type of association e.g. 'packaged within' or 'used with' or 'to be mixed with."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.association.relatedItem">
+      <path value="InventoryItem.association.relatedItem"/>
+      <short value="The related item or product"/>
+      <definition value="The related item or product."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationKnowledge"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+      </type>
+    </element>
+    <element id="InventoryItem.association.quantity">
+      <path value="InventoryItem.association.quantity"/>
+      <short value="The quantity of the product in this product"/>
+      <definition value="The quantity of the related product in this product - Numerator is the quantity of the related product. Denominator is the quantity of the present product. For example a value of 20 means that this product contains 20 units of the related product; a value of 1:20 means the inverse - that the contained product contains 20 units of the present product."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Ratio"/>
+      </type>
+    </element>
+    <element id="InventoryItem.characteristics">
+      <path value="InventoryItem.characteristics"/>
+      <short value="The characteristics of the item"/>
+      <definition value="The characteristics of the item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.characteristics.characteristicType">
+      <path value="InventoryItem.characteristics.characteristicType"/>
+      <short value="The type of characteristic"/>
+      <definition value="The type of characteristic."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="InventoryItem.characteristics.value[x]">
+      <path value="InventoryItem.characteristics.value[x]"/>
+      <short value="The value of the attribute"/>
+      <definition value="The value of the attribute."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="SimpleQuantity"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance">
+      <path value="InventoryItem.instance"/>
+      <short value="Instances or occurrences of the product"/>
+      <definition value="Instances or occurrences of the product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance.identifier">
+      <path value="InventoryItem.instance.identifier"/>
+      <short value="The identifier for the physical instance, typically a serial number"/>
+      <definition value="The identifier for the physical instance, typically a serial number."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance.lotNumber">
+      <path value="InventoryItem.instance.lotNumber"/>
+      <short value="The lot number of the item"/>
+      <definition value="The lot number of the item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance.expiry">
+      <path value="InventoryItem.instance.expiry"/>
+      <short value="The expiry date or date and time for the product"/>
+      <definition value="The expiry date or date and time for the product."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance.subject">
+      <path value="InventoryItem.instance.subject"/>
+      <short value="The subject that the item is associated with"/>
+      <definition value="The subject that the item is associated with."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+      </type>
+    </element>
+    <element id="InventoryItem.instance.location">
+      <path value="InventoryItem.instance.location"/>
+      <short value="The location that the item is associated with"/>
+      <definition value="The location that the item is associated with."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+    </element>
+    <element id="InventoryItem.productReference">
+      <path value="InventoryItem.productReference"/>
+      <short value="Link to a product resource used in clinical workflows"/>
+      <definition value="Link to a product resource used in clinical workflows."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

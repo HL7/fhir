@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishablemeasure"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishablemeasure"/>
+  <version value="5.0.0"/>
+  <name value="PublishableMeasure"/>
+  <title value="Publishable Measure"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Supports declaration of the Measure metadata required by HL7 and other organizations that share and publish measures with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Measure"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareablemeasure"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Measure">
+      <path value="Measure"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="Measure.identifier">
+      <path value="Measure.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.date">
+      <path value="Measure.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.contact">
+      <path value="Measure.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.useContext">
+      <path value="Measure.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.jurisdiction">
+      <path value="Measure.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.purpose">
+      <path value="Measure.purpose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.usage">
+      <path value="Measure.usage"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.copyright">
+      <path value="Measure.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.copyrightLabel">
+      <path value="Measure.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.approvalDate">
+      <path value="Measure.approvalDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.lastReviewDate">
+      <path value="Measure.lastReviewDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.effectivePeriod">
+      <path value="Measure.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.topic">
+      <path value="Measure.topic"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.author">
+      <path value="Measure.author"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.editor">
+      <path value="Measure.editor"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.reviewer">
+      <path value="Measure.reviewer"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.endorser">
+      <path value="Measure.endorser"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact">
+      <path value="Measure.relatedArtifact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.display">
+      <path value="Measure.relatedArtifact.display"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.document">
+      <path value="Measure.relatedArtifact.document"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.resource">
+      <path value="Measure.relatedArtifact.resource"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Measure.relatedArtifact.resourceReference">
+      <path value="Measure.relatedArtifact.resourceReference"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

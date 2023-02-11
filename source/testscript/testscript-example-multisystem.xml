@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><TestScript xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<TestScript xmlns="http://hl7.org/fhir">
   <id value="testscript-example-multisystem"/>
   <url value="http://hl7.org/fhir/TestScript/testscript-example-multisystem"/>
   <identifier>
@@ -6,7 +8,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.12.6"/>
   </identifier>
   <version value="1.0"/>
-  <name value="testscript-example-multisystem"/>
+  <name value="Testscriptexamplemultisystem"/>
   <title value="Multisystem Test Script"/>
   <status value="draft"/>
   <experimental value="true"/>

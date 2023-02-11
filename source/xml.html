@@ -279,7 +279,7 @@ to this:
 <pre>
   &lt;xs:simpleType name=&quot;decimal-primitive&quot;&gt;
     &lt;xs:restriction base=&quot;xs:string&quot;&gt;
-      &lt;xs:pattern value=&quot;-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?&quot;/&gt;
+      &lt;xs:pattern value=&quot;-?(0|[1-9][0-9]{0,17})(\.[0-9]{1,17})?([eE][+-]?[0-9]{1,9}})?&quot;/&gt;
     &lt;/xs:restriction&gt;
   &lt;/xs:simpleType&gt;
 </pre>

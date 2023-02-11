@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchElementType"/>
+  <title value="Research Element Type"/>
   <experimental value="true"/>
   <description value="ResearchElementType"/>
   <compose>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-statement-adherence"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-statement-adherence"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1981"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="MedicationStatementAdherenceCodes"/>
+  <title value="MedicationStatement Adherence Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="MedicationStatement Adherence Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-statement-adherence"/>
+  <hierarchyMeaning value="is-a"/>
+  <content value="complete"/>
+  <concept>
+    <code value="taking"/>
+    <display value="Taking"/>
+    <definition value="The medication is being taken."/>
+    <concept>
+      <code value="taking-as-directed"/>
+      <display value="Taking As Directed"/>
+      <definition value="The medication is being taken as directed."/>
+    </concept>
+    <concept>
+      <code value="taking-not-as-directed"/>
+      <display value="Taking Not As Directed"/>
+      <definition value="The medication is not being taken as directed."/>
+    </concept>
+  </concept>
+  <concept>
+    <code value="not-taking"/>
+    <display value="Not Taking"/>
+    <definition value="The medication is not being taken."/>
+    <concept>
+      <code value="on-hold"/>
+      <display value="On Hold"/>
+      <definition value="The medication is on hold."/>
+        <concept>
+          <code value="on-hold-as-directed"/>
+          <display value="On Hold As Directed"/>
+          <definition value="The medication is on hold as directed."/>
+        </concept>
+        <concept>
+          <code value="on-hold-not-as-directed"/>
+          <display value="On Hold Not As Directed"/>
+          <definition value="The medication is on hold not as directed."/>
+        </concept>
+    </concept>
+    <concept>
+      <code value="stopped"/>
+      <display value="Stopped"/>
+      <definition value="The medication is stopped."/>
+        <concept>
+          <code value="stopped-as-directed"/>
+          <display value="Stopped As Directed"/>
+          <definition value="The medication is stopped as directed."/>
+        </concept>
+        <concept>
+          <code value="stopped-not-as-directed"/>
+          <display value="Stopped Not As Directed"/>
+          <definition value="The medication is stopped not as directed."/>
+        </concept>
+    </concept>
+  </concept>
+  <concept>
+    <code value="unknown"/>
+    <display value="Unknown"/>
+    <definition value="Whether the medication is being taken or not is not currently known."/>
+  </concept>
+</CodeSystem>

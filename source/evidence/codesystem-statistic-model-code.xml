@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="statistic-model-code"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="StatisticModelCode"/>
-  <title value="StatisticModelCode"/>
+  <title value="Statistic Model Code"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-08-05T12:00:00+11:00"/>
@@ -56,27 +58,27 @@
   <concept>
     <code value="oneSampleTTest"/>
     <display value="1-sample t-test"/>
-    <definition value="Used for 1-sample t-test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for 1-sample t-test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="twoSampleTTest"/>
     <display value="2-sample t-test"/>
-    <definition value="Used for 2-sample t-test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for 2-sample t-test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="pairedTTest"/>
     <display value="paired t-test"/>
-    <definition value="Used for paired t-test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for paired t-test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="chiSquareTest"/>
     <display value="Chi-square test"/>
-    <definition value="Used for Chi-square test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for Chi-square test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="chiSquareTestTrend"/>
     <display value="Chi-square test for trend"/>
-    <definition value="Used for Chi-square test for trend, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for Chi-square test for trend, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="pearsonCorrelation"/>
@@ -86,32 +88,32 @@
   <concept>
     <code value="anova"/>
     <display value="ANOVA (ANalysis Of VAriance)"/>
-    <definition value="Used for ANOVA method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for ANOVA method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="anovaOneWay"/>
     <display value="one-way ANOVA"/>
-    <definition value="Used for one-way ANOVA method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for one-way ANOVA method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="anovaTwoWay"/>
     <display value="2-way ANOVA without replication"/>
-    <definition value="Used for 2-way ANOVA without replication method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for 2-way ANOVA without replication method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="anovaTwoWayReplication"/>
     <display value="2-way ANOVA with replication"/>
-    <definition value="Used for 2-way ANOVA with replication method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for 2-way ANOVA with replication method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="manova"/>
     <display value="multivariate ANOVA (MANOVA)"/>
-    <definition value="Used for multivariate ANOVA (MANOVA) method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for multivariate ANOVA (MANOVA) method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="anovaThreeWay"/>
     <display value="3-way ANOVA"/>
-    <definition value="Used for 3-way ANOVA method of analysis, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for 3-way ANOVA method of analysis, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="signTest"/>
@@ -136,7 +138,7 @@
   <concept>
     <code value="fishersExactTest"/>
     <display value="Fisher’s exact test"/>
-    <definition value="Used for Fisher's exact test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for Fisher's exact test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="mcnemarsTest"/>
@@ -146,7 +148,7 @@
   <concept>
     <code value="kruskalWallisTest"/>
     <display value="Kruskal Wallis test"/>
-    <definition value="Used for Kruskal Wallis test, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for Kruskal Wallis test, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="spearmanCorrelation"/>
@@ -271,7 +273,7 @@
   <concept>
     <code value="zeroCellConstant"/>
     <display value="Zero-cell adjustment with constant"/>
-    <definition value="Zero-cell adjustment done by adding a constant to all cells of affected studies, paired with &#34;value&#34; to define the constant"/>
+    <definition value="Zero-cell adjustment done by adding a constant to all cells of affected studies, paired with &quot;value&quot; to define the constant"/>
   </concept>
   <concept>
     <code value="zeroCellContinuityCorrection"/>
@@ -286,7 +288,7 @@
   <concept>
     <code value="interactionTerm"/>
     <display value="Interaction term"/>
-    <definition value="Used for interaction term, paired with &#34;value&#34; and two or more variable elements"/>
+    <definition value="Used for interaction term, paired with &quot;value&quot; and two or more variable elements"/>
   </concept>
   <concept>
     <code value="manteHaenszelMethod"/>
@@ -331,7 +333,7 @@
   <concept>
     <code value="chiSquareTestHomogeneity"/>
     <display value="Chi-square test for homogeneity"/>
-    <definition value="Used for Chi-square test for homogeneity, may be paired with &#34;value&#34; to express degrees of freedom"/>
+    <definition value="Used for Chi-square test for homogeneity, may be paired with &quot;value&quot; to express degrees of freedom"/>
   </concept>
   <concept>
     <code value="dersimonianLairdMethod"/>

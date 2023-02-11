@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="deviceassociation-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/deviceassociation-status"/>
+  <version value="5.0.0"/>
+  <name value="DeviceAssociationCodes"/>
+  <title value="DeviceAssociation Status Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="DeviceAssociation Status Codes"/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/deviceassociation-status"/>
+    </include>
+  </compose>
+</ValueSet>

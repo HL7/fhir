@@ -35,7 +35,7 @@
         <description value="A use context assigned to the event definition"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(EventDefinition.useContext.value as CodeableConcept)"/>
+        <expression value="(EventDefinition.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -54,7 +54,7 @@
         <description value="A quantity- or range-valued use context assigned to the event definition"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(EventDefinition.useContext.value as Quantity) | (EventDefinition.useContext.value as Range)"/>
+        <expression value="(EventDefinition.useContext.value.ofType(Quantity)) | (EventDefinition.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

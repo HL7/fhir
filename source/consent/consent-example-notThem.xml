@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-notThem"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">The following scenario is based on existing jurisdictional policy and are realized in existing systems in Canada. 
 	  The default policy is one of implied consent for the provision of care, so these scenarios all deal with withdrawal or withholding consent for that purpose. <p>
 	  specific to use-case 4) Withhold or withdraw consent for disclosure to a specific provider agent (an individual within an organization) </p>
-	<p>Patient "Eve Everywoman"'s ex-spouse, Carla Espinosa is a Nurse that is employed by Burgers University Medical Center.
+      <p>Patient "Eve Everywoman"'s ex-spouse, Carla Espinosa is a Nurse that is employed by Burgers University Medical Center.
     Eve realizes that she may receive treatment at BUMC, however she does not want her ex-spouse to have any 
     access to her IIHI.  She indicates that she would like to withdraw/withhold consent to disclose any instance 
     of her health information to her ex-spouse as a result of her ex's employment at Burgers University Medical Center.
-   </p>
-   </div>
+      </p>
+    </div>
   </text>
   <status value="active"/>
   <category>
@@ -50,36 +52,35 @@
     </verifiedWith>
     <verificationDate value="2021-11-11"/>
   </verification>
+  <decision value="permit"/>
+
   <provision>
-    <type value="permit"/>
-    <provision>
-      <!-- no read or write access for this individual -->
-      <type value="deny"/>
-      <actor>
-        <role>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="PRCP"/>
-            <!-- PRCP: recipient of the information -->
-          </coding>
-        </role>
-        <reference>
-          <reference value="Practitioner/f204"/>
-          <display value="Carla Espinosa"/>
-        </reference>
-      </actor>
-      <action>
+    <!-- no read or write access for this individual -->
+    <actor>
+      <role>
         <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-          <code value="access"/>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="PRCP"/>
+          <!-- PRCP: recipient of the information -->
         </coding>
-      </action>
-      <action>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-          <code value="correct"/>
-        </coding>
-      </action>
-    </provision>
+      </role>
+      <reference>
+        <reference value="Practitioner/f204"/>
+        <display value="Carla Espinosa"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+        <code value="access"/>
+      </coding>
+    </action>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+        <code value="correct"/>
+      </coding>
+    </action>
   </provision>
+
 </Consent>

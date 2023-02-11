@@ -27,8 +27,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1318"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Provenance Relevant History"/>
-  <title value="Provenance Relevant History"/>
+  <name value="ProvenanceRelevantHistory"/>
+  <title value="Provenance  Relevant  History"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2013-12-03"/>

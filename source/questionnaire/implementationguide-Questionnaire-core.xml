@@ -1,139 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
-	<id value="Questionnaire-core"/>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
-		<valueString value="questionnaire-extensions-introduction.xml"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
-		<valueString value="questionnaire-extensions-notes.xml"/>
-	</extension>
-	<url value="http://hl7.org/fhir/Questionnaire-core"/>
-	<identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.21.1"/>
-  </identifier>
-  <name value="Core extensions for Questionnaire"/>
-	<title value="Core extensions for Questionnaire"/>
-	<status value="draft"/>
-	<date value="2013-07-04"/>
-	<publisher value="HL7"/>
-	<description value="Contains standard extensions for Questionnaire, amongst others for validation"/>
-	<packageId value="hl7.fhir.uv.Questionnaire-core"/>
-	<fhirVersion value="5.0.0"/>
-	<definition>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-definitionBased"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-optionRestriction"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-minOccurs"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-maxOccurs"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-hidden"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-itemControl"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-choiceOrientation"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-referenceResource"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-referenceProfile"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-referenceFilter"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-displayCategory"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-fhirType"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-unit"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-unitOption"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-unitValueSet"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-optionPrefix"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-optionExclusive"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-usageMode"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-supportLink"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-baseType"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-signatureRequired"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-constraint"/>
-			</reference>
-		</resource>
-		<resource>
-			<reference>
-				<reference value="StructureDefinition/questionnaire-sliderStepValue"/>
-			</reference>
-		</resource>
-	</definition>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="Questionnaire-core"/>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/introduction">
+    <valueString value="questionnaire-extensions-introduction.xml"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/notes">
+    <valueString value="questionnaire-extensions-notes.xml"/>
+  </extension>
+  <url value="http://hl7.org/fhir/Questionnaire-core"/>
+  <name value="CoreExtensionsForQuestionnaire"/>
+  <title value="Core extensions for  Questionnaire"/>
+  <status value="draft"/>
+  <date value="2013-07-04"/>
+  <publisher value="HL7"/>
+  <description value="Contains standard extensions for Questionnaire, amongst others for validation"/>
+  <packageId value="hl7.fhir.uv.Questionnaire-core"/>
+  <fhirVersion value="5.0.0"/>
 </ImplementationGuide>

@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GroupMeasure"/>
+  <title value="Group Measure"/>
   <experimental value="true"/>
   <description value="GroupMeasure"/>
   <compose>

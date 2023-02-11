@@ -237,6 +237,21 @@
         <map value="Ingredient.Allergenic Indicator"/>
       </mapping>
     </element>
+    <element id="Ingredient.description">
+      <path value="Ingredient.description"/>
+      <short value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying"/>
+      <definition value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="false"/>
+      <mapping>
+        <identity value="idmp"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="160,300"/>

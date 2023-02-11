@@ -148,7 +148,7 @@ Mobile Services (kind)
 
 <h4>Contains: Locations with a boundary that contains the provided geocode</h4>
 <p>
-    Locations can also include a definition of their boundary shape in the standard extension <a href="extension-location-boundary-geojson.html">location-boundary-geojson</a>.
+    Locations can also include a definition of their boundary shape in the standard extension <a href="[%extensions-location%]StructureDefinition-location-boundary-geojson.html">location-boundary-geojson</a>.
     This is very useful with defining explicit coverage areas.<br/>
     The special <code>contains</code> search parameter tests that the geocoded point(s) provided (expressed as [latitude]|[longitude] using the
     WGS84 datum) are contained by the defined boundary.

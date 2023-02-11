@@ -47,7 +47,7 @@ by these extensions isn't known in the data source.
 
 <h3>Additional guidance on these extensions</h3>
 <p>
-  External references might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier. The <a href="extension-display.html">display extension</a>) 
+  External references might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier. The <a href="[%extensions-location%]StructureDefinition-display.html">display extension</a>) 
   on canonical can be used to convey the title of the referenced artifact in addition to (or in place of) the discrete elements referencing it.
 </p>
 </div>

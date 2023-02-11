@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ServiceRequest"/>
-  <title value="ServiceRequest"/>
+  <title value="Service Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -158,7 +158,7 @@
       <path value="ServiceRequest.instantiatesCanonical"/>
       <short value="Instantiates FHIR protocol or definition"/>
       <definition value="The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="Note: This is a business identifier, not a resource identifier (see [discussion](resource.html#identifiers)).  It is best practice for the identifier to only appear on a single resource instance, however business practices may occasionally dictate that multiple resource instances with the same identifier can exist - possibly even with different resource types.  For example, multiple Patient and a Person resource instance might share the same social insurance number."/>
+      <comment value="The PlanDefinition resource is used to describe series, sequences, or groups of actions to be taken, while the ActivityDefinition resource is used to define each specific step or activity to be performed. More information can be found in the [Boundaries and Relationships](plandefinition.html#12.23.2) section for PlanDefinition."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -881,7 +881,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PRT, RF!-3"/>
+        <map value="PRT, RF1-3"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1043,7 +1043,7 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <mapping>
@@ -1190,9 +1190,31 @@
       <short value="Patient or consumer-oriented instructions"/>
       <definition value="Instructions in terms that are understood by the patient or consumer."/>
       <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="ServiceRequest.patientInstruction.instruction[x]">
+      <path value="ServiceRequest.patientInstruction.instruction[x]"/>
+      <short value="Patient or consumer-oriented instructions"/>
+      <definition value="Instructions in terms that are understood by the patient or consumer."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DocumentReference"/>
       </type>
       <isSummary value="true"/>
       <mapping>

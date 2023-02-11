@@ -5,7 +5,7 @@ active,Referral Requests,Telstra Health,Brian Postlethwaite,hl7-fhir-rest,POST,h
 active,Referral Requests,Epic demo organization,Kevin Paprocki,hl7-fhir-rest,POST,https://open.epic.com/Interface/FHIR,application/fhir+json,ServiceRequest QuestionnaireResponse,Authorization 234522345
 active,Subscription receiver,Telstra Health,Brian Postlethwaite,secure-email,POST PUT DELETE,mailto:subscriptions@example.org,application/fhir+xml,ServiceRequest,
 active,valid usecase?,Telstra Health,Brian Postlethwaite,hl7-fhir-msg,POST,https://sqlonfhir-dstu2.azurewebsites.net/fhir,application/pdf,CDA-EventSummary,
-active,v2 referral Requests,Epic demo organization,Kevin Paprocki,hl7v2-mllp,POST,127.0.0.1,application/hl7-v2,REF-I12,
+active,v2 referral Requests,Epic demo organization,Kevin Paprocki,hl7v2-mllp,POST,mllp://127.0.0.1:4001,x-application/hl7-v2+er7,REF-I12,
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-wado-rs,GET OPTIONS,https://pacs.hospital.org/dicomweb,application/dicom; variant=DICOM WADO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-qido-rs,GET OPTIONS,https://pacs.hospital.org/dicomweb,application/dicom; variant=DICOM QIDO-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",
 active,Enterprise Image Archive,Multi-site Co.,Elliot Silver,dicom-stow-rs,POST OPTIONS,https://pacs.hospital.org/dicomweb,application/dicom; variant=DICOM STOW-RS,"varies (application/dicom, application/dicom+xml, image/jpeg, and many more)",

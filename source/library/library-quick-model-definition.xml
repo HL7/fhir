@@ -1,140 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+
+<Library xmlns="http://hl7.org/fhir">
   <id value="library-quick-model-definition"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Id: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Library/library-quick-model-definition</td>
-            </tr>
-         </table>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Identifier: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <b>value: </b>
-                  <span>QUICK</span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Version: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">1.0.0</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Title: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">QUICK Model Definition</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Type: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-right: 25px;">
-                  <span>
-                     <span>
-                        <span style="padding-left: 25px;">
-                           <b>code: </b>
-                           <span>model-definition</span>
-                        </span>
-                     </span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Status: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">draft</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Description: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">Model definition for the QUICK Logical Model</td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Topic: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-right: 25px;">
-                  <span style="padding-left: 25px;">
-                     <b>text: </b>
-                     <span>QUICK</span>
-                  </span>
-               </td>
-            </tr>
-         </table>
-         <p></p>
-         <table class="grid dict">
-            <tr>
-               <td>
-                  <b>Content: </b>
-               </td>
-            </tr>
-            <tr>
-               <td style="padding-left: 25px; padding-right: 25px;">
-                  <p style="margin-bottom: 5px;">
-                     <b>type: </b>
-                     <span>application/xml</span>
-                  </p>
-                  <p style="margin-bottom: 5px;">
-                     <b>url: </b>
-                     <span>http://cqlrepository.org/quick-modelinfo.xml</span>
-                  </p>
-               </td>
-            </tr>
-         </table>
-      </div>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Id: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Library/library-quick-model-definition</td>
+            
+        </tr>
+         
+      </table>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Identifier: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <b>value: </b>
+                  
+            <span>QUICK</span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Version: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">1.0.0</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Title: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">QUICK Model Definition</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Type: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-right: 25px;">
+                  
+            <span>
+                     
+              <span>
+                        
+                <span style="padding-left: 25px;">
+                           
+                  <b>code: </b>
+                           
+                  <span>model-definition</span>
+                        
+                </span>
+                     
+              </span>
+                  
+            </span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Status: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">draft</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Description: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">Model definition for the QUICK Logical Model</td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Topic: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-right: 25px;">
+                  
+            <span style="padding-left: 25px;">
+                     
+              <b>text: </b>
+                     
+              <span>QUICK</span>
+                  
+            </span>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+         
+      <p/>
+         
+      <table class="grid dict">
+            
+        <tr>
+               
+          <td>
+                  
+            <b>Content: </b>
+               
+          </td>
+            
+        </tr>
+            
+        <tr>
+               
+          <td style="padding-left: 25px; padding-right: 25px;">
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>type: </b>
+                     
+              <span>application/xml</span>
+                  
+            </p>
+                  
+            <p style="margin-bottom: 5px;">
+                     
+              <b>url: </b>
+                     
+              <span>http://cqlrepository.org/quick-modelinfo.xml</span>
+                  
+            </p>
+               
+          </td>
+            
+        </tr>
+         
+      </table>
+      
+    </div>
   </text>
-
   <identifier>
     <use value="official"/>
     <value value="QUICK"/>
   </identifier>
   <version value="1.0.0"/>
+  <name value="QUICKModelDefinition"/>
   <title value="QUICK Model Definition"/>
   <status value="draft"/>
   <type>
@@ -147,10 +272,8 @@
   <topic>
     <text value="QUICK"/>
   </topic>
-
   <content>
     <contentType value="application/xml"/>
     <url value="http://cqlrepository.org/quick-modelinfo.xml"/>
   </content>
-
 </Library>

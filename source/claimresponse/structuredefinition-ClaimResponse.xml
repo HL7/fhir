@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ClaimResponse"/>
-  <title value="ClaimResponse"/>
+  <title value="Claim Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Financial Management)"/>
@@ -332,7 +332,7 @@
       <path value="ClaimResponse.decision"/>
       <short value="Result of the adjudication"/>
       <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
+      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amount will be paid (partial)."/>
       <requirements value="To advise the requestor of the result of the adjudication process."/>
       <min value="0"/>
       <max value="1"/>
@@ -344,7 +344,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <description value="The overall result of the claim adjudication."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
@@ -480,11 +480,27 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.item.decision">
-      <path value="ClaimResponse.item.decision"/>
+    <element id="ClaimResponse.item.reviewOutcome">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ReviewOutcome"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="300,450"/>
+      </extension>
+      <path value="ClaimResponse.item.reviewOutcome"/>
+      <short value="Adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.item.reviewOutcome.decision">
+      <path value="ClaimResponse.item.reviewOutcome.decision"/>
       <short value="Result of the adjudication"/>
       <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
+      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amount will be paid (partial)."/>
       <requirements value="To advise the requestor of the result of the adjudication process."/>
       <min value="0"/>
       <max value="1"/>
@@ -495,9 +511,53 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AdjudicationDecision"/>
         </extension>
-        <strength value="required"/>
+        <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
       </binding>
+    </element>
+    <element id="ClaimResponse.item.reviewOutcome.reason">
+      <path value="ClaimResponse.item.reviewOutcome.reason"/>
+      <short value="Reason for result of the adjudication"/>
+      <definition value="The reasons for the result of the claim, predetermination, or preauthorization adjudication."/>
+      <requirements value="To advise the requestor of the contributors to the result of the adjudication process."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdjudicationDecisionReason"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/website">
+          <valueUri value="https://x12.org/codes/service-review-decision-reason-codes"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
+      </binding>
+    </element>
+    <element id="ClaimResponse.item.reviewOutcome.preAuthRef">
+      <path value="ClaimResponse.item.reviewOutcome.preAuthRef"/>
+      <short value="Preauthorization reference"/>
+      <definition value="Reference from the Insurer which is used in later communications which refers to this adjudication."/>
+      <comment value="This value is only present on preauthorization adjudications."/>
+      <requirements value="On subsequent claims, the insurer may require the provider to quote this value."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.item.reviewOutcome.preAuthPeriod">
+      <path value="ClaimResponse.item.reviewOutcome.preAuthPeriod"/>
+      <short value="Preauthorization reference effective period"/>
+      <definition value="The time frame during which this authorization is effective."/>
+      <requirements value="To convey to the provider when the authorized products and services must be supplied for the authorized adjudication to apply."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
     </element>
     <element id="ClaimResponse.item.adjudication">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -619,24 +679,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.item.detail.decision">
-      <path value="ClaimResponse.item.detail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ClaimResponse.item.detail.reviewOutcome">
+      <path value="ClaimResponse.item.detail.reviewOutcome"/>
+      <short value="Detail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ClaimResponse.item.reviewOutcome"/>
     </element>
     <element id="ClaimResponse.item.detail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -688,24 +737,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.item.detail.subDetail.decision">
-      <path value="ClaimResponse.item.detail.subDetail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ClaimResponse.item.detail.subDetail.reviewOutcome">
+      <path value="ClaimResponse.item.detail.subDetail.reviewOutcome"/>
+      <short value="Subdetail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ClaimResponse.item.reviewOutcome"/>
     </element>
     <element id="ClaimResponse.item.detail.subDetail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1078,24 +1116,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.addItem.decision">
-      <path value="ClaimResponse.addItem.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ClaimResponse.addItem.reviewOutcome">
+      <path value="ClaimResponse.addItem.reviewOutcome"/>
+      <short value="Added items adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ClaimResponse.item.reviewOutcome"/>
     </element>
     <element id="ClaimResponse.addItem.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1282,24 +1309,13 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.addItem.detail.decision">
-      <path value="ClaimResponse.addItem.detail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ClaimResponse.addItem.detail.reviewOutcome">
+      <path value="ClaimResponse.addItem.detail.reviewOutcome"/>
+      <short value="Added items detail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ClaimResponse.item.reviewOutcome"/>
     </element>
     <element id="ClaimResponse.addItem.detail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1486,31 +1502,20 @@
         <code value="positiveInt"/>
       </type>
     </element>
-    <element id="ClaimResponse.addItem.detail.subDetail.decision">
-      <path value="ClaimResponse.addItem.detail.subDetail.decision"/>
-      <short value="Result of the adjudication"/>
-      <definition value="The result of the claim, predetermination, or preauthorization adjudication."/>
-      <comment value="The element is used to indicate the current state of the adjudication overall for the claim resource, for example: the request has been held (pended) for adjudication processing, for manual review or other reasons; that it has been processed and will be paid, or the outstanding paid, as submitted (approved); that no amount will be paid (denied); or that some amount between zero and the submitted amoutn will be paid (partial)."/>
-      <requirements value="To advise the requestor of the result of the adjudication process."/>
+    <element id="ClaimResponse.addItem.detail.subDetail.reviewOutcome">
+      <path value="ClaimResponse.addItem.detail.subDetail.reviewOutcome"/>
+      <short value="Added items subdetail level adjudication results"/>
+      <definition value="The high-level results of the adjudication if adjudication has been performed."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AdjudicationDecision"/>
-        </extension>
-        <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
-      </binding>
+      <contentReference value="#ClaimResponse.item.reviewOutcome"/>
     </element>
     <element id="ClaimResponse.addItem.detail.subDetail.adjudication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="500,370"/>
       </extension>
       <path value="ClaimResponse.addItem.detail.subDetail.adjudication"/>
-      <short value="Added items detail adjudication"/>
+      <short value="Added items subdetail adjudication"/>
       <definition value="The adjudication results."/>
       <min value="0"/>
       <max value="*"/>

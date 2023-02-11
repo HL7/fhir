@@ -121,6 +121,9 @@
 	<item id="BiologicallyDerivedProduct">
 		<translation lang="en">BiologicallyDerivedProduct</translation>
 	</item>
+	<item id="BiologicallyDerivedProductDispense">
+		<translation lang="en">BiologicallyDerivedProductDispense</translation>
+	</item>
 	<item id="BodyStructure">
 		<translation lang="en">BodyStructure</translation>
 		<translation lang="es">EstructuraDelCuerpo</translation>
@@ -302,6 +305,9 @@
 		<translation lang="es">Dispositivo</translation>
 		<translation lang="zh">装置</translation>
 	</item>
+	<item id="DeviceAssociation">
+		<translation lang="en">DeviceAssociation</translation>
+	</item>
 	<item id="DeviceDefinition">
 		<translation lang="en">DeviceDefinition</translation>
 		<translation lang="fr">DéfinitionDeDispositif</translation>
@@ -336,12 +342,6 @@
 		<translation lang="fr">RapportDiagnostique</translation>
 		<translation lang="es">InformeDiagnostico</translation>
 		<translation lang="it">RefertoDiagnostico</translation>
-	</item>
-	<item id="DocumentManifest">
-		<translation lang="en">DocumentManifest</translation>
-		<translation lang="zh">文档清单</translation>
-		<translation lang="fr">Manifeste</translation>
-		<translation lang="es">ManifestoDocumento</translation>
 	</item>
 	<item id="DocumentReference">
 		<translation lang="en">DocumentReference</translation>
@@ -531,6 +531,9 @@
 	<item id="InventoryReport">
 		<translation lang="en">InventoryReport</translation>
 	</item>
+	<item id="InventoryItem">
+		<translation lang="en">InventoryItem</translation>
+	</item>
 	<item id="Invoice">
 		<translation lang="en">Invoice</translation>
 	</item>
@@ -602,8 +605,8 @@
 		<translation lang="fr">PrescriptionMédicamenteuseTODO</translation>
 		<translation lang="es">PrescripciónMedicaciónTODO  /PrescripcionMedicamento</translation>
 	</item>
-	<item id="MedicationUsage">
-		<translation lang="en">MedicationUsage</translation>
+	<item id="MedicationStatement">
+		<translation lang="en">MedicationStatement</translation>
 	</item>
 	<item id="MedicationKnowledge">
 		<translation lang="en">MedicationKnowledge</translation>
