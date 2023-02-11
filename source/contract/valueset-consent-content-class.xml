@@ -35,7 +35,6 @@
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/doc-typecodes"/>
     </include>
-    <include/>
     <include>
       <system value="urn:ietf:rfc:3986"/>
       <concept>
