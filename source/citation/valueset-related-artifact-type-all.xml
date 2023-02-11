@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-study-classifiers"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="related-artifact-type-all"/>
   <meta>
-    <lastUpdated value="2022-02-10T20:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="brr"/>
+    <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -13,17 +14,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-study-classifiers"/>
+  <url value="http://hl7.org/fhir/ValueSet/related-artifact-type-all"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3281"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3316"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ResearchStudyClassifiers"/>
-  <title value="Research Study Classifiers"/>
+  <name value="RelatedArtifactTypeExpanded"/>
+  <title value="Related Artifact Type All"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-02-10T20:40:00+00:00"/>
+  <date value="2022-03-22T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -35,18 +36,14 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes that convey the type of label that is provided."/>
+  <description value="The type of relationship to the cited artifact."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <!-- this is a mess - the code system or the value set are wrongly named somehow
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-classifier"/>
-      </filter>
-      -->
+      <system value="http://hl7.org/fhir/related-artifact-type"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/related-artifact-type-expanded"/>
     </include>
   </compose>
 </ValueSet>
