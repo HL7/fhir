@@ -272,7 +272,7 @@
 		</element>
 		<element id="Questionnaire.derivedFrom">
 			<path value="Questionnaire.derivedFrom"/>
-			<short value="Instantiates protocol or definition"/>
+			<short value="Based on Questionnaire"/>
 			<definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
 			<requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
 			<min value="0"/>
