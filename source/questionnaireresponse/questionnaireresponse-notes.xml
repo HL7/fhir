@@ -27,6 +27,7 @@ Refer to additional guidance provided in the <a href="questionnaire.html">Questi
 <h3>
 Links to Questionnaire
 </h3>
+
 <p>
 A <code>QuestionnaireResponse</code> may be stand-alone or may point to the definition of the questions in <a href="questionnaire.html">Questionnaire</a>.  
 If the QuestionnaireResponse refers to a Questionnaire:
@@ -34,10 +35,22 @@ If the QuestionnaireResponse refers to a Questionnaire:
 <ul>
  <li>The QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.</li>
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
+ <li>LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a QuestionnaireResponse if the corresponding item (or one of its ancestors) is allowed to repeat.</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
    if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. This might also include items 
    that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
 </ul>
+
+<p>
+<img src="QuestionnaireItems.svg" alt="A diagram showing a Questionnaire with multiple nested groups and items and the corresponding QuestionnaireResponse"/>
+</p>
+
+<p>
+The diagram above shows a Questionnaire with a hierarchy of group and question items, some marked as
+'repeats'=true, and others false and with similar variation in 'required'=true and false.  It also shows a hypothetical QuestionnaireResponse that is valid against that
+questionnaire with appropriate nesting of items and answers and linkIds showing the alignment between the Questionnaire and QuestionnaireResponse items.
+</p>
+
 
 <a name="validation"> </a>
 <h3>
