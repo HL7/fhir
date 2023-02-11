@@ -37,8 +37,10 @@ If the QuestionnaireResponse refers to a Questionnaire:
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a QuestionnaireResponse if the corresponding item (or one of its ancestors) is allowed to repeat.</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
-   if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. This might also include items 
-   that were <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">not enabled</a> when the Questionnaire was answered, though of course these will not have answers</li>
+   if they are relevant to the interpretation of the  answers, including items of type = <code>display</code>. When the QuestionnaireResponse is not yet marked as 'completed', 
+   this might also include items that are not <a href="questionnaire-definitions.html#Questionnaire.item.enableWhen">enabled</a> based on what answers are currently present.  However, once a 
+   QuestionnaireResponse is marked as "completed", the QuestionnaireResponse SHALL only include items that are 'enabled'.  I.e. stuff that was perhaps answered through populate or user-action but 
+   subsequently got disabled due to other answers must not be included in a final QuestionnaireResponse.</li>
 </ul>
 
 <p>
