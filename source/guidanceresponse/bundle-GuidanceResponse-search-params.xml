@@ -92,6 +92,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="GuidanceResponse.status"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -76,6 +76,7 @@
         <code value="characteristic-reference"/>
         <type value="reference"/>
         <expression value="(Group.characteristic.value.ofType(Reference))"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

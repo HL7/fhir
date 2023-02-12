@@ -752,7 +752,7 @@
       <max value="1"/>
       <type>
         <code value="canonical"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
     </element>
     <element id="TestScript.scope.conformance">
