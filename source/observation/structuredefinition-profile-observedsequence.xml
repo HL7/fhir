@@ -76,7 +76,7 @@
             <max value="0"/>
         </element>
         <element id="Observation.bodyStructure">
-            <path value="Observation.bodySite"/>
+            <path value="Observation.bodyStructure"/>
             <max value="0"/>
         </element>
         <element id="Observation.referenceRange">
