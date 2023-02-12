@@ -145,7 +145,7 @@ Notes:
    Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification.
    <br/>Note that This regex is true if the reference to a resource is consistent with a FHIR API:
    <pre>
-   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?(#[A-Za-z0-9\-\.]{1,64})?
+   ((http|https):\/\/([A-Za-z0-9\-\\\.\:\%\$]*\/)+)?([%piperesources%])\/[%regex id%](\/_history\/[%regex id%])?(#[A-Za-z0-9\-\.]{1,64})?
    </pre>
    <br/>
    Note however, conformance with this regex is no guarantee that the end-point is a FHIR server, and lack 
@@ -507,7 +507,7 @@ resource cannot be resolved (e.g. due to network errors). The <code>canonical</c
 type does not have a display element because applications are generally expected
 to carry cached copies of the resources that are the target of the canonical
 references. If this functionality is still needed or desired anyway, the
-<a href="extension-rendered-value.html">Rendered Value extension</a> can be
+<a href="[%extensions-location%]StructureDefinition-rendered-value.html">Rendered Value extension</a> can be
 used.
 </p>
 

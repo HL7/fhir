@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="InventoryItem"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="draft"/>
@@ -20,7 +20,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
   <version value="5.0.0"/>
   <name value="InventoryItem"/>
-  <title value="InventoryItem"/>
+  <title value="Inventory Item"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -145,7 +145,7 @@
         <strength value="preferred"/>
         <description value="Name types."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-nametype"/>
-      </binding>      
+      </binding>
     </element>
     <element id="InventoryItem.name.language">
       <path value="InventoryItem.name.language"/>
@@ -317,7 +317,6 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Range"/>
         <code value="string"/>
       </type>
     </element>
@@ -416,10 +415,6 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
-        <code value="string"/>
-        <code value="boolean"/>
-        <code value="dateTime"/>
         <code value="SimpleQuantity"/>
       </type>
     </element>

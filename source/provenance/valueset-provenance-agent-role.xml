@@ -13,6 +13,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3177"/>
   </identifier>
   <name value="ProvenanceParticipantRole"/>
+  <title value="Provenance Participant Role"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2023-05-12"/>

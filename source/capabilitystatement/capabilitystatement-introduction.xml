@@ -70,7 +70,7 @@ statement associated with a particular installation of that software package.
 </p>
 <p>
 CapabilityStatements of type "requirement" describe what capabilities are potentially relevant;
-additional documentation or extensions (see <a href="extension-capabilitystatement-expectation.html">capabilitystatement-expectation</a>) within the 
+additional documentation or extensions (see <a href="[%extensions-location%]StructureDefinition-capabilitystatement-expectation.html">capabilitystatement-expectation</a>) within the 
 CapabilityStatement are expected to make more explicit statements of degree of expectation 
 associated with each capability.
 </p>

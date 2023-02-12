@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="BodyStructure"/>
-  <title value="BodyStructure"/>
+  <title value="Body Structure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -354,7 +354,7 @@
         <code value="Quantity"/>
       </type>
     </element>
-     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"/>
       <short value="Relative landmark surface orientation"/>
       <definition value="The surface area a body location is in relation to a landmark."/>

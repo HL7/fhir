@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="NamingSystem"/>
-  <title value="NamingSystem"/>
+  <title value="Naming System"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -614,7 +614,7 @@
     </element>
     <element id="NamingSystem.uniqueId.type">
       <path value="NamingSystem.uniqueId.type"/>
-      <short value="oid | uuid | uri | v2csmnemonic | other"/>
+      <short value="oid | uuid | uri | iri-stem | v2csmnemonic | other"/>
       <definition value="Identifies the unique identifier scheme used for this particular identifier."/>
       <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc. Preferred identifiers for the same identifier type SHOULD NOT overlap by period."/>
       <min value="1"/>

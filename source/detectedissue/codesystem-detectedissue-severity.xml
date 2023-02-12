@@ -31,7 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DetectedIssueSeverity"/>
-  <title value="DetectedIssueSeverity"/>
+  <title value="Detected Issue Severity"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>

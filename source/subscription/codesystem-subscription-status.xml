@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="subscription-status"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -12,6 +14,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2022"/>
   </identifier>
   <name value="SubscriptionStatus"/>
+  <title value="Subscription Status"/>
   <status value="active"/>
   <experimental value="false"/>
   <description value="This codesystem defines a set of codes that can be used to filter Subscription triggers."/>

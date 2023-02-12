@@ -69,7 +69,6 @@
 			</reference>
 		</actor>
 		<provision>
-			<type value="permit"/>
 			<actor>
 				<role>
 					<coding>

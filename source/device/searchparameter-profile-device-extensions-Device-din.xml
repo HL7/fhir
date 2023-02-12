@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><SearchParameter xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SearchParameter xmlns="http://hl7.org/fhir">
   <id value="device-extensions-Device-din"/>
   <url value="http://hl7.org/fhir/SearchParameter/device-extensions-Device-din"/>
   <version value="5.0.0"/>
-  <name value="din"/>
+  <name value="Din"/>
+  <title value="din"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="The donation identification number (DIN)"/>

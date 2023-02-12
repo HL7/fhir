@@ -1,141 +1,119 @@
 {
-  "resourceType": "Library",
-  "type": {
-    "coding": [
-      {
-        "code": "module-definition"
-      }
-    ]
+  "resourceType" : "Library",
+  "type" : {
+    "coding" : [{
+      "code" : "module-definition"
+    }]
   },
-  "relatedArtifact": [
-    {
-      "type": "depends-on",
-      "resource": "Library/library-quick-model-definition"
-    }
-  ],
-  "dataRequirement": [
-    {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006"
-        }
-      ]
+  "relatedArtifact" : [{
+    "type" : "depends-on",
+    "resource" : "Library/library-quick-model-definition"
+  }],
+  "dataRequirement" : [{
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006"
+    }]
+  },
+  {
+    "type" : "Patient"
+  },
+  {
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "category",
+      "code" : [{
+        "code" : "diagnosis"
+      }]
     },
     {
-      "type": "Patient"
+      "path" : "clinicalStatus",
+      "code" : [{
+        "code" : "confirmed"
+      }]
     },
     {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "category",
-          "code": [
-            { "code": "diagnosis" }
-          ]
-        },
-        {
-          "path": "clinicalStatus",
-          "code": [
-            { "code": "confirmed" }
-          ]
-        },
-        {
-          "path": "code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"
-        }
-      ]
+      "path" : "code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1011"
+    }]
+  },
+  {
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "category",
+      "code" : [{
+        "code" : "diagnosis"
+      }]
     },
     {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "category",
-          "code": [
-            { "code": "diagnosis" }
-          ]
-        },
-        {
-          "path": "clinicalStatus",
-          "code": [
-            { "code": "confirmed" }
-          ]
-        },
-        {
-          "path": "code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"
-        }
-      ]
+      "path" : "clinicalStatus",
+      "code" : [{
+        "code" : "confirmed"
+      }]
     },
     {
-      "type": "Encounter",
-      "codeFilter": [
-        {
-          "path": "status",
-          "code": [
-            { "code": "finished" }
-          ]
-        },
-        {
-          "path": "class",
-          "code": [
-            { "code": "ambulatory" }
-          ]
-        },
-        {
-          "path": "type",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"
-        }
-      ]
+      "path" : "code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.102.12.1012"
+    }]
+  },
+  {
+    "type" : "Encounter",
+    "codeFilter" : [{
+      "path" : "status",
+      "code" : [{
+        "code" : "finished"
+      }]
     },
     {
-      "type": "DiagnosticReport",
-      "codeFilter": [
-        {
-          "path": "diagnosis",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"
-        }
-      ]
+      "path" : "class",
+      "code" : [{
+        "code" : "ambulatory"
+      }]
     },
     {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
+      "path" : "type",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.101.12.1061"
+    }]
+  },
+  {
+    "type" : "DiagnosticReport",
+    "codeFilter" : [{
+      "path" : "diagnosis",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.198.12.1012"
+    }]
+  },
+  {
+    "type" : "Medication",
+    "codeFilter" : [{
+      "path" : "code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
+    }]
+  },
+  {
+    "type" : "MedicationRequest",
+    "codeFilter" : [{
+      "path" : "status",
+      "code" : [{
+        "code" : "active"
+      }]
     },
     {
-      "type": "MedicationRequest",
-      "codeFilter": [
-        {
-          "path": "status",
-          "code": [
-            { "code": "active" }
-          ]
-        },
-        {
-          "path": "medication.code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
+      "path" : "medication.code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
+    }]
+  },
+  {
+    "type" : "MedicationUsage",
+    "codeFilter" : [{
+      "path" : "status",
+      "code" : [{
+        "code" : "completed"
+      }]
     },
     {
-      "type": "MedicationStatement",
-      "codeFilter": [
-        {
-          "path": "status",
-          "code": [
-            { "code": "completed" }
-          ]
-        },
-        {
-          "path": "medication.code",
-          "valueSet": "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
-    }
-  ]
+      "path" : "medication.code",
+      "valueSet" : "urn:oid:2.16.840.1.113883.3.464.1003.196.12.1001"
+    }]
+  }]
 }

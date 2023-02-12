@@ -69,7 +69,7 @@ Questionnaire resource provides a means to standardize the information gathering
 or computed upon (typically managed using Observation, DiagnosticReport as well as other resources).
 </p>
 <p>
-Questionnaires are similar to <a href="observationdefinition.html">ObesrvationDefinitions</a> in that both are about defining structures for capturing certain information and
+Questionnaires are similar to <a href="observationdefinition.html">ObservationDefinitions</a> in that both are about defining structures for capturing certain information and
 setting constraints on what allowed answers are.  They can also define hierarchical constructs containing multiple layers of 'arbitrary' nested data elements.  However, 
 ObservationDefinitions are instantiated by Observations and are intended to be limited to only those data elements typically captured as Observations, while Questionnaires
 can describe any element at all and are instantiated by QuestionnaireResponses.  Questionnaires also have significantly more power to identify rules around what data can

@@ -24,7 +24,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DomainResource"/>
-  <title value="DomainResource"/>
+  <title value="Domain Resource"/>
   <status value="active"/>
   <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>

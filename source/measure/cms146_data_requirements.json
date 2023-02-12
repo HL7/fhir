@@ -1,141 +1,87 @@
 {
-  "resourceType": "Library",
-  "type": {
-    "coding": [
-      {
-        "code": "module-definition"
-      }
-    ]
+  "resourceType" : "Library",
+  "type" : {
+    "coding" : [{
+      "code" : "module-definition"
+    }]
   },
-  "relatedArtifact": [
-    {
-      "type": "depends-on",
-      "resource": "Library/library-quick-model-definition"
-    }
-  ],
-  "dataRequirement": [
-    {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSetString": "Other Female Reproductive Conditions"
-        }
-      ]
+  "relatedArtifact" : [{
+    "type" : "depends-on",
+    "resource" : "Library/library-quick-model-definition"
+  }],
+  "dataRequirement" : [{
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "code"
+    }]
+  },
+  {
+    "type" : "Patient"
+  },
+  {
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "category"
     },
     {
-      "type": "Patient"
+      "path" : "clinicalStatus"
     },
     {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "category",
-          "valueCode": [
-            "diagnosis"
-          ]
-        },
-        {
-          "path": "clinicalStatus",
-          "valueCode": [
-            "confirmed"
-          ]
-        },
-        {
-          "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.102.12.1011"
-        }
-      ]
+      "path" : "code"
+    }]
+  },
+  {
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "category"
     },
     {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "category",
-          "valueCode": [
-            "diagnosis"
-          ]
-        },
-        {
-          "path": "clinicalStatus",
-          "valueCode": [
-            "confirmed"
-          ]
-        },
-        {
-          "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.102.12.1012"
-        }
-      ]
+      "path" : "clinicalStatus"
     },
     {
-      "type": "Encounter",
-      "codeFilter": [
-        {
-          "path": "status",
-          "valueCode": [
-            "finished"
-          ]
-        },
-        {
-          "path": "class",
-          "valueCode": [
-            "ambulatory"
-          ]
-        },
-        {
-          "path": "type",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.101.12.1061"
-        }
-      ]
+      "path" : "code"
+    }]
+  },
+  {
+    "type" : "Encounter",
+    "codeFilter" : [{
+      "path" : "status"
     },
     {
-      "type": "DiagnosticReport",
-      "codeFilter": [
-        {
-          "path": "diagnosis",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.198.12.1012"
-        }
-      ]
+      "path" : "class"
     },
     {
-      "type": "Medication",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
+      "path" : "type"
+    }]
+  },
+  {
+    "type" : "DiagnosticReport",
+    "codeFilter" : [{
+      "path" : "diagnosis"
+    }]
+  },
+  {
+    "type" : "Medication",
+    "codeFilter" : [{
+      "path" : "code"
+    }]
+  },
+  {
+    "type" : "MedicationRequest",
+    "codeFilter" : [{
+      "path" : "status"
     },
     {
-      "type": "MedicationRequest",
-      "codeFilter": [
-        {
-          "path": "status",
-          "valueCode": [
-            "active"
-          ]
-        },
-        {
-          "path": "medication.code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
+      "path" : "medication.code"
+    }]
+  },
+  {
+    "type" : "MedicationUsage",
+    "codeFilter" : [{
+      "path" : "status"
     },
     {
-      "type": "MedicationStatement",
-      "codeFilter": [
-        {
-          "path": "status",
-          "valueCode": [
-            "completed"
-          ]
-        },
-        {
-          "path": "medication.code",
-          "valueSetString": "2.16.840.1.113883.3.464.1003.196.12.1001"
-        }
-      ]
-    }
-  ]
+      "path" : "medication.code"
+    }]
+  }]
 }

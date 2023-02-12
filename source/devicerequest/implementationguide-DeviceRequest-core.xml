@@ -3,17 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="DeviceRequest-core"/>
   <version value="0.1"/>
-  <name value="DeviceRequest HL7 Extensions"/>
-  <title value="DeviceRequest HL7 Extensions"/>
+  <name value="DeviceRequestHL7Extensions"/>
+  <title value="Device Request  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the DeviceRequest resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/devicerequest-patientInstruction"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>
