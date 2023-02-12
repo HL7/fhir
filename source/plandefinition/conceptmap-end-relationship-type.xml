@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="end-relationship-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareableconceptmap"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ConceptMap/end-relationship-type"/>
+  <version value="5.0.0"/>
+  <name value="EndRelationshipType"/>
+  <title value="End Relationship Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Defines mappings between the end relationship types and the corresponding V3 codes."/>
+  <group>
+    <source value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
+    <target value="http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType"/>
+    <element>
+      <code value="before"/>
+      <target>
+        <code value="ENS"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="before-start"/>
+      <target>
+        <code value="EBS"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="before-end"/>
+      <target>
+        <code value="EBE"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="concurrent"/>
+      <target>
+        <code value="ECW"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="concurrent-with-start"/>
+      <target>
+        <code value="ECWS"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="concurrent-with-end"/>
+      <target>
+        <code value="ECWE"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="after"/>
+      <target>
+        <code value="ENE"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="after-start"/>
+      <target>
+        <code value="EAS"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="after-end"/>
+      <target>
+        <code value="EAE"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>
