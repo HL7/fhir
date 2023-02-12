@@ -59,7 +59,7 @@
                 <severity value="error"/>
                 <human value="If the resource is contained in another resource, it SHALL NOT contain nested Resources"/>
                 <expression value="contained.contained.empty()"/>
-                <xpath value="not(parent::f:contained and f:contained)"/>
+<!--                <xpath value="not(parent::f:contained and f:contained)"/>-->
                 <source value="http://hl7.org/fhir/StructureDefinition/observedsequence"/>
             </constraint>
             <constraint>
@@ -67,7 +67,7 @@
                 <severity value="error"/>
                 <human value="If there is no component or hasMember element then either a value[x] or a data absent reason must be present."/>
                 <expression value="(component.empty() and hasMember.empty()) implies (dataAbsentReason.exists() or value.exists())"/>
-                <xpath value="f:component or f:memberOF or f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>
+<!--                <xpath value="f:component or f:memberOF or f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>-->
                 <source value="http://example.org/StructureDefinition/observedsequence"/>
             </constraint>
         </element>
@@ -99,7 +99,7 @@
                 <severity value="error"/>
                 <human value="If there is no a value a data absent reason must be present"/>
                 <expression value="value.exists() or dataAbsentReason.exists()"/>
-                <xpath value="f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>
+<!--                <xpath value="f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>-->
                 <source value="http://example.org/StructureDefinition/observedsequence"/>
             </constraint>
         </element>
