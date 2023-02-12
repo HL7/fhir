@@ -231,7 +231,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="Device-subject"/>
@@ -269,7 +269,7 @@
         <target value="Patient"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
