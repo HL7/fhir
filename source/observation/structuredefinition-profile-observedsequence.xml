@@ -84,5 +84,47 @@
             <max value="0"/>
         </element>
 
+        <element id="Observation.component">
+            <path value="Observation.component"/>
+            <slicing>
+                <discriminator>
+                    <type value="pattern"/>
+                    <path value="code"/>
+                </discriminator>
+                <description value="Slice based on the component.code pattern"/>
+                <rules value="open"/>
+            </slicing>
+        </element>
+        <element id="Observation.component:associatedGene">
+            <path value="Observation.component"/>
+            <sliceName value="associatedGene"/>
+            <short value="Quality Metric"/>
+            <definition value="The quality metric associated with observed Molecular Sequence."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.component:associatedGene.code">
+            <path value="Observation.component.code"/>
+            <short value="48018-6"/>
+            <patternCodeableConcept>
+                <coding>
+                    <system value="http://loinc.org"/>
+                    <code value="48018-6"/>
+                </coding>
+            </patternCodeableConcept>
+        </element>
+        <element id="Observation.component:associatedGene.value[x]">
+            <path value="Observation.component.value[x]"/>
+            <short value="The HGNC gene symbol is to be used as display text and the HGNC gene ID used as the code. If no HGNC code issued for this gene yet, NCBI gene IDs SHALL be used."/>
+            <min value="1"/>
+            <type>
+                <code value="CodeableConcept"/>
+            </type>
+            <binding>
+                <strength value="extensible"/>
+                <valueSet value="http://www.genenames.org/geneId"/>
+            </binding>
+        </element>
+
     </differential>
 </StructureDefinition>
