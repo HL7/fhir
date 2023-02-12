@@ -784,14 +784,14 @@
       <type>
         <code value="Coding"/>
       </type>
-      <!-- <binding>
+      <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
         <description value="The kind of standards used by the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
-      </binding> -->
+      </binding>
     </element>
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
