@@ -765,8 +765,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
     </element>
-    <element id="Device.specification.version">
-      <path value="Device.specification.version"/>
+    <element id="Device.conformsTo.version">
+      <path value="Device.conformsTo.version"/>
       <short value="Specific form or variant of the standard"/>
       <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance."/>
       <min value="0"/>
@@ -775,8 +775,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specification.category">
-      <path value="Device.specification.category"/>
+    <element id="Device.conformsTo.category">
+      <path value="Device.conformsTo.category"/>
       <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
       <definition value="Describes the common type of the standard, specification, or formal guidance."/>
       <min value="0"/>

@@ -55,16 +55,16 @@
     </type>
     <value value="v1.8.3"/>
   </version>
-  <specialization>
-    <systemType>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528401"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_GLUCOSE: Glucose Meter"/>
-    </systemType>
+    </specification>
     <version value="2"/>
-  </specialization>
+  </conformsTo>
   <property>
     <type>
       <coding>

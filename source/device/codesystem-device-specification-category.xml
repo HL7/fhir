@@ -15,13 +15,13 @@
     <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/device-specification-category"/>
-  <!-- <identifier>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2054"/>
-  </identifier> -->
+  </identifier>
   <version value="5.0.0"/>
-  <name value="FHIRDeviceSpecificationCategory"/>
-  <title value="FHIR Device Specification Category"/>
+  <name value="FHIRDeviceSpecializationCategory"/>
+  <title value="F H I R Device Specialization Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>
