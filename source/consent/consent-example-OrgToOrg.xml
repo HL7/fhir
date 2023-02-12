@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-OrgToOrg"/>
   <text>
     <status value="generated"/>
@@ -33,28 +35,26 @@
       <code value="INFA"/>
     </coding>
   </regulatoryBasis>
+  <decision value="deny"/>
   <provision>
-    <type value="deny"/>
-    <provision>
-      <type value="permit"/>
-      <actor>
-<!-- This allows the organziation to be the Information Recipient, not just a member of the organization -->
-        <role>
-          <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="IRCP"/>
-          </coding>
-        </role>
-        <reference>
-          <reference value="Organization/f203"/>
-        </reference>
-      </actor>
-      <action>
-         <coding>
-           <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
-           <code value="disclose" />
-         </coding>       
-      </action>
-    </provision>
+    <actor>
+      <!-- This allows the organziation to be the Information Recipient, not just a member of the organization -->
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="IRCP"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Organization/f203"/>
+      </reference>
+    </actor>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction" />
+        <code value="disclose" />
+      </coding>
+    </action>
   </provision>
+
 </Consent>

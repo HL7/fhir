@@ -22,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ShareableActivityDefinition"/>
-  <title value="Shareable  Activity Definition"/>
+  <title value="Shareable ActivityDefinition"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -60,37 +60,62 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+		<element id="ActivityDefinition.extension:knowledgeCapability">
+			<path value="ActivityDefinition.extension"/>
+			<sliceName value="knowledgeCapability"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ActivityDefinition.extension:knowledgeRepresentationLevel">
+			<path value="ActivityDefinition.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="ActivityDefinition.extension:artifactComment">
+			<path value="ActivityDefinition.extension"/>
+			<sliceName value="artifactComment"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
     <element id="ActivityDefinition.url">
       <path value="ActivityDefinition.url"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="uri"/>
-      </type>
-    </element>
-    <element id="ActivityDefinition.identifier">
-      <path value="ActivityDefinition.identifier"/>
       <mustSupport value="true"/>
     </element>
     <element id="ActivityDefinition.version">
       <path value="ActivityDefinition.version"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
+    </element>
+    <element id="ActivityDefinition.versionAlgorithm[x]">
+      <path value="ActivityDefinition.versionAlgorithm[x]"/>
+      <mustSupport value="true"/>
     </element>
     <element id="ActivityDefinition.name">
       <path value="ActivityDefinition.name"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
+      <mustSupport value="true"/>
     </element>
     <element id="ActivityDefinition.title">
       <path value="ActivityDefinition.title"/>
-      <min value="0"/>
+      <min value="1"/>
       <max value="1"/>
       <mustSupport value="true"/>
     </element>
@@ -98,48 +123,16 @@
       <path value="ActivityDefinition.experimental"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
-    <element id="ActivityDefinition.date">
-      <path value="ActivityDefinition.date"/>
-      <min value="0"/>
-      <max value="1"/>
       <mustSupport value="true"/>
     </element>
     <element id="ActivityDefinition.publisher">
       <path value="ActivityDefinition.publisher"/>
-      <alias value="steward"/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="ActivityDefinition.contact">
-      <path value="ActivityDefinition.contact"/>
       <mustSupport value="true"/>
     </element>
     <element id="ActivityDefinition.description">
       <path value="ActivityDefinition.description"/>
-      <alias value="scope"/>
       <min value="1"/>
       <max value="1"/>
-      <type>
-        <code value="markdown"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A"/>
-      </mapping>
-    </element>
-    <element id="ActivityDefinition.useContext">
-      <path value="ActivityDefinition.useContext"/>
-      <mustSupport value="true"/>
-    </element>
-    <element id="ActivityDefinition.jurisdiction">
-      <path value="ActivityDefinition.jurisdiction"/>
       <mustSupport value="true"/>
     </element>
   </differential>
