@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="testplan-counttype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/testplan-counttype"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1926"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="InventoryCountType"/>
+  <title value="InventoryCountType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="The type of count."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/testplan-counttype"/>
+  <content value="complete"/>
+  <concept>
+    <code value="snapshot"/>
+    <display value="Snapshot"/>
+    <definition value="The inventory report is a current absolute snapshot, i.e. it represents the quantities at hand."/>
+  </concept>
+  <concept>
+    <code value="difference"/>
+    <display value="Difference"/>
+    <definition value="The inventory report is about the difference between a previous count and a current count, i.e. it represents the items that have been added/subtracted from inventory."/>
+  </concept>
+</CodeSystem>
