@@ -26,7 +26,7 @@
         <system value="urn:ietf:rfc:3986"/>
         <value value=""/> <!--to be added later-->
     </identifier>
-    <version value="5.0.0"/>
+    <version value="0.1.0"/>
     <name value="Observedsequence"/>
     <title value="Observed Sequence Profile"/>
     <status value="draft"/>
