@@ -1,1 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
+<StructureDefinition xmlns="http://hl7.org/fhir">
+    <id value="observedsequence"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+    </text>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-summary">
+        <valueMarkdown value=""/> <!--to be added later-->
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="5"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="cg"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/summary">
+        <valueString value=""/> <!--to be added later-->
+    </extension>
+    <url value="http://hl7.org/fhir/StructureDefinition/observedsequence"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value=""/> <!--to be added later-->
+    </identifier>
+    <version value="5.0.0"/>
+    <name value="Observedsequence"/>
+    <title value="Observed Sequence Profile"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2016-03-25"/>
+    <publisher value="Health Level Seven International (Clinical Genomics Workgroup - Information Modeling Subgroup)"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="https://www.hl7.org/Special/committees/clingenomics/index.cfm Clinical Genomics"/>
+        </telecom>
+    </contact>
+    <description value="FHIR Observed Sequence Profile"/>
+    <fhirVersion value="5.0.0"/>
+
+    <kind value="resource"/>
+    <abstract value="false"/>
+    <type value="Observation"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+    <derivation value="constraint"/>
+    <differential>
+
+    </differential>
+</StructureDefinition>
