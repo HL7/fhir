@@ -100,13 +100,13 @@
         <key value="pld-3"/>
         <severity value="warning"/>
         <human value="goalid should reference the id of a goal definition"/>
-        <expression value="(%context.repeat(action).where((goalId in %context.goal.id).not()).exists().not()"/>
+        <expression value="%context.repeat(action).where((goalId in %context.goal.id).not()).exists().not()"/>
       </constraint>
       <constraint>
         <key value="pld-4"/>
         <severity value="warning"/>
         <human value="targetId should reference the id of an action"/>
-        <expression value="(%context.repeat(action).relatedAction.where((targetId in %context.repeat(action).id).not()).exists().not()"/>
+        <expression value="%context.repeat(action).relatedAction.where((targetId in %context.repeat(action).id).not()).exists().not()"/>
       </constraint>
       <mapping>
         <identity value="workflow"/>
