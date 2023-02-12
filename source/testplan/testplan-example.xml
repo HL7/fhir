@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestPlan xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/[name].xsd">
+    <id value="example" />
+
+    <status value="draft" />
+
+  <!-- insert contents here -->
+  
+</TestPlan>
