@@ -30,7 +30,7 @@
     <name value="Observedsequence"/>
     <title value="Observed Sequence Profile"/>
     <status value="draft"/>
-    <experimental value="true"/>
+    <experimental value="false"/>
     <date value="2023-02-11"/>
     <publisher value="Health Level Seven International (Clinical Genomics Workgroup - Information Modeling Subgroup)"/>
     <contact>
