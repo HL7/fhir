@@ -96,6 +96,18 @@
         <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
+      <constraint>
+        <key value="pld-3"/>
+        <severity value="warning"/>
+        <human value="goalid should reference the id of a goal definition"/>
+        <expression value="(%context.repeat(action).where((goalId in %context.goal.id).not()).exists().not()"/>
+      </constraint>
+      <constraint>
+        <key value="pld-4"/>
+        <severity value="warning"/>
+        <human value="targetId should reference the id of an action"/>
+        <expression value="(%context.repeat(action).relatedAction.where((targetId in %context.repeat(action).id).not()).exists().not()"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
@@ -896,6 +908,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1275,6 +1288,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="workflow"/>
         <map value="{Is a contained Definition}"/>
@@ -1465,6 +1479,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1735,6 +1750,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
