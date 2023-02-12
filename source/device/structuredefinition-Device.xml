@@ -854,7 +854,7 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.operation">
+    <!-- <element id="Device.operation">
       <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
@@ -912,9 +912,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-    </element>
-    <element id="Device.operation.mode">
-      <path value="Device.operation.mode"/>
+    </element> -->
+    <element id="Device.mode">
+      <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
       <min value="0"/>
@@ -931,8 +931,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
       </binding>
     </element>
-    <element id="Device.operation.cycle">
-      <path value="Device.operation.cycle"/>
+    <element id="Device.cycle">
+      <path value="Device.cycle"/>
       <short value="The series of occurrences that repeats during the operation of the device"/>
       <definition value="The series of occurrences that repeats during the operation of the device."/>
       <min value="0"/>
@@ -941,8 +941,8 @@
         <code value="Count"/>
       </type>
     </element>
-    <element id="Device.operation.duration">
-      <path value="Device.operation.duration"/>
+    <element id="Device.duration">
+      <path value="Device.duration"/>
       <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
       <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
       <min value="0"/>
@@ -951,7 +951,7 @@
         <code value="Duration"/>
       </type>
     </element>
-    <element id="Device.association">
+    <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
@@ -1017,7 +1017,7 @@
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
