@@ -552,7 +552,7 @@ will work together to choose actual working value sets.
 If the binding strength is required, the data element SHALL contain one of the values in the bound value set.
 </p>
 <p>
-Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code.
+Required binding strength is used for elements where the value needs to be strictly controlled so the element can be interpreted with confidence. Required binding strength SHALL be used for elements with type code unless the element has a context-free (i.e. no binding.additional.usage present) <a href="elementdefinition-definitions.html#ElementDefinition.binding.additional">additional binding</a> with purpose = maximum.  (See <a href="elementdefinition.html#ElementDefinition-inv">eld-29</a>.)
 </p>
 <p>
 In the base FHIR specification, required binding strength is typically only used with the 'code' datatype. In profiles, it may be used more broadly when there is agreement within a context of use that a specified set of codes are the only ones that can be used.

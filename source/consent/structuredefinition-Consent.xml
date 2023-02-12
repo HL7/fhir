@@ -504,6 +504,27 @@
         <code value="dateTime"/>
       </type>
     </element>
+    <element id="Consent.decision">
+      <path value="Consent.decision"/>
+      <short value="deny | permit"/>
+      <definition value="Action to take - permit or deny - as default."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="Sets context for the values in .provision"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ConsentProvisionType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Sets the base decision for Consent to be either permit or deny, with provisions assumed to be a negation of the previous level."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
+      </binding>
+    </element>
     <element id="Consent.provision">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="provision"/>
@@ -515,33 +536,13 @@
       <short value="Constraints to the base Consent.policyRule/Consent.policy"/>
       <definition value="An exception to the base policy of this consent. An exception can be an addition or removal of access permissions."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Consent.provision.type">
-      <path value="Consent.provision.type"/>
-      <short value="deny | permit"/>
-      <definition value="Action  to take - permit or deny - when the provision conditions are met."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <isModifier value="true"/>
-      <isModifierReason value="Sets context for the other values in .provision"/>
-      <isSummary value="true"/>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConsentProvisionType"/>
-        </extension>
-        <strength value="required"/>
-        <description value="How a provision statement is applied, such as adding additional consent or removing consent."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/consent-provision-type"/>
-      </binding>
-    </element>
+<!-- Moved .provision.type to .decision -->
     <element id="Consent.provision.period">
       <path value="Consent.provision.period"/>
       <short value="Timeframe for this provision"/>
