@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-specialization-category"/>
+  <id value="device-specification-category"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -14,14 +14,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-specialization-category"/>
-  <identifier>
+  <url value="http://hl7.org/fhir/device-specification-category"/>
+  <!-- <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.4.2054"/>
-  </identifier>
+  </identifier> -->
   <version value="5.0.0"/>
-  <name value="FHIRDeviceSpecializationCategory"/>
-  <title value="F H I R Device Specialization Category"/>
+  <name value="FHIRDeviceSpecificationCategory"/>
+  <title value="FHIR Device Specification Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>
@@ -38,7 +38,7 @@
   </contact>
   <description value="The kind of standards used by the device."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
   <content value="complete"/>
   <concept>
     <code value="communication"/>
