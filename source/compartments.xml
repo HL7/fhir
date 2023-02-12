@@ -801,6 +801,9 @@
     <Cell><Data ss:Type="String">device</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="String">TestPlan</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Index="153">
@@ -838,7 +841,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>131</TopRowBottomPane>
+   <TopRowBottomPane>125</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
