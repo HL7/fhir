@@ -94,6 +94,14 @@
                 <description value="Slice based on the component.code pattern"/>
                 <rules value="open"/>
             </slicing>
+            <constraint>
+                <key value="vs-3"/>
+                <severity value="error"/>
+                <human value="If there is no a value a data absent reason must be present"/>
+                <expression value="value.exists() or dataAbsentReason.exists()"/>
+                <xpath value="f:*[starts-with(local-name(.), 'value')] or f:dataAbsentReason"/>
+                <source value="http://example.org/StructureDefinition/observedsequence"/>
+            </constraint>
         </element>
         <element id="Observation.component:associatedGene">
             <path value="Observation.component"/>
