@@ -74,7 +74,7 @@
   <abstract value="false"/>
   <type value="Device"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
-  <derivation value="specialization"/>
+  <derivation value="conformsTo"/>
   <differential>
     <element id="Device">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -737,19 +737,19 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specialization">
-      <path value="Device.specialization"/>
-      <short value="The standard(s) the device supports"/>
-      <definition value="The standards to which the device adheres and may be certified to in support of its capabilities, e.g., communication, performance, process, or measurement standards."/>
+    <element id="Device.conformsTo">
+      <path value="Device.conformsTo"/>
+      <short value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device."/>
+      <definition value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device. The device may be certified as conformant to these specifications e.g., communication, performance, process, measurement, or specialization standards."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.specialization.systemType">
-      <path value="Device.specialization.systemType"/>
-      <short value="Code of the system that identifies the standard that the device adheres to"/>
+    <element id="Device.conformsTo.specification">
+      <path value="Device.conformsTo.specification"/>
+      <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type."/>
       <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
       <min value="1"/>
       <max value="1"/>
@@ -758,27 +758,27 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecializationSystemType"/>
+          <valueString value="FHIRDeviceSpecification-type"/>
         </extension>
         <strength value="example"/>
         <description value="The type of version indicated for the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
     </element>
-    <element id="Device.specialization.version">
-      <path value="Device.specialization.version"/>
-      <short value="Standard version used"/>
-      <definition value="The version of the standard that is used to operate and communicate."/>
+    <element id="Device.specification.version">
+      <path value="Device.specification.version"/>
+      <short value="Specific form or variant of the standard"/>
+      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specialization.category">
-      <path value="Device.specialization.category"/>
-      <short value="communication | performance | measurement"/>
-      <definition value="Kind of standards that the device adheres to, e.g., communication, performance or communication."/>
+    <element id="Device.specification.category">
+      <path value="Device.specification.category"/>
+      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
+      <definition value="Describes the common type of the standard, specification, or formal guidance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -786,11 +786,11 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecializationCategory"/>
+          <valueString value="FHIRDeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
         <description value="The kind of standards used by the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
       </binding>
     </element>
     <element id="Device.property">
