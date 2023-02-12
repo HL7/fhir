@@ -71,6 +71,14 @@
                 <source value="http://example.org/StructureDefinition/observedsequence"/>
             </constraint>
         </element>
+        <element id="Observation.bodySite">
+            <path value="Observation.bodySite"/>
+            <max value="0"/>
+        </element>
+        <element id="Observation.referenceRange">
+            <path value="Observation.referenceRange"/>
+            <max value="0"/>
+        </element>
 
     </differential>
 </StructureDefinition>
