@@ -123,13 +123,11 @@ Behavior of parent 'question' items (i.e. questions with child groups or questio
 child items are also readOnly.  However, if a question is disabled, all descendant items are also disabled.  Similarly, a 'hidden' question, would hide child elements as well.
 </p>
 
-<p>
-<img src="QuestionnaireItems.svg" alt="A diagram showing a Questionnaire with multiple nested groups and items and the corresponding QuestionnaireResponse"/>
-</p>
-
 <a name="linkId"> </a>
 <h3>LinkIds</h3>
 <p>
+LinkIds are globally unique in a Questionnaire and are how items in a <a href="questionnaireresponse.html">QuestionnaireResponse</a> are tied to their corresponding Questionnaire item.
+The QuestionnaireResponse page includes a <a href="questionnaire.html#link">diagram</a> showing how response items are linked to their corresponding Questionnaire items.
 Questions and their responses are tied together by their linkIds.  LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a
 <a href="questionnaireresponse.html">QuestionnaireResponse</a>.  The diagram on the right shows a Questionnaire with a hierarchy of group and question items, some marked as
 'repeats'=true, and others false and with similar variation in 'required'=true and false.  It also shows a hypothetical QuestionnaireResponse that is valid against that
