@@ -29,7 +29,7 @@
       <value value="Ultra Implantable" />
       <type value="user-friendly-name"/>
     </name>
-	<association>
+	<!-- <association>
 	  <status> 
 	     <coding>
 		   <system value="http://terminology.hl7.org/CodeSystem/device-association-status" />
@@ -39,5 +39,5 @@
       <humanSubject>
 		<reference value="Patient/example"/>
 	  </humanSubject>
-	</association>
+	</association> -->
 </Device>

@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-specialization-category"/>
+<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+  <id value="testplan-counttype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
@@ -12,19 +10,19 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
+  <url value="http://hl7.org/fhir/ValueSet/testplan-counttype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3197"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3032"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="FHIRDeviceSpecializationCategory"/>
-  <title value="F H I R Device Specialization Category"/>
+  <name value="InventoryCountType"/>
+  <title value="InventoryCountType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-03-28T16:55:11+11:00"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,11 +34,11 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The kind of standards used by the device."/>
+  <description value="The type of count."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-specialization-category"/>
+      <system value="http://hl7.org/fhir/testplan-counttype"/>
     </include>
   </compose>
 </ValueSet>
