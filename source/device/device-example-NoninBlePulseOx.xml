@@ -85,16 +85,16 @@
     </type>
     <value value="6.0"/>
   </version>
-  <specialization>
-    <systemType>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528388"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_PULS_OXIM: Pulse Oximeter"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
+  </conformsTo>
   <property>
     <type>
       <coding>

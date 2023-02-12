@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-specialization-category"/>
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="device-specification-category"/>
   <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
@@ -14,17 +14,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="2"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
+  <url value="http://hl7.org/fhir/device-specification-category"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3197"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2054"/>
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceSpecializationCategory"/>
   <title value="F H I R Device Specialization Category"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-03-28T16:55:11+11:00"/>
+  <date value="2022-03-28T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -37,10 +37,22 @@
     </telecom>
   </contact>
   <description value="The kind of standards used by the device."/>
-  <immutable value="true"/>
-  <compose>
-    <include>
-      <system value="http://hl7.org/fhir/device-specialization-category"/>
-    </include>
-  </compose>
-</ValueSet>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="communication"/>
+    <display value="Communication"/>
+    <definition value="A communication standard."/>
+  </concept>
+  <concept>
+    <code value="performance"/>
+    <display value="Performance"/>
+    <definition value="A performance standard."/>
+  </concept>
+  <concept>
+    <code value="measurement"/>
+    <display value="Measurement"/>
+    <definition value="A measurement standard."/>
+  </concept>
+</CodeSystem>
