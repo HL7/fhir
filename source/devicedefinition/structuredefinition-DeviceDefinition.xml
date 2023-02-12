@@ -506,7 +506,7 @@
     </element>
     <element id="DeviceDefinition.packaging">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="775,0"/>
+        <valueCode value="750,0"/>
       </extension>
       <path value="DeviceDefinition.packaging"/>
       <short value="Information about the packaging of the device, i.e. how the device is packaged"/>
