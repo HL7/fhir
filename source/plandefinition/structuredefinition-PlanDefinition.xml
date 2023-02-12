@@ -1758,7 +1758,7 @@
     </element>
     <element id="PlanDefinition.action.relatedAction.relationship">
       <path value="PlanDefinition.action.relatedAction.relationship"/>
-      <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
       <definition value="The relationship of the start of this action to the related action."/>
       <min value="1"/>
       <max value="1"/>
@@ -1780,7 +1780,7 @@
     </element>
     <element id="PlanDefinition.action.relatedAction.endRelationship">
       <path value="PlanDefinition.action.relatedAction.endRelationship"/>
-      <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
       <definition value="The relationship of the end of this action to the related action."/>
       <min value="0"/>
       <max value="1"/>
