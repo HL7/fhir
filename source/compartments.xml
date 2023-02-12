@@ -342,7 +342,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
@@ -826,6 +825,59 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">prescriber</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">FormularyItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
+    <Cell><Data ss:Type="String">subject | operator</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">operator</Data></Cell>
+    <Cell><Data ss:Type="String">device</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">TestPlan</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Index="153">
+    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Evidence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubscriptionTopic</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Permission</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -844,7 +896,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>116</TopRowBottomPane>
+   <TopRowBottomPane>125</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

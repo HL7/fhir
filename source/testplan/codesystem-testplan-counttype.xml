@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="device-specialization-category"/>
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="testplan-counttype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -12,19 +10,19 @@
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/device-specialization-category"/>
+  <url value="http://hl7.org/fhir/testplan-counttype"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2054"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1926"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="FHIRDeviceSpecializationCategory"/>
-  <title value="F H I R Device Specialization Category"/>
+  <name value="InventoryCountType"/>
+  <title value="InventoryCountType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-03-28T10:01:24+11:00"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -36,23 +34,18 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The kind of standards used by the device."/>
+  <description value="The type of count."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/testplan-counttype"/>
   <content value="complete"/>
   <concept>
-    <code value="communication"/>
-    <display value="Communication"/>
-    <definition value="A communication standard."/>
+    <code value="snapshot"/>
+    <display value="Snapshot"/>
+    <definition value="The inventory report is a current absolute snapshot, i.e. it represents the quantities at hand."/>
   </concept>
   <concept>
-    <code value="performance"/>
-    <display value="Performance"/>
-    <definition value="A performance standard."/>
-  </concept>
-  <concept>
-    <code value="measurement"/>
-    <display value="Measurement"/>
-    <definition value="A measurement standard."/>
+    <code value="difference"/>
+    <display value="Difference"/>
+    <definition value="The inventory report is about the difference between a previous count and a current count, i.e. it represents the items that have been added/subtracted from inventory."/>
   </concept>
 </CodeSystem>
