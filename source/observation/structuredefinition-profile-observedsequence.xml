@@ -125,8 +125,21 @@
                 <valueSet value="http://www.genenames.org/geneId"/>
             </binding>-->
         </element>
+        <element id="Observation.component:qualityMetric">
+            <path value="Observation.component"/>
+            <sliceName value="qualityMetric"/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
+        <element id="Observation.component:moleculareSequence">
+            <path value="Observation.component"/>
+            <sliceName value="moleculareSequence"/>
+            <short value="Molecular Sequence"/>
+            <definition value="The moleculareSequence specific to this observation."/>
+            <min value="0"/>
+            <max value="*"/>
+        </element>
 
-        
 
     </differential>
 </StructureDefinition>
