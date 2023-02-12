@@ -120,11 +120,13 @@
             <type>
                 <code value="CodeableConcept"/>
             </type>
-            <binding>
+<!--            <binding>
                 <strength value="extensible"/>
                 <valueSet value="http://www.genenames.org/geneId"/>
-            </binding>
+            </binding>-->
         </element>
+
+        
 
     </differential>
 </StructureDefinition>
