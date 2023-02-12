@@ -40,6 +40,7 @@
         </telecom>
     </contact>
     <description value="FHIR Observed Sequence Profile"/>
+    <purpose value="To support Clinical Genomics-Information Modeling subgroup efforts in linking Genomic Study, Molecular Sequence, and Diagnostic reports resources"/>
     <fhirVersion value="5.0.0"/>
 
     <kind value="resource"/>
