@@ -124,7 +124,7 @@ necessary to achieve uniqueness when the code system does not follow concept per
 In the case of the mixed list example from the previous paragraph, there are two code systems: <a href="https://terminology.hl7.org/LOINC.html">LOINC</a> (http://loinc.org) 
 and a local one with the uri: http://example.com/codesystems/additional-test-codes. 
 The value set definition includes concept identifier (codes) from each of the two code systems. 
-The value set is given a uri as an identifier (e.g. "http://example.com/fhir/ValueSet/test-codes"). 
+ValueSet.url (e.g. "http://example.com/fhir/ValueSet/test-codes") is the canonical identifier for the value set. 
 The value set uri is not the same as the code system uri. Concepts are always identified by <code>code</code> and <code>system</code>, 
 except for the simple datatype <a href="datatypes.html#code">code</a> where the code system is fixed in a specification 
 (e.g. core specification, implementation guide, profile) and not represented explicitly.
