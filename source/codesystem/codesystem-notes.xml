@@ -352,7 +352,7 @@ The following filters are defined for all code systems that support "is-a" relat
    <td>concept</td>
    <td>descendent-of</td>
    <td>[string] concept code</td>
-   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only).</td>
    <td></td>
  </tr>
  <tr>
