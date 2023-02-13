@@ -738,7 +738,7 @@
     <element id="StructureDefinition.context">
       <path value="StructureDefinition.context"/>
       <short value="If an extension, where it can be used in instances"/>
-      <definition value="Identifies the types of resource or data type elements to which the extension can be applied."/>
+      <definition value="Identifies the types of resource or data type elements to which the extension can be applied. For more guidance on using the 'context' element, see the [defining extensions page](defining-extensions.html#context)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
