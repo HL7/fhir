@@ -18,7 +18,7 @@
   <url value="http://hl7.org/fhir/device-productidentifierinudi"/>
   <version value="5.0.0"/>
   <name value="DeviceProductionIdentifierInUDI"/>
-  <title value="Device Production Identifier In U D I"/>
+  <title value="Device Production Identifier In UDI"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
