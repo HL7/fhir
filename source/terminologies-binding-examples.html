@@ -15,8 +15,93 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg vocab%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 <a name="binding-examples"></a>
 
+<a name="required"></a>
+<h3>Examples for Required bindings</h3>
+
+<h4>On an element of type code</h4>
+<p>
+Most elements of type code have a required binding e.g. status elements. 
+</p>
+<pre class="json">
+{
+  "path" : "CodeSystem.status",
+  "definition" : "The status of this code system. Enables tracking the life-cycle of the content.",
+  "binding" : {
+    "strength" : "required",
+    "description" : "The lifecycle status of an artifact.",
+    "valueSet" : "http://hl7.org/fhir/ValueSet/publication-status|5.0.0"
+  }
+}
+</pre>
+<p>
+These bindings generally have a version specific finding (a 'static' binding). 
+The code must come from the indicated value set:
+</p>
+
+<pre class="json">
+{
+  "resourceType" : "CodeSystem",
+  "id" : "example",
+  "url" : "http://hl7.org/fhir/CodeSystem/example",
+  "status" : "draft"
+}
+</pre>
+
+<h4>On an element of type CodeableConcept</h4>
+<p>
+Required bindings are generally not used on elements of type CodeableConcept in the 
+base FHIR specification, but such bindings are commonly found in profiles - indeed, 
+narrowing the binding to a specific required value set is one of the basic things 
+profiles exist for. 
+</p>
+
+<p>For example, we have a Condition.code and the applicable profile binds the code to 
+  the value set <code>http://acme.com/fhir/ValueSet/problem-codes</code> 
+  with an Extensible binding:</p>
+  
+  <pre class="json">{
+    "path": "Condition.code",
+    "definition" : "Identification of the condition, problem or diagnosis."
+    "binding": {
+      "strength": "required",
+      "valueSetCanonical": "http://acme.com/fhir/ValueSet/problem-codes"
+    }
+  }
+  </pre>
+  
+  <p>
+  This value set includes the SNOMED CT concepts 282542002 (Unable to stop running), 
+  282548003 (Unable to avoid obstacles when running), and 219389008 (War injury due to fragments from rocket). 
+  </p> 
+    
+  <a name="required.c1"></a>
+  <h3>Condition example instance</h3>
+  
+  <pre class="json">
+  {
+    "resourceType": "Condition",
+    "code": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "282548003",
+          "display": "Unable to avoid obstacles when running"
+        }
+      ],
+      "text": "Doomed to run into things always"
+    },
+    "subject": {
+      "reference": "Patient/coyote"
+    }
+  }
+  </pre>
+  
+  <p>This concept (code = 282548003) is included in the value set so the instance is valid, but if 
+    the code 21902005 (Struck by falling rock or stone) was present, it would not be valid. It's also
+    not valid to provide just a text when there's a required binding.</p>
+
 <a name="extensible"></a>
-<h3>Extensible binding examples</h3>
+<h3>Examples for Extensible bindings</h3>
 
 <h4>Condition.code with Extensible binding</h4>
 <p>For example, we have a Condition.code and the applicable profile binds the code to the value set <a href="valueset-condition-code.html">http://hl7.org/fhir/ValueSet/condition-code</a> 
@@ -156,7 +241,7 @@ condition-code value set for &#8216;Pneumococcal pneumonia&#8217; as well as my 
 &#8216;Severe pneumococcal pneumonia&#8217;.</p>
         
 <a name="preferred"></a>
-<h3>Preferred binding examples</h3>
+<h3>Examples for Preferred bindings</h3>
 
 <p>The choice of code with a Preferred binding is considerably simpler than for an Extensional binding, because the Preferred
 binding is a suggestion from the developers of the resource or profile about which codes they believe would be best to use to
@@ -268,6 +353,32 @@ Condition resource:</p>
   }
 }
 </pre>
+
+
+<a name="example"></a>
+<h3>Examples for Example bindings</h3>
+
+<p>
+There are many elements defined in the FHIR specification for which there is no
+agreement in the HL7 community about what codes should be used. Usually, the lack
+of agreement is due to disagreement between jurisdictions, and lack of economic 
+incentive to standardise the element. In these cases, the FHIR specification provides
+a few illustrative codes, but there is no attempt to ensure that these provide
+good coverage of the problem space, or that they are carefully defined, and 
+implementers SHOULD NOT assume that the codes are production ready. Instead,
+implementers should look in applicable implementation guides or guidance, or 
+use or create their own codes for us.
+</p>
+<p>
+Some examples of example bindings in this specification:
+</p>
+<ul>
+  <li><a href="account-definitions.html#Account.billingStatus">Account.billingStatus</a></li>
+  <li><a href="observation-definitions.html#Observation.code">Observation.code</a></li>
+  <li><a href="encounter-definitions.html#Encounter.type">Encounter.type</a></li>
+</ul>
+
+
 
 [%file newfooter%]
 

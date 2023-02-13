@@ -13,7 +13,7 @@
 			  <display value="Cardiac pacemaker implant"/> 
 			</coding> 
 		</type> 
-		<association> 
+		<!-- <association> 
       <status> 
         <coding>
           <system value="http://hl7.org/fhir/device-association-status"/>
@@ -23,7 +23,7 @@
       <humanSubject> 
         <reference value="Patient/example"/> 
       </humanSubject> 
-		</association> 
+		</association>  -->
 	</Device>
   </contained>
   <status value="completed"/>

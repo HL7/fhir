@@ -59,4 +59,47 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-specification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.conformsTo.specification"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
+        <description value="The specification that the device conforms to"/>
+        <code value="specification"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.conformsTo.specification"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-specification-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-specification-version"/>
+        <description value="A composite of both specification and version"/>
+        <code value="specification-version"/>
+        <type value="composite"/>
+        <expression value="DeviceDefinition.conformsTo"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="specification"/>
+          <expression value="specification"/>
+        </component>
+        <component>
+          <definition value="version"/>
+          <expression value="version"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>  
 </Bundle>
