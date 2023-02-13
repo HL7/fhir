@@ -738,6 +738,7 @@ Example bindings are used when an element has a very broad meaning (such as <a h
 or there is no consensus over the correct codes to be used. For these bindings:
 </p>
 <ul>
+ <li><b>code</b>: Example binding SHALL NOT be used with the code datatype because the meaning is not predictable due to the inability to specify the system.url for a code that is not included in the bound ValueSet</li>
  <li><b>Coding</b>: the <i>system</i>/<i>code</i> values MAY be one of the codes in the value set. </li>
  <li><b>CodeableConcept</b>: one of the <i>coding</i> elements MAY contain a <i>system</i>/<i>code</i> that is in the value set.</li>
 </ul>
