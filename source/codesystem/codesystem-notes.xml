@@ -392,6 +392,7 @@ The following filters are defined for all code systems that support "is-a" relat
  </tr>
 </table>
 
+<!--
 <div class="draft-content">
 <p>
 This <a href="versions.html#std-process" title="Draft Content" class="draft-flag">draft section</a> about the relationships between rich terminologies and structured content is still undergoing review.
@@ -477,5 +478,5 @@ set to the same value and namespace as the code, but if the only identifier a re
 is its defining code, it may be better to omit the identifier entirely. .
 </p>
 </div>
-
+-->
 </div>
