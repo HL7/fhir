@@ -11,6 +11,9 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="4"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-use-markdown">
+    <valueBoolean value="true"/>
+  </extension>
   <url value="http://hl7.org/fhir/concept-properties"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
@@ -94,5 +97,10 @@
     <code value="comment"/>
     <display value="Comment"/>
     <definition value="A string that provides additional detail pertinent to the use or understanding of the concept"/>
+  </concept>
+  <concept>
+    <code value="itemWeight"/>
+    <display value="itemWeight"/>
+    <definition value="A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores. In questionnaires, the item weight may be represented using the [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]] extension"/>
   </concept>
 </CodeSystem>
