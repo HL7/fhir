@@ -26,6 +26,8 @@
 
 <p>In addition to the representation of PlanDefinitions, the <a href="plandefinition-operation-apply.html">$apply</a> operation allows PlanDefinitions to be applied to a specific context such as a patient, practitioner, or institution. For Order Sets specifically, this operation is expected to place the orders defined by the order set, consistent with the service functional requirements defined by the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=287">Order Set specification</a>.</p>
 
+<p>Plan definitions also allow for the definition of goals. Actions in the plan definition can then reference these goals in order to indicate that the action should be taken in fulfillment of the goal. Note that the goal-relationship extension can be used to describe relationships between goal definitions, and the satisfies-requirement extension can be used to indicate that the goal satisfies a particular requirement. </p>
+
 </div>
 
 <div>
