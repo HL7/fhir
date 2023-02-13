@@ -124,4 +124,16 @@
       <display value="emergency"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Colonoscopy with an external service provider"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="encounter-example-colonoscopy"/>
+    </extension>
+    <item>
+      <reference value="Encounter/colonoscopy"/>
+      <display value="colonoscopy encounter"/>
+    </item>
+  </entry>
 </List>
