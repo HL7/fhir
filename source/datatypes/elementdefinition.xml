@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Lloyd McKenzie</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2023-02-12T15:23:33Z</LastSaved>
+  <LastSaved>2023-02-13T06:24:59Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -17,6 +17,7 @@
   <TabRatio>694</TabRatio>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4845,16 +4846,6 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">29</Data><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">error</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Elements with a type of 'code' must have a 'required' binding unless they have an additional 'max' binding or are part of a Coding.</Data></Cell>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">type.where(code='code').exists() and path.endsWith('Coding.code').not() implies binding.where(strength='required' or additional.where(usage.empty() and purpose='maximum').exists()).exists()</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">not(exists(f:type[f:code/@value='code']) and not(ends-with(f:path/@value, 'Coding.code'))) or exists(f:binding[f:strength/@value='required' or exists(f:additional[not(exists(f:usage)) and f:purpose/@value='maximum'])])</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><NamedCell ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -7255,7 +7246,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
