@@ -251,7 +251,7 @@ This extension is added to the root <a href="capabilitystatement.html">Capabilit
 <a name="impl1"></a>
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available
-internally that serve the operational interfaces below. The internal server depends on the following
+internally that serve the operational interfaces below (starting in <a href="#expand">Value Set Expansion</a>). The internal server depends on the following
 logical information for a terminology:
 </p>
 <ul>
@@ -282,7 +282,7 @@ outside the scope of the FHIR terminology service.
 <p>
 The terminology service uses the code systems and value set resources defined on the system - both
 the implicit ones associated with the external code systems and those explicitly
-available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below.
+available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below (starting in <a href="#expand">Value Set Expansion</a>).
 As code systems and value sets are created, updated or deleted, the outcomes of the operational
 services change. A terminology server should validate incoming resources and ensure integrity
 of the terminology services. Typically, servers provide a test and production
@@ -1024,7 +1024,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
 </p>
 <ol>
  <li> the client defines a name associated with a particular context in which it wishes to maintain a subsumption based closure table</li>
- <li> the client registers this name with the FHIR Terminology server using the $closure operation (described below), with only one parameter, the name of the context</li>
+ <li> the client registers this name with the FHIR Terminology server using the $closure operation (described in <a href="#closure">Maintaining a Closure Table</a> below)), with only one parameter, the name of the context</li>
  <li> any time the client system encounters a new Coding that is not entered in the closure table, it calls the $closure operation with the context name, and the Coding value it has encountered</li>
  <li> the server returns a ConceptMap resource with a list of new entries (code : system -&gt; code : system) that the client should add to its closure table
    <ul>
@@ -1256,7 +1256,7 @@ If there's new entries in the closure table, the server returns a 200 OK with:
  <li>servers may return the relationship represented in either direction</li>
  <li>it's important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is 'wider' than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
  <li>In the $closure operation, the response never explicitly states that a code is subsumed by itself. Clients should assume that this is implicit</li>
- <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions is has issued for replay (see below)</li>
+ <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions it has issued for replay (see below)</li>
  <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>
  <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
 </ul>
