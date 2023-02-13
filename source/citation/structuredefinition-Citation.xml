@@ -968,7 +968,7 @@
           <valueString value="RelatedArtifactTypeExpanded"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-all"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">

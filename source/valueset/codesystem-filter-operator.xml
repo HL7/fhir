@@ -503,7 +503,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     </extension>
     <code value="descendent-of"/>
     <display value="Descendent Of (by subsumption)"/>
-    <definition value="Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only)."/>
+    <definition value="Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only)."/>
   </concept>
   <concept>
     <code value="is-not-a"/>

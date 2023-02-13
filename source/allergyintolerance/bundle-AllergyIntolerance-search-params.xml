@@ -15,6 +15,7 @@
         <code value="participant"/>
         <type value="reference"/>
         <expression value="AllergyIntolerance.participant.actor"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -164,6 +165,7 @@
         <code value="manifestation-code"/>
         <type value="token"/>
         <expression value="AllergyIntolerance.reaction.manifestation.concept"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -180,6 +182,7 @@
         <code value="manifestation-reference"/>
         <type value="reference"/>
         <expression value="AllergyIntolerance.reaction.manifestation.reference"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

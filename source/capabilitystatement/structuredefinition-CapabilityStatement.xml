@@ -583,7 +583,7 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -654,15 +654,14 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/mimetypes"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="The mime type of an attachment. Any valid mime type is allowed."/>
-        </extension>
-        <strength value="extensible"/>
-        <description value="Common format types for FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+        <strength value="required"/>
+        <description value="The mime type of an attachment. Any valid mime type is allowed."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
+        <additional>
+          <purpose value="starter"/>
+          <description value="Common format types for FHIR."/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
+        </additional>
       </binding>
     </element>
     <element id="CapabilityStatement.patchFormat">
@@ -709,22 +708,20 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="CapabilityStatement.implementationGuide">
       <path value="CapabilityStatement.implementationGuide"/>
       <short value="Implementation guides supported"/>
       <definition value="A list of implementation guides that the server does (or should) support in their entirety."/>
-      <comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  If CapabilityStatements are defined by the IG, then it is better to use CapabilityStatement.instantiates to identify the specific role(s) supported."/>
+      <comment value="Note: this is primarily only relevant in terms of ImplementationGuides that don't define specific CapabilityStatements declaring the expectation of distinct roles.  (E.g. generic IGs that establish privacy policies.)  In situations where an ImplementationGuide does define CapabilityStatements, asserting CapabilityStatement.implementationGuide means that the implementation adheres to any Implementation.global definitions present in that IG as well as any textual requirements around security or other general interoperability behaviors. However, it does not make any assertions as to conformance with any of the CapabilityStatements defined in the IG. To assert conformance with CapabilityStatements in a referenced IG, it is necessary to use the CapabilityStatement.instantiates element."/>
       <min value="0"/>
       <max value="*"/>
       <type>

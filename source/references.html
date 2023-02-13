@@ -591,7 +591,7 @@ is creating additional options in the syntax. For users using XPath to process t
 the following XPath fragment resolves the internal reference:
 </p>
 <pre>
-ancestor::f:*[not(parent::f:*)]/f:contained/*[@id=substring-after(<b>current()</b>/f:reference/@value, '#')]
+  ancestor::f:[not(parent::f:*)]/f:contained/[f:id/@value=substring-after(current()/f:reference/@value, '#')]
 </pre>
 [%end-note-np%]
 

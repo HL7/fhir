@@ -109,7 +109,7 @@
     </element>
     <element id="OperationOutcome.issue.severity">
       <path value="OperationOutcome.issue.severity"/>
-      <short value="fatal | error | warning | information"/>
+      <short value="fatal | error | warning | information | success"/>
       <definition value="Indicates whether the issue indicates a variation from successful processing."/>
       <requirements value="Indicates how relevant the issue is to the overall success of the action."/>
       <min value="1"/>
