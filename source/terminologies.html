@@ -573,7 +573,7 @@ all the elements.
 Note: when a binding is applied to a <a href="references.html#CodeableReference">CodeableReference</a>, these rules also apply to it's <code>concept</code> property.
 </p>
 <p>
-The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> datatype:
+The following  rules apply when required bindings are used with the <a href="datatypes.html#code">code</a> datatype outside of a <a href="datatypes.html#Coding">Coding</a>:
 </p>
 <ul>
  <li>The codes in the value set expansion must be distinct independent of the code system. </li>
@@ -724,7 +724,7 @@ For examples of Preferred bindings, see <a href="terminologies-binding-examples.
 </p>                                                                                                                                                
 <p>
   When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
-  may bind the element to any value set they choose.
+  MAY bind the element to any value set they choose.
 </p>
   
 <a name="example"></a>
