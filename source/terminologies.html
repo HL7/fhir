@@ -708,10 +708,6 @@ difficult but important subject of Extensible bindings.
 are not required to do so to be considered conformant.</i>
 </p>
 <p>
-If the datatype is <a href="datatypes.html#CodeableConcept">CodeableConcept</a>, then one of the Coding values SHOULD
-be from the specified value set, but another code and/or text can be used in its place.
-</p>
-<p>
 Preferred bindings are used when there is consensus at the specification level about the coded values
 that are the best to be used, but there is recognition that some implementation contexts are unable
 to use the recommended codes for a variety of reasons. Applications should consider adopting the
@@ -720,18 +716,17 @@ serve interoperability purposes in the future. For these bindings:
 </p>
 <ul>
   <li><b>code</b>: Preferred binding SHALL NOT be used with the code datatype because the meaning is not predictable due to the inability to specify the system.url for a code that is not included in the bound ValueSet</li>
-  <li><b>Coding</b>: The value MAY be from the specified value set, but another code and/or text can be used in its place</li>
-  <li><b>CodeableConcept</b>: One of the Coding values MAY be from the specified value set, but another code and/or text can be used in its place</li>
- </ul>
+  <li><b>Coding</b>: The value SHOULD be from the specified value set, but another code and/or text can be used in its place</li>
+  <li><b>CodeableConcept</b>: One of the Coding values SHOULD be from the specified value set, but another code and/or text can be used in its place</li>
+</ul>
 <p>
-When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
-may bind the element to any value set they choose.
-</p>
-<h5>Examples for Preferred Bindings</h5>
-<p>
-See <a href="terminologies-binding-examples.html#preferred">examples</a> of how Preferred bindings work.
+For examples of Preferred bindings, see <a href="terminologies-binding-examples.html#preferred">Terminology Binding Examples</a>.
 </p>                                                                                                                                                
-
+<p>
+  When an element is bound to a preferred value set, <a href="profiling.html">derived profiles</a>
+  may bind the element to any value set they choose.
+</p>
+  
 <a name="example"></a>
 <h4>Example Binding Strength</h4>
 <p>
