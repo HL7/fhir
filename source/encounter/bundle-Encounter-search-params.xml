@@ -411,13 +411,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.admission.specialArrangement"/>
+          <valueString value="Encounter.specialArrangement"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-special-arrangement"/>
         <description value="Wheelchair, translator, stretcher, etc."/>
         <code value="special-arrangement"/>
         <type value="token"/>
-        <expression value="Encounter.admission.specialArrangement"/>
+        <expression value="Encounter.specialArrangement"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -361,6 +361,9 @@
 		<translation lang="fr">Venue</translation>
 		<translation lang="es">Encuentro</translation>
 	</item>
+	<item id="EncounterHistory">
+		<translation lang="en">EncounterHistory</translation>
+	</item>
 	<item id="Endpoint">
 		<translation lang="en">Endpoint</translation>
 		<translation lang="es">Endpoint</translation>
