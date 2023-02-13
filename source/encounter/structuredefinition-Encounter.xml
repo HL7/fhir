@@ -162,63 +162,6 @@
         <map value=".statusCode"/>
       </mapping>
     </element>
-    <element id="Encounter.statusHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="StatusHistory"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,300"/>
-      </extension>
-      <path value="Encounter.statusHistory"/>
-      <short value="List of past encounter statuses"/>
-      <definition value="The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them."/>
-      <comment value="The current status is always found in the current version of the resource, not the status history."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.statusHistory.status">
-      <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Current state of the encounter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-status"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.statusHistory.period">
-      <path value="Encounter.statusHistory.period"/>
-      <short value="The time that the episode was in the specified status"/>
-      <definition value="The time that the episode was in the specified status."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
     <element id="Encounter.class">
       <path value="Encounter.class"/>
       <short value="Classification of patient encounter context - e.g. Inpatient, outpatient"/>
@@ -248,62 +191,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ClassHistory"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-300,0"/>
-      </extension>
-      <path value="Encounter.classHistory"/>
-      <short value="List of past encounter classes"/>
-      <definition value="The class history permits the tracking of the encounters transitions without needing to go  through the resource history.  This would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory.class">
-      <path value="Encounter.classHistory.class"/>
-      <short value="inpatient | outpatient | ambulatory | emergency +"/>
-      <definition value="inpatient | outpatient | ambulatory | emergency +."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterClass"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Classification of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/encounter-class"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory.period">
-      <path value="Encounter.classHistory.period"/>
-      <short value="The time that the episode was in the specified class"/>
-      <definition value="The time that the episode was in the specified class."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Encounter.priority">
@@ -552,7 +439,7 @@
     <element id="Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the colonoscopy example on the Encounter examples tab."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -970,6 +857,86 @@
         <map value=".pertains.A_Account"/>
       </mapping>
     </element>
+    <element id="Encounter.dietPreference">
+      <path value="Encounter.dietPreference"/>
+      <short value="Diet preferences reported by the patient"/>
+      <definition value="Diet preferences reported by the patient."/>
+      <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
+      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PatientDiet"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-38"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
+      </mapping>
+    </element>
+    <element id="Encounter.specialArrangement">
+      <path value="Encounter.specialArrangement"/>
+      <short value="Wheelchair, translator, stretcher, etc."/>
+      <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Arrangements"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Special arrangements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-arrangements"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-15 / OBR-30 / OBR-43"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".specialArrangementCode"/>
+      </mapping>
+    </element>
+    <element id="Encounter.specialCourtesy">
+      <path value="Encounter.specialCourtesy"/>
+      <short value="Special courtesies (VIP, board member)"/>
+      <definition value="Special courtesies (VIP, board member)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Courtesies"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Special courtesies."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-courtesy"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-16"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".specialCourtesiesCode"/>
+      </mapping>
+    </element>
     <element id="Encounter.admission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,200"/>
@@ -1075,86 +1042,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.dietPreference">
-      <path value="Encounter.admission.dietPreference"/>
-      <short value="Diet preferences reported by the patient"/>
-      <definition value="Diet preferences reported by the patient."/>
-      <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
-      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PatientDiet"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-38"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.specialCourtesy">
-      <path value="Encounter.admission.specialCourtesy"/>
-      <short value="Special courtesies (VIP, board member)"/>
-      <definition value="Special courtesies (VIP, board member)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Courtesies"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Special courtesies."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-courtesy"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-16"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".specialCourtesiesCode"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.specialArrangement">
-      <path value="Encounter.admission.specialArrangement"/>
-      <short value="Wheelchair, translator, stretcher, etc."/>
-      <definition value="Any special requests that have been made for this admission encounter, such as the provision of specific equipment or other things."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Arrangements"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Special arrangements."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-arrangements"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-15 / OBR-30 / OBR-43"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".specialArrangementCode"/>
       </mapping>
     </element>
     <element id="Encounter.admission.destination">
