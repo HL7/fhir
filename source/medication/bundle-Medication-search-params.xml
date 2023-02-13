@@ -144,6 +144,7 @@
         <code value="marketingauthorizationholder"/>
         <type value="reference"/>
         <expression value="Medication.marketingAuthorizationHolder"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

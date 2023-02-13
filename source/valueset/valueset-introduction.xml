@@ -4,12 +4,8 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
+The FHIR terminology specification is based on the concepts of code system and value set originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
 </p>
-<ul>
-<li> <code><a href="codesystem.html">CodeSystem</a></code> - declares the existence of and describes a code system or code system supplement and its key properties, and optionally defines a part or all of its content. Also known as Ontology, Terminology, or Enumeration</li>
-<li> <code>ValueSet</code> - specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <a href="codesystem.html">CodeSystem</a> definitions and their use in <a href="terminologies.html">coded elements</a></li>
-</ul>
 <p>
 Value sets have 2 aspects:
 </p>
@@ -104,10 +100,11 @@ a FHIR context, where the canonical URL is always the focus.
 A value set may be described as intensional or extensional. The terms intensional and extensional come from the fields of mathematical logic and set theory. 
 </p>
 <p>
-An intensional value set is typically algorithmically defined. That is, the code group is defined as a rule e.g. all codes with the word diabetes in their 
-description. The key benefit of intensional code groups is that they can be dynamically updated. Dynamic updating helps healthcare organizations keep 
-current when new drugs (and their associated codes) become available or codes for diseases and other clinical concepts change. An intensional value set 
-designed to contain all of the drugs in the beta blocker category can automatically receive a new beta blocker’s code as soon as it hits the market.
+An intensionally defined value set may be algorithmically defined e.g. all codes with the word diabetes in 
+the description. A key benefit of intensionally defined value sets is that their expansion can be dynamically 
+updated without changing the value set definition. This helps healthcare organizations keep current for example, 
+when new drugs (and their associated codes) become available or codes for diseases and other clinical concepts 
+are added.
 </p>
 <p>
 Extensional value sets, meanwhile, are enumerated lists of codes where each code is listed individually. This gives the author and user of the value set 

@@ -520,7 +520,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207568475333748793.1.1"/>
       </example>
       <isSummary value="true"/>
       <mapping>
