@@ -12,7 +12,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes all possible codes from BCP-13 (http://tools.ietf.org/html/bcp13)"/>
+  <description value="This value set includes all possible codes from BCP-13 (see http://tools.ietf.org/html/bcp13)"/>
   <compose>
     <include>
       <system value="urn:ietf:bcp:13"/>

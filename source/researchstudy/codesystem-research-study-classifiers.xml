@@ -894,11 +894,13 @@
 				</use>
 				<value value="Non-interventional research"/>
 			</designation>
+			<!--
 			<designation>
 				<use>
 					<display value="Alternative term"/>
 				</use>
 			</designation>
+			-->
 		</concept>
 		<concept>
 			<code value="SEVCO:01010"/>

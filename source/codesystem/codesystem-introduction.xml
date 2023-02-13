@@ -4,12 +4,8 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
+The FHIR terminology specification is based on the concepts of code system and value set originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
 </p>
-<ul>
-<li> <b>code system</b> - declares the existence of and describes a code system or code system supplement and its key properties, and optionally defines a part or all of its content. Also known as Ontology, Terminology, or Enumeration</li>
-<li> <b>value set</b> - specifies a set of codes drawn from one or more code systems, intended for use in a particular context. Value sets link between <code>CodeSystem</code> definitions and their use in <a href="terminologies.html">coded elements</a></li>
-</ul>
 <p>
 Code systems define which codes (symbols and/or expressions) exist, and how they are understood. Value sets 
 select a set of codes from one or more code systems to specify which codes can be used in a particular context.
