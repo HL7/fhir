@@ -44,7 +44,7 @@
   <concept>
     <code value="effectiveDate"/>
     <display value="effectiveDate"/>
-    <definition value="The date at which the concept was status was last changed"/>
+    <definition value="The date at which the concept status was last changed"/>
   </concept>
   <concept>
     <code value="deprecated"/>

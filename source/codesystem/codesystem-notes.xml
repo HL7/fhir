@@ -182,13 +182,13 @@ by the FHIR specification.
      </ul>
    </td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept was status was last changed</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by it's code) contains this concept as a component</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#comment : code</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
 </table>
