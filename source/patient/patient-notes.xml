@@ -214,6 +214,7 @@ does not mandate that FHIR servers migrate information between such records on f
  <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
  <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
 </ul>
+<p>
 [%stu-note dstu%]
  We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
 other functionality such as the GET operation, searching, reverse includes, etc.;<br/>
@@ -221,7 +222,7 @@ How should an unlink behavior be done?<br/>
 How will the patient compartment interact with the merge?<br/>
 This functionality and related behaviors is subject to ongoing experimentation and implementation testing, 
 with a definition to be proposed in a future version of this specification.
-
+</p>
 <p>
 Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
