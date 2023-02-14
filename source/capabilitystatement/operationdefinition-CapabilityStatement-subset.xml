@@ -61,6 +61,8 @@
   <parameter>
     <name value="server"/>
     <use value="in"/>
+    <scope value="type"/>
+    <scope value="system"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The canonical URL - use this if the subset is not invoked on an instance (or on the /metadata end-point)"/>

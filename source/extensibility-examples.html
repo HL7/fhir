@@ -178,8 +178,8 @@ Note that the URL of the extension refers to the registered location.
 [%example-start%]
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://example.org/fhir/StructureDefinition/participation-agreement&quot; &gt;
-    &lt;valueUri value=&quot;http://example.org/phr/documents/patient/general/v1&quot;/&gt;
+  &lt;extension url="http://example.org/fhir/StructureDefinition/participation-agreement" &gt;
+    &lt;valueUri value="http://example.org/phr/documents/patient/general/v1"/&gt;
   &lt;/extension&gt;
   &lt;!-- ... --&gt;
 &lt;/Patient&gt;
@@ -215,7 +215,7 @@ will use this resource, a StructureDefinition on the patient resource is used:
     &lt;!-- first, the patient root element
       - can be copy/paste from the base patient profile --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Patient&quot;/&gt;
+      &lt;path value="Patient"/&gt;
       &lt;!-- snip definition --&gt;
     &lt;/element&gt;
 
@@ -223,43 +223,43 @@ will use this resource, a StructureDefinition on the patient resource is used:
       - can be copied/pasted from the base patient profile,
       with changes for slicing  --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Patient.extension&quot;/&gt;
+      &lt;path value="Patient.extension"/&gt;
       &lt;!-- we're going to slice the extension element, and
         one of the extensions is one we have defined --&gt;
       &lt;slicing&gt;
         &lt;!-- extension is always sliced on url --&gt;
         &lt;discriminator&gt;
-          &lt;type value=&quot;value&quot;/&gt;
-          &lt;path value=&quot;url&quot;/&gt;
+          &lt;type value="value"/&gt;
+          &lt;path value="url"/&gt;
         &lt;/discriminator&gt;
         &lt;!-- we don't care what the order of any extensions is --&gt;
-        &lt;ordered value=&quot;false&quot;/&gt;
+        &lt;ordered value="false"/&gt;
         &lt;!-- Other extensions are allowed in addition to this one --&gt;
-        &lt;rules value=&quot;open&quot;/&gt;
+        &lt;rules value="open"/&gt;
       &lt;/slicing&gt;
       &lt;!-- snip definition --&gt;
     &lt;/element&gt;
 
     &lt;!-- now, the slice that contains our extension --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Patient.extension&quot;/&gt;
-      &lt;sliceName value=&quot;agreement&quot;/&gt;
+      &lt;path value="Patient.extension"/&gt;
+      &lt;sliceName value="agreement"/&gt;
       &lt;!-- clone information from the extension definition.
         duplicative, but this duplication makes it simpler overall --&gt;
-      &lt;short value=&quot;Agreed agreement/policy&quot;/&gt;
-      &lt;definition value=&quot;A URI that identifies a participation agreement/policy
-      to which the patient has agreed&quot;/&gt;
+      &lt;short value="Agreed agreement/policy"/&gt;
+      &lt;definition value="A URI that identifies a participation agreement/policy
+      to which the patient has agreed"/&gt;
       &lt;!--  min has to be 1, since the extension itself has min = 1 --&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;max value=&quot;*&quot;/&gt;
+      &lt;min value="1"/&gt;
+      &lt;max value="*"/&gt;
       &lt;type&gt;
         &lt;!-- obviously it has to be an extension --&gt;
-        &lt;code value=&quot;Extension&quot;/&gt;
+        &lt;code value="Extension"/&gt;
         &lt;!-- and here is the link to the extension definition:
           this extension has to conform to the rules laid down in its definition --&gt;
-        &lt;profile value=&quot;http://example.org/phr/documents/fhir/StructureDefinition/participation-agreement&quot;/&gt;
+        &lt;profile value="http://example.org/phr/documents/fhir/StructureDefinition/participation-agreement"/&gt;
       &lt;/type&gt;
-      &lt;isModifier value=&quot;false&quot;/&gt;
+      &lt;isModifier value="false"/&gt;
     &lt;/element&gt;
 
   &lt;!-- snip the rest of the profile -->
@@ -531,10 +531,10 @@ Note that the URL of the extension refers to the registered location.
 [%example-start%]
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;use value=&quot;official&quot;/&gt;
-  &lt;given value=&quot;Östlund&quot;&gt;
-     &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-        &lt;valueCode value=&quot;MID&quot;/&gt;
+  &lt;use value="official"/&gt;
+  &lt;given value="Östlund"&gt;
+     &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier" &gt;
+        &lt;valueCode value="MID"/&gt;
      &lt;/extension&gt;
   &lt;/given&gt;
 &lt;/name&gt;
@@ -588,126 +588,126 @@ The relevant parts of the definition of this extension are as follows:
 </p>
 [%example-start%]
 <pre class="xml">
-&lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;StructureDefinition xmlns="http://hl7.org/fhir"&gt;
   &lt;!-- metadata - setting up the base definition --&gt;
-  &lt;url value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
-  &lt;name value=&quot;ClinicalTrialParticipation&quot;/&gt;
-  &lt;title value=&quot;The patient's participation in clinical trials&quot;/&gt;
+  &lt;url value="http://example.org/fhir/StructureDefinition/patient-clinicalTrial"/&gt;
+  &lt;name value="ClinicalTrialParticipation"/&gt;
+  &lt;title value="The patient's participation in clinical trials"/&gt;
   &lt;context&gt;
-    &lt;type value=&quot;element&quot;/&gt;
-    &lt;expression value=&quot;Patient&quot;/&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="Patient"/&gt;
   &lt;/context&gt;
   &lt;type value="Extension"/&gt;
   &lt;baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/&gt;
   &lt;derivation value="constraint"/&gt;
   &lt;snapshot&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension&quot;/&gt;
+      &lt;path value="Extension"/&gt;
       &lt;!-- etc.--&gt;
     &lt;/element&gt;
 
     &lt;!-- set up the slicing --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension&quot;/&gt;
+      &lt;path value="Extension.extension"/&gt;
       &lt;slicing&gt;
         &lt;discriminator&gt;
-          &lt;type value=&quot;value&quot;/&gt;
-          &lt;path value=&quot;url&quot;/&gt;
+          &lt;type value="value"/&gt;
+          &lt;path value="url"/&gt;
         &lt;/discriminator&gt;
-        &lt;ordered value=&quot;true&quot;/&gt;
-        &lt;rules value=&quot;openAtEnd&quot;/&gt;
+        &lt;ordered value="true"/&gt;
+        &lt;rules value="openAtEnd"/&gt;
       &lt;/slicing&gt;
     &lt;/element&gt;
 
     &lt;!-- first slice, NCT --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;sliceName value=&quot;NCT&quot;/&gt;
-      &lt;short value=&quot;National Clinical Trial number&quot;/&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;max value=&quot;1&quot;/&gt;
+      &lt;path value="Extension.extension"/&gt;
+      &lt;sliceName value="NCT"/&gt;
+      &lt;short value="National Clinical Trial number"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;max value="1"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;0&quot;/&gt; &lt;!-- not allowed to be used --&gt;
+      &lt;path value="Extension.extension.extension"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="0"/&gt; &lt;!-- not allowed to be used --&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;max value=&quot;1&quot;/&gt;
-      &lt;fixedUri value=&quot;NCT&quot;/&gt;
+      &lt;path value="Extension.extension.url"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;max value="1"/&gt;
+      &lt;fixedUri value="NCT"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.valueString&quot;/&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;max value=&quot;1&quot;/&gt;
+      &lt;path value="Extension.extension.valueString"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;max value="1"/&gt;
       &lt;type&gt;
-        &lt;code value=&quot;string&quot;/&gt;
+        &lt;code value="string"/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 
     &lt;!-- second slice, period --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;sliceName value=&quot;period&quot;/&gt;
-      &lt;short value=&quot;The period of participation in the clinical trial&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;1&quot;/&gt;
+      &lt;path value="Extension.extension"/&gt;
+      &lt;sliceName value="period"/&gt;
+      &lt;short value="The period of participation in the clinical trial"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="1"/&gt;
     &lt;/element&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;0&quot;/&gt;
+      &lt;path value="Extension.extension.extension"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="0"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;fixedUri value=&quot;period&quot;/&gt;
+      &lt;path value="Extension.extension.url"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;fixedUri value="period"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.valuePeriod&quot;/&gt;
+      &lt;path value="Extension.extension.valuePeriod"/&gt;
       &lt;type&gt;
-        &lt;code value=&quot;Period&quot;/&gt;
+        &lt;code value="Period"/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 
     &lt;!-- third slice, reason --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension&quot;/&gt;
-      &lt;sliceName value=&quot;reason&quot;/&gt;
-      &lt;short value=&quot;The reason for participation in the clinical trial&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;1&quot;/&gt;
+      &lt;path value="Extension.extension"/&gt;
+      &lt;sliceName value="reason"/&gt;
+      &lt;short value="The reason for participation in the clinical trial"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="1"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.extension&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;0&quot;/&gt;
+      &lt;path value="Extension.extension.extension"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="0"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.url&quot;/&gt;
-      &lt;min value=&quot;1&quot;/&gt;
-      &lt;fixedUri value=&quot;reason&quot;/&gt;
+      &lt;path value="Extension.extension.url"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;fixedUri value="reason"/&gt;
     &lt;/element&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.extension.valueCodeableConcept&quot;/&gt;
+      &lt;path value="Extension.extension.valueCodeableConcept"/&gt;
       &lt;type&gt;
-        &lt;code value=&quot;CodeableConcept&quot;/&gt;
+        &lt;code value="CodeableConcept"/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 
     &lt;!-- last (for order reasons): the fixed URI --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.url&quot;/&gt;
-      &lt;fixedUri value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+      &lt;path value="Extension.url"/&gt;
+      &lt;fixedUri value="http://example.org/fhir/StructureDefinition/patient-clinicalTrial"/&gt;
     &lt;/element&gt;
     &lt;!-- and no value in the root --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Extension.value[x]&quot;/&gt;
-      &lt;min value=&quot;0&quot;/&gt;
-      &lt;max value=&quot;0&quot;/&gt;
+      &lt;path value="Extension.value[x]"/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="0"/&gt;
     &lt;/element&gt;
   &lt;/snapshot&gt;
 &lt;/StructureDefinition&gt;
@@ -826,19 +826,19 @@ With complex extensions, only the first URL is an absolute URL:
 [%example-start%]
 <pre class="xml" fragment="Patient">
 &lt;Patient xmlns="http://hl7.org/fhir"&gt;
-  &lt;extension url=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot; &gt;
-    &lt;extension url=&quot;NCT&quot; &gt;
-      &lt;valueString value=&quot;NCT00000419&quot;/&gt;
+  &lt;extension url="http://example.org/fhir/StructureDefinition/patient-clinicalTrial" &gt;
+    &lt;extension url="NCT" &gt;
+      &lt;valueString value="NCT00000419"/&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;period&quot; &gt;
+    &lt;extension url="period" &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;200140105&quot;/&gt;
-        &lt;end value=&quot;20120105&quot;/&gt;
+        &lt;start value="200140105"/&gt;
+        &lt;end value="20120105"/&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;reason&quot; &gt;
+    &lt;extension url="reason" &gt;
       &lt;valueCodeableConcept&gt;
-        &lt;text value=&quot;healthy-volunteer&quot;/&gt;
+        &lt;text value="healthy-volunteer"/&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
@@ -887,7 +887,7 @@ This is the same as for a simple extension:
     &lt;!-- first, the patient root element
       - can be copy/paste from the base patient profile --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Patient&quot;/&gt;
+      &lt;path value="Patient"/&gt;
       &lt;!-- snip definition --&gt;
     &lt;/element&gt;
 
@@ -895,32 +895,32 @@ This is the same as for a simple extension:
       - can be copy/paste from the base patient profile,
       with changes for slicing  --&gt;
     &lt;element&gt;
-      &lt;path value=&quot;Patient.extension&quot;/&gt;
+      &lt;path value="Patient.extension"/&gt;
       &lt;!-- we're going to slice the extension element, and
         one of the extensions is one we have defined --&gt;
       &lt;slicing&gt;
         &lt;!-- extension is always sliced on url --&gt;
         &lt;discriminator&gt;
-          &lt;type value=&quot;value&quot;/&gt;
-          &lt;path value=&quot;url&quot;/&gt;
+          &lt;type value="value"/&gt;
+          &lt;path value="url"/&gt;
         &lt;/discriminator&gt;
         &lt;!-- we don't care what the order of any extensions is --&gt;
-        &lt;ordered value=&quot;false&quot;/&gt;
+        &lt;ordered value="false"/&gt;
         &lt;!-- Other extensions are allowed in addition to this one --&gt;
-        &lt;rules value=&quot;open&quot;/&gt;
+        &lt;rules value="open"/&gt;
       &lt;/slicing&gt;
       &lt;!-- snip definition --&gt;
     &lt;/element&gt;
 
     &lt;!-- now, the slice that contains our extension --&gt;
     &lt;element&gt;
-      &lt;max value=&quot;1&quot;/&gt;
+      &lt;max value="1"/&gt;
       &lt;type&gt;
         &lt;!-- obviously it has to be an extension --&gt;
-        &lt;code value=&quot;Extension&quot;/&gt;
+        &lt;code value="Extension"/&gt;
         &lt;!-- and here is the link to the extension definition:
           this extension has to conform to the rules laid down in its definition --&gt;
-        &lt;profile value=&quot;http://example.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
+        &lt;profile value="http://example.org/fhir/StructureDefinition/patient-clinicalTrial"/&gt;
       &lt;/type&gt;
     &lt;/element&gt;
 

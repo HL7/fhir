@@ -2098,8 +2098,8 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <table class="grid">
 <tr><th>Interaction</th>                <th>Path</th><th colspan="5">Request</th></tr>
 <tr><th colspan="2"></th>                                                       <th>Verb</th>           <th>Content-Type</th>   <th>Body</th>     <th>Prefer</th>         <th>Conditional</th></tr>
-<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
-<tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[vid]</code></td>    <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
+<tr><td><code>read</code></td>                       <td><code>/[type]/[id]</code></td>                   <td><code>GET<sup>&Dagger;</sup></code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>     		  <td>O: <code>If-Modified-Since</code>, <code>If-None-Match</code></td></tr>
+<tr><td><code>vread</code></td>                      <td><code>/[type]/[id]/_history/[vid]</code></td>    <td><code>GET<sup>&Dagger;</sup></code></td>            <td>N/A</td>            <td>N/A</td>      <td>N/A</td>         	<td>N/A</td></tr>
 <tr><td><code>update</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>PUT</code></td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>patch</code></td>                      <td><code>/[type]/[id]</code></td>                   <td><code>PATCH</code></td>          <td>R (may be a patch type)</td>        <td>Patch</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>delete</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>DELETE</code></td>         <td>N/A</td>            <td>N/A</td>      <td>N/A</td>	         <td>N/A</td></tr>
@@ -2112,8 +2112,9 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr>                                                      <td><code>/[compartment]/[id]/[type]?</code></td>         <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
 <tr>                                                      <td><code>/[compartment]/[id]/_search?</code></td>        <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
 <tr>                                                      <td><code>/[compartment]/[id]/[type]/_search?</code></td> <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
-<tr><td><code>capabilities</code></td>               <td><code>/metadata</code></td>                      <td><code>GET</code></td>            <td>N/A</td>           <td>N/A</td>	   <td>N/A</td>			   	<td>N/A</td></tr>
+<tr><td><code>capabilities</code></td>               <td><code>/metadata</code></td>                      <td><code>GET<sup>&Dagger;</sup></code></td>            <td>N/A</td>           <td>N/A</td>	   <td>N/A</td>			   	<td>N/A</td></tr>
 <tr><td><code>transaction</code></td>                <td><code>/</code></td>                              <td><code>POST</code></td>           <td>R</td>              <td><code>Bundle</code></td>    <td>O</td>        <td>N/A</td></tr>
+<tr><td><code>batch</code></td>                      <td><code>/</code></td>                              <td><code>POST</code></td>           <td>R</td>              <td><code>Bundle</code></td>    <td>O</td>        <td>N/A</td></tr>
 <tr><td><code>history-instance</code></td>           <td><code>/[type]/[id]/_history</code></td>          <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
 <tr><td><code>history-type</code></td>               <td><code>/[type]/_history</code></td>               <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
 <tr><td><code>history-system</code></td>             <td><code>/_history</code></td>                      <td><code>GET</code></td>            <td>N/A</td>            <td>N/A</td>       <td>N/A</td>         <td>N/A</td></tr>
@@ -2129,13 +2130,14 @@ Notes:
 <ul>
  <li>N/A = not present, R = Required, O = optional</li>
  <li>For operations defined on all resources, including direct access to the meta element, see <a href="resource-operations.html">Resource Operations</a></li>
+ <li>For <code>GET</code> operations labelled with <sup>&Dagger;</sup>, <code>HEAD</code> can also be used</li>
 </ul>
 
 <table class="grid">
 <tr><th>Interaction</th><th colspan="6">Response</th></tr>
 <tr><th colspan="1"></th>   <th>Content-Type</th> <th>Body</th>               <th>Location</th> 	    <th>Versioning</th> 					<th>Status Codes</th></tr>
-<tr><td><code>read</code></td>               <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code></td></tr>
-<tr><td><code>vread</code></td>              <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code></td></tr>
+<tr><td><code>read</code></td>               <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
+<tr><td><code>vread</code></td>              <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
 <tr><td><code>update</code></td>             <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>patch</code></td>              <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>             <td>R if body</td> <td>O: OperationOutcome</td>   <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
@@ -2143,12 +2145,13 @@ Notes:
 <tr><td><code>search-type</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
 <tr><td><code>search-system</code></td>      <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
 <tr><td><code>search-compartment</code></td> <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
-<tr><td><code>capabilities</code></td>       <td>R</td>         <td>R: CapabilityStatement</td><td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>404</code></td></tr>
+<tr><td><code>capabilities</code></td>       <td>R</td>         <td>R: CapabilityStatement</td><td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>404</code></td><sup>&Dagger;</sup></tr>
 <tr><td><code>transaction</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>batch</code></td>              <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>history-instance</code></td>   <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
 <tr><td><code>history-type</code></td>       <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
 <tr><td><code>history-all</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code></td></tr>
-<tr><td>(operation)</td>   	                 <td>R</td> 			  <td>R: Parameters/Resource</td><td>N/A</td>   <td>N/A</td>			        <td><code>200</code>, <code>202</code></td></tr>
+<tr><td>(operation)</td>   	                 <td>R</td> 			  <td>R: Parameters/Resource</td><td>N/A</td>   <td>N/A</td>			        <td><code>200</code>, <code>202</code> + varies by operation type</td></tr>
 </table>
 
 <p>
@@ -2157,6 +2160,7 @@ Notes:
 <ul>
  <li>This table lists the status codes described here, but other status codes are possible as described by the HTTP specification. Additional codes that are likely are server errors and various codes associated with authentication protocols. The <a href="security.html">security page</a> notes several security related issues that may impact which codes to return.</li>
  <li>The returned status code <code>202</code> is applicable when <code>Prefer: respond-async</code> is supplied by the client.</li>
+ <li>For <code>GET</code><sup>&Dagger;</sup> operations where <code>HEAD</code> can also be used, the HTTP status codes <code>405</code> and <code>501</code> can also be returned from <code>HEAD</code> operations</li>
 </ul>
 
 [%file newfooter%]

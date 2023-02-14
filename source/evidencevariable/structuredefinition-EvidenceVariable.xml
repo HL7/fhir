@@ -395,7 +395,7 @@
     </element>
     <element id="EvidenceVariable.lastReviewDate">
       <path value="EvidenceVariable.lastReviewDate"/>
-      <short value="When the resource was last reviewed"/>
+      <short value="When the resource was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -442,7 +442,7 @@
     <element id="EvidenceVariable.reviewer">
       <path value="EvidenceVariable.reviewer"/>
       <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
@@ -457,7 +457,7 @@
     <element id="EvidenceVariable.endorser">
       <path value="EvidenceVariable.endorser"/>
       <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
