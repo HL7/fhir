@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="device-status"/>
+  <id value="related-artifact-type-all"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
+    <valueCode value="cds"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="2"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/device-state"/>
+  <url value="http://hl7.org/fhir/ValueSet/related-artifact-type-all"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3201"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.3.3316"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="FHIRDeviceState"/>
-  <title value="FHIR Device State"/>
+  <name value="RelatedArtifactTypeExpanded"/>
+  <title value="Related Artifact Type All"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2020-12-28T16:55:11+11:00"/>
+  <date value="2022-03-22T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -33,11 +36,14 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The association state of the device."/>
+  <description value="The type of relationship to the cited artifact."/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/device-state"/>
+      <system value="http://hl7.org/fhir/related-artifact-type"/>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/related-artifact-type-expanded"/>
     </include>
   </compose>
 </ValueSet>

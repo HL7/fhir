@@ -108,7 +108,7 @@ shared in FHIR</li>
       Re-use indicates the amount of reusability is likely to be achieved from implementing a specific interoperability solution, where:
       <ol style="list-style-type: lower-roman">
         <li>
-          'High' indicates that the approach is likely to be applicable to a broad set of use-cases with minimal/no redevelopment and little/no negotiation required to establish a functional interopreable interface.
+          'High' indicates that the approach is likely to be applicable to a broad set of use-cases with minimal/no redevelopment and little/no negotiation required to establish a functional interoperable interface.
         </li>
         <li>
           'Medium' indicates that the approach has a reasonable chance of utility for at least some other use-cases, though additional development and/or negotiation or configuration may be required.
@@ -926,7 +926,16 @@ shared in FHIR</li>
     In synchronous queries, the results are determined and returned within the HTTP timeout period of the initiating GET.  The application will typically block and wait for a response before continuing with its action.  While it is possible to have very long timeout periods (100 seconds plus), typically the intention with synchronous responses is to return in tens of milliseconds to a few seconds at most to ensure appropriate system performance and user experience.  In cases where a search may take longer than this, the FHIR <a href="#synchronous">asynchronous</a> search mechanism can be used to allow a query to be initiated and subsequently monitored until a response is available - even if this takes minutes, hours, or potentially even days.  This may be necessary if the search is extremely complex or is slow for other reasons (e.g. if it involves accessing data sources with high latency or limited availability).
   </p>
   <p>
-    Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small differences - such as who initiates the process.
+    Details on invoking and processing RESTful requests in a synchronous manner is described separately for each major type of exchanges separately.  
+    For RESTful exchanges, the synchronous flows are <a href="exchanging-rest.html#push">here</a> and <a href="exchanging-rest.html#pull">here</a>.  
+    The asynchronous flow is covered <a href="exchanging-rest.html#async">here</a>.  For search the synchronous process is <a href="exchanging-search.html#sync">here</a> 
+    and the asynchronous process is <a href="exchanging-search.html#async">here</a>.  For operations, synchronous is <a href="exchanging-operation.html#sync">here</a> 
+    and asynchronous is <a href="exchanging-operation.html#async">here</a>.  Finally, for messaging synchronous is <a href="exchanging-messaging.html#sync">here</a> and 
+    asynchronous is <a href="exchanging-messaging.html#async">here</a>.  For all except messaging, the asynchronous process is similar, however there are small 
+    differences - such as who initiates the process.
+  </p>
+  <p>
+    For an example of using an asynchronous approach, see the <a href="https://hl7.org/fhir/uv/bulkdata/index.html">Bulk Data Access IG</a>.
   </p>
   <p>
     <a style="color:gray" href="#tree">Return to diagram</a>

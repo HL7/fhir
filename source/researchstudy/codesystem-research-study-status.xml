@@ -44,7 +44,7 @@
   </contact>
   <description value="Codes that convey the current status of the research study."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/>
+<!--  <valueSet value="http://hl7.org/fhir/ValueSet/research-study-status"/> -->
   <content value="complete"/>
   <concept>
     <code value="overall-study"/>

@@ -14,16 +14,15 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <name value="ResourceType"/>
-  <title value="Resource Types"/>
+  <name value="FHIROldTypes"/>
+  <title value="Old FHIR Types"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="Concrete FHIR Resource Types"/>
+  <description value="Old FHIR resource types (deleted or renamed)"/>
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/fhir-types"/>
-      <!-- filled in by the build -->
+      <system value="http://hl7.org/fhir/fhir-old-types"/>
     </include>
   </compose>
 </ValueSet>

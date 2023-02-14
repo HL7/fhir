@@ -170,7 +170,7 @@ by the FHIR specification.
 <a name="defined-props"></a>
 <h2>Defined Concept Properties</h2>
 
-<p>In order to assist with consistency between code systems, the following basic property URIs are defined:</p>
+<p>In order to assist with consistency between code systems, the following basic property URIs are defined in the <a href="codesystem-concept-properties.html">Concept Properties</a> code system:</p>
 
 <table class="grid">
  <tr><td>http://hl7.org/fhir/concept-properties#status : code</td><td>A property that indicates the status of the concept. If the property is identified by this URL, then it SHALL use at least these status values (where appropriate):
@@ -182,15 +182,16 @@ by the FHIR specification.
      </ul>
    </td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#inactive : boolean</td><td>True if the concept is not considered active - e.g. not a valid concept any more. Property type is boolean, default value is false</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept was status was last changed</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by it's code) contains this concept as a component</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#synonym : code</td><td>This property contains an alternative code that may be used to identify this concept instead of the primary code</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#comment : code</td><td>A string that provides additional detail pertinent to the use or understanding of the concept</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#itemWeight : decimal</td><td>A numeric value that allows the comparison (less than, greater than) or other numerical manipulation of a concept (e.g. Adding up components of a score). Scores are usually a whole number, but occasionally decimals are encountered in scores</td></tr>
 </table>
 <p>
 Code System representations SHOULD use these properties where possible.
@@ -229,17 +230,16 @@ of use (e.g. set in a ValueSet).
 <a name="hierarchy"></a>
 <h2>Concept Hierarchy</h2>
 <p>
-Code systems may be presented hierarchically, using nested <code>concept</code> elements, where the 
-hierarchy has a defined meaning specified in <a href="codesystem-definitions.html#CodeSystem.hierarchyMeaning"><code>hierarchyMeaning</code></a>.
-The code system hierarchy is a single tree, where concepts have only one parent. 
+Code systems may be presented hierarchically using either nested concept elements or properties. 
+When exclusively using nested concept elements the code system hierarchy is a single tree, and 
+concepts have only one parent. When using properties, polyhierarchies are allowed (e.g. concepts 
+may have more than one parent). 
 </p>
 <p>
-Some code systems define concepts that have multiple parents.
-If a code system has concepts like this (typically, concepts that are subsumed by 
-more than one other concept), the code system SHOULD NOT be represented using the hierarchy structure in 
-the Code System resource, and the relationships between concepts should be defined using <a href="#properties">properties</a>. 
-If the hierarchy is used, implementers SHALL use a property to indicate 
-additional parents that are not represented in the structural (nested concepts) hierarchy. 
+If a code system hierarchy is represented using properties (typically, concepts that are subsumed 
+by more than one other concept), nested concepts SHOULD NOT be used to represent any parts of the hierarchy 
+structure in the Code System resource; the relationships between concepts should be defined 
+using <a href="#properties">properties</a>.
 </p>
 <p>
 Operations based on the codeSystem resource SHALL have the same result whether or not the 
@@ -281,6 +281,13 @@ The following filters are defined for all code systems:
    <th>Value</th>
    <th>Definition</th>
    <th>Notes</th>
+ </tr>
+ <tr>
+   <td>code</td>
+   <td>regex</td>
+   <td>[string]</td>
+   <td>Matches any concept with the code matching the supplied string</td>
+   <td>The regex flavor is determined by the server</td>
  </tr>
  <tr>
    <td>[property]</td>
@@ -352,7 +359,7 @@ The following filters are defined for all code systems that support "is-a" relat
    <td>concept</td>
    <td>descendent-of</td>
    <td>[string] concept code</td>
-   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself i.e. include descendant codes only).</td>
+   <td>Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, excluding the provided concept itself (i.e. include descendant codes only).</td>
    <td></td>
  </tr>
  <tr>
@@ -385,6 +392,7 @@ The following filters are defined for all code systems that support "is-a" relat
  </tr>
 </table>
 
+<!--
 <div class="draft-content">
 <p>
 This <a href="versions.html#std-process" title="Draft Content" class="draft-flag">draft section</a> about the relationships between rich terminologies and structured content is still undergoing review.
@@ -470,5 +478,5 @@ set to the same value and namespace as the code, but if the only identifier a re
 is its defining code, it may be better to omit the identifier entirely. .
 </p>
 </div>
-
+-->
 </div>

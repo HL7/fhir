@@ -14,16 +14,21 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <name value="ResourceType"/>
-  <title value="Resource Types"/>
+  <name value="SubscriptionTypes"/>
+  <title value="Types used with Subscriptions"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="Concrete FHIR Resource Types"/>
+  <description value="Types used with Subscriptions"/>
   <immutable value="true"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/fhir-types"/>
-      <!-- filled in by the build -->
+      <concept>
+        <code value="Reference"/>
+      </concept>
+    </include>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
     </include>
   </compose>
 </ValueSet>

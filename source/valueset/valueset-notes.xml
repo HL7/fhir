@@ -655,20 +655,41 @@ Use cases for the different combinations:
 
 <a name="implicit"></a>
 <h2>Implicit Value Sets</h2>
-  <p>
-    Implicit value sets are those whose specification can be predicted based on the grammar of the
-    underlying code system, and the known structure of the URL that identifies them. The implicit value set 
-    capability allows a single URL to serve as a value set definition, and can serve as the basis for the
-    <a href="valueset-operation-expand.html">$expand</a>
-    operation and for other value set references. If any value set resources exist with an identifier that 
-    conforms to the specified implicit value set URL patterns, the content of the resource must conform to the 
-    template provided. Profiles and other value set references can reference these value sets directly (by 
-    reference as a URI, rather than by a literal value set reference).
+<p>
+Instead of a ValueSet resource as the definition, implicit value sets are defined in a specification which 
+references the underlying code system structures and includes a prescribed URI pattern to identify the 
+value set.  HL7 has defined implicit value set URI patterns for some key code systems.
 </p>
 <p>
-  Some (but not all) code systems have implicit value set URL patterns that have been defined and documented 
-  for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
-  or all of these URL patterns.
+Implicit value sets allow the URI to serve as the basis for ValueSet operations such as 
+<a href="valueset-operation-expand.html">$expand</a> and <a href="valueset-operation-validate-code.html">$validate-code</a>
+without the need to create a defining ValueSet resource instance.
+</p>
+<p>
+Some advantages of using implicit value sets are that they may be used:
+</p>
+<ul>
+<li>With read-only terminology servers because a ValueSet resource cannot be posted</li>
+<li>With HTTP GET requests because they are cacheable</li>
+<li>To enable text searches (google like) for concepts across the entirety of large code systems (e.g., SNOMED CT)</li>
+<li>To provide a convenient way to reference all or parts of code systems in the definition of a ValueSet or ConceptMap</li>
+</ul>
+<p>
+In some cases it is not possible to express a value set definition using ValueSet.compose - but 
+it may be possible to express the value set definition with an implicit value set URI. An example 
+of this scenario is all SNOMED CT concept IDs that identify reference sets. Implementers SHOULD NOT 
+create ValueSet resources where the ValueSet.url value matches the pattern of a known implicit value set. 
+</p>
+<p>
+Implicit value set URIs can be used anywhere a value set URI can be used. Support for implicit value 
+set URI patterns varies across terminology servers.
+</p>
+<p>
+Some (but not all) code systems have implicit value set URI patterns defined by HL7 and documented 
+for use with FHIR terminology services. Code system publishers may also define implicit value set 
+URI patterns. FHIR terminology servers might or might not support any or all of these URI patterns. 
+Caution should be exercised when using value set URI patterns that have not been defined by HL7 or 
+the code system publisher. 
 </p>
 
 [%ballot-note implicit%]
