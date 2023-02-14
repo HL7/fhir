@@ -61,6 +61,7 @@
   <parameter>
     <name value="id"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="*"/>
     <documentation value="At the Instance level, this parameter is ignored. At the Resource level, one or more parameters containing a FHIR id for a Subscription to get a token for. In the absense of any specified ids, the server may either return a token for all Subscriptions available to the caller with a channel-type of websocket or fail the request."/>
