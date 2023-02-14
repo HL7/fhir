@@ -1586,15 +1586,11 @@ absolute URL of the created Binary resource.
 If a reference within a transaction contains a version-specific reference, the expectation is that the referenced version
 already exists - either on the target server or on another server. If the intention is to point to a version created as
 part of the current transaction, the reference should be a version-independent reference and SHALL include the
-[resolve-as-version-specific] extension, requesting that the server update the reference to be version-specific to the
+<a href="[%extensions-location%]StructureDefinition-resolve-as-version-specific.html">extension resolve-as-version-specific</a></code> 
+extension, requesting that the server update the reference to be version-specific to the
 target version produced by this transaction. If there is no entry in the transaction Bundle that creates a new version of
 the referenced resource, this MAY be treated as an error.
-</p>
-<p>
-Version-specific references may create dependencies between creates and updates that the transaction will need to accommodate.
-For example, if a 'create' has a 'resolve-as-version-specific-reference' to an updated entry, even though the 'create' will
-need to happen before the 'update' (per transaction rules), the created record will need to be revised to include the
-version-specific reference to the newly updated version of the reference target.
+</p> reference to the newly updated version of the reference target.
 </p>
 <p>
 Version-specific references may create dependencies between creates and updates that the transaction will need to accommodate.
