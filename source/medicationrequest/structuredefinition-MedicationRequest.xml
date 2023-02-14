@@ -137,7 +137,7 @@
     </element>
     <element id="MedicationRequest.basedOn">
       <path value="MedicationRequest.basedOn"/>
-      <short value="What request fulfills"/>
+      <short value="A plan or request that is fulfilled in whole or in part by this medication request"/>
       <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
       <min value="0"/>
       <max value="*"/>
@@ -160,8 +160,8 @@
     </element>
     <element id="MedicationRequest.priorPrescription">
       <path value="MedicationRequest.priorPrescription"/>
-      <short value="An order/prescription that is being replaced"/>
-      <definition value="A link to a resource representing an earlier order related order or prescription."/>
+      <short value="Reference to an order/prescription that is being replaced by this MedicationRequest"/>
+      <definition value="Reference to an order/prescription that is being replaced by this MedicationRequest."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -440,8 +440,8 @@
     </element>
     <element id="MedicationRequest.subject">
       <path value="MedicationRequest.subject"/>
-      <short value="Who or group medication request is for"/>
-      <definition value="A link to a resource representing the person or set of individuals to whom the medication will be given."/>
+      <short value="Individual or group for whom the medication has been requested"/>
+      <definition value="The individual or group for whom the medication has been requested."/>
       <comment value="The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified."/>
       <min value="1"/>
       <max value="1"/>
@@ -834,7 +834,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="rim"/>
