@@ -122,7 +122,7 @@ same path must conform.
 <ul>
 		<li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
 		<li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
-		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceasedBoolean, the id is Patient.deceased[x]:deceasedBoolean</li>
+		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
 </ul>
 <p>
 		Note that in a profile with no slices, this id will match the path exactly and entirely.
