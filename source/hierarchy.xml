@@ -77,7 +77,7 @@ signatures.html
         <page title="FHIRPath" filename="fhirpath.html"/>
         <page title="NPM Packages" filename="packages.html"/>
         <page title="Version History" filename="history.html"/>
-        <page title="Differences from Release 3" filename="diff.html"/>
+        <page title="Differences from Release 4" filename="diff.html"/>
         <page title="Release 4/5 Transforms" filename="r4maps.html"/>
         <page title="Logical models" filename="logical.html"/>
 
