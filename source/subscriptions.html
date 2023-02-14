@@ -193,6 +193,12 @@
   Example and Canonical Subscription Topics can be found at <a href="http://registry.fhir.org/">registry.fhir.org</a>.  It is strongly suggested that implementers reuse existing topics and submit new topics whenever possible for better compatibility.
 </p>
 
+<a name="multi-resource-topics"/>
+<h3>Multi-Resource Topics</h3>
+<p>
+  Subscription Topics can be defined across multiple resource types. For example, a single topic could be defined to trigger when a Patient has a new <a href="observation.html">Observation</a>, <a href="condition.html">Condition</a>, or <a href="procedure.html">Procedure</a>. Alternatively, a system could be interested in notifications based on any Resource being deleted. In either case, it is desireable to be able to trigger notifications across more than one resource type. If all of the resource have a logical grouping in the FHIR hierarchy, the lower-level resource type can be used. For example, for notifications across all resources, the value <a href="codesystem-fhir-types.html#fhir-types-Resource">Resource</a> can be used directly. If there is no lower-level grouping, each resource must be listed individually in the appropriate elements of the topic (e.g., multiple <a href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger">SubscriptionTopic.resourceTrigger</a> elements, each with the correct <code>resource</code>).
+</p>
+
 <a name="overview-subscription"/>
 <h2>Subscriptions</h2>
 <p>
@@ -228,6 +234,18 @@
     that the payload configuration is valid for the channel type requested (e.g., complies with the server's security policy)
   </li>
 </ul>
+
+<a name="resource-filters"/>
+<h3>Filters and Resource Types</h3>
+<p>
+  If allowed by a topic, notifications for a single subscription can be triggered on <a href="#multi-resource-topics">multiple resource types</a>. A topic can also define filters that apply to some or all triggering resource types. Note that if the <code>resourceType</code> is not specified, the server MAY either reject the request, determine at the time of creation which resources the parameter is applied to, or test each resource at runtime.
+</p>
+<p>
+  For example, if a topic is defined for both <a href="observation.html">Observation</a> and <a href="condition.html">Condition</a> resources, the <a href="searchparameter-registry.html#clinical-patient">patient</a> search parameter is defined across both types and the same value will apply to either.  However, if the <a href="searchparameter-registry.html#clinical-code">code</a> search parameter is used, receivers will likely want to specify the filters independently with different values for observations vs. conditions.
+</p>
+<p>
+  The same behavior applies to lower-level resources, e.g., <code>Resource</code>. If a topic allows for filtering on common search parameters such as <a href="search.html#_language">_language</a>, <a href="search.html#_source">_source</a>, or <a href="search.html#_tag">_tag</a>, it is logical to apply each of those parameters to every resource. If a non-generic search parameter is allowed (e.g., <a href="searchparameter-registry.html#clinical-patient">patient</a>) and a <code>resourceType</code> is unspecified or too broad, the server could choose to reject the request, determine subsets at the time of creation, or test each possible notification individually.
+</p>
 
 <a name="overview-notification"/>
 <h2>Subscription Notifications</h2>

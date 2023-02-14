@@ -24,6 +24,21 @@
 		Subscription Topics MUST always document the concept it represents.  While a short definition is included in the <code>SubscriptionTopic</code> itself, this documentation will typically not be sufficient for implementers.  Definitions must be clear and specific.  For example, if the goal is to define an 'admission' topic, the single word is common enough to feel sufficient - implementers generally know what an 'admission' is and could implement something that would qualify.  However, is the intention to represent a patient being physically admitted to a care facility, or the start of a clinical encounter?  Either definition is common, and without more information implementations will not be consistent.  Without complete and specific definitions, server implementations will vary and clients will have unexpected behavior.
 	</p>
 
+  <a name="resource-scope" />
+  <h3>Resource Scope</h3>
+  <p>
+    Note that Subscription Topics are not limited to a single 'base' resource. As described on the <a href="subscriptions.html#multi-resource-topics">Subscriptions Framework</a> page, there are scenarios where multiple resources are in context for a single topic. When multiple resources are in scope, they may appear in:
+    <ul>
+      <li>a single <code>resourceTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>),</li>
+      <li>multiple <code>resourceTrigger</code> repetitions, each with a different <code>resource</code> value,</li>
+      <li>a single <code>eventTrigger.resource</code>, via a lower-level grouping (e.g., <code>Resource</code>), or</li>
+      <li>multiple <code>eventTrigger</code> repetitions, each with a different <code>resource</code> value.</li>
+    </ul>
+  </p>
+  <p>
+    When multiple resources are in scope, topic authors are responsible for ensuring that available filtering parameters are clear in their scope.  For example, if a topic is scoped to <code>Resource</code>, an allowed filter based on <code>_language</code> is clear and applicable to any possible resource.  However, a search parameter of <code>patient</code> does not make sense in the context of all resources, since many resources do not include that search parameter.  Note that the resource specified in <code>canFilterBy.resource</code> does not need to match the literals specified by triggers.  For example, an event that triggers on all resource can specify different filters for each resource type.
+  </p>
+
 	<a name="resource-operation-pairs" />
 	<h3>Resource Interactions</h3>
 	<p>
@@ -139,6 +154,9 @@
 	<p>
     To help servers filter a large set of topic notifications into a smaller set of events that a particular client is interested in, each <code>SubscriptionTopic</code> defines a set of filters that clients are allowed to request. For example, filters can be used to allow a <code>Subscription</code> to narrow down notifications from a topic defining all patient admissions to a just admissions for patients for a specific care team.
 	</p>
+  <p>
+    Note that filters can be defined either to a single resource type (e.g., <code>Patient</code>) or to the 'lower-level' resource types (e.g., <code>Resource</code>). When defining allowed filters across resources, care should be taken to ensure that the parameters correctly apply to all resources included in scope. For example, a filter defined for <code>Resource</code> has well-defined behavior for search parameters like <a href="search.html#_language">_language</a>, <a href="search.html#_source">_source</a>, and <a href="search.html#_tag">_tag</a>, but there is not a well-defined behavior for a parameter like <a href="searchparameter-registry.html#clinical-patient">patient</a> across resources that are not in the patient compartment.  Servers MAY reject subscriptions requests that are include too broad filters, determine at the time of creation which resources the parameter is applied to, or test each resource at runtime.  More information is available on the <a href="subscriptions.html#resource-filters">Subscriptions Framework</a> page.
+  </p>
 
 		<a name="filters-param-name"/>
 		<h4>Filter Parameter</h4>

@@ -6,6 +6,12 @@
 		Applications are responsible for following <a href="security.html">FHIR security guidance</a>.  Some recommendations specific to subscriptions are provided on the <a href="subscriptions.html#safety">Subscriptions Framework</a> page.
 	</p>
 
+  <a name="multi-resource"/>
+  <h2>Multi-Resource Subscriptions</h2>
+  <p>
+    As indicated on the <a href="subscriptions.html#multi-resource-topics">Subscriptions Framework</a> and <a href="subscriptiontopic.html#resource-scope">SubscriptionTopic resource</a> pages, subscriptions can have more than a single resource in scope (e.g., a subscription that triggers on both <code>Condition</code> and <code>Observation</code> resources, a topic tied to all resources, etc.).  If there are filters that do not apply to every resource available in a topic, clients SHOULD ensure that the <code>filterBy.resourceType</code> element is filled appropriately.  More detail can be found in the <a href="subscriptions.html#resource-filters">Filters and Resource Types</a> section of the Subscriptions Framework page.
+  </p>
+
 	<a name="payloads"/>
 	<h2>Payload Types</h2>
 	<p>
