@@ -17,7 +17,7 @@ dependencies included in other packages that the Implementation guide identifies
 as dependencies are not included in the package.
 </p> 
 <p>
-See the <a href="https://confluence.hl7.org/display/FHIR/Authoring+FHIR+Implementation+Guides+-+Introduction">for a 
+See <a href="https://confluence.hl7.org/display/FHIR/Authoring+FHIR+Implementation+Guides+-+Introduction">Confluence</a> for a 
 list of tools that can assist with authoring implementation guides. HL7 publishes 
 a <a href="https://build.fhir.org/ig/FHIR/ig-guidance/">Guidance Implementation Guide</a> that provides specific guidance 
 on best practices around IG creation as well as information about some of the tooling extensions and capabilities relevant to 
