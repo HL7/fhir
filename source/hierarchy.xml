@@ -237,6 +237,7 @@ signatures.html
       <page title="Downloads" filename="downloads.html"/>
 
       <page title="Testing FHIR" filename="testing.html"/>
+      <page type="resource" resource="TestPlan" />
       <page type="resource" resource="TestScript" />
       <page type="resource" resource="TestReport" />
       <page title="Validating Resources" filename="validation.html"/>
@@ -279,6 +280,7 @@ signatures.html
 
       <page type="resource" resource="EpisodeOfCare"/>
       <page type="resource" resource="Encounter"/>
+      <page type="resource" resource="EncounterHistory"/>
       <page type="resource" resource="Account"/>
       <page type="resource" resource="Flag"/>
 

@@ -46,7 +46,7 @@
       <preferred value="true"/>
       <language>
          <coding>
-         	<system value="http://tools.ietf.org/html/bcp47"/>
+         	<system value="urn:ietf:bcp:47"/>
             <code value="en"/>
             <display value="English"/>
          </coding>
@@ -64,7 +64,7 @@
       <preferred value="false"/>
       <language>
          <coding>
-         	<system value="http://tools.ietf.org/html/bcp47"/>
+         	<system value="urn:ietf:bcp:47"/>
             <code value="el"/>
             <display value="Greek"/>
          </coding>
@@ -82,7 +82,7 @@
       <preferred value="false"/>
       <language>
          <coding>
-         	<system value="http://tools.ietf.org/html/bcp47"/>
+         	<system value="urn:ietf:bcp:47"/>
             <code value="bg"/>
             <display value="Bulgarian"/>
          </coding>
@@ -100,7 +100,7 @@
       <preferred value="false"/>
       <language>
          <coding>
-         	<system value="http://tools.ietf.org/html/bcp47"/>
+         	<system value="urn:ietf:bcp:47"/>
             <code value="en"/>
             <display value="English"/>
          </coding>

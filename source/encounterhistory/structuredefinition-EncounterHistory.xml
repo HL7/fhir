@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="EncounterHistory"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Base.Management"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="patient"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status=entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/EncounterHistory"/>
+  <!-- <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1268"/>
+  </identifier> -->
+  <version value="5.0.0"/>
+  <name value="EncounterHistory"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Patient Administration)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A record of significant events/milestones key data throughout the history of an Encounter"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Encounter"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="EncounterHistory">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="EncounterHistory"/>
+      <short value="A record of significant events/milestones key data throughout the history of an Encounter"/>
+      <definition value="A record of significant events/milestones key data throughout the history of an Encounter, often tracked for specific purposes such as billing."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="workflow.encounter"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.encounter">
+      <path value="EncounterHistory.encounter"/>
+      <short value="The Encounter associated with this set of historic values"/>
+      <definition value="The Encounter associated with this set of historic values."/>
+      <comment value="This is also used for associating a child's encounter back to the mother's encounter.&#xD;&#xD;Refer to the Notes section in the Patient resource for further details."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy">
+          <valueBoolean value="true"/>
+        </extension>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+      </type>
+    </element>
+    <element id="EncounterHistory.identifier">
+      <path value="EncounterHistory.identifier"/>
+      <short value="Identifier(s) by which this encounter is known"/>
+      <definition value="Identifier(s) by which this encounter is known."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-19"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.status">
+      <path value="EncounterHistory.status"/>
+      <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
+      <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isModifier value="true"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterStatus"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Current state of the encounter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-status"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.class">
+      <path value="EncounterHistory.class"/>
+      <short value="Classification of patient encounter"/>
+      <definition value="Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterClass"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Classification of the encounter."/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-2"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.type">
+      <path value="EncounterHistory.type"/>
+      <short value="Specific type of encounter"/>
+      <definition value="Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."/>
+      <comment value="Since there are many ways to further classify encounters, this element is 0..*."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="The type of encounter."/>
+        </extension>
+        <strength value="example"/>
+        <description value="A specific code indicating type of service provided"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-type"/>
+      </binding>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-4 / PV1-18"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.serviceType">
+      <path value="EncounterHistory.serviceType"/>
+      <short value="Specific type of service"/>
+      <definition value="Broad categorization of the service that is to be provided (e.g. cardiology)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EncounterServiceType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Broad categorization of the service that is to be provided."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-type"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-10"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.subject">
+      <path value="EncounterHistory.subject"/>
+      <short value="The patient or group related to this encounter"/>
+      <definition value="The patient or group related to this encounter. In some use-cases the patient MAY not be present, such as a case meeting about a patient between several practitioners or a careteam."/>
+      <comment value="While the encounter is always about the patient, the patient might not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked)."/>
+      <alias value="patient"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PID-3"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.subjectStatus">
+      <path value="EncounterHistory.subjectStatus"/>
+      <short value="The current status of the subject in relation to the Encounter"/>
+      <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubjectStatus"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Current status of the subject  within the encounter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-subject-status"/>
+      </binding>
+    </element>
+    <element id="EncounterHistory.actualPeriod">
+      <path value="EncounterHistory.actualPeriod"/>
+      <short value="The actual start and end time associated with this set of values associated with the encounter"/>
+      <definition value="The start and end time associated with this set of values associated with the encounter, may be different to the planned times for various reasons."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.done[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-44, PV1-45"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.plannedStartDate">
+      <path value="EncounterHistory.plannedStartDate"/>
+      <short value="The planned start date/time (or admission date) of the encounter"/>
+      <definition value="The planned start date/time (or admission date) of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-8"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.plannedEndDate">
+      <path value="EncounterHistory.plannedEndDate"/>
+      <short value="The planned end date/time (or discharge date) of the encounter"/>
+      <definition value="The planned end date/time (or discharge date) of the encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV2-9"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.length">
+      <path value="EncounterHistory.length"/>
+      <short value="Actual quantity of time the encounter lasted (less time absent)"/>
+      <definition value="Actual quantity of time the encounter lasted. This excludes the time during leaves of absence.&#xD;&#xD;When missing it is the time in between the start and end values."/>
+      <comment value="If the precision on these values is low (e.g. to the day only) then this may be considered was an all day (or multi-day) encounter, unless the duration is included, where that amount of time occurred sometime during the interval.&#xD;&#xD;May differ from the time in `Encounter.period` due to leave of absence(s)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Duration"/>
+      </type>
+      <mapping>
+        <identity value="v2"/>
+        <map value="(PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes or PV2-11 (which is actual length in days)"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.location">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="370,100"/>
+      </extension>
+      <path value="EncounterHistory.location"/>
+      <short value="Location of the patient at this point in the encounter"/>
+      <definition value="The location of the patient at this point in the encounter, the multiple cardinality permits de-normalizing the levels of the location hierarchy, such as site/ward/room/bed."/>
+      <comment value="Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type &quot;kind&quot; such as &quot;client's home&quot; and an encounter.class = &quot;virtual&quot;."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="EncounterHistory.location.location">
+      <path value="EncounterHistory.location.location"/>
+      <short value="Location the encounter takes place"/>
+      <definition value="The location where the encounter takes place."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.where[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-3 / PV1-6 / PV1-11 / PV1-42 / PV1-43"/>
+      </mapping>
+    </element>
+    <element id="EncounterHistory.location.form">
+      <path value="EncounterHistory.location.form"/>
+      <short value="The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"/>
+      <definition value="This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query."/>
+      <comment value="This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.&#xA;&#xA;There may be many levels in the hierachy, and this may only pic specific levels that are required for a specific usage scenario."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="LocationForm"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Physical form of the location."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/location-form"/>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

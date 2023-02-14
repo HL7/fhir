@@ -10,7 +10,7 @@ _include).
 </p>
 <p>
 Otherwise, the data is not optional; a binary resource without
-any specified content it not useful.
+any specified content is not useful.
 </p>
 
 <a name="rest"></a>
@@ -59,7 +59,13 @@ following elements of the resource have matching HTTP Headers:
  allow the security context for a Binary resource to be specified when it is posted in native form. The content of the header 
  is <code>Binary.securityContext.reference</code></li>
 </ul>
+
+<a name="images"></a>
+<h3>Image source for Narrative</h3>
 <p>
+Binary resources may be the target of <code>img.src</code> references in XHTML 
+narrative, and also in markdown. See <a href="narrative.html#id">Image References</a> for further 
+details.
 </p>
 
 <a name="rest"></a>

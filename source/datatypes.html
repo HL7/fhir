@@ -161,7 +161,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>date<a name="date"></a></td>
-  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates.</td>
+  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone offset</b>. Dates SHALL be valid dates.</td>
   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
@@ -174,7 +174,8 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
-   If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
+   If hours and minutes are specified, a time zone offset SHALL be populated. Actual time zone codes can be sent using the <%extension http://hl7.org/fhir/StructureDefinition/timezone%> extension, if desired.
+   Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
@@ -213,7 +214,8 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
 <tr>
   <td>instant<a name="instant"></a></td>
-  <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone.
+  <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone offset.
+    Actual time zone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
@@ -322,7 +324,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td>time<a name="time"></a></td>
   <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion.
-  <b>The time "24:00" SHALL NOT be used. A time zone SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
+  <b>The time "24:00" SHALL NOT be used. A time zone offset SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
   <td>xs:time</td>
   <td>A JSON string - an xs:time</td>
  </tr>
@@ -699,10 +701,20 @@ the meaning of the code by an application that is not aware of the <code>system<
 </p>
 <p>
 If the 'display' element is populated, the string used in <code>display</code> SHALL be one of the display strings defined for
-that code by the code system (code systems may define multiple display strings for a single code).
-If one of the available display strings is labeled as preferred, it SHOULD be used. If the code system does not define a text representation
-for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be populated, and the meaning of the code won't be
-accessible to systems that don't understand the code expression.
+that code by the code system. Code systems may define multiple display strings for a single code, by use of:
+</p>
+<ul>
+  <li><code>CodeSystem.concept.display</code></li>
+  <li><code>CodeSystem.concept.designation.value</code> (including in supplements)</li>
+</ul>
+<p>Note that displays defined in value sets (<code>ValueSet.include.concept.display</code> and <code>ValueSet.include.concept.designation.value</code>) 
+are not allowed in <code>Coding.display</code>.
+</p>
+<p>
+If one of the available display strings is labeled as preferred, it SHOULD be used (note that <code>CodeSystem.concept.display</code> is preferred 
+for the base resource language if it is populated, but other display strings may be preferred in other languages, or for other usages). 
+If the code system does not define a text representation for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be 
+populated, and the meaning of the code won't be accessible to systems that don't understand the code expression.
 </p>
 
 <p>
@@ -715,7 +727,11 @@ be used in the absence of a known system.
 </p>
 <p>
 If the system is present, and there is no code, then this is understood to mean that there
-is no suitable code in the system in which to represent the code.
+is no suitable code in the system in which to represent the concept. The implication of this is 
+that implementers SHOULD never provide a system without a code unless this is the intended 
+meaning AND it is appropriate for the code system and version.  (E.g. the code system does 
+not have an 'OTHER' concept.)  This approach cannot be used if an appropriate code might 
+exist within the code system but does not exist within the bound ValueSet.
 </p>
 <p>
 If two codings have the same <code>system</code>, <code>version</code> and <code>code</code> then they have the same meaning.
@@ -1225,26 +1241,38 @@ Period is used in the following places: [%dtusage Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R4 Conversions</a>.
 </p>
-
 <p>
-Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The datatype also supports more than one dimension in the data.
-</p>
-<p>
-A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
-factor. These are interpreted such that
+A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency.
+A typical use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly 
+simple integers) or codes, along with adjustments for scale and factor. These are interpreted such that
 </p>
 <pre>
 original measured value[i] = SampledData.data[i] * SampledData.factor + SampledData.origin.value
 </pre>
 
 [%dt SampledData 8%]
+
 <p>
-The digits are a set of decimal values separated by a single space (Unicode character u20).
-In addition to decimal values, the special values "E" (error), "L" (below detection limit)
-and "U" (above detection limit) can also be used. If there is more than one dimension, the
-different dimensions are interlaced - all the data points for a particular time are
-represented together.
+SampledData supports multi-dimensional data, where there is more than one measurement
+for each time point. If there is more than one dimension, the different dimensions are 
+interlaced - all the data points for a particular time are represented together.
+</p>
+<p>
+Data points are separated by by a single space (Unicode character u20). Each data 
+point is either a decimal value or a code. Three special codes are defined:
+</p>
+<ul>
+  <li><code>E</code>: error - no valid measurement available for this data point</li>
+  <li><code>L</code>: below detection point - the value was below the device's detection limit (<code>lowerLimit</code>, which must be provided if this code is used)</li>
+  <li><code>U</code>: above detection point - the value was above the device's detection limit (<code>upperLimit</code>, which must be provided if this code is used)</li>
+</ul>
+<p>
+Other codes may be used. In this case, the meaning of the codes is specified by the <code>codeMap</code>
+property which references a <a href="conceptmap.html">ConceptMap</a> that defines the codes used 
+in the data, and maps the codes to properly defined concepts in a <a href="codesystem.html">CodeSystem</a>.
+Note that in this case, source system defined in the ConceptMap is not used in the SampledData and is 
+ignored. There SHALL only be one group in the ConceptMap. The ConceptMap cannot define meanings for 
+the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'), since they always have the meaning as defined above.
 </p>
 
 <p>

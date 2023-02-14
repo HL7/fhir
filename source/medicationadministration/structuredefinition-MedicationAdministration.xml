@@ -661,7 +661,7 @@
       <path value="MedicationAdministration.dosage.site"/>
       <short value="Body site administered to"/>
       <definition value="A coded specification of the anatomic site where the medication first entered the body.  For example, &quot;left arm&quot;."/>
-      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="1"/>
       <type>
