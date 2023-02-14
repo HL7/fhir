@@ -637,7 +637,7 @@
       <path value="ImplementationGuide.definition.resource.fhirVersion"/>
       <short value="Versions this applies to (if different to IG)"/>
       <definition value="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion."/>
-      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [applicable-version](extension-structuredefinition-applicable-version.html) extension."/>
+      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-applicable-version]]] extension."/>
       <min value="0"/>
       <max value="*"/>
       <type>

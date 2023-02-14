@@ -249,7 +249,7 @@
         </extension>
         <strength value="extensible"/>
         <description value="A type of resource, or a Reference"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
       </binding>
     </element>
     <element id="Subscription.filterBy.filterParameter">
