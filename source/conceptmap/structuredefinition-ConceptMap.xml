@@ -402,7 +402,7 @@
     </element>
     <element id="ConceptMap.lastReviewDate">
       <path value="ConceptMap.lastReviewDate"/>
-      <short value="When the ConceptMap was last reviewed"/>
+      <short value="When the ConceptMap was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -481,7 +481,7 @@
     <element id="ConceptMap.reviewer">
       <path value="ConceptMap.reviewer"/>
       <short value="Who reviewed the ConceptMap"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the ConceptMap."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ConceptMap."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -491,7 +491,7 @@
     <element id="ConceptMap.endorser">
       <path value="ConceptMap.endorser"/>
       <short value="Who endorsed the ConceptMap"/>
-      <definition value="An individual or organization responsible for officially endorsing the ConceptMap for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ConceptMap for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>

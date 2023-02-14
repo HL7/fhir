@@ -61,6 +61,7 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="A canonical URL for a concept map. The server must know the concept map (e.g. it is defined explicitly in the server's concept maps, or it is defined implicitly by some code system known to the server."/>
@@ -69,6 +70,7 @@
   <parameter>
     <name value="conceptMap"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The concept map is provided directly as part of the request. Servers may choose not to accept concept maps in this fashion."/>
@@ -77,6 +79,7 @@
   <parameter>
     <name value="conceptMapVersion"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The identifier that is used to identify a specific version of the concept map to be used for the translation. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>

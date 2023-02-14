@@ -223,8 +223,8 @@ entity that the target resource would describe.
 <pre class="xml" fragment="Reference">
   &lt;patient&gt;
     &lt;identifier&gt;
-      &lt;system value=&quot;http://hl7.org/fhir/sid/us-ssn&quot; /&gt;
-      &lt;value value=&quot;000111111&quot; /&gt;
+      &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
+      &lt;value value="000111111" /&gt;
     &lt;/identifier&gt;
   &lt;/patient&gt;
 </pre>
@@ -312,7 +312,7 @@ References to canonical URLs use the <a href="datatypes.html#canonical"><code>ca
 the <code>url</code> element on the conformance/knowledge resources (which has the type <a href="datatypes.html#uri">uri</a>):
 </p>
 <pre>
-&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset&quot;/&gt;
+&lt;valueSet value="http://hl7.org/fhir/ValueSet/my-valueset"/&gt;
 </pre>
 <p>
 Note the exception to this rule: if the target resource is contained in another resource, which is referencing it, then the canonical 
@@ -323,7 +323,7 @@ References of type <code>canonical</code> may include a version, in order to be 
 resource is being referred to. To do this, append the version to the reference with a '|' like this:
 </p>
 <pre>
-&lt;valueSet value=&quot;http://hl7.org/fhir/ValueSet/my-valueset|0.8&quot;/&gt;
+&lt;valueSet value="http://hl7.org/fhir/ValueSet/my-valueset|0.8"/&gt;
 </pre>
 <p>
 Resolving this pipe ('|') syntax is equivalent to using a GET with the version parameter:
@@ -420,14 +420,14 @@ When the target of a canonical reference is a contained resource, the
 canonical reference will have a fragment as part of the URL:
 </p>
 <pre>
- &nbsp;&lt;valueSet value=&quot;http://fhir.acme.com/Questionnaire/example|1.0#vs1&quot;/&gt;
+ &nbsp;&lt;valueSet value="http://fhir.acme.com/Questionnaire/example|1.0#vs1"/&gt;
 </pre>
 <p>
 This is a reference to the value set with id "vs1" in version 1.0 of the identified questionnaire.
 The common case for this is internal references:
 </p>
 <pre>
- &nbsp;&lt;answerValueSet value=&quot;#vs1&quot;/&gt;
+ &nbsp;&lt;answerValueSet value="#vs1"/&gt;
 </pre>
 <p>
 Which is the form for references to the contained value set inside the above example questionnaire.
@@ -456,7 +456,7 @@ When represented in XHTML, this reference will generally become something like:
 <div class="xhtml">
 <pre>
   ...
-&nbsp;&nbsp;&lt;p&gt;Patient: &lt;a href=&quot;Patient/example&quot;&gt;Peter James CHALMERS (12345)&lt;/a&gt;&lt;/p&gt;  ...
+&nbsp;&nbsp;&lt;p&gt;Patient: &lt;a href="Patient/example"&gt;Peter James CHALMERS (12345)&lt;/a&gt;&lt;/p&gt;  ...
 </pre>
 </div>
 <p>
@@ -487,7 +487,7 @@ be generated like this:
 <div class="xhtml">
 <pre>
   ...
-&nbsp;&nbsp;&lt;p&gt;Patient: &lt;a href=&quot;Patient/example&quot;&gt;(link)&lt;/a&gt;&lt;/p&gt;  ...
+&nbsp;&nbsp;&lt;p&gt;Patient: &lt;a href="Patient/example"&gt;(link)&lt;/a&gt;&lt;/p&gt;  ...
 </pre>
 </div>
 <p>
@@ -546,10 +546,10 @@ An example of a contained resource:
  &lt;Condition xmlns="http://hl7.org/fhir"&gt;
   &lt;contained&gt;
     &lt;Practitioner&gt;
-      &lt;id value=&quot;p1&quot;/&gt;
+      &lt;id value="p1"/&gt;
       &lt;name&gt;
-        &lt;family value=&quot;Person&quot;/&gt;
-        &lt;given value=&quot;Patricia&quot;/&gt;
+        &lt;family value="Person"/&gt;
+        &lt;given value="Patricia"/&gt;
       &lt;/name&gt;
     &lt;/Practitioner&gt;
   &lt;/contained&gt;
@@ -644,13 +644,13 @@ there is no confusion as to its significance.
 For a resource that references the container, the reference is "#", like this:
 </p>
 <pre class="xml">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;something&quot;/&gt;
+&lt;Patient xmlns="http://hl7.org/fhir"&gt;
+  &lt;id value="something"/&gt;
   &lt;contained&gt;
     &lt;Provenance&gt;
       &lt;!-- no id necessary (though still allowed) --&gt;
       &lt;target&gt;
-        &lt;reference value=&quot;#&quot;/&gt;
+        &lt;reference value="#"/&gt;
       &lt;/target&gt;
     &lt;/Provenance&gt;
   &lt;/contained&gt;
@@ -734,8 +734,10 @@ the resource reference describes a headache. Note that it is not generally compu
 this is true or not.
 </p>
 <p>
-The constraints on the CodeableReference apply to the CodeableReference.reference or the CodeableReference.concept as appropriate and they SHOULD NOT be specified on the .reference or .concept.
-If they are specified on both the CodeableConcept and the .reference or .concept, then they SHALL be the same.
+The constraints on the CodeableReference apply to the CodeableReference.reference or the CodeableReference.concept as appropriate 
+and they SHALL NOT be specified on the <code>.reference</code> or <code>.concept</code>. 
+<!-- If they are specified on both the CodeableConcept and the 
+<code>.reference</code> or <code>.concept</code>, then they SHALL be the same. -->
 </p>
 <p>
 When we have experience with implementation practice, we will evaluate changing the SHOULD NOT to a SHALL NOT.
