@@ -1,5 +1,30 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<h3>Version Comparison</h3>
 
+<p>
+Canonical resources may have both a version, and a version algorithm. In normal
+usage, implementers are strongly recommended to version all the canonical resources
+that they maintain. The difference between the CanonicalResource version (business version)
+and the Resource version in <code>.meta.version</code> is discussed 
+<a href="resource.html#versions">on Resource</a>.
+</p>
+<p>
+The version algorithm allows applications to choose the correct latest version of a 
+resource, since there is no general algorithm that chooses the latest version across
+all versioning schemes in place.
+</p>
+<p>
+Implementers are encouraged to use semantic versioning, but may have existing approaches
+that are already adopted.
+</p>
+
+[%impl-note%]
+This mechanism we have for defining version comparison algorithm, where each
+version of the resource makes its own claim about how version comparison works
+is inelegant and feels somewhat clunky, but that it was the best that the committee identified 
+that could find that would work in all circumstances. Alternative proposals that could be used 
+to address the problem that would be less onerous are welcome.
+[%end-note%]
 
 </div>
