@@ -54,12 +54,12 @@
   <concept>
     <code value="registered"/>
     <display value="Registered"/>
-    <definition value="The existence of the report is registered, but there is nothing yet available."/>
+    <definition value="The existence of the composition is registered, but there is nothing yet available."/>
   </concept>
   <concept>
     <code value="partial"/>
     <display value="Partial"/>
-    <definition value="This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified."/>
+    <definition value="This is a partial (e.g. initial, interim or preliminary) composition: data in the composition may be incomplete or unverified."/>
     <concept>
       <code value="preliminary"/>
       <display value="Preliminary"/>
@@ -78,7 +78,7 @@
     <concept>
       <code value="corrected"/>
       <display value="Corrected"/>
-      <definition value="Subsequent to being final, the composition content has been modified to correct an error in the report or referenced results."/>
+      <definition value="Subsequent to being final, the composition content has been modified to correct an error in the composition or referenced results."/>
     </concept>
     <concept>
       <code value="appended"/>
