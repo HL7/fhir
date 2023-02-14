@@ -203,7 +203,7 @@
       <path value="ValueSet.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state."/>
-      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatusDescription](extension-valueset-workflowstatusdescription.html) extension for additional status information related to the editorial process."/>
+      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [[[http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription]]] extension for additional status information related to the editorial process."/>
       <min value="1"/>
       <max value="1"/>
       <type>
