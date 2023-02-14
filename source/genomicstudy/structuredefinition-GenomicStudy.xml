@@ -98,7 +98,7 @@
     </element>
     <element id="GenomicStudy.status">
       <path value="GenomicStudy.status"/>
-      <short value="The status of the genomic study"/>
+      <short value="registered | available | cancelled | entered-in-error | unknown"/>
       <definition value="The status of the genomic study."/>
       <min value="1"/>
       <max value="1"/>
