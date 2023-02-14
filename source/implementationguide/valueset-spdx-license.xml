@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SPDXLicense"/>
-  <title value="S P D X License"/>
+  <title value="SPDX License"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
