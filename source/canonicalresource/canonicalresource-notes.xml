@@ -22,8 +22,8 @@ that are already adopted.
 [%impl-note%]
 This mechanism we have for defining version comparison algorithm, where each
 version of the resource makes its own claim about how version comparison works
-is inelegant and feels somewhat clunky, but that it was the best that the committee identified 
-that could find that would work in all circumstances. Alternative proposals that could be used 
+is inelegant and feels somewhat clunky, but that was the best that the committee identified 
+that would work in all circumstances. Alternative proposals that could be used 
 to address the problem that would be less onerous are welcome.
 [%end-note%]
 
