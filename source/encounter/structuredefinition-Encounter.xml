@@ -944,7 +944,7 @@
       </extension>
       <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
-      <definition value="Details about the admission to a healthcare service."/>
+      <definition value="Details about the stay during which a healthcare service is provided.&#xD;&#xD;This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge."/>
       <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this admission record."/>
       <min value="0"/>
       <max value="1"/>
