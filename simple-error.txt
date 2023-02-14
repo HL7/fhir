@@ -1,1 +1,1 @@
-﻿﻿Extension found at StructureDefinition/resource-approvalDate - this is an error since extensions have moved to https://github.com/HL7/fhir-extensions
+﻿Resource Examples failed instance validation
