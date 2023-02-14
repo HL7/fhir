@@ -423,7 +423,7 @@ same path must conform.
 </p>
 <ul>
  <li>Constraints limiting the acceptable list of types must be applied to the original "[x]" element as this is where the list of acceptable types is defined</li>
- <li>The inclusion of a type specific path (such as "Patient.deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
+ <li>The inclusion of a type specific element (such as "Patient.deceased[x]:deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
  <li>the original element SHALL always be represented in a snapshot; the type specific variants are only represented when needed</li>
 </ul>
 
