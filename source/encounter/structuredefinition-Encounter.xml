@@ -127,7 +127,7 @@
     <element id="Encounter.status">
       <path value="Encounter.status"/>
       <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <definition value="The current state of the encounter (not the state of the patient within the encounter - that is subjectState)."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -333,6 +333,7 @@
       <path value="Encounter.subjectStatus"/>
       <short value="The current status of the subject in relation to the Encounter"/>
       <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <comment value="Different use-cases are likely to have different permitted transitions between states, such as an Emergency department could use `arrived` when the patient first presents, then `triaged` once has been assessed by a nurse, then `receiving-care` once treatment begins, however other sectors may use a different set of these values, or their own custom set in place of this example valueset provided."/>
       <min value="0"/>
       <max value="1"/>
       <type>
