@@ -127,7 +127,7 @@
     <element id="Encounter.status">
       <path value="Encounter.status"/>
       <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <definition value="The current state of the encounter (not the state of the patient within the encounter - that is subjectState)."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -333,6 +333,7 @@
       <path value="Encounter.subjectStatus"/>
       <short value="The current status of the subject in relation to the Encounter"/>
       <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <comment value="Different use-cases are likely to have different permitted transitions between states, such as an Emergency department could use `arrived` when the patient first presents, then `triaged` once has been assessed by a nurse, then `receiving-care` once treatment begins, however other sectors may use a different set of these values, or their own custom set in place of this example valueset provided."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -914,7 +915,8 @@
     <element id="Encounter.specialCourtesy">
       <path value="Encounter.specialCourtesy"/>
       <short value="Special courtesies (VIP, board member)"/>
-      <definition value="Special courtesies (VIP, board member)."/>
+      <definition value="Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy)."/>
+      <comment value="Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.&#xD;&#xD;It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.&#xD;&#xD;It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used." />
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -943,7 +945,7 @@
       </extension>
       <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
-      <definition value="Details about the admission to a healthcare service."/>
+      <definition value="Details about the stay during which a healthcare service is provided.&#xD;&#xD;This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge."/>
       <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this admission record."/>
       <min value="0"/>
       <max value="1"/>
