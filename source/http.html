@@ -2004,17 +2004,6 @@ This example shows the third page of a search result:
 </pre>
 
 <p>
-The links are opaque to the client, have no dictated structure, and only the
-server understands them. The client must use the server supplied links in order
-to traverse the pages.
-A server MAY add additional state tracking parameters to the links, as shown in the example above,
-though the server need not use a stateful paging method as shown in this example - it is at the
-discretion of the server how to best ensure that the continuation retains integrity in the
-context of ongoing changes to the resources. An alternative approach is to use version
-specific references to the records on the boundaries, but this is subject to continuity
-failures when records are updated.
-</p>
-<p>
 A server MAY inform the client of the total number of resources returned by the interaction for which the results are paged
 using  the <a href="bundle-definitions.html#Bundle.total">Bundle.total</a>.
 </p>
@@ -2025,6 +2014,43 @@ In the case of a <code>search</code>, the initial request may be made via a POST
 follow up page requests will be made via GET requests. However servers SHOULD allow for a
 client to convert the follow up requests to be made via a POST.
 </p>
+
+<p>
+  The links in the search are opaque to the client, have no dictated structure, and only the
+  server understands them. The client must use the server supplied links in order
+  to traverse the pages.
+</p>
+<p>
+  A server MAY add additional state tracking parameters to the links, as shown in the example above,
+  though the server need not use a stateful paging method as shown in this example.
+</p>
+<a name="continuity"> </a>
+<h4>Paging Continuity &amp; Integrity</h4>
+<p>
+It is at the discretion of the server how to best ensure that the continuation retains 
+integrity in the context of ongoing changes to the resources. While a client pages 
+through the results of a search, the underlying record set might change, with resources
+being added, deleted, or moved in the natural sort order. In principle, servers have 
+three different approaches to choose from:
+</p>
+<ol>
+ <li>Remember the result set as it was at the time of the search, and return the resources as they <i>were</i>, 
+    preferably using version specific references (with the consequence that they might be current when returned)</li>
+ <li>Remember the result set as it was at the time of the search, and return the resources as they <i>are</i> (with the consequence that they might no longer qualify to be in the search)</li>
+ <li>Repeat the search each time, with the consequence that the client may miss resources or get duplicates as they move between pages when the search set changes</li>
+</ol>
+<p>
+The appropriate choice may be dictated by server architecture, and also by considerations
+around the semantics of the search and the rate at which the underlying resources are 
+updated, created or deleted.
+</p>
+[%impl-note%]
+Clients should avoid making assumptions about which behavior a server is implementing.
+At present, there is no way for a client to interrogate the server to determine how
+paging continuity and integrity issues are handled. This may be addressed in the future,
+and feedback is welcome.
+[%end-note%]
+
 
 <a name="head"/>
 <h3>Support for HEAD</h3>
