@@ -19,8 +19,38 @@
 </p>
 <a name="notes"></a>
 <h3>Implementation Notes</h3>
-<p>
+<h4>Handling markdown</h4>
+
+<p>GenomicStudy.description is a <a href="datatypes.html#markdown">markdown</a> datatype, and implementers should carefully consider how to appropriately handle this attribute. The characters in markdown formatting can conflict with those commonly used in descriptions of genomic data. In particular, descriptions that contain mentions of "star alleles" (widely used in the pharmacogenomics and HLA domains) could be munged in a way that prevents accurate interpretation. For example, consider this text:
 </p>
+<pre>This genomic study analyzes CYP2D6*1 and CYP2D6*2</pre>
+
+<p>If the system producing this data treats this as a simple text string with no special processing, but a receiving system processes this via a markdown rendering engine, the two '*' characters would be processed as markdown formatting characters. This would italize the text between '*' characters, and not display '*' characters. This could cause an inappropriate interpretation of what the study is testing.
+</p>
+
+<p>There are various ways data producers can ensure appropriate rendering by receiving systems without fully adopting markdown. Here are three basic approaches to consider:
+</p>
+
+<ul>
+  <li>
+    <p>
+    Escaping individual characters (with a \) that act as markdown formatting characters:
+    <pre>This genomic study analyzes CYP2D6\*1 and CYP2D6\*2</pre>
+    </p>
+  </li>
+  <li>
+    <p>
+    Escape words (with a `) that contain markdown formatting characters:
+    <pre>This genomic study analyzes `CYP2D6*1` and `CYP2D6*2`</pre>
+    </p>
+  </li>
+  <li>
+    <p>
+    Escape full text blocks (with a ```) that contain markdown formatting characters:
+    <pre>```This genomic study analyzes CYP2D6*1 and CYP2D6*2```</pre>
+    </p>
+  </li>
+</ul>
 
 <a name="use-cases"></a>
 <h3>Use Cases</h3>
