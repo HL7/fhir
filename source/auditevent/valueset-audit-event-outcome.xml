@@ -49,12 +49,7 @@
   <description value="Indicates whether the event succeeded or failed."/>
   <immutable value="true"/>
   <compose>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-      <concept>
-        <code value="0"/>
-      </concept>
-    </include>
+
     <include>
       <system value="http://hl7.org/fhir/issue-severity"/>
     </include>
