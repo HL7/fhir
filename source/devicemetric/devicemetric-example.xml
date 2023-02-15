@@ -22,9 +22,6 @@
 	<device>
 		<reference value="Device/dev1"/>
 	</device>
-	<parent>
-		<reference value="Device/dc102"/>
-	</parent>
 	<operationalStatus value="on"/>
 	<color value="blue"/>
 	<category value="measurement"/>
