@@ -42,7 +42,7 @@
       <ul>
         <li>Define the <b>data</b> and <b>change</b> or <b>event</b> used to trigger notifications</li>
         <li>Define the filters allowed to clients</li>
-        <li>Always referenced by canonical URL</li>
+        <li>Are always referenced by canonical URL</li>
       </ul>
     </li>
     <li><a href="subscription.html">Subscription</a> resources
@@ -83,8 +83,6 @@
     <li>connectivity - e.g., many clients connecting regularly when there are no state changes; and</li>
     <li>energy - e.g., mobile devices needing to 'wake up' and poll regularly.</li>
   </ul>
-</p>
-<p>
 </p>
 
 <a name="relationtofhircast"/>
@@ -279,6 +277,9 @@
   When sending an event notification, applications can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
 </p>
 <p>
+  Implementors should note that security and privacy considerations can also prohibit notifications from being generated, in addition to considerations about sending notifications. For example, if a resource is deleted because it was "Entered in Error", a server may choose to not send a notification or could include special handling for those cases (e.g., sending a predefined notification message indicating that a patient should disregard a prior notification).  Similarly, if a patient has decided that a category of lab results are confidential, practitioners without appropriate consent for disclosure should not receive any indication of those results (e.g., a server cannot generate a notification event for them).
+</p>
+<p>
   <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.). Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in a <code>Subscription.parameter</code> to verify that a message is from the desired source).
 </p>
 <p>
@@ -300,7 +301,6 @@
   Servers implementing Subscriptions are responsible for complying with their policies on information logging.  Servers are encouraged to track all sent notifications, for example with the use of <a href="auditevent.html">AuditEvent</a> or <a href="communication.html">Communication</a> resources.
 </p>
 
-
 <a name="scoping"/>
 <h2>Scoping Responsibilities</h2>
 <p>
@@ -312,11 +312,11 @@
 </p>
 
 <p>
-  Therefore, clients SHOULD be aware of some limitations regarding delivery. In particular:
+  Clients SHOULD be aware of some limitations regarding delivery. In particular:
 </p>
 <ul>
-  <li>Some notifications might not be delivered.</li>
-  <li>Some notifications might be delivered multiple times.</li>
+  <li>some notifications might not be delivered, and</li>
+  <li>some notifications might be delivered multiple times.</li>
 </ul>
 
 <p>
