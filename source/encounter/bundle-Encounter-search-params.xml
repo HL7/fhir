@@ -138,18 +138,37 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Encounter-diagnosis"/>
+        <id value="Encounter-diagnosis-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.diagnosis.condition"/>
+          <valueString value="Encounter.diagnosis.condition.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-diagnosis"/>
-        <description value="The diagnosis or procedure relevant to the encounter"/>
-        <code value="diagnosis"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-diagnosis-code"/>
+        <description value="The diagnosis or procedure relevant to the encounter (coded)"/>
+        <code value="diagnosis-code"/>
+        <type value="token"/>
+        <expression value="Encounter.diagnosis.condition.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Encounter-diagnosis-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Encounter.diagnosis.condition.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-diagnosis-reference"/>
+        <description value="The diagnosis or procedure relevant to the encounter (resource reference)"/>
+        <code value="diagnosis-reference"/>
         <type value="reference"/>
-        <expression value="Encounter.diagnosis.condition"/>
+        <expression value="Encounter.diagnosis.condition.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -237,15 +256,20 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.location.period"/>
-        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location-period"/>
         <description value="Time period during which the patient was present at the location"/>
         <code value="location-period"/>
-        <type value="date"/>
-        <expression value="Encounter.location.period"/>
+        <type value="composite"/>
+        <expression value="Encounter.location"/>
         <processingMode value="normal"/>
+        <component>
+          <definition value="location"/>
+          <expression value="location.reference"/>
+        </component>
+        <component>
+          <definition value="period"/>
+          <expression value="period"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>
@@ -354,13 +378,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.reason.concept"/>
+          <valueString value="Encounter.reason.value.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-reason-code"/>
-        <description value="Reference to a concept (by class)"/>
+        <description value="Reference to a concept (coded)"/>
         <code value="reason-code"/>
         <type value="token"/>
-        <expression value="Encounter.reason.concept"/>
+        <expression value="Encounter.reason.value.concept"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -373,13 +397,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.reason.reference"/>
+          <valueString value="Encounter.reason.value.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-reason-reference"/>
-        <description value="Reference to a resource (by instance)"/>
+        <description value="Reference to a resource (resource reference)"/>
         <code value="reason-reference"/>
         <type value="reference"/>
-        <expression value="Encounter.reason.reference"/>
+        <expression value="Encounter.reason.value.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
