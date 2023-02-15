@@ -132,15 +132,18 @@
 			FHIRPath expression input variables:
       <ul>
         <li>
-          Variable [previous] = resource instance prior to state change being applied
+          Variable <code>%previous</code> - resource instance prior to state change being applied
         </li>
         <li>
-          Variable [current] - resource instance post state change being applied
+          Variable <code>%current</code> - resource instance post state change being applied
         </li>
       </ul>
 		</p>
     <p>
       For example, the expression: <code>%previous.status!='in-progress' and %current.status='in-progress'</code> indicates that the resource has an element, <code>status</code>, and that notifications are generated if the pre-update version status is not 'in-progress' and the post-update version is 'in-progress'.
+    </p>
+    <p>
+      Note that empty-checking must be included in a FHIRPath test if the test includes properties that do not exist for interactions included in the trigger.  To continue with the above example, if the test should be applied to <code>create</code> interactions in addition to <code>update</code> ones, a more complete expression would be: <code>(%previous.empty() | (%previous.status != 'in-progress')) and (%current.status = 'in-progress')</code>.
     </p>
 
 	<a name="definition-event" />
@@ -208,7 +211,7 @@
       <a name="filters-timing-fhirpath"/>
       <h5>FHIRPath</h5>
       <p>
-        <code>resourceTrigger.fhirPathCriteria</code> is always evaluated after an interaction has been processed.  As indicated in the <a href="#fhirpath-criteria">FHIRPath Definitions</a> section, the <code>%previous</code> and <code>%current</code> variables are assigned values from that state.  This means that FHIRPath expressions are responsible for null-checking depending on the types of interactions being tested.  For example, during FHIRPath evaluation on a <code>create</code>, the <code>%previous</code> variable will be <code>null</code>).
+        <code>resourceTrigger.fhirPathCriteria</code> is always evaluated after an interaction has been processed.  As indicated in the <a href="#fhirpath-criteria">FHIRPath Definitions</a> section, the <code>%previous</code> and <code>%current</code> variables are assigned values from that state.  This means that FHIRPath expressions are responsible for empty-checking depending on the types of interactions being tested.  For example, during FHIRPath evaluation on a <code>create</code>, the <code>%previous</code> variable will be empty (<code>{}</code>).
       </p>
 
 			<a name="filters-timing-create"/>
