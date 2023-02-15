@@ -17,7 +17,8 @@ The OrganizationAffiliation enables defining non-hierarchical relationships betw
   <li>An organization may be a member of an association, but not owned by it<br/>
   <i>e.g. a hospital is a member the American Hospital Association, 
   a hospital is a member of a health information exchange network</i></li>
-  <!-- <li>Preferred referral partners</li> -->
+  <li>Spotless Cleaning Services (participatingOrganization) is a <b>supplier</b> (code) to General Hospital (organization)</li>
+  <li>General Hospital (participatingOrganization) is a <b>member</b> (code) of Eastern HIE (organization)</li>
 </ul>
 </div>
 
