@@ -27,12 +27,14 @@ statement of healthcare information, including clinical observations and service
 resources with a fixed presentation that is authored and/or attested by humans, organizations and devices.
 </p>
 <p>
-A document instance contains specific frozen versions of other resources. Changes to a document Bundle may risk 
-invalidating the attestation present within the document.  Implementations SHOULD have policies around when 
-documents can be 'updated' (new version of the same instance) vs. when a distinct document needs to be created, 
-as well as what types of change are permitted, in order to retain attestation validity.  These rules might vary 
-based on the type of document (e.g. legal documents, clinical documents, etc.)   Strict limitations on document 
-change are sometimes referred to as 'document immutability'.</p>
+A FHIR document instance is a <a href="bundle.html">Bundle</a> of type <code>document</code> that 
+starts with a <a href="composition.html">Composition</a> and contains specific frozen versions of other 
+resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  
+Implementations SHOULD have policies around when documents can be 'updated' (new version of the same 
+instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, 
+in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal 
+documents, clinical documents, etc.)   Strict limitations on document change are sometimes referred to as
+'document immutability'.</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
 persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE
