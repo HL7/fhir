@@ -42,7 +42,7 @@
 					</coding>
 				</type>
 				<doseQuantity>
-					<value value="1000"/>
+					<value value="1800"/>
 					<unit value="mg/m2"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="mg/m2"/>
@@ -57,7 +57,7 @@
 					</coding>
 				</type>
 				<doseQuantity>
-					<value value="1800"/>
+					<value value="1000"/>
 					<unit value="mg"/>
 					<system value="http://unitsofmeasure.org"/>
 					<code value="mg"/>
