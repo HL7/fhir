@@ -1,17 +1,15 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Operations for Large Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
-  [%file newheader%]
-</head>
+<head>[%file newheader%]</head>
 
 <body>
+
   [%file newnavbar%]
 
-  <h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
+<h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
 
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
@@ -21,17 +19,17 @@ experience working with them. If inclusion of these operations is not supported 
 remove these operations from the specification before FHIR R5 is published.
 [%end-note%]
 
-  <h2><code>$add</code> operation</h2>
-  <div>
-    This instance-level operation merges array entries into an existing ("target") resource, based on values from a
-    supplied ("input") resource, ignoring any values that are already present in the target.
-  </div>
+<h2><code>$add</code> operation</h2>
+<p>
+  This instance-level operation merges array entries into an existing ("target") resource, based on values from a
+  supplied ("input") resource, ignoring any values that are already present in the target.
+</p>
 
-  <div>
-    <h4>Example invocation: add two items to a Group</h4>
-    <p>This example adds up to 2 new members to the member array of Group 123, based on whether these entity/period
-      combinations already exist.</p>
-    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$add
+<h4>Example invocation: add two items to a Group</h4>
+<p>This example adds up to 2 new members to the member array of Group 123, based on whether these entity/period combinations already exist.</p>
+
+<pre class="hljs language-json">
+<code>POST /Group/<span class="hljs-number">123</span>/$add
 Content-Type: application/fhir+json
 If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 
@@ -46,11 +44,14 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
     <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
   }]
 }
-</code></pre>
-    <h4>Example invocation: add two items to a List</h4>
-    <p>This example adds up to 2 entries to the entry array of List 123, based on whether these item/date combinations
-      already exist.</p>
-    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$add
+</code>
+</pre>
+
+<h4>Example invocation: add two items to a List</h4>
+<p>This example adds up to 2 entries to the entry array of List 123, based on whether these item/date combinations
+  already exist.</p>
+<pre class="hljs language-json">
+<code>POST /List/<span class="hljs-number">123</span>/$add
 Content-Type: application/fhir+json
 If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 
@@ -65,47 +66,51 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
     <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
   }]
 }
-</code></pre>
+</code>
+</pre>
 
-  </div>
+<h3><code>$add</code> operation details</h3>
+<p>
+  There is a <a href="resource-operation-add.html">formal definition for this operation</a>
+</p>
+<p>Instance-level operation, invoked by</p>
+<ul>
+  <li><code>POST /Group/123/$add</code> to grow <code>Group.member</code></li>
+  <li><code>POST /List/123/$add</code> to grow <code>List.entry</code></li>
+  <li>(Other target resource types may be added in future, if use cases arise.)</li>
+</ul>
+<p>Input Parameter:</p>
+<ul>
+  <li><code>additions</code>: an input resource matching the type of the target resource. The client SHALL populate
+    all required top-level elements in a way that matches the target resource, to ensure the resource is technically
+    valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+    <code>List.entry</code>).</li>
+</ul>
+<p>Behavior:</p>
+<ul>
+  <li>The server SHALL extend the target resource array with any entries from the input resource array that do not
+    match an existing entry. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+</ul>
+<h3>Contention Management</h3>
+<p>
+  Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+  resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+  following the scheme described at <a href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.
+</p>
 
-  <h3><code>$add</code> operation details</h3>
-  <p>Instance-level operation, invoked by</p>
-  <ul>
-    <li><code>POST /Group/123/$add</code> to grow <code>Group.member</code></li>
-    <li><code>POST /List/123/$add</code> to grow <code>List.entry</code></li>
-    <li>(Other target resource types may be added in future, if use cases arise.)</li>
-  </ul>
-  <p>Input Parameter:</p>
-  <ul>
-    <li><code>additions</code>: an input resource matching the type of the target resource. The client SHALL populate
-      all required top-level elements in a way that matches the target resource, to ensure the resource is technically
-      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
-      <code>List.entry</code>).</li>
-  </ul>
-  <p>Behavior:</p>
-  <ul>
-    <li>The server SHALL extend the target resource array with any entries from the input resource array that do not
-      match an existing entry. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
-  </ul>
-  <h3>Contention Management</h3>
-  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
-    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
-    following the scheme described at <a
-      href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
-  <h2><code>$remove</code> operation</h2>
 
-  <div>
-    This instance-level operation removes array entries from an existing ("target") resource, based on a supplied
-    ("input") resource, ignoring any values that are already absent in the target.
 
-  </div>
+<h2><code>$remove</code> operation</h2>
 
-  <div>
-    <h4>Example invocation: remove two items to a Group</h4>
-    <p>This example removes elements from the member array of Group 123 if they match the supplied combinations of
-      entity/period.</p>
-    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
+<p>
+This instance-level operation removes array entries from an existing ("target") resource, based on a supplied
+("input") resource, ignoring any values that are already absent in the target.
+</p>
+
+<h4>Example invocation: remove two items to a Group</h4>
+<p>This example removes elements from the member array of Group 123 if they match the supplied combinations of
+  entity/period.</p>
+<pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
 Content-Type: application/fhir+json
 If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 
@@ -121,10 +126,11 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
   }]
 }
 </code></pre>
-    <h4>Example invocation: add two items to a List</h4>
-    <p>This example removes elements from the entry array of List 123 if they match the supplied combinations of
-      item/date.</p>
-    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
+
+<h4>Example invocation: add two items to a List</h4>
+<p>This example removes elements from the entry array of List 123 if they match the supplied combinations of
+  item/date.</p>
+<pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
 Content-Type: application/fhir+json
 If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 
@@ -140,32 +146,36 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
   }]
 }
 </code></pre>
-  </div>
 
-  <h3><code>$remove</code> operation details</h3>
-  <p>Instance-level operation, invoked by</p>
-  <ul>
-    <li><code>POST /Group/123/$remove</code> to shrink <code>Group.member</code></li>
-    <li><code>POST /List/123/$remove</code> to shrink <code>List.entry</code></li>
-    <li>(Other target resource types may be added in future, if use cases arise.)</li>
-  </ul>
-  <p>Input Parameter:</p>
-  <ul>
-    <li><code>removals</code>: an input resource matching the type of the target resource. The client SHALL populate all
-      required top-level elements in a way that matches the target resource, to ensure the resource is technically
-      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
-      <code>List.entry</code>).</li>
-  </ul>
-  <p>Behavior:</p>
-  <ul>
-    <li>The server SHALL remove any entries in the target resource’s array that match an entry in the input resource’s
-      array. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
-  </ul>
-  <h3>Contention Management</h3>
-  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
-    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
-    following the scheme described at <a
-      href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
+<h3><code>$remove</code> operation details</h3>
+<p>
+  There is a <a href="resource-operation-remove.html">formal definition for this operation</a>
+</p>
+<p>Instance-level operation, invoked by</p>
+<ul>
+  <li><code>POST /Group/123/$remove</code> to shrink <code>Group.member</code></li>
+  <li><code>POST /List/123/$remove</code> to shrink <code>List.entry</code></li>
+  <li>(Other target resource types may be added in future, if use cases arise.)</li>
+</ul>
+<p>Input Parameter:</p>
+<ul>
+  <li><code>removals</code>: an input resource matching the type of the target resource. The client SHALL populate all
+    required top-level elements in a way that matches the target resource, to ensure the resource is technically
+    valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+    <code>List.entry</code>).</li>
+</ul>
+<p>Behavior:</p>
+<ul>
+  <li>The server SHALL remove any entries in the target resource’s array that match an entry in the input resource’s
+    array. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+</ul>
+<h3>Contention Management</h3>
+<p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+  resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+  following the scheme described at <a
+    href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.
+</p>
+
   <h2><code>$filter</code> operation</h2>
   <div>
     This instance-level operation returns the subset of array entries from an existing ("target") resource that match
@@ -223,6 +233,11 @@ Content-Type: application/fhir+json
   </div>
 
   <h3><code>$filter</code> operation details</h3>
+
+  <p>
+    There is a <a href="resource-operation-filter.html">formal definition for this operation</a>
+  </p>
+  
   <p>Instance-level operation, invoked by</p>
   <ul>
     <li><code>POST /Group/123/$filter</code> to return a filtered subset of <code>Group.member</code></li>
@@ -300,7 +315,7 @@ Content-Type: application/fhir+json
       element. This example shows that the comparision operation is not symmetric; inputs match more-specific targets,
       not less-specific targets.</p>
   </div>
-
+  
   [%file newfooter%]
 
 </body>
