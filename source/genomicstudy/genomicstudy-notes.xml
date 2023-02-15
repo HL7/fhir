@@ -25,10 +25,10 @@
 </p>
 <pre>This genomic study analyzes CYP2D6*1 and CYP2D6*2</pre>
 
-<p>If the system producing this data treats this as a simple text string with no special processing, but a receiving system processes this via a markdown rendering engine, the two '*' characters would be processed as markdown formatting characters. This would italize the text between '*' characters, and not display '*' characters. This could cause an inappropriate interpretation of what the study is testing.
+<p>If the system producing this data treats this as a simple text string with no special processing, but a receiving system processes this via a markdown rendering engine, the two '*' characters would be processed as markdown formatting characters. This would italize the text between '*' characters, and not display '*' characters. This could cause an inaccurate interpretation of the study description.
 </p>
 
-<p>There are various ways data producers can ensure appropriate rendering by receiving systems without fully adopting markdown. Here are three basic approaches to consider:
+<p>There are several ways data producers can ensure content is appropriately rendered by receiving systems without requiring the content to be formatted as markdown prior to sending. Here are three basic approaches to consider:
 </p>
 
 <ul>
