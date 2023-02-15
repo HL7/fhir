@@ -24,7 +24,7 @@
     <searchType value="reference"/>
   </parameter>
   <parameter>
-    <name value="return"/>
+    <name value="result"/>
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
