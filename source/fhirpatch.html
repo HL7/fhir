@@ -258,6 +258,71 @@ This pattern repeats as deep as necessary.
 }
 </pre>
 
+<a name="extension"></a>
+<h3>Extension Example</h3>
+<p>
+  An example of adding an extension:
+</p>
+<pre class="json">
+  &lt;Parameters xmlns="http://hl7.org/fhir"&gt;
+  &lt;parameter&gt;
+      &lt;name value="operation"/&gt;
+      &lt;part&gt;
+        &lt;name value="type"/&gt;
+        &lt;valueString value="add"/&gt;
+      &lt;/part&gt;
+      &lt;part&gt;
+        &lt;name value="path"/&gt;
+        &lt;valueString value="Specimen"/&gt;
+      &lt;/part&gt;
+      &lt;part&gt;
+        &lt;name value="name"/&gt;
+        &lt;valueString value="processing"/&gt;
+      &lt;/part&gt;
+      &lt;part&gt;
+        &lt;name value="value" /&gt;
+        &lt;part&gt;
+          &lt;name value="description" /&gt;
+          &lt;valueString value="test" /&gt;
+        &lt;/part&gt;
+        &lt;part&gt;
+          &lt;name value="time" /&gt;
+          &lt;valueDateTime value="2021-08-13T07:44:38.342+00:00" /&gt;
+        &lt;/part&gt;
+        &lt;part&gt;
+          &lt;name value="extension" /&gt;
+          &lt;part&gt;
+            &lt;name value="url" /&gt;
+            &lt;valueUri value="http://example.org/fhir/DeviceExtension" /&gt;
+          &lt;/part&gt;
+          &lt;part&gt;
+            &lt;name value="value" /&gt;
+            &lt;valueReference&gt;
+              &lt;reference reference="Device/1"&gt;
+            &lt;/valueReference&gt;
+          &lt;/part&gt;
+        &lt;/part&gt;
+      &lt;/part&gt;
+  &lt;/parameter&gt;
+&lt;/Parameters&gt;
+</pre>
+<p>
+Applied to an empty Specimen, this would produce:
+</p>
+<pre class="json">
+  &lt;Specimen xmlns="http://hl7.org/fhir"&gt;
+  &lt;status value="available"/&gt;
+  &lt;processing&gt;
+    &lt;extension url="http://example.org/fhir/DeviceExtension"&gt;
+      &lt;valueReference&gt;
+        &lt;reference reference="Device/1"&gt;
+      &lt;/valueReference&gt;
+    &lt;/extension&gt;
+    &lt;description value="test"/&gt;
+    &lt;timeDateTime value="2021-08-13T07:44:38.342+00:00"/&gt;
+  &lt;/processing&gt;
+&lt;/Specimen&gt;
+</pre>
 <p>
 There is a set of test cases for implementers in the <a href="https://github.com/FHIR/fhir-test-cases/releases">fhir-test-cases</a> repository.
 </p>
