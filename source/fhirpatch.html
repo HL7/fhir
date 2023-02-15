@@ -221,8 +221,45 @@ are provided. Here is an example:
 This pattern repeats as deep as necessary.
 </p>
 
+
+<a name="choice"></a>
+<h3>Choice Elements</h3>
+
 <p>
-There is a set of test cases for implementers as part of the <a href="downloads.html">Test Case Downloads</a>.
+  Note that for elements with a choice of data types, the FHIRPath name in the name of the parameter does not include the data type suffix 
+  (per the rules in the <a href="fhirpath.html">FHIRPath</a> Specification), but the parameter value does. Here's an example:
+</p>
+<pre class="json">
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "operation",
+    "part": [{
+      "name": "type",
+      "valueCode": "add"
+    }, {
+      "name": "path",
+      "valueString": "Specimen"
+    }, {
+      "name": "name",
+      "valueString": "processing"
+    }, {
+        "name": "value",
+        "part": [{
+                "name": "description",
+                "valueString": "testProcessing"
+            }, {
+                "name": "time",
+                "valueDateTime": "2021-08-18T11:32:55.6462761+02:00"
+            }]
+            }]
+    }
+  ]
+}
+</pre>
+
+<p>
+There is a set of test cases for implementers in the <a href="https://github.com/FHIR/fhir-test-cases/releases">fhir-test-cases</a> repository.
 </p>
 
 [%file newfooter%]
