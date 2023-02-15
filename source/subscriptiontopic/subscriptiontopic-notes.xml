@@ -241,7 +241,10 @@
   <a name="notification-shape"/>
   <h3>Notification Shape</h3>
   <p>
-    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.Each shape is defined according to a resource via the <code>notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code> when they are present.
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  Each shape is defined according to a resource via the <code>notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code> when they are present.
+  </p>
+  <p>
+    Note that multiple <code>notificationShape</code> elements can exist for the same resource, so that a server can indicate that there are multiple groupings of resources that may be sent. For example, a business-to-business (B2B) topic may include notifications on all changes to Patient resources, but may want to define that sometimes a Patient will include Encounters and other times Conditions.
   </p>
 
   <a name="shape-root-resource"/>
