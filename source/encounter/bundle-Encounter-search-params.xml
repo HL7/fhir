@@ -256,15 +256,20 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="Encounter.location.period"/>
-        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-location-period"/>
         <description value="Time period during which the patient was present at the location"/>
         <code value="location-period"/>
-        <type value="date"/>
-        <expression value="Encounter.location.period"/>
+        <type value="composite"/>
+        <expression value="Encounter.location"/>
         <processingMode value="normal"/>
+        <component>
+          <definition value="location"/>
+          <expression value="location.reference"/>
+        </component>
+        <component>
+          <definition value="period"/>
+          <expression value="period"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>
