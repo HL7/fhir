@@ -111,20 +111,31 @@ OperationDefinitions with <code>kind = operation</code> are executed as defined 
 
 <a name="equeries"></a>
 <h3>Executing Named Queries</h3>
-
 <p>
 Named queries (OperationDefinitions with <code>kind = query</code>) are executed by performing a <a href="search.html">search</a> 
 with the value of the search parameter "_query" set to the name provided in the definition. 
+Named queries are a kind of search: both client and server must conform to all the requirements of search, 
+including regarding the content of the result bundle. From a client's perspective, it's really just a kind 
+of search, though it may have a completely separate processing pipeline.
+Named queries cannot be invoked using the $[operationname] mechanism.
 </p>
 <p>
 If the named query is to be performed over the RESTful API, all the parameters must be simple search parameters,
-so that they can be represented directly in the URL without tricky encoding issues. Named queries always 
-return a bundle containing a set of resources, so all the out parameters must be 
-resources, not data types.
+so that they can be represented directly in the URL without tricky encoding issues. Named queries 
+always have a single output parameter named "result" of type Bundle.
 </p>
- 
 <p>
-For named queries, all the standard search parameters are automatically in scope (though servers do not need to support them unless explicitly documented).
+The order of parameters doesn't matter; a <code>_query</code> parameter anywhere in the query means the entire query will be handled 
+according to the named query OperationDefinition. Parameters may repeat if permitted by the OperationDefinition 
+(or for unlisted common search parameters, as specified in the this specification).
+</p>
+<p>
+For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 
+(e.g. _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
+returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" doesn't 
+mean all servers will support them. If a server wishes to declare which search parameters it supports 
+for a given named query, it must explicitly list these in its OperationDefinition (which might be a 
+server-specific derived OperationDefinition).
 </p>
 
 <a name="passing"></a>
