@@ -238,7 +238,7 @@
   <a name="notification-shape"/>
   <h3>Notification Shape</h3>
   <p>
-    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.  This element defines the possible 'root' resources for a notification, as well as additional resources that may be included.
+    In addition to the triggering information for a topic, this resource also defines the expected 'shape' of notifications via <code>notificationShape</code>.Each shape is defined according to a resource via the <code>notificationShape.resource</code> element. This is the 'focus' resource of the topic, or one of them if there are more than one, and the root resource for that shape definition.  It will be the same, a generality, or a specificity of <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code> when they are present.
   </p>
 
   <a name="shape-root-resource"/>
