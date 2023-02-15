@@ -253,10 +253,10 @@
     Sometimes it is beneficial to include additional resources with a subscription notification.  For example, queries for additional resources may be complex in the future, but simple at the time of notification due to context in the event.  Alternatively, the subscriber may have limited ability to request additional resource (e.g., a client that is generally offline).
   </p>
   <p>
-    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.
+    In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them.
   </p>
   <p>
-    Included resources should be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
+    Included resources SHOULD be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
   </p>
 
 	<a name="deriving" />
