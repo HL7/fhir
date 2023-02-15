@@ -240,7 +240,7 @@ Any valid language code as defined in <a href="http://tools.ietf.org/html/bcp47"
 language code system is complex, with parts for Primary Language, Script, Region, and other variants
 and extensions. In order to simplify implementations, the language element has a <a href="terminologies.html#preferred">preferred binding</a>
 to an enumerated list of common language codes encountered in applications, with translations, and also 
-a <a href="[%extensions-location%]StructureDefinition-elementdefinition-maxValueSet.html">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
+a <a href="terminologies.html#binding">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
 preventing the use of any language code. 
 </p>
 

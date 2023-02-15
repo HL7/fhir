@@ -7,33 +7,6 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Emergency visit that escalated into inpatient patient @example</div>
 	</text>
 	<status value="in-progress" />
-	<statusHistory>
-		<status value="planned"/>
-		<period>
-			<start value="2017-02-01T07:15:00+10:00"/>
-			<end value="2017-02-01T08:45:00+10:00"/>
-		</period>
-	</statusHistory>
-	<statusHistory>
-		<status value="in-progress"/>
-		<period>
-			<start value="2017-02-01T08:45:00+10:00"/>
-			<end value="2017-02-01T12:15:00+10:00"/>
-		</period>
-	</statusHistory>
-	<statusHistory>
-		<status value="on-hold"/>
-		<period>
-			<start value="2017-02-01T12:15:00+10:00"/>
-			<end value="2017-02-01T12:45:00+10:00"/>
-		</period>
-	</statusHistory>
-	<statusHistory>
-		<status value="in-progress"/>
-		<period>
-			<start value="2017-02-01T08:45:00+10:00"/>
-		</period>
-	</statusHistory>
 	<class>
 		<coding>
 			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -41,27 +14,6 @@
 			<display value="inpatient encounter"/>
 		</coding>
 	</class>
-	<classHistory>
-		<class>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-			<code value="EMER"/>
-			<display value="emergency"/>
-		</class>
-		<period>
-			<start value="2017-02-01T07:15:00+10:00"/>
-			<end value="2017-02-01T09:27:00+10:00"/>
-		</period>
-	</classHistory>
-	<classHistory>
-		<class>
-			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
-			<code value="IMP"/>
-			<display value="inpatient encounter"/>
-		</class>
-		<period>
-			<start value="2017-02-01T09:27:00+10:00"/>
-		</period>
-	</classHistory>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>

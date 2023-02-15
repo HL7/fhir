@@ -97,6 +97,17 @@
     <type value="canonical"/>
   </parameter>
   <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="usageContext"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Indicates an implementation context that applies to this validation.  Influences which [additionalBindings](terminologies.html#binding) are relevant.  NOTE: Expectations around subsumption testing, etc. are not yet defined and may be server-specific."/>
+    <type value="UsageContext"/>
+  </parameter>
+  <parameter>
     <name value="return"/>
     <use value="out"/>
     <min value="1"/>

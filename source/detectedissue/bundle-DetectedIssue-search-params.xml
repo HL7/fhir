@@ -167,6 +167,7 @@
         <code value="status"/>
         <type value="token"/>
         <expression value="DetectedIssue.status"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

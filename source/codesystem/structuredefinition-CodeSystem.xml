@@ -444,7 +444,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CodeSystem.lastReviewDate"/>
-      <short value="When the CodeSystem was last reviewed"/>
+      <short value="When the CodeSystem was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -538,7 +538,7 @@
       </extension>
       <path value="CodeSystem.reviewer"/>
       <short value="Who reviewed the CodeSystem"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the CodeSystem."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the CodeSystem."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -551,7 +551,7 @@
       </extension>
       <path value="CodeSystem.endorser"/>
       <short value="Who endorsed the CodeSystem"/>
-      <definition value="An individual or organization responsible for officially endorsing the CodeSystem for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the CodeSystem for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -922,15 +922,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="CodeSystem.concept.designation.use">

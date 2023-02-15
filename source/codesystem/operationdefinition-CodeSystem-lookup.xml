@@ -76,6 +76,7 @@
   <parameter>
     <name value="system"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The system for the code that is to be located"/>
@@ -84,6 +85,7 @@
   <parameter>
     <name value="version"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the system, if one was provided in the source data"/>

@@ -249,8 +249,8 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;use value="usual" /&gt;
     &lt;type&gt;
       &lt;coding&gt;
-        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
-        &lt;code value=&quot;SSN&quot;/&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+        &lt;code value="SSN"/&gt;
       &lt;/coding&gt;
     &lt;/type&gt;
     &lt;system value="http://hl7.org/fhir/sid/us-ssn" /&gt;
@@ -280,10 +280,10 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;use value="usual" /&gt;
     &lt;type&gt;
       &lt;coding&gt;
-        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
-        &lt;code value=&quot;BC&quot;/&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+        &lt;code value="BC"/&gt;
       &lt;/coding&gt;
-	    &lt;text value=&quot;Visa&quot;/&gt;
+	    &lt;text value="Visa"/&gt;
     &lt;/type&gt;
     &lt;value value="4111111111111111" /&gt;
   &lt;/identifier&gt;
@@ -316,8 +316,8 @@ found in DICOM messages, but this is not a requirement for using <code>urn:dicom
     &lt;use value="usual" /&gt;
     &lt;type&gt;
       &lt;coding&gt;
-        &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v2-0203&quot;/&gt;
-        &lt;code value=&quot;MRN&quot;/&gt;
+        &lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+        &lt;code value="MRN"/&gt;
       &lt;/coding&gt;
     &lt;/type&gt;
     &lt;system value="urn:oid:0.1.2.3.4.5.6.7" /&gt;
@@ -560,47 +560,47 @@ And where the value set would be something like this:
 </p>
 [%example-start%]
 <pre class="xml" fragment="ValueSet">
-  &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;ValueSet xmlns="http://hl7.org/fhir"&gt;
     &lt;text&gt;
-      &lt;status value=&quot;generated&quot;/&gt;
-      &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+      &lt;status value="generated"/&gt;
+      &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
         &lt;p&gt;Possible Clinistix codes: neg, trace, +, ++, and +++&lt;/p&gt;
       &lt;/div&gt;
     &lt;/text&gt;
-    &lt;url value=&quot;http://hl7.org/fhir/ValueSet/clinistix&quot;/&gt;
-    &lt;name value=&quot;Codes for Clinistix&quot;/&gt;
-    &lt;publisher value=&quot;HL7&quot;/&gt;
+    &lt;url value="http://hl7.org/fhir/ValueSet/clinistix"/&gt;
+    &lt;name value="Codes for Clinistix"/&gt;
+    &lt;publisher value="HL7"/&gt;
     &lt;contact&gt;
-        &lt;name value=&quot;FHIR project team&quot;/&gt;
+        &lt;name value="FHIR project team"/&gt;
         &lt;telecom&gt;
-          &lt;system value=&quot;url&quot;/&gt;
-          &lt;value value=&quot;http://hl7.org/fhir&quot;/&gt;
+          &lt;system value="url"/&gt;
+          &lt;value value="http://hl7.org/fhir"/&gt;
         &lt;/telecom&gt;
     &lt;/contact&gt;
-    &lt;description value=&quot;Clinistix Codes&quot;/&gt;
-    &lt;status value=&quot;draft&quot;/&gt;
-    &lt;experimental value=&quot;true&quot;/&gt;
-    &lt;date value=&quot;2013-10-01&quot;/&gt;
+    &lt;description value="Clinistix Codes"/&gt;
+    &lt;status value="draft"/&gt;
+    &lt;experimental value="true"/&gt;
+    &lt;date value="2013-10-01"/&gt;
     &lt;compose&gt;
       &lt;include&gt;
-        &lt;system value=&quot;http://example.org/codes/simple-grades&quot;/&gt;
+        &lt;system value="http://example.org/codes/simple-grades"/&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;neg&quot;/&gt;
+          &lt;code value="neg"/&gt;
         &lt;/concept&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;trace&quot;/&gt;
+          &lt;code value="trace"/&gt;
         &lt;/concept&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;+&quot;/&gt;
+          &lt;code value="+"/&gt;
         &lt;/concept&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;+&quot;/&gt;
+          &lt;code value="+"/&gt;
         &lt;/concept&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;++&quot;/&gt;
+          &lt;code value="++"/&gt;
         &lt;/concept&gt;
         &lt;concept&gt;
-          &lt;code value=&quot;+++&quot;/&gt;
+          &lt;code value="+++"/&gt;
         &lt;/concept&gt;
       &lt;/include&gt;
     &lt;/compose&gt;
@@ -1266,16 +1266,16 @@ Karen van Hentenryck is of Dutch origin, and the "van" is a voorvoegsel.
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;use value=&quot;official&quot; /&gt;
-    &lt;family value=&quot;van Hentenryck&quot; &gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-      &lt;valueString value=&quot;van&quot; /&gt;
+    &lt;use value="official"/&gt;
+    &lt;family value="van Hentenryck"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"&gt;
+      &lt;valueString value="van"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
-        &lt;valueString value=&quot;Hentenryck&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name"&gt;
+        &lt;valueString value="Hentenryck"/&gt;
       &lt;/extension&gt;
     &lt;/family&gt;
-    &lt;given value=&quot;Karen&quot; /&gt;
+    &lt;given value="Karen"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1309,28 +1309,28 @@ multiple given names, prefixes, suffixes, for academic degrees, nobility titles,
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;use value=&quot;official&quot; /&gt;
-    &lt;family value=&quot;von Hochheim-Weilenfels&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-prefix&quot; &gt;
-        &lt;valueString value=&quot;von&quot; /&gt;
+    &lt;use value="official"/&gt;
+    &lt;family value="von Hochheim-Weilenfels"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix"&gt;
+        &lt;valueString value="von"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-own-name&quot;&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-name"&gt;
         &lt;valueString value="Hochheim-Weilenfels" /&gt;
       &lt;/extension&gt;    
     &lt;/family&gt;
-    &lt;given value=&quot;Regina&quot; /&gt;
-    &lt;given value=&quot;Johanna&quot; /&gt;
-    &lt;given value=&quot;Maria&quot; /&gt;
-    &lt;prefix value=&quot;Dr. phil.&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier&quot; &gt;
-        &lt;valueCode value=&quot;AC&quot; /&gt;
+    &lt;given value="Regina"/&gt;
+    &lt;given value="Johanna"/&gt;
+    &lt;given value="Maria"/&gt;
+    &lt;prefix value="Dr. phil."&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier"&gt;
+        &lt;valueCode value="AC"/&gt;
       &lt;/extension&gt;
     &lt;/prefix&gt;
-    &lt;suffix value=&quot;NCFSA&quot; /&gt;
+    &lt;suffix value="NCFSA"/&gt;
   &lt;/name&gt;
   &lt;name&gt;
-    &lt;use value=&quot;maiden&quot; /&gt;
-    &lt;family value=&quot;Hochheim&quot; /&gt;
+    &lt;use value="maiden"/&gt;
+    &lt;family value="Hochheim"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1372,22 +1372,22 @@ This example makes use of the ISO 21090 extensions to carry the rarely used ISO 
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-        &lt;valueCode value=&quot;IDE&quot; /&gt;
+    &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"&gt;
+        &lt;valueCode value="IDE"/&gt;
     &lt;/extension&gt;
     &lt;family value="木村" /&gt;
     &lt;given value="通男" /&gt;
     &lt;/name&gt;
   &lt;name&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-        &lt;valueCode value=&quot;SYL&quot; /&gt;
+    &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"&gt;
+        &lt;valueCode value="SYL"/&gt;
     &lt;/extension&gt;
   &lt;family value="きむら" /&gt;
   &lt;given value="みちお" /&gt;
   &lt;/name&gt;
   &lt;name&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation&quot;&gt;
-        &lt;valueCode value=&quot;ABC&quot; /&gt;
+    &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-EN-representation"&gt;
+        &lt;valueCode value="ABC"/&gt;
     &lt;/extension&gt;
     &lt;family value="KIMURA" /&gt;
     &lt;given value="MICHIO" /&gt;
@@ -1533,14 +1533,14 @@ mellomnamn.
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;use value=&quot;official&quot; /&gt;
-    &lt;family value=&quot;Erikson&quot; /&gt;
-    &lt;given value=&quot;Karin&quot; /&gt;
-    &lt;given value=&quot;Hansen&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+    &lt;use value="official"/&gt;
+    &lt;family value="Erikson"/&gt;
+    &lt;given value="Karin"/&gt;
+    &lt;given value="Hansen"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier"&gt;
         &lt;valueCoding&gt;
-          &lt;code value=&quot;MID&quot; /&gt;
-          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+          &lt;code value="MID"/&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"/&gt;
         &lt;/valueCoding&gt;
       &lt;/extension&gt;
     &lt;/given&gt;
@@ -1572,35 +1572,35 @@ her mother, her father or other family names as specified by naming laws of the 
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;use value=&quot;old&quot; /&gt;
-    &lt;family value=&quot;Erikson&quot; /&gt;
-    &lt;given value=&quot;Karin&quot; /&gt;
-    &lt;given value=&quot;Hansen&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+    &lt;use value="old"/&gt;
+    &lt;family value="Erikson"/&gt;
+    &lt;given value="Karin"/&gt;
+    &lt;given value="Hansen"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier"&gt;
         &lt;valueCoding&gt;
-          &lt;code value=&quot;MID&quot; /&gt;
-          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+          &lt;code value="MID"/&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"/&gt;
         &lt;/valueCoding&gt;
       &lt;/extension&gt;
     &lt;/given&gt;
   &lt;/name&gt;
   &lt;name&gt;
-    &lt;use value=&quot;official&quot; /&gt;
-    &lt;family value=&quot;Berg&quot; /&gt;
-    &lt;given value=&quot;Karin&quot; /&gt;
-    &lt;given value=&quot;Erikson&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier&quot; &gt;
+    &lt;use value="official"/&gt;
+    &lt;family value="Berg"/&gt;
+    &lt;given value="Karin"/&gt;
+    &lt;given value="Erikson"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinitioniso-20190#name-qualifier"&gt;
         &lt;valueCoding&gt;
-          &lt;code value=&quot;MID&quot; /&gt;
-          &lt;system value=&quot;http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2&quot; /&gt;
+          &lt;code value="MID"/&gt;
+          &lt;system value="http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifier2"/&gt;
         &lt;/valueCoding&gt;
       &lt;/extension&gt;
     &lt;/given&gt;
   &lt;/name&gt;
   &lt;name&gt;
-    &lt;use value=&quot;usual&quot; /&gt;
-    &lt;family value=&quot;Berg&quot; /&gt;
-    &lt;given value=&quot;Karin&quot; /&gt;
+    &lt;use value="usual"/&gt;
+    &lt;family value="Berg"/&gt;
+    &lt;given value="Karin"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1653,9 +1653,9 @@ A patronymic is "The part of a name that links to the genealogy":
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;text value=&quot;Björk Guðmundsdóttir&quot;/&gt;
-    &lt;family value=&quot;Guðmundsdóttir&quot;/&gt;
-    &lt;given value=&quot;Björk&quot;/&gt;
+    &lt;text value="Björk Guðmundsdóttir"/&gt;
+    &lt;family value="Guðmundsdóttir"/&gt;
+    &lt;given value="Björk"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1674,9 +1674,9 @@ A patronymic with a "son/daughter of" appellation:
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;text value=&quot;Isa bin Osman&quot;/&gt;
-    &lt;family value=&quot;bin Osman&quot;/&gt;
-    &lt;given value=&quot;Isa&quot;/&gt;
+    &lt;text value="Isa bin Osman"/&gt;
+    &lt;family value="bin Osman"/&gt;
+    &lt;given value="Isa"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1695,14 +1695,14 @@ A Chinese name with a generational name:
 [%example-start%]
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
-    &lt;text value=&quot;毛泽东&quot;/&gt; &lt;!-- left to right --&gt;
-    &lt;family value=&quot;毛&quot;/&gt;
-    &lt;given value=&quot;泽东&quot;/&gt;
+    &lt;text value="毛泽东"/&gt; &lt;!-- left to right --&gt;
+    &lt;family value="毛"/&gt;
+    &lt;given value="泽东"/&gt;
   &lt;/name&gt;
   &lt;name&gt;
-    &lt;text value=&quot;Mao Ze Dong&quot;/&gt; &lt;!-- left to right --&gt;
-    &lt;family value=&quot;Mao&quot;/&gt;
-    &lt;given value=&quot;Ze Dong&quot;/&gt;
+    &lt;text value="Mao Ze Dong"/&gt; &lt;!-- left to right --&gt;
+    &lt;family value="Mao"/&gt;
+    &lt;given value="Ze Dong"/&gt;
   &lt;/name&gt;
 </pre>
 [%example-json%]
@@ -1756,11 +1756,11 @@ Composite Family name:
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
     &lt;family value="Carreño Quiñones" &gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-          &lt;valueString value=&quot;Carreño&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-fathers"&gt;
+          &lt;valueString value="Carreño"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-          &lt;valueString value=&quot;Quiñones&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-mothers"&gt;
+          &lt;valueString value="Quiñones"/&gt;
       &lt;/extension&gt;
     &lt;/family&gt;
     &lt;given value="María-Jose" /&gt;
@@ -1812,11 +1812,11 @@ A more practical example is
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
     &lt;family value="Costa Teixeira" &gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-          &lt;valueString value=&quot;Costa&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-fathers"&gt;
+          &lt;valueString value="Costa"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-          &lt;valueString value=&quot;Teixeira&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-mothers"&gt;
+          &lt;valueString value="Teixeira"/&gt;
       &lt;/extension&gt;
     &lt;/family&gt;
     &lt;given value="Manuel" /&gt;
@@ -1846,14 +1846,14 @@ After marriage, this may change to
 <pre class="xml" fragment="HumanName">
   &lt;name&gt;
     &lt;family value="Costa Teixeira Sanches" &gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-fathers&quot;&gt;
-          &lt;valueString value=&quot;Costa&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-fathers"&gt;
+          &lt;valueString value="Costa"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-mothers&quot;&gt;
-          &lt;valueString value=&quot;Teixeira&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-mothers"&gt;
+          &lt;valueString value="Teixeira"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/humanname-partners-name&quot;&gt;
-          &lt;valueString value=&quot;Sanches&quot; /&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/humanname-partners-name"&gt;
+          &lt;valueString value="Sanches"/&gt;
       &lt;/extension&gt;
     &lt;/family&gt;
     &lt;given value="Manuel" /&gt;
@@ -2110,11 +2110,11 @@ on the structured data elements of the address.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;text value=&quot;1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ&quot;/&gt;
-    &lt;line value=&quot;1 Back Lane&quot;/&gt;
-    &lt;city value=&quot;Holmfirth&quot;/&gt;
-    &lt;district value=&quot;HUDDERSFIELD&quot;/&gt;
-    &lt;postalCode value=&quot;HD7 1HQ&quot;/&gt;
+    &lt;text value="1 Back Lane&amp;#13;&amp;#10;Holmfirth&amp;#13;&amp;#10;HUDDERSFIELD&amp;#13;&amp;#10;HD7 1HQ"/&gt;
+    &lt;line value="1 Back Lane"/&gt;
+    &lt;city value="Holmfirth"/&gt;
+    &lt;district value="HUDDERSFIELD"/&gt;
+    &lt;postalCode value="HD7 1HQ"/&gt;
   &lt;/address&gt;
 </pre>
 [%example-json%]
@@ -2133,11 +2133,11 @@ on the structured data elements of the address.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;use value=&quot;temp&quot;/&gt; 
-    &lt;type value=&quot;postal&quot;/&gt;
-    &lt;line value=&quot;PO Box 31445&quot;/&gt;
-    &lt;city value=&quot;Erewhon&quot;/&gt;
-    &lt;postalCode value=&quot;0001&quot;/&gt;
+    &lt;use value="temp"/&gt; 
+    &lt;type value="postal"/&gt;
+    &lt;line value="PO Box 31445"/&gt;
+    &lt;city value="Erewhon"/&gt;
+    &lt;postalCode value="0001"/&gt;
   &lt;/address&gt;
 </pre>
 [%example-json%]
@@ -2196,9 +2196,9 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;Rue Lougoraïa 12, app. 10&quot;/&gt;
-    &lt;city value=&quot;Korolevo&quot;/&gt;
-    &lt;district value=&quot;Minsk&quot;/&gt;
+    &lt;line value="Rue Lougoraïa 12, app. 10"/&gt;
+    &lt;city value="Korolevo"/&gt;
+    &lt;district value="Minsk"/&gt;
     &lt;state value="Minsk" /&gt;
     &lt;country value="BELARUS" /&gt;
   &lt;/address&gt;
@@ -2226,11 +2226,11 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;Protea Apt 12&quot;/&gt;
-    &lt;line value=&quot;22 Ally Hassan Mwinyi&quot;/&gt;
-    &lt;city value=&quot;MSASANI&quot;/&gt;
+    &lt;line value="Protea Apt 12"/&gt;
+    &lt;line value="22 Ally Hassan Mwinyi"/&gt;
+    &lt;city value="MSASANI"/&gt;
     &lt;state value="DAR ES SALAM" /&gt;
-    &lt;postalCode value=&quot;14111&quot;/&gt;
+    &lt;postalCode value="14111"/&gt;
     &lt;country value="TANZANIA" /&gt;
   &lt;/address&gt;
 </pre>
@@ -2257,14 +2257,14 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct&quot;&gt;
-      &lt;valueCode value=&quot;Kimashuku Village&quot;/&gt;
+    &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-precinct"&gt;
+      &lt;valueCode value="Kimashuku Village"/&gt;
     &lt;/extension&gt;
-    &lt;line value=&quot;15 Shiri&quot;/&gt;
-    &lt;city value=&quot;MACHAME KUSINI&quot;/&gt;
-    &lt;district value=&quot;HAI&quot;/&gt;
+    &lt;line value="15 Shiri"/&gt;
+    &lt;city value="MACHAME KUSINI"/&gt;
+    &lt;district value="HAI"/&gt;
     &lt;state value="KILIMANJARO" /&gt;
-    &lt;postalCode value=&quot;25204&quot;/&gt;
+    &lt;postalCode value="25204"/&gt;
     &lt;country value="TANZANIA" /&gt;
   &lt;/address&gt;
 </pre>
@@ -2295,11 +2295,11 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;705-1104&quot;/&gt;
-    &lt;line value=&quot;56, Dalgubeol-daero 323beon-gil, Suseong-gu&quot;/&gt;
-    &lt;city value=&quot;Daegu&quot;/&gt;
-    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
-    &lt;postalCode value=&quot;706-907&quot;/&gt;
+    &lt;line value="705-1104"/&gt;
+    &lt;line value="56, Dalgubeol-daero 323beon-gil, Suseong-gu"/&gt;
+    &lt;city value="Daegu"/&gt;
+    &lt;country value="Rep. OF KOREA"/&gt;
+    &lt;postalCode value="706-907"/&gt;
   &lt;/address&gt;
 </pre>
 [%example-json%]
@@ -2324,12 +2324,12 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;3F&quot;/&gt;
-    &lt;line value=&quot;42, Toegye-ro 77beon-gil&quot;/&gt;
-    &lt;city value=&quot;Chuncheon-si&quot;/&gt;
-    &lt;state value=&quot;Gangwon-do&quot; /&gt;
-    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
-    &lt;postalCode value=&quot;200-066&quot;/&gt;
+    &lt;line value="3F"/&gt;
+    &lt;line value="42, Toegye-ro 77beon-gil"/&gt;
+    &lt;city value="Chuncheon-si"/&gt;
+    &lt;state value="Gangwon-do"/&gt;
+    &lt;country value="Rep. OF KOREA"/&gt;
+    &lt;postalCode value="200-066"/&gt;
   &lt;/address&gt;
 </pre>
 [%example-json%]
@@ -2354,11 +2354,11 @@ postal union</a> examples.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;Ga-B101&quot;/&gt;
-    &lt;line value=&quot;136, Sesil-ro&quot;/&gt;
-    &lt;city value=&quot;Busan&quot;/&gt;
-    &lt;country value=&quot;Rep. OF KOREA&quot; /&gt;
-    &lt;postalCode value=&quot;612-837&quot;/&gt;
+    &lt;line value="Ga-B101"/&gt;
+    &lt;line value="136, Sesil-ro"/&gt;
+    &lt;city value="Busan"/&gt;
+    &lt;country value="Rep. OF KOREA"/&gt;
+    &lt;postalCode value="612-837"/&gt;
   &lt;/address&gt;
 </pre>
 [%example-json%]
@@ -2382,23 +2382,23 @@ address content.
 [%example-start%]
 <pre class="xml" fragment="Address">
   &lt;address&gt;
-    &lt;line value=&quot;Care of: Dr Smith&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf&quot;&gt;
-        &lt;valueString value=&quot;Dr. Smith&quot;/&gt;
+    &lt;line value="Care of: Dr Smith"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-careOf"&gt;
+        &lt;valueString value="Dr. Smith"/&gt;
       &lt;/extension&gt;
     &lt;/line&gt;
-    &lt;line value=&quot;123 Somewhere Street NW&quot;&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber&quot;&gt;
-        &lt;valueString value=&quot;123&quot;/&gt;
+    &lt;line value="123 Somewhere Street NW"&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber"&gt;
+        &lt;valueString value="123"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-        &lt;valueString value=&quot;Somewhere&quot;/&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase"&gt;
+        &lt;valueString value="Somewhere"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-        &lt;valueString value=&quot;Street&quot;/&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase"&gt;
+        &lt;valueString value="Street"/&gt;
       &lt;/extension&gt;
-      &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase&quot;&gt;
-        &lt;valueString value=&quot;NW&quot;/&gt;
+      &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetNameBase"&gt;
+        &lt;valueString value="NW"/&gt;
       &lt;/extension&gt;
     &lt;/line&gt;
   &lt;/address&gt;
@@ -2686,16 +2686,16 @@ See also <a href="datatypes.html#Signature">Base Definition</a>, <a href="dataty
 <pre class="xml" fragment="Signature">
   &lt;signature&gt;
     &lt;type&gt;
-      &lt;system value=&quot;urn:iso-astm:E1762-95:2013&quot;/&gt;
-      &lt;code value=&quot;1.2.840.10065.1.12.1.1&quot;/&gt;
-      &lt;display value=&quot;Author&apos;s Signature&quot;/&gt;
+      &lt;system value="urn:iso-astm:E1762-95:2013"/&gt;
+      &lt;code value="1.2.840.10065.1.12.1.1"/&gt;
+      &lt;display value="Author&apos;s Signature"/&gt;
     &lt;/type&gt;
-    &lt;when value=&quot;2022-02-08T10:16:32.000+10:00&quot;/&gt;
+    &lt;when value="2022-02-08T10:16:32.000+10:00"/&gt;
     &lt;who&gt;
-      &lt;reference value=&quot;Practitioner/example&quot;/&gt;
+      &lt;reference value="Practitioner/example"/&gt;
     &lt;/who&gt;
-    &lt;targetFormat value=&quot;application/fhir+xml&quot;/&gt;
-    &lt;data value=&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVudmVsb3BlIHhtbG5zPSJ1cm46ZW52ZWxvcGUiPgogIDxTaWduYXR1cmUgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogICAgPFNpZ25lZEluZm8+CiAgICAgIDxDYW5vbmljYWxpemF0aW9uTWV0aG9kIAogICAgICAgICAgIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tCjIwMDEwMzE1I1dpdGhDb21tZW50cyIvPgogICAgICA8U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS8KeG1sZHNpZyNkc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iIj4KICAgICAgICA8VHJhbnNmb3Jtcz4KICAgICAgICAgIDxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5Lwp4bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz4KICAgICAgICA8L1RyYW5zZm9ybXM+CiAgICAgICAgPERpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkvCnhtbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT51b29xYldZYTVWQ3FjSkNidXltQktxbTE3dlk9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CjxTaWduYXR1cmVWYWx1ZT4KS2VkSnVUb2I1Z3R2WXg5cU0zazNnbTdrYkxCd1ZiRVFSbDI2UzJ0bVhqcU5ORDdNUkd0b2V3PT0KICAgIDwvU2lnbmF0dXJlVmFsdWU+CiAgICA8S2V5SW5mbz4KICAgICAgPEtleVZhbHVlPgogICAgICAgIDxEU0FLZXlWYWx1ZT4KICAgICAgICAgIDxQPgovS2FDem80U3lyb203OHozRVE1U2JiQjRzRjdleTgwZXRLSUk4NjRXRjY0QjgxdVJwSDV0OWpRVHhlCkV1MEltYnpSTXF6VkRaa1ZHOXhEN25OMWt1Rnc9PQogICAgICAgICAgPC9QPgogICAgICAgICAgPFE+bGk3ZHpEYWN1bzY3Smc3bXRxRW0yVFJ1T01VPTwvUT4KICAgICAgICAgIDxHPlo0UnhzbnFjOUU3cEdrbkZGSDJ4cWFyeVJQQmFRMDFraHBNZExSUW5HNTQxQXd0eC8KWFBhRjVCcHN5NHBOV01PSENCaU5VME5vZ3BzUVc1UXZubE1wQT09CiAgICAgICAgICA8L0c+CiAgICAgICAgICA8WT5xVjM4SXFyV0pHMFYvCm1aUXZSVmkxT0h3OVpqODRuREM0ak84UDBheGkxZ2I2ZCs0NzV5aE1qU2MvCkJySVZDNThXM3lkYmtLK1JpNE9LYmFSWmxZZVJBPT0KICAgICAgICAgPC9ZPgogICAgICAgIDwvRFNBS2V5VmFsdWU+CiAgICAgIDwvS2V5VmFsdWU+CiAgICA8L0tleUluZm8+CiAgPC9TaWduYXR1cmU+CjwvRW52ZWxvcGU+IA==&quot;/&gt;
+    &lt;targetFormat value="application/fhir+xml"/&gt;
+    &lt;data value="PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVudmVsb3BlIHhtbG5zPSJ1cm46ZW52ZWxvcGUiPgogIDxTaWduYXR1cmUgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogICAgPFNpZ25lZEluZm8+CiAgICAgIDxDYW5vbmljYWxpemF0aW9uTWV0aG9kIAogICAgICAgICAgIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tCjIwMDEwMzE1I1dpdGhDb21tZW50cyIvPgogICAgICA8U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS8KeG1sZHNpZyNkc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iIj4KICAgICAgICA8VHJhbnNmb3Jtcz4KICAgICAgICAgIDxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5Lwp4bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz4KICAgICAgICA8L1RyYW5zZm9ybXM+CiAgICAgICAgPERpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkvCnhtbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT51b29xYldZYTVWQ3FjSkNidXltQktxbTE3dlk9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CjxTaWduYXR1cmVWYWx1ZT4KS2VkSnVUb2I1Z3R2WXg5cU0zazNnbTdrYkxCd1ZiRVFSbDI2UzJ0bVhqcU5ORDdNUkd0b2V3PT0KICAgIDwvU2lnbmF0dXJlVmFsdWU+CiAgICA8S2V5SW5mbz4KICAgICAgPEtleVZhbHVlPgogICAgICAgIDxEU0FLZXlWYWx1ZT4KICAgICAgICAgIDxQPgovS2FDem80U3lyb203OHozRVE1U2JiQjRzRjdleTgwZXRLSUk4NjRXRjY0QjgxdVJwSDV0OWpRVHhlCkV1MEltYnpSTXF6VkRaa1ZHOXhEN25OMWt1Rnc9PQogICAgICAgICAgPC9QPgogICAgICAgICAgPFE+bGk3ZHpEYWN1bzY3Smc3bXRxRW0yVFJ1T01VPTwvUT4KICAgICAgICAgIDxHPlo0UnhzbnFjOUU3cEdrbkZGSDJ4cWFyeVJQQmFRMDFraHBNZExSUW5HNTQxQXd0eC8KWFBhRjVCcHN5NHBOV01PSENCaU5VME5vZ3BzUVc1UXZubE1wQT09CiAgICAgICAgICA8L0c+CiAgICAgICAgICA8WT5xVjM4SXFyV0pHMFYvCm1aUXZSVmkxT0h3OVpqODRuREM0ak84UDBheGkxZ2I2ZCs0NzV5aE1qU2MvCkJySVZDNThXM3lkYmtLK1JpNE9LYmFSWmxZZVJBPT0KICAgICAgICAgPC9ZPgogICAgICAgIDwvRFNBS2V5VmFsdWU+CiAgICAgIDwvS2V5VmFsdWU+CiAgICA8L0tleUluZm8+CiAgPC9TaWduYXR1cmU+CjwvRW52ZWxvcGU+IA=="/&gt;
   &lt;/signature&gt;
 </pre>
 [%example-json%]
@@ -2734,10 +2734,10 @@ See also <a href="datatypes.html#Annotation">Base Definition</a>, <a href="datat
 <pre class="xml" fragment="Annotation">
   &lt;Annotation&gt;
     &lt;authorReference&gt;
-      &lt;reference value=&quot;Patient/example&quot;/&gt;
+      &lt;reference value="Patient/example"/&gt;
     &lt;/authorReference&gt;
-    &lt;time value=&quot;2022-02-08T10:18:14.034+10:00&quot;/&gt;
-    &lt;text value=&quot;I don&apos;t think that this is true, or what I said, and it should be corrected&quot;/&gt;
+    &lt;time value="2022-02-08T10:18:14.034+10:00"/&gt;
+    &lt;text value="I don&apos;t think that this is true, or what I said, and it should be corrected"/&gt;
   &lt;/Annotation&gt;
 </pre>
 [%example-json%]

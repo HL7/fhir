@@ -40,9 +40,11 @@
 		</actor>
 	</participant>
 	<reason>
-		<concept>
-			<text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
-		</concept>
+		<value>
+			<concept>
+				<text value="The patient had fever peaks over the last couple of days. He is worried about these peaks."/>
+			</concept>
+		</value>
 	</reason>
 	<!--No indication, because no referral took place-->
 	<!--No admission was deemed necessary-->

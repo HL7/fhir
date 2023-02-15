@@ -87,7 +87,7 @@
         <key value="bdl-7"/>
         <severity value="error"/>
         <human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
+        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>

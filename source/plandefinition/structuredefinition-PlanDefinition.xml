@@ -96,6 +96,18 @@
         <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </constraint>
+      <constraint>
+        <key value="pld-3"/>
+        <severity value="warning"/>
+        <human value="goalid should reference the id of a goal definition"/>
+        <expression value="%context.repeat(action).where((goalId in %context.goal.id).not()).exists().not()"/>
+      </constraint>
+      <constraint>
+        <key value="pld-4"/>
+        <severity value="warning"/>
+        <human value="targetId should reference the id of an action"/>
+        <expression value="%context.repeat(action).relatedAction.where((targetId in %context.repeat(action).id).not()).exists().not()"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Definition"/>
@@ -704,7 +716,7 @@
     </element>
     <element id="PlanDefinition.lastReviewDate">
       <path value="PlanDefinition.lastReviewDate"/>
-      <short value="When the plan definition was last reviewed"/>
+      <short value="When the plan definition was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -821,7 +833,7 @@
       </extension>
       <path value="PlanDefinition.reviewer"/>
       <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -838,7 +850,7 @@
       </extension>
       <path value="PlanDefinition.endorser"/>
       <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -896,6 +908,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1275,6 +1288,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="workflow"/>
         <map value="{Is a contained Definition}"/>
@@ -1465,6 +1479,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1735,6 +1750,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1742,9 +1758,31 @@
     </element>
     <element id="PlanDefinition.action.relatedAction.relationship">
       <path value="PlanDefinition.action.relatedAction.relationship"/>
-      <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
-      <definition value="The relationship of this action to the related action."/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
+      <definition value="The relationship of the start of this action to the related action."/>
       <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Defines the types of relationships between actions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="PlanDefinition.action.relatedAction.endRelationship">
+      <path value="PlanDefinition.action.relatedAction.endRelationship"/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
+      <definition value="The relationship of the end of this action to the related action."/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>

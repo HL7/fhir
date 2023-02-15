@@ -739,7 +739,7 @@
     </element>
     <element id="Device.conformsTo">
       <path value="Device.conformsTo"/>
-      <short value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device."/>
+      <short value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device"/>
       <definition value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device. The device may be certified as conformant to these specifications e.g., communication, performance, process, measurement, or specialization standards."/>
       <min value="0"/>
       <max value="*"/>
@@ -749,7 +749,7 @@
     </element>
     <element id="Device.conformsTo.specification">
       <path value="Device.conformsTo.specification"/>
-      <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type."/>
+      <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type"/>
       <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
       <min value="1"/>
       <max value="1"/>
@@ -758,15 +758,15 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecification-type"/>
+          <valueString value="DeviceSpecification-type"/>
         </extension>
         <strength value="example"/>
         <description value="The type of version indicated for the device."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
     </element>
-    <element id="Device.specification.version">
-      <path value="Device.specification.version"/>
+    <element id="Device.conformsTo.version">
+      <path value="Device.conformsTo.version"/>
       <short value="Specific form or variant of the standard"/>
       <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance."/>
       <min value="0"/>
@@ -775,8 +775,8 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specification.category">
-      <path value="Device.specification.category"/>
+    <element id="Device.conformsTo.category">
+      <path value="Device.conformsTo.category"/>
       <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
       <definition value="Describes the common type of the standard, specification, or formal guidance."/>
       <min value="0"/>
@@ -786,7 +786,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecificationCategory"/>
+          <valueString value="DeviceSpecificationCategory"/>
         </extension>
         <strength value="example"/>
         <description value="The kind of standards used by the device."/>
@@ -854,7 +854,7 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.operation">
+    <!-- <element id="Device.operation">
       <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
@@ -912,9 +912,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-    </element>
-    <element id="Device.operation.mode">
-      <path value="Device.operation.mode"/>
+    </element> -->
+    <element id="Device.mode">
+      <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
       <min value="0"/>
@@ -931,8 +931,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
       </binding>
     </element>
-    <element id="Device.operation.cycle">
-      <path value="Device.operation.cycle"/>
+    <element id="Device.cycle">
+      <path value="Device.cycle"/>
       <short value="The series of occurrences that repeats during the operation of the device"/>
       <definition value="The series of occurrences that repeats during the operation of the device."/>
       <min value="0"/>
@@ -941,8 +941,8 @@
         <code value="Count"/>
       </type>
     </element>
-    <element id="Device.operation.duration">
-      <path value="Device.operation.duration"/>
+    <element id="Device.duration">
+      <path value="Device.duration"/>
       <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
       <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
       <min value="0"/>
@@ -951,7 +951,7 @@
         <code value="Duration"/>
       </type>
     </element>
-    <element id="Device.association">
+    <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
@@ -1017,7 +1017,7 @@
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>

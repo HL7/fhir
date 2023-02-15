@@ -1,0 +1,199 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="fhir-old-types"/> 
+  <url value="http://hl7.org/fhir/fhir-old-types"/> 
+  <identifier> 
+    <system value="urn:ietf:rfc:3986"/> 
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2113"/> 
+  </identifier> 
+  <version value="5.0.0"/> 
+  <name value="FHIROldTypes"/> 
+  <title value="Old FHIR Types"/> 
+  <status value="active"/> 
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/> 
+  <contact> 
+    <telecom> 
+      <system value="url"/> 
+      <value value="http://hl7.org/fhir"/> 
+    </telecom> 
+    <telecom> 
+      <system value="email"/> 
+      <value value="fhir@lists.hl7.org"/> 
+    </telecom> 
+  </contact> 
+  <description value="An old resource name no longer used in this version of FHIR (deleted or renamed)."/> 
+  <jurisdiction> 
+    <coding> 
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/> 
+      <code value="001"/> 
+      <display value="World"/> 
+    </coding> 
+  </jurisdiction> 
+  <caseSensitive value="true"/> 
+  <valueSet value="http://hl7.org/fhir/ValueSet/fhir-old-types"/> 
+  <content value="complete"/> 
+  <concept> 
+    <code value="BodySite"/> 
+    <display value="BodySite"/> 
+  </concept> 
+  <concept> 
+    <code value="CatalogEntry"/> 
+    <display value="CatalogEntry"/> 
+  </concept> 
+  <concept> 
+    <code value="Conformance"/> 
+    <display value="Conformance"/> 
+  </concept> 
+  <concept> 
+    <code value="DataElement"/> 
+    <display value="DataElement"/> 
+  </concept> 
+  <concept> 
+    <code value="DeviceComponent"/> 
+    <display value="DeviceComponent"/> 
+  </concept> 
+  <concept> 
+    <code value="DeviceUseRequest"/> 
+    <display value="DeviceUseRequest"/> 
+  </concept> 
+  <concept> 
+    <code value="DeviceUseStatement"/> 
+    <display value="DeviceUseStatement"/> 
+  </concept> 
+  <concept> 
+    <code value="DiagnosticOrder"/> 
+    <display value="DiagnosticOrder"/> 
+  </concept> 
+  <concept> 
+    <code value="DocumentManifest"/> 
+    <display value="DocumentManifest"/> 
+  </concept> 
+  <concept> 
+    <code value="EffectEvidenceSynthesis"/> 
+    <display value="EffectEvidenceSynthesis"/> 
+  </concept> 
+  <concept> 
+    <code value="EligibilityRequest"/> 
+    <display value="EligibilityRequest"/> 
+  </concept> 
+  <concept> 
+    <code value="EligibilityResponse"/> 
+    <display value="EligibilityResponse"/> 
+  </concept> 
+  <concept> 
+    <code value="ExpansionProfile"/> 
+    <display value="ExpansionProfile"/> 
+  </concept> 
+  <concept> 
+    <code value="ImagingManifest"/> 
+    <display value="ImagingManifest"/> 
+  </concept> 
+  <concept> 
+    <code value="ImagingObjectSelection"/> 
+    <display value="ImagingObjectSelection"/> 
+  </concept> 
+  <concept> 
+    <code value="Media"/> 
+    <display value="Media"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicationOrder"/> 
+    <display value="MedicationOrder"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicationUsage"/> 
+    <display value="MedicationUsage"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProduct"/> 
+    <display value="MedicinalProduct"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductAuthorization"/> 
+    <display value="MedicinalProductAuthorization"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductContraindication"/> 
+    <display value="MedicinalProductContraindication"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductIndication"/> 
+    <display value="MedicinalProductIndication"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductIngredient"/> 
+    <display value="MedicinalProductIngredient"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductInteraction"/> 
+    <display value="MedicinalProductInteraction"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductManufactured"/> 
+    <display value="MedicinalProductManufactured"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductPackaged"/> 
+    <display value="MedicinalProductPackaged"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductPharmaceutical"/> 
+    <display value="MedicinalProductPharmaceutical"/> 
+  </concept> 
+  <concept> 
+    <code value="MedicinalProductUndesirableEffect"/> 
+    <display value="MedicinalProductUndesirableEffect"/> 
+  </concept> 
+  <concept> 
+    <code value="Order"/> 
+    <display value="Order"/> 
+  </concept> 
+  <concept> 
+    <code value="OrderResponse"/> 
+    <display value="OrderResponse"/> 
+  </concept> 
+  <concept> 
+    <code value="ProcedureRequest"/> 
+    <display value="ProcedureRequest"/> 
+  </concept> 
+  <concept> 
+    <code value="ProcessRequest"/> 
+    <display value="ProcessRequest"/> 
+  </concept> 
+  <concept> 
+    <code value="ProcessResponse"/> 
+    <display value="ProcessResponse"/> 
+  </concept> 
+  <concept> 
+    <code value="ReferralRequest"/> 
+    <display value="ReferralRequest"/> 
+  </concept> 
+  <concept> 
+    <code value="RequestGroup"/> 
+    <display value="RequestGroup"/> 
+  </concept> 
+  <concept> 
+    <code value="ResearchDefinition"/> 
+    <display value="ResearchDefinition"/> 
+  </concept> 
+  <concept> 
+    <code value="ResearchElementDefinition"/> 
+    <display value="ResearchElementDefinition"/> 
+  </concept> 
+  <concept> 
+    <code value="RiskEvidenceSynthesis"/> 
+    <display value="RiskEvidenceSynthesis"/> 
+  </concept> 
+  <concept> 
+    <code value="Sequence"/> 
+    <display value="Sequence"/> 
+  </concept> 
+  <concept> 
+    <code value="ServiceDefinition"/> 
+    <display value="ServiceDefinition"/> 
+  </concept> 
+  <concept> 
+    <code value="SubstanceSpecification"/> 
+    <display value="SubstanceSpecification"/> 
+  </concept> 
+</CodeSystem>

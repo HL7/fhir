@@ -40,9 +40,6 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/related-artifact-type"/>
-    </include>
-    <include>
       <system value="http://hl7.org/fhir/related-artifact-type-expanded"/>
     </include>
   </compose>

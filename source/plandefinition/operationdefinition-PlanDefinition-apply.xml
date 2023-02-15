@@ -65,6 +65,7 @@
   <parameter>
     <name value="planDefinition"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied"/>
@@ -73,16 +74,17 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The url of the plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the planDefinition parameter must be supplied"/>
     <type value="canonical"/>
     <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
-    <searchType value="reference"/>
   </parameter>
   <parameter>
     <name value="version"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the plan definition to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied."/>

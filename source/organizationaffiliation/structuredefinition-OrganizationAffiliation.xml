@@ -70,8 +70,8 @@
         <valueCode value="0,0"/>
       </extension>
       <path value="OrganizationAffiliation"/>
-      <short value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship"/>
-      <definition value="Defines an affiliation/assotiation/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
+      <short value="Defines an affiliation/association/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship"/>
+      <definition value="Defines an affiliation/association/relationship between 2 distinct organizations, that is not a part-of relationship/sub-division relationship."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -152,6 +152,7 @@
       <path value="OrganizationAffiliation.organization"/>
       <short value="Organization where the role is available"/>
       <definition value="Organization where the role is available (primary organization/has members)."/>
+      <comment value="For example, a Spotless Cleaning Services (participatingOrganization) is a supplier (code) to General Hospital (organization).   Similarly, General Hospital (participatingOrganization) is a member (code) of Eastern HIE (organization).  If there are two organizations that do not have a directional relationship, there would normally be a third organization that represents the joint partnership, and the two organizations would have a relationship to that joint Organization via two OrganizationAffiliations."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -168,6 +169,7 @@
       <path value="OrganizationAffiliation.participatingOrganization"/>
       <short value="Organization that provides/performs the role (e.g. providing services or is a member of)"/>
       <definition value="The Participating Organization provides/performs the role(s) defined by the code to the Primary Organization (e.g. providing services or is a member of)."/>
+      <comment value="See comments for OrganizationAffiliation.organization above." />
       <min value="0"/>
       <max value="1"/>
       <type>

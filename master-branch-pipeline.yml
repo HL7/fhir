@@ -37,6 +37,7 @@ jobs:
 
 - job: buildAndPublishSpecification
   dependsOn: setupEnvironment
+  timeoutInMinutes: 120
   steps:
   # Trigger a publish to test if all changes produce a valid, publishable java implementation of the specification
   - task: Gradle@2

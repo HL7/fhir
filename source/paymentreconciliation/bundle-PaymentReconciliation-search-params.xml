@@ -167,6 +167,7 @@
         <code value="allocation-encounter"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.allocation.encounter"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -183,6 +184,7 @@
         <code value="allocation-account"/>
         <type value="reference"/>
         <expression value="PaymentReconciliation.allocation.account"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

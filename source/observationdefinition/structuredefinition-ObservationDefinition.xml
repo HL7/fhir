@@ -441,7 +441,7 @@
     </element>
     <element id="ObservationDefinition.lastReviewDate">
       <path value="ObservationDefinition.lastReviewDate"/>
-      <short value="Date on which the asset content was last reviewed"/>
+      <short value="Date on which the asset content was last reviewed by the publisher"/>
       <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>

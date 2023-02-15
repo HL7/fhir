@@ -68,7 +68,7 @@
       <patternCodeableConcept>
         <coding>
           <system value="http://terminology.hl7.org/CodeSystem/library-type"/>
-          <code value="model-information"/>
+          <code value="model-definition"/>
         </coding>
       </patternCodeableConcept>
     </element>

@@ -9,7 +9,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-activity">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -43,6 +43,7 @@
     <include>
       <system value="http://hl7.org/fhir/cited-artifact-status-type"/>
     </include>
+    <!--
     <include>
       <system value="http://hl7.org/fhir/publication-status"/>
       <concept>
@@ -54,5 +55,6 @@
         <display value="Unknown"/>
       </concept>
     </include>
+    -->
   </compose>
 </ValueSet>

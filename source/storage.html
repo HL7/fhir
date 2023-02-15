@@ -45,12 +45,12 @@ details are only found in the Patient resource).
 To illustrate this, consider using an RxNorm code as a medication code. In a prescription resource (MedicationRequest), that will look like this:
 </p>
 <pre class="xml" fragment="MedicationRequest">
-&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;MedicationRequest xmlns="http://hl7.org/fhir"&gt;
   &lt;medication&gt;
   &lt;concept&gt;
    &lt;coding&gt;
-     &lt;system value=&quot;http://www.nlm.nih.gov/research/umls/rxnorm&quot;/&gt;
-     &lt;code value=&quot;&quot;/&gt;
+     &lt;system value="http://www.nlm.nih.gov/research/umls/rxnorm"/&gt;
+     &lt;code value=""/&gt;
    &lt;/coding&gt;
    &lt;/concept&gt;
   &lt;/medication&gt;
@@ -61,8 +61,8 @@ If the resource was designed to prioritize storage efficiency, it would be norma
 so that the code was just some primary key reference:
 </p>
 <pre class="xml">
-&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;code key=&quot;123431232&quot;/&gt;
+&lt;MedicationRequest xmlns="http://hl7.org/fhir"&gt;
+  &lt;code key="123431232"/&gt;
 &lt;/MedicationRequest&gt;
 </pre>
 <p>

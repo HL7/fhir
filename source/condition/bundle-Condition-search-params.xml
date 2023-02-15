@@ -72,6 +72,7 @@
         <code value="participant-actor"/>
         <type value="reference"/>
         <expression value="Condition.participant.actor"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -88,6 +89,7 @@
         <code value="participant-function"/>
         <type value="token"/>
         <expression value="Condition.participant.function"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

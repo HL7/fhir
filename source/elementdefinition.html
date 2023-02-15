@@ -529,18 +529,19 @@ For further information about bindings, see <a href="terminologies.html#binding"
 
 </p>
 <a name="must-support"></a>
-<h3>Must-support / Obligations</h3>
-
+<h3>Must-support</h3>
 <p>
 The primary focus of the FHIR specification is on correct application behavior around 
-what is exchanged and how: valid APIs and resource instances. But many FHIR implementation
+what is exchanged and how: valid APIs and resource instances. However many FHIR implementation
 guides are interested in specifying additional obligations about how the applications 
 involved handle the data that is being exchanged. 
 </p>
 <p>
-Element Definitions feature two properties concerned with this: <code>mustSupport</code>	
-and <code>obligation</code>. See <a href="obligations.html">Implementation Obligations</a>
-for the proper use of these elements.
+Element Definitions use the property <code>mustSupport</code>	to indicate that there 
+are rules that apply to how the data is handled. In addition, the 
+<%extension http://hl7.org/fhir/StructureDefinition/obligation%> extension can be used
+to make more detailed statements about application behavior.
+See <a href="obligations.html">Implementation Obligations</a> for the proper use of these features.
 </p>
 
 [%file newfooter%]
