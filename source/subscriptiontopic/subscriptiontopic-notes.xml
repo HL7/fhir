@@ -39,6 +39,15 @@
     When multiple resources are in scope, topic authors are responsible for ensuring that available filtering parameters are clear in their scope.  For example, if a topic is scoped to <code>Resource</code>, an allowed filter based on <code>_language</code> is clear and applicable to any possible resource.  However, a search parameter of <code>patient</code> does not make sense in the context of all resources, since many resources do not include that search parameter.  Note that the resource specified in <code>canFilterBy.resource</code> does not need to match the literals specified by triggers.  For example, an event that triggers on all resource can specify different filters for each resource type.
   </p>
 
+  <a name="triggers-vs-filters" />
+  <h3>Triggers vs. Filters</h3>
+  <p>
+    Subscription Topics contain two sets of evaluation criteria - one set as part of triggers (i.e., <code>resourceTrigger</code>, <code>eventTrigger</code>) and the other as part of filters (i.e., <code>canFilterBy</code>).  Triggers are the tests used to generate any notification by any subscription linked to a topic, while filters are the tests used by each subscription to differentiate the notifications they are interested in.  For example, a topic could be defined to trigger for any new <a href="medicationrequest.html">MedicationRequest</a> - this allows server implementers to optimize tests at a single point.  However, a patient is only interested in medication requests for <i>them</i>, which would be represented by a filter (e.g., on <code>MedicationRequest.patient</code>).  The set of allowed filters are defined by the subscription topic, but actual values for filtering are listed in the <a href="subscription.html">Subscription</a>.
+  </p>
+  <p>
+    This logical separation of triggers and filters exists to limit the complexity of topics. However, this specification does not place any architectural requirements on severs regarding the separation of triggers and filters.  An implementation is free to separate the two portions or combine the tests as desired.
+  </p>
+
 	<a name="resource-operation-pairs" />
 	<h3>Resource Interactions</h3>
 	<p>
@@ -196,29 +205,34 @@
 		<p>
 			When a server evaluates filters depends on the type of change covered by the topic.  Guidance is provided based on implementation feedback, but note that all filters are defined to explicitly describe the state before and after the interaction occurs.
 		</p>
+      <a name="filters-timing-fhirpath"/>
+      <h5>FHIRPath</h5>
+      <p>
+        <code>resourceTrigger.fhirPathCriteria</code> is always evaluated after an interaction has been processed.  As indicated in the <a href="#fhirpath-criteria">FHIRPath Definitions</a> section, the <code>%previous</code> and <code>%current</code> variables are assigned values from that state.  This means that FHIRPath expressions are responsible for null-checking depending on the types of interactions being tested.  For example, during FHIRPath evaluation on a <code>create</code>, the <code>%previous</code> variable will be <code>null</code>).
+      </p>
 
 			<a name="filters-timing-create"/>
-			<h5>Create</h5>
+			<h5>Query Criteria and Create</h5>
 			<p>
-				Logically, filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
+				Logically, query filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
 			</p>
       <p>
-        Tests can specifically include or exclude changes caused by a <code>create</code> interactions, either via null testing in FHIRPath (e.g., <code>%previous is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForCreate</code> element for query-based definitions.
+        Tests can specifically include or exclude changes caused by a <code>create</code> interactions via the <code>resourceTrigger.queryCriteria.resultForCreate</code> element.  During a <code>create</code>, a value of in this element means that the <code>previous</code> query test does not need to be evaluated - it will either pass (<code>test-passes</code>) or fail (<code>test-fails</code>) automatically.  Note that this is limited to the test specified by <code>previous</code> - the <code>current</code> test will still be processed normally.
       </p>
 
 			<a name="filters-timing-delete"/>
-			<h5>Delete</h5>
+			<h5>Query Criteria and Delete</h5>
 			<p>
-				Logically, filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
+				Logically, query filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
 			</p>
       <p>
-        Tests can specifically include or exclude changes caused by a <code>delete</code> interactions, either via null testing in FHIRPath (e.g., <code>%current is null</code>) or via the <code>resourceTrigger.queryCriteria.resultForDelete</code> element for query-based definitions.
+        Tests can specifically include or exclude changes caused by a <code>delete</code> interactions via the <code>resourceTrigger.queryCriteria.resultForDelete</code> element.  During a <code>delete</code>, a value of in this element means that the <code>current</code> query test does not need to be evaluated - it will either pass (<code>test-passes</code>) or fail (<code>test-fails</code>) automatically.  Note that this is limited to the test specified by <code>current</code> - the <code>previous</code> test will still be processed normally.
       </p>
 
 			<a name="filters-timing-update"/>
-			<h5>Update</h5>
+			<h5>Query Criteria and Update</h5>
 			<p>
-				Logically, filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  Note however that filters are explicitly defined against the two states: <code>previous</code> and <code>current</code>.  Notifications based on resource changes SHALL NOT be sent if the update request fails, since no state change occurred.
+				Logically, query filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  Note however that filters are explicitly defined against the two states: <code>previous</code> and <code>current</code>.  Notifications based on resource changes SHALL NOT be sent if the update request fails, since no state change occurred.
 			</p>
 
   <a name="notification-shape"/>
