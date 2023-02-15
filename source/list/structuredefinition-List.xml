@@ -219,12 +219,12 @@
     </element>
     <element id="List.subject">
       <path value="List.subject"/>
-      <short value="If all resources have the same subject"/>
-      <definition value="The common subject (or patient) of the resources that are in the list if there is one."/>
-      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional."/>
+      <short value="If all resources have the same subject(s)"/>
+      <definition value="The common subject(s) (or patient(s)) of the resources that are in the list if there is one (or a set of subjects)."/>
+      <comment value="Some purely arbitrary lists do not have a common subject, so this is optional. Lists having multiple subjects may raise challenges for systems that base access control or other security considerations on linkages to 'subject'. E.g. if a List is associated with multiple Patient subjects, then it would be nominally part of multiple patient compartments, which might drive access rights."/>
       <requirements value="The primary purpose of listing the subject explicitly is to help with finding the right list."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
