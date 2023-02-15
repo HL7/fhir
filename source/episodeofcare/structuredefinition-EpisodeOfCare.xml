@@ -209,13 +209,79 @@
         <map value="FiveWs.class"/>
       </mapping>
     </element>
+
+    <element id="EpisodeOfCare.reason">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Reason"/>
+      </extension>
+      <path value="EpisodeOfCare.reason"/>
+      <short value="The list of medical reasons that are expected to be addressed during the episode of care"/>
+      <definition value="The list of medical reasons that are expected to be addressed during the episode of care."/>
+      <comment value="The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.&#xD;&#xD;Examples:&#xD; * pregnancy would use HealthcareService or a coding as the reason&#xD; * patient home monitoring could use Condition as the reason"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="EpisodeOfCare.reason.use">
+      <path value="EpisodeOfCare.reason.use"/>
+      <short value="What the reason value should be used for/as"/>
+      <definition value="What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="reason-use"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-reason-use"/>
+      </binding>
+    </element>
+    <element id="EpisodeOfCare.reason.value">
+      <path value="EpisodeOfCare.reason.value"/>
+      <short value="Medical reason to be addressed"/>
+      <definition value="The medical reason that is expected to be addressed during the episode of care, expressed as a text, code or a reference to another resource."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="reason-code"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-reason"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reasonReference"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.what[x]"/>
+      </mapping>
+    </element>
+    
     <element id="EpisodeOfCare.diagnosis">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Diagnosis"/>
       </extension>
       <path value="EpisodeOfCare.diagnosis"/>
-      <short value="The list of diagnosis relevant to this episode of care"/>
-      <definition value="The list of diagnosis relevant to this episode of care."/>
+      <short value="The list of medical conditions that were addressed during the episode of care"/>
+      <definition value="The list of medical conditions that were addressed during the episode of care."/>
+      <comment value="The diagnosis communicates what medical conditions were actually addressed during the episode of care.  If a diagnosis was provided as a reason, and was treated during the episode of care, it may be listed in both EpisodeOfCare.reason and EpisodeOfCare.diagnosis.&#xD;&#xD;Diagnoses related to billing can be documented on the Account resources which supports ranking for the purpose of reimbursement."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -225,10 +291,10 @@
     </element>
     <element id="EpisodeOfCare.diagnosis.condition">
       <path value="EpisodeOfCare.diagnosis.condition"/>
-      <short value="Conditions/problems/diagnoses this episode of care is for"/>
-      <definition value="A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for."/>
-      <min value="1"/>
-      <max value="1"/>
+      <short value="The medical condition that was addressed during the episode of care"/>
+      <definition value="The medical condition that was addressed during the episode of care, expressed as a text, code or a reference to another resource."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
@@ -250,8 +316,8 @@
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="EpisodeOfCare.diagnosis.role">
-      <path value="EpisodeOfCare.diagnosis.role"/>
+    <element id="EpisodeOfCare.diagnosis.use">
+      <path value="EpisodeOfCare.diagnosis.use"/>
       <short value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)"/>
       <definition value="Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
@@ -262,26 +328,15 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiagnosisRole"/>
+          <valueString value="DiagnosisUse"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="preferred"/>
         <description value="The type of diagnosis this condition represents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
       </binding>
-    </element>
-    <element id="EpisodeOfCare.diagnosis.rank">
-      <path value="EpisodeOfCare.diagnosis.rank"/>
-      <short value="Ranking of the diagnosis (for each role type)"/>
-      <definition value="Ranking of the diagnosis (for each role type)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <isSummary value="true"/>
     </element>
     <element id="EpisodeOfCare.patient">
       <path value="EpisodeOfCare.patient"/>
