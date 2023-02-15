@@ -274,9 +274,9 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="Requirements.description"/>
-      <short value="Natural language description of the actor"/>
-      <definition value="A free text natural language description of the actor."/>
-      <comment value="This description can be used for a general description of the actor, and which covers why it was defined."/>
+      <short value="Natural language description of the requirements"/>
+      <definition value="A free text natural language description of the requirements."/>
+      <comment value="This description can be used for a general description of the requirements, and which covers why it was defined."/>
       <alias value="Scope"/>
       <alias value="Purpose"/>
       <min value="0"/>
