@@ -98,12 +98,12 @@
     </element>
     <element id="GenomicStudy.status">
       <path value="GenomicStudy.status"/>
-      <short value="The status of the genomic study"/>
+      <short value="registered | available | cancelled | entered-in-error | unknown"/>
       <definition value="The status of the genomic study."/>
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="code"/>
       </type>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
