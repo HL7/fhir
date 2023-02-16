@@ -39,7 +39,7 @@
       <value value="http://www.hl7.org/Special/Committees/fhir-i"/>
     </telecom>
   </contact>
-  <description value="Guidance on using Provenance for related history elements"/>
+  <description value="Guidance on using Provenance for related history elements to provide key events that have happened over the lifespan of the resource  - see the use of this pattern in the [Request Pattern](request.html#history)"/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
