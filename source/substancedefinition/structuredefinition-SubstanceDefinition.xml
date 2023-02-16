@@ -496,6 +496,9 @@
       </type>
       <isSummary value="true"/>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubstanceForm"/>
+        </extension>
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/substance-form"/>
       </binding>
