@@ -1307,12 +1307,7 @@ errors.
 
 [%dt Identifier 9%]
 
-<p>
-The <code>value</code> SHALL be unique within the defined <code>system</code>
-and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
-to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
-that non-case-sensitive processing is safe.
-</p>
+
 <p>
 The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
@@ -1342,6 +1337,12 @@ Note that the scope of a given identifier system may extend beyond identifiers t
 by a single resource.  For example, some systems might draw all "order" identifiers from a single
 namespace, though some might be used on <a href="medicationrequest.html">MedicationRequest</a> while
 others would appear on <a href="servicerequest.html">ServiceRequest</a>.
+</p>
+<p>
+  The <code>value</code> SHALL be unique within the defined <code>system</code>
+  and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
+  to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
+  that non-case-sensitive processing is safe.
 </p>
 <p>
 If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part),
