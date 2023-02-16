@@ -4,9 +4,11 @@ _in
 _security
 _type
 _lastupdated
+_filter
 _list
 _profile
 _tag
+_has
 _source
 _id
 _content

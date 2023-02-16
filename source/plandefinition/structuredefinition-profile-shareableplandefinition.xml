@@ -60,6 +60,39 @@
       <min value="1"/>
       <max value="1"/>
     </element>
+		<element id="PlanDefinition.extension:knowledgeCapability">
+			<path value="PlanDefinition.extension"/>
+			<sliceName value="knowledgeCapability"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.extension:knowledgeRepresentationLevel">
+			<path value="PlanDefinition.extension"/>
+			<sliceName value="knowledgeRepresentationLevel"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeRepresentationLevel"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
+		<element id="PlanDefinition.extension:artifactComment">
+			<path value="PlanDefinition.extension"/>
+			<sliceName value="artifactComment"/>
+			<min value="0"/>
+			<max value="*"/>
+			<type>
+				<code value="Extension"/>
+				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-artifactComment"/>
+			</type>
+			<mustSupport value="true"/>
+		</element>
     <element id="PlanDefinition.url">
       <path value="PlanDefinition.url"/>
       <min value="1"/>

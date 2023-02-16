@@ -242,8 +242,7 @@ IDENTIFIER
         ;
 
 DELIMITEDIDENTIFIER
-        : '"' (ESC | .)*? '"'
-        | '`' (ESC | .)*? '`'
+        '`' (ESC | .)*? '`'
         ;
 
 STRING

@@ -170,7 +170,7 @@ list provides guidance for the correct usage:
   <ul>
     <li>Cardinality</li>
     <li>Short, Definition, Comments</li>
-    <li>IsModifier</li>
+    <li>IsModifier (indicates whether the extension is a modifierExtension)</li>
     <li>MustSupport (is used on invocation of the extension)</li>
     <li>Conditions &amp; Constraints. These SHOULD never be on url/value[x]</li>
     <li>Mappings. these SHALL never be on url/value[x]</li>
@@ -202,7 +202,11 @@ list provides guidance for the correct usage:
 Note: Extensions are always sliced by their <code>url</code> property. Re-slicing extensions by
 additional properties is allowed (see <a href="profiling.html#slicing">Profiling/Slicing</a>).
 </p>
-
+<p>
+The definition of an extension has no defined context, so the use of must-support is 
+discouraged; it is instead appropriate to indicate <a href="obligations.html">must-support status</a>
+in the profiles where the extension is used.
+</p>
 <a name="registration"></a>
 <h3>Publishing Extension Definitions</h3>
 <p>
