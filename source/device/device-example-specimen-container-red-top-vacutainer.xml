@@ -4,28 +4,42 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text--><id value="specimen-device-container-example-red-top-vacutainer"/>
+  </text--><id value="device-example-specimen-container-red-top-vacutainer"/>
 	<identifier>
     <system value="http://acme.com/containers/id"/>
     <value value="345676"/>
   </identifier>
   <displayName value="Red Top Tube" />
   <property>
-    <type>
-			<coding>
+  <type>
+		   <coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="tube-type"/>
+				<display value="Tube Type"/>
+			</coding>
+		</type>
+    <valueCodeableConcept>
+	   <coding>
 				<system value="http://acme.com/containers/types"/>
 				<code value="RedTop"/>
 				<display value="Red Top Tube"/>
 			</coding>
-		</type>
+	</valueCodeableConcept>	
   </property>
   <property>
     <type>
 			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="amount"/>
+				<display value="Amount"/>
+			</coding>
+	</type>
+	<valueCodeableConcept>
+	   <coding>
 				<system value="http://acme.com/containers/capacities"/>
 				<code value="4.5mL"/>
 				<display value="4.5 mL"/>
 			</coding>
-		</type>
+	</valueCodeableConcept>
   </property>
 </Device>
