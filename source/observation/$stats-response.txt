@@ -28,7 +28,7 @@
            <code>
               <!--   the average parameter code -->
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="average"/>
                  <display value="Average"/>
               </coding>
@@ -44,7 +44,7 @@
            <!--  the max parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="max"/>
                  <display value="Maximum"/>
               </coding>
@@ -60,7 +60,7 @@
            <!--  the min parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="min"/>
                  <display value="Minimum"/>
               </coding>
@@ -76,7 +76,7 @@
            <!--  the count parameter code -->
            <code>
               <coding>
-                <system value="http://hl7.org/fhir/observation-paramcode"/>
+                <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                   <code value="count"/>
                 <display value="Count"/>
               </coding>
@@ -114,7 +114,7 @@
            <code>
               <!--   the average parameter code -->
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="average"/>
                  <display value="Average"/>
               </coding>
@@ -130,7 +130,7 @@
            <!--  the max parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="max"/>
                  <display value="Maximum"/>
               </coding>
@@ -146,7 +146,7 @@
            <!--  the min parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="min"/>
                  <display value="Minimum"/>
               </coding>
@@ -162,7 +162,7 @@
            <!--  the count parameter code -->
            <code>
               <coding>
-                 <system value="http://hl7.org/fhir/observation-paramcode"/>
+                 <system value="https://www.hl7.org/fhir/valueset-observation-statistics"/>
                  <code value="count"/>
                  <display value="Count"/>
               </coding>

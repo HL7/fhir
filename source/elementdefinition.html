@@ -122,7 +122,7 @@ same path must conform.
 <ul>
 		<li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
 		<li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
-		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceasedBoolean, the id is Patient.deceased[x]:deceasedBoolean</li>
+		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
 </ul>
 <p>
 		Note that in a profile with no slices, this id will match the path exactly and entirely.
@@ -423,7 +423,7 @@ same path must conform.
 </p>
 <ul>
  <li>Constraints limiting the acceptable list of types must be applied to the original "[x]" element as this is where the list of acceptable types is defined</li>
- <li>The inclusion of a type specific path (such as "Patient.deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
+ <li>The inclusion of a type specific element (such as "Patient.deceased[x]:deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
  <li>the original element SHALL always be represented in a snapshot; the type specific variants are only represented when needed</li>
 </ul>
 

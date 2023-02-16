@@ -67,6 +67,11 @@ Note that the implementation guides and profiles that are further down the casca
 and more concerned with presence or absence of data and local extensions, while those higher in the cascade are more concerned with 
 meaning, consistent functionality and exchange of data defined in regulation, and are much more likely to be freely publicly available.
 </p>
+<p>
+HL7 has a <a href="https://build.fhir.org/ig/FHIR/ig-guidance/">Guidance Implementation Guide</a> that provides specific guidance 
+on best practices around IG creation as well as information about some of the tooling extensions and capabilities relevant to 
+creation and publication of implementation guides.
+</p>
 <a name="glossary"></a>
 <h3>Glossary</h3>
 <p>
@@ -1008,6 +1013,15 @@ The specific meaning of "Must Support" SHALL be defined. Profiles can do this in
 <p>
 If creating a profile based on another profile, Must Support can be changed from false to true, but cannot be changed from true to false.
 Obligations can be added, particularly for different actors, but existing actor obligations cannot be undone or loosened.
+</p>
+<p>
+When one implementation guide or profile depends on another, the meaning of mustSupport defined in the base artifact 
+applies to those elements marked as mustSupport in that base artifact.  However, elements newly defined as mustSupport 
+in the derived artifact take their definition of mustSupport from the new IG/profile. Note that it is possible for 
+the new IG or profile to simply reference the mustSupport artifacts defined in an ancestor artifact if that is the 
+behavior desired.
+</p>
+<p>
 Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
 the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.

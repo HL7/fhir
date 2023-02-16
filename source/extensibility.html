@@ -345,6 +345,12 @@ and extensions SHALL NOT have modifier extensions internally (except for the reu
 allowed to appear in extensions, listed above).
 </p>
 <p>
+Whether extensions are considered modifiers or not is based on the <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a> flag
+on the root element in the extension definition (the element definition with path "Extension" in the generated snapshot).
+If this is true, then the extension SHALL only be contained in the <code>modifierExtension</code> element.
+If this is false, then the extension SHALL only be contained in the <code>extension</code> element.
+</p>
+<p>
 Note that complex extensions are allowed to have elements in the complex extension that are marked 
 <a href="conformance-rules.html#isModifier">Is-Modifier = true</a>, which means that these elements modify the extension value itself.
 Internal extensions like this marked "Is-Modifier" are still represented using the <code>extension</code> element, not <code>modifierExtension</code>
@@ -352,7 +358,7 @@ because the impact of the modifier element is expected to be known by applicatio
 </p>
 <p>
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
-Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
+Is-modifier elements not defined as part of an extension's definition cannot be conveyed (e.g. an extension cannot have a modifier extension in it).
 </p>
 <p>
 When defining a new modifier extension, it is designated as being a 'modifier' rather than a 

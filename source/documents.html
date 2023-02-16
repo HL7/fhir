@@ -21,16 +21,27 @@ Outstanding issues:
 <h1>FHIR Documents</h1>
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
-<p>FHIR resources can be used to build documents that represent a composition: a coherent set of information that is a statement of healthcare information, including clinical observations and services. A document is a frozen set of resources with a fixed presentation that is authored and/or attested by humans, organizations and devices.</p>
-<p>A document instance contains specific frozen versions of other resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  Implementations SHOULD have policies around when documents can be 'updated' (new version of the same instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal documents, clinical documents, etc.)   Strict limitations on document change are sometimes referred to as 'document immutability'.</p>
+<p>
+FHIR resources can be used to build documents that represent a composition: a coherent set of information that is a 
+statement of healthcare information, including clinical observations and services. A document is a set of 
+resources with a fixed presentation that is authored and/or attested by humans, organizations and devices.
+</p>
+<p>
+A FHIR document instance is a <a href="bundle.html">Bundle</a> of type <code>document</code> that 
+starts with a <a href="composition.html">Composition</a> and contains specific frozen versions of other 
+resources. Changes to a document Bundle may risk invalidating the attestation present within the document.  
+Implementations SHOULD have policies around when documents can be 'updated' (new version of the same 
+instance) vs. when a distinct document needs to be created, as well as what types of change are permitted, 
+in order to retain attestation validity.  These rules might vary based on the type of document (e.g. legal 
+documents, clinical documents, etc.).</p>
 <p>
 Documents built in this fashion may be exchanged between systems and
 persisted in document storage and management systems, including systems such as <a href="https://wiki.ihe.net/index.php/Cross-Enterprise_Document_Sharing">IHE
 XDS</a>.
 </p>
 <p>
-Applications claiming conformance to this framework claim to be conformant to
-"FHIR documents" (see <a href="conformance-rules.html">Conformance</a>).
+Applications that declare support for FHIR documents with <a href="capabilitystatement-definitions.html#CapabilityStatement.document">CapabilityStatement.document</a> 
+are asserting conformance to the rules defined on this page.
 </p>
 <p>
 FHIR documents may serve clinical purposes (focused on patient healthcare information) and 
@@ -52,7 +63,7 @@ general references to documents (which may include FHIR documents as well as PDF
 
 <a name="content"></a>
 
-<h2>Document Content</h2>
+<h2>Document Structure</h2>
 
 <p>
 All documents have the same structure: a <a href="bundle.html">Bundle</a>

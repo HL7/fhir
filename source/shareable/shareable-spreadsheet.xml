@@ -896,7 +896,7 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><Data ss:Type="String">Shareable Pattern</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">A pattern to be followed by resources that represent a shareable knowledge artifact such as a ValueSet, Profile, Library, Decision Support Rule, or Quality Measure</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">A pattern to be followed by [canonical resources](canonicalresource.html) that meet minimal requirements for sharing via registries or similar mechanisms</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The intent of this pattern is to ensure that artifacts have enough metadata to make sharing them through a public repository reliable</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">The Shareable pattern establishes the minimum expectations for exchanging an artifact, including the URL, version, name, and publisher. Knowledge artifact resources would typically define a Shareable profile based on this pattern, rather than adopting the constraints directly on the resource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>

@@ -17594,6 +17594,10 @@
     <display value="Camarron goat"/>
     <display value="Camarron goat (organism)"/>
   </concept>
+  <concept id="9265001" display="Specimen processing">
+    <display value="Specimen processing"/>
+    <display value="Specimen processing (procedure)"/>
+  </concept>
   <concept id="9277006" display="Polled Hereford">
     <display value="Polled Hereford"/>
     <display value="Polled Hereford (organism)"/>

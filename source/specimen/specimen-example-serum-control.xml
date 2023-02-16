@@ -20,7 +20,7 @@
 	</role>
 	<container>
 	  <device>
-	      <reference value="Specimen/specimen-device-container-example-sst-vacutainer"/>
+	      <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
 	  </device>
 	</container>
 </Specimen>
