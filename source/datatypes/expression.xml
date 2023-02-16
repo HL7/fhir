@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2023-02-16T03:46:26Z</LastSaved>
+  <LastSaved>2023-02-16T03:49:21Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -905,7 +905,7 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">!</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3456,7 +3456,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">Expression</Data></Cell>
     <Cell ss:StyleID="s84"><Data ss:Type="String">The name must be a valid variable name in most computer languages</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">name.matches('[A-Za-z][A-Za-z0-9\_]{0,63}')</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">name.matches('[A-Za-z][A-Za-z0-9\\_]{0,63}')</Data></Cell>
     <Cell ss:StyleID="s102"><Data ss:Type="String">exists(f:expression) or exists(f:reference)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

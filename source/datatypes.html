@@ -1279,7 +1279,9 @@ property which references a <a href="conceptmap.html">ConceptMap</a> that define
 in the data, and maps the codes to properly defined concepts in a <a href="codesystem.html">CodeSystem</a>.
 Note that in this case, source system defined in the ConceptMap is not used in the SampledData and is 
 ignored. There SHALL only be one group in the ConceptMap. The ConceptMap cannot define meanings for 
-the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'), since they always have the meaning as defined above.
+any numerical values, nor for the codes 'E', 'U', or 'L' (nor, for safety, 'e', 'u', or 'l'), 
+since they always have the meaning as defined above. There is no escape sequences; codes cannot 
+contain spaces. Also, to make parsing simpler, codes cannot start with numerals.
 </p>
 
 <p>
