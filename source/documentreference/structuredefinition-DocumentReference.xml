@@ -80,7 +80,7 @@
   </mapping>
   <mapping>
     <identity value="xds"/>
-    <uri value="https://profiles.ihe.net/ITI/HIE-Whitepaper"/>
+    <uri value="http://ihe.net/xds"/>
     <name value="XDS metadata equivalent"/>
   </mapping>
   <kind value="resource"/>

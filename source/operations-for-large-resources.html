@@ -1,17 +1,15 @@
 <!DOCTYPE HTML>
 
-
 [%settitle Operations for Large Resources%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
-  [%file newheader%]
-</head>
+<head>[%file newheader%]</head>
 
 <body>
+
   [%file newnavbar%]
 
-  <h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
+<h1>Operations for Large Resources (e.g., Groups/Lists)</h1>
 
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
@@ -21,151 +19,163 @@ experience working with them. If inclusion of these operations is not supported 
 remove these operations from the specification before FHIR R5 is published.
 [%end-note%]
 
-  <h2><code>$add</code> operation</h2>
-  <div>
-    This instance-level operation merges array entries into an existing ("target") resource, based on values from a
-    supplied ("input") resource, ignoring any values that are already present in the target.
-  </div>
+<h2><code>$add</code> operation</h2>
+<p>
+  This instance-level operation merges array entries into an existing ("target") resource, based on values from a
+  supplied ("input") resource, ignoring any values that are already present in the target.
+</p>
 
-  <div>
-    <h4>Example invocation: add two items to a Group</h4>
-    <p>This example adds up to 2 new members to the member array of Group 123, based on whether these entity/period
-      combinations already exist.</p>
-    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$add
+<h4>Example invocation: add two items to a Group</h4>
+<p>This example adds up to 2 new members to the member array of Group 123, based on whether these entity/period combinations already exist.</p>
+
+<pre class="hljs language-json">
+<code>POST /Group/<span class="hljs-number">123</span>/$add
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
-  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;member&quot;</span>: [{
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"Group"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Person"</span>,
+  <span class="hljs-attr">"actual"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"member"</span>: [{
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"period"</span>: {<span class="hljs-attr">"start"</span>: <span class="hljs-string">"2020-07-10"</span>},
   }, {
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>}
+  }]
+}
+</code>
+</pre>
+
+<h4>Example invocation: add two items to a List</h4>
+<p>This example adds up to 2 entries to the entry array of List 123, based on whether these item/date combinations
+  already exist.</p>
+<pre class="hljs language-json">
+<code>POST /List/<span class="hljs-number">123</span>/$add
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">"4"</span>
+
+{
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2020-01-05"</span>
+  }, {
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>}
+  }]
+}
+</code>
+</pre>
+
+<h3><code>$add</code> operation details</h3>
+<p>
+  There is a <a href="resource-operation-add.html">formal definition for this operation</a>
+</p>
+<p>Instance-level operation, invoked by</p>
+<ul>
+  <li><code>POST /Group/123/$add</code> to grow <code>Group.member</code></li>
+  <li><code>POST /List/123/$add</code> to grow <code>List.entry</code></li>
+  <li>(Other target resource types may be added in future, if use cases arise.)</li>
+</ul>
+<p>Input Parameter:</p>
+<ul>
+  <li><code>additions</code>: an input resource matching the type of the target resource. The client SHALL populate
+    all required top-level elements in a way that matches the target resource, to ensure the resource is technically
+    valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+    <code>List.entry</code>).</li>
+</ul>
+<p>Behavior:</p>
+<ul>
+  <li>The server SHALL extend the target resource array with any entries from the input resource array that do not
+    match an existing entry. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+</ul>
+<h3>Contention Management</h3>
+<p>
+  Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+  resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+  following the scheme described at <a href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.
+</p>
+
+
+
+<h2><code>$remove</code> operation</h2>
+
+<p>
+This instance-level operation removes array entries from an existing ("target") resource, based on a supplied
+("input") resource, ignoring any values that are already absent in the target.
+</p>
+
+<h4>Example invocation: remove two items to a Group</h4>
+<p>This example removes elements from the member array of Group 123 if they match the supplied combinations of
+  entity/period.</p>
+<pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
+Content-Type: application/fhir+json
+If-Match: W/<span class="hljs-string">"4"</span>
+
+{
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"Group"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Person"</span>,
+  <span class="hljs-attr">"actual"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"member"</span>: [{
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"period"</span>: {<span class="hljs-attr">"start"</span>: <span class="hljs-string">"2020-07-10"</span>},
+  }, {
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
   }]
 }
 </code></pre>
-    <h4>Example invocation: add two items to a List</h4>
-    <p>This example adds up to 2 entries to the entry array of List 123, based on whether these item/date combinations
-      already exist.</p>
-    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$add
+
+<h4>Example invocation: add two items to a List</h4>
+<p>This example removes elements from the entry array of List 123 if they match the supplied combinations of
+  item/date.</p>
+<pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-05&quot;</span>
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
   }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2020-01-12"</span>
   }]
 }
 </code></pre>
 
-  </div>
+<h3><code>$remove</code> operation details</h3>
+<p>
+  There is a <a href="resource-operation-remove.html">formal definition for this operation</a>
+</p>
+<p>Instance-level operation, invoked by</p>
+<ul>
+  <li><code>POST /Group/123/$remove</code> to shrink <code>Group.member</code></li>
+  <li><code>POST /List/123/$remove</code> to shrink <code>List.entry</code></li>
+  <li>(Other target resource types may be added in future, if use cases arise.)</li>
+</ul>
+<p>Input Parameter:</p>
+<ul>
+  <li><code>removals</code>: an input resource matching the type of the target resource. The client SHALL populate all
+    required top-level elements in a way that matches the target resource, to ensure the resource is technically
+    valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
+    <code>List.entry</code>).</li>
+</ul>
+<p>Behavior:</p>
+<ul>
+  <li>The server SHALL remove any entries in the target resource’s array that match an entry in the input resource’s
+    array. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
+</ul>
+<h3>Contention Management</h3>
+<p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
+  resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
+  following the scheme described at <a
+    href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.
+</p>
 
-  <h3><code>$add</code> operation details</h3>
-  <p>Instance-level operation, invoked by</p>
-  <ul>
-    <li><code>POST /Group/123/$add</code> to grow <code>Group.member</code></li>
-    <li><code>POST /List/123/$add</code> to grow <code>List.entry</code></li>
-    <li>(Other target resource types may be added in future, if use cases arise.)</li>
-  </ul>
-  <p>Input Parameter:</p>
-  <ul>
-    <li><code>additions</code>: an input resource matching the type of the target resource. The client SHALL populate
-      all required top-level elements in a way that matches the target resource, to ensure the resource is technically
-      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
-      <code>List.entry</code>).</li>
-  </ul>
-  <p>Behavior:</p>
-  <ul>
-    <li>The server SHALL extend the target resource array with any entries from the input resource array that do not
-      match an existing entry. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
-  </ul>
-  <h3>Contention Management</h3>
-  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
-    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
-    following the scheme described at <a
-      href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
-  <h2><code>$remove</code> operation</h2>
-
-  <div>
-    This instance-level operation removes array entries from an existing ("target") resource, based on a supplied
-    ("input") resource, ignoring any values that are already absent in the target.
-
-  </div>
-
-  <div>
-    <h4>Example invocation: remove two items to a Group</h4>
-    <p>This example removes elements from the member array of Group 123 if they match the supplied combinations of
-      entity/period.</p>
-    <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
-Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
-
-{
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
-  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;member&quot;</span>: [{
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
-  }, {
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
-  }]
-}
-</code></pre>
-    <h4>Example invocation: add two items to a List</h4>
-    <p>This example removes elements from the entry array of List 123 if they match the supplied combinations of
-      item/date.</p>
-    <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
-Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
-
-{
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-  }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-12&quot;</span>
-  }]
-}
-</code></pre>
-  </div>
-
-  <h3><code>$remove</code> operation details</h3>
-  <p>Instance-level operation, invoked by</p>
-  <ul>
-    <li><code>POST /Group/123/$remove</code> to shrink <code>Group.member</code></li>
-    <li><code>POST /List/123/$remove</code> to shrink <code>List.entry</code></li>
-    <li>(Other target resource types may be added in future, if use cases arise.)</li>
-  </ul>
-  <p>Input Parameter:</p>
-  <ul>
-    <li><code>removals</code>: an input resource matching the type of the target resource. The client SHALL populate all
-      required top-level elements in a way that matches the target resource, to ensure the resource is technically
-      valid. The server SHALL ignore all elements except for the relevant array (e.g., <code>Group.member</code> or
-      <code>List.entry</code>).</li>
-  </ul>
-  <p>Behavior:</p>
-  <ul>
-    <li>The server SHALL remove any entries in the target resource’s array that match an entry in the input resource’s
-      array. See <a href="#Matching-Algorithm">Matching Algorithm</a>.</li>
-  </ul>
-  <h3>Contention Management</h3>
-  <p>Clients MAY supply an <code>If-Match</code> header with an ETag reflecting the current version of the target
-    resource. Servers SHALL NOT proceed if a supplied ETag does not match the current version of the target resource,
-    following the scheme described at <a
-      href="http.html#concurrency">https://hl7.org/fhir/http.html#concurrency</a>.</p>
   <h2><code>$filter</code> operation</h2>
   <div>
     This instance-level operation returns the subset of array entries from an existing ("target") resource that match
@@ -179,43 +189,43 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 Content-Type: application/fhir+json
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
   }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07&quot;</span>
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/789"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07"</span>
   }]
 }
 </code></pre>
     <p>If this list included two items (with any date) referencing Patient 456, and one item with a date in July 2022
       referencing Patient 789, then three subsetted entries would be returned:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;123&quot;</span>,
-  <span class="hljs-attr">&quot;meta&quot;</span>: {
-    <span class="hljs-attr">&quot;tag&quot;</span>: [{
-      <span class="hljs-attr">&quot;system&quot;</span>: <span class="hljs-string">&quot;http://terminology.hl7.org/CodeSystem/v3-ObservationValue&quot;</span>,
-      <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;SUBSETTED&quot;</span>
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"123"</span>,
+  <span class="hljs-attr">"meta"</span>: {
+    <span class="hljs-attr">"tag"</span>: [{
+      <span class="hljs-attr">"system"</span>: <span class="hljs-string">"http://terminology.hl7.org/CodeSystem/v3-ObservationValue"</span>,
+      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"SUBSETTED"</span>
     }]
   },
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;Patient waiting list&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Registered&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/1&quot;</span>}
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Patient waiting list"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Registered"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456/_history/1"</span>}
   }, {
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T11:00:00Z&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/2&quot;</span>}
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-02T11:00:00Z"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Escalated"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456/_history/2"</span>}
   }, {
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T12:00:00Z&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>}
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-02T12:00:00Z"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Escalated"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/789"</span>}
   }]
 }
 </code></pre>
@@ -223,6 +233,11 @@ Content-Type: application/fhir+json
   </div>
 
   <h3><code>$filter</code> operation details</h3>
+
+  <p>
+    There is a <a href="resource-operation-filter.html">formal definition for this operation</a>
+  </p>
+  
   <p>Instance-level operation, invoked by</p>
   <ul>
     <li><code>POST /Group/123/$filter</code> to return a filtered subset of <code>Group.member</code></li>
@@ -269,13 +284,13 @@ Content-Type: application/fhir+json
     <h5>Example 1: a single probe</h5>
     <p>Entry in input resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>}
 }
 </code></pre>
     <p>Entry in target resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123/_history/2"</span>}
 }
 </code></pre>
     <p>Result: this is a <strong>match</strong>, because the target entry contains a matching element for the input
@@ -286,13 +301,13 @@ Content-Type: application/fhir+json
     <p>Now consider the same inputs from Example (1), but swap their roles (input / target) as follows.</p>
     <p>Entry in input resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123/_history/2"</span>}
 }
 </code></pre>
     <p>Entry in target resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>}
 }
 </code></pre>
     <p>Result: this is <strong>not a match</strong>, because the target entry contains no match for the input entry’s
@@ -300,7 +315,7 @@ Content-Type: application/fhir+json
       element. This example shows that the comparision operation is not symmetric; inputs match more-specific targets,
       not less-specific targets.</p>
   </div>
-
+  
   [%file newfooter%]
 
 </body>
