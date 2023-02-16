@@ -220,4 +220,64 @@
       <display value="device-example-udi4.html"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-specimen-container-green-gel-vacutainer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-specimen-container-green-gel-vacutainer"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
+      <display value="device-example-specimen-container-green-gel-vacutainer"/>
+    </item>
+  </entry>
+ <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-specimen-container-lavender-vacutainer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-specimen-container-lavender-vacutainer"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-specimen-container-lavender-vacutainer"/>
+      <display value="device-example-specimen-container-lavender-vacutainer"/>
+    </item>
+  </entry> 
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-specimen-container-red-top-vacutainer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-specimen-container-red-top-vacutainer"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-specimen-container-red-top-vacutainer"/>
+      <display value="device-example-specimen-container-red-top-vacutainer"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-specimen-container-polycup"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-specimen-container-polycup"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-specimen-container-polycup"/>
+      <display value="device-example-specimen-container-polycup"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="device-example-specimen-container-example-sst-vacutainer"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="device-example-specimen-container-example-sst-vacutainer"/>
+    </extension>
+    <item>
+      <reference value="Device/device-example-specimen-container-example-sst-vacutainer"/>
+      <display value="device-example-specimen-container-example-sst-vacutainer"/>
+    </item>
+  </entry>
 </List> 

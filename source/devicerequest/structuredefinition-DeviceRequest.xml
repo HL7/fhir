@@ -253,7 +253,7 @@
     <element id="DeviceRequest.groupIdentifier">
       <path value="DeviceRequest.groupIdentifier"/>
       <short value="Identifier of composite request"/>
-      <definition value="Composite request this is part of."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <min value="0"/>
       <max value="1"/>
       <type>

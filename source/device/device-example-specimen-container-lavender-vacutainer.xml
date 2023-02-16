@@ -4,7 +4,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text--><id value="specimen-device-container-example-lavender-vacutainer"/>
+  </text--><id value="device-example-specimen-container-lavender-vacutainer"/>
 	<identifier>
     <system value="http://acme.com/containers/id"/>
     <value value="345675"/>
@@ -12,29 +12,50 @@
   <displayName value="Lavender Tube" />
   <property>
     <type>
-			<coding>
-				<system value="http://acme.com/containers/types"/>
-				<code value="Lavender"/>
-				<display value="Lavender Tube"/>
+		   <coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="tube-type"/>
+				<display value="Tube Type"/>
 			</coding>
 		</type>
+    <valueCodeableConcept>
+	   <coding>
+				<system value="http://acme.com/containers/types"/>
+				<code value="lavender"/>
+				<display value="lavender-tube"/>
+			</coding>
+	</valueCodeableConcept>	
   </property>
   <property>
     <type>
 			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="amount"/>
+				<display value="Amount"/>
+			</coding>
+	</type>
+	<valueCodeableConcept>
+	   <coding>
 				<system value="http://acme.com/containers/capacities"/>
 				<code value="4.5mL"/>
 				<display value="4.5 mL"/>
 			</coding>
-		</type>
+	</valueCodeableConcept>
   </property>
   <property>
     <type>
-			<coding>
+	   <coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="additive"/>
+				<display value="Additive"/>
+		</coding>
+	</type>
+	<valueCodeableConcept>
+	   <coding>
 				<system value="http://acme.com/containers/additive"/>
 				<code value="EDTA"/>
 				<display value="EDTA"/>
-			</coding>
-		</type>
+		</coding>
+	</valueCodeableConcept>
   </property>
 </Device>

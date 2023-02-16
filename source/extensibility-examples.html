@@ -978,6 +978,156 @@ This is the same as for a simple extension:
 </pre>
 [%example-end%]
 
+<a name="modifier"></a>
+<h3>Modifier Extension: Artifact Status</h3>
+<p>
+Some extensions are considered 'modifier' extensions - they alter the meaning or interpretation
+of the resource or element containing them as defined the applicable specification. For a more 
+thorough consideration of the use of modifiers, see <a href="extensibility.html#modifierExtension">Modifier Extensions</a>.
+The definition of a modifier artifact is the same as a non-modifier extension except for one flag
+on the definition: isModifier = true on the root element. 
+</p>
+
+<p>
+NOTE: This extension is properly defined in the <a href="[%extensions-location%]extension-registry.html">FHIR Extensions Registry</a>.
+</p>
+
+[%example-start%]
+<pre class="xml">
+  &lt;StructureDefinition xmlns="http://hl7.org/fhir"&gt;
+  &lt;url value="http://hl7.org/fhir/StructureDefinition/artifact-status"/&gt;
+
+  &lt;!-- snip metadata --&gt;
+
+  &lt;fhirVersion value="5.0.0"/&gt;
+  &lt;kind value="complex-type"/&gt;
+  &lt;abstract value="false"/&gt;
+  &lt;context&gt;
+    &lt;type value="element"/&gt;
+    &lt;expression value="Resource"/&gt;
+  &lt;/context&gt;
+  &lt;type value="Extension"/&gt;
+  &lt;baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/&gt;
+  &lt;derivation value="constraint"/&gt;
+  &lt;differential&gt;
+    &lt;element id="Extension"&gt;
+      &lt;path value="Extension"/&gt;
+      &lt;short value="draft | active | retired | unknown"/&gt;
+      &lt;definition value="The status of this {{title}}. Enables tracking the life-cycle of the content."/&gt;
+      &lt;min value="0"/&gt;
+      &lt;max value="1"/&gt;
+
+      &lt;!--
+         This is the important flag: isModifier = true on the root element. 
+         This makes this extension a modifier extension throughout the FHIR
+         eco-system.
+      --&gt;
+      &lt;isModifier value="true"/&gt;
+      &lt;isModifierReason value="This is labeled as &amp;quot;Is Modifier&amp;quot; because applications should not use a retired CodeSystem without due consideration"/&gt;
+
+    &lt;/element&gt;
+    &lt;element id="Extension.extension"&gt;
+      &lt;path value="Extension.extension"/&gt;
+      &lt;max value="0"/&gt;
+    &lt;/element&gt;
+    &lt;element id="Extension.url"&gt;
+      &lt;path value="Extension.url"/&gt;
+      &lt;fixedUri value="http://hl7.org/fhir/StructureDefinition/artifact-status"/&gt;
+    &lt;/element&gt;
+    &lt;element id="Extension.value[x]"&gt;
+      &lt;path value="Extension.value[x]"/&gt;
+      &lt;min value="1"/&gt;
+      &lt;type&gt;
+        &lt;code value="code"/&gt;
+      &lt;/type&gt;
+      &lt;binding&gt;
+        &lt;!-- snip --&gt;
+    &lt;/element&gt;
+  &lt;/differential&gt;
+&lt;/StructureDefinition&gt;
+
+</pre>
+[%example-json%]
+<pre class="json">
+  {
+    "resourceType" : "StructureDefinition",
+    "url" : "http://hl7.org/fhir/StructureDefinition/artifact-status",
+    // snip various metadata
+    "fhirVersion" : "5.0.0",
+    "kind" : "complex-type",
+    "abstract" : false,
+    "context" : [{
+        "type" : "element",
+        "expression" : "Resource"
+    }],
+    "type" : "Extension",
+    "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
+    "derivation" : "constraint",
+    "differential" : {
+      "element" : [
+        {
+          "id" : "Extension",
+          "path" : "Extension",
+          "short" : "draft | active | retired | unknown",
+          "definition" : "The status of this {{title}}. Enables tracking the life-cycle of the content.",
+          "min" : 0,
+          "max" : "1",
+  
+          // This is the important flag: isModifier = true on the root element. 
+          // This makes this extension a modifier extension throughout the FHIR eco-system.
+          "isModifier" : true,
+          "isModifierReason" : "This is labeled as \"Is Modifier\" because applications should not use a retired CodeSystem without due consideration"
+        },
+        {
+          "id" : "Extension.extension",
+          "path" : "Extension.extension",
+          "max" : "0"
+        },
+        {
+          "id" : "Extension.url",
+          "path" : "Extension.url",
+          "fixedUri" : "http://hl7.org/fhir/StructureDefinition/artifact-status"
+        },
+        {
+          "id" : "Extension.value[x]",
+          "path" : "Extension.value[x]",
+          "min" : 1,
+          "type" : [
+            {
+              "code" : "code"
+            }
+          ]
+          // snip 
+        }
+      ]
+    }
+  }  
+</pre>
+[%example-end%]
+<h4>Use it in the instance</h4>
+
+[%example-start%]
+<pre class="xml" fragment="Patient">
+&lt;Communication xmlns="http://hl7.org/fhir"&gt;
+  &lt;modifierExtension url="http://hl7.org/fhir/StructureDefinition/artifact-status" &gt;
+    &lt;valueCode value="retired"/&gt;
+  &lt;/modifierExtension&gt;
+  &lt;!-- ... --&gt;
+&lt;/Communication&gt;
+</pre>
+[%example-json%]
+<pre class="json" fragment="Patient">
+{
+  "resourceType" : "Communication",
+  "modifierExtension" : [{ 
+    "url" : "http://hl7.org/fhir/StructureDefinition/artifact-status",
+    "valueCode" : "retired"
+  }]
+  // ... 
+}
+</pre>
+[%example-end%]
+
 [%file newfooter%]
 
 

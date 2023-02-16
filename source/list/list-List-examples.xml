@@ -124,4 +124,16 @@
       <display value="Long List"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="XDS SubmissionSet example"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="list-example-xds"/>
+    </extension>
+    <item>
+      <reference value="List/example-xds"/>
+      <display value="XDS SubmissionSet"/>
+    </item>
+  </entry>
 </List>
