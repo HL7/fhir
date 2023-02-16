@@ -295,8 +295,9 @@ signatures.html
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
+      <page type="resource" resource="BiologicallyDerivedProduct"/>
   	  <page type="resource" resource="ChargeItem"/>
-	  <page type="resource" resource="ChargeItemDefinition"/>
+  	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
       <page title="Product Pattern" filename="product.html"/>
@@ -337,8 +338,6 @@ signatures.html
       <page type="resource" resource="SpecimenDefinition"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
-      <page type="resource" resource="BiologicallyDerivedProduct"/>
-      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
     </page>
 
 
@@ -396,6 +395,7 @@ signatures.html
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
       <page type="resource" resource="InventoryItem"/>
+      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
       <page type="resource" resource="ExampleScenario"/>
     </page>
 
