@@ -11384,7 +11384,7 @@ Comment the row by starting with '!'</Font>
 				</Cell>
 				<Cell ss:StyleID="s70"/>
 				<Cell ss:StyleID="s70">
-					<Data ss:Type="String">Vocab</Data>
+					<Data ss:Type="String">TI</Data>
 				</Cell>
 				<Cell ss:Index="20" ss:StyleID="s152">
 					<Data ss:Type="String">Example</Data>

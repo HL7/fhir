@@ -18,7 +18,7 @@
     <valueCode value="anonymous"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
+    <valueCode value="ti"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = retired"/>
@@ -36,7 +36,7 @@
   <title value="Terminology Capabilities"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Vocabulary)"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -46,7 +46,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+      <value value="http://www.hl7.org"/>
     </telecom>
   </contact>
   <description value="A TerminologyCapabilities resource documents a set of capabilities (behaviors) of a FHIR Terminology Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation."/>

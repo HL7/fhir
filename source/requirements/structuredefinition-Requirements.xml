@@ -36,7 +36,7 @@
   <title value="Requirements"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International (Vocabulary)"/>
+  <publisher value="Health Level Seven International"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -46,7 +46,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
+      <value value="http://www.hl7.org"/>
     </telecom>
   </contact>
   <description value="The Requirements resource is used to describe an actor - a human or an application that plays a role in data exchange, and that may have obligations associated with the role the actor plays."/>

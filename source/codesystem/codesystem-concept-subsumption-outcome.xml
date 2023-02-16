@@ -6,7 +6,7 @@
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
+    <valueCode value="ti"/>
   </extension>
   <url value="http://hl7.org/fhir/concept-subsumption-outcome"/>
   <identifier>

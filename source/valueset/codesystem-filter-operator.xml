@@ -437,7 +437,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="vocab"/>
+    <valueCode value="ti"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="normative"/>
