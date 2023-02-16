@@ -211,4 +211,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="NutritionOrder-group-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="NutritionOrder.group-identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/NutritionOrder-group-identifier"/>
+        <description value="Composite Request ID"/>
+        <code value="group-identifier"/>
+        <type value="token"/>
+        <expression value="NutritionOrder.group-identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
