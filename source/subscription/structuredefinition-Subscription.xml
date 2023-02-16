@@ -225,7 +225,7 @@
     <element id="Subscription.filterBy">
       <path value="Subscription.filterBy"/>
       <short value="Criteria for narrowing the subscription topic stream"/>
-      <definition value="The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions are met; otherwise it returns false (i.e., logical AND)."/>
+      <definition value="The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions applicable to that resource are met; otherwise it returns false (i.e., logical AND)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
