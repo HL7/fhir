@@ -604,7 +604,7 @@
     <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
       <path value="SubscriptionTopic.resourceTrigger.supportedInteraction"/>
       <short value="create | update | delete"/>
-      <definition value="The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE)."/>
+      <definition value="The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE). If not present, all supported interactions are assumed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -635,7 +635,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.previous"/>
       <short value="Rule applied to previous resource state"/>
       <definition value="The FHIR query based rules are applied to the previous resource state (e.g., state before an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -646,7 +646,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;create&quot; interactions, should the &quot;previous&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For `create` interactions, should the `previous` criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `create` interactions is unspecified (server discretion)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -666,7 +666,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.current"/>
       <short value="Rule applied to current resource state"/>
       <definition value="The FHIR query based rules are applied to the current resource state (e.g., state after an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -677,7 +677,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;delete&quot; interactions, should the &quot;current&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For 'delete' interactions, should the 'current' query criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `delete` interactions is unspecified (server discretion)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -696,7 +696,8 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.requireBoth">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.requireBoth"/>
       <short value="Both must be true flag"/>
-      <definition value="If set to true, both current and previous criteria must evaluate true to  trigger a notification for this topic.  Otherwise a notification for this topic will be triggered if either one evaluates to true."/>
+      <definition value="If set to `true`, both the `current` and `previous` query criteria must evaluate `true` to trigger a notification for this topic.  If set to `false` or not present, a notification for this topic will be triggered if either the `current` or `previous` tests evaluate to `true`."/>
+      <comment value="Please note the interaction between this element and the `resultForCreate`/`resultForDelete` elements during `create` and `delete` interactions.  For example, if `resultForCreate` is set to `test-passes`, setting `requireBoth` to `false` means that every `create` will trigger a notification while setting `requireBoth` to `true` will result in notifications if the `current` test passes.  Similarly, if `resultForCreate` is set to `test-fails`, setting `requireBoth` to `true` means that no `create` will be able to generate a notification while setting `requireBoth` to `false` will result in notifications if the `current` test passes."/>
       <min value="0"/>
       <max value="1"/>
       <type>

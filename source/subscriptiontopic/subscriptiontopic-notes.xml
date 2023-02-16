@@ -49,7 +49,7 @@
   </p>
 
 	<a name="resource-operation-pairs" />
-	<h3>Resource Interactions</h3>
+	<h3>Triggers and Resource Interactions</h3>
 	<p>
 		Subscription Topics based on Resource Interactions are simple to describe - definitions include the resource type (e.g., <code>Patient</code>, <code>Encounter</code>) and the interaction of interest (e.g., <code>create</code>, <code>delete</code>).
 	</p>
@@ -59,54 +59,45 @@
   <p>
     If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
   </p>
+  <p>
+    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with either <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates may not test for the previous state correctly during create processing.
+  </p>
 	
-		<a name="resource-operation-create" />
-		<h4>Resource Interaction: Create</h4>
+		<a name="resource-trigger-create" />
+		<h4>Trigger Interaction: Create</h4>
 		<p>
-			Subscription Topics defined on <code>create</code> interactions are triggered each time a resource of the specified type is created.
-		</p>
-		<p>
-			Filters for <code>create</code> operations are restricted to the type of resource being created and must be evaluated on the created resource instance.  If more complicated filtering is required (e.g., new Observations when a Patient has a given diagnosis), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li>
-        <code>resource: Patient</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="patient.html">patient</a> is created on the server, e.g., to send 'new patient' information.
-      </li>
-			<li>
-        <code>resource: AdverseEvent</code>, <code>supportedInteraction: create</code>: notify each time a new <a href="adverseevent.html">Adverse Event</a> is created on the server, e.g., to perform internal review.
-      </li>
-			<li>
-        <code>resource: Resource</code>, <code>supportedInteraction: create</code>: notify each time any resource is created on the server, e.g., for internal logging/processing.
-      </li>
-		</ul>
+			Subscription Topics that include <code>create</code> interactions are tested each time a resource of the specified type is created.  If a topic contains no trigger criteria (either query-based or FHIRPath), a notification will be generated for every instance created.  If criteria are specified, the criteria SHOULD only be evaluated after the interaction is confirmed to apply.
+    </p>
+    <p>
+      When using <code>queryCriteria</code> during a create, the <code>previous</code> test does not have a defined behavior - there is no resource available to test against.  In order to filter correctly, a combination of <code>resultForCreate</code> and <code>requireBoth</code> must be specified.  For example, setting both <code>resultForCreate</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in criteria that can be tested against all interactions with expected behavior.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during a create, the <code>%previous</code> variable will be set to empty (<code>{}</code>). Authors should ensure that expressions can be evaluated without errors in all applicable situations.
+    </p>
 		
-		<a name="resource-operation-delete" />
-		<h4>Resource Interaction: Delete</h4>
+		<a name="resource-trigger-delete" />
+		<h4>Trigger Interaction: Delete</h4>
 		<p>
-			Subscription Topics defined on <code>delete</code> interactions are triggered each time a resource of the specified type is deleted.
+			Subscription Topics that include <code>delete</code> interactions are triggered each time a resource of the specified type is deleted.  If a topic contains no trigger criteria (either query-based or FHIRPath), a notification will be generated for every instance deleted.  If criteria are specified, the criteria SHOULD only be evaluated after the interaction is confirmed to apply.
 		</p>
-		<p>
-			Filters for <code>delete</code> operations are restricted to the type of resource being deleted and must be evaluated on the resource instance being deleted.  If more complicated filtering is required (e.g., notifications for deleting a Patient which has a particular Condition), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li>
-        <code>resource: Resource</code>, <code>supportedInteraction: delete</code>: notify each time a new resource is delete on the server, e.g., for internal logging/processing.
-			</li>
-		</ul>
+    <p>
+      When using <code>queryCriteria</code> during a delete, the <code>current</code> test does not have a defined behavior - there is no resource available to test against.  In order to filter correctly, a combination of <code>resultForDelete</code> and <code>requireBoth</code> must be specified.  For example, setting both <code>resultForDelete</code> and <code>requireBoth</code> to <code>true</code> or <code>false</code> will result in criteria that can be tested against all interactions with expected behavior.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during a delete, the <code>%current</code> variable will be set to empty (<code>{}</code>). Authors should ensure that expressions can be evaluated without errors in all applicable situations.
+    </p>
 		
-		<a name="resource-operation-update" />
-		<h4>Resource Interaction: Update</h4>
+		<a name="resource-trigger-update" />
+		<h4>Trigger Interaction: Update</h4>
 		<p>
-			Subscription Topics defined on <code>update</code> interactions are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
+			Subscription Topics that include <code>update</code> interactions are triggered each time the server updates a resource of the specified type.  Triggering an <code>update</code> operation does not imply that the resource has changes visible to the subscriber, nor does it require servers to monitor resources for actual changes.  Servers MAY generate notifications on their internal triggers, regardless of actual changes (e.g., a client issuing an HTTP PUT with an identical resource).
 		</p>
-		<p>
-			Filters for <code>update</code> interactions are restricted to the type of resource being updated and must be evaluated on the resource instance after the update is performed (e.g., post-state change).  If more complicated filtering is required (e.g., detecting when an Encounter leaves the 'in-progress' state), implementers should use the computable definitions provided by <a href="#resource-value-tests">Resource Value Tests</a>.
-		</p>
-		<ul>
-			<li><code>resource: Patient</code>, <code>supportedInteraction: update</code>: notify each time a <a href="patient.html">patient</a> is modified on the server, e.g., to a processing server to determine further actions.</li>
-			<li><code>resource: CarePlan</code>, <code>supportedInteraction: update</code>: notify each time a <a href="careplan.html">Care Plan</a> is modified on the server, e.g., to notify a care team of changes.</li>
-			<li><code>resource: Resource</code>, <code>supportedInteraction: update</code>: notify each time any resource is modified on the server, e.g., for internal logging/processing.</li>
-		</ul>
+    <p>
+      When using <code>queryCriteria</code> during an update, both the <code>previous</code> and <code>current</code> tests can apply.  In most cases, an update should set <code>requireBoth</code> and ensure that the elements of interest are the ones changed to avoid generating notifications on unrelated updates.  For example, if a topic is looking for changes to <code>Encounter.status</code>, only checking that the <code>current</code> status is <code>in-progress</code> would trigger notifications on changes to the <code>Encounter.diagnosis</code> for an in-progress encounter.
+    </p>
+    <p>
+      When using <code>fhirPathCriteria</code> during an update, it is recommended to test both the <code>%previous</code> and <code>%current</code> contents to ensure that only desired changes are captured.  For example, if a topic is looking for changes to <code>Encounter.status</code>, only checking that the <code>%current</code> status is <code>in-progress</code> would trigger notifications on changes to the <code>Encounter.diagnosis</code> for an in-progress encounter.
+    </p>
 	
 	<a name="resource-value-tests" />
 	<h3>Resource Value Tests</h3>
@@ -118,13 +109,19 @@
 	</p>
 
 		<a name="query-criteria" />
-		<h4>Query (Search) Definitions</h4>
+		<h4>Query (Search) Trigger Definitions</h4>
 		<p>
 			Query definitions are based on Search evaluations performed before and/or after a state change in the server.  Allowed query parameters are based on the <code>resourceTrigger.resource</code> (e.g., if the resource is an <a href="encounter.html">Encounter</a>, the list of available search parameters can be found <a href="encounter.html#search">here</a>).
 		</p>
+    <p>
+      Because FHIR search expressions are evaluated against a single resource, <code>queryCriteria</code> provides two elements for including criteria - <code>previous</code> for an expression tested against the resource as it existed before the current interaction and <code>current</code> for an expression tested against the resource as it exists after the current interaction.
+    </p>
+    <p>
+      When using query criteria, it is important to note the interaction between the <code>supportedInteraction</code> element, the <code>previous</code> and <code>resultForCreate</code> elements, the <code>current</code> and <code>resultForDelete</code> elements, and the <code>requireBoth</code> element.  More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
+    </p>
 
 		<a name="fhirpath-criteria" />
-		<h4>FHIRPath Definitions</h4>
+		<h4>FHIRPath Trigger Definitions</h4>
 		<p>
 			FHIRPath expressions can be used to define topical state changes in a server.  The FHIRPath expression is assumed to be provided the inputs listed below.
 		</p>
@@ -143,11 +140,14 @@
       For example, the expression: <code>%previous.status!='in-progress' and %current.status='in-progress'</code> indicates that the resource has an element, <code>status</code>, and that notifications are generated if the pre-update version status is not 'in-progress' and the post-update version is 'in-progress'.
     </p>
     <p>
-      Note that empty-checking must be included in a FHIRPath test if the test includes properties that do not exist for interactions included in the trigger.  To continue with the above example, if the test should be applied to <code>create</code> interactions in addition to <code>update</code> ones, a more complete expression would be: <code>(%previous.empty() | (%previous.status != 'in-progress')) and (%current.status = 'in-progress')</code>.
+      If the resource trigger includes a <code>supportedInteraction</code> filter, the FHIRPath expression SHALL only be tested for the listed interactions.  Note that empty-checking must be included in a FHIRPath test if the test includes properties that do not exist for interactions included in the trigger.  To continue with the above example, if the test should be applied to <code>create</code> interactions in addition to <code>update</code> ones, a more complete expression would be: <code>(%previous.empty() | (%previous.status != 'in-progress')) and (%current.status = 'in-progress')</code>.
+    </p>
+    <p>
+      When using FHIRPath criteria, it is important to note the interaction between the <code>supportedInteraction</code> element and the <code>%previous</code> and <code>%current</code> variables.  More information can be found in the <a href="#resource-operation-pairs">Triggers and Resource Interactions</a> section of this page.
     </p>
 
 	<a name="definition-event" />
-	<h3>Event Definitions</h3>
+	<h3>Event Trigger Definitions</h3>
   <p>
     There are use-cases when a triggering event is not easily described in terms of FHIR resources (e.g., shift change at a facility) or that an existing workflow is already defined on an event-based system (e.g., patient admission in HL7v2).  To support these scenarios Subscription Topics MAY include an event trigger, either instead of or in addition to resource triggers.
   </p>
@@ -208,34 +208,26 @@
 		<p>
 			When a server evaluates filters depends on the type of change covered by the topic.  Guidance is provided based on implementation feedback, but note that all filters are defined to explicitly describe the state before and after the interaction occurs.
 		</p>
-      <a name="filters-timing-fhirpath"/>
-      <h5>FHIRPath</h5>
-      <p>
-        <code>resourceTrigger.fhirPathCriteria</code> is always evaluated after an interaction has been processed.  As indicated in the <a href="#fhirpath-criteria">FHIRPath Definitions</a> section, the <code>%previous</code> and <code>%current</code> variables are assigned values from that state.  This means that FHIRPath expressions are responsible for empty-checking depending on the types of interactions being tested.  For example, during FHIRPath evaluation on a <code>create</code>, the <code>%previous</code> variable will be empty (<code>{}</code>).
-      </p>
+    <p>
+      Note that while the <code>SubscriptionTopic</code> resource defines filters that can be exposed to clients, actual filters and their values are specified by the <a href="subscription.html">Subscription</a> resource.
+    </p>
 
 			<a name="filters-timing-create"/>
-			<h5>Query Criteria and Create</h5>
+			<h5>Filters on Create Interactions</h5>
 			<p>
-				Logically, query filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
+				Logically, subscription filters evaluated against <code>create</code> interactions must be performed after the resource has been created. For example, a topic interested in new patients may allow filters on elements within the patient resource (e.g., new patients in a specified age range).
 			</p>
-      <p>
-        Tests can specifically include or exclude changes caused by a <code>create</code> interactions via the <code>resourceTrigger.queryCriteria.resultForCreate</code> element.  During a <code>create</code>, a value of in this element means that the <code>previous</code> query test does not need to be evaluated - it will either pass (<code>test-passes</code>) or fail (<code>test-fails</code>) automatically.  Note that this is limited to the test specified by <code>previous</code> - the <code>current</code> test will still be processed normally.
-      </p>
 
 			<a name="filters-timing-delete"/>
-			<h5>Query Criteria and Delete</h5>
+			<h5>Filters on Delete Interactions</h5>
 			<p>
 				Logically, query filters evaluated against <code>delete</code> interactions must be performed before the resource has been deleted. For example, a topic interested in practitioners being removed may allow filters on the practitioner resource (e.g., removed practitioners with a specific qualification).
 			</p>
-      <p>
-        Tests can specifically include or exclude changes caused by a <code>delete</code> interactions via the <code>resourceTrigger.queryCriteria.resultForDelete</code> element.  During a <code>delete</code>, a value of in this element means that the <code>current</code> query test does not need to be evaluated - it will either pass (<code>test-passes</code>) or fail (<code>test-fails</code>) automatically.  Note that this is limited to the test specified by <code>current</code> - the <code>previous</code> test will still be processed normally.
-      </p>
 
 			<a name="filters-timing-update"/>
-			<h5>Query Criteria and Update</h5>
+			<h5>Filters on Update Interactions</h5>
 			<p>
-				Logically, query filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  Note however that filters are explicitly defined against the two states: <code>previous</code> and <code>current</code>.  Notifications based on resource changes SHALL NOT be sent if the update request fails, since no state change occurred.
+				Logically, query filters evaluated against <code>update</code> interactions MAY be performed either before or after the update occurs.  For clarity, it is recommended that a topic does not define filters for the same resource elements being test for the notification triggers.  For example, if a topic is looking for changes on the <code>Encounter.status</code> element, a filter for that element would always have different values in the two states.  If a topic requires a filter on one of the elements present in the triggers, the author SHOULD explain in the topic definition when filters should be applied.
 			</p>
 
   <a name="notification-shape"/>
