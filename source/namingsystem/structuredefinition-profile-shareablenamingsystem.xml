@@ -85,6 +85,10 @@
 			</type>
 			<mustSupport value="true"/>
 		</element>
+		<element id="NamingSystem.versionAlgorithm[x]">
+			<path value="NamingSystem.versionAlgorithm[x]"/>
+			<mustSupport value="true"/>
+		</element>
 		<element id="NamingSystem.name">
 			<path value="NamingSystem.name"/>
 			<mustSupport value="true"/>

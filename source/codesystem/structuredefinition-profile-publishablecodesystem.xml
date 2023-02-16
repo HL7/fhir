@@ -108,6 +108,10 @@
       <path value="CodeSystem.copyright"/>
       <mustSupport value="true"/>
     </element>
+    <element id="CodeSystem.copyrightLabel">
+      <path value="CodeSystem.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="CodeSystem.approvalDate">
       <path value="CodeSystem.approvalDate"/>
     </element>

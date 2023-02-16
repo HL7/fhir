@@ -88,6 +88,10 @@
       <path value="ConceptMap.copyright"/>
       <mustSupport value="true"/>
     </element>
+    <element id="ConceptMap.copyrightLabel">
+      <path value="ConceptMap.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="ConceptMap.approvalDate">
       <path value="ConceptMap.approvalDate"/>
     </element>
