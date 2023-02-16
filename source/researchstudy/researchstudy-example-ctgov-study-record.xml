@@ -394,6 +394,7 @@
 	<recruitment>
 		<targetNumber value="62"/>
 		<eligibility>
+			<reference value="https://fevir.net/resources/EvidenceVariable/112075" />
 			<type value="EvidenceVariable"/>
 			<identifier>
 				<type>
@@ -408,6 +409,7 @@
 		</eligibility>
 	</recruitment>
 	<comparisonGroup>
+		<linkId value="ap303" />
 		<name value="AP303"/>
 		<type>
 			<text value="Experimental"/>
@@ -435,6 +437,7 @@
 		</intendedExposure>
 	</comparisonGroup>
 	<comparisonGroup>
+		<linkId value="placebo" />
 		<name value="Placebo"/>
 		<type>
 			<text value="Placebo Comparator"/>
