@@ -71,17 +71,6 @@
 			</type>
 			<mustSupport value="true"/>
 		</element>
-		<element id="ActivityDefinition.extension:knowledgeCapability">
-			<path value="ActivityDefinition.extension"/>
-			<sliceName value="knowledgeCapability"/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Extension"/>
-				<profile value="http://hl7.org/fhir/StructureDefinition/cqf-knowledgeCapability"/>
-			</type>
-			<mustSupport value="true"/>
-		</element>
 		<element id="ActivityDefinition.extension:knowledgeRepresentationLevel">
 			<path value="ActivityDefinition.extension"/>
 			<sliceName value="knowledgeRepresentationLevel"/>
