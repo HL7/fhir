@@ -451,9 +451,16 @@ Notes:
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
+     <li>WARNING: Because markdown renderers will interpret certain characters as formatting characters and strip them from the display, it is essential 
+      that systems transmitting plain string data in a markdown field take steps to appropriately escape the string to avoid loss of information when 
+      rendering for human display.</li>
    </ul>
  </li>
 </ul>
+[%impl-note%]
+A simple way to convert plain text to be safe as markdown is to prefix any of the characters *, &amp;, #, [, &lt;, >, and ` with a backslash.
+When presenting markdown as plain text, implementers may wish to reverse this transform.
+[%impl-note%]
 
 <a name="representations"></a>
 <h3>Representations in XML, JSON, and Turtle</h3>
