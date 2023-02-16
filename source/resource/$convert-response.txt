@@ -5,3 +5,12 @@ Content-Type: application/fhir+json
 [other headers]
 
 $includexj ../patient/patient-example.xml
+
+--------------------------------------
+// R4 Response
+
+200 OK
+Content-Type: application/fhir+json; fhirVersion=4.0
+[other headers]
+
+-- snip - R4 version of a resource --
