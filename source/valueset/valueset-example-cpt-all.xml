@@ -12,7 +12,7 @@
   <status value="active"/>
   <experimental value="true"/>
   <date value="2015-03-12"/>
-  <publisher value="Health Level Seven International"/>
+  <publisher value="Health Level Seven International (Vocabulary)"/>
   <description value="A value set that includes all CPT codes"/>
   <useContext>
     <code>

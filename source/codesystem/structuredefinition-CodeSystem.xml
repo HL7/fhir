@@ -21,7 +21,7 @@
     <valueCode value="anonymous"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="ti"/>
+    <valueCode value="vocab"/>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
     <valueCode value=".status = retired"/>
@@ -39,7 +39,7 @@
   <title value="Code System"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
-  <publisher value="Health Level Seven International"/>
+  <publisher value="Health Level Seven International (Vocabulary)"/>
   <contact>
     <telecom>
       <system value="url"/>
@@ -49,7 +49,7 @@
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://www.hl7.org"/>
+      <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
     </telecom>
   </contact>
   <description value="The CodeSystem resource is used to declare the existence of and describe a code system or code system supplement and its key properties, and optionally define a part or all of its content."/>
