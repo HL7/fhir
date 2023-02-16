@@ -43,6 +43,10 @@
 	<!-- <priority value="5" /> -->
 	<description value="Discussion on the results of your recent MRI" />
 	<minutesDuration value="15" />
+	<requestedPeriod>
+		<start value="2016-06-02"/>
+		<end value="2016-06-09"/>
+	</requestedPeriod>
 	<slot>
 		<reference value="Slot/example" />
 	</slot>
@@ -81,8 +85,4 @@
 		<required value="true" />
 		<status value="accepted" />
 	</participant>
-	<requestedPeriod>
-		<start value="2016-06-02"/>
-		<end value="2016-06-09"/>
-	</requestedPeriod>
 </Appointment>

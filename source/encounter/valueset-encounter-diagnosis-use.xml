@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="audit-event-outcome"/>
+  <id value="encounter-diagnosis-use"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="sec"/>
+    <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-    <valueInteger value="3"/>
+    <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/audit-event-outcome"/>
+  <url value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.454"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.447"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.264"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.3321"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="AuditEventOutcome"/>
-  <title value="Audit Event Outcome"/>
+  <name value="EncounterDiagnosisUse"/>
+  <title value="Encounter Diagnosis Use"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -46,12 +36,20 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Indicates whether the event succeeded or failed."/>
+  <description value="What a specific Encounter/EpisodeOfCare `diagnosis.condition` is to be used for."/>
   <immutable value="true"/>
   <compose>
-
     <include>
-      <system value="http://hl7.org/fhir/issue-severity"/>
+      <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
+      <concept>
+        <code value="billing"/>
+      </concept>
+    </exclude>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-diagnosis-use"/>
     </include>
   </compose>
 </ValueSet>
