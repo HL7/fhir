@@ -3,7 +3,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2023-02-13T06:24:59Z</LastSaved>
+  <LastSaved>2023-02-16T00:13:26Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -15,7 +15,7 @@
   
   
   <TabRatio>694</TabRatio>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -2494,9 +2494,9 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">An element is not a modifier element unless it is explicitly specified to be one</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If this modifies the meaning of other elements</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system. When used on the root element in an extension definition, this indicates whether or not the extension is a modifier extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allows elements to be introduced into a specification that can't safely be ignored by applications that don't recognize them</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles. An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Only the definition of an element can set IsModifier true - either the specification itself or where an extension is originally defined. Once set, it cannot be changed in derived profiles (except in the special case of the defining a new extension). An element/extension that has isModifier=true SHOULD also have a minimum cardinality of 1, so that there is no lack of clarity about what to do if it is missing. If it can be missing, the definition SHALL make the meaning of a missing element clear</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">N/A (MIF territory)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4558,12 +4558,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>66</TopRowBottomPane>
+   <TopRowBottomPane>58</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>
@@ -4576,7 +4577,7 @@
   <Names>
    <NamedRange ss:Hidden="1" ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C8"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="46" ss:StyleID="s103" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="45" ss:StyleID="s103" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:Index="2" ss:StyleID="s103" ss:Width="115.0"/>
    <Column ss:StyleID="s103" ss:Width="55.0"/>
    <Column ss:StyleID="s103" ss:Width="165.0"/>
@@ -5038,7 +5039,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7300,7 +7300,7 @@
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Pattern</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">The slices have different values in the nominated element, as determined by the applicable fixed value, pattern, or required ValueSet binding. This has the same meaning as 'value' and is deprecated </Data></Cell>
-    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s153"><Data ss:Type="DateTime">2022-08-19T00:00:00.000</Data></Cell>
     <Cell><Data ss:Type="String">Pattern' is deprecated - it works exactly the same as 'value'</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s139">

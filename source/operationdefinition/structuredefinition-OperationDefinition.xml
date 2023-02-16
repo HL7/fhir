@@ -114,7 +114,7 @@
         <key value="opd-7"/>
         <severity value="error"/>
         <human value="Named queries always have a single output parameter named 'result' of type Bundle"/>
-        <expression value="(kind = 'query') implies ((parameter.select(use = 'out').count() = 1) and (parameter.select(use = 'out').all(name = 'result' and type = 'Bundle')))"/>
+        <expression value="(kind = 'query') implies ((parameter.where(use = 'out').count() = 1) and (parameter.where(use = 'out').all(name = 'result' and type = 'Bundle')))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <mapping>
