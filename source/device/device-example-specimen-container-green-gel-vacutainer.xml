@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd"><!--text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>example</p>
+    </div>
+  </text--><id value="device-example-specimen-container-green-gel-vacutainer"/>
+	<identifier>
+    <system value="http://acme.com/containers/id"/>
+    <value value="345675"/>
+  </identifier>
+  <displayName value="device-example-specimen-container-green-gel-vacutainer" />
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="tube-type"/>
+				<display value="Tube Type"/>
+			</coding>
+		</type>
+		<valueCodeableConcept>
+		     <coding>
+				<system value="http://acme.com/containers/types"/>
+				<code value="green-gel"/>
+				<display value="Green Gel"/>
+			</coding>
+		</valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="amount"/>
+				<display value="Amount"/>
+			</coding>
+		</type>
+		<valueCodeableConcept>
+		<coding>
+				<system value="http://acme.com/containers/capacities"/>
+				<code value="4.5mL"/>
+				<display value="4.5 mL"/>
+			</coding>
+		</valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="additive"/>
+				<display value="Additive"/>
+			</coding>
+		</type>
+		<valueCodeableConcept>
+		<coding>
+				<system value="http://acme.com/containers/additive"/>
+				<code value="lihep"/>
+				<display value="lithium heparin"/>
+			</coding>
+		</valueCodeableConcept>
+  </property>
+</Device>
