@@ -31,17 +31,17 @@ remove these operations from the specification before FHIR R5 is published.
 <pre class="hljs language-json">
 <code>POST /Group/<span class="hljs-number">123</span>/$add
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
-  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;member&quot;</span>: [{
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"Group"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Person"</span>,
+  <span class="hljs-attr">"actual"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"member"</span>: [{
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"period"</span>: {<span class="hljs-attr">"start"</span>: <span class="hljs-string">"2020-07-10"</span>},
   }, {
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>}
   }]
 }
 </code>
@@ -53,17 +53,17 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 <pre class="hljs language-json">
 <code>POST /List/<span class="hljs-number">123</span>/$add
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-05&quot;</span>
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2020-01-05"</span>
   }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>}
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>}
   }]
 }
 </code>
@@ -112,17 +112,17 @@ This instance-level operation removes array entries from an existing ("target") 
   entity/period.</p>
 <pre class="hljs language-json"><code>POST /Group/<span class="hljs-number">123</span>/$remove
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;Group&quot;</span>,
-  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Person&quot;</span>,
-  <span class="hljs-attr">&quot;actual&quot;</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">&quot;member&quot;</span>: [{
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
-    <span class="hljs-attr">&quot;period&quot;</span>: {<span class="hljs-attr">&quot;start&quot;</span>: <span class="hljs-string">&quot;2020-07-10&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"Group"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Person"</span>,
+  <span class="hljs-attr">"actual"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"member"</span>: [{
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
+    <span class="hljs-attr">"period"</span>: {<span class="hljs-attr">"start"</span>: <span class="hljs-string">"2020-07-10"</span>},
   }, {
-    <span class="hljs-attr">&quot;entity&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+    <span class="hljs-attr">"entity"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
   }]
 }
 </code></pre>
@@ -132,17 +132,17 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
   item/date.</p>
 <pre class="hljs language-json"><code>POST /List/<span class="hljs-number">123</span>/$remove
 Content-Type: application/fhir+json
-If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
+If-Match: W/<span class="hljs-string">"4"</span>
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>},
   }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2020-01-12&quot;</span>
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2020-01-12"</span>
   }]
 }
 </code></pre>
@@ -189,43 +189,43 @@ If-Match: W/<span class="hljs-string">&quot;4&quot;</span>
 Content-Type: application/fhir+json
 
 {
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456&quot;</span>},
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456"</span>},
   }, {
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>},
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07&quot;</span>
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/789"</span>},
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07"</span>
   }]
 }
 </code></pre>
     <p>If this list included two items (with any date) referencing Patient 456, and one item with a date in July 2022
       referencing Patient 789, then three subsetted entries would be returned:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;resourceType&quot;</span>: <span class="hljs-string">&quot;List&quot;</span>,
-  <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;123&quot;</span>,
-  <span class="hljs-attr">&quot;meta&quot;</span>: {
-    <span class="hljs-attr">&quot;tag&quot;</span>: [{
-      <span class="hljs-attr">&quot;system&quot;</span>: <span class="hljs-string">&quot;http://terminology.hl7.org/CodeSystem/v3-ObservationValue&quot;</span>,
-      <span class="hljs-attr">&quot;code&quot;</span>: <span class="hljs-string">&quot;SUBSETTED&quot;</span>
+  <span class="hljs-attr">"resourceType"</span>: <span class="hljs-string">"List"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"123"</span>,
+  <span class="hljs-attr">"meta"</span>: {
+    <span class="hljs-attr">"tag"</span>: [{
+      <span class="hljs-attr">"system"</span>: <span class="hljs-string">"http://terminology.hl7.org/CodeSystem/v3-ObservationValue"</span>,
+      <span class="hljs-attr">"code"</span>: <span class="hljs-string">"SUBSETTED"</span>
     }]
   },
-  <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-string">&quot;current&quot;</span>,
-  <span class="hljs-attr">&quot;mode&quot;</span>: <span class="hljs-string">&quot;working&quot;</span>,
-  <span class="hljs-attr">&quot;title&quot;</span>: <span class="hljs-string">&quot;Patient waiting list&quot;</span>,
-  <span class="hljs-attr">&quot;entry&quot;</span>: [{
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Registered&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/1&quot;</span>}
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"current"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"working"</span>,
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Patient waiting list"</span>,
+  <span class="hljs-attr">"entry"</span>: [{
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Registered"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456/_history/1"</span>}
   }, {
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T11:00:00Z&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/456/_history/2&quot;</span>}
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-02T11:00:00Z"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Escalated"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/456/_history/2"</span>}
   }, {
-    <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-02T12:00:00Z&quot;</span>,
-    <span class="hljs-attr">&quot;flag&quot;</span>: {<span class="hljs-attr">&quot;text&quot;</span>: <span class="hljs-string">&quot;Escalated&quot;</span>},
-    <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/789&quot;</span>}
+    <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-02T12:00:00Z"</span>,
+    <span class="hljs-attr">"flag"</span>: {<span class="hljs-attr">"text"</span>: <span class="hljs-string">"Escalated"</span>},
+    <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/789"</span>}
   }]
 }
 </code></pre>
@@ -284,13 +284,13 @@ Content-Type: application/fhir+json
     <h5>Example 1: a single probe</h5>
     <p>Entry in input resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>}
 }
 </code></pre>
     <p>Entry in target resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123/_history/2"</span>}
 }
 </code></pre>
     <p>Result: this is a <strong>match</strong>, because the target entry contains a matching element for the input
@@ -301,13 +301,13 @@ Content-Type: application/fhir+json
     <p>Now consider the same inputs from Example (1), but swap their roles (input / target) as follows.</p>
     <p>Entry in input resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;date&quot;</span>: <span class="hljs-string">&quot;2022-07-01&quot;</span>,
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123/_history/2&quot;</span>}
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2022-07-01"</span>,
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123/_history/2"</span>}
 }
 </code></pre>
     <p>Entry in target resource:</p>
     <pre class="hljs language-json"><code>{
-  <span class="hljs-attr">&quot;item&quot;</span>: {<span class="hljs-attr">&quot;reference&quot;</span>: <span class="hljs-string">&quot;Patient/123&quot;</span>}
+  <span class="hljs-attr">"item"</span>: {<span class="hljs-attr">"reference"</span>: <span class="hljs-string">"Patient/123"</span>}
 }
 </code></pre>
     <p>Result: this is <strong>not a match</strong>, because the target entry contains no match for the input entry’s
