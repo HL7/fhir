@@ -844,7 +844,8 @@ may be flagged as the user selected code - the code or concept that the user act
 Note that in all but a few cases, only one of the codings may be flagged as the <code>coding.userSelected = true</code>
 - the code or concept that the user actually selected directly. If more than one code is marked as user selected,
 this means the user explicitly chose multiple codes. When none of the <code>coding</code> elements is
-marked as user selected, the text (if present) is the preferred source of meaning.
+marked as user selected, the text (if present) is the preferred source of meaning. Even if a coding is flagged 
+as user-selected, it is good practice to put the specific text the user chose in CodeableConcept.text.
 </p>
 	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example, using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
