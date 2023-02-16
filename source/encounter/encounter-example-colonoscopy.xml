@@ -50,8 +50,10 @@
         <end value="2013-03-20"/>
     </actualPeriod>
     <reason>
-      <concept>
-        <text value="Routine investigation"/>
-      </concept>
+        <value>
+            <concept>
+                <text value="Routine investigation"/>
+            </concept>
+        </value>
     </reason>
 </Encounter>

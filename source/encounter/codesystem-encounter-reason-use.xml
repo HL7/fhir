@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="encounter-reason-use"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/encounter-reason-use"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2114"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="EncounterReasonUse"/>
+  <title value="Encounter Reason Use"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Encounter Reason Use"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/encounter-reason-use"/>
+  <content value="complete"/>
+  <concept>
+    <code value="CC"/>
+    <display value="Chief Complaint"/>
+  </concept>
+  <concept>
+    <code value="HC"/>
+    <display value="Health Concern"/>
+  </concept>
+  <concept>
+    <code value="AD"/>
+    <display value="Admitting Diagnosis"/>
+  </concept>
+  <concept>
+    <code value="RV"/>
+    <display value="Reason for Visit"/>
+  </concept>
+  <concept>
+    <code value="HM"/>
+    <display value="Health Maintenance (including screening)"/>
+  </concept>
+</CodeSystem>

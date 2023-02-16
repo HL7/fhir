@@ -77,7 +77,7 @@ signatures.html
         <page title="FHIRPath" filename="fhirpath.html"/>
         <page title="NPM Packages" filename="packages.html"/>
         <page title="Version History" filename="history.html"/>
-        <page title="Differences from Release 3" filename="diff.html"/>
+        <page title="Differences from Release 4" filename="diff.html"/>
         <page title="Release 4/5 Transforms" filename="r4maps.html"/>
         <page title="Logical models" filename="logical.html"/>
 
@@ -295,8 +295,9 @@ signatures.html
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
+      <page type="resource" resource="BiologicallyDerivedProduct"/>
   	  <page type="resource" resource="ChargeItem"/>
-	  <page type="resource" resource="ChargeItemDefinition"/>
+  	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
       <page title="Product Pattern" filename="product.html"/>
@@ -337,8 +338,6 @@ signatures.html
       <page type="resource" resource="SpecimenDefinition"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
-      <page type="resource" resource="BiologicallyDerivedProduct"/>
-      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
     </page>
 
 
@@ -396,6 +395,7 @@ signatures.html
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
       <page type="resource" resource="InventoryItem"/>
+      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
       <page type="resource" resource="ExampleScenario"/>
     </page>
 

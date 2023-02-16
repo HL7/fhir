@@ -451,9 +451,16 @@ Notes:
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
+     <li>WARNING: Because markdown renderers will interpret certain characters as formatting characters and strip them from the display, it is essential 
+      that systems transmitting plain string data in a markdown field take steps to appropriately escape the string to avoid loss of information when 
+      rendering for human display.</li>
    </ul>
  </li>
 </ul>
+[%impl-note%]
+A simple way to convert plain text to be safe as markdown is to prefix any of the characters *, &amp;, #, [, &lt;, >, and ` with a backslash (\).
+When presenting markdown as plain text, implementers may wish to reverse this transform.
+[%end-note%]
 
 <a name="representations"></a>
 <h3>Representations in XML, JSON, and Turtle</h3>
@@ -837,7 +844,8 @@ may be flagged as the user selected code - the code or concept that the user act
 Note that in all but a few cases, only one of the codings may be flagged as the <code>coding.userSelected = true</code>
 - the code or concept that the user actually selected directly. If more than one code is marked as user selected,
 this means the user explicitly chose multiple codes. When none of the <code>coding</code> elements is
-marked as user selected, the text (if present) is the preferred source of meaning.
+marked as user selected, the text (if present) is the preferred source of meaning. Even if a coding is flagged 
+as user-selected, it is good practice to put the specific text the user chose in CodeableConcept.text.
 </p>
 	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example, using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
@@ -1272,7 +1280,9 @@ property which references a <a href="conceptmap.html">ConceptMap</a> that define
 in the data, and maps the codes to properly defined concepts in a <a href="codesystem.html">CodeSystem</a>.
 Note that in this case, source system defined in the ConceptMap is not used in the SampledData and is 
 ignored. There SHALL only be one group in the ConceptMap. The ConceptMap cannot define meanings for 
-the codes 'E', 'U', or 'L' (nor 'e', 'u', or 'l'), since they always have the meaning as defined above.
+any numerical values, nor for the codes 'E', 'U', or 'L' (nor, for safety, 'e', 'u', or 'l'), 
+since they always have the meaning as defined above. There is no escape sequences; codes cannot 
+contain spaces. Also, to make parsing simpler, codes cannot start with numerals.
 </p>
 
 <p>
@@ -1297,12 +1307,7 @@ errors.
 
 [%dt Identifier 9%]
 
-<p>
-The <code>value</code> SHALL be unique within the defined <code>system</code>
-and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
-to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
-that non-case-sensitive processing is safe.
-</p>
+
 <p>
 The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
@@ -1332,6 +1337,12 @@ Note that the scope of a given identifier system may extend beyond identifiers t
 by a single resource.  For example, some systems might draw all "order" identifiers from a single
 namespace, though some might be used on <a href="medicationrequest.html">MedicationRequest</a> while
 others would appear on <a href="servicerequest.html">ServiceRequest</a>.
+</p>
+<p>
+  The <code>value</code> SHALL be unique within the defined <code>system</code>
+  and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
+  to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
+  that non-case-sensitive processing is safe.
 </p>
 <p>
 If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part),

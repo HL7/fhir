@@ -434,7 +434,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.lastReviewDate"/>
-      <short value="When the ValueSet was last reviewed"/>
+      <short value="When the ValueSet was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -528,7 +528,7 @@
       </extension>
       <path value="ValueSet.reviewer"/>
       <short value="Who reviewed the ValueSet"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the ValueSet."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,7 +541,7 @@
       </extension>
       <path value="ValueSet.endorser"/>
       <short value="Who endorsed the ValueSet"/>
-      <definition value="An individual or organization responsible for officially endorsing the ValueSet for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>

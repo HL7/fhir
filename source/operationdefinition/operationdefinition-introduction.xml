@@ -32,5 +32,11 @@ OperationDefinition resources are referred to from two different places:
  <li>From another OperationDefinition resource. This allows for a server to describe a limited implementation of a standard operation, or to allow traceability if the server has to rename the operation due to a name clash</li>
 </ul>
 </div>
-
+<p>
+OperationDefinitions can be used to define a custom query (kind = query, discussed below) which 
+functions as a special kind of search. This is different to a SearchParameter because a custom query 
+may define multiple parameters and can define of complex search behavior beyond what SearchParameter can specify. 
+It also typically overrides the behavior of the query functionality, while search parameters can only act 
+as additional filters.
+</p>
 </div>

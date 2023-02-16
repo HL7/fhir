@@ -1,4 +1,4 @@
-// Convert a Patient from XML to JSON, and convert a Patient to a different version of FHIR (in this case, from 3 to 4)
+// #1: Convert a Patient from XML to JSON
 
 POST /base/$convert
 Accept: application/fhir+json
@@ -7,11 +7,12 @@ Content-Type: application/fhir+xml
 
 $include ../patient/patient-example.xml
 
--------------------------------------------------
+--------------------------------------
+// #2: Convert a resource from R3 to R4. The ```Content-Type``` header specifies that the content is R3, and the ```Accept``` header specifies that R4 should be returned. It is up to the server how the conversion should happen.
 
 POST /base/$convert
 Accept: application/fhir+json; fhirVersion=4.0
 Content-Type: application/fhir+json; fhirVersion=3.0
 [other headers]
 
--- snip - R3 version of a resource --
+-- snip R3 version of a resource --

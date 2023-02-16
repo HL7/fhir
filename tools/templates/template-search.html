@@ -14,9 +14,18 @@
 
 <%resheader search%>
 <h2><%title%></h2>
-<table class="colsi"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>: Informative</td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
+<table class="<%fmm-style%>"><tr><td><a href="<%wg%>"><%wgt%></a> Work Group</td><td><a href="versions.html#maturity">Maturity Level</a>: N/A</td>
+  <td id="ballot"><%sstatus%></td><td><%sec-cat%></td><!--!ns!--><td><%complinks%></td></tr></table>
 
-<p>Search Parameter Registry for the <%name%> resource</p>
+<p>
+Search parameters for the <%title%> resource. Also check the <a href="[%extensions-location%]extensions-[%cname%].html">Extensions registry</a> for search parameters 
+on extensions related to this resource.
+</p>
+<p>
+The <a href="search.html#all">common parameters</a> also apply. See <a href="search.html">Searching</a> for more 
+information about searching in REST, messaging, and services.
+</p>
+<hr/>
 
 <%searchParamTable%>
 

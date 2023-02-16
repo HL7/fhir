@@ -86,10 +86,10 @@ Here is an example of an extension in XML (<a href="[%extensions-location%]Struc
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use&quot; &gt;
-    &lt;valueCode value=&quot;I&quot; /&gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use" &gt;
+    &lt;valueCode value="I" /&gt;
   &lt;/extension&gt;
-  &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
+  &lt;text value="Chief Red Cloud"/&gt;
 &lt;/name&gt;
 </pre>
 <p>
@@ -157,18 +157,18 @@ As an example, consider extending a patient with information about citizenship (
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/patient-citizenship" &gt;
+    &lt;extension url="code" &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
-          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
-          &lt;code value=&quot;DE&quot; /&gt;
+          &lt;system value="urn:iso:std:iso:3166" /&gt;
+          &lt;code value="DE" /&gt;
         &lt;/coding&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;period&quot; &gt;
+    &lt;extension url="period" &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;2009-03-14&quot; /&gt;
+        &lt;start value="2009-03-14" /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
@@ -220,22 +220,22 @@ The URL of the extension is thus different. In XML:
 <pre class="xml" fragment="Patient">
 
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/patient-citizenship" &gt;
+    &lt;extension url="code" &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
-          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
-          &lt;code value=&quot;DE&quot; /&gt;
+          &lt;system value="urn:iso:std:iso:3166" /&gt;
+          &lt;code value="DE" /&gt;
         &lt;/coding&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;period&quot; &gt;
+    &lt;extension url="period" &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;2009-03-14&quot; /&gt;
+        &lt;start value="2009-03-14" /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/passport-number&quot; &gt;
-        &lt;valueString value=&quot;12345ABC&quot; /&gt;
+    &lt;extension url="http://acme.org/fhir/StructureDefinition/passport-number" &gt;
+        &lt;valueString value="12345ABC" /&gt;
       &lt;/extension&gt;
     &lt;!-- other data for patient --&gt;
   &lt;/extension&gt;
@@ -345,6 +345,12 @@ and extensions SHALL NOT have modifier extensions internally (except for the reu
 allowed to appear in extensions, listed above).
 </p>
 <p>
+Whether extensions are considered modifiers or not is based on the <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a> flag
+on the root element in the extension definition (the element definition with path "Extension" in the generated snapshot).
+If this is true, then the extension SHALL only be contained in the <code>modifierExtension</code> element.
+If this is false, then the extension SHALL only be contained in the <code>extension</code> element.
+</p>
+<p>
 Note that complex extensions are allowed to have elements in the complex extension that are marked 
 <a href="conformance-rules.html#isModifier">Is-Modifier = true</a>, which means that these elements modify the extension value itself.
 Internal extensions like this marked "Is-Modifier" are still represented using the <code>extension</code> element, not <code>modifierExtension</code>
@@ -352,7 +358,7 @@ because the impact of the modifier element is expected to be known by applicatio
 </p>
 <p>
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
-Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
+Is-modifier elements not defined as part of an extension's definition cannot be conveyed (e.g. an extension cannot have a modifier extension in it).
 </p>
 <p>
 When defining a new modifier extension, it is designated as being a 'modifier' rather than a 
@@ -374,7 +380,7 @@ where this happens as they are an important part of the workflow.  Hence, applic
 </p>
 <pre class="xml">
 &lt;MedicationRequest&gt;
-  &lt;modifierExtension url=&quot;http://example.org/fhir/StructureDefinition/anti-prescription&quot;&gt;
+  &lt;modifierExtension url="http://example.org/fhir/StructureDefinition/anti-prescription"&gt;
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ... other content ... --&gt;
@@ -487,16 +493,16 @@ offer the user the choice to see the original narrative.
 Here is the prescription example from above with narrative:
 </p>
 <pre class="xml">
-&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;MedicationRequest xmlns="http://hl7.org/fhir"&gt;
   &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+    &lt;status value="generated"/&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
       &lt;p&gt;&lt;b&gt;Note: This prescription is an instruction NOT to take a medication&lt;/b&gt;&lt;/p&gt;
       &lt;!-- snip actual narrative --&gt;
     &lt;/div&gt;
   &lt;/text&gt;
   &lt;!-- ...data... --&gt;
-  &lt;modifierExtension url=&quot;http://example.org/fhir/StructureDefinition/anti-prescription&quot;&gt;
+  &lt;modifierExtension url="http://example.org/fhir/StructureDefinition/anti-prescription"&gt;
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ...data... --&gt;
@@ -530,8 +536,8 @@ primitive value is not present:
 </p>
 <pre class="xml">
 &lt;uri&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/data-absent-reason&quot;&gt;
-    &lt;valueCode value=&quot;unknown&quot;/&gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason"&gt;
+    &lt;valueCode value="unknown"/&gt;
   &lt;/extension&gt;
 &lt;/uri&gt;
 </pre>

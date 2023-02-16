@@ -24,10 +24,10 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/fhir-old-types"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
     </include>
     <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      <system value="http://hl7.org/fhir/fhir-old-types"/>
     </include>
   </compose>
 </ValueSet>

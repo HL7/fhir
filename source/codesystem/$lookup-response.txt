@@ -1,4 +1,4 @@
-// When the request can be processed ok
+// #1 When the request can be processed ok
 
 HTTP/1.1 200 OK
 [other headers]
@@ -35,7 +35,7 @@ HTTP/1.1 200 OK
 }
 
 --------------------------------------
-// an error - e.g. the requested code is not known
+// #2 an error - when the requested code is not known
 
 HTTP/1.1 400 Bad Request
 [other headers]

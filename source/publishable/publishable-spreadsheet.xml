@@ -1236,7 +1236,7 @@
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who reviewed the {{title}}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">An individual or organization primarily responsible for review of some aspect of the {{title}}.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the {{title}}.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1258,7 +1258,7 @@
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Who endorsed the {{title}}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">An individual or organization responsible for officially endorsing the {{title}} for use in some setting.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">An individual or organization asserted by the publisher to be responsible for officially endorsing the {{title}} for use in some setting.</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String"/><NamedCell ss:Name="_FilterDatabase"/></Cell>
