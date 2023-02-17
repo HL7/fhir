@@ -566,7 +566,7 @@
     <element id="Account.procedure.type">
       <path value="Account.procedure.type"/>
       <short value="How this procedure value should be used in charging the account"/>
-      <short value="How this procedure value should be used in charging the account."/>
+      <definition value="How this procedure value should be used in charging the account."/>
       <min value="0"/>
       <max value="*"/>
       <type>
