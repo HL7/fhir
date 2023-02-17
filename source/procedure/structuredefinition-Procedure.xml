@@ -406,7 +406,7 @@
     </element>
     <element id="Procedure.focus">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="J#32504"/>
+        <valueString value="J#32504, J#33394"/>
       </extension>
       <path value="Procedure.focus"/>
       <short value="Who is the target of the procedure when it is not the subject of record only"/>
@@ -422,6 +422,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Specimen"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -691,7 +692,8 @@
     <element id="Procedure.performer.onBehalfOf">
       <path value="Procedure.performer.onBehalfOf"/>
       <short value="Organization the device or practitioner was acting for"/>
-      <definition value="The organization the device or practitioner was acting on behalf of."/>
+      <definition value="The Organization the Patient, RelatedPerson, Device, CareTeam, and HealthcareService was acting on behalf of."/>
+	  <comment value="Organization, Patient, RelatedPerson, Device, CareTeam, and HealthcareService can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when performing the action."/>
       <requirements value="Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action."/>
       <min value="0"/>
       <max value="1"/>
@@ -699,6 +701,14 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+	  <condition value="prc-1"/>
+      <constraint>
+        <key value="prc-1"/>
+        <severity value="error"/>
+        <human value="Procedure.performer.onBehalfOf can only be populated when performer.actor isn't Practitioner or PractitionerRole"/>
+        <expression value="performer.onBehalfOf.exists() and performer.actor.resolve().exists() implies performer.actor.resolve().where($this is Practitioner or $this is PractitionerRole).empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value=".scoper"/>
