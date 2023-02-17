@@ -35,6 +35,31 @@
       </note>
     </Goal>
   </contained>
+  <contained>
+    <ServiceRequest>
+      <id value="activity"/>
+	  <status value="completed"/>
+	  <intent value="order"/>
+	  <code>
+		<concept>
+			<coding>
+			  <system value="http://snomed.info/sct"/>
+			  <code value="172960003"/>
+			  <display value="Incision of retropharyngeal abscess"/>
+			</coding>
+		</concept>
+      </code>
+	  <subject>
+		<reference value="Patient/f001"/>
+		<display value="P. van de Heuvel"/>
+	  </subject>
+      <occurrenceDateTime value="2011-06-27T09:30:10+01:00"/>
+      <performer>
+        <reference value="Practitioner/f001"/>
+        <display value="E.M. van den broek"/>
+      </performer>
+	</ServiceRequest>
+  </contained>
   <identifier>
     <use value="official"/>
     <!-- urn:oid:2.16.840.1.113883.4.642.1.36 -->
@@ -65,9 +90,12 @@
     <reference value="#goal"/>
   </goal>
   <activity>
+    <plannedActivityReference>
+		<reference value="#activity"/>
+	</plannedActivityReference>
+    <!-- moved to contained
     <plannedActivityDetail>
       <kind value="ServiceRequest"/>
-      <!-- urn:oid:2.16.840.1.113883.4.642.1.39 -->
       <code>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -83,5 +111,6 @@
         <display value="E.M. van den broek"/>
       </performer>
     </plannedActivityDetail>
+	-->
   </activity>
 </CarePlan>
