@@ -254,7 +254,7 @@
   The <code>SubscriptionStatus</code> resource is used to encapsulate information about a subscription and meta-information about the notification itself (e.g., how many events are included, etc.).  There are currently two areas where the resource is used: in <a href="bundle.html#subscription-notification">subscription-notification Bundles</a> and as the return type for the <a href="subscription-operation-status.html">$status operation</a>.
 </p>
 <p>
-  Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications.  While the Subscriptions Framework is able to support such mechanisms, defining them is beyond the scope of the standard.
+  Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications; channels are assumed to be <a href="https://www.rfc-editor.org/rfc/rfc5290">simple best-effort</a> unless otherwise specified.  While the Subscriptions Framework is able to support such mechanisms, defining channels using them is beyond the scope of the standard at this time.
 </p>
 <p>
   Subscribers should be aware of some limitations regarding delivery. In particular:
@@ -329,7 +329,7 @@
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the HTTP response's <code>Location</code> header and saves the new Subscription's logical id for use in subsequent operations.
+  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the <code>Location</code> header of the HTTP response and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
   When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
@@ -350,13 +350,32 @@
   Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
 </p>
 
+
+<a name="guaranteed-vs-best-effort"/>
+<h3>Guaranteed vs. Best-Effort Delivery</h3>
+<p>
+  As mentioned in the <a href="#overview-notification">Notifications Overview</a>, channels for FHIR subscriptions can provide either <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> (reliable) or <a href="https://www.rfc-editor.org/rfc/rfc5290">simple best-effort</a> (unreliable) delivery.  While this is a classification of the delivery channel, it can impact the contents of notifications.  Note that channels are assumed to be best-effort unless otherwise specified.
+</p>
+
+<a name="best-effort-notification"/>
+<h4>Best-Effort (Unreliable) Notifications</h4>
+<p>
+  The channels defined by this specification (e.g., REST-Hook, Email, etc.) are all categorized as simple best-effort delivery channels; they do not guarantee that a subscribing application has successfully received a notification that has been sent.  The simplest case to illustrate is with the Email channel - once a server has sent a message, there is no determination for if a client has received the message.
+</p>
+<p>
+  The <a href="#errors-delivery">Detecting Delivery Errors</a> section of this document describes the mechanisms used to discover and mitigate issues cause by unreliable delivery mechanisms.
+</p>
+
+<a name="guaranteed-notification"/>
+<h4>Guaranteed (Reliable) Notifications</h4>
+<p>
+  Channels can be defined using guaranteed-delivery mechanisms (e.g., message queues).  When a channel is defined with this capability, a notification must be processed by the subscribing application before it is considered delivered.  In these cases, the server can choose to exclude some of the tracking information from notifications, see the <a href="subscriptionstatus.html#event-numbering">Event Numbering</a> section of the <code>SubscriptionStatus</code> resource for details.
+</p>
+
 <a name="errors-delivery"/>
 <h3>Detecting Delivery Errors</h3>
 <p>
   There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect some problem states.
-</p>
-<p>
-  Note that these scenarios are relevant to channels that do not provide guaranteed delivery of notifications. For example, the REST-Hook channel type DOES NOT provide guaranteed delivery - the specification leaves what to do with failed notifications up to the implementation; however, a channel defined around a message queue CAN provide guaranteed delivery, if messages added to the queue only removed by the intended receiver. This specification does not define any channel types with guaranteed delivery. For more detail about event numbering, please see the <a href="subscriptionstatus.html#event-numbering">Event Numbering</a> section of the <code>SubscriptionStatus</code> resource.
 </p>
 
 <a name="errors-missing-event"/>
