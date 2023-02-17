@@ -39,6 +39,7 @@
   <description value="What a specific Encounter/EpisodeOfCare `diagnosis.condition` is to be used for."/>
   <immutable value="true"/>
   <compose>
+  <!--
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
     </include>
@@ -47,7 +48,7 @@
       <concept>
         <code value="billing"/>
       </concept>
-    </exclude>
+    </exclude>-->
     <include>
       <system value="http://hl7.org/fhir/encounter-diagnosis-use"/>
     </include>

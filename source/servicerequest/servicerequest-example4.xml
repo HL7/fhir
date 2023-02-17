@@ -9,7 +9,7 @@
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="229115003"/>
-			<display value="Bench Press (regime/therapy) "/>
+			<display value="Bench Press (regime/therapy)"/>
 		</coding>
 	  </concept>
 	</code>
