@@ -457,7 +457,7 @@
     </element>
     <element id="Account.diagnosis.dateOfDiagnosis">
       <path value="Account.diagnosis.dateOfDiagnosis"/>
-      <short value="Date of the diagnosis"/>
+      <short value="Date of the diagnosis (when coded diagnosis)"/>
       <definition value="Ranking of the diagnosis (for each type)."/>
       <min value="0"/>
       <max value="1"/>
@@ -498,8 +498,8 @@
     </element>
     <element id="Account.diagnosis.packageCode">
       <path value="Account.diagnosis.packageCode"/>
-      <short value="Package Code"/>
-      <definition value="Package Code."/>
+      <short value="Package Code specific for billing"/>
+      <definition value="Package Code specific for billing, such as CPT, ICD, DRG, HCPCS. These are expected to be defined by specific jurisdictions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -555,7 +555,7 @@
     </element>
     <element id="Account.procedure.dateOfService">
       <path value="Account.procedure.dateOfService"/>
-      <short value="Date of the procedure"/>
+      <short value="Date of the procedure (when coded procedure)"/>
       <definition value="Date of the procedure when using a coded procedure. If using a reference to a procedure, then the date on the procedure should be used."/>
       <min value="0"/>
       <max value="1"/>
@@ -585,8 +585,8 @@
     </element>
     <element id="Account.procedure.packageCode">
       <path value="Account.procedure.packageCode"/>
-      <short value="Package Code"/>
-      <definition value="Package Code."/>
+      <short value="Package Code specific for billing"/>
+      <definition value="Package Code specific for billing, such as CPT or HCPCS, these are expected to be defined by specific jurisdictions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
