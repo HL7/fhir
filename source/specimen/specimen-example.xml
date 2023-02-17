@@ -43,7 +43,7 @@
 		<!-- this points to the order that caused the sample to be drawn -->
 		<reference value="ServiceRequest/example"/>
 	</request>
-	<collection>
+	<collection> 
 		<collector>
 			<!-- in practice, collecter is almost always recorded -->
 			<reference value="Practitioner/example"/>
@@ -81,8 +81,8 @@
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->
     <container>
-	<device>
-	      <reference value="Specimen/specimen-device-container-example-green-gel-vacutainer"/>
+	<device> 
+	      <reference value="Device/device-example-specimen-container-green-gel-vacutainer"/>
 	</device>
 	
 	<!-- if there's only one container, then this value is the same

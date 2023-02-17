@@ -1,1 +1,1 @@
-﻿Error processing /Users/jdln/workspace/fhir/fhir/source/documentreference/documentreference-introduction.xml: Malformed XHTML: Found "</a>" expecting "</ImagingStudy>" at line 40 column 79
+﻿Resource Examples failed instance validation
