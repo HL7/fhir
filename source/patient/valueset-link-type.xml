@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of link between this patient resource and another patient resource."/>
+  <description value="The type of link between this Patient resource and another Patient/RelatedPerson resource."/>
   <immutable value="true"/>
   <compose>
     <include>
