@@ -284,7 +284,7 @@
     </element>
     <element id="DeviceDefinition.deviceName">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
+        <valueCode value="0,1"/>
       </extension>
       <path value="DeviceDefinition.deviceName"/>
       <short value="The name or names of the device as given by the manufacturer"/>
