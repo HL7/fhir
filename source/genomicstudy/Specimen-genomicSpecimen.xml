@@ -14,7 +14,7 @@
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="122610009"/>
-      <display value="Specimen from lung obtained by biopsy (specimen) "/>
+      <display value="Specimen from lung obtained by biopsy (specimen)"/>
     </coding>
   </type>
   <subject>

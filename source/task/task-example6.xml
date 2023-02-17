@@ -74,7 +74,7 @@
     </concept>
   </reason>
   <note>
-    <text value="This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
+    <text value="This is an example to demonstrate using task for actioning a servicerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test"/>
   </note>
   <!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource
 

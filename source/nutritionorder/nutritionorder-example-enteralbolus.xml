@@ -103,6 +103,6 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mL/d"/>
 		</maxVolumeToDeliver>
-		<administrationInstruction value="240 mls every 4hrs "/>
+		<administrationInstruction value="240 mls every 4hrs"/>
 	</enteralFormula>
 </NutritionOrder>
