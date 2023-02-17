@@ -60,4 +60,19 @@
     <display value="Operative Procedure"/>
     <definition value="The time of surgery"/>
   </concept>
+  <concept>
+    <code value="condition-detection"/>
+    <display value="Detection of Condition"/>
+    <definition value="The time of first detection of the condition"/>
+  </concept>
+  <concept>
+    <code value="condition-treatment"/>
+    <display value="Treatment of Condition"/>
+    <definition value="The time of first treatment of the condition"/>
+  </concept>
+  <concept>
+    <code value="treatment-start"/>
+    <display value="Start of Treatment"/>
+    <definition value="The time of initiation of the treatment"/>
+  </concept>
 </CodeSystem>
