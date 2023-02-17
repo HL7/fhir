@@ -4,25 +4,9 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
-[%ballot-note fmg%]
-<a href="https://confluence.hl7.org/display/FMG">FMG</a> is presently considering whether this resource is appropriate to include in the FHIR specification. 
-The resource covers domain content that is not considered specific to healthcare, and FMG is 
-still discussing whether alternative standards organizations exist that should standardize this content, 
-and whether HL7 does or can have the correct community representation to support standardizing this 
-content. Feedback is welcome view ballot, or to FMG directly at <a href="mailto:fmgcontact@hl7.org">fmgcontact@hl7.org</a>
-</p>
-<p>
-The FHIR Management Group has provisionally approved the Citation Resource with the qualification that we will continue to evaluate its appropriateness as it develops in the community.
-</p>
-			<ul>
-				<li>
- Please share feedback, suggestions, and reports of your use of the Citation Resource with the CDS Work Group or through <a href="https://confluence.hl7.org/display/CDS/EBMonFHIR">https://confluence.hl7.org/display/CDS/EBMonFHIR</a>.
-</li>
-			</ul>
-[%end-note-np%]
-
 <p>The scope of the Citation Resource is to describe any aspect of identification, location, authorship, and contributorship to a journal article, report, document, resource, or other knowledge artifact. Citations are used extensively in scholarly communication and important for documenting the evidence or source behind statements of fact, opinion, and interpretation. Citations are also used for acknowledgement of the contributions of individuals and groups to the creation and advancement of knowledge.</p>
 <p>Across the academic and scientific community citations are used extensively to reference the knowledge artifacts contributing to current work. For any community searching for reports of research or scholarly publications (such as searching MEDLINE) the citations contain the metadata used for such searches. Standardization of citations supports interoperability across citation managers and adaptation to current needs, such as reports being available on preprint servers before 'final' peer-reviewed published form, need to cite datasets or other alternative forms of expression, or the ability to support citation of FHIR Resources where the FHIR Resource represents research or scholarly publication.</p>
+<p>Although citations as a concept are certainly not unique to healthcare, their use within healthcare contexts is ubiquitous, especially as part of the need to cite literature references and scientific knowledge as part of supporting evidence. This need is already manifest in references to the Citation resource from other FHIR resources including ResearchStudy, SubstanceDefinition, and DiagnosticReport. In addition, citations of evidence are a critical aspect of evidence-based medicine and structures to represent citation information are a necessary modeling component in the EBM-on-FHIR project. Without a resource dedicated to this concept, evidence-based medicine concepts and approaches would need to rely on extensions and/or non-FHIR-based solutions to exchange citation information, resulting in more complex and difficult to implement and maintain resource types to support evidence-based medicine.</p>
 <p>The Resource can accommodate both human and machine readers. The <i>summary</i> element provides human-readable information.</p>
 <p>The Citation Resource has multiple elements containing metadata that describe the citation resource itself, and a <i>citedArtifact</i> element containing metadata that describe the article or artifact being cited.</p>
 <p>Attribution of scholarly contributions is expressed in the <i>citedArtifact.contributorship</i> element, which has grown more complex as the nature of authorship and the concerns for credit and acknowledgement are increasingly complex. If an individualized attribution structure is not required, the <i>citedArtifact.contributorship.summary</i> element will do.</p>
@@ -37,6 +21,7 @@ The FHIR Management Group has provisionally approved the Citation Resource with 
 <p>Any resource may have common metadata including publisher, authors, reviewers, editors, endorsers, identifiers and location concepts for the resource. The Citation Resource is expected to be used primarily for citing things that are not FHIR Resources. There is NOT an expectation to provide Citations for most FHIR Resources. However, FHIR Resources can be the subject of Citation Resources when there is additional needs beyond common metadata to use the FHIR Resource as the cited source in other contexts or to support scholarly and scientific contribution attribution to the FHIR Resource content.</p>
 <p>The <a href="provenance.html">Provenance Resource</a> is used to track the contributions to a resource as it occurs, especially for purposes of confirming authenticity and trust. Citation.citedArtifact.contributorship is used to report the attribution of contributions to the cited artifact, especially for purposes of recognition and acknowledgement, but is not directly reporting the data to support authenticity of the contributions.</p>
 <p>The <a href="documentreference.html">DocumentReference Resource</a> is described as a reference to a document of any kind for any purpose. As the DocumentReference Resource was developed for healthcare data exchange it is modeled to support individualized provenance, security, and artifact relationships as often needed in this context. The Citation Resource was developed for the reference to knowledge artifacts commonly used in scientific and scholarly communication so is modeled to support identification, attribution, classification, status tracking, and representation (summary) of the citation.</p>
+<p>Approaches to a citation standard external to FHIR are not well suited for integration with FHIR-based approaches to Evidence and related resources. The MEDLINE citation format is widely used but not extensible for many types of knowledge artifacts that may be cited and not open to community development through open standards development methods. The RIS citation format is widely used but is not a singularly maintained standard and multiple implementations using RIS in different ways leads to confusion and inefficiency.</p>
 </div>
 
 </div>
