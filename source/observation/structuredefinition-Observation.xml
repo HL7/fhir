@@ -113,6 +113,13 @@
         <expression value="dataAbsentReason.empty() or value.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
+      <constraint>
+        <key value="obs-8"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Event"/>
@@ -422,6 +429,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -727,6 +735,7 @@
         <code value="canonical"/>
       </type>
       <condition value="obs-7"/>
+      <condition value="obs-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -850,6 +859,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-8"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -892,13 +902,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <constraint>
-        <key value="obs-8"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
-        <expression value="bodyStructure.empty() or bodySite.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </constraint>
+      <condition value="obs-8"/>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
@@ -954,7 +958,7 @@
         <key value="obs-9"/>
         <severity value="error"/>
         <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
-        <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
+        <expression value="(reference.resolve().exists() and reference.resolve() is Group) implies (reference.resolve().member.entity.resolve() implies reference.resolve().member.entity.resolve() is Specimen"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
@@ -1088,7 +1092,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationReferenceRangeNormalValue"/>
@@ -1200,6 +1203,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="obs-3"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
@@ -1285,6 +1289,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -1306,6 +1311,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1418,7 +1424,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>

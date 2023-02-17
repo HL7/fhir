@@ -145,7 +145,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -277,6 +277,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="opd-5"/>
+      <condition value="opd-6"/>
+      <condition value="opd-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -617,6 +620,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="opd-5"/>
       <isSummary value="true"/>
     </element>
     <element id="OperationDefinition.inputProfile">
@@ -656,6 +660,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="opd-6"/>
+      <condition value="opd-7"/>
       <constraint>
         <key value="opd-1"/>
         <severity value="error"/>
@@ -698,6 +704,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="opd-7"/>
     </element>
     <element id="OperationDefinition.parameter.use">
       <path value="OperationDefinition.parameter.use"/>
@@ -709,6 +716,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="opd-6"/>
+      <condition value="opd-7"/>
+      <condition value="opd-4"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="OperationParameterUse"/>
@@ -779,7 +789,10 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="opd-7"/>
       <condition value="opd-1"/>
+      <condition value="opd-2"/>
+      <condition value="opd-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRAllTypes"/>
@@ -802,7 +815,6 @@
       <type>
         <code value="code"/>
       </type>
-      <condition value="opd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRAllTypes"/>
@@ -826,6 +838,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
+      <condition value="opd-3"/>
     </element>
     <element id="OperationDefinition.parameter.searchType">
       <path value="OperationDefinition.parameter.searchType"/>
@@ -837,7 +850,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="opd-6"/>
       <condition value="opd-2"/>
+      <condition value="opd-4"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SearchParamType"/>
@@ -944,7 +959,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#OperationDefinition.parameter"/>
-      <condition value="opd-1"/>
     </element>
     <element id="OperationDefinition.overload">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">

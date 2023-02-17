@@ -505,6 +505,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="where(display = true).count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
       <mapping>
         <identity value="interface"/>
         <map value="Participant.name"/>
@@ -564,13 +571,6 @@
       <type>
         <code value="boolean"/>
       </type>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
       <isSummary value="true"/>

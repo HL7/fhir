@@ -148,7 +148,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -642,6 +642,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -686,6 +688,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -710,6 +713,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.count">
@@ -883,6 +887,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -975,6 +981,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -994,6 +1001,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -1028,6 +1036,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -1041,6 +1050,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.value[x]">
       <path value="CodeSystem.concept.property.value[x]"/>

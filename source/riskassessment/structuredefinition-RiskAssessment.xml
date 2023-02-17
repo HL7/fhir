@@ -473,6 +473,7 @@
       <type>
         <code value="Range"/>
       </type>
+      <condition value="ras-2"/>
       <constraint>
         <key value="ras-1"/>
         <severity value="error"/>

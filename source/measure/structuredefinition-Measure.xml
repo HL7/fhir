@@ -134,7 +134,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -1162,6 +1162,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>
@@ -1439,6 +1440,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>
@@ -1453,6 +1455,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="mea-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
@@ -1475,6 +1478,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
@@ -1489,6 +1493,7 @@
       <type>
         <code value="Expression"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1507,6 +1512,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>

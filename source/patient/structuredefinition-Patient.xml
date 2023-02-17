@@ -541,6 +541,7 @@
       <type>
         <code value="HumanName"/>
       </type>
+      <condition value="pat-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="NK1-2"/>
@@ -565,6 +566,7 @@
       <type>
         <code value="ContactPoint"/>
       </type>
+      <condition value="pat-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="NK1-5, NK1-6, NK1-40"/>
@@ -588,6 +590,7 @@
       <type>
         <code value="Address"/>
       </type>
+      <condition value="pat-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="NK1-4"/>
