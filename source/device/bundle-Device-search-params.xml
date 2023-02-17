@@ -422,4 +422,29 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-specification-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-specification-version"/>
+        <description value="A composite of both specification and version"/>
+        <code value="specification-version"/>
+        <type value="composite"/>
+        <expression value="Device.conformsTo"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="specification"/>
+          <expression value="specification"/>
+        </component>
+        <component>
+          <definition value="version"/>
+          <expression value="version"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>  
+
 </Bundle>

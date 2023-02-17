@@ -18,7 +18,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceState"/>
-  <title value="F H I R Device State"/>
+  <title value="FHIR Device State"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
