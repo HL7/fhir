@@ -56,7 +56,7 @@ they support
   <copyright value="This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>
   <caseSensitive value="false"/>
   
-  <valueSet value=" http://loinc.org/vs"/>
+  <valueSet value="http://loinc.org/vs"/>
    <!--
     for a version specific reference:
     <valueSet value="http://loinc.org/2.56/vs"/>
