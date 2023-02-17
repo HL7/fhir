@@ -55,8 +55,7 @@ that only appropriate plans are exposed via a given user interface.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-For simplicity's sake, CarePlan allows the inline definition of activities as part of a plan using 
-the <code>activity.plannedActivityDetail</code> element.  However, activities can also be defined using references
+CarePlan activities can be defined using references
 to the various "request" resources.  These references could be to resources with a status of
 "planned" or to an active order.  It is possible for planned activities to exist (e.g. appointments)
 without needing a CarePlan at all.  CarePlans are used when there's a need to group activities,

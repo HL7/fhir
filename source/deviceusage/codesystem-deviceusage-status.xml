@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceUsageStatus"/>
-  <title value="DeviceUsageStatus"/>
+  <title value="Device Usage Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -73,6 +73,6 @@
   <concept>
     <code value="on-hold"/>
     <display value="On Hold"/>
-    <definition value="Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called &#34;suspended&#34;."/>
+    <definition value="Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called &quot;suspended&quot;."/>
   </concept>
 </CodeSystem>

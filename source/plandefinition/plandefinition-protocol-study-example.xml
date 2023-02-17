@@ -1,64 +1,306 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="file://Mac/Home/Documents/FHIRBuild/source/protocol/GenNarrative.xslt"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
   <id value="protocol-study-example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose1, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose1, 
+      </p>
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose2, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm arm-dose2, 
+      </p>
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-screening, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-screening, 
+      </p>
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-single-blind-run-in, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-single-blind-run-in, 
+      </p>
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-treatment-phase, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-treatment-phase, 
+      </p>
+      
       <p>
-        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-follow-up, </p>
+        
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch epoch-follow-up, 
+      </p>
+      
       <p>
-        <b>status: </b>active, </p>
+        
+        <b>status: </b>active, 
+      </p>
+      
       <p>
-        <b>type: </b>study, </p>
+        
+        <b>type: </b>study, 
+      </p>
+      
       <p>
-        <b>purpose: </b>Defines the execution of study AD-4833PNFP-341, </p>
+        
+        <b>purpose: </b>Defines the execution of study AD-4833PNFP-341, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>SCRN, <b>description: </b>Screen, <b>precondition: </b>, <b>description: </b>Informed Consent, <b>exit: </b>, <b>description: </b>Screening assessments complete, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>SCRN, 
+        <b>description: </b>Screen, 
+        <b>precondition: </b>, 
+        <b>description: </b>Informed Consent, 
+        <b>exit: </b>, 
+        <b>description: </b>Screening assessments complete, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment, <b>name: </b>SBRI, <b>description: </b>Single Blind Run-In, <b>duration: </b>, <b>value: </b>1, <b>system: </b>http://unitsofmeasure.org, <b>code: </b>wk, <b>precondition: </b>, <b>description: </b>Initial Single Blind Placebo dose, <b>exit: </b>, <b>description: </b>1 week after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment, 
+        <b>name: </b>SBRI, 
+        <b>description: </b>Single Blind Run-In, 
+        <b>duration: </b>, 
+        <b>value: </b>1, 
+        <b>system: </b>http://unitsofmeasure.org, 
+        <b>code: </b>wk, 
+        <b>precondition: </b>, 
+        <b>description: </b>Initial Single Blind Placebo dose, 
+        <b>exit: </b>, 
+        <b>description: </b>1 week after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>DOSE 1, <b>description: </b>Administer 0.5mg [Drug A] QD, <b>duration: </b>, <b>value: </b>30, <b>system: </b>http://unitsofmeasure.org, <b>code: </b>wk, <b>precondition: </b>, <b>description: </b>First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg., <b>exit: </b>, <b>description: </b>30 weeks after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>DOSE 1, 
+        <b>description: </b>Administer 0.5mg [Drug A] QD, 
+        <b>duration: </b>, 
+        <b>value: </b>30, 
+        <b>system: </b>http://unitsofmeasure.org, 
+        <b>code: </b>wk, 
+        <b>precondition: </b>, 
+        <b>description: </b>First dose of treatment where total drug dose of [Drug A] per day is 0.5 mg., 
+        <b>exit: </b>, 
+        <b>description: </b>30 weeks after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>FLWUP, <b>description: </b>Follow-Up, <b>precondition: </b>, <b>description: </b>Last dose of treatment, <b>exit: </b>, <b>description: </b>2 weeks after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>FLWUP, 
+        <b>description: </b>Follow-Up, 
+        <b>precondition: </b>, 
+        <b>description: </b>Last dose of treatment, 
+        <b>exit: </b>, 
+        <b>description: </b>2 weeks after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>SCRN, <b>description: </b>Screen, <b>precondition: </b>, <b>description: </b>Informed Consent, <b>exit: </b>, <b>description: </b>Screening assessments complete, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>SCRN, 
+        <b>description: </b>Screen, 
+        <b>precondition: </b>, 
+        <b>description: </b>Informed Consent, 
+        <b>exit: </b>, 
+        <b>description: </b>Screening assessments complete, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment, <b>name: </b>SBRI, <b>description: </b>Single Blind Run-In, <b>duration: </b>, <b>value: </b>1, <b>system: </b>http://unitsofmeasure.org, <b>code: </b>wk, <b>precondition: </b>, <b>description: </b>First dose of Single Blind Placebo, <b>exit: </b>, <b>description: </b>1 week after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armAssignment, 
+        <b>name: </b>SBRI, 
+        <b>description: </b>Single Blind Run-In, 
+        <b>duration: </b>, 
+        <b>value: </b>1, 
+        <b>system: </b>http://unitsofmeasure.org, 
+        <b>code: </b>wk, 
+        <b>precondition: </b>, 
+        <b>description: </b>First dose of Single Blind Placebo, 
+        <b>exit: </b>, 
+        <b>description: </b>1 week after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>1.0 mg Dose, <b>description: </b>Administer 1.0 mg [Drug A] QD, <b>duration: </b>, <b>value: </b>30, <b>system: </b>http://unitsofmeasure.org, <b>code: </b>wk, <b>precondition: </b>, <b>description: </b>Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg., <b>exit: </b>, <b>description: </b>30 weeks after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>1.0 mg Dose, 
+        <b>description: </b>Administer 1.0 mg [Drug A] QD, 
+        <b>duration: </b>, 
+        <b>value: </b>30, 
+        <b>system: </b>http://unitsofmeasure.org, 
+        <b>code: </b>wk, 
+        <b>precondition: </b>, 
+        <b>description: </b>Intial dose of treatment where total drug dose of [Drug A] per day is 1.0 mg., 
+        <b>exit: </b>, 
+        <b>description: </b>30 weeks after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>FLWUP, <b>description: </b>Follow-Up, <b>precondition: </b>, <b>description: </b>Last dose of treatment, <b>exit: </b>, <b>description: </b>2 weeks after start of Element, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.epoch, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>FLWUP, 
+        <b>description: </b>Follow-Up, 
+        <b>precondition: </b>, 
+        <b>description: </b>Last dose of treatment, 
+        <b>exit: </b>, 
+        <b>description: </b>2 weeks after start of Element, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 1, <b>precondition: </b>, <b>description: </b>Screening, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 1, 
+        <b>precondition: </b>, 
+        <b>description: </b>Screening, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 2, <b>precondition: </b>, <b>description: </b>single-blind placebo start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 2, 
+        <b>precondition: </b>, 
+        <b>description: </b>single-blind placebo start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 3, <b>precondition: </b>, <b>description: </b>Treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 3, 
+        <b>precondition: </b>, 
+        <b>description: </b>Treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 4, <b>precondition: </b>, <b>description: </b>5 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 4, 
+        <b>precondition: </b>, 
+        <b>description: </b>5 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 5, <b>precondition: </b>, <b>description: </b>10 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 5, 
+        <b>precondition: </b>, 
+        <b>description: </b>10 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 6, <b>precondition: </b>, <b>description: </b>15 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 6, 
+        <b>precondition: </b>, 
+        <b>description: </b>15 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 7, <b>precondition: </b>, <b>description: </b>20 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 7, 
+        <b>precondition: </b>, 
+        <b>description: </b>20 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 8, <b>precondition: </b>, <b>description: </b>25 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 8, 
+        <b>precondition: </b>, 
+        <b>description: </b>25 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 9, <b>precondition: </b>, <b>description: </b>30 weeks after treatment start, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 9, 
+        <b>precondition: </b>, 
+        <b>description: </b>30 weeks after treatment start, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+      
       <p>
-        <b>step: </b>, <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, <b>name: </b>VISIT 10, <b>precondition: </b>, <b>description: </b>start of follow-up, <b>activity: </b>, <b>detail: </b>, <b>category: </b>encounter, </p>
+        
+        <b>step: </b>, 
+        <b>extension: </b>http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence, 
+        <b>name: </b>VISIT 10, 
+        <b>precondition: </b>, 
+        <b>description: </b>start of follow-up, 
+        <b>activity: </b>, 
+        <b>detail: </b>, 
+        <b>category: </b>encounter, 
+      </p>
+    
     </div>
   </text>
   <contained>
@@ -68,7 +310,7 @@
       <kind value="ServiceRequest"/>
     </ActivityDefinition>
   </contained>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm" id="arm-dose1">
+  <extension id="arm-dose1" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name">
       <valueString value="0.5 mg Dose"/>
     </extension>
@@ -76,7 +318,7 @@
       <valueString value="Administering 0.5mg of [Drug A]"/>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm" id="arm-dose2">
+  <extension id="arm-dose2" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm.name">
       <valueString value="dose2"/>
     </extension>
@@ -84,22 +326,22 @@
       <valueString value="Administering 1.0mg of [Drug A]"/>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-screening">
+  <extension id="epoch-screening" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Screening"/>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-single-blind-run-in">
+  <extension id="epoch-single-blind-run-in" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Single blind run-in"/>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-treatment-phase">
+  <extension id="epoch-treatment-phase" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Treatment"/>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch" id="epoch-follow-up">
+  <extension id="epoch-follow-up" url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch">
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#epoch.name">
       <valueString value="Follow up"/>
     </extension>
@@ -130,9 +372,6 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <!--exit>
-      <description value="Screening assessments complete"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -161,9 +400,6 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="wk"/>
     </timingDuration>
-    <!--exit>
-      <description value="1 week after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -189,9 +425,6 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="wk"/>
     </timingDuration>
-    <!--exit>
-      <description value="30 weeks after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -212,9 +445,6 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <!--exit>
-      <description value="2 weeks after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -233,11 +463,8 @@
       <expression>
         <description value="Informed Consent"/>
         <language value="text/cql"/>
-	  </expression>
+      </expression>
     </condition>
-    <!--exit>
-      <description value="Screening assessments complete"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -266,9 +493,6 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="wk"/>
     </timingDuration>
-    <!--exit>
-      <description value="1 week after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -294,9 +518,6 @@
       <system value="http://unitsofmeasure.org"/>
       <code value="wk"/>
     </timingDuration>
-    <!--exit>
-      <description value="30 weeks after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.arm">
@@ -317,9 +538,6 @@
         <language value="text/cql"/>
       </expression>
     </condition>
-    <!--exit>
-      <description value="2 weeks after start of Element"/>
-    </exit-->
   </action>
   <action>
     <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#step.armSequence">
@@ -341,8 +559,8 @@
     </extension>
     <title value="VISIT 2"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="single-blind placebo start"/>
         <language value="text/cql"/>
       </expression>
@@ -355,8 +573,8 @@
     </extension>
     <title value="VISIT 3"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="Treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -369,8 +587,8 @@
     </extension>
     <title value="VISIT 4"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="5 weeks after treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -383,8 +601,8 @@
     </extension>
     <title value="VISIT 5"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="10 weeks after treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -397,10 +615,10 @@
     </extension>
     <title value="VISIT 6"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
-	      <description value="15 weeks after treatment start"/>
-	      <language value="text/cql"/>
+      <kind value="applicability"/>
+      <expression>
+        <description value="15 weeks after treatment start"/>
+        <language value="text/cql"/>
       </expression>
     </condition>
     <definitionCanonical value="#encounter"/>
@@ -411,8 +629,8 @@
     </extension>
     <title value="VISIT 7"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="20 weeks after treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -425,8 +643,8 @@
     </extension>
     <title value="VISIT 8"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="25 weeks after treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -439,8 +657,8 @@
     </extension>
     <title value="VISIT 9"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="30 weeks after treatment start"/>
         <language value="text/cql"/>
       </expression>
@@ -453,8 +671,8 @@
     </extension>
     <title value="VISIT 10"/>
     <condition>
-	  <kind value="applicability"/>
-	  <expression>
+      <kind value="applicability"/>
+      <expression>
         <description value="start of follow-up"/>
         <language value="text/cql"/>
       </expression>

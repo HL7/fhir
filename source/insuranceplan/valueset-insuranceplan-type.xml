@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="InsurancePlanType"/>
+  <title value="Insurance Plan Type"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>

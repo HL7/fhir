@@ -18,7 +18,7 @@
   <title value="Resource Types"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="All fhir data types"/>
+  <description value="Concrete FHIR Resource Types"/>
   <immutable value="true"/>
   <compose>
     <include>

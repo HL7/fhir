@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProductDispense"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="draft"/>
@@ -20,7 +20,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProductDispense"/>
   <version value="5.0.0"/>
   <name value="BiologicallyDerivedProductDispense"/>
-  <title value="BiologicallyDerivedProductDispense"/>
+  <title value="Biologically Derived Product Dispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -67,7 +67,7 @@
     <element id="BiologicallyDerivedProductDispense">
       <path value="BiologicallyDerivedProductDispense"/>
       <short value="A record of dispensation of a biologically derived product"/>
-      <definition value="A record of dispensation of a biologically derived product."/>
+      <definition value="This resource reflects an instance of a biologically derived product dispense. The supply or dispense of a biologically derived product from the supply organization or department (e.g. hospital transfusion laboratory) to the clinical team responsible for clinical application."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -78,7 +78,7 @@
     <element id="BiologicallyDerivedProductDispense.identifier">
       <path value="BiologicallyDerivedProductDispense.identifier"/>
       <short value="Business identifier for this dispense"/>
-      <definition value="Business identifier for this dispense."/>
+      <definition value="Unique instance identifiers assigned to a biologically derived product dispense. Note: This is a business identifier, not a resource identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -88,7 +88,7 @@
     <element id="BiologicallyDerivedProductDispense.basedOn">
       <path value="BiologicallyDerivedProductDispense.basedOn"/>
       <short value="The order or request that this dispense is fulfilling"/>
-      <definition value="The order or request that this dispense is fulfilling."/>
+      <definition value="The order or request that the dispense is fulfilling. This is a reference to a ServiceRequest resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -99,7 +99,7 @@
     <element id="BiologicallyDerivedProductDispense.partOf">
       <path value="BiologicallyDerivedProductDispense.partOf"/>
       <short value="Short description"/>
-      <definition value="Long description."/>
+      <definition value="A larger event of which this particular event is a component."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -110,7 +110,7 @@
     <element id="BiologicallyDerivedProductDispense.status">
       <path value="BiologicallyDerivedProductDispense.status"/>
       <short value="preparation | in-progress | allocated | issued | unfulfilled | returned | entered-in-error | unknown"/>
-      <definition value="BiologicallyDerivedProductDispenseStatusCodes (Required)."/>
+      <definition value="A code specifying the state of the dispense event."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -130,13 +130,11 @@
         <description value="Describes the lifecycle of the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-status"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.originRelationshipType">
       <path value="BiologicallyDerivedProductDispense.originRelationshipType"/>
       <short value="Relationship between the donor and intended recipient"/>
-      <definition value="Relationship between the donor and intended recipient."/>
+      <definition value="Indicates the relationship between the donor of the biologically derived product and the intended recipient."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -156,12 +154,11 @@
         <description value="Describes the relationship between the recipient and origin of the dispensed product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-origin-relationship"/>
       </binding>
-
     </element>
     <element id="BiologicallyDerivedProductDispense.product">
       <path value="BiologicallyDerivedProductDispense.product"/>
       <short value="The BiologicallyDerivedProduct that is dispensed"/>
-      <definition value="The BiologicallyDerivedProduct that is dispensed."/>
+      <definition value="A link to a resource identifying the biologically derived product that is being dispensed."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -172,7 +169,7 @@
     <element id="BiologicallyDerivedProductDispense.subject">
       <path value="BiologicallyDerivedProductDispense.subject"/>
       <short value="The intended recipient of the dispensed product"/>
-      <definition value="The intended recipient of the dispensed product."/>
+      <definition value="A link to a resource representing the subject that the product is dispensed for."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -189,7 +186,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductDispenseMatchStatus"/>
@@ -204,8 +200,6 @@
         <description value="Describes the type of matching between the recipient and origin of the dispensed product."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-match-status"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.performer">
       <path value="BiologicallyDerivedProductDispense.performer"/>
@@ -226,7 +220,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BiologicallyDerivedProductDispensPerformerFunction"/>
@@ -241,13 +234,11 @@
         <description value="Describes the the role or function of the performer in the dispense."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/biologicallyderivedproductdispense-performer-function"/>
       </binding>
-
-
     </element>
     <element id="BiologicallyDerivedProductDispense.performer.actor">
       <path value="BiologicallyDerivedProductDispense.performer.actor"/>
       <short value="Who performed the action"/>
-      <definition value="Who performed the action."/>
+      <definition value="Identifies the person responsible for the action."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -258,7 +249,7 @@
     <element id="BiologicallyDerivedProductDispense.location">
       <path value="BiologicallyDerivedProductDispense.location"/>
       <short value="Where the dispense occurred"/>
-      <definition value="Where the dispense occurred."/>
+      <definition value="The physical location where the dispense was performed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -269,7 +260,7 @@
     <element id="BiologicallyDerivedProductDispense.quantity">
       <path value="BiologicallyDerivedProductDispense.quantity"/>
       <short value="Amount dispensed"/>
-      <definition value="Amount dispensed."/>
+      <definition value="The amount of product in the dispense. Quantity will depend on the product being dispensed. Examples are: volume; cell count; concentration."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -280,7 +271,7 @@
     <element id="BiologicallyDerivedProductDispense.preparedDate">
       <path value="BiologicallyDerivedProductDispense.preparedDate"/>
       <short value="When product was selected/matched"/>
-      <definition value="When product was selected/matched."/>
+      <definition value="When the product was selected/ matched."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -290,7 +281,7 @@
     <element id="BiologicallyDerivedProductDispense.whenHandedOver">
       <path value="BiologicallyDerivedProductDispense.whenHandedOver"/>
       <short value="When the product was dispatched"/>
-      <definition value="When the product was dispatched."/>
+      <definition value="When the product was dispatched for clinical use."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -300,7 +291,7 @@
     <element id="BiologicallyDerivedProductDispense.destination">
       <path value="BiologicallyDerivedProductDispense.destination"/>
       <short value="Where the product was dispatched to"/>
-      <definition value="Where the product was dispatched to."/>
+      <definition value="Link to a resource identifying the physical location that the product was dispatched to."/>
       <min value="0"/>
       <max value="1"/>
       <type>

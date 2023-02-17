@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceCorrectiveActionScope"/>
+  <title value="Device Corrective Action Scope"/>
   <experimental value="true"/>
   <description value="Device - Corrective action scope"/>
   <compose>

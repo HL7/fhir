@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="measure-definition-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -13,7 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MeasureDefinitionExample"/>
-  <title value="MeasureDefinitionExample"/>
+  <title value="Measure Definition Example"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="Clinical Quality Information Workgroup"/>

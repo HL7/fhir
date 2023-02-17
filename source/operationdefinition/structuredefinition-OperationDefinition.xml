@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="OperationDefinition"/>
-  <title value="OperationDefinition"/>
+  <title value="Operation Definition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -108,6 +108,13 @@
         <severity value="error"/>
         <human value="A query operation requires input parameters to have a search type"/>
         <expression value="(kind = 'query') implies (parameter.all((use = 'in' and searchType.exists()) or (use != 'in')))"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
+      </constraint>
+      <constraint>
+        <key value="opd-7"/>
+        <severity value="error"/>
+        <human value="Named queries always have a single output parameter named 'result' of type Bundle"/>
+        <expression value="(kind = 'query') implies ((parameter.where(use = 'out').count() = 1) and (parameter.where(use = 'out').all(name = 'result' and type = 'Bundle')))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <mapping>
@@ -572,7 +579,7 @@
         </extension>
         <strength value="required"/>
         <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
       </binding>
       <mapping>
         <identity value="workflow"/>

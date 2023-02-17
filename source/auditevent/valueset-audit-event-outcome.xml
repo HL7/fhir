@@ -31,7 +31,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AuditEventOutcome"/>
-  <title value="AuditEventOutcome"/>
+  <title value="Audit Event Outcome"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -49,12 +49,7 @@
   <description value="Indicates whether the event succeeded or failed."/>
   <immutable value="true"/>
   <compose>
-    <include>
-      <system value="http://terminology.hl7.org/CodeSystem/audit-event-outcome"/>
-      <concept>
-        <code value="0"/>
-      </concept>
-    </include>
+
     <include>
       <system value="http://hl7.org/fhir/issue-severity"/>
     </include>

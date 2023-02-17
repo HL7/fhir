@@ -1,0 +1,45 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="scope"></a>
+<h2>Scope and Usage</h2>
+<p> 
+The EncounterHistory is used to be able to record an ongoing history of significant events/changes that occur
+during a patient encounter.
+This information is not always up to date/accurate while entering encounter information and
+is often back-dated as more detailed information becomes available, or corrections need to be made during
+the completion of the encounter while it is being processed in coding or billing.
+</p>
+[%stu-note dstu%]
+In FHIR R4 and earlier this data was in the Encounter statusHistory and classHistory backbone elements, 
+however with longer duration encounters (where a patient encounter might be considered active for years) 
+this would become increasingly inefficient, so was re-factored into this resource.<br/>
+The design notes for this change are on <a href="https://confluence.hl7.org/display/PA/Encounter+History+and+Movements">confluence</a>.
+[%end-note%]
+</div>
+
+<div>
+<a name="bnr"></a>
+<h2>Boundaries and Relationships</h2>
+<p> 
+The Encounter resource stores the complete set of current/most recent data about an Encounter.
+The EncounterHistory contains a snapshot of some key aspects (properties) of the encounter to track
+changes to the encounter over time - specifically those that contribute to significant changes/events/milestones
+during the encounter - such as moving between departments or locations.
+</p>
+<p>
+Note that this historical information is different than what is tracked in the versions of the Encounter resource.
+Past movements of a patient are often updated after the fact to correct what actually happened.<br/>
+FHIR History (_history) doesn't cater for this need as the information isn't always accurate and can be corrected/back populated too.
+Another challenge with _history is that it also includes corrections to errors in data entry which could not be
+differentiated from actual movements/changes.
+</p>
+<p>
+No clinical resources are expected to ever refer to a specific EncounterHistory event, they are only
+attributed to the Encounter as a whole. If a resource is desiring to connect to a portion of an encounter
+(and wanting to use EncounterHistory) this is an indication that you should be using a child Encounter through
+the partOf property.
+</p>
+</div>
+
+</div>

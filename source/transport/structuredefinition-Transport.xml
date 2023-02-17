@@ -179,7 +179,7 @@
     <element id="Transport.groupIdentifier">
       <path value="Transport.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="An identifier that links together multiple transports and other requests that were created in the same context."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -1272,7 +1272,7 @@
         <map value="Event.location"/>
       </mapping>
     </element>
-    <element id="Transport.reasonCode">
+    <!-- <element id="Transport.reasonCode">
       <path value="Transport.reasonCode"/>
       <short value="Why transport is needed"/>
       <definition value="A description or code indicating why this transport needs to be performed."/>
@@ -1305,18 +1305,25 @@
         <identity value="rim"/>
         <map value=".reasonCode"/>
       </mapping>
-    </element>
-    <element id="Transport.reasonReference">
-      <path value="Transport.reasonReference"/>
+    </element> -->
+    <element id="Transport.reason">
+      <path value="Transport.reason"/>
       <short value="Why transport is needed"/>
       <definition value="A resource reference indicating why this transport needs to be performed."/>
-      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
+      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc. This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.reasonReference, Event.reasonReference"/>

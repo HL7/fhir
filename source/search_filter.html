@@ -34,6 +34,9 @@ provides a syntax for expressing a set of query expressions on the underlying re
 <li><code>Observation: subject.name co "pet"</code> - all observations on a patient with the characters "pet" in a given or family name</li>
 <li><code>Observation: related[type eq "has-component"].target pr true</code> - all observations that have component observations (note: this uses one of the search parameters defined for this mechanism, see below)</li>
 <li><code>Observation: related[type eq has-component].target re Observation/4</code> - all observations that have Observation/v as a component</li>
+<li><code>Observation: subject.id eq 3425 and code-value-quantity eq code$loinc|12907-2,value$ge150|http://unitsofmeasure.org|mmol/L</code> - all observations for a particular patient that have a LOINC code of "12907-2" (Sodium [Moles/volume] in Red Blood Cells) AND a value greater than "150 mmol/L"</li>
+<li><code>Patient: given eq "peter" and birthdate ge 2014-10-10 and _has:Observation:patient:code eq http://loinc.org|1234-5</code> - 
+	all patients with a given name of peter, born on or after 10-Oct 2014 that have an observation referring to them with a LOINC code of 1234-5</li>
 </ul>
 
 <p>
@@ -45,6 +48,7 @@ The _filter syntax has the following features:
 <li>A filter can contain other filters in a set of parentheses: "()".</li>
 <li>A filter can be a test - path operation value, where operation is taken from the table below, and value is either a "true", "false", a JSON string, or a token (any sequence of non-whitespace characters, excluding ")" and "]". Values are never case sensitive.</li>
 <li>A 'path' is a name, with chained searches done by name.name etc.as per existing source. There can also be a filter: name[filter].name.</li>
+<li>Reverse chaining is also allowed, using _has:Resource:index1:index2 as the parameter</li>
 <li>The name is one of the defined search parameters that are used with the other search mechanism, with some special exemptions defined below.</li>
 </ul>
 <p>
@@ -58,25 +62,29 @@ Formal grammar for the syntax:
 <pre>
 filter        = paramExp / logExp / ("not") "(" filter ")"
 logExp        = filter ("and" / "or" filter)+
-paramExp      = paramPath SP compareOp SP compValue
+paramExp      = paramValue SP compareOp SP compValue
 compareOp     = (see table below)
 compValue     = string / numberOrDate / token
 string        = json string
 token         = any sequence of non-whitespace characters (by Unicode rules) except "]" and ")"
-paramPath     = paramName (("[" filter "]") "." paramPath)
+paramValue    = hasSpecifier / paramPath
+hasSpecifier  = "_has:" resource ":" index ":" index
+resource      = ALPHA (DIGIT / ALPHA)*
+index         = nameCharStart (nameChar)*
+paramPath     = paramName (("[" filter "]") "." paramValue)
 paramName     = nameCharStart (nameChar)*
 nameCharStart = "_" / ALPHA
 nameChar      = "_" / "-" / DIGIT / ALPHA
 numberOrDate  = DIGIT (DateChar)*
-dateChar      = DIGIT / "T" / "-" / "." / "+"
+dateChar      = DIGIT / "T" / "-" / "." / "+" / ":" / "Z"
 </pre>
 
 <p>Notes about using the syntax:</p>
 <ul>
 <li>Logical expressions are evaluated left to right, with no precedence between "and" and "or". If there is ambiguity, use parentheses to be explicit.</li>
-<li>Rhe compareOp is always evaluated against the set of values produced by evaluating the param path.</li>
-<li>Rhe parameter names are those defined by the specification for search parameters, except for those defined below.</li>
-<li>Rhe date format is a standard XML (i.e. XSD) dateTime (including time zone).</li>
+<li>The compareOp is always evaluated against the set of values produced by evaluating the param path.</li>
+<li>The parameter names are those defined by the specification for search parameters, except for those defined below.</li>
+<li>The date format is a standard XML (i.e. XSD) dateTime (including time zone).</li>
 </ul>
 
 <a name="ops"></a>
@@ -283,6 +291,7 @@ For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see
 <ul>
 <li>For token, the format is the same as the existing search parameter.</li>
 <li>For convenience, the codes "loinc", "snomed", "rxnorm" and "ucum" are predefined and can be used in place of their associated full namespace.</li>
+<li>The evaluation of composite search parameters is very complex; only the codes <code>eq</code> and <code>ne</code> are appropriate in this case</li>
 </ul>
 
 [%file newfooter%]

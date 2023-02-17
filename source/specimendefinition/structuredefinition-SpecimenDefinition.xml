@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SpecimenDefinition"/>
-  <title value="SpecimenDefinition"/>
+  <title value="Specimen Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -390,7 +390,7 @@
     </element>
     <element id="SpecimenDefinition.lastReviewDate">
       <path value="SpecimenDefinition.lastReviewDate"/>
-      <short value="The date on which the asset content was last reviewed"/>
+      <short value="The date on which the asset content was last reviewed by the publisher"/>
       <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>

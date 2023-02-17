@@ -50,13 +50,15 @@
         <code value="min"/>
     </length>
     <reason>
-      <concept>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="34068001"/>
-            <display value="Partial lobectomy of lung"/>
-        </coding>
-      </concept>
+        <value>
+            <concept>
+                <coding>
+                    <system value="http://snomed.info/sct"/>
+                    <code value="34068001"/>
+                    <display value="Partial lobectomy of lung"/>
+                </coding>
+            </concept>
+        </value>
     </reason>
     <admission>
         <preAdmissionIdentifier>

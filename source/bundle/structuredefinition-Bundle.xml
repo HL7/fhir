@@ -83,20 +83,22 @@
       <definition value="A container for a collection of resources."/>
       <min value="0"/>
       <max value="*"/>
+
       <constraint>
-        <key value="bdl-7"/>
+        <key value="bdl-1"/>
         <severity value="error"/>
-        <human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
-        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;resource.meta.versionId).isDistinct()"/>
+        <human value="total only when a search or history"/>
+        <expression value="total.empty() or (type = 'searchset') or (type = 'history')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
-        <key value="bdl-9"/>
+        <key value="bdl-2"/>
         <severity value="error"/>
-        <human value="A document must have an identifier with a system and a value"/>
-        <expression value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
+        <human value="entry.search only when a search"/>
+        <expression value="(type = 'searchset') or entry.search.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
+      <!--
       <constraint>
         <key value="bdl-3"/>
         <severity value="error"/>
@@ -111,32 +113,54 @@
         <expression value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
+      -->
       <constraint>
-        <key value="bdl-13"/>
+        <key value="bdl-3a"/>
         <severity value="error"/>
-        <human value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
-        <expression value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
+        <human value="For collections of type document, message, searchset or collection, all entries must contain resources, and not have request or response elements"/>
+        <expression value="type in ('document' | 'message' | 'searchset' | 'collection') implies entry.all(resource.exists() and request.empty() and response.empty())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
-        <key value="bdl-12"/>
+        <key value="bdl-3b"/>
         <severity value="error"/>
-        <human value="A message must have a MessageHeader as the first resource"/>
-        <expression value="type = 'message' implies entry.first().resource.is(MessageHeader)"/>
+        <human value="For collections of type history, all entries must contain request or response elements, and resources if the method is POST, PUT or PATCH"/>
+        <expression value="type = 'history' implies entry.all(request.exists() and response.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
-        <key value="bdl-1"/>
+        <key value="bdl-3c"/>
         <severity value="error"/>
-        <human value="total only when a search or history"/>
-        <expression value="total.empty() or (type = 'searchset') or (type = 'history')"/>
+        <human value="For collections of type transaction or batch, all entries must contain request elements, and resources if the method is POST, PUT or PATCH"/>
+        <expression value="type in ('transaction' | 'batch') implies entry.all(request.method.exists() and ((request.method in ('POST' | 'PATCH' | 'PUT')) = resource.exists()))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
-        <key value="bdl-2"/>
+        <key value="bdl-3d"/>
         <severity value="error"/>
-        <human value="entry.search only when a search"/>
-        <expression value="entry.search.empty() or (type = 'searchset')"/>
+        <human value="For collections of type transaction-response or batch-response, all entries must contain response elements"/>
+        <expression value="type in ('transaction-response' | 'batch-response') implies entry.all(response.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-7"/>
+        <severity value="error"/>
+        <human value="FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId (except in history bundles)"/>
+        <expression value="(type = 'history') or entry.where(fullUrl.exists()).select(fullUrl&amp;iif(resource.meta.versionId.exists(), resource.meta.versionId, '')).isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-9"/>
+        <severity value="error"/>
+        <human value="A document must have an identifier with a system and a value"/>
+        <expression value="type = 'document' implies (identifier.system.exists() and identifier.value.exists())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-10"/>
+        <severity value="error"/>
+        <human value="A document must have a date"/>
+        <expression value="type = 'document' implies (timestamp.hasValue())"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -147,10 +171,17 @@
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
-        <key value="bdl-10"/>
+        <key value="bdl-12"/>
         <severity value="error"/>
-        <human value="A document must have a date"/>
-        <expression value="type = 'document' implies (timestamp.hasValue())"/>
+        <human value="A message must have a MessageHeader as the first resource"/>
+        <expression value="type = 'message' implies entry.first().resource.is(MessageHeader)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+      </constraint>
+      <constraint>
+        <key value="bdl-13"/>
+        <severity value="error"/>
+        <human value="A subscription-notification must have a SubscriptionStatus as the first resource"/>
+        <expression value="type = 'subscription-notification' implies entry.first().resource.is(SubscriptionStatus)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
       <constraint>
@@ -179,6 +210,7 @@
         <human value="Use and meaning of issues for documents has not been validated because the content will not be rendered in the document."/>
         <expression value="type = 'document' implies issues.empty()"/>
       </constraint>
+
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>

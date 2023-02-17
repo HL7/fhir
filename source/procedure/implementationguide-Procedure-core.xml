@@ -3,12 +3,10 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Procedure-core"/>
   <version value="0.1"/>
-  <name value="Procedure HL7 Extensions"/>
-  <title value="Procedure HL7 Extensions"/>
+  <name value="ProcedureHL7Extensions"/>
+  <title value="Procedure  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-12T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the Procedure resource"/>
-  <definition>
-  </definition>
 </ImplementationGuide>

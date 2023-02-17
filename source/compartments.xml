@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Jose</LastAuthor>
+  <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
-  <LastSaved>2023-02-05T14:48:27Z</LastSaved>
+  <LastSaved>2023-02-10T20:42:24Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -18,6 +18,7 @@
   
   
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -113,13 +114,14 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="158" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="159" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -135,10 +137,8 @@
     <Cell><Data ss:Type="String">Device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
-    <Cell><Data ss:Type="String">patient | participant</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">!Protocol</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">subject </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Account</Data></Cell>
@@ -147,13 +147,25 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ActorDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AdministrableProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AdverseEvent</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">recorder</Data></Cell>
     <Cell><Data ss:Type="String">recorder</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AllergyIntolerance</Data></Cell>
+    <Cell><Data ss:Type="String">patient | participant</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment</Data></Cell>
@@ -188,6 +200,14 @@
     <Cell><Data ss:Type="String">Binary</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">BiologicallyDerivedProductDispense</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">performer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">BodyStructure</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
@@ -195,11 +215,12 @@
     <Cell><Data ss:Type="String">Bundle</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
@@ -215,6 +236,13 @@
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
     <Cell><Data ss:Type="String">enterer | performer-actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ChargeItemDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Citation</Data></Cell>
+    <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
@@ -237,10 +265,6 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ClinicalUseDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Citation</Data></Cell>
-    <Cell ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CodeSystem</Data></Cell>
@@ -273,10 +297,6 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Consent</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConceptMap</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -287,7 +307,30 @@
     <Cell><Data ss:Type="String">participant-actor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CapabilityStatement</Data></Cell>
+    <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Consent</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Contract</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Coverage</Data></Cell>
+    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary | paymentby-party</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber | paymentby-party</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CoverageEligibilityRequest</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">enterer | provider</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CoverageEligibilityResponse</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">requestor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DetectedIssue</Data></Cell>
@@ -296,19 +339,19 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Contract</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Coverage</Data></Cell>
-    <Cell><Data ss:Type="String">policy-holder | subscriber | beneficiary | paymentby-party</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">policy-holder | subscriber | paymentby-party</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Device</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceAssociation</Data></Cell>
+    <Cell><Data ss:Type="String">subject | operator</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">operator</Data></Cell>
+    <Cell><Data ss:Type="String">device</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DeviceDispense</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceMetric</Data></Cell>
@@ -340,21 +383,16 @@
     <Cell><Data ss:Type="String">subject | author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CoverageEligibilityRequest</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">enterer | provider</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">CoverageEligibilityResponse</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">requestor</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">{def}</Data></Cell>
     <Cell><Data ss:Type="String">participant</Data></Cell>
     <Cell><Data ss:Type="String">practitioner | participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EncounterHistory</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Endpoint</Data></Cell>
@@ -376,8 +414,17 @@
     <Cell ss:Index="5" ss:StyleID="s67"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Evidence</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EvidenceReport</Data></Cell>
     <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">EvidenceVariable</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ExampleScenario</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExplanationOfBenefit</Data></Cell>
@@ -398,6 +445,13 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FormularyItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
@@ -409,6 +463,10 @@
     <Cell><Data ss:Type="String">member</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">member</Data></Cell>
     <Cell><Data ss:Type="String">member</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">HealthcareService</Data></Cell>
@@ -438,6 +496,28 @@
     <Cell><Data ss:Type="String">ImplementationGuide</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Ingredient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">InsurancePlan</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">InventoryReport</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Invoice</Data></Cell>
+    <Cell><Data ss:Type="String">subject | patient | recipient</Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">recipient</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Library</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Linkage</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">author</Data></Cell>
    </Row>
@@ -449,6 +529,16 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Location</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ManufacturedItemDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Measure</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Medication</Data></Cell>
@@ -465,6 +555,9 @@
     <Cell ss:Index="5"><Data ss:Type="String">performer | receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationRequest</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
@@ -478,12 +571,19 @@
     <Cell><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MedicinalProductDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">receiver | author | responsible </Data></Cell>
     <Cell><Data ss:Type="String">target</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">NamingSystem</Data></Cell>
@@ -502,12 +602,18 @@
     <Cell ss:Index="5"><Data ss:Type="String">provider</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NutritionProduct</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation</Data></Cell>
     <Cell><Data ss:Type="String">subject | performer</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">subject | device</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OperationDefinition</Data></Cell>
@@ -517,6 +623,12 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Organization</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PackagedProductDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Patient</Data></Cell>
@@ -533,10 +645,16 @@
     <Cell ss:Index="5"><Data ss:Type="String">requestor</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Permission</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Person</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">link</Data></Cell>
     <Cell><Data ss:Type="String">practitioner</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Practitioner</Data></Cell>
@@ -552,18 +670,6 @@
     <Cell><Data ss:Type="String">encounter</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
     <Cell><Data ss:Type="String">performer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | performer</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
-    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">!Protocol</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">subject </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Provenance</Data></Cell>
@@ -584,9 +690,20 @@
     <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RegulatedAuthorization</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">RelatedPerson</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:Index="4"><Data ss:Type="String">{def}</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">RequestOrchestration</Data></Cell>
+    <Cell><Data ss:Type="String">subject | participant</Data></Cell>
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">participant | author</Data></Cell>
+    <Cell><Data ss:Type="String">author</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Requirements</Data></Cell>
@@ -616,6 +733,14 @@
     <Cell><Data ss:Type="String">SearchParameter</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ServiceRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | performer</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">performer</Data></Cell>
+    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
+    <Cell><Data ss:Type="String">performer | requester</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Slot</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -623,6 +748,9 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">collector</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">StructureDefinition</Data></Cell>
@@ -634,7 +762,36 @@
     <Cell><Data ss:Type="String">Subscription</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubscriptionStatus</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubscriptionTopic</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Substance</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceNucleicAcid</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstancePolymer</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceProtein</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SubstanceSourceMaterial</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SupplyRequest</Data></Cell>
@@ -644,132 +801,32 @@
     <Cell><Data ss:Type="String">requester</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SupplyDelivery</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">supplier | receiver</Data></Cell>
+    <Cell><Data ss:Type="String">Task</Data></Cell>
+    <Cell><Data ss:Type="String">patient | focus</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">TerminologyCapabilities</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">TestScript</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">TestReport</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">TestScript</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Transport</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ValueSet</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">VerificationResult</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">VisionPrescription</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">prescriber</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Library</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Measure</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MeasureReport</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MolecularSequence</Data></Cell>
-    <Cell><Data ss:Type="String">subject</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">GenomicStudy</Data></Cell>
-    <Cell><Data ss:Type="String">patient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Task</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Transport</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ActivityDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">PlanDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RequestOrchestration</Data></Cell>
-    <Cell><Data ss:Type="String">subject | participant</Data></Cell>
-    <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant | author</Data></Cell>
-    <Cell><Data ss:Type="String">author</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SpecimenDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ExampleScenario</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ObservationDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Invoice</Data></Cell>
-    <Cell><Data ss:Type="String">subject | patient | recipient</Data></Cell>
-    <Cell ss:Index="4"><Data ss:Type="String">recipient</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">InsurancePlan</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">OrganizationAffiliation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">MedicinalProductDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">PackagedProductDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ManufacturedItemDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">AdministrableProductDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Ingredient</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RegulatedAuthorization</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceDefinition</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstancePolymer</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceProtein</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceNucleicAcid</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceSourceMaterial</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">SubstanceReferenceInformation</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">VerificationResult</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">BiologicallyDerivedProduct</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MedicationKnowledge</Data></Cell>
@@ -801,9 +858,12 @@
     <Cell><Data ss:Type="String">device</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="String">TestPlan</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="153">
+   <Row ss:AutoFitHeight="0" ss:Index="154">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -828,6 +888,7 @@
     <Footer x:Margin="0.3"/>
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
+   
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>9</PaperSizeIndex>
@@ -838,7 +899,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>131</TopRowBottomPane>
+   <TopRowBottomPane>125</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    
    <ProtectObjects>False</ProtectObjects>

@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SupplyRequest"/>
-  <title value="SupplyRequest"/>
+  <title value="Supply Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -609,6 +609,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <mapping>
         <identity value="v2"/>

@@ -1,59 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?><MessageDefinition xmlns="http://hl7.org/fhir">
-	<id value="patient-link-response"/>
-	<text>
-		<status value="generated"/>
-		<div xmlns="http://www.w3.org/1999/xhtml">Link Patients Response</div>
-	</text>
-	<url value="http://hl7.org/fhir/MessageDefinition/patient-link-response"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.15.1"/>
-	</identifier>
-	<version value="1"/>
-	<name value="PATIENT-LINK-RESPONSE"/>
-	<title value="Link Patients Response"/>
-	<status value="draft"/>
-	<experimental value="true"/>
-	<date value="2017-02-03"/>
-	<publisher value="Health Level Seven, Int'l"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org"/>
-		</telecom>
-	</contact>
-	<description value="Optional response to a patient link notification."/>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
-				<code value="positive"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<jurisdiction>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-			<display value="United States of America (the)"/>
-		</coding>
-	</jurisdiction>
-	<purpose value="Optional response message that may provide additional information on the outcome of the patient link operation."/>
-	<copyright value="� HL7.org 2011+"/>
-	<base value="http://hl7.org/fhir/MessageDefinition/example"/>
-		  <eventCoding>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MessageDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-link-response"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Link Patients Response</div>
+  </text>
+  <url value="http://hl7.org/fhir/MessageDefinition/patient-link-response"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.15.1"/>
+  </identifier>
+  <version value="1"/>
+  <name value="PATIENTLINKRESPONSE"/>
+  <title value="Link Patients Response"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2017-02-03"/>
+  <publisher value="Health Level Seven, Int'l"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="Optional response to a patient link notification."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variant-state"/>
+        <code value="positive"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America (the)"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="Optional response message that may provide additional information on the outcome of the patient link operation."/>
+  <copyright value="� HL7.org 2011+"/>
+  <base value="http://hl7.org/fhir/MessageDefinition/example"/>
+  <eventCoding>
     <system value="http://example.org/fhir/message-events"/>
     <code value="admin-notify"/>
   </eventCoding>
-	<category value="consequence"/>
-	<focus>
-		<code value="Patient"/>
-		<profile value="http://hl7.org/fhir/StructureDefinition/example"/>
-		<min value="2"/>
-		<max value="2"/>
-	</focus>
+  <category value="consequence"/>
+  <focus>
+    <code value="Patient"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/example"/>
+    <min value="2"/>
+    <max value="2"/>
+  </focus>
 </MessageDefinition>

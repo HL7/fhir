@@ -16,6 +16,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.106"/>
   </identifier>
   <name value="RequestPriority"/>
+  <title value="Request Priority"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2016-07-17T18:04:27+00:00"/>

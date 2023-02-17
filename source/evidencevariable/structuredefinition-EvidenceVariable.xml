@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EvidenceVariable"/>
-  <title value="EvidenceVariable"/>
+  <title value="Evidence Variable"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -104,8 +104,7 @@
       <path value="EvidenceVariable.url"/>
       <short value="Canonical identifier for this evidence variable, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this evidence variable when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this evidence variable is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the evidence variable is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
-	  <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
+      <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the evidence variable to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -396,7 +395,7 @@
     </element>
     <element id="EvidenceVariable.lastReviewDate">
       <path value="EvidenceVariable.lastReviewDate"/>
-      <short value="When the resource was last reviewed"/>
+      <short value="When the resource was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -443,7 +442,7 @@
     <element id="EvidenceVariable.reviewer">
       <path value="EvidenceVariable.reviewer"/>
       <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
@@ -458,7 +457,7 @@
     <element id="EvidenceVariable.endorser">
       <path value="EvidenceVariable.endorser"/>
       <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
@@ -774,6 +773,30 @@
       <min value="1"/>
       <max value="*"/>
       <contentReference value="#EvidenceVariable.characteristic"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.instances[x]">
+      <path value="EvidenceVariable.characteristic.instances[x]"/>
+      <short value="Number of occurrences meeting the characteristic"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.duration[x]">
+      <path value="EvidenceVariable.characteristic.duration[x]"/>
+      <short value="Length of time in which the characteristic is met"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>

@@ -13,8 +13,7 @@
   <li>Unsliced descendants of sliced elements appear before slices</li></ul>
  </li>
 <li><code>element.short</code>, <code>element.formal</code>, <code>element.comments</code> and <code>element.mapping</code> provide the specific definition for the field in a specific context.</li>
-<li><code>element.type</code> is used to specify which types may be used for this element. If there is more than one type, the element offers a choice of types and must have a name that terminates in "[x]". (Note: when substituting [x] with a specific data type, always capitalize the first letter. Choice types are always camel-case. Ex: "effectiveDateTime" is correct, "effectivedateTime" is NOT correct.)
-When profiling a resource and only one type is specified, the name of the element is changed to include the type instead of '[x]'.</li>
+<li><code>element.type</code> is used to specify which types may be used for this element. If there is more than one type, the element offers a choice of types and must have a name that terminates in "[x]". (Note: when substituting [x] with a specific data type, always capitalize the first letter. Choice types are always camel-case. Ex: "effectiveDateTime" is correct, "effectivedateTime" is NOT correct.)</li>
 <li>When using XPath to define constraints about the relationship between the contents of the narrative and the contents of the data elements, the element against which the rule is expressed is the one against which the error or warning will be reported by a validator.</li>
 <li>When expression constraints are placed on elements that offer a choice of types, the expression has to select the type to which it applies using the <a href="fhirpath.html">FHIRPath <code>as</code> operator</a>.</li>
 <li>The condition element is used to assert that a constraint defined on another element affects the allowed cardinality of this element.</li>
@@ -129,7 +128,7 @@ This list shows a number of examples, with links to real examples for each:
 </pre>
  </li>
 
- <li>A defined Extension  (example: <a href="extension-data-absent-reason.html">Extension Data Absent Reason</a>  - <a href="extension-data-absent-reason.xml.html">XML</a>, <a href="extension-data-absent-reason.json.html">JSON</a>): <br/>
+ <li>A defined Extension  (example: <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">Extension Data Absent Reason</a>  - <a href="[%extensions-location%]StructureDefinition-data-absent-reason.xml.html">XML</a>, <a href="[%extensions-location%]StructureDefinition-data-absent-reason.json.html">JSON</a>): <br/>
 <pre class="json" fragment="StructureDefinition">
 {
   "resourceType": "StructureDefinition",

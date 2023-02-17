@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
   <id value="consent-example-CDA"/>
   <!-- The patient opts in to sharing CDA documents from a specific author to a specific recipient for a limited period -->
   <identifier>
@@ -38,58 +40,55 @@
     </coding>
   </regulatoryBasis>
   <!-- A base denial of access to Dr. F001 but allows for sharing CDA documents of type Discharge Summary + Summarization of Episode Note from a specific author for a limited period -->
+  <decision value="permit"/>
   <provision>
-    <type value="permit"/>
+    <period>
+      <start value="2018-10-10"/>
+      <end value="2019-10-10"/>
+    </period>
+    <actor>
+      <role>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+          <code value="PRCP"/>
+        </coding>
+      </role>
+      <reference>
+        <reference value="Practitioner/f001"/>
+        <!-- Stock practitioner -->
+      </reference>
+    </actor>
     <provision>
-      <type value="deny"/>
-      <period>
-        <start value="2018-10-10"/>
-        <end value="2019-10-10"/>
-      </period>
       <actor>
         <role>
           <coding>
             <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-            <code value="PRCP"/>
+            <code value="AUT"/>
           </coding>
         </role>
         <reference>
-          <reference value="Practitioner/f001"/>
-          <!-- Stock practitioner -->
+          <reference value="Practitioner/xcda-author"/>
         </reference>
       </actor>
-      <provision>
-        <type value="permit"/>
-        <actor>
-          <role>
-            <coding>
-              <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
-              <code value="AUT"/>
-            </coding>
-          </role>
-          <reference>
-            <reference value="Practitioner/xcda-author"/>
-          </reference>
-        </actor>
-        <!-- CDA documents -->
-        <documentType>
-          <system value="urn:ietf:bcp:13"/>
-          <code value="application/hl7-cda+xml"/>
-        </documentType>
-        <!-- code rules -->
-        <code>
-          <coding>
-            <system value="http://loinc.org"/>
-            <code value="34133-9"/>
-          </coding>
-        </code>
-        <code>
-          <coding>
-            <system value="http://loinc.org"/>
-            <code value="18842-5"/>
-          </coding>
-        </code>
-      </provision>
+      <!-- CDA documents -->
+      <documentType>
+        <system value="urn:ietf:bcp:13"/>
+        <code value="application/hl7-cda+xml"/>
+      </documentType>
+      <!-- code rules -->
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="34133-9"/>
+        </coding>
+      </code>
+      <code>
+        <coding>
+          <system value="http://loinc.org"/>
+          <code value="18842-5"/>
+        </coding>
+      </code>
     </provision>
   </provision>
+
 </Consent>

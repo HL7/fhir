@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ServiceRequest"/>
-  <title value="ServiceRequest"/>
+  <title value="Service Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -895,7 +895,7 @@
       <path value="ServiceRequest.performer"/>
       <short value="Requested performer"/>
       <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc."/>
-      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [request-performerOrder extension](extension-request-performerorder.html).  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
+      <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
       <alias value="request recipient"/>
       <min value="0"/>
       <max value="*"/>
@@ -1090,7 +1090,7 @@
       <path value="ServiceRequest.bodySite"/>
       <short value="Coded location on Body"/>
       <definition value="Anatomic location where the procedure should be performed. This is the target site."/>
-      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodyStructure](extension-procedure-targetbodystructure.html)."/>
+      <comment value="Only used if not implicit in the code found in ServiceRequest.code.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/procedure-targetBodyStructure]]]."/>
       <requirements value="Knowing where the procedure is performed is important for tracking if multiple sites are possible."/>
       <alias value="location"/>
       <min value="0"/>

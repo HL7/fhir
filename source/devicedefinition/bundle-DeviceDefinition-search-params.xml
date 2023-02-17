@@ -21,7 +21,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="DeviceDefinition-parent"/>
@@ -39,7 +39,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
@@ -51,12 +51,133 @@
           <valueString value="DeviceDefinition.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
-        <description value="The device component type"/>
+        <description value="The device type"/>
         <code value="type"/>
         <type value="token"/>
-        <expression value="DeviceDefinition.classification.type"/>
+        <expression value="DeviceDefinition.conformsTo.category"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-specification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.conformsTo.specification"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-type"/>
+        <description value="The specification that the device conforms to"/>
+        <code value="specification"/>
+        <type value="token"/>
+        <expression value="DeviceDefinition.conformsTo.specification"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-specification-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-specification-version"/>
+        <description value="A composite of both specification and version"/>
+        <code value="specification-version"/>
+        <type value="composite"/>
+        <expression value="DeviceDefinition.conformsTo"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="specification"/>
+          <expression value="specification"/>
+        </component>
+        <component>
+          <definition value="version"/>
+          <expression value="version"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry> 
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-devicedefinition-name"/>
+        <description value="A server defined search that may match any of the string fields in DeviceDefinition.name or DeviceDefinition.type."/>
+        <code value="device-name"/>
+        <type value="string"/>
+        <expression value="DeviceDefinition.deviceName.name | DeviceDefinition.classification.type.coding.display | DeviceDefinition.classification.type.text"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-manufacturer"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.manufacturer"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-manufacturer"/>
+        <description value="The manufacturer of the device"/>
+        <code value="manufacturer"/>
+        <type value="reference"/>
+        <expression value="DeviceDefinition.manufacturer"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-model"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.modelNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-model"/>
+        <description value="The model of the device"/>
+        <code value="model"/>
+        <type value="string"/>
+        <expression value="DeviceDefinition.modelNumber"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDefinition-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDefinition.owner"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-organization"/>
+        <description value="The organization responsible for the device"/>
+        <code value="organization"/>
+        <type value="reference"/>
+        <expression value="DeviceDefinition.owner"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

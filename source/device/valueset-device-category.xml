@@ -8,7 +8,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="oo"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-state">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceCategory"/>
-  <title value="FHIRDeviceCategory"/>
+  <title value="FHIR Device Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

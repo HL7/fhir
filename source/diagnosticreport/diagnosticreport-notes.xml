@@ -30,7 +30,7 @@ The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type
 &lt;/coding&gt;
 &lt;text value="Placer"/&gt;
 &lt;/type&gt;
-&lt;system value=" http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+&lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
 &lt;value value="567890"/&gt;
 &lt;/identifier&gt;
 </pre>

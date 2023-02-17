@@ -33,7 +33,7 @@
 	</collection>
 	<container>
 	   <device>
-	      <reference value="Specimen/specimen-device-container-example-red-top-vacutainer"/>
+	      <reference value="Device/device-example-specimen-container-red-top-vacutainer"/>
 	   </device>
 	</container>
 	<note>

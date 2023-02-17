@@ -11,13 +11,7 @@
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
         <value value="urn:uuid:1111-1111-1111-1113"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://hl7.org/fhir/genomicstudy-status"/>
-            <code value="available"/>
-            <display value="Available"/>
-        </coding>
-    </status>
+    <status value="available"/>
     <type>
         <coding>
             <code value="trio"/>

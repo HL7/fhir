@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="observation-triggeredbytype"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -12,8 +14,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3265"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="triggeredBytype"/>
-  <title value="triggeredBytype"/>
+  <name value="TriggeredBytype"/>
+  <title value="triggered Bytype"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2022-03-16T16:55:11+11:00"/>

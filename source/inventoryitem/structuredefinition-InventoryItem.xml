@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="InventoryItem"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="draft"/>
@@ -20,7 +20,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
   <version value="5.0.0"/>
   <name value="InventoryItem"/>
-  <title value="InventoryItem"/>
+  <title value="Inventory Item"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -36,7 +36,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value=" functional description of an inventory item used in inventory and supply-related workflows."/>
+  <description value="functional description of an inventory item used in inventory and supply-related workflows."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -84,6 +84,7 @@
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InventoryItemStatus"/>
@@ -105,6 +106,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.code">
       <path value="InventoryItem.code"/>
@@ -115,6 +117,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.name">
       <path value="InventoryItem.name"/>
@@ -125,6 +128,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.name.nameType">
       <path value="InventoryItem.name.nameType"/>
@@ -135,6 +139,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NameType"/>
@@ -145,7 +150,7 @@
         <strength value="preferred"/>
         <description value="Name types."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/inventoryitem-nametype"/>
-      </binding>      
+      </binding>
     </element>
     <element id="InventoryItem.name.language">
       <path value="InventoryItem.name.language"/>
@@ -156,6 +161,7 @@
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="NameLanguage"/>
@@ -177,6 +183,7 @@
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.responsibleOrganization">
       <path value="InventoryItem.responsibleOrganization"/>
@@ -259,8 +266,9 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>
-    <element id="InventoryItem.dimension">
+    <!-- <element id="InventoryItem.dimension">
       <path value="InventoryItem.dimension"/>
       <short value="The dimensions of the item"/>
       <definition value="The dimensions of the item."/>
@@ -289,8 +297,8 @@
       <type>
         <code value="Quantity"/>
       </type>
-    </element>
-    <element id="InventoryItem.storageHandling">
+    </element> -->
+    <!-- <element id="InventoryItem.storageHandling">
       <path value="InventoryItem.storageHandling"/>
       <short value="The storage and handling specifications of the item"/>
       <definition value="The storage and handling specifications of the item."/>
@@ -317,10 +325,9 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="Range"/>
         <code value="string"/>
       </type>
-    </element>
+    </element> -->
     <element id="InventoryItem.baseUnit">
       <path value="InventoryItem.baseUnit"/>
       <short value="The base unit of measure - the unit in which the product is used or counted"/>
@@ -330,6 +337,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.netContent">
       <path value="InventoryItem.netContent"/>
@@ -341,6 +349,7 @@
         <code value="Quantity"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.association">
       <path value="InventoryItem.association"/>
@@ -361,6 +370,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.association.relatedItem">
       <path value="InventoryItem.association.relatedItem"/>
@@ -378,6 +388,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.association.quantity">
       <path value="InventoryItem.association.quantity"/>
@@ -388,6 +399,7 @@
       <type>
         <code value="Ratio"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="InventoryItem.characteristics">
       <path value="InventoryItem.characteristics"/>
@@ -416,11 +428,21 @@
       <min value="1"/>
       <max value="1"/>
       <type>
-        <code value="integer"/>
         <code value="string"/>
+        <code value="markdown"/>
+        <code value="integer"/>
+        <code value="decimal"/>
         <code value="boolean"/>
+        <code value="url"/>
         <code value="dateTime"/>
         <code value="SimpleQuantity"/>
+        <code value="Quantity"/>
+        <code value="Range"/>
+        <code value="Ratio"/>
+        <code value="Annotation"/>
+        <code value="Address"/>
+        <code value="Duration"/>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="InventoryItem.instance">

@@ -493,7 +493,6 @@
         <map value=".playedRole[typeCode=MANU].id"/>
       </mapping>
     </element>
-
     <element id="Device.name">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,0"/>
@@ -565,6 +564,13 @@
       <type>
         <code value="boolean"/>
       </type>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
       <isSummary value="true"/>
@@ -576,13 +582,6 @@
         <identity value="rim"/>
         <map value="statusCode"/>
       </mapping>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
     </element>
     <element id="Device.modelNumber">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -738,20 +737,38 @@
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specialization">
-      <path value="Device.specialization"/>
-      <short value="The standard(s) the device supports"/>
-      <definition value="The standards to which the device adheres and may be certified to in support of its capabilities, e.g., communication, performance, process, or measurement standards."/>
+    <element id="Device.conformsTo">
+      <path value="Device.conformsTo"/>
+      <short value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device"/>
+      <definition value="Identifies the standards, specifications, or formal guidances for the capabilities supported by the device. The device may be certified as conformant to these specifications e.g., communication, performance, process, measurement, or specialization standards."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="Device.specialization.systemType">
-      <path value="Device.specialization.systemType"/>
-      <short value="Code of the system that identifies the standard that the device adheres to"/>
-      <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
+    <element id="Device.conformsTo.category">
+      <path value="Device.conformsTo.category"/>
+      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
+      <definition value="Describes the type of the standard, specification, or formal guidance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceSpecificationCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of standards used by the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
+      </binding>
+    </element>
+    <element id="Device.conformsTo.specification">
+      <path value="Device.conformsTo.specification"/>
+      <short value="Identifies the standard, specification, or formal guidance that the device adheres to"/>
+      <definition value="Code that identifies the specific standard, specification, protocol, formal guidance, regulation, legislation, or certification scheme to which the device adheres."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -759,48 +776,32 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecializationSystemType"/>
+          <valueString value="DeviceSpecification-type"/>
         </extension>
         <strength value="example"/>
         <description value="The type of version indicated for the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-systemtype"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-type"/>
       </binding>
     </element>
-    <element id="Device.specialization.version">
-      <path value="Device.specialization.version"/>
-      <short value="Standard version used"/>
-      <definition value="The version of the standard that is used to operate and communicate."/>
+    <element id="Device.conformsTo.version">
+      <path value="Device.conformsTo.version"/>
+      <short value="Specific form or variant of the standard"/>
+      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance. This may be a 'version number', release, document edition, publication year, or other label."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.specialization.category">
-      <path value="Device.specialization.category"/>
-      <short value="communication | performance | measurement"/>
-      <definition value="Kind of standards that the device adheres to, e.g., communication, performance or communication."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="FHIRDeviceSpecializationCategory"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The kind of standards used by the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specialization-category"/>
-      </binding>
-    </element>
+
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>
       </extension>
       <path value="Device.property"/>
-      <short value="The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties"/>
-      <definition value="Characteristics or features of the device that are otherwise not captured in available attributes, e.g., actual configuration settings, time or timing attributes, resolution, accuracy, and physical attributes.  The focus is on properties of the device actually in use while DeviceDefinition focuses on properties that are available to be used."/>
+      <short value="Inherent, essentially fixed, characteristics of the device.  e.g., time properties, size, material, etc."/>
+      <definition value="Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes."/>
+      <comment value="Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific [DeviceMetric] and recorded using [Observation].  Static characteristics of a device could also be documented in an associated [DeviceDefinition] instance. The Device instance's properties, and their values, could be, but need not be, the same as those described in an associated DeviceDefinition."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -810,7 +811,7 @@
     <element id="Device.property.type">
       <path value="Device.property.type"/>
       <short value="Code that specifies the property being represented"/>
-      <definition value="Code that specifies the property being represented. No codes are specified but the MDC codes are an example: https://terminology.hl7.org/MDC.html."/>
+      <definition value="Code that specifies the property, such as resolution, color, size, being represented."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -827,9 +828,9 @@
     </element>
     <element id="Device.property.value[x]">
       <path value="Device.property.value[x]"/>
-      <short value="Property value - as a code, quantity, boolean, string or attachment"/>
-      <definition value="Property value - can be a code, quantity, boolean, string or attachment."/>
-      <comment value="The string is used for properties that are intrinsically text, such as warning text, or assemlby instructions. CodeableConcept.text also supports unencoded text but should be used where the characteristic is a concept that might be coded but there is no assigned code for the present value. For example, a security class can be a code like 'Class 1' but in some cases may contain a string like 'Depending on the settings' - in this case the property is normally coded but this is an exception"/>
+      <short value="Value of the property"/>
+      <definition value="The value of the property specified by the associated [property.type] code."/>
+      <comment value="The text element in CodeableConcept.text is used for properties which would usually be coded (such as the size of an implant, or a security classification) but for which there is not currently an appropriate concept in the vocabulary (e.g. a custom implant size, or a security classification which depends on configuration). Otherwise the string choice type is used for descriptive properties, or instructions."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -854,7 +855,7 @@
         <code value="Attachment"/>
       </type>
     </element>
-    <element id="Device.operation">
+    <!-- <element id="Device.operation">
       <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
       <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
@@ -912,9 +913,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
-    </element>
-    <element id="Device.operation.mode">
-      <path value="Device.operation.mode"/>
+    </element> -->
+    <element id="Device.mode">
+      <path value="Device.mode"/>
       <short value="The designated condition for performing a task"/>
       <definition value="The designated condition for performing a task with the device."/>
       <min value="0"/>
@@ -931,8 +932,8 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/device-operation-mode"/>
       </binding>
     </element>
-    <element id="Device.operation.cycle">
-      <path value="Device.operation.cycle"/>
+    <element id="Device.cycle">
+      <path value="Device.cycle"/>
       <short value="The series of occurrences that repeats during the operation of the device"/>
       <definition value="The series of occurrences that repeats during the operation of the device."/>
       <min value="0"/>
@@ -941,8 +942,8 @@
         <code value="Count"/>
       </type>
     </element>
-    <element id="Device.operation.duration">
-      <path value="Device.operation.duration"/>
+    <element id="Device.duration">
+      <path value="Device.duration"/>
       <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
       <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
       <min value="0"/>
@@ -951,7 +952,7 @@
         <code value="Duration"/>
       </type>
     </element>
-    <element id="Device.association">
+    <!-- <element id="Device.association">
       <path value="Device.association"/>
       <short value="Current association of the device"/>
       <definition value="The details about the device when it is affixed or inside of a patient."/>
@@ -1017,7 +1018,7 @@
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="Device.owner">
       <path value="Device.owner"/>
       <short value="Organization responsible for device"/>
