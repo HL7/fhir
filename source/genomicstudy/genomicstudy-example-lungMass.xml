@@ -91,9 +91,6 @@
             </coding>
         </genomeBuild>
         <title value="Simple variant analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
-            <reference value="Patient/genomicPatient"/>
-        </subject>
         <specimen>
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>
@@ -169,9 +166,6 @@
             </coding>
         </genomeBuild>
         <title value="CNV analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
-            <reference value="Patient/genomicPatient"/>
-        </subject>
         <specimen>
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>

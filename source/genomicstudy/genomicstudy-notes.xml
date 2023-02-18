@@ -3,7 +3,7 @@
 <!-- insert xhtml content here -->
 <a name="examplecodes"></a>
 <h3>Example Codes</h3>
-<p>Genomic Study resource uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
+<p><code>GenomicStudy</code> uses many example codes for terminology binding. Reviewers and implementers are strongly encouraged to provide their comments and feedback about the example codes for terminology binding purposes.</p>
 <p>Below the attributes of provided example bindings are listed. Links are included to indicate where the example codes from were pulled from.</p>
 <h4>GenomicStudy.type</h4>
 <p>The type example codes were based on discussions by Clinical Genomics Workgroup.
@@ -21,7 +21,7 @@
 <h3>Implementation Notes</h3>
 <h4>Handling markdown</h4>
 
-<p>GenomicStudy.description is a <a href="datatypes.html#markdown">markdown</a> datatype, and implementers should carefully consider how to appropriately handle this attribute. The characters in markdown formatting can conflict with those commonly used in descriptions of genomic data. In particular, descriptions that contain mentions of "star alleles" (widely used in the pharmacogenomics and HLA domains) could be munged in a way that prevents accurate interpretation. For example, consider this text:
+<p><code>GenomicStudy.description</code> is a <a href="datatypes.html#markdown">markdown</a> datatype, and implementers should carefully consider how to appropriately handle this attribute. The characters in markdown formatting can conflict with those commonly used in descriptions of genomic data. In particular, descriptions that contain mentions of "star alleles" (widely used in the pharmacogenomics and HLA domains) could be munged in a way that prevents accurate interpretation. For example, consider this text:
 </p>
 <pre>This genomic study analyzes CYP2D6*1 and CYP2D6*2</pre>
 
@@ -54,16 +54,16 @@
 
 <a name="use-cases"></a>
 <h3>Use Cases</h3>
-<p>GenomicStudy.subject and GenomicStudy.analysis.subject can reference a lot of resource types besides Patient such as Group, BiologicallyDerivedProduct, or Substance. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
+<p><code>GenomicStudy.subject</code> and <code>GenomicStudy.analysis.focus</code> can reference many resource types besides <code>Patient</code> such as <code>Group</code>, <code>BiologicallyDerivedProduct</code>, or <code>Substance</code>. In addition, it can provide more details about involved genomic files as inputs or outputs. These various options allow the GenomicStudy resource to cover many use cases besides direct patient care, e.g., research studies that involve multiple patients or environmental samples. Through the following subsections, some of these use cases are described.
 </p>
 <h4>Trio studies</h4>
-<p>Trio studies involve a proband and two more subjects such as proband’s mother and father for a de novo mutation detection study. GenomicStudy would list the proband as GenomicStudy.subject because it is the main subject of the study. While each of the study participants, i.e., proband, mother, and father, may have their own individual GenomicStudy.analysis.
+<p>Trio studies involve a proband and two more subjects such as proband’s mother and father for a de novo mutation detection study. <code>GenomicStudy</code> would list the proband as <code>GenomicStudy.subject</code> because it is the main subject of the study. While each of the study participants, i.e., proband, mother, and father, may have their own <code>GenomicStudy.analysis</code> entry. When an analysis was performed on an entity other than the <code>GenomicStudy.subject</code>, the <code>GenomicStudy.analysis.focus</code> attribute would reference that entity.
 </p>
-<p>GenomicStudy.analysis.input lists various files that may be used for each individual analysis, their types, and their generation context. GenomicStudy.analysis.input.file elements may link these files to DocumentReference resources that provides more details about each individual files. One of the main details is the subject of a file. If a file is linked to a specific patient, the corresponding DocumentReference.subject may reference this Patient Resource. If the file contains data from multiple persons, the corresponding DocumentReference.subject may reference a Group resource that lists these persons, and their relationship to each other if available.
+<p><code>GenomicStudy.analysis.input</code> lists various files that may be used for each individual analysis, their types, and their generation context. <code>GenomicStudy.analysis.input.file</code> elements may link these files to <code>DocumentReference</code> resources that provides more details about each individual files. One of the main details is the subject of a file. If a file is linked to a specific patient, the corresponding <code>DocumentReference.subject</code> may reference this <code>Patient</code> Resource. If the file contains data from multiple persons, the corresponding <code>DocumentReference.subject</code> may reference a <code>Group</code> resource that lists these persons, and their relationship to each other if available.
 </p>
 
 <h4>Somatic mutation detection studies</h4>
-<p>Somatic mutation studies may use multiple samples from the patient to support mutation detection, e.g., tumor-normal sample pair. GenomicStudy.analysis may describe conducted analyses per each sample, where GenomicStudy.analysis.specimen elements may provide more details about each individual element. In addition GenomicStudy.analysis.input can list relevant input files, where the DocumentReference provide by GenomicStudy.analysis.input.file can list the specific specimen this input file is related to using DocumentReference.subject as a Specimen resource instance.
+<p>Somatic mutation studies may use multiple samples from the patient to support mutation detection, e.g., tumor-normal sample pair. <code>GenomicStudy.analysis</code> may describe conducted analyses per each sample, where <code>GenomicStudy.analysis.specimen</code> elements may provide more details about each individual element. In addition <code>GenomicStudy.analysis.input</code> can list relevant input files, where the <code>DocumentReference</code> referenced by <code>GenomicStudy.analysis.input.file</code> can list the specific specimen this input file is related to using <code>DocumentReference.subject</code> as a <code>Specimen</code> resource instance.
 </p>
 
 <a name="ehr-usecase"></a>
