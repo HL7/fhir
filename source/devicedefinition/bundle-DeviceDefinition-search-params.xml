@@ -114,7 +114,7 @@
           <valueString value="DeviceDefinition.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-devicedefinition-name"/>
-        <description value="A server defined search that may match any of the string fields in DeviceDefinition.name or DeviceDefinition.type."/>
+        <description value="A server defined search that may match any of the string fields in DeviceDefinition.name or DeviceDefinition.classification.type - the latter to search for 'generic' devices."/>
         <code value="device-name"/>
         <type value="string"/>
         <expression value="DeviceDefinition.deviceName.name | DeviceDefinition.classification.type.coding.display | DeviceDefinition.classification.type.text"/>
@@ -141,10 +141,10 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
-        <id value="DeviceDefinition-model"/>
+        <id value="DeviceDefinition-manufacturer-model"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
@@ -153,13 +153,21 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDefinition-model"/>
         <description value="The model of the device"/>
-        <code value="model"/>
+        <code value="manufacturer-model"/>
         <type value="string"/>
-        <expression value="DeviceDefinition.modelNumber"/>
+        <expression value="DeviceDefinition"/>
         <processingMode value="normal"/>
+        <component>
+          <definition value="manufacturer"/>
+          <expression value="manufacturer"/>
+        </component>
+        <component>
+          <definition value="modelNumber"/>
+          <expression value="modelNumber"/>
+        </component>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
