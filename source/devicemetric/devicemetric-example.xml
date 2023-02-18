@@ -19,12 +19,9 @@
 			<display value="MDC_DIM_PERCENT"/>
 		</coding>
 	</unit>
-	<source>
+	<device>
 		<reference value="Device/dev1"/>
-	</source>
-	<parent>
-		<reference value="Device/dc102"/>
-	</parent>
+	</device>
 	<operationalStatus value="on"/>
 	<color value="blue"/>
 	<category value="measurement"/>
