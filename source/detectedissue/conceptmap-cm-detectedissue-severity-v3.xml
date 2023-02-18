@@ -1,41 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir">
-  <id value="cm-detectedissue-severity-v3"/> 
-  <url value="http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3"/> 
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="cm-detectedissue-severity-v3"/>
+  <url value="http://hl7.org/fhir/ConceptMap/cm-detectedissue-severity-v3"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.14.10"/>
   </identifier>
-  <version value="5.0.0"/> 
-  <name value="v3.DetectedIssueSeverity"/> 
-  <title value="v3 map for DetectedIssueSeverity"/> 
-  <status value="draft"/> 
-  <date value="2020-12-24T21:13:15+00:00"/> 
-  <publisher value="HL7 (FHIR Project)"/> 
-  <sourceCanonical value="http://hl7.org/fhir/ValueSet/detectedissue-severity"/> 
-  <targetCanonical value="http://terminology.hl7.org/ValueSet/v3-SeverityObservation"/> 
-  <group> 
-    <source value="http://hl7.org/fhir/detectedissue-severity"/> 
-    <target value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/> 
-    <element> 
-      <code value="high"/> 
-      <target> 
-        <code value="H"/> 
-        <relationship value="equivalent"/> 
-      </target> 
-    </element> 
-    <element> 
-      <code value="moderate"/> 
-      <target> 
-        <code value="M"/> 
-        <relationship value="equivalent"/> 
-      </target> 
-    </element> 
-    <element> 
-      <code value="low"/> 
-      <target> 
-        <code value="L"/> 
-        <relationship value="equivalent"/> 
-      </target> 
-    </element> 
-  </group> 
+  <version value="5.0.0"/>
+  <name value="V3DetectedIssueSeverity"/>
+  <title value="v3 map for DetectedIssueSeverity"/>
+  <status value="draft"/>
+  <date value="2020-12-24T21:13:15+00:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <description value="v3 map for DetectedIssueSeverity"/>
+  <group>
+    <source value="http://hl7.org/fhir/detectedissue-severity"/>
+    <target value="http://terminology.hl7.org/CodeSystem/v3-ObservationValue"/>
+    <element>
+      <code value="high"/>
+      <target>
+        <code value="H"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="moderate"/>
+      <target>
+        <code value="M"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="low"/>
+      <target>
+        <code value="L"/>
+        <relationship value="equivalent"/>
+      </target>
+    </element>
+  </group>
 </ConceptMap>

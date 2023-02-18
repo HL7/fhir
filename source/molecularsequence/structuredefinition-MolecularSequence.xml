@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MolecularSequence"/>
-  <title value="MolecularSequence"/>
+  <title value="Molecular Sequence"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Genomics)"/>
@@ -129,6 +129,18 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="MolecularSequence.focus">
+      <path value="MolecularSequence.focus"/>
+      <short value="What the molecular sequence is about, when it is not about the subject of record"/>
+      <definition value="The actual focus of a molecular sequence when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, child, or sibling. For example, in trio testing, the subject would be the child (proband) and the focus would be the parent."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
     </element>

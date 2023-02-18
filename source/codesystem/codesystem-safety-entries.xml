@@ -45,7 +45,7 @@
  </concept>
  <concept>
   <code value="error-checks"/>
-  <definition value="When other systems [return http errors from the RESTful API](http.html#summary) and [Operations](operations.html) (perhaps using [Operation Outcome](operationoutcome.html)), my system checks for them and handles them appropriately "/>
+  <definition value="When other systems [return http errors from the RESTful API](http.html#summary) and [Operations](operations.html) (perhaps using [Operation Outcome](operationoutcome.html)), my system checks for them and handles them appropriately"/>
  </concept>
  <concept>
   <code value="link-merge"/>
@@ -149,7 +149,7 @@
  </concept>
  <concept>
   <code value="use-labels"/>
-  <definition value="My system considers [security labels](security-labels.html) on the affected resources when making access control decisions "/>
+  <definition value="My system considers [security labels](security-labels.html) on the affected resources when making access control decisions"/>
  </concept>
  <concept>
   <code value="render-narratives"/>

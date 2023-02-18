@@ -393,7 +393,7 @@
     <element id="Invoice.lineItem">
       <path value="Invoice.lineItem"/>
       <short value="Line items of this Invoice"/>
-      <definition value="Each line item represents one charge for goods and services rendered. Details such as date, code and amount are found in the referenced ChargeItem resource."/>
+      <definition value="Each line item represents one charge for goods and services rendered. Details such.ofType(date), code and amount are found in the referenced ChargeItem resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>

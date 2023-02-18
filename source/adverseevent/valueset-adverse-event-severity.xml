@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AdverseEventSeverity"/>
+  <title value="Adverse Event Severity"/>
   <experimental value="true"/>
   <description value="AdverseEventSeverity"/>
   <compose>

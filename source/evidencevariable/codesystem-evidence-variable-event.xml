@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="evidence-variable-event"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="EvidenceVariableEvent"/>
-  <title value="EvidenceVariableEvent"/>
+  <title value="Evidence Variable Event"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -42,6 +44,21 @@
     <code value="study-start"/>
     <display value="Study Start"/>
     <definition value="The time of enrollment for the study participant"/>
+  </concept>
+  <concept>
+    <code value="treatment-start"/>
+    <display value="Start of Treatment"/>
+    <definition value="The time of initiation of the treatment"/>
+  </concept>
+  <concept>
+    <code value="condition-detection"/>
+    <display value="Detection of Condition"/>
+    <definition value="The time of first detection of the condition"/>
+  </concept>
+  <concept>
+    <code value="condition-treatment"/>
+    <display value="Treatment of Condition"/>
+    <definition value="The time of first treatment of the condition"/>
   </concept>
   <concept>
     <code value="hospital-admission"/>

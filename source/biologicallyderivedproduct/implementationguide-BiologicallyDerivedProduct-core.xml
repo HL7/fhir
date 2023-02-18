@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="BiologicallyDerivedProduct-core"/>
   <version value="0.1"/>
-  <name value="BiologicallyDerivedProduct HL7 Extensions"/>
-  <title value="BiologicallyDerivedProduct HL7 Extensions"/>
+  <name value="BiologicallyDerivedProductHL7Extensions"/>
+  <title value="Biologically Derived Product  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2015-02-21T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>
   <description value="Defines common extensions used with or related to the BiologicallyDerivedProduct resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/biologicallyderivedproduct-processing"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/biologicallyderivedproduct-manipulation"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/biologicallyderivedproduct-collection-procedure"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

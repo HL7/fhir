@@ -16,7 +16,7 @@
         <description value="A use context assigned to the concept map"/>
         <code value="context"/>
         <type value="token"/>
-        <expression value="(ConceptMap.useContext.value as CodeableConcept)"/>
+        <expression value="(ConceptMap.useContext.value.ofType(CodeableConcept))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -35,7 +35,7 @@
         <description value="A quantity- or range-valued use context assigned to the concept map"/>
         <code value="context-quantity"/>
         <type value="quantity"/>
-        <expression value="(ConceptMap.useContext.value as Quantity) | (ConceptMap.useContext.value as Range)"/>
+        <expression value="(ConceptMap.useContext.value.ofType(Quantity)) | (ConceptMap.useContext.value.ofType(Range))"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

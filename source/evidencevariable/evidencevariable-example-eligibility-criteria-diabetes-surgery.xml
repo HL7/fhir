@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-eligibility-criteria-diabetes-surgery"/>
   <identifier>
     <type>
@@ -11,6 +12,7 @@
       <display value="Computable Publishing LLC"/>
     </assigner>
   </identifier>
+  <name value="StudyEligibilityCriteriaEligibilityCriteriaForBariatricSurgeryRandomizedTrialDiabetesSurgeryStudy"/>
   <title value="StudyEligibilityCriteria: Eligibility Criteria for Bariatric Surgery Randomized Trial (Diabetes Surgery Study)"/>
   <status value="active"/>
   <publisher value="Computable Publishing LLC"/>
@@ -20,7 +22,7 @@
       <value value="support@computablepublishing.com"/>
     </telecom>
   </contact>
-  <description value="Inclusion Criteria:    Age 30 to 67 years at eligibility visit.    Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.    Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.    Willingness to accept random assignment to either treatment group.    Expect to live or work within approximately one hour&apos;s traveling time from the study clinic for the duration of the two-year trial.    Willingness to comply with the follow-up protocol and successful completion of the run-in.    Written informed consent. ///// Exclusion Criteria:   Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.    Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.    Cardiac stress test indicating that surgery or IMM would not be safe.    Pulmonary embolus or thrombophlebitis in the past six months.    Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.    Significant anemia (hemoglobin 1.0 g or more below normal range) or history of coagulopathy.    Serum creatinine ≥ 1.5 mg/dl.    HbA1c &gt; 14.0%."/>
+  <description value="Inclusion Criteria:    Age 30 to 67 years at eligibility visit.    Diagnosed with T2DM at least 6 months prior to enrollment, under the active care of a doctor for at least the six months prior to enrollment, and HbA1c ≥ 8.0%.    Body Mass Index (BMI) ≥ 30.0 kg/m2 and ≤ 39.9 kg/m2 at eligibility visit.    Willingness to accept random assignment to either treatment group.    Expect to live or work within approximately one hour's traveling time from the study clinic for the duration of the two-year trial.    Willingness to comply with the follow-up protocol and successful completion of the run-in.    Written informed consent. ///// Exclusion Criteria:   Cardiovascular event (myocardial infarction, acute coronary syndrome, coronary artery angioplasty or bypass, stroke) in the past six months.    Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease.    Cardiac stress test indicating that surgery or IMM would not be safe.    Pulmonary embolus or thrombophlebitis in the past six months.    Cancer of any kind (except basal cell skin cancer or cancer in situ) unless documented to be disease-free for five years.    Significant anemia (hemoglobin 1.0 g or more below normal range) or history of coagulopathy.    Serum creatinine ≥ 1.5 mg/dl.    HbA1c &gt; 14.0%."/>
   <copyright value="https://creativecommons.org/licenses/by-nc-sa/4.0/"/>
   <effectivePeriod>
     <start value="2008-02"/>
@@ -122,7 +124,7 @@
         <timeFromEvent>
           <description value="for at least the six months prior to enrollment"/>
           <note>
-            <text value="presence throughout the range is equivalent to &apos;for at least the six months prior to&apos;"/>
+            <text value="presence throughout the range is equivalent to 'for at least the six months prior to'"/>
           </note>
           <eventCodeableConcept>
             <coding>
@@ -211,7 +213,7 @@
     <exclude value="false"/>
   </characteristic>
   <characteristic>
-    <description value="Expect to live or work within approximately one hour&apos;s traveling time from the study clinic for the duration of the two-year trial."/>
+    <description value="Expect to live or work within approximately one hour's traveling time from the study clinic for the duration of the two-year trial."/>
     <exclude value="false"/>
   </characteristic>
   <characteristic>
@@ -335,7 +337,7 @@
     <timeFromEvent>
       <description value="in the past six months"/>
       <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <eventId value="EligibilityVisit"/>
       <range>
@@ -357,7 +359,7 @@
   <characteristic>
     <description value="Current evidence of congestive heart failure, angina pectoris, or symptomatic peripheral vascular disease."/>
     <note>
-      <text value="This may be possible to encode as presence of Disease(disorder) without &apos;in remission&apos;"/>
+      <text value="This may be possible to encode as presence of Disease(disorder) without 'in remission'"/>
     </note>
     <exclude value="true"/>
   </characteristic>
@@ -392,7 +394,7 @@
     <timeFromEvent>
       <description value="in the past six months"/>
       <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <eventId value="EligibilityVisit"/>
       <range>
@@ -437,8 +439,8 @@
     </definitionByTypeAndValue>
     <timeFromEvent>
       <description value="in the past six months"/>
-	  <note>
-        <text value="occurrence within the range is equivalent to &apos;in the past six months&apos;"/>
+      <note>
+        <text value="occurrence within the range is equivalent to 'in the past six months'"/>
       </note>
       <eventId value="EligibilityVisit"/>
       <range>
@@ -550,7 +552,7 @@
         <timeFromEvent>
           <description value="for five years"/>
           <note>
-            <text value="presence throughout the range is equivalent to &apos;for five years"/>
+            <text value="presence throughout the range is equivalent to 'for five years"/>
           </note>
           <eventId value="EligibilityVisit"/>
           <range>

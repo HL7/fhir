@@ -2,47 +2,10 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="CapabilityStatement-core"/>
-  <name value="Common CapabilityStatement extensions"/>
-  <title value="Common CapabilityStatement extensions"/>
+  <name value="CommonCapabilityStatementExtensions"/>
+  <title value="Common  Capability Statement extensions"/>
   <status value="draft"/>
   <date value="2014-04-12T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - [WG Name] WG"/>
   <description value="Common extensions for use with the CapabilityStatement resource"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-expectation"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-prohibited"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-supported-system"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-search-parameter-combination"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-search-parameter-use"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-websocket"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/capabilitystatement-declared-profile"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

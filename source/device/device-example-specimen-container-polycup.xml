@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd"><!--text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>example</p>
+    </div>
+  </text--><id value="device-example-specimen-container-polycup"/>
+	<identifier>
+    <system value="http://acme.com/containers/id"/>
+    <value value="345675"/>
+  </identifier>
+  <displayName value="100mL Sterile Polycup" />
+  <property>
+    <type>
+    <coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="container-type"/>
+				<display value="Container Type"/>
+			</coding>
+		</type>
+    <valueCodeableConcept>
+    <coding>
+				<system value="http://acme.com/containers/types"/>
+				<code value="100mlcup"/>
+				<display value="100 mL Sterile Polycup"/>
+			</coding>
+    </valueCodeableConcept>
+  </property>
+  <property>
+    <type>
+			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="amount"/>
+				<display value="Amount"/>
+			</coding>
+		</type>
+    <valueCodeableConcept>
+    <coding>
+				<system value="http://acme.com/containers/capacities"/>
+				<code value="100mL"/>
+				<display value="100 mL"/>
+			</coding>
+    </valueCodeableConcept>
+  </property>
+</Device>

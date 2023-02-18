@@ -1,116 +1,121 @@
-<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Evidence xmlns="http://hl7.org/fhir">
   <id value="example-stroke-alteplase-fatalICH"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        "Risk of fatal ICH with alteplase for stroke" is a univariate risk estimate.
+        &quot;Risk of fatal ICH with alteplase for stroke&quot; is a univariate risk estimate.
       </p>
-	</div>
+	
+    </div>
   </text>
   <url value="http://hl7.org/fhir/Evidence/example-stroke-alteplase-fatalICH"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.10.1"/>
   </identifier>
+  <name value="RiskOfFatalICHWithAlteplaseForStroke"/>
   <title value="Risk of fatal ICH with alteplase for stroke"/>
   <status value="draft"/>
   <relatedArtifact>
-  	<type value="citation"/>
-  	<label value="Emberson 2014"/>
-  	<display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
-  	<citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists' Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
+    <type value="citation"/>
+    <label value="Emberson 2014"/>
+    <display value="Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials."/>
+    <citation value="Emberson J, Lees KR, Lyden P, Blackwell L, Albers G, Bluhmki E, et al;Stroke Thrombolysis Trialists' Collaborative Group. Effect of treatment delay, age, and stroke severity on the effects of intravenous thrombolysis with alteplase for acute ischaemic stroke: a meta-analysis of individual patient data from randomised trials. Lancet 2014 Nov 29;384(9958):1929-35 PMID 25106063"/>
     <document>
-  	  <url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
+      <url value="https://doi.org/10.1016/S0140-6736(14)60584-5"/>
     </document>
   </relatedArtifact>
   <description value="2.7% incidence of fatal intracranial hemorrhage within 7 days with alteplase in patients with acute ischemic stroke"/>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="population"/>
-				<display value="population"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="Group/AcuteIschemicStroke"/>
-			<type value="Group"/>
-			<display value="adults with acute ischemic stroke"/>
-		</observed>
-		<intended>
-			<reference value="Group/AcuteIschemicStroke"/>
-			<type value="Group"/>
-			<display value="adults with acute ischemic stroke"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="population"/>
+        <display value="population"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="Group/AcuteIschemicStroke"/>
+      <type value="Group"/>
+      <display value="adults with acute ischemic stroke"/>
+    </observed>
+    <intended>
+      <reference value="Group/AcuteIschemicStroke"/>
+      <type value="Group"/>
+      <display value="adults with acute ischemic stroke"/>
+    </intended>
   </variableDefinition>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="population"/>
-				<display value="population"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="Group/Emberson-2014-IPD-MA-Alteplase-Cohort"/>
-			<type value="Group"/>
-			<display value="Emberson 2014 IPD-MA Alteplase Cohort"/>
-		</observed>
-		<intended>
-			<reference value="Group/AcuteIschemicStrokeTreatedWithAlteplase"/>
-			<type value="Group"/>
-			<display value="adults with acute ischemic stroke treated with alteplase"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="population"/>
+        <display value="population"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="Group/Emberson-2014-IPD-MA-Alteplase-Cohort"/>
+      <type value="Group"/>
+      <display value="Emberson 2014 IPD-MA Alteplase Cohort"/>
+    </observed>
+    <intended>
+      <reference value="Group/AcuteIschemicStrokeTreatedWithAlteplase"/>
+      <type value="Group"/>
+      <display value="adults with acute ischemic stroke treated with alteplase"/>
+    </intended>
   </variableDefinition>
   <variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="measuredVariable"/>
-				<display value="measured variable"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
-			<type value="EvidenceVariable"/>
-			<display value="fatal ICH"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
-			<type value="EvidenceVariable"/>
-			<display value="fatal ICH"/>
-		</intended>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="measuredVariable"/>
+        <display value="measured variable"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+      <type value="EvidenceVariable"/>
+      <display value="fatal ICH"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-fatal-ICH-in-7-days"/>
+      <type value="EvidenceVariable"/>
+      <display value="fatal ICH"/>
+    </intended>
   </variableDefinition>
-	<synthesisType>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
-			<code value="IPD-MA"/>
-			<display value="individual patient data meta-analysis"/>
-		</coding>
-	</synthesisType>
-	<studyDesign>
-		<coding>
-			<system value="http://hl7.org/fhir/research-study-classifiers"/>
-			<code value="SEVCO:01003"/>
-			<display value="randomized assignment"/>
-		</coding>
-	</studyDesign>
-	<statistic>
-		<statisticType>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-				<code value="C44256"/>
-				<display value="Proportion"/>
-			</coding>
-		</statisticType>
-		<quantity>
-			<value value="0.026835741669"/>
-		</quantity>
-		<numberOfEvents value="91"/>
-		<sampleSize>
-			<numberOfStudies value="9"/>
-			<numberOfParticipants value="3391"/>
-		</sampleSize>
-	</statistic>
+  <synthesisType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/synthesis-type"/>
+      <code value="IPD-MA"/>
+      <display value="individual patient data meta-analysis"/>
+    </coding>
+  </synthesisType>
+  <studyDesign>
+    <coding>
+      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+      <code value="SEVCO:01003"/>
+      <display value="randomized assignment"/>
+    </coding>
+  </studyDesign>
+  <statistic>
+    <statisticType>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
+        <code value="C44256"/>
+        <display value="Proportion"/>
+      </coding>
+    </statisticType>
+    <quantity>
+      <value value="0.026835741669"/>
+    </quantity>
+    <numberOfEvents value="91"/>
+    <sampleSize>
+      <numberOfStudies value="9"/>
+      <numberOfParticipants value="3391"/>
+    </sampleSize>
+  </statistic>
 </Evidence>

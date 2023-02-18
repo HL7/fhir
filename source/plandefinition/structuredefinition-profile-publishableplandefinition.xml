@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="publishableplandefinition"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">to do</div>
+  </text>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="cds"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/publishableplandefinition"/>
+  <version value="5.0.0"/>
+  <name value="PublishablePlanDefinition"/>
+  <title value="Publishable PlanDefinition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
+  <publisher value="HL7"/>
+  <description value="Supports declaration of the PlanDefinition metadata required by HL7 and other organizations that share and publish plandefinitions with a focus on the aspects of that metadata that are important for post-publication activities including distribution, inclusion in repositories, consumption, and implementation."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="PlanDefinition"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/shareableplandefinition"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="PlanDefinition">
+      <path value="PlanDefinition"/>
+      <min value="1"/>
+      <max value="1"/>
+    </element>
+    <element id="PlanDefinition.identifier">
+      <path value="PlanDefinition.identifier"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.date">
+      <path value="PlanDefinition.date"/>
+      <min value="1"/>
+      <max value="1"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.contact">
+      <path value="PlanDefinition.contact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.useContext">
+      <path value="PlanDefinition.useContext"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.jurisdiction">
+      <path value="PlanDefinition.jurisdiction"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.purpose">
+      <path value="PlanDefinition.purpose"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.usage">
+      <path value="PlanDefinition.usage"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.copyright">
+      <path value="PlanDefinition.copyright"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.copyrightLabel">
+      <path value="PlanDefinition.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.approvalDate">
+      <path value="PlanDefinition.approvalDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.lastReviewDate">
+      <path value="PlanDefinition.lastReviewDate"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.effectivePeriod">
+      <path value="PlanDefinition.effectivePeriod"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.topic">
+      <path value="PlanDefinition.topic"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.author">
+      <path value="PlanDefinition.author"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.editor">
+      <path value="PlanDefinition.editor"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.reviewer">
+      <path value="PlanDefinition.reviewer"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.endorser">
+      <path value="PlanDefinition.endorser"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.relatedArtifact">
+      <path value="PlanDefinition.relatedArtifact"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.relatedArtifact.display">
+      <path value="PlanDefinition.relatedArtifact.display"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.relatedArtifact.document">
+      <path value="PlanDefinition.relatedArtifact.document"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.relatedArtifact.resource">
+      <path value="PlanDefinition.relatedArtifact.resource"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="PlanDefinition.relatedArtifact.resourceReference">
+      <path value="PlanDefinition.relatedArtifact.resourceReference"/>
+      <mustSupport value="true"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/fhir-single.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Questionnaire xmlns="http://hl7.org/fhir">
   <id value="3141"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <pre>
             1.Comorbidity?
               1.1 Cardial Comorbidity
@@ -15,6 +18,7 @@
                 pT category?
               ...
           </pre>
+    
     </div>
   </text>
   <url value="http://hl7.org/fhir/Questionnaire/3141"/>
@@ -22,10 +26,12 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.20.2"/>
   </identifier>
+  <name value="CancerQualityForumQuestionnaire2012"/>
   <title value="Cancer Quality Forum Questionnaire 2012"/>
   <status value="draft"/>
   <subjectType value="Patient"/>
   <date value="2012-01"/>
+  <description value="Cancer Quality Forum Questionnaire 2012"/>
   <item>
     <linkId value="1"/>
     <code>

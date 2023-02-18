@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceMetric"/>
-  <title value="DeviceMetric"/>
+  <title value="Device Metric"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Health Care Devices)"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/healthcaredevices/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Describes a measurement, calculation or setting capability of a medical device."/>
+  <description value="Describes a measurement, calculation or setting capability of a device.  The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable. "/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -67,8 +67,8 @@
     <element id="DeviceMetric">
       <path value="DeviceMetric"/>
       <short value="Measurement, calculation or setting capability of a medical device"/>
-      <definition value="Describes a measurement, calculation or setting capability of a medical device."/>
-      <comment value="For the initial scope, this DeviceMetric resource is only applicable to describe a single metric node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard."/>
+      <definition value="Describes a measurement, calculation or setting capability of a device."/>
+      <comment value="The DeviceMetric resource is derived from the ISO/IEEE 11073-10201 Domain Information Model standard, but is more widely applicable."/>
       <min value="0"/>
       <max value="*"/>
       <mapping>
@@ -142,23 +142,12 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/devicemetric-type"/>
       </binding>
     </element>
-    <element id="DeviceMetric.source">
-      <path value="DeviceMetric.source"/>
-      <short value="Describes the link to the source Device"/>
-      <definition value="Describes the link to the  Device that this DeviceMetric belongs to and that contains administrative device information such as manufacturer, serial number, etc."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </type>
-      <isSummary value="true"/>
-    </element>
-    <element id="DeviceMetric.parent">
-      <path value="DeviceMetric.parent"/>
-      <short value="Describes the link to the parent Device"/>
-      <definition value="Describes the link to the  Device that this DeviceMetric belongs to and that provide information about the location of this DeviceMetric in the containment structure of the parent Device. An example would be a Device that represents a Channel. This reference can be used by a client application to distinguish DeviceMetrics that have the same type, but should be interpreted based on their containment location."/>
-      <min value="0"/>
+    <element id="DeviceMetric.device">
+      <path value="DeviceMetric.device"/>
+      <short value="Describes the link to the Device"/>
+      <definition value="Describes the link to the Device.  This is also known as a channel device."/>
+      <comment value="Note if this is not the top level device - also know as the source device, it may be referenced in the device.parent element."/>
+      <min value="1"/>
       <max value="1"/>
       <type>
         <code value="Reference"/>

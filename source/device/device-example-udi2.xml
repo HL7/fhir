@@ -21,7 +21,7 @@
 	<!--	013032 = this is the manufacturing date expressed in YYYDDD (three digit year, three digit day number)-->
 	<expirationDate value="2014-02-01"/>
 	<!--014032 = this is the expiration date expressed in YYYDDD (three digit year, three digit day number)-->
-	<association>
+	<!-- <association>
 	  <status> 
 	     <coding>
 		   <system value="http://terminology.hl7.org/CodeSystem/device-associationstatus" />
@@ -31,5 +31,5 @@
       <humanSubject>
 		<reference value="Patient/example"/>
 	  </humanSubject>
-	</association>
+	</association> -->
 </Device>

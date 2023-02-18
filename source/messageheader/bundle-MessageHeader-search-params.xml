@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Bundle xmlns="http://hl7.org/fhir">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/Bundle.xsd">
   <id value="MessageHeader-search-params"/>
   <entry>
     <resource>
@@ -81,25 +81,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MessageHeader-enterer"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.enterer"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-enterer"/>
-        <description value="The source of the data entry"/>
-        <code value="enterer"/>
-        <type value="reference"/>
-        <expression value="MessageHeader.enterer"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="MessageHeader-event"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -111,7 +92,7 @@
         <description value="Code for the event this message represents or link to event definition"/>
         <code value="event"/>
         <type value="token"/>
-        <expression value="MessageHeader.event.as(Coding) | MessageHeader.event.as(canonical)"/>
+        <expression value="MessageHeader.event.ofType(Coding) | MessageHeader.event.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

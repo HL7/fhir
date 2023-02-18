@@ -55,7 +55,7 @@ that must be met as part of their use and definition.
 <a name="extension"></a>
 <h2>Extension Element</h2>
 <p>
-Every resource or datatype element may includes one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
+Every resource or datatype element may include one or more "extension" child elements. The extension is either <i>simple</i> or <i>complex</i>. Simple extensions have only a value and no nested extensions. Complex extensions contain one or more nested extensions and no value. An extension can not have both a value and nested extensions.
 </p>
 <p>The Extension definition is shown below:</p>
 <%dt Extension 1%>
@@ -72,22 +72,24 @@ Notes:
  <li>There are a few resources (ones that do not specialize <a href="domainresource.html">DomainResource</a>) where extensions are not allowed on the root element, but extensions can appear elsewhere through the resource</li>
  <li>If the meaning of an extension is clearly defined by a code, that code SHOULD be declared on the extension's root code 
   (<code>StructureDefinition.differential.element[0].code</code>)</li>
- <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
+ <li>In FHIR XML and JSON, the <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type: <a name="list"> </a>
   <ul class="dense">
    [%extension-type-list%]
   </ul>
+     In FHIR RDF (Turtle), the property name for a <i>value[x]</i> element such as <code>valueCode</code> is <code>fhir:value</code>, and the type (<code>Code</code>) is indicated in an additional assertion, such as <code>... a fhir:Code</code>.  See <a href="rdf.html#propertyNames">FHIR RDF Property Names</a> for
+     further explanation.
  </li>
 </ul>
 <div class="example">
 <p>
-Here is an example of an extension in XML (<a href="extension-iso21090-en-use.html">see definition</a>):
+Here is an example of an extension in XML (<a href="[%extensions-location%]StructureDefinition-iso21090-en-use.html">see definition</a>):
 </p>
 <pre class="xml" fragment="HumanName">
 &lt;name&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use&quot; &gt;
-    &lt;valueCode value=&quot;I&quot; /&gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use" &gt;
+    &lt;valueCode value="I" /&gt;
   &lt;/extension&gt;
-  &lt;text value=&quot;Chief Red Cloud&quot;/&gt;
+  &lt;text value="Chief Red Cloud"/&gt;
 &lt;/name&gt;
 </pre>
 <p>
@@ -109,6 +111,24 @@ In JSON, extensions are represented similarly:
   "text": "Chief Red Cloud"
 }
 </pre>
+<p>
+In RDF (Turtle), the same extension looks like this:
+</p>
+<pre class="rdf" fragment="HumanName">
+...
+  fhir:extension (
+    [
+      fhir:url [
+        fhir:v "http://hl7.org/fhir/StructureDefinition/iso-21090-EN-use"^^xsd:anyURI
+      ] ;
+      fhir:value [
+        a fhir:code ;
+        fhir:v "I"
+      ]
+    ]
+  ) ;
+  fhir:text [ fhir:v "Chief Red Cloud" ] ;
+</pre>  
 </div>
 <p>
 Making the types explicit in the representation means that all systems can read and write
@@ -133,22 +153,22 @@ to the extension definition.
 <div class="example">
 
 <p>
-As an example, consider extending a patient with information about citizenship (<a href="extension-patient-citizenship.html">see definition</a>) containing 2 fields: code and period. In XML:
+As an example, consider extending a patient with information about citizenship (<a href="[%extensions-location%]StructureDefinition-patient-citizenship.html">see definition</a>) containing 2 fields: code and period. In XML:
 </p>
 <pre class="xml" fragment="Patient">
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/patient-citizenship" &gt;
+    &lt;extension url="code" &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
-          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
-          &lt;code value=&quot;DE&quot; /&gt;
+          &lt;system value="urn:iso:std:iso:3166" /&gt;
+          &lt;code value="DE" /&gt;
         &lt;/coding&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;period&quot; &gt;
+    &lt;extension url="period" &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;2009-03-14&quot; /&gt;
+        &lt;start value="2009-03-14" /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
   &lt;/extension&gt;
@@ -200,22 +220,22 @@ The URL of the extension is thus different. In XML:
 <pre class="xml" fragment="Patient">
 
 &lt;Patient&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/patient-citizenship&quot; &gt;
-    &lt;extension url=&quot;code&quot; &gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/patient-citizenship" &gt;
+    &lt;extension url="code" &gt;
       &lt;valueCodeableConcept&gt;
         &lt;coding&gt;
-          &lt;system value=&quot;urn:iso:std:iso:3166&quot; /&gt;
-          &lt;code value=&quot;DE&quot; /&gt;
+          &lt;system value="urn:iso:std:iso:3166" /&gt;
+          &lt;code value="DE" /&gt;
         &lt;/coding&gt;
       &lt;/valueCodeableConcept&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;period&quot; &gt;
+    &lt;extension url="period" &gt;
       &lt;valuePeriod&gt;
-        &lt;start value=&quot;2009-03-14&quot; /&gt;
+        &lt;start value="2009-03-14" /&gt;
       &lt;/valuePeriod&gt;
     &lt;/extension&gt;
-    &lt;extension url=&quot;http://acme.org/fhir/StructureDefinition/passport-number&quot; &gt;
-        &lt;valueString value=&quot;12345ABC&quot; /&gt;
+    &lt;extension url="http://acme.org/fhir/StructureDefinition/passport-number" &gt;
+        &lt;valueString value="12345ABC" /&gt;
       &lt;/extension&gt;
     &lt;!-- other data for patient --&gt;
   &lt;/extension&gt;
@@ -268,23 +288,23 @@ by a fake organization, and not appropriate for re-use by implementers.
 
 <p>
 Primitive datatypes can carry extensions. The extensions may appear in place of the value of the primitive datatype. 
-The <a href="xml.html#primitive">XML</a> and <a href="json.html#primitive">JSON</a> pages describe how this 
-looks like in those respective formats.
+The <a href="xml.html#primitive">XML</a>, <a href="json.html#primitive">JSON</a> and <a href="rdf.html#primitiveExtension">RDF</a> pages describe how this 
+looks in those respective formats.
 Implementers should be aware that a mandatory primitive datatype (i.e. mininum cardinality=1) may
 be present with extensions but no value. Type use case are extensions such as 
-<a href="extension-data-absent-reason.html">DataAbsentReason</a>,
-<a href="extension-iso21090-nullflavor.html">nullFlavor</a> and
-<a href="extension-cqf-expression.html">expression</a>.
+<a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a>,
+<a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullFlavor</a> and
+<a href="[%extensions-location%]StructureDefinition-cqf-expression.html">expression</a>.
 </p>
 <p>
-However, the use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+However, the use of an extension such as <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a> 
 cannot be used to bypass a required binding requirements.
 </p>
 <p>
 Note that this restriction also applies to extensible bindings on Coding and CodeableConcept datatypes.
-The use of an extension such as <a href="extension-data-absent-reason.html">DataAbsentReason</a> 
+The use of an extension such as <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a> 
 cannot be used to bypass a required or extensible binding requirements.  For example, if a value set includes
-the concept of "unknown", then a <a href="extension-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
+the concept of "unknown", then a <a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">DataAbsentReason</a>  of "unknown" 
 cannot be sent without sending a Coding with the "unknown" concept.  
 (In which case also sending an 'unknown' code would be inappropriate and unnecessary.)
 </p>
@@ -325,6 +345,12 @@ and extensions SHALL NOT have modifier extensions internally (except for the reu
 allowed to appear in extensions, listed above).
 </p>
 <p>
+Whether extensions are considered modifiers or not is based on the <a href="elementdefinition-definitions.html#ElementDefinition.isModifier">isModifier</a> flag
+on the root element in the extension definition (the element definition with path "Extension" in the generated snapshot).
+If this is true, then the extension SHALL only be contained in the <code>modifierExtension</code> element.
+If this is false, then the extension SHALL only be contained in the <code>extension</code> element.
+</p>
+<p>
 Note that complex extensions are allowed to have elements in the complex extension that are marked 
 <a href="conformance-rules.html#isModifier">Is-Modifier = true</a>, which means that these elements modify the extension value itself.
 Internal extensions like this marked "Is-Modifier" are still represented using the <code>extension</code> element, not <code>modifierExtension</code>
@@ -332,7 +358,7 @@ because the impact of the modifier element is expected to be known by applicatio
 </p>
 <p>
 Modifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).
-Is-modifier elements not defined as part of an extension's definition cannot be conveyed.
+Is-modifier elements not defined as part of an extension's definition cannot be conveyed (e.g. an extension cannot have a modifier extension in it).
 </p>
 <p>
 When defining a new modifier extension, it is designated as being a 'modifier' rather than a 
@@ -341,7 +367,7 @@ When defining a new modifier extension, it is designated as being a 'modifier' r
 modifiers can appear in modifierExtension. A regular extension cannot be 'constrained' to be a modifier.
 </p>
 <p>
-In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has same content as the
+In XML, these modifier elements are represented using an element named <code>modifierExtension</code>, which has the same content as the
 <code>extension</code> element documented above:
 </p>
 <div class="example">
@@ -354,7 +380,7 @@ where this happens as they are an important part of the workflow.  Hence, applic
 </p>
 <pre class="xml">
 &lt;MedicationRequest&gt;
-  &lt;modifierExtension url=&quot;http://example.org/fhir/StructureDefinition/anti-prescription&quot;&gt;
+  &lt;modifierExtension url="http://example.org/fhir/StructureDefinition/anti-prescription"&gt;
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ... other content ... --&gt;
@@ -375,6 +401,8 @@ Or in JSON:
   .. other content ...
 }
 </pre>
+<p>See the <a href="rdf.html#modifierExtension">RDF page</a> for an example in RDF (Turtle).
+</p>
 </div>
 
 <p>
@@ -465,16 +493,16 @@ offer the user the choice to see the original narrative.
 Here is the prescription example from above with narrative:
 </p>
 <pre class="xml">
-&lt;MedicationRequest xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;MedicationRequest xmlns="http://hl7.org/fhir"&gt;
   &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+    &lt;status value="generated"/&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
       &lt;p&gt;&lt;b&gt;Note: This prescription is an instruction NOT to take a medication&lt;/b&gt;&lt;/p&gt;
       &lt;!-- snip actual narrative --&gt;
     &lt;/div&gt;
   &lt;/text&gt;
   &lt;!-- ...data... --&gt;
-  &lt;modifierExtension url=&quot;http://example.org/fhir/StructureDefinition/anti-prescription&quot;&gt;
+  &lt;modifierExtension url="http://example.org/fhir/StructureDefinition/anti-prescription"&gt;
     &lt;valueBoolean value="true"/&gt;
   &lt;/modifierExtension&gt;
   &lt;!-- ...data... --&gt;
@@ -508,8 +536,8 @@ primitive value is not present:
 </p>
 <pre class="xml">
 &lt;uri&gt;
-  &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/data-absent-reason&quot;&gt;
-    &lt;valueCode value=&quot;unknown&quot;/&gt;
+  &lt;extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason"&gt;
+    &lt;valueCode value="unknown"/&gt;
   &lt;/extension&gt;
 &lt;/uri&gt;
 </pre>

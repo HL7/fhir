@@ -37,7 +37,7 @@
   </contact>
   <description value="Codes that convey the type of party role that is provided."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/>
+<!--  <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-role"/> -->
   <content value="complete"/>
   <concept>
     <code value="sponsor"/>

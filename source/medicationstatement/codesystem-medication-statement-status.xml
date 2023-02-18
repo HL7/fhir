@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="medication-statement-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="phx"/>
+  </extension>
+  <url value="http://hl7.org/fhir/CodeSystem/medication-statement-status"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.1980"/>
+  </identifier>
+  <name value="MedicationStatementStatusCodes"/>
+  <title value="MedicationStatement Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="MedicationStatement Status Codes"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/medication-statement-status"/>
+  <content value="complete"/>
+  <concept>
+    <code value="recorded"/>
+    <display value="Recorded"/>
+    <definition value="The action of recording the medication statement is finished."/>
+  </concept>
+  <concept>
+    <code value="entered-in-error"/>
+    <display value="Entered in Error"/>
+    <definition value="Some of the actions that are implied by the medication usage may have occurred.  For example, the patient may have taken some of the medication.  Clinical decision support systems should take this status into account."/>
+  </concept>
+  <concept>
+    <code value="draft"/>
+    <display value="Draft"/>
+    <definition value="The medication usage is draft or preliminary."/>
+  </concept>
+</CodeSystem>

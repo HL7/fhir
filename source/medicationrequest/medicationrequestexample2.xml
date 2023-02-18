@@ -42,11 +42,11 @@
       </coding>
     </concept>
 	</reason>
-	<dose>
+
 		<dosageInstruction>
 			<sequence value="1"/>
 			<text value="Take one tablet daily as directed"/>
 		</dosageInstruction>
-	</dose>
+
 
 </MedicationRequest>

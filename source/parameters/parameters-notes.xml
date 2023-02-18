@@ -27,7 +27,7 @@ The following rules apply to name and identifier uniqueness within a Parameters 
     non-unique resources, or different versions of the same resource, may be ambiguous in cases where
 	the parameter names do not clearly differentiate the purpose of the parameter. For 
 	additional commentary, see the notes about <a href="bundle.html#bundle-unique">about resource uniqueness in Bundles</a>,
-	though be aware that those rules do not apply to the <code>Parameters</code> resource unless the <a href="extension-parameters-fullurl.html">fullUrl extension</a> is present on parameters with resources.</td>
+	though be aware that those rules do not apply to the <code>Parameters</code> resource unless the <a href="[%extensions-location%]StructureDefinition-parameters-fullUrl.html">fullUrl extension</a> is present on parameters with resources.</td>
  </tr>
  <tr>
   <td>Internal References</td>

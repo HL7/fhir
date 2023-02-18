@@ -135,7 +135,7 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>https://profiles.ihe.net/ITI/HIE-Whitepaper</url>
+		<url>http://ihe.net/xds</url>
     <link>http://wiki.ihe.net/index.php/Category:DocShare</link>
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>
@@ -480,6 +480,15 @@
 		<title>ISBT 128 Codes</title>
 		<id>ISBT128Code</id>
 		<sort>51</sort>
+		<publish>true</publish>
+	</space>
+	<space>
+		<url>https://www.iso.org/obp/ui/#iso:std:iso:11238</url>
+		<link>https://www.iso.org/obp/ui/#iso:std:iso:11238</link>
+		<columnName>IDMP Mapping (Substance)</columnName>
+		<title>IDMP Mapping (Substance)</title>
+		<id>idmp-substance</id>
+		<sort>52</sort>
 		<publish>true</publish>
 	</space>
 </mappingSpaces>

@@ -101,6 +101,127 @@
       </subject>     
     </Goal>
   </contained>
+  <contained>
+    <Appointment>
+      <id value="activity-1"/>
+      <status value="booked" />
+	  <description value="The first antenatal encounter. This is where a detailed physical examination is performed and the pregnanacy discussed with the mother-to-be."/> 
+	  <start value="2013-02-14T10:38:00+00:00"/>
+      <end value="2013-02-14T10:50:00+00:00"/>
+	  <requestedPeriod>
+        <start value="2013-02-14"/>
+        <end value="2013-02-28"/>
+      </requestedPeriod>
+	  <subject>
+        <reference value="Patient/1"/>
+		<display value="Eve Everywoman"/>
+      </subject>
+	  
+	  <participant> 
+		<actor> 
+		  <reference value="Patient/1"/>
+		  <display value="Eve Everywoman"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+	  <participant> 
+		<type> 
+		  <coding> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/> 
+			<code value="ATND"/> 
+		  </coding> 
+		</type> 
+		<actor> 
+		  <reference value="#pr1"/>
+		  <display value="Mavis Midwife"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+  
+    </Appointment>
+  </contained>
+  
+  <contained>
+    <Appointment>
+      <id value="activity-2"/>
+      <status value="proposed" />
+	  <description value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"/> 
+	  <requestedPeriod>
+        <start value="2013-03-01"/>
+        <end value="2013-03-14"/>
+      </requestedPeriod>
+	  <subject>
+        <reference value="Patient/1"/>
+		<display value="Eve Everywoman"/>
+      </subject>
+	  
+	  <participant> 
+		<actor> 
+		  <reference value="Patient/1"/>
+		  <display value="Eve Everywoman"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+	  <participant> 
+		<type> 
+		  <coding> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/> 
+			<code value="ATND"/> 
+		  </coding> 
+		</type> 
+		<actor> 
+		  <reference value="#pr1"/>
+          <display value="Mavis Midwife"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+  
+    </Appointment>
+  </contained>
+  
+  <contained>
+    <Appointment>
+      <id value="activity-3"/>
+      <status value="proposed" />
+	  <description value="The delivery."/> 
+	  <requestedPeriod>
+        <start value="2013-09-01"/>
+        <end value="2013-09-14"/>
+      </requestedPeriod>
+	  <subject>
+        <reference value="Patient/1"/>
+		<display value="Eve Everywoman"/>
+      </subject>
+	  
+	  <participant> 
+		<actor> 
+		  <reference value="Patient/1"/>
+		  <display value="Eve Everywoman"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+	  <participant> 
+		<type> 
+		  <coding> 
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/> 
+			<code value="ATND"/> 
+		  </coding> 
+		</type> 
+		<actor> 
+		  <reference value="#pr1"/>
+          <display value="Mavis Midwife"/>
+		</actor> 
+		<required value="true"/> 
+		<status value="accepted"/> 
+	  </participant> 
+  
+    </Appointment>
+  </contained>
   <!-- an extension to record the LMP, which is required at the plan level... -->
   <extension url="http://example.org/fhir/StructureDefinition/careplan#lmp">
     <valueDateTime value="2013-01-01"/>
@@ -139,70 +260,14 @@
     <extension url="http://example.org/fhir/StructureDefinition/careplan#andetails">
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
-    <plannedActivityDetail>
-     <kind value="Appointment"/>
-      <code>
-        <coding>
-          <system value="http://example.org/mySystem"/>
-          <code value="1an"/>
-        </coding>
-        <text value="First Antenatal encounter"/>
-      </code>
-      <status value="scheduled"/>
-      <doNotPerform value="false"/>
-      <scheduledTiming>
-        <!-- The encounter should occur between 14 feb and 28 feb -->
-        <repeat>
-          <boundsPeriod>
-            <start value="2013-02-14"/>
-            <end value="2013-02-28"/>
-          </boundsPeriod>
-        </repeat>
-      </scheduledTiming>
-      <performer>
-        <reference value="#pr1"/>
-        <display value="Mavis Midwife"/>
-      </performer>
-      <description value="The first antenatal encounter. This is where a detailed physical examination is performed.             and the pregnanacy discussed with the mother-to-be."/>
-      <!-- This is a booked encounter with Mavis Midwife for the first antenatal checkup. 
-        This entry is only made after the appointment (a planned encounter) has been made.
-        Commented out for now because Encounter hasn't been defined yet
-        <actionTaken>
-            <url value="xxx"/>
-            <display value="Appointment with Mavis midwife @12.30pm, 112 St albans Ave"/>
-        </actionTaken>-->
-    </plannedActivityDetail>
+    <plannedActivityReference>
+		<reference value="#activity-1"/>
+	</plannedActivityReference>
   </activity>
   <activity>
-    <plannedActivityDetail>
-      <!-- This will be the second antenatal encounter - 3 months after LMP. It is not yet scheduled. -->
-      <kind value="Appointment"/>
-      <code>
-        <!-- The code is just for an antenatal encounter. There are many of these, the first is special... -->
-        <coding>
-          <system value="http://example.org/mySystem"/>
-          <code value="an"/>
-        </coding>
-        <text value="Follow-up Antenatal encounter"/>
-      </code>
-      <status value="not-started"/>
-      <doNotPerform value="false"/>
-      <scheduledTiming>
-        <!-- The encounter should occur between 1 march and 14 march -->
-        <repeat>
-          <boundsPeriod>
-            <start value="2013-03-01"/>
-            <end value="2013-03-14"/>
-          </boundsPeriod>
-        </repeat>
-      </scheduledTiming>
-      <performer>
-        <!-- The performer is known, but the actual appointment is not yet made, hence there is no action element... -->
-        <reference value="#pr1"/>
-        <display value="Mavis Midwife"/>
-      </performer>
-      <description value="The second antenatal encounter. Discuss any issues that arose from the first antenatal encounter"/>
-    </plannedActivityDetail>
+    <plannedActivityReference>
+		<reference value="#activity-2"/>
+	</plannedActivityReference>
   </activity>
   <!-- 
         There would be a number of other encounters to be scheduled here... 
@@ -211,39 +276,8 @@
     
     -->
   <activity>
-    <plannedActivityDetail>
-      <!-- This will be the delivery. It is not yet scheduled. -->
-      <kind value="Appointment"/>
-      <code>
-        <coding>
-          <system value="http://example.org/mySystem"/>
-          <code value="del"/>
-        </coding>
-        <text value="Delivery"/>
-      </code>
-      <status value="not-started"/>
-      <doNotPerform value="false"/>
-      <scheduledTiming>
-        <!-- The delivery should occur between 1 September and 14 September -->
-        <repeat>
-          <boundsPeriod>
-            <start value="2013-09-01"/>
-            <end value="2013-09-14"/>
-          </boundsPeriod>
-        </repeat>
-      </scheduledTiming>
-      <!-- Where the delivery is to occur... 
-          Commented out for now because location resource isn't defined
-        <location>
-            <url value="loc100"/>
-            <display value="St Albans delivery suite"/>
-        </location>-->
-      <performer>
-        <!-- The intention is that Maris will be performing the delivery... -->
-        <reference value="#pr1"/>
-        <display value="Mavis Midwife"/>
-      </performer>
-      <description value="The delivery."/>
-    </plannedActivityDetail>
+    <plannedActivityReference>
+		<reference value="#activity-3"/>
+	</plannedActivityReference>
   </activity>
 </CarePlan>

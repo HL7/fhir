@@ -3,8 +3,8 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="ArtifactAssessment-core"/>
   <version value="0.01"/>
-  <name value="ArtifactAssessment Profiles and Extensions"/>
-  <title value="ArtifactAssessment Profiles and Extensions"/>
+  <name value="ArtifactAssessmentProfilesAndExtensions"/>
+  <title value="Artifact Assessment  Profiles and  Extensions"/>
   <status value="draft"/>
   <date value="2022-01-11T10:00:00+10:00"/>
   <publisher value="HL7"/>

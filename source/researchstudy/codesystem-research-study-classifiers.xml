@@ -251,6 +251,10 @@
 			<code value="study-chair"/>
 			<display value="Study Chair"/>
 		</concept>
+		<concept>
+			<code value="irb"/>
+			<display value="Institutional Review Board"/>
+		</concept>
 	</concept>
 	<concept>
 		<code value="research-study-status"/>
@@ -890,11 +894,13 @@
 				</use>
 				<value value="Non-interventional research"/>
 			</designation>
+			<!--
 			<designation>
 				<use>
 					<display value="Alternative term"/>
 				</use>
 			</designation>
+			-->
 		</concept>
 		<concept>
 			<code value="SEVCO:01010"/>

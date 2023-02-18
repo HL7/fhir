@@ -79,5 +79,20 @@
       </type>
       <mustSupport value="true"/>
     </element>
+    <element id="Parameters.parameter.value[x]">
+      <path value="Parameters.parameter.value[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Parameters.parameter.value[x].extension:dataAbsentReason">
+      <path value="Parameters.parameter.value[x].extension"/>
+      <sliceName value="dataAbsentReason"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason"/>
+      </type>
+      <mustSupport value="true"/>
+    </element>
   </differential>
 </StructureDefinition>

@@ -172,9 +172,9 @@ patient. For this reason, systems SHOULD:
 <p>
 Following these practices will make for consistent identification of concepts and real-world entities across 
 healthcare eco-systems. For example, medication orders can be represented as 
-<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationusage.html">MedicationUsage</a>. 
+<a href="medicationrequest.html">MedicationRequest</a> and <a href="medicationstatement.html">MedicationStatement</a>. 
 Some systems - primary sources - will provide the medication order as a MedicationRequest 
-while other secondary systems will provide them as a MedicationUsage. Any system processing 
+while other secondary systems will provide them as a MedicationStatement. Any system processing 
 the resources will need to reconcile these, and the presence of consistent identifiers will 
 considerably simplify the reconciliation process.
 </p>
@@ -240,7 +240,7 @@ Any valid language code as defined in <a href="http://tools.ietf.org/html/bcp47"
 language code system is complex, with parts for Primary Language, Script, Region, and other variants
 and extensions. In order to simplify implementations, the language element has a <a href="terminologies.html#preferred">preferred binding</a>
 to an enumerated list of common language codes encountered in applications, with translations, and also 
-a <a href="extension-elementdefinition-maxvalueset.html">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
+a <a href="terminologies.html#binding">maximum binding</a> of any language; this allows most applications to simply use a look up table, without
 preventing the use of any language code. 
 </p>
 
@@ -284,7 +284,7 @@ in particular implementations or contexts of use.
    <td>If populated, this value changes each time the content of the resource 
     changes. It can be used by a system or a human to judge the currency of the resource content. 
     Note that <a href="http.html#update">version aware updates</a> do not depend on this element. Note that 
-    <a href="extension-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
+    <a href="[%extensions-location%]StructureDefinition-timezone.html">a timezone code</a> extension may be present on Meta.lastUpdated.
     If present, the timezone code applies to the server copy of the resource, and not necessarily to other 
     time related elements within the resource even if the timezone offsets are the same.
 		<br/>On the RESTful API: On receiving a <a href="http.html#create">create</a>, <a href="http.html#update">update</a>, <a href="http.html#patch">patch</a>, or other FHIR operation that impacts meta, the server SHALL update this item to the current time on the server</td>

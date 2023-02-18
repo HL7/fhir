@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="permission-rule-combining"/>
   <meta>
     <lastUpdated value="2022-08-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="PermissionRuleCombining"/>
-  <title value="PermissionRuleCombining"/>
+  <title value="Permission Rule Combining"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-08-05T10:01:24+11:00"/>
@@ -41,31 +43,31 @@
   <concept>
     <code value="deny-overrides"/>
     <display value="Deny-overrides"/>
-	<definition value="The deny overrides combining algorithm is intended for those cases where a deny decision should have priority over a permit decision."/>
+    <definition value="The deny overrides combining algorithm is intended for those cases where a deny decision should have priority over a permit decision."/>
   </concept>
   <concept>
     <code value="permit-overrides"/>
     <display value="Permit-overrides"/>
-	<definition value="The permit overrides combining algorithm is intended for those cases where a permit decision should have priority over a deny decision."/>
+    <definition value="The permit overrides combining algorithm is intended for those cases where a permit decision should have priority over a deny decision."/>
   </concept>
   <concept>
     <code value="ordered-deny-overrides"/>
     <display value="Ordered-deny-overrides"/>
-	<definition value="The behavior of this algorithm is identical to that of the “Deny-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission."/>
+    <definition value="The behavior of this algorithm is identical to that of the “Deny-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission."/>
   </concept>
   <concept>
     <code value="ordered-permit-overrides"/>
     <display value="Ordered-permit-overrides"/>
-	<definition value="The behavior of this algorithm is identical to that of the “Permit-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission."/>
+    <definition value="The behavior of this algorithm is identical to that of the “Permit-overrides” rule-combining algorithm with one exception.  The order in which the collection of rules is evaluated SHALL match the order as listed in the permission."/>
   </concept>
   <concept>
     <code value="deny-unless-permit"/>
     <display value="Deny-unless-permit"/>
-	<definition value="The “Deny-unless-permit” combining algorithm is intended for those cases where a permit decision should have priority over a deny decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result."/>
+    <definition value="The “Deny-unless-permit” combining algorithm is intended for those cases where a permit decision should have priority over a deny decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result."/>
   </concept>
   <concept>
     <code value="permit-unless-deny"/>
     <display value="Permit-unless-deny"/>
-	<definition value="The “Permit-unless-deny” combining algorithm is intended for those cases where a deny decision should have priority over a permit decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result. This algorithm has the following behavior."/>
+    <definition value="The “Permit-unless-deny” combining algorithm is intended for those cases where a deny decision should have priority over a permit decision, and an “Indeterminate” or “NotApplicable” must never be the result. It is particularly useful at the top level in a policy structure to ensure that a PDP will always return a definite “Permit” or “Deny” result. This algorithm has the following behavior."/>
   </concept>
 </CodeSystem>

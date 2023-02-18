@@ -77,7 +77,7 @@ signatures.html
         <page title="FHIRPath" filename="fhirpath.html"/>
         <page title="NPM Packages" filename="packages.html"/>
         <page title="Version History" filename="history.html"/>
-        <page title="Differences from Release 3" filename="diff.html"/>
+        <page title="Differences from Release 4" filename="diff.html"/>
         <page title="Release 4/5 Transforms" filename="r4maps.html"/>
         <page title="Logical models" filename="logical.html"/>
 
@@ -137,7 +137,6 @@ signatures.html
       <page type="resource" resource="List"/>
       <page type="resource" resource="Composition"/>
       <page type="resource" resource="DocumentReference"/>
-      <page type="resource" resource="DocumentManifest"/>
 <!--      <page type="resource" resource="ItemInstance"/> -->
 
       <page type="resource" resource="OperationOutcome"/>
@@ -238,6 +237,7 @@ signatures.html
       <page title="Downloads" filename="downloads.html"/>
 
       <page title="Testing FHIR" filename="testing.html"/>
+      <page type="resource" resource="TestPlan" />
       <page type="resource" resource="TestScript" />
       <page type="resource" resource="TestReport" />
       <page title="Validating Resources" filename="validation.html"/>
@@ -280,10 +280,12 @@ signatures.html
 
       <page type="resource" resource="EpisodeOfCare"/>
       <page type="resource" resource="Encounter"/>
+      <page type="resource" resource="EncounterHistory"/>
       <page type="resource" resource="Account"/>
       <page type="resource" resource="Flag"/>
 
       <page type="resource" resource="Device"/>
+      <page type="resource" resource="DeviceAssociation"/>
       <page type="resource" resource="DeviceDefinition"/>
       <page type="resource" resource="DeviceMetric"/>
       <page type="resource" resource="Substance"/>
@@ -293,8 +295,9 @@ signatures.html
       <page type="resource" resource="CommunicationRequest"/>
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
+      <page type="resource" resource="BiologicallyDerivedProduct"/>
   	  <page type="resource" resource="ChargeItem"/>
-	  <page type="resource" resource="ChargeItemDefinition"/>
+  	  <page type="resource" resource="ChargeItemDefinition"/>
   	  <page type="resource" resource="ObservationDefinition"/>
   	  <page type="resource" resource="SpecimenDefinition"/>
       <page title="Product Pattern" filename="product.html"/>
@@ -335,7 +338,6 @@ signatures.html
       <page type="resource" resource="SpecimenDefinition"/>
       <page type="resource" resource="BodyStructure"/>
       <page title="Genomics Implementer Guidance" filename="genomics.html"/>
-      <page type="resource" resource="BiologicallyDerivedProduct"/>
     </page>
 
 
@@ -343,7 +345,7 @@ signatures.html
       <page type="resource" resource="MedicationRequest"/>
       <page type="resource" resource="MedicationAdministration"/>
       <page type="resource" resource="MedicationDispense"/>
-      <page type="resource" resource="MedicationUsage"/>
+      <page type="resource" resource="MedicationStatement"/>
       <page type="resource" resource="Medication"/>
       <page type="resource" resource="MedicationKnowledge"/>
       <page type="resource" resource="Immunization"/>
@@ -392,6 +394,8 @@ signatures.html
       <page type="resource" resource="SupplyRequest"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="InventoryReport"/>
+      <page type="resource" resource="InventoryItem"/>
+      <page type="resource" resource="BiologicallyDerivedProductDispense"/>
       <page type="resource" resource="ExampleScenario"/>
     </page>
 

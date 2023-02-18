@@ -187,6 +187,7 @@
         <code value="relatedaccount"/>
         <type value="reference"/>
         <expression value="Account.relatedAccount.account"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

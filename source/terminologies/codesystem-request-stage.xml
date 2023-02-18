@@ -8,6 +8,7 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.4.1804"/>
   </identifier>
   <name value="RequestStage"/>
+  <title value="Request Stage"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="The kind of request."/>

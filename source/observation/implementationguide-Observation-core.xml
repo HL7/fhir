@@ -6,7 +6,7 @@
     <valueInteger value="5"/>
   </extension>
   <version value="0.01"/>
-  <name value="observation-bp"/>
+  <name value="Observationbp"/>
   <title value="Observation Blood Pressure Profile"/>
   <status value="draft"/>
   <date value="2018-08-11T08:17:46.560"/>
@@ -16,66 +16,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/devicemetricobservation"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-bodyPosition"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-delta"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-focusCode"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-timeOffset"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-sequelTo"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-replaces"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-gatewayDevice"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-specimenCode"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-deviceCode"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-precondition"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-reagent"/>
-      </reference>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/observation-secondaryFinding"/>
       </reference>
     </resource>
   </definition>

@@ -280,6 +280,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
            <li>"cibuild" - a 'special' release label that refers to a non-stable release that changes with each commit.</li>
          </ul>
        </li>
+       <li>Each label is sortable relative to other versions with the same label base (e.g., snapshot &lt; snapshot2), but there is no sortable relationship defined between different labels</li>
      </ul>
    </td>
   </tr>
@@ -718,15 +719,15 @@ Implementers should be aware of the following issues when using these extensions
   If the data element being referenced has <code>targetProfile</code> elements that refer to resources, 
   only those targetProfile resources that have URLs that exist in the referencing version can exist.  
   If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
-  computable way of determining what names would be allowed); the  <a href="extension-alternate-reference.html">alternate-reference</a>
-  and <a href="extension-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
+  computable way of determining what names would be allowed); the  <a href="[%extensions-location%]StructureDefinition-alternate-reference.html">alternate-reference</a>
+  and <a href="[%extensions-location%]StructureDefinition-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
   from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
   the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
  </li>
  <li>
   When converting a data type to a target version where that type does not exist (i.e it's either a simple type that
   will use the mapping table below, or a complex type that will be converted to a set of child extensions), if the 
-  converted element is a choice, there will be a <a href="extension-_datatype.html">child extension _datatype</a>   
+  converted element is a choice, there will be a <a href="[%extensions-location%]StructureDefinition-datatype.html">child extension _datatype</a>   
   added to the element that will contain the name of the complex type in the source version.
  </li>
  <li>

@@ -102,7 +102,7 @@
         </component>
         <component>
           <definition value="value-date"/>
-          <expression value="value.ofType(DateTime) | value.ofType(Period)"/>
+          <expression value="value.ofType(dateTime) | value.ofType(Period)"/>
         </component>
       </SearchParameter>
     </resource>
@@ -436,7 +436,7 @@
         <description value="Obtained date/time. If the obtained element is a period, a date that falls in the period"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Observation.effective.as(dateTime) | Observation.effective.as(Period) | Observation.effective.as(Timing) | Observation.effective.as(instant)"/>
+        <expression value="Observation.effective.ofType(dateTime) | Observation.effective.ofType(Period) | Observation.effective.ofType(Timing) | Observation.effective.ofType(instant)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -761,6 +761,76 @@
         <code value="value-string"/>
         <type value="string"/>
         <expression value="Observation.value.ofType(string) | Observation.value.ofType(CodeableConcept).text"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+   </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-reference"/>
+        <description value="Reference contained in valueReference."/>
+        <code value="value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-canonical"/>
+        <description value="URL contained in valueCanonical."/>
+        <code value="value-canonical"/>
+        <type value="uri"/>
+        <expression value="Observation.value.ofType(canonical)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-reference"/>
+        <description value="Reference contained in valueReference."/>
+        <code value="component-value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.component.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
+        <description value="URL contained in valueCanonical."/>
+        <code value="component-value-canonical"/>
+        <type value="uri"/>
+        <expression value="Observation.component.value.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

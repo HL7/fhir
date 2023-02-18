@@ -15,7 +15,8 @@
 		</tr>
 		<tr>
 			<td>
-				The schedule is created/published <br/>(Role: Scheduler)
+				The schedule is created/published <br/>
+				(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = FREE</td>
@@ -29,7 +30,8 @@
 		</tr>
 		<tr>
 			<td>
-				An appointment request is created after locating an available slot <br />(Role: Requester)
+				An appointment request is created after locating an available slot <br />
+				(Role: Requester)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -46,7 +48,8 @@
 		</tr>
 		<tr>
 			<td>
-				The appointment request is processed and the slot status updated<br />(Role: Scheduler)
+				The appointment request is processed and the slot status updated<br />
+				(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = BUSY-TENTATIVE</td>
@@ -60,7 +63,8 @@
 		</tr>
 		<tr>
 			<td>
-				The appointment is accepted as described – by all participants <br />(Role: Participant(s))
+				The appointment is accepted as described - by all participants <br />
+				(Role: Participant(s))
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -74,7 +78,8 @@
 		</tr>
 		<tr>
 			<td>
-				The appointment is confirmed as accepted by all participants<br />(Role: Scheduler)
+				The appointment is confirmed as accepted by all participants<br />
+				(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = BUSY</td>
@@ -91,7 +96,8 @@
 		<tr>
 			<td>
 				<i>
-					Optional: Preparation for the appointment begins – could be preparing a room for the appointment, etc.<br />(Role: Participants/Admin)
+					Optional: Preparation for the appointment begins - could be preparing a room for the appointment, etc.<br />
+					(Role: Participants/Admin)
 				</i>
 			</td>
 			<!-- Activity Description -->
@@ -109,7 +115,8 @@
 		</tr>
 		<tr>
 			<td>
-				The patient arrives for the appointment, often sitting in a waiting room<br />(Role: Admin)
+				The patient arrives for the appointment, often sitting in a waiting room<br />
+				(Role: Admin)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -119,14 +126,16 @@
 			<td></td>
 			<!-- Appointment Response -->
 			<td>
-				status = arrived<br />
-				location.status = present
+				status = in-progress<br />
+				subjectStatus = arrived<br />
+				location.status = active
 			</td>
 			<!-- Encounter -->
 		</tr>
 		<tr>
 			<td>
-				The practitioner and the patient meet and the provision of the service begins<br />(Role: Scheduler/Participant(s)/Admin)
+				The practitioner and the patient meet and the provision of the service begins/occurs<br />
+				(Role: Participant(s)/Admin)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -135,12 +144,16 @@
 			<!-- Appointment -->
 			<td></td>
 			<!-- Appointment Response -->
-			<td>status = in-progress</td>
+			<td>
+				status = in-progress<br />
+				subjectStatus = receiving-care
+			</td>
 			<!-- Encounter -->
 		</tr>
 		<tr>
 			<td>
-				The encounter concludes<br />(Role: Scheduler/Participant(s)/Admin)
+				The care provision concludes and the patient leaves, some administrative and/or cleanup actions take place<br />
+				(Role: Practitioner(s)/Admin/Billing - excluding patient)
 			</td>
 			<!-- Activity Description -->
 			<td></td>
@@ -149,7 +162,28 @@
 			<!-- Appointment -->
 			<td></td>
 			<!-- Appointment Response -->
-			<td>status = finished</td>
+			<td>
+				status = discharged<br />
+				subjectStatus = departed
+			</td>
+			<!-- Encounter -->
+		</tr>
+		<tr>
+			<td>
+				The encounter concludes, all paperwork has been completed and the encounter can be closed off<br />
+				(Role: Practitioner(s)/Admin)
+			</td>
+			<!-- Activity Description -->
+			<td></td>
+			<!-- Slot -->
+			<td></td>
+			<!-- Appointment -->
+			<td></td>
+			<!-- Appointment Response -->
+			<td>
+				status = finished<br />
+				location.status = completed
+			</td>
 			<!-- Encounter -->
 		</tr>
 	</table>
@@ -216,13 +250,15 @@
 		</tr>
 		<tr>
 			<td>
-				The appointment is cancelled<br/>(Role: Scheduler)
+				The appointment is cancelled (typically the cancellationDate will be populated, along with a cancellation reason if applicable, this is often selected by the scheduler as could be used by the billing engine)<br/>(Role: Scheduler)
 			</td>
 			<!-- Activity Description -->
 			<td>freeBusyType = FREE</td>
 			<!-- Slot -->
 			<td>
 				status = cancelled<br/>
+				cancellationDate = (date of cancellation)<br/>
+				cancellationReason = (cancellation reason if applicable)<br/>
 				participant.status = declined
 			</td>
 			<!-- Appointment -->

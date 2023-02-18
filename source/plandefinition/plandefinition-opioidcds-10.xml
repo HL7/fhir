@@ -1,333 +1,329 @@
-<?xml version="1.0" encoding="UTF-8"?><PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
-	<id value="opioidcds-10"/>
-	<url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-10"/>
-	<identifier>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="opioidcds-10"/>
+  <url value="http://hl7.org/fhir/ig/opioid-cds/PlanDefinition/opioidcds-10"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.11.3"/>
   </identifier>
   <identifier>
-		<use value="official"/>
-		<value value="cdc-opioid-guidance"/>
-	</identifier>
-	<version value="0.1.0"/>
-	<name value="cdc-opioid-10"/>
-	<title value="CDC Opioid Prescribing Guideline Recommendation #10"/>
-	<type>
-		<coding>
-			<system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
-			<code value="eca-rule"/>
-			<display value="ECA Rule"/>
-		</coding>
-	</type>
-	<status value="draft"/>
-	<date value="2017-04-23"/>
-	<publisher value="Centers for Disease Control and Prevention (CDC)"/>
-	<description value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="182888003"/>
-				<display value="Medication requested (situation)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-			<display value="Clinical Focus"/>
-		</code>
-		<valueCodeableConcept>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="82423001"/>
-				<display value="Chronic pain (finding)"/>
-			</coding>
-		</valueCodeableConcept>
-	</useContext>
-	<jurisdiction>
-		<coding>
-			<system value="urn:iso:std:iso:3166"/>
-			<code value="US"/>
-			<display value="United States of America"/>
-		</coding>
-	</jurisdiction>
-	<purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
-	<usage value="Providers should be aware if patients are taking other prescription drugs or illicit drugs that might increase their risk of an overdose."/>
-	<copyright value="© CDC 2016+."/>
-	<topic>
-		<text value="Opioid Prescribing"/>
-	</topic>
-    <author>
-        <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
-    </author>
-    <author>
-        <name value="Bryn Rhodes"/>
-    </author>
-    <author>
-        <name value="Floyd Eisenberg, MD, MPH"/>
-    </author>
-    <author>
-        <name value="Robert McClure, MD, MPH"/>
-    </author>
-	<relatedArtifact>
-		<type value="documentation"/>
-		<display value="CDC guideline for prescribing opioids for chronic pain"/>
+    <use value="official"/>
+    <value value="cdc-opioid-guidance"/>
+  </identifier>
+  <version value="0.1.0"/>
+  <name value="Cdcopioid10"/>
+  <title value="CDC Opioid Prescribing Guideline Recommendation #10"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+      <code value="eca-rule"/>
+      <display value="ECA Rule"/>
+    </coding>
+  </type>
+  <status value="draft"/>
+  <date value="2017-04-23"/>
+  <publisher value="Centers for Disease Control and Prevention (CDC)"/>
+  <description value="When prescribing opioids for chronic pain, providers should use urine drug testing before starting opioid therapy and consider urine drug testing at least annually to assess for prescribed medications as well as other controlled prescription drugs and illicit drugs."/>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="182888003"/>
+        <display value="Medication requested (situation)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+      <display value="Clinical Focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="82423001"/>
+        <display value="Chronic pain (finding)"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America"/>
+    </coding>
+  </jurisdiction>
+  <purpose value="CDC’s Guideline for Prescribing Opioids for Chronic Pain is intended to improve communication between providers and patients about the risks and benefits of opioid therapy for chronic pain, improve the safety and effectiveness of pain treatment, and reduce the risks associated with long-term opioid therapy, including opioid use disorder and overdose. The Guideline is not intended for patients who are in active cancer treatment, palliative care, or end-of-life care."/>
+  <usage value="Providers should be aware if patients are taking other prescription drugs or illicit drugs that might increase their risk of an overdose."/>
+  <copyright value="© CDC 2016+."/>
+  <topic>
+    <text value="Opioid Prescribing"/>
+  </topic>
+  <author>
+    <name value="Kensaku Kawamoto, MD, PhD, MHS"/>
+  </author>
+  <author>
+    <name value="Bryn Rhodes"/>
+  </author>
+  <author>
+    <name value="Floyd Eisenberg, MD, MPH"/>
+  </author>
+  <author>
+    <name value="Robert McClure, MD, MPH"/>
+  </author>
+  <relatedArtifact>
+    <type value="documentation"/>
+    <display value="CDC guideline for prescribing opioids for chronic pain"/>
     <document>
-	    <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
+      <url value="https://guidelines.gov/summaries/summary/50153/cdc-guideline-for-prescribing-opioids-for-chronic-pain---united-states-2016#420"/>
     </document>
-	</relatedArtifact>
-	<library value="http://example.org/fhir/Library/opioidcds-recommendation-10"/>
-	<action>
-		<title value="Annual Urine Screening Check"/>
-		<description value="Patient has not had a urine screening in the past 12 months"/>
-		<documentation>
-			<type value="documentation"/>
-			<document>
-				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-							<code value="strong"/>
-							<display value="Strong"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-							<code value="low"/>
-							<display value="Low quality"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-			</document>
-		</documentation>
-		<trigger>
-			<type value="named-event"/>
-			<name value="medication-prescribe"/>
-		</trigger>
-		<condition>
-			<kind value="applicability"/>
-            <expression>
-  		  	  <description value="Patient has not had a urine screening in the past 12 months"/>
-	  		  <language value="text/cql"/>
-              <expression value="No Screenings in Past Year"/>
-            </expression>
-		</condition>
-		<dynamicValue>
-			<path value="activity.extension"/>
-            <expression>
-              <language value="text/cql"/>
-              <expression value="Get Indicator"/>
-            </expression>
-		</dynamicValue>
-		<action>
-			<description value="Will perform urine screening"/>
-			<!-- Open Order Set, where available -->
-		</action>
-		<action>
-			<description value="Not for chronic pain management. Snooze 3 months"/>
-		</action>
-	</action>
-	<action>
-		<title value="Positive Urine Screening Check"/>
-		<description value="Patient has a urine screening testing positive for either unprescribed opioids or illicit drugs in the past 12 months"/>
-		<documentation>
-			<type value="documentation"/>
-			<document>
-				<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-							<code value="strong"/>
-							<display value="Strong"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-							<code value="low"/>
-							<display value="Low quality"/>
-						</coding>
-					</valueCodeableConcept>
-				</extension>
-			</document>
-		</documentation>
-		<condition>
-			<kind value="applicability"/>
-            <expression>
-              <description value="Patient has a positive urine screening in the past 12 months"/>
-			  <language value="text/cql"/>
-			  <expression value="Has Positive Screening?"/>
-			</expression>
-		</condition>
-		<action>
-			<title value="Unprescribed Opioids Found In Urine Screening"/>
-			<description value="Patient has a positive urine screening in the past 12 months for opioid(s), which is not prescribed"/>
-			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="strong"/>
-								<display value="Strong"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="low"/>
-								<display value="Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
-			</documentation>
-			<condition>
-				<kind value="applicability"/>
-                <expression>
-                  <description value="Patient has a positive urine screening in the past 12 months for opioid(s), which is not prescribed"/>
-				  <language value="text/cql"/>
-				  <expression value="Has Unprescribed Opioids?"/>
-				</expression>
-			</condition>
-			<dynamicValue>
-				<path value="activity.extension"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Get Indicator"/>
-			    </expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.description"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Inconsistent Unprescribed Opioids"/>
-			    </expression>
-			</dynamicValue>
-			<action>
-				<description value="Not for chronic pain management. Snooze 3 months"/>
-			</action>
-		</action>
-		<action>
-			<title value="Prescribed Opioids Not Found In Urine Screening"/>
-			<description value="Patient has a positive urine screening in the past 12 months, which does not include prescribed opioids"/>
-			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="strong"/>
-								<display value="Strong"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="low"/>
-								<display value="Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
-			</documentation>
-			<condition>
-				<kind value="applicability"/>
-                <expression>
-		          <description value="Patient has a positive urine screening in the past 12 months, which does not include prescribed opioids"/>
-				  <language value="text/cql"/>
-				  <expression value="Has Missing Opioids?"/>
-				</expression>
-			</condition>
-			<dynamicValue>
-				<path value="activity.extension"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Get Indicator"/>
-			    </expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.description"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Inconsistent Missing Opioids"/>
-			    </expression>
-			</dynamicValue>
-		</action>
-		<action>
-			<title value="Illicit Drugs Found In Urine Screening"/>
-			<description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
-			<documentation>
-				<type value="documentation"/>
-				<document>
-					<!-- We can use the example code systems from the FHIR CLinical Reasoning Module, or we can define GRADE specific code systems and use those here -->
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
-								<code value="strong"/>
-								<display value="Strong"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-					<extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
-						<valueCodeableConcept>
-							<coding>
-								<system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
-								<code value="low"/>
-								<display value="Low quality"/>
-							</coding>
-						</valueCodeableConcept>
-					</extension>
-				</document>
-			</documentation>
-			<condition>
-				<kind value="applicability"/>
-                <expression>
-                  <description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
-				  <language value="text/cql"/>
-				  <expression value="Has Illicit Drugs in Screening?"/>
-				</expression>
-			</condition>
-			<dynamicValue>
-				<path value="activity.extension"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Get Indicator"/>
-			    </expression>
-			</dynamicValue>
-			<dynamicValue>
-				<path value="action.description"/>
-                <expression>
-                  <language value="text/cql"/>
-			      <expression value="Inconsistent Illicit Drugs"/>
-			    </expression>
-			</dynamicValue>
-			<action>
-				<description value="Not for chronic pain management. Snooze 3 months"/>
-			</action>
-		</action>
-	</action>
+  </relatedArtifact>
+  <library value="http://example.org/fhir/Library/opioidcds-recommendation-10"/>
+  <action>
+    <title value="Annual Urine Screening Check"/>
+    <description value="Patient has not had a urine screening in the past 12 months"/>
+    <documentation>
+      <type value="documentation"/>
+      <document>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+              <code value="strong"/>
+              <display value="Strong"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+              <code value="low"/>
+              <display value="Low quality"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </document>
+    </documentation>
+    <trigger>
+      <type value="named-event"/>
+      <name value="medication-prescribe"/>
+    </trigger>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <description value="Patient has not had a urine screening in the past 12 months"/>
+        <language value="text/cql"/>
+        <expression value="No Screenings in Past Year"/>
+      </expression>
+    </condition>
+    <dynamicValue>
+      <path value="activity.extension"/>
+      <expression>
+        <language value="text/cql"/>
+        <expression value="Get Indicator"/>
+      </expression>
+    </dynamicValue>
+    <action>
+      <description value="Will perform urine screening"/>
+    </action>
+    <action>
+      <description value="Not for chronic pain management. Snooze 3 months"/>
+    </action>
+  </action>
+  <action>
+    <title value="Positive Urine Screening Check"/>
+    <description value="Patient has a urine screening testing positive for either unprescribed opioids or illicit drugs in the past 12 months"/>
+    <documentation>
+      <type value="documentation"/>
+      <document>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+              <code value="strong"/>
+              <display value="Strong"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+          <valueCodeableConcept>
+            <coding>
+              <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+              <code value="low"/>
+              <display value="Low quality"/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </document>
+    </documentation>
+    <condition>
+      <kind value="applicability"/>
+      <expression>
+        <description value="Patient has a positive urine screening in the past 12 months"/>
+        <language value="text/cql"/>
+        <expression value="Has Positive Screening?"/>
+      </expression>
+    </condition>
+    <action>
+      <title value="Unprescribed Opioids Found In Urine Screening"/>
+      <description value="Patient has a positive urine screening in the past 12 months for opioid(s), which is not prescribed"/>
+      <documentation>
+        <type value="documentation"/>
+        <document>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+                <code value="strong"/>
+                <display value="Strong"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                <code value="low"/>
+                <display value="Low quality"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+        </document>
+      </documentation>
+      <condition>
+        <kind value="applicability"/>
+        <expression>
+          <description value="Patient has a positive urine screening in the past 12 months for opioid(s), which is not prescribed"/>
+          <language value="text/cql"/>
+          <expression value="Has Unprescribed Opioids?"/>
+        </expression>
+      </condition>
+      <dynamicValue>
+        <path value="activity.extension"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Get Indicator"/>
+        </expression>
+      </dynamicValue>
+      <dynamicValue>
+        <path value="action.description"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Inconsistent Unprescribed Opioids"/>
+        </expression>
+      </dynamicValue>
+      <action>
+        <description value="Not for chronic pain management. Snooze 3 months"/>
+      </action>
+    </action>
+    <action>
+      <title value="Prescribed Opioids Not Found In Urine Screening"/>
+      <description value="Patient has a positive urine screening in the past 12 months, which does not include prescribed opioids"/>
+      <documentation>
+        <type value="documentation"/>
+        <document>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+                <code value="strong"/>
+                <display value="Strong"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                <code value="low"/>
+                <display value="Low quality"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+        </document>
+      </documentation>
+      <condition>
+        <kind value="applicability"/>
+        <expression>
+          <description value="Patient has a positive urine screening in the past 12 months, which does not include prescribed opioids"/>
+          <language value="text/cql"/>
+          <expression value="Has Missing Opioids?"/>
+        </expression>
+      </condition>
+      <dynamicValue>
+        <path value="activity.extension"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Get Indicator"/>
+        </expression>
+      </dynamicValue>
+      <dynamicValue>
+        <path value="action.description"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Inconsistent Missing Opioids"/>
+        </expression>
+      </dynamicValue>
+    </action>
+    <action>
+      <title value="Illicit Drugs Found In Urine Screening"/>
+      <description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
+      <documentation>
+        <type value="documentation"/>
+        <document>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-strengthOfRecommendation">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/recommendation-strength"/>
+                <code value="strong"/>
+                <display value="Strong"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+          <extension url="http://hl7.org/fhir/StructureDefinition/cqf-qualityOfEvidence">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/evidence-quality"/>
+                <code value="low"/>
+                <display value="Low quality"/>
+              </coding>
+            </valueCodeableConcept>
+          </extension>
+        </document>
+      </documentation>
+      <condition>
+        <kind value="applicability"/>
+        <expression>
+          <description value="Patient has a positive urine screening in the past 12 months for illicit drugs"/>
+          <language value="text/cql"/>
+          <expression value="Has Illicit Drugs in Screening?"/>
+        </expression>
+      </condition>
+      <dynamicValue>
+        <path value="activity.extension"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Get Indicator"/>
+        </expression>
+      </dynamicValue>
+      <dynamicValue>
+        <path value="action.description"/>
+        <expression>
+          <language value="text/cql"/>
+          <expression value="Inconsistent Illicit Drugs"/>
+        </expression>
+      </dynamicValue>
+      <action>
+        <description value="Not for chronic pain management. Snooze 3 months"/>
+      </action>
+    </action>
+  </action>
 </PlanDefinition>

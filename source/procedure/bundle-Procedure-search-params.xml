@@ -73,7 +73,7 @@
         <description value="When the procedure occurred or is occurring"/>
         <code value="date"/>
         <type value="date"/>
-        <expression value="Procedure.occurrence.as(dateTime) | Procedure.occurrence.as(Period) | Procedure.occurrence.as(Timing)"/>
+        <expression value="Procedure.occurrence.ofType(dateTime) | Procedure.occurrence.ofType(Period) | Procedure.occurrence.ofType(Timing)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet-expand"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-expand"/>
   <version value="5.0.0"/>
-  <name value="expand"/>
+  <name value="Expand"/>
   <title value="Value Set Expansion"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -58,7 +60,7 @@
   <description value="The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. &#xA;&#xA;If the operation is not called at the instance level, one of the in parameters url, context or valueSet must be provided.  An expanded value set will be returned, or an OperationOutcome with an error message."/>
   <affectsState value="false"/>
   <code value="expand"/>
-  <comment value="The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  &#xA;&#xA;If the expansion is too large (at the discretion of the server), the server MAY return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters, or use the count parameter to request a subset of the expansion for limited purposes. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  &#xA;&#xA;Different servers may return different results from expanding a value set for the following reasons:  &#xA;&#xA;* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) &#xA;* The server optimizes filter includes differently, such as sorting by code frequency &#xA;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server&#xA;&#xA;When a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [http://hl7.org/fhir/StructureDefinition/valueset-unclosed](extension-valueset-unclosed.html) can be used to indicate that the expansion is incomplete"/>
+  <comment value="The value set expansion returned by this query should be treated as a transient result that will change over time (whether it does or not depends on how the value set is specified), so applications should repeat the operation each time the value set is used.  &#xA;&#xA;If the expansion is too large (at the discretion of the server), the server MAY return an error (OperationOutcome with code too-costly). Clients can work through large flat expansions in a set of pages (partial views of the full expansion) instead of just getting the full expansion in a single exchange by using offset and count parameters, or use the count parameter to request a subset of the expansion for limited purposes. Servers are not obliged to support paging, but if they do, SHALL support both the offset and count parameters. Hierarchical expansions are not subject to paging and servers simply return the entire expansion.  &#xA;&#xA;Different servers may return different results from expanding a value set for the following reasons:  &#xA;&#xA;* The underlying code systems are different (e.g. different versions, possibly with different defined behavior) &#xA;* The server optimizes filter includes differently, such as sorting by code frequency &#xA;* Servers introduce arbitrary groups to assist a user to navigate the lists based either on extensions in the definition, or additional knowledge available to the server&#xA;&#xA;When a server cannot correctly expand a value set because it does not fully understand the code systems (e.g. it has the wrong version, or incomplete definitions) then it SHALL return an error. If the value set itself is unbounded due to the inclusion of post-coordinated value sets (e.g. SNOMED CT, UCUM), then the extension [[[http://hl7.org/fhir/StructureDefinition/valueset-unclosed]]] can be used to indicate that the expansion is incomplete"/>
   <resource value="ValueSet"/>
   <system value="false"/>
   <type value="true"/>
@@ -66,6 +68,7 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="A canonical reference to a value set. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
@@ -74,6 +77,7 @@
   <parameter>
     <name value="valueSet"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion"/>
@@ -82,6 +86,7 @@
   <parameter>
     <name value="valueSetVersion"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The identifier that is used to identify a specific version of the value set to be used when generating the expansion. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
@@ -108,7 +113,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [TerminologyCapabilities](terminologycapabilities.html)..expansion.textFilter. Typical usage of this parameter includes functionality like:&#xA;&#xA;* using left matching e.g. &#34;acut ast&#34;&#xA;* allowing for wild cards such as %, &amp;, ?&#xA;* searching on definition as well as display(s)&#xA;* allowing for search conditions (and / or / exclusions)&#xA;&#xA;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems"/>
+    <documentation value="A text filter that is applied to restrict the codes that are returned (this is useful in a UI context). The interpretation of this is delegated to the server in order to allow to determine the most optimal search approach for the context. The server can document the way this parameter works in [TerminologyCapabilities](terminologycapabilities.html)..expansion.textFilter. Typical usage of this parameter includes functionality like:&#xA;&#xA;* using left matching e.g. &quot;acut ast&quot;&#xA;* allowing for wild cards such as %, &amp;, ?&#xA;* searching on definition as well as display(s)&#xA;* allowing for search conditions (and / or / exclusions)&#xA;&#xA;Text Search engines such as Lucene or Solr, long with their considerable functionality, might also be used. The optional text search might also be code system specific, and servers might have different implementations for different code systems"/>
     <type value="string"/>
   </parameter>
   <parameter>
@@ -172,7 +177,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The supplement must be used when performing an expansion. Use of this parameter should result in $expand behaving the same way as if the supplements were included in the value set definition using the [supplement extension](extension-valueset-supplement.html)"/>
+    <documentation value="The supplement must be used when performing an expansion. Use of this parameter should result in $expand behaving the same way as if the supplements were included in the value set definition using the [[[http://hl7.org/fhir/StructureDefinition/valueset-supplement]]]"/>
     <type value="canonical"/>
   </parameter>
   <parameter>

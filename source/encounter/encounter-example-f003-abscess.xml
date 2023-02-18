@@ -48,13 +48,15 @@
 		<code value="min" />
 	</length>
 	<reason>
-    <concept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="18099001"/>
-        <display value="Retropharyngeal abscess"/>
-      </coding>
-    </concept>
+		<value>
+			<concept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="18099001"/>
+				<display value="Retropharyngeal abscess"/>
+			</coding>
+			</concept>
+		</value>
 	</reason>
 	<admission>
 		<preAdmissionIdentifier>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="research-study-statusDate-activity"/>
   <meta>
     <lastUpdated value="2022-02-10T20:40:00+00:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyStatusDateActivity"/>
-  <title value="ResearchStudyStatusDateActivity"/>
+  <title value="Research Study Status Date Activity"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-02-10T20:40:00+00:00"/>
@@ -47,66 +49,53 @@
   <concept>
     <code value="overall-study"/>
     <display value="Overall study"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="primary-outcome-data-collection"/>
     <display value="Primary outcome data collection"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="registration-submission "/>
     <display value="Registration submission"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="registration-submission-qc"/>
     <display value="Registration submission QC"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="registration-posting"/>
     <display value="Registration posting"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="results-submission"/>
     <display value="Results submission"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="results-submission-qc"/>
     <display value="Results submission QC"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="results-posting"/>
     <display value="Results posting"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="disposition-submission"/>
     <display value="Disposition submission"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="disposition-submission-qc"/>
     <display value="Disposition submission QC"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="disposition-posting"/>
     <display value="Disposition posting"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="update-submission"/>
     <display value="Update submission"/>
-    <definition value=""/>
   </concept>
   <concept>
     <code value="update-posting"/>
     <display value="Update posting"/>
-    <definition value=""/>
   </concept>
 </CodeSystem>

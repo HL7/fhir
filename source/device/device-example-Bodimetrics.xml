@@ -65,56 +65,56 @@
     </type>
     <value value="CC"/>
   </version>
-  <specialization>
-    <systemType>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528391"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_BP: Blood Pressure meter"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
-  <specialization>
-    <systemType>
+  </conformsTo>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528457"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_GENERIC: Generic 20601 device"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
-  <specialization>
-    <systemType>
+  </conformsTo>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528390"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_MIN_ECG: Electro cardiogram"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
-  <specialization>
-    <systemType>
+  </conformsTo>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528388"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_PULS_OXIM: Pulse Oximeter"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
-  <specialization>
-    <systemType>
+  </conformsTo>
+  <conformsTo>
+    <specification>
       <coding>
         <system value="urn:iso:std:iso:11073:10101"/>
         <code value="528392"/>
       </coding>
       <text value="MDC_DEV_SPEC_PROFILE_TEMP: Thermometer"/>
-    </systemType>
+    </specification>
     <version value="1"/>
-  </specialization>
+  </conformsTo>
   <property>
     <type>
       <coding>

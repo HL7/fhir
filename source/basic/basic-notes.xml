@@ -69,7 +69,7 @@ for the meaning of the content, extensions can also be used.
 There are several good practices to follow when making use of the Basic resource:
 </p>
 <ol>
-  <li>Before using Basic, post a description of the desired resource type on HL7's FHIR list-server or on
+  <li>Before using Basic, post a description of the desired resource type on <a href="https://chat.fhir.org">chat.fhir.org</a> or on
   <a href="http://stackoverflow.com/questions/tagged/hl7_fhir">Stack Overflow</a> to see whether the
   use-case can be met by an existing resource.  (Sometimes the intended scope of an existing resource won't 
   be clear, even if the intent is to cover your space.)  Using an existing resource is usually preferable

@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ValueSet"/>
-  <title value="ValueSet"/>
+  <title value="Value Set"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -170,6 +170,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="ValueSet.versionAlgorithm[x]">
+      <path value="ValueSet.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which ValueSet is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
     <element id="ValueSet.name">
       <path value="ValueSet.name"/>
       <short value="Name for this value set (computer friendly)"/>
@@ -203,7 +222,7 @@
       <path value="ValueSet.status"/>
       <short value="draft | active | retired | unknown"/>
       <definition value="The status of this value set. Enables tracking the life-cycle of the content. The status of the value set applies to the value set definition (ValueSet.compose) and the associated ValueSet metadata. Expansions do not have a state."/>
-      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [valueset-workflowStatusDescription](extension-valueset-workflowstatusdescription.html) extension for additional status information related to the editorial process."/>
+      <comment value="Allows filtering of value sets that are appropriate for use versus not.See also the [[[http://hl7.org/fhir/StructureDefinition/valueset-workflowStatusDescription]]] extension for additional status information related to the editorial process."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -411,6 +430,21 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ValueSet.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ValueSet.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="ValueSet.approvalDate">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -434,7 +468,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.lastReviewDate"/>
-      <short value="When the ValueSet was last reviewed"/>
+      <short value="When the ValueSet was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -528,7 +562,7 @@
       </extension>
       <path value="ValueSet.reviewer"/>
       <short value="Who reviewed the ValueSet"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the ValueSet."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ValueSet."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -541,7 +575,7 @@
       </extension>
       <path value="ValueSet.endorser"/>
       <short value="Who endorsed the ValueSet"/>
-      <definition value="An individual or organization responsible for officially endorsing the ValueSet for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ValueSet for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -776,15 +810,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="ValueSet.compose.include.concept.designation.use">

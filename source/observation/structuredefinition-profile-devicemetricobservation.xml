@@ -21,8 +21,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1476"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Device Metric Observation Profile"/>
-  <title value="Device Metric Observation Profile"/>
+  <name value="DeviceMetricObservationProfile"/>
+  <title value="Device  Metric  Observation  Profile"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2014-11-17"/>

@@ -6,14 +6,14 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Basic example showing use of Progress"/>
+      <valueString value="Crossover Placebo to Drug"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="researchsubject-example"/>
+      <valueString value="researchsubject-example-crossover-placebo-to-drug"/>
     </extension>
     <item>
-      <reference value="ResearchSubject/example"/>
-      <display value="Example"/>
+      <reference value="ResearchSubject/example-crossover-placebo-to-drug"/>
+      <display value="Crossover Placebo to Drug"/>
     </item>
   </entry>
 </List>

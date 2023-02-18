@@ -14,7 +14,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Device-definition"/>
         <description value="The definition / type of the device (code)"/>
-        <code value="definition"/>
+        <code value="code"/>
         <type value="token"/>
         <expression value="Device.definition.concept"/>
         <processingMode value="normal"/>
@@ -231,7 +231,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="Device-subject"/>
@@ -269,7 +269,7 @@
         <target value="Patient"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
@@ -286,6 +286,49 @@
         <type value="string"/>
         <expression value="Device.serialNumber | Device.identifier.where(type='SNO')"/>
         <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+   <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-specification"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Device.conformsTo.specification"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-specification"/>
+        <description value="The standards, specifications, or formal guidances."/>
+        <code value="specification"/>
+        <type value="token"/>
+        <expression value="Device.conformsTo.specification"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+   <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-specification-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-specification-version"/>
+        <description value="Code and value parameter pair"/>
+        <code value="code-value-concept"/>
+        <type value="composite"/>
+        <expression value="Device"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="specification"/>
+          <expression value="specification.ofType(CodeableConcept)"/>
+        </component>
+        <component>
+          <definition value="version"/>
+          <expression value="version.ofType(string)"/>
+        </component>
       </SearchParameter>
     </resource>
   </entry>
@@ -422,4 +465,29 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Device-specification-version"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Device-specification-version"/>
+        <description value="A composite of both specification and version"/>
+        <code value="specification-version"/>
+        <type value="composite"/>
+        <expression value="Device.conformsTo"/>
+        <processingMode value="normal"/>
+        <component>
+          <definition value="specification"/>
+          <expression value="specification"/>
+        </component>
+        <component>
+          <definition value="version"/>
+          <expression value="version"/>
+        </component>
+      </SearchParameter>
+    </resource>
+  </entry>  
+
 </Bundle>

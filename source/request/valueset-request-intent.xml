@@ -17,6 +17,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RequestIntent"/>
+  <title value="Request Intent"/>
   <experimental value="true"/>
   <description value="RequestIntent"/>
   <compose>

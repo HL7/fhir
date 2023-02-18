@@ -48,7 +48,9 @@
   </storageTempRequirements>
   <property>
     <type>
-      <code value="62" />
+      <coding>
+	  	  <code value="ABORhD" />
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -60,7 +62,9 @@
   </property>
   <property>
     <type>
-        <code value="CollectionType"/>
+       <coding>
+          <code value="CollectionType"/>
+       </coding>
     </type>
     <valueCodeableConcept>
       <coding>
@@ -72,7 +76,9 @@
   </property>
   <property>
     <type>
-        <code value="BagVolume" />			
+      <coding>
+         <code value="BagVolume" />	
+      </coding>
     </type>
     <valueQuantity>
       <value value="50" />
@@ -82,7 +88,9 @@
   </property>
   <property>
     <type>
-        <code value="74838-4"/>
+       <coding>
+          <code value="74838-4"/>
+       </coding>  
     </type>
     <valueQuantity>
       <value value="2.6" />

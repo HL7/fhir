@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="ValueSet-validate-code"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/ValueSet-validate-code"/>
   <version value="5.0.0"/>
-  <name value="validate-code"/>
+  <name value="Validatecode"/>
   <title value="Value Set based Validation"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -66,6 +68,7 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="Value set Canonical URL. The server must know the value set (e.g. it is defined explicitly in the server's value sets, or it is defined implicitly by some code system known to the server"/>
@@ -82,6 +85,7 @@
   <parameter>
     <name value="valueSet"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The value set is provided directly as part of the request. Servers may choose not to accept value sets in this fashion. This parameter is used when the client wants the server to expand a value set that is not stored on the server"/>
@@ -90,6 +94,7 @@
   <parameter>
     <name value="valueSetVersion"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The identifier that is used to identify a specific version of the value set to be used when validating the code. This is an arbitrary value managed by the value set author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available."/>
@@ -172,7 +177,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="The supplement must be used when validating the code. Use of this parameter should result in $validate-code behaving the same way as if the supplements were included in the value set definition using the [supplement extension](extension-valueset-supplement.html)"/>
+    <documentation value="The supplement must be used when validating the code. Use of this parameter should result in $validate-code behaving the same way as if the supplements were included in the value set definition using the [[[http://hl7.org/fhir/StructureDefinition/valueset-supplement]]]"/>
     <type value="canonical"/>
   </parameter>
   <parameter>
@@ -215,7 +220,7 @@
     <documentation value="The system for the code that was validated"/>
     <type value="uri"/>
   </parameter>
-   <parameter>
+  <parameter>
     <name value="version"/>
     <use value="out"/>
     <min value="0"/>
@@ -232,12 +237,11 @@
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
-   <name value="issues"/>
-   <use value="out"/>
-   <min value="0"/>
-   <max value="1"/>
-   <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
-   <type value="OperationOutcome"/>
+    <name value="issues"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="List of itemised issues with paths constrained to simple FHIRPath. Examples are CodeableConcept, CodeableConcept.coding[0], CodeableConcept.coding[1].display, or Coding.display"/>
+    <type value="OperationOutcome"/>
   </parameter>
-
 </OperationDefinition>
