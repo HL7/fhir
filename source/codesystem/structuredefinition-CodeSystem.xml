@@ -887,6 +887,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-1"/>
       <condition value="csd-2"/>
       <condition value="csd-3"/>
     </element>
@@ -902,6 +903,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-1"/>
     </element>
     <element id="CodeSystem.concept.display">
       <path value="CodeSystem.concept.display"/>

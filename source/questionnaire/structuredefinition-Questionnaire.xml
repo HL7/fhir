@@ -1209,6 +1209,7 @@
       </type>
       <meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
       <condition value="que-10"/>
+      <condition value="que-14"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireAnswerConstraint"/>
@@ -1235,6 +1236,7 @@
       </type>
       <condition value="que-5"/>
       <condition value="que-4"/>
+      <condition value="que-14"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>
@@ -1256,6 +1258,7 @@
       <condition value="que-5"/>
       <condition value="que-4"/>
       <condition value="que-11"/>
+      <condition value="que-14"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>

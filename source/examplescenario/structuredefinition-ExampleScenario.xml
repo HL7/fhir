@@ -463,6 +463,7 @@
       <condition value="exs-3"/>
       <condition value="exs-6"/>
       <condition value="exs-7"/>
+      <condition value="exs-17"/>
       <condition value="exs-18"/>
       <constraint>
         <key value="exs-19"/>
@@ -488,7 +489,9 @@
       </type>
       <condition value="exs-6"/>
       <condition value="exs-23"/>
+      <condition value="exs-17"/>
       <condition value="exs-18"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
@@ -559,7 +562,7 @@
         <key value="exs-2"/>
         <severity value="error"/>
         <human value="instance.content is only allowed if there are no instance.versions"/>
-        <expression value="instance.content.exists() implies instance.version.empty()"/>
+        <expression value="content.exists() implies version.empty()"/>
       </constraint>
       <constraint>
         <key value="exs-10"/>
@@ -599,6 +602,8 @@
       <condition value="exs-14"/>
       <condition value="exs-15"/>
       <condition value="exs-16"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.structureType">
       <path value="ExampleScenario.instance.structureType"/>
@@ -681,6 +686,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="exs-2"/>
     </element>
     <element id="ExampleScenario.instance.version">
       <path value="ExampleScenario.instance.version"/>
@@ -697,6 +703,8 @@
       <condition value="exs-11"/>
       <condition value="exs-15"/>
       <condition value="exs-16"/>
+      <condition value="exs-2"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.version.key">
       <path value="ExampleScenario.instance.version.key"/>
@@ -709,6 +717,7 @@
       </type>
       <condition value="exs-10"/>
       <condition value="exs-16"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.version.title">
       <path value="ExampleScenario.instance.version.title"/>
@@ -785,6 +794,8 @@
       <condition value="exs-14"/>
       <condition value="exs-15"/>
       <condition value="exs-16"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.containedInstance.versionReference">
       <path value="ExampleScenario.instance.containedInstance.versionReference"/>
@@ -798,6 +809,7 @@
       </type>
       <condition value="exs-15"/>
       <condition value="exs-16"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.process">
       <path value="ExampleScenario.process"/>
@@ -812,6 +824,9 @@
       <condition value="exs-4"/>
       <condition value="exs-12"/>
       <condition value="exs-22"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
+      <condition value="exs-19"/>
       <constraint>
         <key value="exs-5"/>
         <severity value="error"/>
@@ -937,12 +952,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="exs-19"/>
       <condition value="exs-22"/>
       <constraint>
         <key value="exs-17"/>
         <severity value="error"/>
         <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
-        <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
+        <expression value="initiator.exists() implies initiator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
       </constraint>
       <constraint>
         <key value="exs-18"/>
@@ -985,6 +1001,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-17"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.process.step.operation.receiver">
       <path value="ExampleScenario.process.step.operation.receiver"/>
@@ -997,6 +1015,7 @@
         <code value="string"/>
       </type>
       <condition value="exs-18"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.process.step.operation.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">

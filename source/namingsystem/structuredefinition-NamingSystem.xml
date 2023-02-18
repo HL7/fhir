@@ -657,7 +657,7 @@
         <key value="nsd-3"/>
         <severity value="error"/>
         <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
-        <expression value="$this.where(authoritative = true).select(type).isDistinct().select(period).isDistinct()"/>
+        <expression value="$this.where(authoritative = true).select(type | period).isDistinct()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
       </constraint>
       <isSummary value="true"/>
@@ -674,6 +674,7 @@
       </type>
       <condition value="nsd-1"/>
       <condition value="nsd-2"/>
+      <condition value="nsd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -733,6 +734,7 @@
       <type>
         <code value="Period"/>
       </type>
+      <condition value="nsd-3"/>
     </element>
     <element id="NamingSystem.uniqueId.authoritative">
       <path value="NamingSystem.uniqueId.authoritative"/>
@@ -743,6 +745,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="nsd-3"/>
     </element>
   </differential>
 </StructureDefinition>

@@ -958,7 +958,7 @@
         <key value="obs-9"/>
         <severity value="error"/>
         <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
-        <expression value="(reference.resolve().exists() and reference.resolve() is Group) implies (reference.resolve().member.entity.resolve() implies reference.resolve().member.entity.resolve() is Specimen"/>
+        <expression value="(reference.resolve().exists() and reference.resolve() is Group) implies (reference.resolve().member.entity.resolve().exists() implies reference.resolve().member.entity.resolve() is Specimen)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>

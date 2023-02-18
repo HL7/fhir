@@ -908,6 +908,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1133,6 +1134,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PFM]"/>
@@ -1287,6 +1290,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="workflow"/>
         <map value="{Is a contained Definition}"/>
@@ -1477,6 +1482,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1737,6 +1743,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1751,6 +1758,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>

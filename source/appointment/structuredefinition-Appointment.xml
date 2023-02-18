@@ -193,6 +193,7 @@
       </type>
       <condition value="app-4"/>
       <condition value="app-3"/>
+      <condition value="app-7"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
@@ -782,6 +783,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="app-7"/>
     </element>
     <element id="Appointment.note">
       <path value="Appointment.note"/>

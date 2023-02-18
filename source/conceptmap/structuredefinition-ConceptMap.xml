@@ -224,6 +224,7 @@
       <isModifier value="true"/>
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
@@ -716,7 +717,7 @@
         <key value="cmd-1"/>
         <severity value="error"/>
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
-        <expression value="comment.exists() or (%resource.status = draft) or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
+        <expression value="comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -779,6 +780,7 @@
       </type>
       <isModifier value="true"/>
       <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapRelationship"/>
@@ -800,6 +802,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="cmd-1"/>
     </element>
     <element id="ConceptMap.group.element.target.dependsOn">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
