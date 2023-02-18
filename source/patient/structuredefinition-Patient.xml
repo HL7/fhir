@@ -899,7 +899,7 @@
           <valueString value="LinkType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of link between this patient resource and another patient resource."/>
+        <description value="The type of link between this patient resource and another Patient resource, or Patient/RelatedPerson when using the `seealso` code"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/link-type"/>
       </binding>
       <mapping>

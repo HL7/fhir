@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MolecularSequence xmlns="http://hl7.org/fhir">
+    <id value="molecularsequence-focus-example"/>
+    <type value="dna"/>
+    <subject>
+      <reference value="Patient/infant"/>
+    </subject>
+    <focus>
+      <reference value="Patient/infant-mom"/>
+    </focus>
+    <relative>
+        <coordinateSystem>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="LA30100-4"/>
+                <display value="0-based interval counting"/>
+            </coding>
+        </coordinateSystem>
+        <startingSequence>
+            <sequenceCodeableConcept>
+                <coding>
+                    <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                    <code value="NC_000007.14"/>
+                </coding>
+                <text value="NC_000007.14"/>
+            </sequenceCodeableConcept>
+            <windowStart value="87627610"/>
+            <windowEnd value="87627635"/>
+        </startingSequence>
+        <edit>
+            <start value="87627621"/>
+            <end value="87642522"/>
+            <replacementSequence value="T"/>
+            <replacedSequence value="A"/>
+        </edit>
+    </relative>
+</MolecularSequence>

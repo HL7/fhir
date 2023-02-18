@@ -219,10 +219,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>

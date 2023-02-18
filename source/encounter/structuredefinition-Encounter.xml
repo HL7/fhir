@@ -789,6 +789,7 @@
       <path value="Encounter.diagnosis"/>
       <short value="The list of diagnosis relevant to this encounter"/>
       <definition value="The list of diagnosis relevant to this encounter."/>
+      <comment value="Also note that for the purpose of billing, the diagnoses are recorded in the account where they can be ranked appropriately for how the invoicing/claiming documentation needs to be prepared."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -802,8 +803,8 @@
     </element>
     <element id="Encounter.diagnosis.condition">
       <path value="Encounter.diagnosis.condition"/>
-      <short value="The diagnosis or procedure relevant to the encounter"/>
-      <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
+      <short value="The diagnosis relevant to the encounter"/>
+      <definition value="The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>

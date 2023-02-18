@@ -92,7 +92,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value=" If specified, the operation will indicate what the preferred identifier was on the specified date.  If not specified, the operation will provide the preferred identifier as of 'now'"/>
+    <documentation value="If specified, the operation will indicate what the preferred identifier was on the specified date.  If not specified, the operation will provide the preferred identifier as of 'now'"/>
     <type value="dateTime"/>
   </parameter>
   <parameter>

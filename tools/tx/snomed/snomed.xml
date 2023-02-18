@@ -16278,6 +16278,12 @@
     <display value="Cholera (disorder)"/>
     <display value="Vibrio cholerae infection"/>
   </concept>
+  <concept id="6397004" display="Muscular strength development exercise">
+    <display value="Muscular strength development exercise"/>
+    <display value="Strengthening activity"/>
+    <display value="Strengthening exercises"/>
+    <display value="Muscular strength development exercise (regime/therapy)"/>
+  </concept>
   <concept id="64033007" display="Kidney">
     <display value="Kidney"/>
     <display value="Kidney structure"/>

@@ -1272,7 +1272,7 @@
         <map value="Event.location"/>
       </mapping>
     </element>
-    <element id="Transport.reasonCode">
+    <!-- <element id="Transport.reasonCode">
       <path value="Transport.reasonCode"/>
       <short value="Why transport is needed"/>
       <definition value="A description or code indicating why this transport needs to be performed."/>
@@ -1305,18 +1305,25 @@
         <identity value="rim"/>
         <map value=".reasonCode"/>
       </mapping>
-    </element>
-    <element id="Transport.reasonReference">
-      <path value="Transport.reasonReference"/>
+    </element> -->
+    <element id="Transport.reason">
+      <path value="Transport.reason"/>
       <short value="Why transport is needed"/>
       <definition value="A resource reference indicating why this transport needs to be performed."/>
-      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.   This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
+      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc. This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="TransportReason"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
         <map value="Request.reasonReference, Event.reasonReference"/>

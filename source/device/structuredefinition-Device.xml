@@ -748,10 +748,28 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="Device.conformsTo.category">
+      <path value="Device.conformsTo.category"/>
+      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
+      <definition value="Describes the type of the standard, specification, or formal guidance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceSpecificationCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of standards used by the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
+      </binding>
+    </element>
     <element id="Device.conformsTo.specification">
       <path value="Device.conformsTo.specification"/>
-      <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type"/>
-      <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
+      <short value="Identifies the standard, specification, or formal guidance that the device adheres to"/>
+      <definition value="Code that identifies the specific standard, specification, protocol, formal guidance, regulation, legislation, or certification scheme to which the device adheres."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -769,31 +787,14 @@
     <element id="Device.conformsTo.version">
       <path value="Device.conformsTo.version"/>
       <short value="Specific form or variant of the standard"/>
-      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance."/>
+      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance. This may be a 'version number', release, document edition, publication year, or other label."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.conformsTo.category">
-      <path value="Device.conformsTo.category"/>
-      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
-      <definition value="Describes the common type of the standard, specification, or formal guidance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceSpecificationCategory"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The kind of standards used by the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
-      </binding>
-    </element>
+
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>

@@ -30,7 +30,7 @@ editor Eric Haas Health eData Inc
 			</coding>
 		</concept>
 		</baseFormulaType>
-		<baseFormulaProductName value=" Acme Diabetes Formula"/>
+		<baseFormulaProductName value="Acme Diabetes Formula"/>
 		
 		<caloricDensity>
 			<value value="1"/>
