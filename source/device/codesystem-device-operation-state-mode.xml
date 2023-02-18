@@ -18,7 +18,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceOperationStateMode"/>
-  <title value="F H I R Device Operation State Mode"/>
+  <title value="FHIR Device Operation State Mode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>

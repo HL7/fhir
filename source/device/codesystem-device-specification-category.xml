@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceSpecializationCategory"/>
-  <title value="F H I R Device Specialization Category"/>
+  <title value="FHIR Device Specialization Category"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>
@@ -55,4 +55,25 @@
     <display value="Measurement"/>
     <definition value="A measurement standard."/>
   </concept>
+  <concept>
+    <code value="risk-class"/>
+    <display value="Risk Class"/>
+    <definition value="Class or catefory of risk."/>
+  </concept>
+  <concept>
+    <code value="electrical"/>
+    <display value="Electrical"/>
+    <definition value="Electrical classification."/>
+  </concept>
+  <concept>
+    <code value="material"/>
+    <display value="Material"/>
+    <definition value="Classification related to materials."/>
+  </concept>
+  <concept>
+    <code value="exchange"/>
+    <display value="Exchange"/>
+    <definition value="Exchange category."/>
+  </concept>
+
 </CodeSystem>

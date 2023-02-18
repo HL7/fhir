@@ -654,6 +654,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+	  <!--
       <constraint>
         <key value="cpl-3"/>
         <severity value="error"/>
@@ -661,6 +662,7 @@
         <expression value="plannedActivityDetail.empty() or plannedActivityReference.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CarePlan"/>
       </constraint>
+	  -->
       <mapping>
         <identity value="workflow"/>
         <map value="{no mapping&#xA;NOTE: This is a list of contained Request-Event tuples!}"/>
@@ -676,7 +678,7 @@
       </extension>
       <path value="CarePlan.activity.performedActivity"/>
       <short value="Results of the activity (concept, or Appointment, Encounter, Procedure, etc)"/>
-      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using CarePlan.activity.plannedActivityDetail OR using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
+      <definition value="Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)."/>
       <comment value="Note that this should not duplicate the activity status (e.g. completed or in progress). The activity performed is independent of the outcome of the related goal(s). For example, if the goal is to achieve a target body weight of 150 lbs and an activity is defined to exercise, then the activity performed could be amount and intensity of exercise performed whereas the goal outcome is an observation for the actual body weight measured."/>
       <requirements value="Links plan to resulting actions."/>
       <min value="0"/>
@@ -747,7 +749,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
       </type>
-      <condition value="cpl-3"/>
+      <!-- <condition value="cpl-3"/> -->
       <mapping>
         <identity value="workflow"/>
         <map value="{Request that resulted in Event in activity.performedActivity}"/>
@@ -757,6 +759,7 @@
         <map value=".outboundRelationship[typeCode=COMP].target"/>
       </mapping>
     </element>
+	<!--
     <element id="CarePlan.activity.plannedActivityDetail">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="J#26064."/>
@@ -1224,6 +1227,7 @@
         <map value=".text"/>
       </mapping>
     </element>
+	-->
     <element id="CarePlan.note">
       <path value="CarePlan.note"/>
       <short value="Comments about the plan"/>

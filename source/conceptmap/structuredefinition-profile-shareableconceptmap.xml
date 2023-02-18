@@ -82,6 +82,10 @@
 			<max value="1"/>
 			<mustSupport value="true"/>
 		</element>
+		<element id="ConceptMap.versionAlgorithm[x]">
+			<path value="ConceptMap.versionAlgorithm[x]"/>
+			<mustSupport value="true"/>
+		</element>
 		<element id="ConceptMap.name">
 			<path value="ConceptMap.name"/>
 			<mustSupport value="true"/>

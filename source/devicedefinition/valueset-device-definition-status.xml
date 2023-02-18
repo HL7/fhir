@@ -12,7 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceStatus"/>
-  <title value="F H I R Device Status"/>
+  <title value="FHIR Device Status"/>
   <experimental value="true"/>
   <description value="FHIRDeviceStatus"/>
   <compose>

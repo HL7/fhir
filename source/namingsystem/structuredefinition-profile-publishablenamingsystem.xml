@@ -88,6 +88,10 @@
       <path value="NamingSystem.copyright"/>
       <mustSupport value="true"/>
     </element>
+    <element id="NamingSystem.copyrightLabel">
+      <path value="NamingSystem.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="NamingSystem.approvalDate">
       <path value="NamingSystem.approvalDate"/>
     </element>
