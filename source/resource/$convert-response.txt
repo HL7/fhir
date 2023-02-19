@@ -1,7 +1,17 @@
-// return the JSON format
+
+// #1: return the JSON format
 
 HTTP/1.1 200 OK
 Content-Type: application/fhir+json
 [other headers]
 
 $includexj ../patient/patient-example.xml
+
+--------------------------------------
+// #2: Response to request #2: return the R4 Response as specified in the Content-Header
+
+200 OK
+Content-Type: application/fhir+json; fhirVersion=4.0
+[other headers]
+
+-- snip - R4 version of a resource --

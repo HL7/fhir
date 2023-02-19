@@ -75,66 +75,27 @@
 	  	<display value="obesity"/>
     </reference>
 	</addresses>
+	<!-- weight loss goal where the goal's outcome is the body weight observation-->
 	<goal>
 		<reference value="Goal/example" />
 	</goal>
+	<!-- exercise activity -->
 	<activity>
+		<!-- exercise activity completed -->
 		<performedActivity>
-      <concept>
-        <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="161832001" />
-          <display value="Progressive weight loss" />
-        </coding>
-      </concept>
-		</performedActivity>
-		<performedActivity>
-		  <reference>
-				<reference value="Observation/example" />
-				<display value="Weight Measured" />
-		  </reference>
-		</performedActivity>
-		<plannedActivityDetail>
-		<code>
-			<!--     LOINC code     -->
+		  <concept>
 			<coding>
-				<system value="http://loinc.org"/>
-				<code value="3141-9"/>
-				<display value="Weight Measured"/>
+			  <system value="http://snomed.info/sct" />
+			  <code value="6397004" />
+			  <display value="Muscular strength development exercise" />
 			</coding>
-			<!--     SNOMED CT Code   -->
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="27113001"/>
-				<display value="Body weight"/>
-			</coding>
-		</code>
-		<status value="completed"/>
-		<statusReason>
-			<text value="Achieved weight loss to mitigate diabetes risk." />
-		</statusReason>
-		<doNotPerform value="false"/>
-		<scheduledTiming>
-			<repeat>
-				<frequency value="1"/>
-				<period value="1"/>
-				<periodUnit value="d"/>
-			</repeat>
-		</scheduledTiming>
-		<location>
-			<concept>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
-					<code value="PTRES"/>
-					<display value="Patient's Residence" />
-				</coding>
-			</concept>
-		</location>
-		<reportedBoolean value="false"/> 
-		<performer>
-			<reference value="Patient/example"/>
-			<display value="Peter James Chalmers"/>
-		</performer>
-    </plannedActivityDetail>
+		  </concept>
+		</performedActivity>
+		
+		<!-- planned exercise plan -->
+		<plannedActivityReference>
+			<reference value="ServiceRequest/benchpress"/>
+		</plannedActivityReference>
+		
   </activity>
 </CarePlan>

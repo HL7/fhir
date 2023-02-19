@@ -27,8 +27,7 @@ Note that all bundle types use resource identity resolution as described below.
 <p>
 A document Bundle (type = "document") consists of a series of 
 entries, the first of which is a <a href="composition.html">Composition</a>. 
-Each entry element SHALL contain a resource. See <a href="documents.html">Documents</a>
-for further information.
+Each entry element contains a resource. See <a href="documents.html">Documents</a> for further information.
 </p>
 
 <p><a href="document-example-dischargesummary.html">Example</a></p>
@@ -39,8 +38,7 @@ for further information.
 <p>
 A message Bundle (type = "message") consists of a series of 
 entries, the first of which is a <a href="messageheader.html">MessageHeader</a>. 
-Each entry element SHALL contain a resource. See <a href="messaging.html">Messaging</a>
-for further information.
+Each entry element contains a resource. See <a href="messaging.html">Messaging</a> for further information.
 </p>
 
 <p>Example <a href="message-request-link.html">Request</a> and <a href="message-response-link.html">Response</a></p>
@@ -49,9 +47,7 @@ for further information.
 <h4>Search Results</h4>
 
 <p>
-A set of search results (type = "searchset") consists of a series of 
-0 or more entries. Each entry element SHALL contain a resource. See <a href="http.html#search">Search</a>
-for further information.
+A set of search results (type = "searchset") consists of a series of 0 or more entries. Each entry element contains a resource. See <a href="http.html#search">Search</a> for further information.
 </p>
 <p>
 In addition, <a href="bundle-definitions.html#Bundle.total">Bundle.total</a> may be 
@@ -93,9 +89,9 @@ including those that may be returned by following the "next" <a href="bundle-def
 
 <p>
 A transaction (type = "transaction") or batch (type = "batch") consists of a series of 0 or more entries. 
-Each entry element SHALL contain a request element has the details of an HTTP operation that informs the system 
-processing the transaction what to do with the entry. If the entry method is a 'PUT' or 
-'POST', then the entry SHALL contain a resource that becomes the body of the HTTP operation. 
+Each entry element contains a request element has the details of an HTTP operation that informs the system 
+processing the transaction what to do with the entry. If the entry method is a 'PUT', 'PATCH' or 
+'POST', then the entry contains a resource that becomes the body of the HTTP operation. 
 See <a href="http.html#transaction">Transactions</a> for further information. 
 </p>
 
@@ -107,7 +103,7 @@ See <a href="http.html#transaction">Transactions</a> for further information.
 <p>
 A transaction response (type = "transaction-response") or batch response (type="batch-response") 
 consists of a series of 0 or more entries: 1 for each entry in the transaction or batch it is in response to. 
-Each entry element SHALL contain a <code>response</code> element which indicates 
+Each entry element contains a <code>response</code> element which indicates 
 the outcome of the HTTP operation that the server performed for the entry. 
 </p>
 
@@ -119,7 +115,7 @@ the outcome of the HTTP operation that the server performed for the entry.
 <p>
 A collection (type = "collection") consists of a series of 
 0 or more entries. No particular use with respect to the FHIR specification is associated with this Bundle.
-Each entry element SHALL contain a resource.
+Each entry element contains a resource.
 </p>
 
 <p><a href="diagnosticreport-examples.html">Example</a></p>

@@ -16278,6 +16278,12 @@
     <display value="Cholera (disorder)"/>
     <display value="Vibrio cholerae infection"/>
   </concept>
+  <concept id="6397004" display="Muscular strength development exercise">
+    <display value="Muscular strength development exercise"/>
+    <display value="Strengthening activity"/>
+    <display value="Strengthening exercises"/>
+    <display value="Muscular strength development exercise (regime/therapy)"/>
+  </concept>
   <concept id="64033007" display="Kidney">
     <display value="Kidney"/>
     <display value="Kidney structure"/>
@@ -17593,6 +17599,10 @@
   <concept id="9230001" display="Camarron goat">
     <display value="Camarron goat"/>
     <display value="Camarron goat (organism)"/>
+  </concept>
+  <concept id="9265001" display="Specimen processing">
+    <display value="Specimen processing"/>
+    <display value="Specimen processing (procedure)"/>
   </concept>
   <concept id="9277006" display="Polled Hereford">
     <display value="Polled Hereford"/>

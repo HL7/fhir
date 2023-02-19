@@ -241,6 +241,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="imr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -276,6 +277,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="imr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

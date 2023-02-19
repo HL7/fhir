@@ -1,0 +1,8 @@
+<a name="must-support"> </a>
+<h3>Must-Support</h3>
+
+<p>
+This profile marks a number of elements as 'must-support' (see <a href="obligations.html">Must Support</a>).
+In this profile, must-support means that this implements should consider populating these elements, 
+or that these elements are typically populated in this usage.
+</p>

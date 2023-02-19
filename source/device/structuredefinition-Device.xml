@@ -303,14 +303,13 @@
       <path value="Device.status"/>
       <short value="active | inactive | entered-in-error"/>
       <definition value="The Device record status. This is not the status of the device like availability."/>
-      <comment value="This element is labeled as a modifier because the status contains the codes inactive and entered-in-error that mark the device (record)as not currently valid."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
+      <isModifierReason value="This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -505,6 +504,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="where(display = true).count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
       <mapping>
         <identity value="interface"/>
         <map value="Participant.name"/>
@@ -564,13 +570,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
+      <condition value="dev-1"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
       <isSummary value="true"/>
@@ -747,10 +747,28 @@
         <code value="BackboneElement"/>
       </type>
     </element>
+    <element id="Device.conformsTo.category">
+      <path value="Device.conformsTo.category"/>
+      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
+      <definition value="Describes the type of the standard, specification, or formal guidance."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceSpecificationCategory"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The kind of standards used by the device."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
+      </binding>
+    </element>
     <element id="Device.conformsTo.specification">
       <path value="Device.conformsTo.specification"/>
-      <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type"/>
-      <definition value="Code that specifies the system that identifies the specific standard that the device adheres to."/>
+      <short value="Identifies the standard, specification, or formal guidance that the device adheres to"/>
+      <definition value="Code that identifies the specific standard, specification, protocol, formal guidance, regulation, legislation, or certification scheme to which the device adheres."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -768,31 +786,14 @@
     <element id="Device.conformsTo.version">
       <path value="Device.conformsTo.version"/>
       <short value="Specific form or variant of the standard"/>
-      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance."/>
+      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance. This may be a 'version number', release, document edition, publication year, or other label."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="string"/>
       </type>
     </element>
-    <element id="Device.conformsTo.category">
-      <path value="Device.conformsTo.category"/>
-      <short value="Describes the common type of the standard, specification, or formal guidance.  communication | performance | measurement"/>
-      <definition value="Describes the common type of the standard, specification, or formal guidance."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DeviceSpecificationCategory"/>
-        </extension>
-        <strength value="example"/>
-        <description value="The kind of standards used by the device."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/device-specification-category"/>
-      </binding>
-    </element>
+
     <element id="Device.property">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="400,180"/>

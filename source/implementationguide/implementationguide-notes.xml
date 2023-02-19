@@ -7,6 +7,24 @@ Implementation Guides are published through the FHIR Package distribution system
 For further details, see the <a href="packages.html">FHIR NPM Packages</a>.
 </p>
 
+<a name="authoring"></a>
+<h3>Authoring Implementation Guides</h3>
+<p>
+Implementation Guides can be produced using any tooling that produces a human
+readable output and a package that includes an ImplementationGuide along with 
+all the supporting resources it refers to, and their dependencies. Note that 
+dependencies included in other packages that the Implementation guide identifies 
+as dependencies are not included in the package.
+</p> 
+<p>
+See <a href="https://confluence.hl7.org/display/FHIR/Authoring+FHIR+Implementation+Guides+-+Introduction">Confluence</a> for a 
+list of tools that can assist with authoring implementation guides. HL7 publishes 
+a <a href="https://build.fhir.org/ig/FHIR/ig-guidance/">Guidance Implementation Guide</a> that provides specific guidance 
+on best practices around IG creation as well as information about some of the tooling extensions and capabilities relevant to 
+creation and publication of implementation guides. Note that this documentation mixes general documentation about the design 
+of implementation guides with tooling specific advice based on one particular tool.
+</p>
+
 <a name="roles"></a>
 <h3>Roles of Implementation Guides</h3>
 <p>

@@ -2,6 +2,7 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="CarePlan-search-params"/>
+  <!-- 
   <entry>
     <resource>
       <SearchParameter>
@@ -21,6 +22,7 @@
       </SearchParameter>
     </resource>
   </entry>
+   -->
   <entry>
     <resource>
       <SearchParameter>
@@ -40,6 +42,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  <!--
   <entry>
     <resource>
       <SearchParameter>
@@ -78,6 +81,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  -->
   <entry>
     <resource>
       <SearchParameter>
@@ -345,6 +349,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  <!--
   <entry>
     <resource>
       <SearchParameter>
@@ -364,6 +369,7 @@
       </SearchParameter>
     </resource>
   </entry>
+  -->
   <entry>
     <resource>
       <SearchParameter>

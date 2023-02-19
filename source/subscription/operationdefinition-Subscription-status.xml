@@ -61,6 +61,7 @@
   <parameter>
     <name value="id"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="*"/>
     <documentation value="At the Instance level, this parameter is ignored.  At the Resource level, one or more parameters containing a FHIR id for a Subscription to get status information for. In the absence of any specified ids, the server returns the status for all Subscriptions available to the caller. Multiple values are joined via OR (e.g., &quot;id1&quot; OR &quot;id2&quot;)."/>
@@ -69,6 +70,7 @@
   <parameter>
     <name value="status"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="*"/>
     <documentation value="At the Instance level, this parameter is ignored. At the Resource level, a Subscription status to filter by (e.g., &quot;active&quot;). In the absence of any specified status values, the server does not filter contents based on the status. Multiple values are joined via OR (e.g., &quot;error&quot; OR &quot;off&quot;)."/>

@@ -80,6 +80,7 @@
   <parameter>
     <name value="system"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The code system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance"/>
@@ -88,6 +89,7 @@
   <parameter>
     <name value="version"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the code system, if one was provided in the source data"/>

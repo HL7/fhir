@@ -125,6 +125,10 @@
       <path value="ValueSet.copyright"/>
       <mustSupport value="true"/>
     </element>
+    <element id="ValueSet.copyrightLabel">
+      <path value="ValueSet.copyrightLabel"/>
+      <mustSupport value="true"/>
+    </element>
     <element id="ValueSet.approvalDate">
       <path value="ValueSet.approvalDate"/>
     </element>

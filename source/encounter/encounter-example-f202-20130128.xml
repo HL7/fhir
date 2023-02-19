@@ -49,13 +49,17 @@
 		<code value="min"/>
 	</length>
 	<reason>
-      <concept>
-    		<text value="The patient is treated for a tumor."/>
-      </concept>
+		<value>
+			<concept>
+					<text value="The patient is treated for a tumor."/>
+			</concept>
+		</value>
 	</reason>
 	<diagnosis>
 		<condition>
-			<display value="Complications from Roel's TPF chemotherapy on January 28th, 2013"/>
+			<concept>
+				<text value="Complications from Roel's TPF chemotherapy on January 28th, 2013"/>
+			</concept>
 		</condition>
 		<use>
 			<coding>
@@ -64,12 +68,13 @@
 				<display value="Admission diagnosis"/>
 			</coding>
 		</use>
-		<rank value="2"/>
 	</diagnosis>
 	<!-- Example of a principal diagnosis with role=CC and rank=1-->
 	<diagnosis>
 		<condition>
-			<display value="The patient is treated for a tumor"/>
+			<concept>
+				<text value="The patient is treated for a tumor"/>
+			</concept>
 		</condition>
 		<use>
 			<coding>
@@ -78,7 +83,6 @@
 				<display value="Chief complaint"/>
 			</coding>
 		</use>
-		<rank value="1"/>
 	</diagnosis>
 	<!--No admission was deemed necessary-->
 </Encounter>

@@ -12,5 +12,5 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value=" This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
+  <description value="This  value set defines a set of codes that indicate the type of relationship between two specimen resources."/>
 </ValueSet>

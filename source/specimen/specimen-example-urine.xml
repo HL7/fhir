@@ -55,7 +55,7 @@
 	</processing>
 	<container>
 	<device>
-	      <reference value="Specimen/specimen-device-container-example-polycup"/>
+	      <reference value="Device/device-example-specimen-container-polycup"/>
 	   </device>
 		<specimenQuantity>
 			<value value="10"/>
