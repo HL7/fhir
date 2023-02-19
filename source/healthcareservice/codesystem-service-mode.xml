@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="service-mode"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="pa"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <url value="http://hl7.org/fhir/service-mode"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2116"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="ServiceMode"/>
+  <title value="Service Mode"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2023-02-20"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/service-mode"/>
+  <content value="complete"/>
+  <concept>
+    <code value="in-person"/>
+    <display value="In Person"/>
+    <definition value="The service will be provided in person"/>
+  </concept>
+  <concept>
+    <code value="telephone"/>
+    <display value="Telephone"/>
+    <definition value="The service will be provided by a teleconferencing facility or regular telephone"/>
+  </concept>
+  <concept>
+    <code value="videoconference"/>
+    <display value="Video Conference"/>
+    <definition value="The service will be provided over a video-conference facility"/>
+  </concept>
+  <concept>
+    <code value="chat"/>
+    <display value="Chat/Messaging"/>
+    <definition value="This service will be provided via a realtime chat/messaging conversation"/>
+  </concept>
+</CodeSystem>
