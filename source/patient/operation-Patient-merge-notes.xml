@@ -106,7 +106,7 @@
 				A GET on the source Patient resource ID (e.g. <code>GET [base]/Patient/pat01</code>) will return either:
 			</p>
 			<ul>
-				<li>200 OK and returns the source Patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
+				<li>200 OK and returns the source patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
 				<li>404 not found (when the merge system deleted the resource)</li>
 			</ul>
 			<blockquote>
@@ -115,14 +115,14 @@
 				</p>
 			</blockquote>
 			<p>
-				When performing a SEARCH by the old Patient Resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
+				When performing a SEARCH by the source patient resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
 				(often used as a substitute for direct GET when doing _include for the managing org/general practitioner).
 			</p>
 			<ul>
 				<li>200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)</li>
-				<li>200 Ok Bundle with no patient resource (case where the old patient was deleted)</li>
-				<li>200 Ok Bundle with the target patient resource (with the link to the one from the search) and not include the old patient resource</li>
-				<li>200 Ok Bundle with both the target and old patient resources</li>
+				<li>200 Ok Bundle with no patient resource (case where the source patient was deleted)</li>
+				<li>200 Ok Bundle with the target patient resource (with the link to the one from the search) and not include the source patient resource</li>
+				<li>200 Ok Bundle with both the target and source patient resources</li>
 			</ul>
 			<p>
 				Accessing the Patient $everything operation on the source patient resource (now marked as inactive) will return an OperationOutcome and http status of 400 Bad Request. The error message should inform that the patient has been merged and should follow the Patient link to access the $everything content.
@@ -154,7 +154,7 @@
 			</p>
 			[%stu-note dstu%]
 				<p>
-					Creating/Updating content (e.g. Observations) that reference the old Patient ID (feedback on this required):
+					Creating/Updating content (e.g. Observations) that reference the source patient ID (feedback on this required):
 				</p>
 				<ul>
 					<li>422 Unprocessable Entity with an OperationOutcome indicating that the patient referenced was merged into patient xxx (this is also the existing behavior if the patient resource was deleted)</li>
