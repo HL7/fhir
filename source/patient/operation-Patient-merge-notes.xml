@@ -76,7 +76,7 @@
 				While updating resources that reference the source patient, ensure that the target patient link value isn't also accidentally updated (don't make it point at itself).
 			</p>
 			<p>
-				A Provenance resource SHOULD be created that references the source and target patient resources (or just the target-resource if the source was deleted, or the source patient's old identifier) indicating that the merge has occurred (see example below).<br/>
+				A Provenance resource SHOULD be created that references the source and target patient resources (or just the target-resource if the source was deleted, or the source patient's old identifier) indicating that the merge has occurred (see example <a href="#examples">below</a>).<br/>
 				A Provenance resource MAY be created to link all of the resources that referenced the source patient that could then provide information to a potential un-merge operation.
 			</p>
 			<blockquote>
