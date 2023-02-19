@@ -124,7 +124,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -676,7 +676,7 @@
     </element>
     <element id="ActivityDefinition.lastReviewDate">
       <path value="ActivityDefinition.lastReviewDate"/>
-      <short value="When the activity definition was last reviewed"/>
+      <short value="When the activity definition was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -789,7 +789,7 @@
       </extension>
       <path value="ActivityDefinition.reviewer"/>
       <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -806,7 +806,7 @@
       </extension>
       <path value="ActivityDefinition.endorser"/>
       <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>

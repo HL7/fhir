@@ -137,7 +137,7 @@
     </element>
     <element id="MedicationRequest.basedOn">
       <path value="MedicationRequest.basedOn"/>
-      <short value="What request fulfills"/>
+      <short value="A plan or request that is fulfilled in whole or in part by this medication request"/>
       <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
       <min value="0"/>
       <max value="*"/>
@@ -160,8 +160,8 @@
     </element>
     <element id="MedicationRequest.priorPrescription">
       <path value="MedicationRequest.priorPrescription"/>
-      <short value="An order/prescription that is being replaced"/>
-      <definition value="A link to a resource representing an earlier order related order or prescription."/>
+      <short value="Reference to an order/prescription that is being replaced by this MedicationRequest"/>
+      <definition value="Reference to an order/prescription that is being replaced by this MedicationRequest."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -183,8 +183,8 @@
     </element>
     <element id="MedicationRequest.groupIdentifier">
       <path value="MedicationRequest.groupIdentifier"/>
-      <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription."/>
+      <short value="Composite request this is part of"/>      
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <min value="0"/>
       <max value="1"/>
@@ -440,8 +440,8 @@
     </element>
     <element id="MedicationRequest.subject">
       <path value="MedicationRequest.subject"/>
-      <short value="Who or group medication request is for"/>
-      <definition value="A link to a resource representing the person or set of individuals to whom the medication will be given."/>
+      <short value="Individual or group for whom the medication has been requested"/>
+      <definition value="The individual or group for whom the medication has been requested."/>
       <comment value="The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified."/>
       <min value="1"/>
       <max value="1"/>
@@ -834,7 +834,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="rim"/>

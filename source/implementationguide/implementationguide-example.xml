@@ -80,12 +80,12 @@
         <reference value="Patient/test"/>
       </reference>
       <profile value="http://hl7.org/fhir/us/core/StructureDefinition/patient"/>
-      <relativePath value="patient-test.html#patient-test"/>
+      <relativePath value="patient-example.html"/>
     </resource>
     <page>
-      <name value="patient-test.html"/>
+      <name value="patient-example.html"/>
       <title value="Test Patient Example"/>
-      <anchor value="patient-test"/>
+      <anchor value="patient-example"/>
       <anchor value="tx"/>
       <anchor value="uml"/>
     </page>

@@ -135,7 +135,7 @@
     <publish>true</publish>
 	</space>
 	<space>
-		<url>https://profiles.ihe.net/ITI/HIE-Whitepaper</url>
+		<url>http://ihe.net/xds</url>
     <link>http://wiki.ihe.net/index.php/Category:DocShare</link>
 		<columnName>XDS Mapping</columnName>
 		<title>XDS metadata equivalent</title>

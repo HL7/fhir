@@ -49,7 +49,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of link between this patient resource and another patient resource."/>
+  <description value="The type of link between this Patient resource and other Patient/RelatedPerson resource(s)."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/link-type"/>
   <content value="complete"/>
@@ -83,7 +83,7 @@
   <concept>
     <code value="seealso"/>
     <display value="See also"/>
-    <definition value="The patient resource containing this link is in use and valid, but points to another patient resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other patient resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid."/>
+    <definition value="The patient resource containing this link is in use and valid, but points to another Patient or RelatedPerson resource that is known to contain data about the same person. Data in this resource might overlap or contradict information found in the other Patient/RelatedPerson resource. This link does not indicate any relative importance of the resources concerned, and both should be regarded as equally valid."/>
     <designation>
       <language value="nl"/>
       <value value="Zie ook"/>

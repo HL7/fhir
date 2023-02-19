@@ -414,11 +414,11 @@
     <element id="DeviceDefinition.conformsTo.category">
       <path value="DeviceDefinition.conformsTo.category"/>
       <short value="Describes the common type of the standard, specification, or formal guidance"/>
-      <definition value="Describes the common type of the standard, specification, or formal guidance."/>
+      <definition value="Describes the type of the standard, specification, or formal guidance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Coding"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -432,7 +432,7 @@
     <element id="DeviceDefinition.conformsTo.specification">
       <path value="DeviceDefinition.conformsTo.specification"/>
       <short value="Identifies the standard, specification, or formal guidance that the device adheres to the Device Specification type"/>
-      <definition value="Identifies the standard, specification or formal guidance that the device adheres to."/>
+      <definition value="Code that identifies the specific standard, specification, protocol, formal guidance, regulation, legislation, or certification scheme to which the device adheres."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -449,7 +449,7 @@
     <element id="DeviceDefinition.conformsTo.version">
       <path value="DeviceDefinition.conformsTo.version"/>
       <short value="The specific form or variant of the standard, specification or formal guidance"/>
-      <definition value="Identifies the specific form or variant of the standard, specification or formal guidance."/>
+      <definition value="Identifies the specific form or variant of the standard, specification, or formal guidance. This may be a 'version number', release, document edition, publication year, or other label."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -458,8 +458,8 @@
     </element>
     <element id="DeviceDefinition.conformsTo.source">
       <path value="DeviceDefinition.conformsTo.source"/>
-      <short value="The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication"/>
-      <definition value="The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication."/>
+      <short value="Standard, regulation, certification, or guidance website, document, or other publication, or similar, supporting the conformance"/>
+      <definition value="Standard, regulation, certification, or guidance website, document, or other publication, or similar, supporting the conformance."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -506,7 +506,7 @@
     </element>
     <element id="DeviceDefinition.packaging">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="775,0"/>
+        <valueCode value="750,0"/>
       </extension>
       <path value="DeviceDefinition.packaging"/>
       <short value="Information about the packaging of the device, i.e. how the device is packaged"/>
@@ -709,6 +709,14 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DevicePropertyType"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Device property type."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-property-type"/>
+      </binding>
     </element>
     <element id="DeviceDefinition.property.value[x]">
       <path value="DeviceDefinition.property.value[x]"/>
@@ -833,7 +841,7 @@
         <map value=".text"/>
       </mapping>
     </element>
-    <element id="DeviceDefinition.parentDevice">
+    <!-- <element id="DeviceDefinition.parentDevice">
       <path value="DeviceDefinition.parentDevice"/>
       <short value="The parent device it can be part of"/>
       <definition value="The parent device it can be part of."/>
@@ -844,7 +852,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
       <isSummary value="true"/>
-    </element>
+    </element> -->
     <element id="DeviceDefinition.material">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="350,500"/>

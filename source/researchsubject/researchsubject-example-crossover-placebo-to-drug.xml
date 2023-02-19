@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ResearchSubject xmlns="http://hl7.org/fhir">
+	<id value="example-crossover-placebo-to-drug"/>
+	<identifier>
+		<value value="ecsr45"/>
+	</identifier>
+	<status value="active"/>
+	<progress>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-subject-state-type"/>
+				<code value="Enrollment"/>
+			</coding>
+			<text value="Enrollment status"/>
+		</type>
+	</progress>
+	<progress>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-subject-state-type"/>
+				<code value="Enrollment"/>
+			</coding>
+			<text value="Enrollment status"/>
+		</type>
+		<subjectState>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-subject-state"/>
+				<code value="on-study"/>
+			</coding>
+			<text value="On-study"/>
+		</subjectState>
+		<reason>
+			<coding>
+				<code value="informedConsentSigned"/>
+			</coding>
+			<text value="Informed consent signed"/>
+		</reason>
+		<startDate value="2022-06-10"/>
+	</progress>
+	<period>
+		<start value="2022-06-10"/>
+	</period>
+	<study>
+		<reference value="example-ctgov-study-record"/>
+	</study>
+	<subject>
+		<reference value="cfsb1676546565857"/>
+	</subject>
+	<assignedComparisonGroup value="placebo"/>
+	<actualComparisonGroup value="ap303"/>
+</ResearchSubject>

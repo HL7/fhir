@@ -115,7 +115,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -395,7 +395,7 @@
     </element>
     <element id="EvidenceVariable.lastReviewDate">
       <path value="EvidenceVariable.lastReviewDate"/>
-      <short value="When the resource was last reviewed"/>
+      <short value="When the resource was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <min value="0"/>
       <max value="1"/>
@@ -442,7 +442,7 @@
     <element id="EvidenceVariable.reviewer">
       <path value="EvidenceVariable.reviewer"/>
       <short value="Who reviewed the content"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the content."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
@@ -457,7 +457,7 @@
     <element id="EvidenceVariable.endorser">
       <path value="EvidenceVariable.endorser"/>
       <short value="Who endorsed the content"/>
-      <definition value="An individual or organization responsible for officially endorsing the content for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting."/>
       <comment value="Extensions to ContactDetail include: contactReference, contactAddress, and contributionTime (see [Clinical Reasoning Module](clinicalreasoning-module.html))."/>
       <min value="0"/>
       <max value="*"/>
@@ -773,6 +773,30 @@
       <min value="1"/>
       <max value="*"/>
       <contentReference value="#EvidenceVariable.characteristic"/>
+    </element>
+    <element id="EvidenceVariable.characteristic.instances[x]">
+      <path value="EvidenceVariable.characteristic.instances[x]"/>
+      <short value="Number of occurrences meeting the characteristic"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+    </element>
+    <element id="EvidenceVariable.characteristic.duration[x]">
+      <path value="EvidenceVariable.characteristic.duration[x]"/>
+      <short value="Length of time in which the characteristic is met"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
     </element>
     <element id="EvidenceVariable.characteristic.timeFromEvent">
       <path value="EvidenceVariable.characteristic.timeFromEvent"/>

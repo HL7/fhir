@@ -1,4 +1,4 @@
-There must be at least 1 source patient/patient-identifier parameter and at least 1 target patient/patient-identifier parameter
+There must be exactly 1 source patient, which may  be identified by either the source-patient or source-patient-identifier parameters.  Similarly, there must be exactly 1 target patient, identified by either the target-patient or target-patient-identifier parameters.  In both cases, either a reference to the patient or a list of identifiers that can be used to identify the patient may be provided, but not both.
 
 The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter)
 
@@ -12,15 +12,15 @@ The merge operation will have multiple stages, and some of these may take additi
 |Stage | Description |
 |-|-|
 | Preview Merge | (Optional)<br/>This is a call to the operation (with preview=true) that simply checks for potential errors and warnings, without committing any changes.<br/>This might not be able to capture all possible causes of errors that could be encountered during the processing of the data patching.<br/>The returned Patient resource is a preview only and has not been committed. Hence the version number and last_modified date would be cleared/absent. |
-| Initiate Merge | This stage processes the input parameters checking for errors/warnings and begins the changes to the patient resources.<br/>If the system is able to complete the processing of all reference data to the target patient, then it may be complete and no task is required. Otherwise a Task for tracking would be created and monitor the progress of the merge. |
+| Initiate Merge | This stage processes the input parameters checking for errors/warnings and **prepares** to make changes to the patient resources.<br/>If the system is able to complete the processing of all reference data to the target patient, then **the merge process may complete immediately where no Task is needed and the data processing stage occurs as part of the Initiate Merge action**. Otherwise a Task for tracking would be created and monitor the progress of the merge. |
 | Data Processing | The REST operation may have returned, and processing is ongoing to patch any other resource that references the source patient to reference the target patient.<br/>This may take a considerable period of time in some systems where the volume of records being updated is large.<br/>The source Patient record will be marked as inactive, and add the link property to the target patient (except where systems delete the record)
 | Completed (or failed) | All data processing is complete, and the Task is marked as completed (maybe with errors) |
 
-During the Data Processing stage the patient resource and resources referencing the source patient may be indeterminate until the merge processing operation completes.
+During the Data Processing stage any of the related patient resources (source, target, and result) and any resources referencing any of these patients may be indeterminate until the merge processing operation completes. These resources may be in the process of being changed or deleted, or having references updated, and there is no implied sequence for these updates to be made. There is also no implication that these changes are happening within a single transaction. Data consumers should wait until the merge process completes before querying for data about any of the relevant patients.
 
 **Note:** Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc.
 
-**Note:** During the pre-merge validation stage, a system may perform other internal checks/business rules.
+**Note:** Systems may do any other internal checks or business rule validation when preparing for or performing a merge.
 
 ## Merging Identifiers
 If the result patient resource is provided in the parameters to the operation, then it is assumed that the caller has correctly included all the required identifiers desired to be in the target patient (though must include the identifiers specified in the input parameters).
@@ -52,17 +52,15 @@ A Provenance resource MAY be created to link all of the resources that reference
 
 ## Post Merge Expectations
 ### Once the patient resources have been merged:
-A GET on the old Patient resource ID (e.g. `GET [base]/Patient/pat01`) will return either:
+A GET on the source Patient resource ID (e.g. `GET [base]/Patient/pat01`) will return either:
 
-* 200 OK and returns the old Patient which is now marked as inactive, and has the link (replaced-by) populated with the new Patient ID
+* 200 OK and returns the source Patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID 
 (Note: some systems may have cleared all the other properties making this a stub resource)
 * 404 not found (when the merge system deleted the resource)
 
-> **Review Note:** If the system "knows" that the resource was there it would be preferable to return a stub patient 202 as described above.
+**Note:** Security implications such as those from SMART tokens could restrict access here.
 
-> **Review Note:** Security implications such as those from SMART tokens could restrict access here.
-
-When performing a SEARCH by the old Patient Resource ID return: e.g. GET [base]/Patient?_id=pat01 (often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
+When performing a SEARCH by the old Patient Resource ID return: e.g. `GET [base]/Patient?_id=pat01` (often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
 
 * 200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)
 * 200 Ok Bundle with no patient resource (case where the old patient was deleted)

@@ -109,7 +109,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -404,7 +404,7 @@
     </element>
     <element id="Citation.lastReviewDate">
       <path value="Citation.lastReviewDate"/>
-      <short value="When the citation record was last reviewed"/>
+      <short value="When the citation record was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>

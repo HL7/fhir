@@ -5967,7 +5967,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s149"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">Agreement Acope</Data></Cell>
+    <Cell ss:StyleID="s149"><Data ss:Type="String">Agreement Scope</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Describes the level and scope of agreement within the artifact.  Appropriate values can be found in the usage-context-agreement-scope value set.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>

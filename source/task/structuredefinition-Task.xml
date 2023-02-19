@@ -194,7 +194,7 @@
     <element id="Task.groupIdentifier">
       <path value="Task.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="An identifier that links together multiple tasks and other requests that were created in the same context."/>
+      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -417,6 +417,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -466,6 +467,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -908,6 +910,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tsk-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="Instead of pointing to request, would point to component of request, having these characteristics"/>

@@ -6,14 +6,14 @@
   <mode value="working"/>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Placeholder example"/>
+      <valueString value="ClinicalTrials.gov Study Record"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="researchstudy-example"/>
+      <valueString value="researchstudy-example-ctgov-study-record"/>
     </extension>
     <item>
-      <reference value="ResearchStudy/example"/>
-      <display value="Example"/>
+      <reference value="ResearchStudy/example-ctgov-study-record"/>
+      <display value="ClinicalTrials.gov Study Record"/>
     </item>
   </entry>
 </List>

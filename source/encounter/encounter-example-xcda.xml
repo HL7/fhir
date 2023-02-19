@@ -23,12 +23,14 @@
 		</actor>
 	</participant>
 	<reason>
-		<concept>
-			<coding>
-				<system value="http://ihe.net/xds/connectathon/eventCodes"/>
-				<code value="T-D8200"/>
-				<display value="Arm"/>
-			</coding>
-		</concept>
+		<value>
+			<concept>
+				<coding>
+					<system value="http://ihe.net/xds/connectathon/eventCodes"/>
+					<code value="T-D8200"/>
+					<display value="Arm"/>
+				</coding>
+			</concept>
+		</value>
 	</reason>
 </Encounter>

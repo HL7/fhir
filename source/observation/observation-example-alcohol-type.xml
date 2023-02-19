@@ -59,7 +59,7 @@
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="6524003"/>
-				<display value=" Distilled spirits (substance)"/>
+				<display value="Distilled spirits (substance)"/>
 			</coding>
 			<text value="Liquor"/>
 		</valueCodeableConcept>

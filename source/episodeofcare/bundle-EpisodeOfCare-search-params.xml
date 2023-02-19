@@ -25,56 +25,75 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="EpisodeOfCare-condition"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition"/>
-        <description value="Conditions/problems/diagnoses this episode of care is for (legacy)"/>
-        <code value="condition"/>
-        <type value="reference"/>
-        <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="EpisodeOfCare-condition-reference"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition-reference"/>
-        <description value="Conditions/problems/diagnoses this episode of care is for (resource reference)"/>
-        <code value="condition-reference"/>
-        <type value="reference"/>
-        <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="EpisodeOfCare-condition-concept"/>
+        <id value="EpisodeOfCare-diagnosis-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="EpisodeOfCare.diagnosis.condition.concept"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-condition-concept"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-diagnosis-code"/>
         <description value="Conditions/problems/diagnoses this episode of care is for (coded)"/>
-        <code value="condition-concept"/>
+        <code value="diagnosis-code"/>
         <type value="token"/>
         <expression value="EpisodeOfCare.diagnosis.condition.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-diagnosis-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.diagnosis.condition.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-diagnosis-reference"/>
+        <description value="Conditions/problems/diagnoses this episode of care is for (resource reference)"/>
+        <code value="diagnosis-reference"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.diagnosis.condition.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-reason-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.reason.value.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-reason-code"/>
+        <description value="Reference to a concept (coded)"/>
+        <code value="reason-code"/>
+        <type value="token"/>
+        <expression value="EpisodeOfCare.reason.value.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="EpisodeOfCare-reason-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="EpisodeOfCare.reason.value.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/EpisodeOfCare-reason-reference"/>
+        <description value="Reference to a resource (resource reference)"/>
+        <code value="reason-reference"/>
+        <type value="reference"/>
+        <expression value="EpisodeOfCare.reason.value.reference"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

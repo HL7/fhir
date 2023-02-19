@@ -125,13 +125,13 @@ The div element SHALL have some non-whitespace content (text or an image).
 <div class="example">
 <pre class="xml" fragment="Narrative">
   &lt;narrative&gt;
-    &lt;status value=&quot;additional&quot;/&gt;
+    &lt;status value="additional"/&gt;
     &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;This is a simple
           example with only plain text&lt;/div&gt;
   &lt;/narrative&gt;
 
   &lt;narrative&gt;
-    &lt;status value=&quot;additional&quot;/&gt;
+    &lt;status value="additional"/&gt;
    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
      &lt;p&gt;
        This is an &lt;i&gt;example&lt;/i&gt; with some &lt;b&gt;xhtml&lt;/b&gt; formatting.
@@ -147,13 +147,13 @@ it SHALL be encoded so that the characters between the first '&gt;' and the last
 '&lt;' delimiters is the content of the <code>&lt;div&gt;</code> element; e.g.
 </p>
 <pre class="json">
-  &quot;div&quot;: &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;text&lt;/div&gt;&quot;
+  "div": "&lt;div xmlns=\"http://www.w3.org/1999/xhtml\"&gt;text&lt;/div&gt;"
 </pre>
 <p>
 is legal, but this is not:
 </p>
 <pre class="json">
-  &quot;div&quot;: &quot;&lt;?xml ...&gt;&lt;div&gt;text&lt;/div&gt;&quot;
+  "div": "&lt;?xml ...&gt;&lt;div&gt;text&lt;/div&gt;"
 </pre>
 <p>
 Note that the XHTML is contained in general XML so there is no support for HTML entities
@@ -197,15 +197,15 @@ by its <i>id</i>:
 </p>
 <div class="example">
 <pre class="xml" fragment="Patient">
-&lt;Patient xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+&lt;Patient xmlns="http://hl7.org/fhir"&gt;
   &lt;text&gt;
-    &lt;status value=&quot;generated&quot;/&gt;
-    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-      &lt;p&gt;... &lt;img src=&quot;#pic1&quot;/&gt;. ....&lt;/p&gt;
+    &lt;status value="generated"/&gt;
+    &lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;
+      &lt;p&gt;... &lt;img src="#pic1"/&gt;. ....&lt;/p&gt;
     &lt;/div&gt;
   &lt;/text&gt;
   &lt;contained&gt;
-    &lt;Binary&gt;&lt;id value=&quot;pic1&quot;/&gt;&lt;contentType value=&quot;image/gif&quot;/&gt;&lt;data value=&quot;MEKH....SD/Z&quot;/&gt;&lt;/Binary&gt;
+    &lt;Binary&gt;&lt;id value="pic1"/&gt;&lt;contentType value="image/gif"/&gt;&lt;data value="MEKH....SD/Z"/&gt;&lt;/Binary&gt;
   &lt;/contained&gt;
 &lt;/Patient&gt;
 </pre>
