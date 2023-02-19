@@ -112,6 +112,17 @@
         <map value="FiveWs.identifier"/>
       </mapping>
     </element>
+    <element id="Claim.traceNumber">
+      <path value="Claim.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="Claim.status">
       <path value="Claim.status"/>
       <short value="active | cancelled | draft | entered-in-error"/>
@@ -1245,6 +1256,17 @@
         <code value="positiveInt"/>
       </type>
     </element>
+    <element id="Claim.item.traceNumber">
+      <path value="Claim.item.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="Claim.item.careTeamSequence">
       <path value="Claim.item.careTeamSequence"/>
       <short value="Applicable careTeam members"/>
@@ -1637,6 +1659,17 @@
         <code value="positiveInt"/>
       </type>
     </element>
+    <element id="Claim.item.detail.traceNumber">
+      <path value="Claim.item.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
     <element id="Claim.item.detail.revenue">
       <path value="Claim.item.detail.revenue"/>
       <short value="Revenue or cost center code"/>
@@ -1864,6 +1897,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Claim.item.detail.subDetail.traceNumber">
+      <path value="Claim.item.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="Claim.item.detail.subDetail.revenue">
