@@ -55,7 +55,9 @@
   <text value='Nurse'/>
 </performerType>
 <performer>
-  <display value="Nurse Rossignol"/>
+  <reference>
+    <display value="Nurse Rossignol"/>
+  </reference>
 </performer>
 <reason>
   <concept>
