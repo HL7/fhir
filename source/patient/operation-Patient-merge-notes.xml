@@ -221,11 +221,11 @@
 			<p>
 				This section addresses the events that occur usually for the purposes of correcting errors in person, patient, account, or visit identifiers. The types of errors that occur typically fall into three categories:
 			</p>
-			<ul>
+			<ol>
 				<li>Duplicate identifier created<br/> The registrar fails to identify an existing person, patient, account, or visit and creates a new, "duplicate" record instead of using the existing record. A "merge" operation is used to fix this type of error.</li>
 				<li>Incorrect identifier selected<br/> The registrar mistakenly selects the wrong person, patient, or account and creates or attaches a patient, account, or visit underneath the incorrect person, patient, or account. A "move" operation is used to fix this type of error.</li>
 				<li>Incorrect identifier assigned<br/> The registrar accidentally types in the wrong new identifier for a person, patient, account, or visit. This type of mistake usually occurs when identifiers are manually assigned (not system generated).  A "change identifier" operation is used to fix this type of error.</li>
-			</ul>
+			</ol>
 			<blockquote>
 				<p>
 					<b>Note:</b> HL7v2 addresses only scenarios 1 and 2 as most identifiers are assigned by the related systems, today.
