@@ -239,6 +239,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -431,6 +432,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -607,6 +609,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -800,6 +803,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -888,6 +892,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>

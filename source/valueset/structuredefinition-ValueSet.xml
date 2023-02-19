@@ -120,7 +120,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -693,8 +693,8 @@
       <type>
         <code value="uri"/>
       </type>
-      <condition value="vsd-1"/>
       <condition value="vsd-2"/>
+      <condition value="vsd-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -733,6 +733,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="vsd-2"/>
       <condition value="vsd-3"/>
       <mapping>
         <identity value="rim"/>
@@ -829,6 +830,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="vsd-11"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -848,6 +850,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="vsd-11"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -880,6 +883,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="vsd-2"/>
       <condition value="vsd-3"/>
       <isSummary value="true"/>
       <mapping>
@@ -988,7 +992,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ValueSet.compose.include"/>
-      <condition value="vsd-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -1213,6 +1216,7 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="vsd-10"/>
     </element>
     <element id="ValueSet.expansion.contains.abstract">
       <path value="ValueSet.expansion.contains.abstract"/>
@@ -1225,6 +1229,7 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="If this is not populated, systems can assume that the concept it not abstract. This SHALL always be populated for abstract concepts"/>
+      <condition value="vsd-9"/>
     </element>
     <element id="ValueSet.expansion.contains.inactive">
       <path value="ValueSet.expansion.contains.inactive"/>
@@ -1261,6 +1266,8 @@
         <code value="code"/>
       </type>
       <condition value="vsd-6"/>
+      <condition value="vsd-9"/>
+      <condition value="vsd-10"/>
     </element>
     <element id="ValueSet.expansion.contains.display">
       <path value="ValueSet.expansion.contains.display"/>

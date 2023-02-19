@@ -466,6 +466,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="fhs-2"/>
       <condition value="fhs-1"/>
       <condition value="fhs-3"/>
       <isSummary value="true"/>
