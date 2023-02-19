@@ -559,6 +559,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
+      <condition value="prov-1"/>
+      <condition value="prov-2"/>
+      <condition value="prov-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -587,6 +590,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+      <condition value="prov-1"/>
+      <condition value="prov-2"/>
+      <condition value="prov-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]"/>

@@ -985,6 +985,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="cmp-1"/>
       <condition value="cmp-2"/>
       <mapping>
         <identity value="rim"/>
@@ -1035,7 +1036,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Composition.section"/>
-      <condition value="cmp-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=&quot;COMP&quot; and isNormalActRelationship()]/target[moodCode=&quot;EVN&quot; and classCode=&quot;DOCSECT&quot; and isNormalAct]"/>

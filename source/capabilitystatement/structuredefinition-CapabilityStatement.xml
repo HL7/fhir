@@ -177,7 +177,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -471,7 +471,10 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cpb-16"/>
       <condition value="cpb-15"/>
+      <condition value="cpb-3"/>
+      <condition value="cpb-14"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -523,6 +526,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-16"/>
+      <condition value="cpb-15"/>
       <condition value="cpb-2"/>
       <isSummary value="true"/>
     </element>
@@ -572,8 +577,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="cpb-2"/>
+      <condition value="cpb-16"/>
       <condition value="cpb-15"/>
+      <condition value="cpb-14"/>
+      <condition value="cpb-2"/>
       <isSummary value="true"/>
     </element>
     <element id="CapabilityStatement.implementation.description">
@@ -659,7 +666,6 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/mimetypes"/>
         <additional>
           <purpose value="starter"/>
-          <description value="Common format types for FHIR."/>
           <valueSet value="http://hl7.org/fhir/ValueSet/capability-format-type"/>
         </additional>
       </binding>
@@ -743,6 +749,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-4"/>
       <condition value="cpb-1"/>
       <constraint>
         <key value="cpb-9"/>
@@ -762,6 +769,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cpb-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -859,6 +867,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-9"/>
       <constraint>
         <key value="cpb-12"/>
         <severity value="error"/>
@@ -877,6 +886,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cpb-9"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1179,6 +1189,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-12"/>
     </element>
     <element id="CapabilityStatement.rest.resource.searchParam.name">
       <path value="CapabilityStatement.rest.resource.searchParam.name"/>
@@ -1190,6 +1201,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="cpb-12"/>
     </element>
     <element id="CapabilityStatement.rest.resource.searchParam.definition">
       <path value="CapabilityStatement.rest.resource.searchParam.definition"/>
@@ -1388,6 +1400,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-3"/>
       <condition value="cpb-1"/>
       <isSummary value="true"/>
     </element>
@@ -1404,6 +1417,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-3"/>
     </element>
     <element id="CapabilityStatement.messaging.endpoint.protocol">
       <path value="CapabilityStatement.messaging.endpoint.protocol"/>
@@ -1518,6 +1532,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cpb-7"/>
       <condition value="cpb-1"/>
       <isSummary value="true"/>
     </element>
@@ -1530,6 +1545,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cpb-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1564,6 +1580,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
+      <condition value="cpb-7"/>
       <isSummary value="true"/>
     </element>
   </differential>

@@ -1739,7 +1739,7 @@
           <valueUri value="https://x12.org/codes/service-review-decision-reason-codes"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision-reason"/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.item.reviewOutcome.preAuthRef">
