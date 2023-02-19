@@ -72,7 +72,7 @@ should see particular flags, will vary by interoperability community.
 <p>
 Flags may highlight a highly condensed view of information found in the <a href="allergyintolerance.html">AllergyIntolerance</a>, 
 <a href="condition.html">Condition</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a> and possibly 
-other resources.  A <a href="extension-flag-detail.html">common extension</a> allows the linkage of a Flag to the supporting detail resource.
+other resources.  A <a href="[%extensions-location%]StructureDefinition-flag-detail.html">common extension</a> allows the linkage of a Flag to the supporting detail resource.
 The purpose of these other resources is to provide detailed clinical information.  The purpose of a Flag is to alert practitioners to 
 information that is important to influence their interaction with a Patient prior to detailed review of the record.
 </p>

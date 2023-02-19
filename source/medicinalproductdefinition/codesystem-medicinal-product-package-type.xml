@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="medicinal-product-package-type"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -20,7 +22,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicinalProductPackageType"/>
-  <title value="MedicinalProductPackageType"/>
+  <title value="Medicinal Product Package Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,16 +41,52 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-package-type"/>
   <content value="complete"/>
-  <concept><code value="100000073490"/><display value="Ampoule"/></concept>
-  <concept><code value="100000073491"/><display value="Applicator"/></concept>
-  <concept><code value="100000073492"/><display value="Automatic injection device"/></concept>
-  <concept><code value="100000073493"/><display value="Bag"/></concept>
-  <concept><code value="100000073494"/><display value="Balling gun"/></concept>
-  <concept><code value="100000073495"/><display value="Barrel"/></concept>
-  <concept><code value="100000073496"/><display value="Blister"/></concept>
-  <concept><code value="100000073497"/><display value="Bottle"/></concept>
-  <concept><code value="100000073498"/><display value="Box"/></concept>
-  <concept><code value="100000073547"/><display value="Sachet"/></concept>
-  <concept><code value="100000073563"/><display value="Vial"/></concept>
-  <concept><code value="100000143555"/><display value="Pack"/></concept>
+  <concept>
+    <code value="100000073490"/>
+    <display value="Ampoule"/>
+  </concept>
+  <concept>
+    <code value="100000073491"/>
+    <display value="Applicator"/>
+  </concept>
+  <concept>
+    <code value="100000073492"/>
+    <display value="Automatic injection device"/>
+  </concept>
+  <concept>
+    <code value="100000073493"/>
+    <display value="Bag"/>
+  </concept>
+  <concept>
+    <code value="100000073494"/>
+    <display value="Balling gun"/>
+  </concept>
+  <concept>
+    <code value="100000073495"/>
+    <display value="Barrel"/>
+  </concept>
+  <concept>
+    <code value="100000073496"/>
+    <display value="Blister"/>
+  </concept>
+  <concept>
+    <code value="100000073497"/>
+    <display value="Bottle"/>
+  </concept>
+  <concept>
+    <code value="100000073498"/>
+    <display value="Box"/>
+  </concept>
+  <concept>
+    <code value="100000073547"/>
+    <display value="Sachet"/>
+  </concept>
+  <concept>
+    <code value="100000073563"/>
+    <display value="Vial"/>
+  </concept>
+  <concept>
+    <code value="100000143555"/>
+    <display value="Pack"/>
+  </concept>
 </CodeSystem>

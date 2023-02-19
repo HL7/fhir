@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationDispense"/>
-  <title value="MedicationDispense"/>
+  <title value="Medication Dispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -596,6 +596,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="mdd-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -622,6 +623,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="mdd-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.occurrence[x]"/>
@@ -644,8 +646,8 @@
         <valueString value="for inpatient setting this is core, but this might not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?"/>
       </extension>
       <path value="MedicationDispense.destination"/>
-      <short value="Where the medication was sent"/>
-      <definition value="Identification of the facility/location where the medication was shipped to, as part of the dispense event."/>
+      <short value="Where the medication was/will be sent"/>
+      <definition value="Identification of the facility/location where the medication was/will be shipped to, as part of the dispense event."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -721,7 +723,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="rim"/>

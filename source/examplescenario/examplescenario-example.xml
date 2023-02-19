@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExampleScenario xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
+
+<ExampleScenario xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <text>
     <status value="additional"/>
-    <div xmlns="http://www.w3.org/1999/xhtml"><p> <b> ExampleScenario - Medication administration (IHE MMA)</b> <a name="example"> </a> </p> <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Resource ExampleScenario &quot;example&quot; </p> </div> <p> <b> status</b> : draft</p> <p> <b> purpose</b> : Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.</p> 
-     <img src="./examplescenario-example.png" alt="ExampleScenario diagram - IHE MMA example"></img></div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p> 
+        <b> ExampleScenario - Medication administration (IHE MMA)</b> 
+        <a name="example"> </a> 
+      </p> 
+      <div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%">
+        <p style="margin-bottom: 0px">Resource ExampleScenario &quot;example&quot; </p> 
+      </div> 
+      <p> 
+        <b> status</b> : draft
+      </p> 
+      <p> 
+        <b> purpose</b> : Purpose: this serves to enable remote performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.
+      </p> 
+     
+      <img src="./examplescenario-example.png" alt="ExampleScenario diagram - IHE MMA example"/>
+    </div>
   </text>
   <status value="draft"/>
   <purpose value="Purpose: this serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."/>
-  <!-- First define actors-->
   <actor>
     <key value="Nurse"/>
     <type value="person"/>
@@ -33,7 +48,6 @@
     <title value="MAR / EHR"/>
     <description value="The entity that receives the Medication Administration reports"/>
   </actor>
-  <!-- Then define the resource instances -->
   <instance>
     <key value="iherx001"/>
     <structureType>
@@ -161,7 +175,6 @@
       <description value="Medication rejected"/>
     </version>
   </instance>
-  <!-- QUESTION: How to define search actions?-->
   <instance>
     <key value="iherxqry"/>
     <structureType>

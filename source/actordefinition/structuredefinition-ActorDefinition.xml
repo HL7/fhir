@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ActorDefinition"/>
-  <title value="ActorDefinition"/>
+  <title value="Actor Definition"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -103,7 +103,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>

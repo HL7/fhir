@@ -40,7 +40,9 @@
   </storageTempRequirements>
   <property>
     <type>
-        <code value="ABORhD" />
+        <coding>
+            <code value="ABORhD" />
+        </coding> 
     </type>
     <valueCodeableConcept>
       <coding>
@@ -52,7 +54,9 @@
   </property>
 	<property>
     <type>
-      <code value="V"/>
+      <coding>
+	  	  <code value="Donor"/>
+      </coding>
     </type>
     <valueCodeableConcept>
       <coding>

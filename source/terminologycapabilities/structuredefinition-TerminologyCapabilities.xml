@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TerminologyCapabilities"/>
-  <title value="TerminologyCapabilities"/>
+  <title value="Terminology Capabilities"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -149,7 +149,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -333,6 +333,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <condition value="tcp-2"/>
     </element>
     <element id="TerminologyCapabilities.useContext">
       <path value="TerminologyCapabilities.useContext"/>
@@ -424,8 +425,8 @@
         <code value="code"/>
       </type>
       <condition value="tcp-3"/>
-      <condition value="tcp-4"/>
       <condition value="tcp-5"/>
+      <condition value="tcp-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -449,6 +450,8 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="tcp-2"/>
+      <condition value="tcp-5"/>
+      <condition value="tcp-4"/>
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.software.name">
@@ -486,8 +489,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tcp-3"/>
       <condition value="tcp-2"/>
       <condition value="tcp-5"/>
+      <condition value="tcp-4"/>
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.implementation.description">
@@ -540,6 +545,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tcp-6"/>
       <constraint>
         <key value="tcp-1"/>
         <severity value="error"/>
@@ -572,6 +578,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
+      <condition value="tcp-6"/>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version">
       <path value="TerminologyCapabilities.codeSystem.version"/>
@@ -583,6 +590,9 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tcp-1"/>
+      <condition value="tcp-7"/>
+      <condition value="tcp-8"/>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.code">
       <path value="TerminologyCapabilities.codeSystem.version.code"/>
@@ -594,6 +604,7 @@
         <code value="string"/>
       </type>
       <condition value="tcp-1"/>
+      <condition value="tcp-7"/>
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.isDefault">
@@ -605,6 +616,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tcp-8"/>
       <isSummary value="true"/>
     </element>
     <element id="TerminologyCapabilities.codeSystem.version.compositional">

@@ -98,7 +98,7 @@
       <path value="Citation.url"/>
       <short value="Canonical identifier for this citation record, represented as a globally unique URI"/>
       <definition value="An absolute URI that is used to identify this citation record when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version. Use this element if you wish to provide a target URL for others to view your citation record."/>
+      <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the citation record to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -109,7 +109,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -404,7 +404,7 @@
     </element>
     <element id="Citation.lastReviewDate">
       <path value="Citation.lastReviewDate"/>
-      <short value="When the citation record was last reviewed"/>
+      <short value="When the citation record was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -437,9 +437,9 @@
     </element>
     <element id="Citation.author">
       <path value="Citation.author"/>
-	  <short value="Who authored the citation record"/>
+      <short value="Who authored the citation record"/>
       <definition value="Who authored or created the citation record."/>
-	  <comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+      <comment value="The Citation.author element is structured to support a name (with a string datatype) and contact point information for the author/creator, and is not structured to support unique identifiers for the author. If detailed contributorship data is needed for the authorship of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -450,7 +450,7 @@
       <path value="Citation.editor"/>
       <short value="Who edited the citation record"/>
       <definition value="Who edited or revised the citation record."/>
-	  <comment value="The Citation.editor element is structured to support a name (with a string datatype) and contact point information for the editor, and is not structured to support unique identifiers for the editor. If detailed contributorship data is needed for the editing of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+      <comment value="The Citation.editor element is structured to support a name (with a string datatype) and contact point information for the editor, and is not structured to support unique identifiers for the editor. If detailed contributorship data is needed for the editing of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -460,7 +460,7 @@
     <element id="Citation.reviewer">
       <path value="Citation.reviewer"/>
       <short value="Who reviewed the citation record"/>
-	  <comment value="The Citation.reviewer element is structured to support a name (with a string datatype) and contact point information for the reviewer, and is not structured to support unique identifiers for the reviewer. If detailed contributorship data is needed for the review of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+      <comment value="The Citation.reviewer element is structured to support a name (with a string datatype) and contact point information for the reviewer, and is not structured to support unique identifiers for the reviewer. If detailed contributorship data is needed for the review of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -470,7 +470,7 @@
     <element id="Citation.endorser">
       <path value="Citation.endorser"/>
       <short value="Who endorsed the citation record"/>
-	  <comment value="The Citation.endorser element is structured to support a name (with a string datatype) and contact point information for the endorser, and is not structured to support unique identifiers for the endorser. If detailed contributorship data is needed for the endorsement of the citation record, then one can create a Citation Resource for the Citation Resource."/>
+      <comment value="The Citation.endorser element is structured to support a name (with a string datatype) and contact point information for the endorser, and is not structured to support unique identifiers for the endorser. If detailed contributorship data is needed for the endorsement of the citation record, then one can create a Citation Resource for the Citation Resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -518,7 +518,7 @@
     <element id="Citation.classification">
       <path value="Citation.classification"/>
       <short value="The assignment to an organizing scheme"/>
-	  <comment value="Use this element if you need to classify the citation record independently from classifying the cited artifact."/>
+      <comment value="Use this element if you need to classify the citation record independently from classifying the cited artifact."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -569,7 +569,7 @@
     <element id="Citation.currentState">
       <path value="Citation.currentState"/>
       <short value="The status of the citation record"/>
-	  <comment value="Use this if needed for reporting the state or status of the citation record, NOT FOR reporting the state or status of the cited article."/>
+      <comment value="Use this if needed for reporting the state or status of the citation record, NOT FOR reporting the state or status of the cited article."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -586,8 +586,8 @@
     <element id="Citation.statusDate">
       <path value="Citation.statusDate"/>
       <short value="An effective date or period for a status of the citation record"/>
-	  <definition value="The state or status of the citation record paired with an effective date or period for that state."/>
-	  <comment value="Use this if needed for reporting the state or status of the citation record, NOT FOR reporting the state or status of the cited article."/>
+      <definition value="The state or status of the citation record paired with an effective date or period for that state."/>
+      <comment value="Use this if needed for reporting the state or status of the citation record, NOT FOR reporting the state or status of the cited article."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -597,7 +597,7 @@
     <element id="Citation.statusDate.activity">
       <path value="Citation.statusDate.activity"/>
       <short value="Classification of the status"/>
-	  <definition value="The state or status of the citation record (that will be paired with the period)."/>
+      <definition value="The state or status of the citation record (that will be paired with the period)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -614,7 +614,7 @@
     <element id="Citation.statusDate.actual">
       <path value="Citation.statusDate.actual"/>
       <short value="Either occurred or expected"/>
-	  <definition value="Whether the status date is actual (has occurred) or expected (estimated or anticipated)."/>
+      <definition value="Whether the status date is actual (has occurred) or expected (estimated or anticipated)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -634,7 +634,7 @@
     <element id="Citation.relatedArtifact">
       <path value="Citation.relatedArtifact"/>
       <short value="Artifact related to the citation record"/>
-	  <comment value="Use this if needed for reporting artifacts related to the citation record, NOT FOR reporting artifacts related to the cited article. For example, one may use this element to report the data source for generation of the Citation Resource instance if it was automatically generated, such as conversion from a citation repository."/>
+      <comment value="Use this if needed for reporting artifacts related to the citation record, NOT FOR reporting artifacts related to the cited article. For example, one may use this element to report the data source for generation of the Citation Resource instance if it was automatically generated, such as conversion from a citation repository."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -679,7 +679,7 @@
     <element id="Citation.citedArtifact.dateAccessed">
       <path value="Citation.citedArtifact.dateAccessed"/>
       <short value="When the cited artifact was accessed"/>
-	  <comment value="Use this element when citing an artifact from a potentially unstable source, such as a webpage, to note the date (and time) the source was accessed."/>
+      <comment value="Use this element when citing an artifact from a potentially unstable source, such as a webpage, to note the date (and time) the source was accessed."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -708,7 +708,7 @@
     <element id="Citation.citedArtifact.version.baseCitation">
       <path value="Citation.citedArtifact.version.baseCitation"/>
       <short value="Citation for the main version of the cited artifact"/>
-	  <comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be version-specific."/>
+      <comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be version-specific."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -735,7 +735,7 @@
     <element id="Citation.citedArtifact.statusDate">
       <path value="Citation.citedArtifact.statusDate"/>
       <short value="An effective date or period for a status of the cited artifact"/>
-	  <definition value="An effective date or period, historical or future, actual or expected, for a status of the cited artifact."/>
+      <definition value="An effective date or period, historical or future, actual or expected, for a status of the cited artifact."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -745,7 +745,7 @@
     <element id="Citation.citedArtifact.statusDate.activity">
       <path value="Citation.citedArtifact.statusDate.activity"/>
       <short value="Classification of the status"/>
-	  <definition value="A definition of the status associated with a date or period."/>
+      <definition value="A definition of the status associated with a date or period."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -807,7 +807,7 @@
     <element id="Citation.citedArtifact.title.language">
       <path value="Citation.citedArtifact.title.language"/>
       <short value="Used to express the specific language"/>
-	  <definition value="Used to express the specific language of the title."/>
+      <definition value="Used to express the specific language of the title."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -836,7 +836,7 @@
     <element id="Citation.citedArtifact.abstract">
       <path value="Citation.citedArtifact.abstract"/>
       <short value="Summary of the article or artifact"/>
-	  <definition value="The abstract may be used to convey article-contained abstracts, externally-created abstracts, or other descriptive summaries."/>
+      <definition value="The abstract may be used to convey article-contained abstracts, externally-created abstracts, or other descriptive summaries."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -863,7 +863,7 @@
     <element id="Citation.citedArtifact.abstract.language">
       <path value="Citation.citedArtifact.abstract.language"/>
       <short value="Used to express the specific language"/>
-	  <definition value="Used to express the specific language of the abstract."/>
+      <definition value="Used to express the specific language of the abstract."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -892,7 +892,7 @@
     <element id="Citation.citedArtifact.abstract.copyright">
       <path value="Citation.citedArtifact.abstract.copyright"/>
       <short value="Copyright notice for the abstract"/>
-	  <comment value="There is also a copyright element in the publicationForm element, so this copyright element is intended for copyright of the abstract."/>
+      <comment value="There is also a copyright element in the publicationForm element, so this copyright element is intended for copyright of the abstract."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -936,7 +936,7 @@
     <element id="Citation.citedArtifact.part.baseCitation">
       <path value="Citation.citedArtifact.part.baseCitation"/>
       <short value="The citation for the full article or artifact"/>
-	  <comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be specific to the citation of the specified part. For example, the part-specific Citation may have additional contributorship data that supercedes the contributorship data for the full citation when there is a need to uniquely report the contributorship for an image or supplement associated with the fuller citation record."/>
+      <comment value="When referencing a baseCitation, one may inherit any data from the referenced Citation Resource and consider any data in the current Citation Resource as superceding to be specific to the citation of the specified part. For example, the part-specific Citation may have additional contributorship data that supercedes the contributorship data for the full citation when there is a need to uniquely report the contributorship for an image or supplement associated with the fuller citation record."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -947,7 +947,7 @@
     <element id="Citation.citedArtifact.relatesTo">
       <path value="Citation.citedArtifact.relatesTo"/>
       <short value="The artifact related to the cited artifact"/>
-	  <comment value="The citedArtifact.relatesTo element uses a BackboneElement instead of the RelatedArtifact Datatype to enable use of an extended value set for the required code for the type of relationship."/>
+      <comment value="The citedArtifact.relatesTo element uses a BackboneElement instead of the RelatedArtifact Datatype to enable use of an extended value set for the required code for the type of relationship."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -968,7 +968,7 @@
           <valueString value="RelatedArtifactTypeExpanded"/>
         </extension>
         <strength value="required"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-expanded"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/related-artifact-type-all"/>
       </binding>
     </element>
     <element id="Citation.citedArtifact.relatesTo.classifier">
@@ -992,7 +992,7 @@
       <path value="Citation.citedArtifact.relatesTo.label"/>
       <short value="Short label"/>
       <definition value="A short label that can be used to reference the related artifact from elsewhere in the containing artifact, such as a footnote index."/>
-	  <comment value="Though not commonly used in citation records, this could be used for referencing other articles in the abstract or explanatory notes."/>
+      <comment value="Though not commonly used in citation records, this could be used for referencing other articles in the abstract or explanatory notes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1023,7 +1023,7 @@
       <path value="Citation.citedArtifact.relatesTo.document"/>
       <short value="What document is being referenced"/>
       <definition value="The document being referenced, represented as an attachment. Do not use this element if using the resource element to provide the canonical to the related artifact."/>
-	  <comment value="To refer to related artifacts by URL, the FHIR Attachment Datatype includes a url element, so the path would be Citation.citedArtifact.relatesTo.document.url"/>
+      <comment value="To refer to related artifacts by URL, the FHIR Attachment Datatype includes a url element, so the path would be Citation.citedArtifact.relatesTo.document.url"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1164,7 +1164,7 @@
     <element id="Citation.citedArtifact.publicationForm.articleDate">
       <path value="Citation.citedArtifact.publicationForm.articleDate"/>
       <short value="The date the article was added to the database, or the date the article was released"/>
-	  <comment value="The articleDate is the preferred element for expressing the publication date as structured data."/>
+      <comment value="The articleDate is the preferred element for expressing the publication date as structured data."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1174,7 +1174,7 @@
     <element id="Citation.citedArtifact.publicationForm.publicationDateText">
       <path value="Citation.citedArtifact.publicationForm.publicationDateText"/>
       <short value="Text representation of the date on which the issue of the cited artifact was published"/>
-	  <comment value="The publicationDateText element is prefererntially used when a date is not represented in a form that can be handled as structured data in other elements."/>
+      <comment value="The publicationDateText element is prefererntially used when a date is not represented in a form that can be handled as structured data in other elements."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1194,7 +1194,7 @@
     <element id="Citation.citedArtifact.publicationForm.lastRevisionDate">
       <path value="Citation.citedArtifact.publicationForm.lastRevisionDate"/>
       <short value="The date the article was last revised or updated in the database"/>
-	  <comment value="The lastRevisionDate is used for the cited article and not the date the Citation Resource is last revised."/>
+      <comment value="The lastRevisionDate is used for the cited article and not the date the Citation Resource is last revised."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1224,7 +1224,7 @@
     <element id="Citation.citedArtifact.publicationForm.accessionNumber">
       <path value="Citation.citedArtifact.publicationForm.accessionNumber"/>
       <short value="Entry number or identifier for inclusion in a database"/>
-	  <comment value="Accession numbers may be used instead of or in addition to page numbers.  Accession numbers are functionally identifiers when coupled with the identity of the database for which they are accession numbers. Accession numbers which are used for indexing citations in a dataset of citations should NOT be entered in Citation.citedArtifact.publicationForm.accessionNumber -- this use would be a type of Citation.identifier for the citation record itself."/>
+      <comment value="Accession numbers may be used instead of or in addition to page numbers.  Accession numbers are functionally identifiers when coupled with the identity of the database for which they are accession numbers. Accession numbers which are used for indexing citations in a dataset of citations should NOT be entered in Citation.citedArtifact.publicationForm.accessionNumber -- this use would be a type of Citation.identifier for the citation record itself."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1271,7 +1271,7 @@
     <element id="Citation.citedArtifact.publicationForm.copyright">
       <path value="Citation.citedArtifact.publicationForm.copyright"/>
       <short value="Copyright notice for the full article or artifact"/>
-	  <comment value="It is possible that different publication forms have different copyright notices."/>
+      <comment value="It is possible that different publication forms have different copyright notices."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1291,7 +1291,7 @@
       <path value="Citation.citedArtifact.webLocation.classifier"/>
       <short value="Code the reason for different URLs, e.g. abstract and full-text"/>
       <definition value="A characterization of the object expected at the web location."/>
-	  <comment value="Categories that may be frequently used for study citations may include abstract, full-text, supplement, webpage, and doi-based."/>
+      <comment value="Categories that may be frequently used for study citations may include abstract, full-text, supplement, webpage, and doi-based."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1359,7 +1359,7 @@
     <element id="Citation.citedArtifact.classification.artifactAssessment">
       <path value="Citation.citedArtifact.classification.artifactAssessment"/>
       <short value="Complex or externally created classification"/>
-	  <comment value="Examples relevant to study citations include MeSH Headings or Keywords that contain qualifier codings or sub-classifications, and include risk of bias assessments created by persons different from the creator of the citation record."/>
+      <comment value="Examples relevant to study citations include MeSH Headings or Keywords that contain qualifier codings or sub-classifications, and include risk of bias assessments created by persons different from the creator of the citation record."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1402,7 +1402,7 @@
     <element id="Citation.citedArtifact.contributorship.entry.contributor">
       <path value="Citation.citedArtifact.contributorship.entry.contributor"/>
       <short value="The identity of the individual contributor"/>
-	  <comment value="If naming a contributor without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
+      <comment value="If naming a contributor without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1425,7 +1425,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.affiliation"/>
       <short value="Organizational affiliation"/>
       <definition value="Organization affiliated with the contributor."/>
-	  <comment value="If naming an organization without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
+      <comment value="If naming an organization without additional detail or further structured data, the display element within the Reference datatype may be used for a simple string without referencing another resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1505,7 +1505,7 @@
     <element id="Citation.citedArtifact.contributorship.entry.correspondingContact">
       <path value="Citation.citedArtifact.contributorship.entry.correspondingContact"/>
       <short value="Whether the contributor is the corresponding contributor for the role"/>
-	  <comment value="If there are multiple authors and one serves as the corresponding author, then that one would have correspondingContact = true."/>
+      <comment value="If there are multiple authors and one serves as the corresponding author, then that one would have correspondingContact = true."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1516,7 +1516,7 @@
       <path value="Citation.citedArtifact.contributorship.entry.rankingOrder"/>
       <short value="Ranked order of contribution"/>
       <definition value="Provides a numerical ranking to represent the degree of contributorship relative to other contributors, such as 1 for first author and 2 for second author."/>
-	  <comment value="Used to retain order of authorship as structured data"/>
+      <comment value="Used to retain order of authorship as structured data"/>
       <min value="0"/>
       <max value="1"/>
       <type>

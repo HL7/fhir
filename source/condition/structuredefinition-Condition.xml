@@ -152,8 +152,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-2"/>
       <condition value="con-3"/>
+      <condition value="con-2"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>
@@ -350,7 +350,7 @@
       <path value="Condition.bodySite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where this condition manifests itself."/>
-      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodyStructure resource (e.g. to identify and track separately) then use the standard extension [bodyStructure](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodyStructure resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="*"/>
       <type>

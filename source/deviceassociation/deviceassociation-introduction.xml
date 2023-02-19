@@ -1,0 +1,44 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"></a>
+<h2>Scope and Usage</h2>
+<p>Device Association records the relationship between a device and a subject and/or operator. The scope covers all devices including, but not limited to: implantables (which previously was documented as the .association in the Device resource), wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
+<p>The subjects may include:</p>
+<ul>
+<li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>
+<li><strong>Group</strong> - some devices may be associated with a family group or treatment group. For example a weight scale or blood pressure cuff.</li>
+<li><strong>Practitioner</strong> - a device that is associated with the practitioner: pager, alert monitor, cell phone, laptop/tablet</li>
+<li><strong>Device</strong> - a device may be associated with another device when it is independent of the focal device.  Note: this is different than the containment tree with parent element in the Device resource. For example a RFID tag used to track the location of a wheelchair.</li>
+<li><strong>RelatedPerson</strong> - a device that is associated with another person related to the patient. For example, an alerting device given to a spouse while their partner is in surgery.</li>
+</ul>
+
+</div>
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<ul>
+<li><strong><a href="device.html">Device</a></strong>  - This resource contains the association (incluuding history) between a device and a subject, eliminating the need for the Device resource to contain that history of associations which might allow unintended exposure of patient information.</li>
+<li><strong><a href="deviceusage.html">DeviceUsage</a></strong> and <strong><a href="procedure.html">Procedure</a></strong> - Both Procedure and DeviceUsage can comprehend association (not necessarily the related dissociation) of a device with a subject. They are intended to be used from the patient of process perspective.
+<ul>
+<li>For tracking the act of implanting or using the device, Procedure may be used;</li>
+<li>For updating the patient's information about the usage of a device, DeviceUsage may be used;</li>
+<li>For tracking the different events along the lifecycle of the same Device, DeviceAssociation is appropriate </li>
+</ul>
+</li>
+</ul>
+<p>These are not exclusive, i.e. when associating a device with a patient, the it is possible to capture the patient's clinical information with a DeviceUsage resource, include the device in a Procedure for reporting, and keep the Device's traceability information with a DeviceAssociation resource.</p>
+</div>
+<p>To track changes in settings, Observation resource can be used, where Observation has the subject (eg., patient), device, and time window that enable to relate to the proper DeviceAssociation or vice-versa. It is valid and common that a patient is associated with the same device (yielding multiple DeviceAssociation instances) over time.</p>
+
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>

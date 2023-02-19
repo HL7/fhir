@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="QuestionnaireResponse"/>
-  <title value="QuestionnaireResponse"/>
+  <title value="Questionnaire Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -421,6 +421,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
@@ -471,6 +472,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="qrs-1"/>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value[type=LIST_ANY]"/>
@@ -521,6 +524,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="qrs-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireAnswer"/>

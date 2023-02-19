@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="iana-link-relations"/>
   <meta>
@@ -9,19 +11,17 @@
   <url value="http://hl7.org/fhir/ValueSet/iana-link-relations"/>
   <version value="5.0.0"/>
   <name value="LinkRelationTypes"/>
+  <title value="Link Relation Types"/>
   <status value="active"/>
   <experimental value="false"/>
   <publisher value="Internet Assigned Numbers Authority (IANA)"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value
-        value="https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"
-      />
+      <value value="https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
     </telecom>
   </contact>
-  <description
-    value="Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
+  <description value="Link Relation Types defined at https://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/CodeSystem/iana-link-relations"/>

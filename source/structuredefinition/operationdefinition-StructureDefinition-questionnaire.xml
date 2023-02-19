@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="StructureDefinition-questionnaire"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/StructureDefinition-questionnaire"/>
   <version value="5.0.0"/>
-  <name value="questionnaire"/>
+  <name value="Questionnaire"/>
   <title value="Build Questionnaire"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -52,7 +54,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Generates a [Questionnaire](questionnaire.html) instance  based on a specified [StructureDefinition](structuredefinition.html), creating questions for each core element or extension element found in the [StructureDefinition](structuredefinition.html).    &#xA;&#xA;If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* 'in' parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored. The response will contain a [Questionnaire](questionnaire.html) instance based on the specified [StructureDefinition](structuredefinition.html) and/or an [OperationOutcome](operationoutcome.html) resource with errors or warnings.  Nested groups are used to handle complex structures and data types.  If the 'supportedOnly' parameter is set to true, only those elements marked as &#34;must support&#34; will be included.  &#xA;&#xA;This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The 'questionnaire' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support &#34;non-core&#34; resources with minimal development effort."/>
+  <description value="Generates a [Questionnaire](questionnaire.html) instance  based on a specified [StructureDefinition](structuredefinition.html), creating questions for each core element or extension element found in the [StructureDefinition](structuredefinition.html).    &#xA;&#xA;If the operation is not called at the instance level, one of the *identifier*, *profile* or *url* 'in' parameters must be provided. If more than one is specified, servers may raise an error or may resolve with the parameter of their choice. If called at the instance level, these parameters will be ignored. The response will contain a [Questionnaire](questionnaire.html) instance based on the specified [StructureDefinition](structuredefinition.html) and/or an [OperationOutcome](operationoutcome.html) resource with errors or warnings.  Nested groups are used to handle complex structures and data types.  If the 'supportedOnly' parameter is set to true, only those elements marked as &quot;must support&quot; will be included.  &#xA;&#xA;This operation is intended to enable auto-generation of simple interfaces for arbitrary profiles.  The 'questionnaire' approach to data entry has limitations that will make it less optimal than custom-defined interfaces.  However, this function may be useful for simple applications or for systems that wish to support &quot;non-core&quot; resources with minimal development effort."/>
   <affectsState value="false"/>
   <code value="questionnaire"/>
   <comment value="**Open Issue**: Ideally, extensions should be populated in the generated [Questionnaire](questionnaire.html) that will support taking [QuestionnaireResponse](questionnaireresponse.html) resources generated from the Questionnaire and turning them back into the appropriate resources."/>
@@ -67,7 +69,6 @@
     <max value="1"/>
     <documentation value="A logical identifier (i.e. 'StructureDefinition.identifier''). The server must know the StructureDefinition or be able to retrieve it from other known repositories."/>
     <type value="Identifier"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
   </parameter>
   <parameter>
     <name value="profile"/>
@@ -80,6 +81,7 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The StructureDefinition's official URL (i.e. 'StructureDefinition.url'). The server must know the StructureDefinition or be able to retrieve it from other known repositories."/>
@@ -91,7 +93,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If true, the questionnaire will only include those elements marked as &#34;mustSupport='true'&#34; in the StructureDefinition."/>
+    <documentation value="If true, the questionnaire will only include those elements marked as &quot;mustSupport='true'&quot; in the StructureDefinition."/>
     <type value="boolean"/>
   </parameter>
   <parameter>

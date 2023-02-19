@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DocumentReference"/>
-  <title value="DocumentReference"/>
+  <title value="Document Reference"/>
   <status value="draft"/>
   <date value="2022-06-09T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this &quot;document&quot; encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
+  <description value="A reference to a document of any kind for any purpose. While the term “document” implies a more narrow focus, for this resource this “document” encompasses *any* serialized object with a mime-type, it includes formal patient-centric documents (CDA), clinical notes, scanned paper, non-patient specific documents like policy text, as well as a photo, video, or audio recording acquired or used in healthcare.  The DocumentReference resource provides metadata about the document so that the document can be discovered and managed.  The actual content may be inline base64 encoded data or provided by direct reference."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -80,7 +80,7 @@
   </mapping>
   <mapping>
     <identity value="xds"/>
-    <uri value="https://profiles.ihe.net/ITI/HIE-Whitepaper"/>
+    <uri value="http://ihe.net/xds"/>
     <name value="XDS metadata equivalent"/>
   </mapping>
   <kind value="resource"/>
@@ -487,6 +487,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
       </type>
+      <condition value="docRef-1"/>
+      <condition value="docRef-2"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.context"/>
@@ -575,6 +577,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="docRef-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentC80FacilityType"/>
@@ -611,6 +614,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="docRef-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentC80PracticeSetting"/>

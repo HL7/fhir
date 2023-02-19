@@ -231,14 +231,15 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="If this value is not present, there is no statement being made about whether this is an allergen or not. No inference can be made"/>
+      <condition value="ing-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
         <map value="Ingredient.Allergenic Indicator"/>
       </mapping>
     </element>
-    <element id="Ingredient.description">
-      <path value="Ingredient.description"/>
+    <element id="Ingredient.comment">
+      <path value="Ingredient.comment"/>
       <short value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying"/>
       <definition value="A place for providing any notes that are relevant to the component, e.g. removed during process, adjusted for loss on drying."/>
       <min value="0"/>
@@ -251,7 +252,7 @@
         <identity value="idmp"/>
         <map value="n/a"/>
       </mapping>
-    </element>    
+    </element>
     <element id="Ingredient.manufacturer">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="160,300"/>
@@ -324,6 +325,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ing-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -340,6 +342,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
       </type>
+      <condition value="ing-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">

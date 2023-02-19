@@ -16,9 +16,11 @@
 		</coding>
 	</connectionType>
 	<name value="PACS Hospital Invoke Image Display endpoint" />
-	<payloadType>
-		<text value="DICOM IID"/>
-	</payloadType>
+	<payload>
+		<type>
+			<text value="DICOM IID"/>
+		</type>
+	</payload>
 
 	<address value="https://pacs.hospital.org/IHEInvokeImageDisplay"/> 
 </Endpoint>

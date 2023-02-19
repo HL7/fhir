@@ -36,7 +36,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CodeSystem"/>
-  <title value="CodeSystem"/>
+  <title value="Code System"/>
   <status value="active"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -148,7 +148,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -193,6 +193,25 @@
         <identity value="w5"/>
         <map value="FiveWs.version"/>
       </mapping>
+    </element>
+    <element id="CodeSystem.versionAlgorithm[x]">
+      <path value="CodeSystem.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which CodeSystem is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
     </element>
     <element id="CodeSystem.name">
       <path value="CodeSystem.name"/>
@@ -421,6 +440,21 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="CodeSystem.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="CodeSystem.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="CodeSystem.approvalDate">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="trial-use"/>
@@ -444,7 +478,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CodeSystem.lastReviewDate"/>
-      <short value="When the CodeSystem was last reviewed"/>
+      <short value="When the CodeSystem was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -538,7 +572,7 @@
       </extension>
       <path value="CodeSystem.reviewer"/>
       <short value="Who reviewed the CodeSystem"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the CodeSystem."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the CodeSystem."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -551,7 +585,7 @@
       </extension>
       <path value="CodeSystem.endorser"/>
       <short value="Who endorsed the CodeSystem"/>
-      <definition value="An individual or organization responsible for officially endorsing the CodeSystem for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the CodeSystem for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -608,6 +642,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -652,6 +688,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -676,6 +713,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.count">
@@ -849,6 +887,9 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-1"/>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -862,6 +903,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-1"/>
     </element>
     <element id="CodeSystem.concept.display">
       <path value="CodeSystem.concept.display"/>
@@ -922,15 +964,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet">
-          <valueCanonical value="http://hl7.org/fhir/ValueSet/all-languages"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="A human language."/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="IETF language tag"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
       </binding>
     </element>
     <element id="CodeSystem.concept.designation.use">
@@ -943,6 +983,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -962,6 +1003,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -996,6 +1038,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -1009,6 +1052,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.value[x]">
       <path value="CodeSystem.concept.property.value[x]"/>

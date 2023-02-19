@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationAdministration"/>
-  <title value="MedicationAdministration"/>
+  <title value="Medication Administration"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -365,10 +365,10 @@
     </element>
     <element id="MedicationAdministration.occurence[x]">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-        <valueString value="2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime."/>
+        <valueString value="2014-0917 HG: Changed name from whenGiven to effectiveTime and made datatype choice of period or dataTime."/>
       </extension>
       <path value="MedicationAdministration.occurence[x]"/>
-      <short value="Start and end time of administration"/>
+      <short value="Specific date/time or interval of time during which the administration took place (or did not take place)"/>
       <definition value="A specific date/time or interval of time during which the administration took place (or did not take place). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate."/>
       <min value="1"/>
       <max value="1"/>
@@ -377,6 +377,9 @@
       </type>
       <type>
         <code value="Period"/>
+      </type>
+      <type>
+        <code value="Timing"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -649,6 +652,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="mad-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
@@ -658,7 +662,7 @@
       <path value="MedicationAdministration.dosage.site"/>
       <short value="Body site administered to"/>
       <definition value="A coded specification of the anatomic site where the medication first entered the body.  For example, &quot;left arm&quot;."/>
-      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -745,6 +749,7 @@
         <code value="Quantity"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
+      <condition value="mad-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="RXA-6 Administered Amount / RXA-7 Administered Units"/>
@@ -768,6 +773,7 @@
         <code value="Quantity"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/SimpleQuantity"/>
       </type>
+      <condition value="mad-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="RXA-12 Administered Per (Time Unit)"/>

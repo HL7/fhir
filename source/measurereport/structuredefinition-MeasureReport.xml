@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MeasureReport"/>
-  <title value="MeasureReport"/>
+  <title value="Measure Report"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Quality Information)"/>
@@ -444,6 +444,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <condition value="mrp-1"/>
       <mapping>
         <identity value="rim"/>
@@ -584,6 +585,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -626,6 +628,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -652,6 +655,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="mrp-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
@@ -673,6 +677,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>

@@ -147,7 +147,7 @@
   <ul>
     <li><a href="diagnosticreport-definitions.html#DiagnosticReport.status">DiagnosticReport.status</a>: <%sclist DiagnosticReport.status%>
     </li>
-    <li><a href="medicationusage-definitions.html#MedicationUsage.status">MedicationUsage.status</a>: <%sclist MedicationUsage.status%>. (note: in-progress and completed are states reflecting
+    <li><a href="medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a>: <%sclist MedicationStatement.status%>. (note: in-progress and completed are states reflecting
         the administration of the medication)</li>
     <li><a href="capabilitystatement-definitions.html#CapabilityStatement.status">CapabilityStatement.status</a>:
       <%sclist CapabilityStatement.status%>
@@ -267,12 +267,12 @@
     </tr>
     <tr>
       <td>$current-medications</td>
-      <td><a href="medicationusage.html">MedicationUsage</a>/ <a href="medicationrequest.html">MedicationRequest</a>
+      <td><a href="medicationstatement.html">MedicationStatement</a>/ <a href="medicationrequest.html">MedicationRequest</a>
       </td>
       <td>A list of all medications that the patient is taking. The 'current medications list'
         sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may
         contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a
-          href="medicationusage.html">statements</a>, or only one of the two.
+          href="medicationstatement.html">statements</a>, or only one of the two.
         The list may also correspond to a formal reconciled medication administration schedule, but more often does not
       </td>
       <td>57828-6 (Prescription list), 10160-0 (History of medication)</td>

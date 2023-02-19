@@ -349,7 +349,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="gol-1"/>
       <constraint>
         <key value="gol-1"/>
         <severity value="error"/>
@@ -503,12 +502,12 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
-		<targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <mapping>
         <identity value="w5"/>

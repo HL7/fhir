@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ChargeItem"/>
-  <title value="ChargeItem"/>
+  <title value="Charge Item"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -546,7 +546,7 @@
       <path value="ChargeItem.bodysite"/>
       <short value="Anatomical location, if relevant"/>
       <definition value="The anatomical location where the related service has been applied."/>
-      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [bodySite](extension-bodysite.html).  May be a summary code, or a reference to a very precise definition of the location, or both."/>
+      <comment value="Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [[[http://hl7.org/fhir/StructureDefinition/bodySite]]].  May be a summary code, or a reference to a very precise definition of the location, or both."/>
       <min value="0"/>
       <max value="*"/>
       <type>

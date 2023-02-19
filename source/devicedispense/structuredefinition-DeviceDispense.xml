@@ -28,9 +28,9 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1257"/>
   </identifier>
-  <version value="4.5.0"/>
+  <version value="5.0.0"/>
   <name value="DeviceDispense"/>
-  <title value="DeviceDispense"/>
+  <title value="Device Dispense"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="Indicates that a device is to be or has been dispensed for a named person/patient.  This includes a description of the product (supply) provided and the instructions for using the device."/>
-  <fhirVersion value="4.5.0"/>
+  <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
     <uri value="http://hl7.org/fhir/fivews"/>

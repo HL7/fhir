@@ -64,12 +64,12 @@
                 <td>Time the medication should be administered e.g. 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc. </td>
                 </tr>
                 <tr>
-                    <td>MedicationRequest.dose.dosageInstructions.dosage.route </td>
+                    <td>MedicationRequest.dosageInstructions.dosage.route </td>
                 
                 <td>Route of administration e.g. oral, intravenous, topical, etc. </td>
                 </tr>
                 <tr>
-                    <td>MedicationRequest.dose.dosageInstructions.dosage.site </td>
+                    <td>MedicationRequest.dosageInstructions.dosage.site </td>
                 
                 <td>Anatomical site where the drug enters the body e.g. subclavian vein</td>
         </tr>

@@ -53,14 +53,13 @@
         <reference value="Condition/stroke" />
       </reference>
     </condition>
-    <role>
+    <use>
       <coding>
         <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
         <code value="CC"/>
         <display value="Chief complaint"/>
       </coding>
-    </role>
-    <rank value="1"/>
+    </use>
   </diagnosis>
   <patient>
     <reference value="Patient/example"/>

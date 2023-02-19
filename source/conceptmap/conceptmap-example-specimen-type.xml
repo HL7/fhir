@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ConceptMap xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/conceptmap.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
   <id value="102"/>
   <url value="http://hl7.org/fhir/ConceptMap/102"/>
   <identifier>
@@ -6,7 +8,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.14.3"/>
   </identifier>
   <version value="20130725"/>
-  <name value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
+  <name value="SpecimenMappingFromV2Table0487ToSNOMEDCT"/>
+  <title value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2013-07-25"/>
@@ -23,6 +26,7 @@
       <value value="http://www.phconnect.org/group/laboratorymessagingcommunityofpractice/forum/attachment/download?id=3649725%3AUploadedFile%3A145786"/>
     </telecom>
   </contact>
+  <description value="Specimen mapping from v2 table 0487 to SNOMED CT"/>
   <sourceScopeCanonical value="http://terminology.hl7.org/ValueSet/v2-0487"/>
   <targetScopeCanonical value="http://snomed.info/sct?fhir_vs"/>
   <group>
@@ -104,10 +108,6 @@
     <element>
       <code value="ASERU"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="pending"/>
-      </target> -->
     </element>
     <element>
       <code value="ASP"/>
@@ -126,26 +126,14 @@
     <element>
       <code value="ATTE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="AUTOC"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="AUTP"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="This really is not a specimen per se - it is the state of the subject from whom the specimen is collected, so it should be used as a  specimen type modifier ONLY!. Often this is indicated with a special medical record number or other notation on the patient. needs to have specimen type (e.g. SPM-4) and source site (SPM.8) and spatial orientation (SPM.9)"/>
-      </target> -->
     </element>
     <element>
       <code value="BBL"/>
@@ -157,25 +145,10 @@
     <element>
       <code value="BCYST"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="submitted (PLR155) with parent of  167874004^knee joint synovial fluid (specimen), with specimen source topography 32361000^Popliteal fossa structure (body structure)"/>
-        <product>
-          <property value="http://snomed.info/id/3006873018"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="32361000"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="BITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="BLEB"/>
@@ -236,10 +209,6 @@
     <element>
       <code value="BOWL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Don&#39;t use this term for human samples - use Stool instead. animal would use small intestinal contents, large intestinal contents"/>
-      </target> -->
     </element>
     <element>
       <code value="BPU"/>
@@ -370,10 +339,6 @@
     <element>
       <code value="CBITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="CLIPP"/>
@@ -435,25 +400,17 @@
     <element>
       <code value="CSCR"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="submit for new term with parent 119365002^Specimen from wound (specimen)"/>
-      </target> -->
     </element>
     <element>
       <code value="CSERU"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="pending"/>
-      </target> -->
     </element>
     <element>
       <code value="CSITE"/>
       <target>
         <code value="258507003"/>
         <relationship value="equivalent"/>
-        <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora       "/>
+        <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora"/>
         <product>
           <property value="TypeModifier"/>
           <valueCoding>
@@ -487,10 +444,6 @@
     <element>
       <code value="CSVR"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD - may use blood and SPM-6"/>
-      </target> -->
     </element>
     <element>
       <code value="CTP"/>
@@ -546,10 +499,6 @@
     <element>
       <code value="DBITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="DCS"/>
@@ -568,10 +517,6 @@
     <element>
       <code value="DEION"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="DIA"/>
@@ -669,18 +614,10 @@
     <element>
       <code value="EEYE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="EFF"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="EFFUS"/>
@@ -720,26 +657,14 @@
     <element>
       <code value="EOTH"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="ESOI"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="ESOS"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="ETA"/>
@@ -794,10 +719,6 @@
     <element>
       <code value="EWHI"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="EXG"/>
@@ -809,10 +730,6 @@
     <element>
       <code value="EXS"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="EXUDTE"/>
@@ -824,10 +741,6 @@
     <element>
       <code value="FAW"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="FBLOOD"/>
@@ -874,10 +787,6 @@
     <element>
       <code value="FLT"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="FLU"/>
@@ -1076,10 +985,6 @@
     <element>
       <code value="GSOL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="GSPEC"/>
@@ -1105,10 +1010,6 @@
     <element>
       <code value="GT"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="GTUBE"/>
@@ -1142,10 +1043,6 @@
     <element>
       <code value="HBITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="HBLUD"/>
@@ -1223,10 +1120,6 @@
     <element>
       <code value="IBITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="ICYST"/>
@@ -1268,10 +1161,6 @@
     <element>
       <code value="ILLEG"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="IMP"/>
@@ -1290,10 +1179,6 @@
     <element>
       <code value="INFIL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="This describes a morphologic abnormality, not a sample"/>
-      </target> -->
     </element>
     <element>
       <code value="INS"/>
@@ -1320,10 +1205,6 @@
     <element>
       <code value="IUD"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="pending"/>
-      </target> -->
     </element>
     <element>
       <code value="IVCAT"/>
@@ -1499,10 +1380,6 @@
     <element>
       <code value="LENS2"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="LESN"/>
@@ -1522,10 +1399,6 @@
     <element>
       <code value="LIQO"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="LSAC"/>
@@ -1617,10 +1490,6 @@
     <element>
       <code value="NEDL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="NEPH"/>
@@ -1689,10 +1558,6 @@
     <element>
       <code value="NODUL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="pending"/>
-      </target> -->
     </element>
     <element>
       <code value="NSECR"/>
@@ -1711,17 +1576,6 @@
     <element>
       <code value="ORL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="be more precise use ulcer, tumor, vesicle"/>
-        <product>
-          <property value="http://snomed.info/id/3006873018"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="74262004"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="OTH"/>
@@ -1733,10 +1587,6 @@
     <element>
       <code value="PACEM"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="PCFL"/>
@@ -1755,10 +1605,6 @@
     <element>
       <code value="PDTS"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="submitted for code"/>
-      </target> -->
     </element>
     <element>
       <code value="PELVA"/>
@@ -1777,17 +1623,6 @@
     <element>
       <code value="PENIL"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="need to know what kind of lesion, so map to: UlcerTissue_penile, VesicleFluid_penile, Wound_penile, Mass tissue_penile, Necrotic tissue_penile, AbscessAspirate_penile, Anything else?"/>
-        <product>
-          <property value="http://snomed.info/id/3006873018"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="18911002"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="PERIA"/>
@@ -1926,10 +1761,6 @@
     <element>
       <code value="POPLV"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="PORTA"/>
@@ -2019,10 +1850,6 @@
     <element>
       <code value="QC3"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="RANDU"/>
@@ -2034,10 +1861,6 @@
     <element>
       <code value="RBITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Submit for new term with parent: 119365002"/>
-      </target> -->
     </element>
     <element>
       <code value="RECT"/>
@@ -2213,18 +2036,10 @@
     <element>
       <code value="SHUNT"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="SITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="SKBP"/>
@@ -2294,10 +2109,6 @@
     <element>
       <code value="SPS"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="SPT"/>
@@ -2323,10 +2134,6 @@
     <element>
       <code value="SPUT1"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="SPUTIN"/>
@@ -2345,10 +2152,6 @@
     <element>
       <code value="STER"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="STL"/>
@@ -2431,10 +2234,6 @@
     <element>
       <code value="SUTUR"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="SWGZ"/>
@@ -2560,10 +2359,6 @@
     <element>
       <code value="TZANC"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="This is the name of a lab test. A skin sample is examined for viral inclusions."/>
-      </target> -->
     </element>
     <element>
       <code value="UDENT"/>
@@ -2652,10 +2447,6 @@
     <element>
       <code value="URINP"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="URT"/>
@@ -2667,24 +2458,6 @@
     <element>
       <code value="USCOP"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="NEW specimenTERM 7"/>
-        <product>
-          <property value="http://snomed.info/id/246380002"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="176178006"/>
-          </valueCoding>
-        </product>
-        <product>
-          <property value="http://snomed.info/id/3006873018"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="89837001"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="USPEC"/>
@@ -2747,10 +2520,6 @@
     <element>
       <code value="WB"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Bloodbanking term ONLY now map to blood and the respective preservative"/>
-      </target> -->
     </element>
     <element>
       <code value="WEN"/>
@@ -2762,10 +2531,6 @@
     <element>
       <code value="WICK"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="WND"/>
@@ -2826,84 +2591,22 @@
     <element>
       <code value="WWO"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="WWT"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="TBD"/>
-      </target> -->
     </element>
     <element>
       <code value="CSITE"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Prefer to have aspirate of the pus oozing out from cleaned insertion site - if swab is all that can be obtained, then swab after cleaning, otherwise you may get a contaminated specimen and a falsely identified infected central line. Do not just swab the reddened area - that will just collect skin flora"/>
-        <product>
-          <property value="TypeModifier"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="119295008"/>
-          </valueCoding>
-        </product>
-        <product>
-          <property value="http://snomed.info/id/246380002"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="386144009"/>
-          </valueCoding>
-        </product>
-        <product>
-          <property value="http://snomed.info/id/3006873018"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="14766002"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="CLIPP"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="Be more specific use either: 119326000^hair specimen, or 119327009^nail specimen"/>
-        <product>
-          <property value="TypeModifier"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="119326000"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
     <element>
       <code value="SHU"/>
       <noMap value="true"/>
-      <!-- <target>
-        <relationship value="not-related-to"/>
-        <comment value="assume swab from shunt site for mapping here - clean surface of skin prior to expressing the shunt site - preferred is aspiration with sterile syringe should use SPM.8 to specify body approximate match location of shunt site"/>
-        <product>
-          <property value="TypeModifier"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="438660002"/>
-          </valueCoding>
-        </product>
-        <product>
-          <property value="http://snomed.info/id/246380002"/>
-          <valueCoding>
-            <system value="http://snomed.info/sct"/>
-            <code value="257351008"/>
-          </valueCoding>
-        </product>
-      </target> -->
     </element>
   </group>
 </ConceptMap>

@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TestReport"/>
-  <title value="TestReport"/>
+  <title value="Test Report"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -330,6 +330,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="inv-1"/>
+      <condition value="inv-2"/>
     </element>
     <element id="TestReport.setup.action.operation.result">
       <path value="TestReport.setup.action.operation.result"/>
@@ -384,6 +386,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="inv-1"/>
+      <condition value="inv-2"/>
     </element>
     <element id="TestReport.setup.action.assert.result">
       <path value="TestReport.setup.action.assert.result"/>

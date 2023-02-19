@@ -81,7 +81,7 @@ for a concept:
 Note that this element is <b>not used</b> when there is an element with a matching code value, and a
 relationship value of <a href="codesystem-concept-map-relationship.html#concept-map-relationship-not-related-to">not-related-to</a>.
 </p>
-
+<!--
 <a name="implicit"></a>
 <h2>Implicit Code Systems</h2>
 
@@ -105,29 +105,43 @@ Note that this is different from <a href="structuremap.html">StructureMap</a> be
 that is intended to define an executional transform between structures, not a conceptual 
 model.
 </p>
+-->
 
 <a name="implicit-cm"></a>
 <h2>Implicit Concept Maps</h2>
-  <p>
-    Implicit concept maps are those whose specification can be predicted based on the grammar and/or content of 
-    the underlying code system, and the known structure of the URL that identifies them. This allows a single 
-    URL to serve as a concept map definition that defines a mapping between two sets of concepts, and which can 
-    serve as the basis for the <a href="conceptmap-operation-translate.html">$translate</a> operation. If 
-    any ConceptMap resources exist with an identifier that conforms to the specified implicit concept map URL 
-    patterns, the content of the resource must conform to the template provided. Canonical references to 
-    ConceptMap resource instances are made using their URI.
-  </p>
-  <p>
-  Currently implicit concept map url patterns have been defined and documented for use with FHIR
-  terminology services for only the SNOMED CT code system.  Particular FHIR terminology servers might or might 
-  not support any or all of these URL patterns.
-  </p>
-  <p>
-    The following link describes the currently defined FHIR implicit concept map URL patterns for SNOMED CT:
-    <ul>
-      <li>
-        <a href="https://terminology.hl7.org/SNOMEDCT.html#implicit-cm">Using SNOMED CT with HL7 Standards: Implicit Concept Maps</a><br/>
-      </li>
-    </ul>
-  </p>
+<p>
+Implicit concept maps are defined in a specification which references the underlying code system structures or 
+other release data, and includes a prescribed URI pattern to identify the concept map.  For example, there are 
+some implicit concept map URI patterns defined for SNOMED CT. 
+</p>
+<p>
+Implicit concept maps allow the URI to serve as the basis for the ConceptMap $translate operation without 
+the need to create a ConceptMap resource instance.
+</p>
+<p>
+Some advantages of using implicit concept maps are that they may be used:
+</p>
+<ul>
+<li>To enable the use of concept maps defined in a code system distribution (e.g., SNOMED CT)</li>
+<li>To provide a convenient way, in the definition of a ConceptMap to reference another concept map provided in a code system distribution</li>
+</ul>
+<p>
+Implementers SHOULD NOT create ConceptMap resources where the ConceptMap.url value matches the pattern of a 
+known implicit concept map. 
+</p>
+<p>
+Implicit concept map URIs can be used anywhere a concept map URI can be used. Support for implicit concept 
+map URI patterns varies across terminology servers. Code system publishers may define implicit concept map 
+URI patterns. FHIR terminology servers might or might not support any or all of these URI patterns. Caution 
+should be exercised when using concept map URI patterns that have not been defined by HL7 or the code 
+system publisher.
+</p>
+<p>
+  The following link describes the currently defined FHIR implicit concept map URL patterns for SNOMED CT:
+</p>
+<ul>
+  <li>
+    <a href="https://terminology.hl7.org/SNOMEDCT.html#snomed-ct-implicit-concept-maps">Using SNOMED CT with HL7 Standards: Implicit Concept Maps</a><br/>
+  </li>
+</ul>
 </div>

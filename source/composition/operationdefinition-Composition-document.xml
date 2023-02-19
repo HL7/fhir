@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Composition-document"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Composition-document"/>
   <version value="5.0.0"/>
-  <name value="document"/>
+  <name value="Document"/>
   <title value="Generate a Document"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -63,6 +65,7 @@
   <parameter>
     <name value="id"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="Identifies the composition to use. This can either be a simple id, which identifies a composition, or it can be a full URL, which identifies a composition on another server. &#xA;&#xA;Notes: &#xA;&#xA;* GET [base]/Composition/[id]/$document is identical in meaning to GET [base]/Composition/$document?id=[id]&#xA;* the id parameter SHALL NOT be used if the operation is requested on a particular composition (e.g.  GET [base]/Composition/[id]/$document?id=[id] is not allowed)&#xA;* Servers are not required to support generating documents on Compositions located on another server"/>

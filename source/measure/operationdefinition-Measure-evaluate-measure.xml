@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Measure-evaluate-measure"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Measure-evaluate-measure"/>
   <version value="5.0.0"/>
-  <name value="evaluate-measure"/>
+  <name value="Evaluatemeasure"/>
   <title value="Evaluate Measure"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -63,6 +65,7 @@
   <parameter>
     <name value="measure"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The measure to evaluate. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter is required, or a url (and optionally version) must be supplied."/>
@@ -71,6 +74,7 @@
   <parameter>
     <name value="url"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The url of the plan measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter (and optionally the version), or the measure parameter must be supplied"/>
@@ -80,6 +84,7 @@
   <parameter>
     <name value="version"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the measure to be applied. If the operation is invoked at the instance level, this parameter is not allowed; if the operation is invoked at the type level, this parameter may only be used if the url parameter is supplied."/>

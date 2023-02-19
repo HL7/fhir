@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="BodyStructure"/>
-  <title value="BodyStructure"/>
+  <title value="Body Structure"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -325,32 +325,36 @@
       <min value="0"/>
       <max value="*"/>
       <type>
-        <code value="CodeableConcept"/>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="bodyLandmarkOrientationDistsanceFromLandmarkWoundMeasurementDevice"/>
+          <valueString value="DeviceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/copyright">
+          <valueString value="‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd."/>
         </extension>
         <strength value="example"/>
-        <description value="Select SNOMED CT codes. A set of codes that describe what was used to make the measurements of the wound dimensions."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/bodystructure-bodylandmarkorientation-distancefromlandmark-device"/>
+        <description value="Codes to identify medical devices."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/device-type"/>
       </binding>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
       </mapping>
     </element>
-    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.measurementDevice">
-      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.measurementDevice"/>
-      <short value="Distance device measured"/>
-      <definition value="The measured distance in cm a certain observation is made from a body landmark."/>
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.value">
+      <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.value"/>
+      <short value="Measured distance from body landmark"/>
+      <definition value="The measured distance (e.g., in cm) from a body landmark."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="Quantity"/>
       </type>
     </element>
-     <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
+    <element id="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation">
       <path value="BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"/>
       <short value="Relative landmark surface orientation"/>
       <definition value="The surface area a body location is in relation to a landmark."/>

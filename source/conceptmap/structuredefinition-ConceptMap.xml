@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ConceptMap"/>
-  <title value="ConceptMap"/>
+  <title value="Concept Map"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Vocabulary)"/>
@@ -117,7 +117,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -163,6 +163,25 @@
         <map value="FiveWs.version"/>
       </mapping>
     </element>
+    <element id="ConceptMap.versionAlgorithm[x]">
+      <path value="ConceptMap.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which ConceptMap is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
     <element id="ConceptMap.name">
       <path value="ConceptMap.name"/>
       <short value="Name for this concept map (computer friendly)"/>
@@ -205,6 +224,7 @@
       <isModifier value="true"/>
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
@@ -385,6 +405,21 @@
         <map value="no-gen-base"/>
       </mapping>
     </element>
+    <element id="ConceptMap.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ConceptMap.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
     <element id="ConceptMap.approvalDate">
       <path value="ConceptMap.approvalDate"/>
       <short value="When the ConceptMap was approved by publisher"/>
@@ -402,7 +437,7 @@
     </element>
     <element id="ConceptMap.lastReviewDate">
       <path value="ConceptMap.lastReviewDate"/>
-      <short value="When the ConceptMap was last reviewed"/>
+      <short value="When the ConceptMap was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -481,7 +516,7 @@
     <element id="ConceptMap.reviewer">
       <path value="ConceptMap.reviewer"/>
       <short value="Who reviewed the ConceptMap"/>
-      <definition value="An individual or organization primarily responsible for review of some aspect of the ConceptMap."/>
+      <definition value="An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ConceptMap."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -491,7 +526,7 @@
     <element id="ConceptMap.endorser">
       <path value="ConceptMap.endorser"/>
       <short value="Who endorsed the ConceptMap"/>
-      <definition value="An individual or organization responsible for officially endorsing the ConceptMap for use in some setting."/>
+      <definition value="An individual or organization asserted by the publisher to be responsible for officially endorsing the ConceptMap for use in some setting."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -625,6 +660,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-5"/>
     </element>
     <element id="ConceptMap.group.element.display">
       <path value="ConceptMap.group.element.display"/>
@@ -647,6 +683,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-5"/>
     </element>
     <element id="ConceptMap.group.element.noMap">
       <path value="ConceptMap.group.element.noMap"/>
@@ -657,6 +694,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="cmd-4"/>
     </element>
     <element id="ConceptMap.group.element.target">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -674,11 +712,12 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cmd-4"/>
       <constraint>
         <key value="cmd-1"/>
         <severity value="error"/>
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
-        <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
+        <expression value="comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -701,6 +740,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-7"/>
     </element>
     <element id="ConceptMap.group.element.target.display">
       <path value="ConceptMap.group.element.target.display"/>
@@ -723,6 +763,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-7"/>
     </element>
     <element id="ConceptMap.group.element.target.relationship">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -739,6 +780,7 @@
       </type>
       <isModifier value="true"/>
       <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapRelationship"/>
@@ -828,6 +870,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="cmd-6"/>
     </element>
     <element id="ConceptMap.group.element.target.dependsOn.valueSet">
       <path value="ConceptMap.group.element.target.dependsOn.valueSet"/>
@@ -839,6 +882,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-6"/>
     </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
@@ -906,6 +950,11 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-3"/>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
+      <condition value="cmd-9"/>
+      <condition value="cmd-10"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapGroupUnmappedMode"/>
@@ -927,6 +976,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.display">
       <path value="ConceptMap.group.unmapped.display"/>
@@ -938,6 +989,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.valueSet">
       <path value="ConceptMap.group.unmapped.valueSet"/>
@@ -949,6 +1001,8 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.relationship">
       <path value="ConceptMap.group.unmapped.relationship"/>
@@ -960,6 +1014,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-9"/>
       <isModifier value="true"/>
       <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
       <binding>
@@ -984,6 +1039,8 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </type>
+      <condition value="cmd-3"/>
+      <condition value="cmd-10"/>
     </element>
   </differential>
 </StructureDefinition>

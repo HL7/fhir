@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SpecimenProcessingMethod"/>
+  <title value="Specimen Processing Method"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -24,10 +25,16 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The technique that is used to perform the process or preserve the specimen."/>
+  <description value="The technique that is used to perform the process or preserve the specimen. These are codes from SNOMED CT - provided as an exemplar value set."/>
+  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/v2-0373"/>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="descendent-of"/>
+        <value value="9265001"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

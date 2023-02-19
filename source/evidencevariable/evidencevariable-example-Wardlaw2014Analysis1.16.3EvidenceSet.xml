@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
-	  <id value="example-Wardlaw2014Analysis1.16.3EvidenceSet"/>
-	  <text>
-		<status value="generated" />
-		<div xmlns="http://www.w3.org/1999/xhtml">
-		  <p>
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
+  <id value="example-Wardlaw2014Analysis1.16.3EvidenceSet"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+		  
+      <p>
 			&quot;Wardlaw 2014 Analysis 1.16.3 Evidence set&quot; is a grouping of six Evidence results used in a meta-analysis.
 		  </p>
-		</div>
-	  </text>
-	  <name value="Wardlaw 2014 Analysis 1.16.3 Evidence set"/>
-	  <title value="Wardlaw 2014 Analysis 1.16.3 Evidence set"/>
-	<status value="draft"/>
-	<note>
-		<text value="Short names for Evidence sources are detailed in 'References to studies included in this review'" />
-	</note>
-	<relatedArtifact>
-		<type value="citation"/>
-		<label value="Wardlaw 2014"/>
-		<display value="Analysis 1.16.3 from Wardlaw 2014"/>
-		<citation value="Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528"/>
+		
+    </div>
+  </text>
+  <name value="Wardlaw2014Analysis1163EvidenceSet"/>
+  <title value="Wardlaw 2014  Analysis 1.16.3  Evidence set"/>
+  <status value="draft"/>
+  <description value="Wardlaw 2014  Analysis 1.16.3  Evidence set"/>
+  <note>
+    <text value="Short names for Evidence sources are detailed in 'References to studies included in this review'"/>
+  </note>
+  <relatedArtifact>
+    <type value="citation"/>
+    <label value="Wardlaw 2014"/>
+    <display value="Analysis 1.16.3 from Wardlaw 2014"/>
+    <citation value="Wardlaw JM, Murray V, Berge E, del Zoppo GJ. Thrombolysis for acute ischaemic stroke. Cochrane Database Syst Rev. 2014 Jul 29(7):CD000213. PMID 25072528"/>
     <document>
-	    <url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
+      <url value="https://doi.org/10.1002/14651858.CD000213.pub3"/>
     </document>
-	</relatedArtifact>
-	<actual value="true"/>
-	<characteristic>
-		<description value="'Wardlaw 2014 Analysis 1.16.3 Evidence set' is a grouping of six Evidence results used in a meta-analysis." />
-		<definitionByCombination>
-			<code value="any-of" />
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="NINDS 1995"/>
-				</definitionReference>
-			</characteristic>
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="ECASS 1995"/>
-				</definitionReference>
-			</characteristic>
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="ECASS II 1998"/>
-				</definitionReference>
-			</characteristic>
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="ATLANTIS B 1999"/>
-				</definitionReference>
-			</characteristic>
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="ATLANTIS A 2000"/>
-				</definitionReference>
-			</characteristic>
-			<characteristic>
-				<definitionReference>
-					<type value="Evidence"/>
-					<display value="IST3 2012"/>
-				</definitionReference>
-			</characteristic>
-		</definitionByCombination>
-	</characteristic>
-	<handling value="dichotomous"/>
+  </relatedArtifact>
+  <actual value="true"/>
+  <characteristic>
+    <description value="'Wardlaw 2014 Analysis 1.16.3 Evidence set' is a grouping of six Evidence results used in a meta-analysis."/>
+    <definitionByCombination>
+      <code value="any-of"/>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="NINDS 1995"/>
+        </definitionReference>
+      </characteristic>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="ECASS 1995"/>
+        </definitionReference>
+      </characteristic>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="ECASS II 1998"/>
+        </definitionReference>
+      </characteristic>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="ATLANTIS B 1999"/>
+        </definitionReference>
+      </characteristic>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="ATLANTIS A 2000"/>
+        </definitionReference>
+      </characteristic>
+      <characteristic>
+        <definitionReference>
+          <type value="Evidence"/>
+          <display value="IST3 2012"/>
+        </definitionReference>
+      </characteristic>
+    </definitionByCombination>
+  </characteristic>
+  <handling value="dichotomous"/>
 </EvidenceVariable>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="MessageHeader-core"/>
-  <name value="Common extensions for message header"/>
+  <name value="CommonExtensionsForMessageHeader"/>
   <title value="Common extensions for message header"/>
   <status value="draft"/>
   <date value="2017-01-24T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - InM Work Group"/>
   <description value="Defines &quot;common&quot; extensions for use with the messageheader resource and contained elements"/>
-  <definition>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/messageheader-response-request"/>
-      </reference>
-    </resource>
-  </definition>
 </ImplementationGuide>

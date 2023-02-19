@@ -11,7 +11,9 @@
             the precedence order in contract lifecycle - i.e., while only some stages are required,
             the order in which they may occur is deterministic; and a map to comparable FHIR and v.3
             status codes. It follows guidance about use of status codes in FHIR in
-            <a href="sc.html">the Status Codes Grid</a>.</div>
+            
+      <a href="sc.html">the Status Codes Grid</a>.
+    </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="fm"/>
@@ -23,6 +25,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ContractPublicationStatus"/>
+  <title value="Contract Publication Status"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2017-02-13"/>

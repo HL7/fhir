@@ -3,8 +3,8 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="ActorDefinition-core"/>
   <version value="0.01"/>
-  <name value="ActorDefinition Profiles and Extensions"/>
-  <title value="ActorDefinition Profiles and Extensions"/>
+  <name value="ActorDefinitionProfilesAndExtensions"/>
+  <title value="Actor Definition  Profiles and  Extensions"/>
   <status value="draft"/>
   <date value="2022-01-11T10:00:00+10:00"/>
   <publisher value="HL7"/>

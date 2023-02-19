@@ -25,6 +25,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GoalStartEvent"/>
+  <title value="Goal Start Event"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Patient Care WG"/>

@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FamilyMemberHistory"/>
-  <title value="FamilyMemberHistory"/>
+  <title value="Family Member History"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -466,6 +466,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="fhs-2"/>
       <condition value="fhs-1"/>
       <condition value="fhs-3"/>
       <isSummary value="true"/>

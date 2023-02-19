@@ -25,7 +25,7 @@
 		<coding>
 			<system value="http://acme.ped/apgarmuscletone"/>
 			<code value="2"/>
-			<display value="Active motion "/>
+			<display value="Active motion"/>
 		</coding>
 		<text value="2. Active motion"/>
 	</valueCodeableConcept>

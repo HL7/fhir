@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ClinicalUseDefinition"/>
-  <title value="ClinicalUseDefinition"/>
+  <title value="Clinical Use Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -76,7 +76,7 @@
   <differential>
     <element id="ClinicalUseDefinition">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-50,200"/>
+        <valueCode value="-20,250"/>
       </extension>
       <path value="ClinicalUseDefinition"/>
       <short value="A single issue - either an indication, contraindication, interaction or an undesirable effect for a medicinal product, medication, device or procedure"/>
@@ -174,8 +174,8 @@
     </element>
     <element id="ClinicalUseDefinition.subject">
       <path value="ClinicalUseDefinition.subject"/>
-      <short value="The medication or procedure for which this is an indication"/>
-      <definition value="The medication or procedure for which this is an indication."/>
+      <short value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
+      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -187,6 +187,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -227,7 +229,7 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,0"/>
+        <valueCode value="340,0"/>
       </extension>
       <path value="ClinicalUseDefinition.contraindication"/>
       <short value="Specifics for when this is a contraindication"/>
@@ -237,6 +239,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -348,7 +351,7 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication.otherTherapy">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="820,70"/>
+        <valueCode value="750,27"/>
       </extension>
       <path value="ClinicalUseDefinition.contraindication.otherTherapy"/>
       <short value="Information about use of the product in relation to other therapies described as part of the contraindication"/>
@@ -389,8 +392,8 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication.otherTherapy.treatment">
       <path value="ClinicalUseDefinition.contraindication.otherTherapy.treatment"/>
-      <short value="Reference to a specific medication as part of an indication or contraindication"/>
-      <definition value="Reference to a specific medication (active substance, medicinal product or class of products) as part of an indication or contraindication."/>
+      <short value="Reference to a specific medication, substance etc. as part of an indication or contraindication"/>
+      <definition value="Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -399,6 +402,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/SubstanceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
       </type>
       <isSummary value="true"/>
@@ -427,6 +432,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -603,6 +609,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -611,11 +618,11 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.interactant">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="820,266"/>
+        <valueCode value="800,364"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction.interactant"/>
-      <short value="The specific medication, food, substance or laboratory test that interacts"/>
-      <definition value="The specific medication, food, substance or laboratory test that interacts."/>
+      <short value="The specific medication, product, food etc. or laboratory test that interacts"/>
+      <definition value="The specific medication, product, food, substance etc. or laboratory test that interacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -629,8 +636,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.interactant.item[x]">
       <path value="ClinicalUseDefinition.interaction.interactant.item[x]"/>
-      <short value="The specific medication, food or laboratory test that interacts"/>
-      <definition value="The specific medication, food or laboratory test that interacts."/>
+      <short value="The specific medication, product, food etc. or laboratory test that interacts"/>
+      <definition value="The specific medication, product, food, substance etc. or laboratory test that interacts."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -638,6 +645,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ObservationDefinition"/>
       </type>
       <type>
@@ -794,6 +803,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
@@ -872,7 +882,7 @@
     </element>
     <element id="ClinicalUseDefinition.warning">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="420,595"/>
+        <valueCode value="340,595"/>
       </extension>
       <path value="ClinicalUseDefinition.warning"/>
       <short value="Critical environmental, health or physical risks or hazards. For example 'Do not operate heavy machinery', 'May cause drowsiness'"/>
@@ -882,6 +892,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cud-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>

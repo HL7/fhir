@@ -144,6 +144,7 @@
         <code value="marketingauthorizationholder"/>
         <type value="reference"/>
         <expression value="Medication.marketingAuthorizationHolder"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>
@@ -166,4 +167,24 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Medication-serial-number"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Medication.batch.lotNumber"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Medication-serial-number"/>
+        <description value="Returns medications in a batch with this lot number"/>
+        <code value="serial-number"/>
+        <type value="token"/>
+        <expression value="Medication.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>

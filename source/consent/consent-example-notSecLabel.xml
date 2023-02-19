@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
+<Consent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://hl7.org/fhir"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir ../../schema/consent.xsd">
   <id value="consent-example-notLabs"/>
   <text>
     <status value="generated"/>
@@ -39,26 +41,25 @@
       <code value="INFA"/>
     </coding>
   </regulatoryBasis>
+  <decision value="permit"/>
+
   <provision>
-    <type value="permit"/>
-    <provision>
-      <type value="deny"/>
-      <action>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-          <code value="access"/>
-        </coding>
-      </action>
-      <action>
-        <coding>
-          <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
-          <code value="correct"/>
-        </coding>
-      </action>
-      <securityLabel>
-          <system value="http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy" />
-          <code value="HIV" />
-      </securityLabel>
-    </provision>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+        <code value="access"/>
+      </coding>
+    </action>
+    <action>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/consentaction"/>
+        <code value="correct"/>
+      </coding>
+    </action>
+    <securityLabel>
+      <system value="http://terminology.hl7.org/ValueSet/v3-InformationSensitivityPolicy" />
+      <code value="HIV" />
+    </securityLabel>
   </provision>
+
 </Consent>

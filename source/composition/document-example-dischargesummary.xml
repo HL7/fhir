@@ -398,7 +398,6 @@
         </reason>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
-             <dose>
         <dosageInstruction>
           <additionalInstruction>
             <text value="Take with Food"/>
@@ -436,7 +435,6 @@
                </doseAndRate>
 
         </dosageInstruction>
-             </dose>
       </MedicationRequest>
     </resource>
   </entry>
@@ -444,7 +442,7 @@
   <entry>
     <fullUrl value="urn:uuid:673f8db5-0ffd-4395-9657-6da00420bbc1"/>
     <resource>
-      <MedicationUsage>
+      <MedicationStatement>
       <!--   The Human readible version of the medication statement  -->
         <text>
           <status value="generated"/>
@@ -474,7 +472,7 @@
           <text value="Management of Asthma"/>
 				</concept>
         </reason>
-       </MedicationUsage>
+       </MedicationStatement>
     </resource>
   </entry>
 <!--   The Allergy.  -->

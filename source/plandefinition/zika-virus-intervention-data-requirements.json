@@ -1,89 +1,70 @@
 {
-  "resourceType": "Library",
-  "type": {
-    "coding": [
-      {
-        "code": "module-definition"
-      }
-    ]
+  "resourceType" : "Library",
+  "type" : {
+    "coding" : [{
+      "code" : "module-definition"
+    }]
   },
-  "relatedArtifact": [
-    {
-      "type": "depends-on",
-      "display": "Zika Affected Areas",
-      "resource": "ValueSet/zika-affected-areas"
+  "relatedArtifact" : [{
+    "type" : "depends-on",
+    "display" : "Zika Affected Areas",
+    "resource" : "ValueSet/zika-affected-areas"
+  },
+  {
+    "type" : "depends-on",
+    "display" : "Pregnancy",
+    "resource" : "urn:oid:X.Y.Z"
+  },
+  {
+    "type" : "depends-on",
+    "display" : "Zika Exposure Assessment",
+    "resource" : "urn:oid:X.Y.Z"
+  },
+  {
+    "type" : "depends-on",
+    "display" : "Zika Virus Signs and Symptoms",
+    "resource" : "urn:oid:2.16.840.1.114222.4.11.7459"
+  }],
+  "dataRequirement" : [{
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "code",
+      "valueSet" : "http://example.org/valueset/pregnancy"
+    }]
+  },
+  {
+    "type" : "Patient"
+  },
+  {
+    "type" : "Observation",
+    "codeFilter" : [{
+      "path" : "code",
+      "valueSet" : "http://example.org/valueset/zika-exposure-assessment"
     },
     {
-      "type": "depends-on",
-      "display": "Pregnancy",
-      "resource": "urn:oid:X.Y.Z"
+      "path" : "status",
+      "code" : [{
+        "code" : "final"
+      }]
+    }]
+  },
+  {
+    "type" : "Condition",
+    "codeFilter" : [{
+      "path" : "category",
+      "code" : [{
+        "code" : "diagnosis"
+      }]
     },
     {
-      "type": "depends-on",
-      "display": "Zika Exposure Assessment",
-      "resource": "urn:oid:X.Y.Z"
+      "path" : "clinicalStatus",
+      "code" : [{
+        "code" : "confirmed"
+      }]
     },
     {
-      "type": "depends-on",
-      "display": "Zika Virus Signs and Symptoms",
-      "url": "https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7459",
-      "resource": "urn:oid:2.16.840.1.114222.4.11.7459"
-    }
-  ],
-  "dataRequirement": [
-    {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSet": "http://example.org/valueset/pregnancy"
-        }
-      ]
-    },
-    {
-      "type": "Patient"
-    },
-    {
-      "type": "Observation",
-      "codeFilter": [
-        {
-          "path": "code",
-          "valueSet": "http://example.org/valueset/zika-exposure-assessment"
-        },
-        {
-          "path": "status",
-          "code": [
-            {
-              "code": "final"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "Condition",
-      "codeFilter": [
-        {
-          "path": "category",
-          "code": [
-            {
-              "code": "diagnosis"
-            }
-          ]
-        },
-        {
-          "path": "clinicalStatus",
-          "code": [
-            {
-              "code": "confirmed"
-            }
-          ]
-        },
-        {
-          "path": "code",
-          "valueSet": "urn:oid:2.16.840.1.114222.4.11.7459"
-        }
-      ]
-    }
-  ]
+      "path" : "code",
+      "valueSet" : "urn:oid:2.16.840.1.114222.4.11.7459"
+    }]
+  }]
 }

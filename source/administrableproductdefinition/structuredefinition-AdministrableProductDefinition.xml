@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AdministrableProductDefinition"/>
-  <title value="AdministrableProductDefinition"/>
+  <title value="Administrable Product Definition"/>
   <status value="draft"/>
   <date value="2020-12-31T07:32:20+11:00"/>
   <publisher value="Health Level Seven International (Biomedical Research and Regulation)"/>
@@ -150,6 +150,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
+      <condition value="apd-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>

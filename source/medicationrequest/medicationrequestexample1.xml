@@ -57,7 +57,7 @@
   <note>
     <text value="Chlorthalidone increases urniation so take it in the morning"/>
   </note>
-  <dose>
+
   <dosageInstruction>
     <sequence value="1"/>
     <text value="One tablet daily"/>
@@ -108,7 +108,7 @@
     </doseAndRate>
     
   </dosageInstruction>
-  </dose>
+
   <dispenseRequest>
     <validityPeriod>
       <start value="2015-01-15"/>

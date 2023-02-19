@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="NamingSystem-translate-id"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -36,7 +38,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/NamingSystem-translate-id"/>
   <version value="5.0.0"/>
-  <name value="translate-id"/>
+  <name value="Translateid"/>
   <title value="Translate id"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -118,7 +120,6 @@
     <documentation value="If 'date' is supplied return only ids that have a validity period that includes that date."/>
     <type value="dateTime"/>
   </parameter>
-  
   <parameter>
     <name value="result"/>
     <use value="out"/>

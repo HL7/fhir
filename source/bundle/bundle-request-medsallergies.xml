@@ -12,12 +12,12 @@
       <url value="/Patient/example"/>
     </request>
   </entry>
-  <!-- This request will retrieve the current MedicationUsages for the patient
+  <!-- This request will retrieve the current MedicationStatements for the patient
        requested above -->
   <entry>
     <request>
       <method value="GET"/>
-      <url value="/MedicationUsage?patient=example&amp;_list=$current-medications"/>
+      <url value="/MedicationStatement?patient=example&amp;_list=$current-medications"/>
     </request>
   </entry>
   <!-- This request will retrieve the current AllergyIntolerances for the same
@@ -41,7 +41,7 @@
   <entry>
     <request>
       <method value="GET"/>
-      <url value="/MedicationUsage?patient=example&amp;notgiven:not=true"/>
+      <url value="/MedicationStatement?patient=example&amp;notgiven:not=true"/>
     </request>
   </entry>
 </Bundle>

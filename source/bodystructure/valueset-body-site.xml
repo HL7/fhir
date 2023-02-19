@@ -200,11 +200,13 @@
 				<code value ="29850006"/>
 				<display value ="Iliac crest"/>
 			</concept>
+			<!--
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
         <value value="442083009"/>
       </filter>
+			-->
     </include>
   </compose>
 </ValueSet>

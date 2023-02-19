@@ -122,7 +122,7 @@ same path must conform.
 <ul>
 		<li>The id will be constructed as a dot separated string, each part corresponding to a token in the path</li>
 		<li>For each token in the path, use the syntax <code>pathpart:slicename/reslicename</code></li>
-		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceasedBoolean, the id is Patient.deceased[x]:deceasedBoolean</li>
+		<li>For type choice elements, the id reflects the type slice. e.g. For path = Patient.deceased[x], the id of the boolean slice type element is Patient.deceased[x]:deceasedBoolean</li>
 </ul>
 <p>
 		Note that in a profile with no slices, this id will match the path exactly and entirely.
@@ -336,7 +336,7 @@ same path must conform.
 		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a datatype of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
-		<a href="extension-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
+		<a href="[%extensions-location%]StructureDefinition-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
 		For example, limiting the permitted value regex, length, etc. to the corresponding FHIR-defined datatype (but NOT permitting the additional elements such as id and extension).
 		If the extension is not present, no additional constraints apply.</li>
 </ul>
@@ -381,7 +381,7 @@ same path must conform.
 				<td><code>Extension</code></td>
 		</tr>
 		<tr>
-				<td>A defined Extension <br/>(example: <a href="extension-geolocation.html">Extension</a> - <a href="extension-geolocation.xml.html">XML</a>, <a href="extension-geolocation.json.html">JSON</a>)</td>
+				<td>A defined Extension <br/>(example: <a href="[%extensions-location%]StructureDefinition-geolocation.html">Extension</a> - <a href="[%extensions-location%]StructureDefinition-geolocation.xml.html">XML</a>, <a href="[%extensions-location%]StructureDefinition-geolocation.json.html">JSON</a>)</td>
 				<td><code>Extension</code></td>
 				<td><code>Extension.value[x]</code> or <code>Extension.extension</code> (for complex extensions)</td>
 				<td><code>Extension</code></td>
@@ -423,7 +423,7 @@ same path must conform.
 </p>
 <ul>
  <li>Constraints limiting the acceptable list of types must be applied to the original "[x]" element as this is where the list of acceptable types is defined</li>
- <li>The inclusion of a type specific path (such as "Patient.deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
+ <li>The inclusion of a type specific element (such as "Patient.deceased[x]:deceasedBoolean") SHALL NOT be interpreted as constraining allowed types, but instead, it constrains the use of a particular type</li>
  <li>the original element SHALL always be represented in a snapshot; the type specific variants are only represented when needed</li>
 </ul>
 
@@ -454,10 +454,10 @@ about why the value is not present, or provides an expression that might be used
 value in a particular context. Some common extensions that might appear in place of a primitive value:
 </p>
 <ul>
-	<li><a href="extension-data-absent-reason.html">data-absent-reason</a></li>
-	<li><a href="extension-iso21090-nullflavor.html">nullflavor</a></li>
-	<li><a href="extension-originaltext.html">originalText</a></li>
-	<li><a href="extension-cqf-expression.html">expression</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-data-absent-reason.html">data-absent-reason</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-iso21090-nullFlavor.html">nullflavor</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-cqf-expression.html">expression</a></li>
 </ul>
 <p>
 In many cases, profiles want to make a primitive element required (min = 1), and also want to say
@@ -529,18 +529,19 @@ For further information about bindings, see <a href="terminologies.html#binding"
 
 </p>
 <a name="must-support"></a>
-<h3>Must-support / Obligations</h3>
-
+<h3>Must-support</h3>
 <p>
 The primary focus of the FHIR specification is on correct application behavior around 
-what is exchanged and how: valid APIs and resource instances. But many FHIR implementation
+what is exchanged and how: valid APIs and resource instances. However many FHIR implementation
 guides are interested in specifying additional obligations about how the applications 
 involved handle the data that is being exchanged. 
 </p>
 <p>
-Element Definitions feature two properties concerned with this: <code>mustSupport</code>	
-and <code>obligation</code>. See <a href="obligations.html">Implementation Obligations</a>
-for the proper use of these elements.
+Element Definitions use the property <code>mustSupport</code>	to indicate that there 
+are rules that apply to how the data is handled. In addition, the 
+<%extension http://hl7.org/fhir/StructureDefinition/obligation%> extension can be used
+to make more detailed statements about application behavior.
+See <a href="obligations.html">Implementation Obligations</a> for the proper use of these features.
 </p>
 
 [%file newfooter%]

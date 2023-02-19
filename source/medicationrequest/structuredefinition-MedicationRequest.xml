@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationRequest"/>
-  <title value="MedicationRequest"/>
+  <title value="Medication Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -137,7 +137,7 @@
     </element>
     <element id="MedicationRequest.basedOn">
       <path value="MedicationRequest.basedOn"/>
-      <short value="What request fulfills"/>
+      <short value="A plan or request that is fulfilled in whole or in part by this medication request"/>
       <definition value="A plan or request that is fulfilled in whole or in part by this medication request."/>
       <min value="0"/>
       <max value="*"/>
@@ -160,8 +160,8 @@
     </element>
     <element id="MedicationRequest.priorPrescription">
       <path value="MedicationRequest.priorPrescription"/>
-      <short value="An order/prescription that is being replaced"/>
-      <definition value="A link to a resource representing an earlier order related order or prescription."/>
+      <short value="Reference to an order/prescription that is being replaced by this MedicationRequest"/>
+      <definition value="Reference to an order/prescription that is being replaced by this MedicationRequest."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -183,8 +183,8 @@
     </element>
     <element id="MedicationRequest.groupIdentifier">
       <path value="MedicationRequest.groupIdentifier"/>
-      <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription."/>
+      <short value="Composite request this is part of"/>      
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <min value="0"/>
       <max value="1"/>
@@ -440,8 +440,8 @@
     </element>
     <element id="MedicationRequest.subject">
       <path value="MedicationRequest.subject"/>
-      <short value="Who or group medication request is for"/>
-      <definition value="A link to a resource representing the person or set of individuals to whom the medication will be given."/>
+      <short value="Individual or group for whom the medication has been requested"/>
+      <definition value="The individual or group for whom the medication has been requested."/>
       <comment value="The subject on a medication request is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymized subject specified."/>
       <min value="1"/>
       <max value="1"/>
@@ -530,8 +530,8 @@
     <element id="MedicationRequest.supportingInformation">
       <path value="MedicationRequest.supportingInformation"/>
       <short value="Information to support fulfilling of the medication"/>
-      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationUsage for the patient)."/>
-      <comment value="This attribute can be used to reference a MedicationUsage about the patients' medication use."/>
+      <definition value="Information to support fulfilling (i.e. dispensing or administering) of the medication, for example, patient height and weight, a MedicationStatement for the patient)."/>
+      <comment value="This attribute can be used to reference a MedicationStatement about the patients' medication use."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -826,37 +826,23 @@
         <map value=".inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=&quot;annotation&quot;].value"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dose">
-      <path value="MedicationRequest.dose"/>
-      <short value="How the medication should be taken"/>
-      <definition value="Indicates how the medication is to be used by the patient."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="SubstanceAdministration &gt; ActRelationship[COMP] &gt; SubstanceAdministration"/>
-      </mapping>
-    </element>
-    <element id="MedicationRequest.dose.renderedDosageInstruction">
-      <path value="MedicationRequest.dose.renderedDosageInstruction"/>
+    <element id="MedicationRequest.renderedDosageInstruction">
+      <path value="MedicationRequest.renderedDosageInstruction"/>
       <short value="Full representation of the dosage instructions"/>
       <definition value="The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses."/>
       <requirements value="The content of the renderedDosageInstructions must not be different than the dose represented in the dosageInstruction content."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="rim"/>
         <map value="SubstanceAdministration.text"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dose.effectiveDosePeriod">
-      <path value="MedicationRequest.dose.effectiveDosePeriod"/>
+    <element id="MedicationRequest.effectiveDosePeriod">
+      <path value="MedicationRequest.effectiveDosePeriod"/>
       <short value="Period over which the medication is to be taken"/>
       <definition value="The period over which the medication is to be taken.  Where there are multiple dosageInstruction lines (for example, tapering doses), this is the earliest date and the latest end date of the dosageInstructions."/>
       <min value="0"/>
@@ -869,8 +855,8 @@
         <map value="substanceAdministration.effectiveTime"/>
       </mapping>
     </element>
-    <element id="MedicationRequest.dose.dosageInstruction">
-      <path value="MedicationRequest.dose.dosageInstruction"/>
+    <element id="MedicationRequest.dosageInstruction">
+      <path value="MedicationRequest.dosageInstruction"/>
       <short value="Specific instructions for how the medication should be taken"/>
       <definition value="Specific instructions for how the medication is to be used by the patient."/>
       <comment value="There are examples where a medication request may include the option of an oral dose or an Intravenous or Intramuscular dose.  For example, &quot;Ondansetron 8mg orally or IV twice a day as needed for nausea&quot; or &quot;Compazine® (prochlorperazine) 5-10mg PO or 25mg PR bid prn nausea or vomiting&quot;.  In these cases, two medication requests would be created that could be grouped together.  The decision on which dose and route of administration to use is based on the patient's condition at the time the dose is needed. In general, each prescribed drug will be a separate Medication Request. &#xA;&#xA;When drug orders are grouped together at the time of order entry,  but each of the drugs can be manipulated independently e.g. changing the status of one order to &quot;completed&quot; or &quot;cancelled&quot;, changing another order status to &quot;on-hold&quot;, the method to &quot;group&quot; all of the medication requests together is to use  MedicationRequest.groupIdentifier element.  All of the orders grouped together in this manner will have the same groupIdentifier, and separately, each order in the group may have a unique identifier.  &#xA;&#xA;There are cases that require grouping of Medication orders together when it is necessary to specify optionality e.g. order two drugs at one time, but stating either of these drugs may be used to treat the patient.  The use of a RequestOrchestration should be used as a parent for the Medication orders that require this type of grouping. An example when it may be necessary to group medication orders together is when you specify timing relationships e.g. order drug &quot;xyz&quot; with dose 123, then taper the same drug to a different dose after some interval of time&#xA;precedence:&#xA;e.g. give drug &quot;abc&quot; followed by drug &quot;def&quot;&#xA;e.g. give drug 30 minutes before some procedure was performed&#xA;more generically this supports - hierarchical groups of actions, where each specific action references the action to be performed (in terms of a Request resource), and each group describes additional behavior, relationships, and applicable conditions between the actions in the overall group.&#xA;Note that one should NOT use the List or Composition resource to accomplish the above requirements.  You may use List or Composition for other business requirements, but not to address the specific requirements of grouping medication orders."/>
@@ -1197,7 +1183,7 @@
       <path value="MedicationRequest.eventHistory"/>
       <short value="A list of events of interest in the lifecycle"/>
       <definition value="Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource."/>
-      <comment value="This might not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
+      <comment value="This might not include provenances for all versions of the request – only those deemed &quot;relevant&quot; or important. This SHALL NOT include the provenance associated with this current version of the resource. (If that provenance is deemed to be a &quot;relevant&quot; change, it will need to be added as part of a later update. Until then, it can be queried directly as the provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

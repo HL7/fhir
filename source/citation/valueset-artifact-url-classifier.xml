@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="artifact-url-classifier"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ArtifactUrlClassifier"/>
-  <title value="ArtifactUrlClassifier"/>
+  <title value="Artifact Url Classifier"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

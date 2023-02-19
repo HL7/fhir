@@ -102,7 +102,7 @@
       <constraint>
         <key value="obs-7"/>
         <severity value="error"/>
-        <human value="If Observation.code is the same as an Observation.component.code then the value element associated with the code SHALL NOT be present"/>
+        <human value="If Observation.component.code is the same as Observation.code, then Observation.value SHALL NOT be present (the Observation.component.value[x] holds the value)."/>
         <expression value="value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
@@ -111,6 +111,13 @@
         <severity value="error"/>
         <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
         <expression value="dataAbsentReason.empty() or value.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
+      <constraint>
+        <key value="obs-8"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
@@ -310,7 +317,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationAdministration"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationDispense"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationUsage"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationStatement"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Immunization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImagingStudy"/>
@@ -422,6 +429,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -513,7 +521,7 @@
       <path value="Observation.focus"/>
       <short value="What the observation is about, when it is not about the subject of record"/>
       <definition value="The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus."/>
-      <comment value="Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., &quot;Blood Glucose&quot;) and does not need to be represented separately using this element.  Use `specimen` if a reference to a specimen is required.  If a code is required instead of a resource use either  `bodysite` for bodysites or the standard extension [focusCode](extension-observation-focuscode.html)."/>
+      <comment value="Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., &quot;Blood Glucose&quot;) and does not need to be represented separately using this element.  Use `specimen` if a reference to a specimen is required.  If a code is required instead of a resource use either  `bodysite` for bodysites or the standard extension [[[http://hl7.org/fhir/StructureDefinition/observation-focusCode]]]."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -679,7 +687,7 @@
       <path value="Observation.value[x]"/>
       <short value="Actual result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="- An observation may have:&#xA;  1.  a single value here&#xA;  1.  both a value and a set of related or component values&#xA;  1.  only a set of related or component values.&#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularSequence resource when used as a definitional resource, not as a paitent-specific finding. Similarly, the use of valueCanonical should only be used to refer definitional URIs. .&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -719,7 +727,15 @@
       <type>
         <code value="Attachment"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+      </type>
       <condition value="obs-7"/>
+      <condition value="obs-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -843,6 +859,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-8"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -885,13 +902,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <constraint>
-        <key value="obs-8"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
-        <expression value="bodyStructure.empty() or bodySite.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </constraint>
+      <condition value="obs-8"/>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
@@ -947,7 +958,7 @@
         <key value="obs-9"/>
         <severity value="error"/>
         <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
-        <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
+        <expression value="(reference.resolve().exists() and reference.resolve() is Group) implies reference.resolve().member.entity.resolve().all($this is Specimen)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
@@ -1081,7 +1092,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationReferenceRangeNormalValue"/>
@@ -1193,6 +1203,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="obs-3"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
@@ -1278,6 +1289,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -1299,6 +1311,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1332,7 +1345,7 @@
       <path value="Observation.component.value[x]"/>
       <short value="Actual component result"/>
       <definition value="The information determined as a result of making the observation, if the information has a simple value."/>
-      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
+      <comment value="Used when observation has a set of component observations:&#xA;-  An observation may have both a value (e.g. an  Apgar score) and component observations (the observations from which the Apgar score was derived). &#xA;-  If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- If a value is present, the datatype for this element should be determined by the `code`.&#xA;-  *CodeableConcept* with just a text would be used instead of a string if the field was usually coded, or if the type associated with the `code` defines a coded value.&#xA;-  *Attachment* is used if the observation result value is a binary file such as an image.  If the observation result value is derived from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using *DocumentReference* and referenced by `derivedFrom`.&#xA;- The usage of valueReference is restricted to the MolecularSequence resource when used as a definitional resource, not as a paitent-specific finding. Similarly, the use of valueCanonical should only be used to refer definitional URIs. .&#xA;- For additional guidance, see the [Notes section](observation.html#notes) below."/>
       <requirements value="An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations."/>
       <min value="0"/>
       <max value="1"/>
@@ -1372,6 +1385,13 @@
       <type>
         <code value="Attachment"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
+      </type>
+      <type>
+        <code value="canonical"/>
+      </type>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -1404,7 +1424,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>

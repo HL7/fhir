@@ -3,16 +3,21 @@
 <ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="Measure-cqf"/>
   <version value="0.01"/>
-  <name value="Shareable Measure"/>
-  <title value="Shareable Measure"/>
+  <name value="MeasureProfiles"/>
+  <title value="Measure Profiles"/>
   <status value="draft"/>
   <date value="1970-01-01T10:00:00+10:00"/>
   <publisher value="HL7"/>
-  <description value="Enforces the minimum information set for the measure metadata required by HL7 and other organizations that share and publish measures"/>
+  <description value="Provider shareable and publishable profiles for measures"/>
   <definition>
     <resource>
       <reference>
         <reference value="StructureDefinition/shareablemeasure"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/publishablemeasure"/>
       </reference>
     </resource>
   </definition>

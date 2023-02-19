@@ -12,6 +12,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SmartCapabilities"/>
+  <title value="Smart Capabilities"/>
   <experimental value="true"/>
   <description value="SmartCapabilities"/>
   <concept>
