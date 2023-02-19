@@ -425,6 +425,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="ces-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BenefitCategory"/>
@@ -448,6 +449,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="ces-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ServiceProduct"/>
