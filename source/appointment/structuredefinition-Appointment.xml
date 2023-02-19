@@ -191,6 +191,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="app-4"/>
+      <condition value="app-3"/>
+      <condition value="app-7"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid"/>
       <isSummary value="true"/>
@@ -232,6 +235,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="app-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -587,6 +591,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Appointment"/>
       </type>
+      <condition value="app-6"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
@@ -606,6 +611,9 @@
       <type>
         <code value="instant"/>
       </type>
+      <condition value="app-5"/>
+      <condition value="app-3"/>
+      <condition value="app-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -638,6 +646,9 @@
       <type>
         <code value="instant"/>
       </type>
+      <condition value="app-5"/>
+      <condition value="app-3"/>
+      <condition value="app-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -772,6 +783,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="app-7"/>
     </element>
     <element id="Appointment.note">
       <path value="Appointment.note"/>
@@ -919,6 +931,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="app-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -974,6 +987,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <condition value="app-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -1084,6 +1098,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="app-6"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>

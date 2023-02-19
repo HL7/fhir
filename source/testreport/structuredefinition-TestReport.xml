@@ -330,6 +330,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="inv-1"/>
+      <condition value="inv-2"/>
     </element>
     <element id="TestReport.setup.action.operation.result">
       <path value="TestReport.setup.action.operation.result"/>
@@ -384,6 +386,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="inv-1"/>
+      <condition value="inv-2"/>
     </element>
     <element id="TestReport.setup.action.assert.result">
       <path value="TestReport.setup.action.assert.result"/>
