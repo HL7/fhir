@@ -115,7 +115,7 @@
         <valueString value="Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
       </extension>
       <path value="PractitionerRole.identifier"/>
-      <short value="Business Identifiers that are specific to a role/location"/>
+      <short value="Identifiers for a role/location"/>
       <definition value="Business Identifiers that are specific to a role/location."/>
       <comment value="A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods."/>
       <requirements value="Often, specific identities are assigned for the agent."/>
@@ -149,7 +149,7 @@
     <element id="PractitionerRole.active">
       <path value="PractitionerRole.active"/>
       <short value="Whether this practitioner role record is in active use"/>
-      <definition value="Whether this practitioner role record is in active use."/>
+      <definition value="	Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed."/>
       <comment value="If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active."/>
       <requirements value="Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use."/>
       <min value="0"/>
@@ -210,7 +210,7 @@
     </element>
     <element id="PractitionerRole.practitioner">
       <path value="PractitionerRole.practitioner"/>
-      <short value="Practitioner that is able to provide the defined services for the organization"/>
+      <short value="Practitioner that provides services for the organization"/>
       <definition value="Practitioner that is able to provide the defined services for the organization."/>
       <min value="0"/>
       <max value="1"/>
@@ -311,7 +311,7 @@
     </element>
     <element id="PractitionerRole.location">
       <path value="PractitionerRole.location"/>
-      <short value="The location(s) at which this practitioner provides care"/>
+      <short value="Location(s) where the practitioner provides care"/>
       <definition value="The location(s) at which this practitioner provides care."/>
       <min value="0"/>
       <max value="*"/>
@@ -335,7 +335,7 @@
     </element>
     <element id="PractitionerRole.healthcareService">
       <path value="PractitionerRole.healthcareService"/>
-      <short value="The list of healthcare services that this worker provides for this role's Organization/Location(s)"/>
+      <short value="Healthcare services provided for this role's Organization/Location(s)"/>
       <definition value="The list of healthcare services that this worker provides for this role's Organization/Location(s)."/>
       <min value="0"/>
       <max value="*"/>
@@ -383,8 +383,8 @@
     </element>
     <element id="PractitionerRole.endpoint">
       <path value="PractitionerRole.endpoint"/>
-      <short value="Technical endpoints providing access to services operated for the practitioner with this role"/>
-      <definition value="Technical endpoints providing access to services operated for the practitioner with this role."/>
+      <short value="Endpoints for interacting with the practitioner in this role"/>
+      <definition value="	Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically."/>
       <requirements value="Organizations have multiple systems that provide various services and may also be different for practitioners too.&#xA;&#xA;So the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
       <min value="0"/>
       <max value="*"/>
