@@ -116,7 +116,7 @@
 				</blockquote>
 				<p>
 					When performing a SEARCH by the source patient resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
-					(often used as a substitute for direct GET when doing _include for the managing org/general practitioner).
+					(often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
 				</p>
 				<ul>
 					<li>200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)</li>
@@ -153,8 +153,8 @@
 					In the case where a client needs to be aware of all relevant resources, including those that were added to a patient as the result of a merge, the client would need to be notified via some channel other than a RESTful polling process that a merge has occurred. There are a few options for how a client may detect that a fresh retrieval of all content for a patient may be needed:
 				</p>
 				<ul>
-					<li>Monitor the Patient resource for updates to Patient.link.</li>
-					<li>Monitor Provenance resources that could be created as part of a merge process as described in section 8.1.18.3.1.2.</li>
+					<li>Monitor the Patient resource for updates to Patient.link</li>
+					<li>Monitor Provenance resources that could be created as part of a merge process as described in section 8.1.18.3.1.2</li>
 				</ul>
 				[%stu-note dstu%]
 					<p>
@@ -440,7 +440,7 @@
 	<h4>Safety Checklist</h4>
 		[%stu-note dstu%]
 			<p>
-				Seeking implementer feedback on safety checklist items to include
+				Seeking implementer feedback on safety checklist items to include.
 			</p>
 		[%end-note%]
 </body>
