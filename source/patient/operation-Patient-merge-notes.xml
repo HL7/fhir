@@ -5,7 +5,7 @@
 </head>
 
 <body>
-
+	<a name="process"></a>
 	<h4>Merge Processing</h4>
 		<p>
 			The merge operation will have multiple stages, and some of these may take additional time for processing and thus be done asynchronously.
@@ -49,125 +49,130 @@
 			</p>
 		</blockquote>
 
-	<h5>Merging Identifiers</h5>
-		<p>
-			If the result patient resource is provided in the parameters to the operation, then it is assumed that the caller has correctly included all the required identifiers desired to be in the target patient (though must include the identifiers specified in the input parameters).
-		</p>
-		<p>
-			If the result patient resource is <b>not</b> provided (only the identifier or reference to select it), then the values provided in the request parameters (source-patient.identifier and all source-patient-identifiers) will be copied into the target resource and marked as old.
-		</p>
-		[%stu-note dstu%]
+		<h5>Merging Identifiers</h5>
 			<p>
-				If the marking of old still makes sense here for ALL provided identifiers that get copied across when the result patient isn't there).
+				If the result patient resource is provided in the parameters to the operation, then it is assumed that the caller has correctly included all the required identifiers desired to be in the target patient (though must include the identifiers specified in the input parameters).
 			</p>
-		[%end-note%]
-		<p>
-			The server may also migrate other identifiers (and properties) at its discretion, and choose to mark these as old or not.
-		</p>
-		<blockquote>
 			<p>
-				<b>Note:</b> If an identifier value is masked, then the server will migrate the identifier value correctly, regardless of the masking.
-			</p>
-		</blockquote>
-
-	<h5>Updating Data that References the source Patient</h5>
-		<p>
-			The merge data processing SHALL update all references that refer to the source patient to reference the target patient.<br/>
-			While updating resources that reference the source patient, ensure that the target patient link value isn't also accidentally updated (don't make it point at itself).
-		</p>
-		<p>
-			A Provenance resource SHOULD be created that references the source and target patient resources (or just the target-resource if the source was deleted, or the source patient's old identifier) indicating that the merge has occurred (see example below).<br/>
-			A Provenance resource MAY be created to link all of the resources that referenced the source patient that could then provide information to a potential un-merge operation.
-		</p>
-		<blockquote>
-			<p>
-				<b>Note:</b> Some resources that have been updated as a result of the merge, such as AuditEvent, Provenance, may have been digitally signed, and this change would invalidate the signature. There may be other reasons impacting the updates that should be considered, further feedback on this specific use case is required.
-			</p>
-		</blockquote>
-		[%stu-note dstu%]
-			<p>
-				Are there other implications of these reference updates that should be identified relating to versions - (such as where a version specific reference was included)?
-			</p>
-		[%end-note%]	
-		<blockquote>
-			<p>
-				<b>Note:</b> While this processing is occurring, if a client requests clinical data for either source or target patient, an OperationOutcome with an informative message MAY be included in the resulting bundle indicating this processing is ongoing.
-			</p>
-		</blockquote>
-		[%stu-note dstu%]
-			<p>
-				Considering updating <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the transient concept to indicate that merge processing is occurring.
-			</p>
-		[%end-note%]
-
-	<h5>Post Merge Expectations</h5>
-		<h6>Once the patient resources have been merged:</h6>
-			<p>
-				A GET on the source Patient resource ID (e.g. <code>GET [base]/Patient/pat01</code>) will return either:
-			</p>
-			<ul>
-				<li>200 OK and returns the source Patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
-				<li>404 not found (when the merge system deleted the resource)</li>
-			</ul>
-			<blockquote>
-				<p>
-					<b>Note:</b> Security implications such as those from SMART tokens could restrict access here.
-				</p>
-			</blockquote>
-			<p>
-				When performing a SEARCH by the old Patient Resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
-				(often used as a substitute for direct GET when doing _include for the managing org/general practitioner).
-			</p>
-			<ul>
-				<li>200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)</li>
-				<li>200 Ok Bundle with no patient resource (case where the old patient was deleted)</li>
-				<li>200 Ok Bundle with the target patient resource (with the link to the one from the search) and not include the old patient resource</li>
-				<li>200 Ok Bundle with both the target and old patient resources</li>
-			</ul>
-			<p>
-				Accessing the Patient $everything operation on the source patient resource (now marked as inactive) will return an OperationOutcome and http status of 400 Bad Request. The error message should inform that the patient has been merged and should follow the Patient link to access the $everything content.
+				If the result patient resource is <b>not</b> provided (only the identifier or reference to select it), then the values provided in the request parameters (source-patient.identifier and all source-patient-identifiers) will be copied into the target resource and marked as old.
 			</p>
 			[%stu-note dstu%]
 				<p>
-					Considering updating the <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the processing concept to indicate that additional content may be associated with a linked patient.
+					If the marking of old still makes sense here for ALL provided identifiers that get copied across when the result patient isn't there).
 				</p>
 			[%end-note%]
 			<p>
-				Searching content (e.g. Observations) based on patient ID:
+				The server may also migrate other identifiers (and properties) at its discretion, and choose to mark these as old or not.
 			</p>
-			<ul>
-				<li><code>Observation?patient=Patient/pat01</code> would return a 200 Ok Bundle with no results (as all have been moved to Patient/pat02), an OperationOutcome may be included indicating that the patient was merged into patient xxx</li>
-				<li><code>Observation?patient=Patient/pat02</code> would return all the data that is referencing pat02, and all the data that was referencing pat01 (which was updated by the merge operation to reference pat02)</li>
-			</ul>
+			<blockquote>
+				<p>
+					<b>Note:</b> If an identifier value is masked, then the server will migrate the identifier value correctly, regardless of the masking.
+				</p>
+			</blockquote>
+
+		<h5>Updating Data that References the source Patient</h5>
 			<p>
-				Searching content (e.g. Observations) based on patient ID:
+				The merge data processing SHALL update all references that refer to the source patient to reference the target patient.<br/>
+				While updating resources that reference the source patient, ensure that the target patient link value isn't also accidentally updated (don't make it point at itself).
 			</p>
-			<ul>
-				<li><code>Observation?patient=Patient/pat02</code> (initial client call at start of year, gets all patient obs)</li>
-				<li><code>Observation?patient=Patient/pat02&amp;_lastupdated=ge2019-03</code> (client calls at start of march to detect any new patient obs)</li>
-				<li>(Patient pat01 is merged into pat02 during April)</li>
-				<li><code>Observation?patient=Patient/pat02&amp;_lastupdated=ge2019-06</code> (client calls at start of june to detect any new patient obs, but misses all the pat01 observations prior to June)</li>
-				<li>Client needs to check for a provenance record of the merge having taken place to determine that they need to refresh the local content to see the older data</li>				
-			</ul>
 			<p>
-				In this case need to detect the patient merge, <u>and perform a fresh retrieval of all content</u>, there is no way for the server to return any error codes in this use case, and may also need to consider notification mechanisms too.
+				A Provenance resource SHOULD be created that references the source and target patient resources (or just the target-resource if the source was deleted, or the source patient's old identifier) indicating that the merge has occurred (see example <a href="#examples">below</a>).<br/>
+				A Provenance resource MAY be created to link all of the resources that referenced the source patient that could then provide information to a potential un-merge operation.
 			</p>
+			<blockquote>
+				<p>
+					<b>Note:</b> Some resources that have been updated as a result of the merge, such as AuditEvent, Provenance, may have been digitally signed, and this change would invalidate the signature. There may be other reasons impacting the updates that should be considered, further feedback on this specific use case is required.
+				</p>
+			</blockquote>
 			[%stu-note dstu%]
 				<p>
-					Creating/Updating content (e.g. Observations) that reference the old Patient ID (feedback on this required):
+					Are there other implications of these reference updates that should be identified relating to versions - (such as where a version specific reference was included)?
+				</p>
+			[%end-note%]	
+			<blockquote>
+				<p>
+					<b>Note:</b> While this processing is occurring, if a client requests clinical data for either source or target patient, an OperationOutcome with an informative message MAY be included in the resulting bundle indicating this processing is ongoing.
+				</p>
+			</blockquote>
+			[%stu-note dstu%]
+				<p>
+					Considering updating <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the transient concept to indicate that merge processing is occurring.
+				</p>
+			[%end-note%]
+
+		<h5>Post Merge Expectations</h5>
+			<h6>Once the patient resources have been merged:</h6>
+				<p>
+					A GET on the source Patient resource ID (e.g. <code>GET [base]/Patient/pat01</code>) will return either:
 				</p>
 				<ul>
-					<li>422 Unprocessable Entity with an OperationOutcome indicating that the patient referenced was merged into patient xxx (this is also the existing behavior if the patient resource was deleted)</li>
-					<li>201 Created if the service is able to automatically process the request and reallocate, this could occur during the merge data processing stage, otherwise the above code should be returned</li>
+					<li>200 OK and returns the source patient which is now marked as inactive, and has the link (replaced-by) populated with the target Patient ID (Note: some systems may have cleared all the other properties making this a stub resource)</li>
+					<li>404 not found (when the merge system deleted the resource)</li>
 				</ul>
-			[%end-note%]			
+				<blockquote>
+					<p>
+						<b>Note:</b> Security implications such as those from SMART tokens could restrict access here.
+					</p>
+				</blockquote>
+				<p>
+					When performing a SEARCH by the source patient resource ID return (e.g. <code>GET [base]/Patient?_id=pat01</code>):<br/> 
+					(often used as a substitute for direct GET when doing _include for the managing org/general practitioner)
+				</p>
+				<ul>
+					<li>200 Ok Bundle with the inactive patient which is marked as inactive and has the link (replaced-by) populated in it (that you'll need to follow to get any further data)</li>
+					<li>200 Ok Bundle with no patient resource (case where the source patient was deleted)</li>
+					<li>200 Ok Bundle with the target patient resource (with the link to the one from the search) and not include the source patient resource</li>
+					<li>200 Ok Bundle with both the target and source patient resources</li>
+				</ul>
+				<p>
+					Accessing the Patient $everything operation on the source patient resource (now marked as inactive) will return an OperationOutcome and http status of 400 Bad Request. The error message should inform that the patient has been merged and should follow the Patient link to access the $everything content.
+				</p>
+				[%stu-note dstu%]
+					<p>
+						Considering updating the <a href="http://hl7.org/fhir/valueset-issue-type.html">http://hl7.org/fhir/valueset-issue-type.html</a> to extended with a new child to the processing concept to indicate that additional content may be associated with a linked patient.
+					</p>
+				[%end-note%]
+				<p>
+					Searching content (e.g. Observations) based on patient ID:
+				</p>
+				<ul>
+					<li><code>Observation?patient=Patient/pat01</code> would return a 200 Ok Bundle with no results (as all have been moved to Patient/pat02), an OperationOutcome may be included indicating that the patient was merged into patient xxx</li>
+					<li><code>Observation?patient=Patient/pat02</code> would return all the data that is referencing pat02, and all the data that was referencing pat01 (which was updated by the merge operation to reference pat02)</li>
+				</ul>
+				<p>
+					Searching content (e.g. Observations) based on patient ID:
+				</p>
+				<ul>
+					<li><code>Observation?patient=Patient/pat02</code> (initial client call at start of year, gets all patient obs)</li>
+					<li><code>Observation?patient=Patient/pat02&amp;_lastupdated=ge2019-03</code> (client calls at start of march to detect any new patient obs)</li>
+					<li>(Patient pat01 is merged into pat02 during April)</li>
+					<li><code>Observation?patient=Patient/pat02&amp;_lastupdated=ge2019-06</code> (client calls at start of june to detect any new patient obs, but misses all the pat01 observations prior to June)</li>
+					<li>Client needs to check for a provenance record of the merge having taken place to determine that they need to refresh the local content to see the older data</li>				
+				</ul>
+				<p>
+					In the case where a client needs to be aware of all relevant resources, including those that were added to a patient as the result of a merge, the client would need to be notified via some channel other than a RESTful polling process that a merge has occurred. There are a few options for how a client may detect that a fresh retrieval of all content for a patient may be needed:
+				</p>
+				<ul>
+					<li>Monitor the Patient resource for updates to Patient.link</li>
+					<li>Monitor Provenance resources that could be created as part of a merge process as described in section 8.1.18.3.1.2</li>
+				</ul>
+				[%stu-note dstu%]
+					<p>
+						Creating/Updating content (e.g. Observations) that reference the source patient ID (feedback on this required):
+					</p>
+					<ul>
+						<li>422 Unprocessable Entity with an OperationOutcome indicating that the patient referenced was merged into patient xxx (this is also the existing behavior if the patient resource was deleted)</li>
+						<li>201 Created if the service is able to automatically process the request and reallocate, this could occur during the merge data processing stage, otherwise the above code should be returned</li>
+					</ul>
+				[%end-note%]			
 
+	<a name="notification"></a>
 	<h4>Merge Notification Mechanisms</h4>
 		<p>
 			The indication that a merge has been completed can be notified through several ways:
 		</p>
 		<ul>
-			<li>Using FHIR Messaging to invoke the same operation</li>
+			<li>Using FHIR Messaging to invoke the same operation, see <a href="#messaging">below</a></li>
 			<li>An integration engine sending HL7v2 A40 merge message (A18 may also be applicable in backward compatibility modes)</li>
 			<li>Directly calling the $merge operation on the dependent systems (requires the system to have both patient resources)</li>
 			<li>Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc...)</li>
@@ -186,6 +191,7 @@
 			</p>
 		</blockquote>
 
+	<a name="subscription"></a>
 	<h4>Impact on Subscriptions</h4>
 		<p>
 			Subscriptions on merges are most likely to be used by applications connecting directly to the system. Many use cases could consider using FHIR Messaging (or other messaging e.g. v2 messages) to communicate the merge occurred.
@@ -209,6 +215,7 @@
 			</ul>
 		[%end-note%]
 
+	<a name="v2-mapping"></a>
 	<h4>Mapping HL7v2 Merge to FHIR</h4>
 		<h5>HL7v2 Merges, Move and Linking</h5>
 			<p>
@@ -221,11 +228,11 @@
 			<p>
 				This section addresses the events that occur usually for the purposes of correcting errors in person, patient, account, or visit identifiers. The types of errors that occur typically fall into three categories:
 			</p>
-			<ul>
+			<ol>
 				<li>Duplicate identifier created<br/> The registrar fails to identify an existing person, patient, account, or visit and creates a new, "duplicate" record instead of using the existing record. A "merge" operation is used to fix this type of error.</li>
 				<li>Incorrect identifier selected<br/> The registrar mistakenly selects the wrong person, patient, or account and creates or attaches a patient, account, or visit underneath the incorrect person, patient, or account. A "move" operation is used to fix this type of error.</li>
 				<li>Incorrect identifier assigned<br/> The registrar accidentally types in the wrong new identifier for a person, patient, account, or visit. This type of mistake usually occurs when identifiers are manually assigned (not system generated).  A "change identifier" operation is used to fix this type of error.</li>
-			</ul>
+			</ol>
 			<blockquote>
 				<p>
 					<b>Note:</b> HL7v2 addresses only scenarios 1 and 2 as most identifiers are assigned by the related systems, today.
@@ -361,10 +368,79 @@
 					The A37 event unlinks two PID segments previously linked with an A24 (link patient information) event.
 				</p>
 
+	<a name="messaging"></a>
+	<h4>FHIR Messaging</h4>
+		<p>
+			The FHIR Request Message should be a Bundle with:
+		</p>
+		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+			<tr>
+				<td><b>Resource</b></td>
+				<td><b>Cardinality</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td>MessageHeader</td>
+				<td>1..1</td>
+				<td>The Messaging header<br/>The focus of the message will be the Parameters resource.</td>
+			</tr>
+			<tr>
+				<td>Parameters</td>
+				<td>1..1</td>
+				<td>The same Parameters object that would be passed to the $merge operation.</td>
+			</tr>
+			<tr>
+				<td>Patient (source)</td>
+				<td>0..1</td>
+				<td>Source Patient resource (may not be complete, but should have enough to be able to identify the source record)<br/> This is the details of the patient resource that will be marked as inactive after the merge.</td>
+			</tr>
+			<tr>
+				<td>Patient (target)</td>
+				<td>0..1</td>
+				<td>Target Patient resource (may not be complete, but should have enough to be able to identify the target record)<br/>This is the details patient resource that will remain active after the merge operation is complete.</td>
+			</tr>
+		</table>
+		<p>
+			The FHIR Response Message should be a bundle with:
+		</p>
+		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+			<tr>
+				<td><b>Resource</b></td>
+				<td><b>Cardinality</b></td>
+				<td><b>Description</b></td>
+			</tr>
+			<tr>
+				<td>MessageHeader</td>
+				<td>1..1</td>
+				<td>The Messaging header<br/>The focus of the message will be the Parameters resource.</td>
+			</tr>
+			<tr>
+				<td>Parameters</td>
+				<td>1..1</td>
+				<td>The parameters resource that was included in the request.</td>
+			</tr>
+			<tr>
+				<td>OperationOutcome</td>
+				<td>1..1</td>
+				<td>The results of the merge operation.</td>
+			</tr>
+			<tr>
+				<td>Patient</td>
+				<td>0..1</td>
+				<td>The resulting patient resource from the merge operation.<br/>(required when the result was a successful operation)</td>
+			</tr>
+			<tr>
+				<td>AuditEvent</td>
+				<td>0..1</td>
+				<td>An operation event that includes the full details of the operation, including references to all the resources that were updated as a result of the merge.</td>
+			</tr>
+		</table>
+
+	<a name="safety"></a>
 	<h4>Safety Checklist</h4>
 		[%stu-note dstu%]
 			<p>
-				Seeking implementer feedback on safety checklist items to include
+				Seeking implementer feedback on safety checklist items to include.
 			</p>
 		[%end-note%]
 </body>
