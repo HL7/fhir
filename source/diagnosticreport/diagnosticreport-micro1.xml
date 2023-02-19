@@ -593,7 +593,7 @@
 				</code>
 				<subject>
 					<reference value="Patient/example"/><!--   patient chosen at random   --></subject><performer>
-					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueString value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
+					<display value="Todd Ashby"/><!--   of course, in practive, this would be a real reference   --></performer><valueMarkdown value="D-Test:  Negative - This isolate does not demonstrate inducible clindamycin resistance in vitro."/>
 			</Observation>
 		</resource>
 	</entry>

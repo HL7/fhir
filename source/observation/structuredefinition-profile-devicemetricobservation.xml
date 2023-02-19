@@ -149,7 +149,7 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="Range"/>
