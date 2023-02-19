@@ -446,6 +446,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
       </type>
+      <condition value="act-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -464,6 +465,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="act-1"/>
     </element>
     <element id="Account.diagnosis.type">
       <path value="Account.diagnosis.type"/>
@@ -547,6 +549,7 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
+      <condition value="act-2"/>
       <isSummary value="true"/>
       <binding>
         <strength value="example"/>
@@ -562,6 +565,7 @@
       <type>
         <code value="dateTime"/>
       </type>
+      <condition value="act-2"/>
     </element>
     <element id="Account.procedure.type">
       <path value="Account.procedure.type"/>
