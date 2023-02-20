@@ -363,6 +363,29 @@
         <code value="ExtendedContactDetail"/>
       </type>
     </element>
+    <element id="PractitionerRole.characteristic">
+      <path value="PractitionerRole.characteristic"/>
+      <short value="Collection of characteristics (attributes)"/>
+      <definition value="Collection of characteristics (attributes)."/>
+      <comment value="These could be such things as is the service mode used by this role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibility)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-mode"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PERT].observation"/>
+      </mapping>
+    </element>
     <element id="PractitionerRole.availability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>
