@@ -36,8 +36,8 @@
   </concept>
   <concept>
     <code value="specified"/>
-    <display value="Specified sex for clinical use"/>
-    <definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations.  Additional information (usually, but not always, in the form of comments and/or observations) is available, but does not align with male sex for clinical use or female sex for clinical use. "/>
+    <display value="Apply specified setting or reference range"/>
+	<definition value="Available data indicates that diagnostics, analytics, and treatment best practices may be undefined or not aligned with sex-derived reference populations. Additional information may be available in the form of comments and/or observations."/>
 	<property>   
       <code value="usage-note"/> 
       <valueString value="Individuals or systems providing care should either use default behavior that is safe for both male and female populations, individually review treatment options with the patient, or carefully inspect comments and relevant observations before proceeding with treatment. Systems that are unable to review additional information that may be associated with an SFCU value may manage a SPECIFIED and an UNKNOWN value in the same way."/> 
