@@ -12,7 +12,7 @@
 		<code value="admin-notify"/>
 	</eventCoding>
 	<destination>
-		<endpoint value="llp:10.11.12.14:5432"/>
+		<endpointUrl value="llp:10.11.12.14:5432"/>
 		<name value="Acme Message Gateway"/>
 		<!-- this is to indicate to the Acme Message Gateway that this particular message 
        is intended for Practitioner "xcda" -->
@@ -32,7 +32,7 @@
 		<reference value="Practitioner/example"/>
 	</author>
 	<source> 
-		<endpoint value="llp:10.11.12.13:5432"/>
+		<endpointUrl value="llp:10.11.12.13:5432"/>
 		<name value="Acme Central Patient Registry"/>
 		<software value="FooBar Patient Manager"/>
 		<version value="3.1.45.AABB"/>
