@@ -109,7 +109,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NutritionProduct-lot-number"/>
         <description value="The lot number"/>
-        <code value="loy-number"/>
+        <code value="lot-number"/>
         <type value="token"/>
         <expression value="NutritionProduct.instance.lotNumber"/>
         <processingMode value="normal"/>
