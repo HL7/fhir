@@ -1134,8 +1134,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="pld-3"/>
-      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value=".participation[typeCode=PFM]"/>
