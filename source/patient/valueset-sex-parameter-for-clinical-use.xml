@@ -8,13 +8,13 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="pa"/>
   </extension>
-  <url value="http://terminology.hl7.org/ValueSet/sex-for-clinical-use"/>
+  <url value="http://terminology.hl7.org/ValueSet/sex-parameter-for-clinical-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3181"/>
   </identifier>
-  <name value="sexForClinicalUse"/>
-  <title value="Sex for Clincal Use"/>
+  <name value="sexParameterForClinicalUse"/>
+  <title value="Sex Parameter for Clincal Use"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="FHIR Project team"/>
@@ -27,7 +27,14 @@
   <description value="Codes that represent the sex characterization appropriate for the associated clinical context."/>
   <compose>
     <include>
-      <system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+      <system value="http://terminology.hl7.org/CodeSystem/sex-parameter-for-clinical-use"/>
+    </include>
+	<include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
