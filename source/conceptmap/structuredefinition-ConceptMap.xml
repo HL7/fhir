@@ -117,7 +117,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -224,6 +224,7 @@
       <isModifier value="true"/>
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="PublicationStatus"/>
@@ -659,6 +660,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-5"/>
     </element>
     <element id="ConceptMap.group.element.display">
       <path value="ConceptMap.group.element.display"/>
@@ -681,6 +683,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-5"/>
     </element>
     <element id="ConceptMap.group.element.noMap">
       <path value="ConceptMap.group.element.noMap"/>
@@ -691,6 +694,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="cmd-4"/>
     </element>
     <element id="ConceptMap.group.element.target">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
@@ -708,11 +712,12 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="cmd-4"/>
       <constraint>
         <key value="cmd-1"/>
         <severity value="error"/>
         <human value="If the map is source-is-broader-than-target or not-related-to, there SHALL be some comments, unless the status is 'draft'"/>
-        <expression value="comment.exists() or (status = draft) or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
+        <expression value="comment.exists() or (%resource.status = 'draft') or relationship.empty() or ((relationship != 'source-is-broader-than-target') and (relationship != 'not-related-to'))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
       <constraint>
@@ -735,6 +740,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-7"/>
     </element>
     <element id="ConceptMap.group.element.target.display">
       <path value="ConceptMap.group.element.target.display"/>
@@ -757,6 +763,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-7"/>
     </element>
     <element id="ConceptMap.group.element.target.relationship">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -773,6 +780,7 @@
       </type>
       <isModifier value="true"/>
       <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
+      <condition value="cmd-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapRelationship"/>
@@ -862,6 +870,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="cmd-6"/>
     </element>
     <element id="ConceptMap.group.element.target.dependsOn.valueSet">
       <path value="ConceptMap.group.element.target.dependsOn.valueSet"/>
@@ -873,6 +882,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-6"/>
     </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
@@ -940,6 +950,11 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-3"/>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
+      <condition value="cmd-9"/>
+      <condition value="cmd-10"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptMapGroupUnmappedMode"/>
@@ -961,6 +976,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.display">
       <path value="ConceptMap.group.unmapped.display"/>
@@ -972,6 +989,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.valueSet">
       <path value="ConceptMap.group.unmapped.valueSet"/>
@@ -983,6 +1001,8 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
+      <condition value="cmd-2"/>
+      <condition value="cmd-8"/>
     </element>
     <element id="ConceptMap.group.unmapped.relationship">
       <path value="ConceptMap.group.unmapped.relationship"/>
@@ -994,6 +1014,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="cmd-9"/>
       <isModifier value="true"/>
       <isModifierReason value="The 'not-related-to' relationship means that there is no mapping from the source to the target, and the mapping cannot be interpreted without knowing this value as it could mean the elements are equivalent, totally mismatched or anything in between"/>
       <binding>
@@ -1018,6 +1039,8 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </type>
+      <condition value="cmd-3"/>
+      <condition value="cmd-10"/>
     </element>
   </differential>
 </StructureDefinition>

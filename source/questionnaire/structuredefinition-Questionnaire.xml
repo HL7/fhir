@@ -1,1410 +1,1424 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd">
-	<id value="Questionnaire"/>
-	<meta>
-		<lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
-	</meta>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
-		<valueString value="Specialized.Definitional Artifacts"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-		<valueCode value="trial-use"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
-		<valueInteger value="3"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
-		<valueCode value="business"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-		<valueCode value="fhir"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
-		<valueCode value=".status = retired"/>
-	</extension>
-	<extension url="http://hl7.org/fhir/build/StructureDefinition/template">
-		<valueString value="MetadataResource"/>
-	</extension>
-	<url value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-	<identifier>
-		<system value="urn:ietf:rfc:3986"/>
-		<value value="urn:oid:2.16.840.1.113883.4.642.5.1253"/>
-	</identifier>
-	<version value="5.0.0"/>
-	<name value="Questionnaire"/>
-	<title value="Questionnaire"/>
-	<status value="draft"/>
-	<date value="2021-01-05T10:01:24+11:00"/>
-	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://hl7.org/fhir"/>
-		</telecom>
-	</contact>
-	<contact>
-		<telecom>
-			<system value="url"/>
-			<value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
-		</telecom>
-	</contact>
-	<description value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
-	<purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
-	<fhirVersion value="5.0.0"/>
-	<mapping>
-		<identity value="workflow"/>
-		<uri value="http://hl7.org/fhir/workflow"/>
-		<name value="Workflow Pattern"/>
-	</mapping>
-	<mapping>
-		<identity value="rim"/>
-		<uri value="http://hl7.org/v3"/>
-		<name value="RIM Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="w5"/>
-		<uri value="http://hl7.org/fhir/fivews"/>
-		<name value="FiveWs Pattern Mapping"/>
-	</mapping>
-	<mapping>
-		<identity value="objimpl"/>
-		<uri value="http://hl7.org/fhir/object-implementation"/>
-		<name value="Object Implementation Information"/>
-	</mapping>
-	<mapping>
-		<identity value="v2"/>
-		<uri value="http://hl7.org/v2"/>
-		<name value="HL7 v2 Mapping"/>
-	</mapping>
-	<kind value="resource"/>
-	<abstract value="false"/>
-	<type value="Questionnaire"/>
-	<baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
-	<derivation value="specialization"/>
-	<differential>
-		<element id="Questionnaire">
-			<path value="Questionnaire"/>
-			<short value="A structured set of questions"/>
-			<definition value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
-			<alias value="Form"/>
-			<alias value="CRF"/>
-			<alias value="Survey"/>
-			<min value="0"/>
-			<max value="*"/>
-			<constraint>
-				<key value="cnl-0"/>
-				<severity value="warning"/>
-				<human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-				<expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-2"/>
-				<severity value="error"/>
-				<human value="The link ids for groups and questions must be unique within the questionnaire"/>
-				<expression value="descendants().linkId.isDistinct()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="Observation[moodCode=DEF]"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="infrastructure.information"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.url">
-			<path value="Questionnaire.url"/>
-			<short value="Canonical identifier for this questionnaire, represented as a URI (globally unique)"/>
-			<definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
-			<comment value="The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
-			<requirements value="…  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<constraint>
-				<key value="cnl-1"/>
-				<severity value="warning"/>
-				<human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-				<expression value="url.matches('([^|#])*')"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
-			</constraint>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.url"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".identifier[scope=BUSN;reliability=ISS]"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.identifier">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="Is this 80%?"/>
-			</extension>
-			<path value="Questionnaire.identifier"/>
-			<short value="Additional identifier for the questionnaire"/>
-			<definition value="A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
-			<comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
-			<requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Identifier"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".identifier"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.version">
-			<path value="Questionnaire.version"/>
-			<short value="Business version of the questionnaire"/>
-			<definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
-			<comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.version"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.version"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (to add?)"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.versionAlgorithm[x]">
-			<path value="Questionnaire.versionAlgorithm[x]"/>
-			<short value="How to compare versions"/>
-			<definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
-			<comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<strength value="extensible"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
-			</binding>
-		</element>
-		<element id="Questionnaire.name">
-			<path value="Questionnaire.name"/>
-			<short value="Name for this questionnaire (computer friendly)"/>
-			<definition value="A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
-			<comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
-			<requirements value="Support human navigation and code generation."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="cnl-0"/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.name"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.title">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.title"/>
-			<short value="Name for this questionnaire (human friendly)"/>
-			<definition value="A short, descriptive, user-friendly title for the questionnaire."/>
-			<comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.title"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".title"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.derivedFrom">
-			<path value="Questionnaire.derivedFrom"/>
-			<short value="Based on Questionnaire"/>
-			<definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
-			<requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.derivedFrom"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.status">
-			<path value="Questionnaire.status"/>
-			<short value="draft | active | retired | unknown"/>
-			<definition value="The status of this questionnaire. Enables tracking the life-cycle of the content."/>
-			<comment value="Allows filtering of questionnaires that are appropriate for use versus not."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isModifier value="true"/>
-			<isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="PublicationStatus"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The lifecycle status of an artifact."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.status"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.status"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".status"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.experimental">
-			<path value="Questionnaire.experimental"/>
-			<short value="For testing purposes, not real usage"/>
-			<definition value="A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
-			<comment value="Allows filtering of questionnaires that are appropriate for use versus not."/>
-			<requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level questionnaire."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.experimental"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.class"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.subjectType">
-			<path value="Questionnaire.subjectType"/>
-			<short value="Resource that can be subject of QuestionnaireResponse"/>
-			<definition value="The types of subjects that can be the subject of responses created for the questionnaire."/>
-			<comment value="If none are specified, then the subject is unlimited."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="ResourceType"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="required"/>
-				<description value="One of the resource types defined as part of this version of FHIR."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.subject[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.date">
-			<path value="Questionnaire.date"/>
-			<short value="Date last formally published"/>
-			<definition value="The date  (and optionally time) when the questionnaire was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
-			<comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
-			<alias value="Revision Date"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.date"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.recorded"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=AUT].time"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.publisher">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.publisher"/>
-			<short value="Name of the publisher/steward (organization or individual)"/>
-			<definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the questionnaire."/>
-			<comment value="Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context."/>
-			<requirements value="Helps establish the &quot;authority/credibility&quot; of the questionnaire.  May also allow for contact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.publisher"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.witness"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=AUT].role"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.contact">
-			<path value="Questionnaire.contact"/>
-			<short value="Contact details for the publisher"/>
-			<definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-			<comment value="May be a web site, an email address, a telephone number, etc."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="ContactDetail"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.contact"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".participation[typeCode=CALLBCK].role"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.description">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.description"/>
-			<short value="Natural language description of the questionnaire"/>
-			<definition value="A free text natural language description of the questionnaire from a consumer's perspective."/>
-			<comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.description"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".text"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.useContext">
-			<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-				<valueCode value="trial-use"/>
-			</extension>
-			<path value="Questionnaire.useContext"/>
-			<short value="The context that the content is intended to support"/>
-			<definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances."/>
-			<comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
-			<requirements value="Assist in searching for appropriate content."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="UsageContext"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.useContext"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (to add?)"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.jurisdiction">
-			<path value="Questionnaire.jurisdiction"/>
-			<short value="Intended jurisdiction for questionnaire (if applicable)"/>
-			<definition value="A legal or geographic region in which the questionnaire is intended to be used."/>
-			<comment value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="CodeableConcept"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="Jurisdiction"/>
-				</extension>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-					<valueBoolean value="true"/>
-				</extension>
-				<strength value="extensible"/>
-				<description value="Countries and regions within which this artifact is targeted for use."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
-			</binding>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.jurisdiction"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (to add?)"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.purpose">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.purpose"/>
-			<short value="Why this questionnaire is defined"/>
-			<definition value="Explanation of why this questionnaire is needed and why it has been designed as it has."/>
-			<comment value="This element does not describe the usage of the questionnaire. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.purpose"/>
-			</mapping>
-			<mapping>
-				<identity value="w5"/>
-				<map value="FiveWs.why[x]"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".reasonCode.text"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.copyright">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.copyright"/>
-			<short value="Use and/or publishing restrictions"/>
-			<definition value="A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire."/>
-			<comment value="..."/>
-			<requirements value="Consumers must be able to determine any legal restrictions on the use of the questionnaire and/or its content."/>
-			<alias value="License"/>
-			<alias value="Restrictions"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="markdown"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.copyright"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (to add?)"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.copyrightLabel">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.copyrightLabel"/>
-			<short value="Copyright holder and year(s)"/>
-			<definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-			<comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
-			<requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-		</element>
-		<element id="Questionnaire.approvalDate">
-			<path value="Questionnaire.approvalDate"/>
-			<short value="When the questionnaire was approved by publisher"/>
-			<definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
-			<comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.approvalDate"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.lastReviewDate">
-			<path value="Questionnaire.lastReviewDate"/>
-			<short value="When the questionnaire was last reviewed by the publisher"/>
-			<definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
-			<comment value="If specified, this date follows the original approval date."/>
-			<requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="date"/>
-			</type>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.lastReviewDate"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.effectivePeriod">
-			<path value="Questionnaire.effectivePeriod"/>
-			<short value="When the questionnaire is expected to be used"/>
-			<definition value="The period during which the questionnaire content was or is planned to be in active use."/>
-			<comment value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
-			<requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the questionnaire are or are expected to be used instead."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="Period"/>
-			</type>
-			<isSummary value="true"/>
-			<mapping>
-				<identity value="workflow"/>
-				<map value="Definition.effectivePeriod"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A (to add?)"/>
-			</mapping>
-			<mapping>
-				<identity value="objimpl"/>
-				<map value="no-gen-base"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.code">
-			<path value="Questionnaire.code"/>
-			<short value="Concept that represents the overall questionnaire"/>
-			<definition value="An identifier for this question or group of questions in a particular terminology such as LOINC."/>
-			<requirements value="Allows linking of the complete Questionnaire resources to formal terminologies.  It's common for &quot;panels&quot; of questions to be identified by a code."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<isSummary value="true"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireConcept"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes for questionnaires, groups and individual questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-questions"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".code"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-				<valueCode value="right"/>
-			</extension>
-			<path value="Questionnaire.item"/>
-			<short value="Questions and sections within the Questionnaire"/>
-			<definition value="A particular question, question grouping or display text that is part of the questionnaire."/>
-			<comment value="The content of the questionnaire is constructed from an ordered, hierarchical collection of items."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<condition value="que-3"/>
-			<constraint>
-				<key value="que-9"/>
-				<severity value="error"/>
-				<human value="Read-only can't be specified for &quot;display&quot; items"/>
-				<expression value="type!='display' or readOnly.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-8"/>
-				<severity value="error"/>
-				<human value="Initial values can't be specified for groups or display items"/>
-				<expression value="(type!='group' and type!='display') or initial.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-6"/>
-				<severity value="error"/>
-				<human value="Required and repeat aren't permitted for display items"/>
-				<expression value="type!='display' or (required.empty() and repeats.empty())"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-5"/>
-				<severity value="error"/>
-				<human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
-				<expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-4"/>
-				<severity value="error"/>
-				<human value="A question cannot have both answerOption and answerValueSet"/>
-				<expression value="answerOption.empty() or answerValueSet.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-3"/>
-				<severity value="error"/>
-				<human value="Display items cannot have a &quot;code&quot; asserted"/>
-				<expression value="type!='display' or code.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-10"/>
-				<severity value="error"/>
-				<human value="Maximum length can only be declared for simple question types"/>
-				<expression value="(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-1a"/>
-				<severity value="error"/>
-				<human value="Group items must have nested items when Questionanire is complete"/>
-				<expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
-			</constraint>
-			<constraint>
-				<key value="que-1b"/>
-				<severity value="warning"/>
-				<human value="Groups should have items"/>
-				<expression value="type='group' implies item.empty().not()"/>
-			</constraint>
-			<constraint>
-				<key value="que-1c"/>
-				<severity value="error"/>
-				<human value="Display items cannot have child items"/>
-				<expression value="type='display' implies item.empty()"/>
-			</constraint>
-			<constraint>
-				<key value="que-13"/>
-				<severity value="error"/>
-				<human value="Can only have multiple initial values for repeating items"/>
-				<expression value="repeats=true or initial.count() &lt;= 1"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-11"/>
-				<severity value="error"/>
-				<human value="If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead"/>
-				<expression value="answerOption.empty() or initial.empty()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-12"/>
-				<severity value="error"/>
-				<human value="If there are more than one enableWhen, enableBehavior must be specified"/>
-				<expression value="enableWhen.count() &gt; 1 implies enableBehavior.exists()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<constraint>
-				<key value="que-14"/>
-				<severity value="warning"/>
-				<human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
-				<expression value="answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.linkId">
-			<path value="Questionnaire.item.linkId"/>
-			<short value="Unique id for item in questionnaire"/>
-			<definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
-			<comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#x0a;&#x0a;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
-			<requirements value="[QuestionnaireResponse](questionnaireresponse.html#) does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<condition value="que-2"/>
-			<constraint>
-				<key value="que-15"/>
-				<severity value="warning">
-					<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
-						<valueBoolean value="true"/>
-					</extension>
-				</severity>
-				<human value="Link ids should be 255 characters or less"/>
-				<expression value="$this.length &lt;= 255"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".id"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.definition">
-			<path value="Questionnaire.item.definition"/>
-			<short value="ElementDefinition - details for the item"/>
-			<definition value="This element is a URI that refers to an [ElementDefinition](elementdefinition.html) or to an [ObservationDefinition](observationdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below."/>
-			<comment value="The uri refers to an ElementDefinition in a [StructureDefinition](structuredefinition.html#) or to an [ObservationDefinition](observationdefinition.html) and always starts with the [canonical URL](references.html#canonical) for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](types-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition."/>
-			<requirements value="A common pattern is to define a set of data elements and then build multiple questionnaires for different circumstances to gather the data. This element provides traceability to the common definition and allows the content for the question to come from the underlying definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="uri"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=INST].target[classCode=OBS, moodCode=DEF]"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.code">
-			<path value="Questionnaire.item.code"/>
-			<short value="Corresponding concept for this item in a terminology"/>
-			<definition value="A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)."/>
-			<comment value="The value may come from the ElementDefinition referred to by .definition."/>
-			<requirements value="Allows linking of groups of questions to formal terminologies."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<condition value="que-3"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireConcept"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Codes for questionnaires, groups and individual questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-questions"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".code"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.prefix">
-			<path value="Questionnaire.item.prefix"/>
-			<short value="E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;"/>
-			<definition value="A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire."/>
-			<comment value="These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.  Typically, these won't be used for &quot;display&quot; items, though such use is not prohibited.  Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire."/>
-			<requirements value="Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there's a need for the questionnaire design to have control over what labels are used."/>
-			<alias value="label"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="Not supported"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.text">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.item.text"/>
-			<short value="Primary text for the item"/>
-			<definition value="The name of a section, the text of a question or text content for a display item."/>
-			<comment value="When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".text"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.type">
-			<path value="Questionnaire.item.type"/>
-			<short value="group | display | boolean | decimal | integer | date | dateTime +"/>
-			<definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.)."/>
-			<comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition."/>
-			<requirements value="Defines the format in which the user is to be prompted for the answer."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireItemType"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Distinguishes groups from questions and display text and indicates data type for questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/item-type"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.enableWhen">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
-				<valueCode value="down"/>
-			</extension>
-			<path value="Questionnaire.item.enableWhen"/>
-			<short value="Only allow data when"/>
-			<definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
-			<comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.  This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.  In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 &gt; 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc."/>
-			<requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<constraint>
-				<key value="que-7"/>
-				<severity value="error"/>
-				<human value="If the operator is 'exists', the value must be a boolean"/>
-				<expression value="operator = 'exists' implies (answer is Boolean)"/>
-				<source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
-			</constraint>
-			<isModifier value="true"/>
-			<isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.enableWhen.question">
-			<path value="Questionnaire.item.enableWhen.question"/>
-			<short value="The linkId of question that determines whether item is enabled/disabled"/>
-			<definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
-			<comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)"/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="string"/>
-			</type>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.enableWhen.operator">
-			<path value="Questionnaire.item.enableWhen.operator"/>
-			<short value="exists | = | != | &gt; | &lt; | &gt;= | &lt;="/>
-			<definition value="Specifies the criteria by which the question is enabled."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireItemOperator"/>
-				</extension>
-				<strength value="required"/>
-				<description value="The criteria by which a question is enabled."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-operator"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.enableWhen.answer[x]">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.item.enableWhen.answer[x]"/>
-			<short value="Value for question comparison based on operator"/>
-			<definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<type>
-				<code value="decimal"/>
-			</type>
-			<type>
-				<code value="integer"/>
-			</type>
-			<type>
-				<code value="date"/>
-			</type>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<type>
-				<code value="time"/>
-			</type>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<type>
-				<code value="Quantity"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-			<condition value="que-7"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireQuestionOption3"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Allowed values to answer questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.enableBehavior">
-			<path value="Questionnaire.item.enableBehavior"/>
-			<short value="all | any"/>
-			<definition value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
-			<comment value="This element must be specified if more than one enableWhen value is provided."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<condition value="que-12"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="EnableWhenBehavior"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.disabledDisplay">
-			<path value="Questionnaire.item.disabledDisplay"/>
-			<short value="hidden | protected"/>
-			<definition value="Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed."/>
-			<comment value="If not specified, rendering behavior is up to the client.  This element is only meaningful if enableWhen or an equivalent extension is present"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="DisabledDisplay"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Defines how disabled elements should be rendered"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-disabled-display"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.required">
-			<path value="Questionnaire.item.required"/>
-			<short value="Whether the item must be included in data results"/>
-			<definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
-			<comment value="If the required item is a question, it must have a direct answer (i.e. an answer to the question itself, not merely answers to child questions) in order for the QuestionnaireResponse to be complete.  If the required item is a group, it must have at least one descendant question which has an answer  Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="Items are assumed not to be required unless explicitly specified, though extensions may impose additional expectations"/>
-			<condition value="que-6"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.repeats">
-			<path value="Questionnaire.item.repeats"/>
-			<short value="Whether the item may repeat"/>
-			<definition value="An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items)."/>
-			<comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition.  When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers."/>
-			<requirements value="Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="Items are generally assumed not to repeat unless explicitly specified. Systems SHOULD always populate this value"/>
-			<condition value="que-6"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.readOnly">
-			<path value="Questionnaire.item.readOnly"/>
-			<short value="Don't allow human editing"/>
-			<definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
-			<comment value="If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
-			<requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<condition value="que-9"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.maxLength">
-			<path value="Questionnaire.item.maxLength"/>
-			<short value="No more than this many characters"/>
-			<definition value="The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse."/>
-			<comment value="For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. The value may come from the ElementDefinition referred to by .definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-			<condition value="que-10"/>
-			<mapping>
-				<identity value="v2"/>
-				<map value="N/A"/>
-			</mapping>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.answerConstraint">
-			<path value="Questionnaire.item.answerConstraint"/>
-			<short value="optionsOnly | optionsOrType | optionsOrString"/>
-			<definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
-			<requirements value="Introduces the ability for questions to have 'other' answers"/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="code"/>
-			</type>
-			<meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
-			<condition value="que-14"/>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireAnswerConstraint"/>
-				</extension>
-				<strength value="required"/>
-				<description value="Indicates differnt modes for restricting values when options or valueset are specified"/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.answerValueSet">
-			<path value="Questionnaire.item.answerValueSet"/>
-			<short value="Valueset containing permitted answers"/>
-			<definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
-			<comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="canonical"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
-			</type>
-			<condition value="que-4"/>
-			<condition value="que-5"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.answerOption">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-				<valueCode value="100,400"/>
-			</extension>
-			<path value="Questionnaire.item.answerOption"/>
-			<short value="Permitted answer"/>
-			<definition value="One of the permitted answers for the question."/>
-			<comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<condition value="que-4"/>
-			<condition value="que-5"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.answerOption.value[x]">
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.item.answerOption.value[x]"/>
-			<short value="Answer value"/>
-			<definition value="A potential answer that's allowed as the answer to this question."/>
-			<comment value="The data type of the value must agree with the item.type."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="integer"/>
-			</type>
-			<type>
-				<code value="date"/>
-			</type>
-			<type>
-				<code value="time"/>
-			</type>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireQuestionOption"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Allowed values to answer questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.answerOption.initialSelected">
-			<path value="Questionnaire.item.answerOption.initialSelected"/>
-			<short value="Whether option is selected by default"/>
-			<definition value="Indicates whether the answer value is selected when the list of possible answers is initially shown."/>
-			<min value="0"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<meaningWhenMissing value="Only selected items explicitly marked to be selected"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.initial">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="GF#11003."/>
-			</extension>
-			<path value="Questionnaire.item.initial"/>
-			<short value="Initial value(s) when item is first rendered"/>
-			<definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
-			<comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
-			<requirements value="In some workflows, having defaults saves time."/>
-			<min value="0"/>
-			<max value="*"/>
-			<type>
-				<code value="BackboneElement"/>
-			</type>
-			<condition value="que-8"/>
-			<condition value="que-11"/>
-			<condition value="que-13"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.initial.value[x]">
-			<extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
-				<valueString value="GF#15668."/>
-			</extension>
-			<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
-				<valueBoolean value="true"/>
-			</extension>
-			<path value="Questionnaire.item.initial.value[x]"/>
-			<short value="Actual value for initializing the question"/>
-			<definition value="The actual value to for an initial answer."/>
-			<comment value="The type of the initial value must be consistent with the type of the item."/>
-			<min value="1"/>
-			<max value="1"/>
-			<type>
-				<code value="boolean"/>
-			</type>
-			<type>
-				<code value="decimal"/>
-			</type>
-			<type>
-				<code value="integer"/>
-			</type>
-			<type>
-				<code value="date"/>
-			</type>
-			<type>
-				<code value="dateTime"/>
-			</type>
-			<type>
-				<code value="time"/>
-			</type>
-			<type>
-				<code value="string"/>
-			</type>
-			<type>
-				<code value="uri"/>
-			</type>
-			<type>
-				<code value="Attachment"/>
-			</type>
-			<type>
-				<code value="Coding"/>
-			</type>
-			<type>
-				<code value="Quantity"/>
-			</type>
-			<type>
-				<code value="Reference"/>
-				<targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
-			</type>
-			<binding>
-				<extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-					<valueString value="QuestionnaireQuestionOption2"/>
-				</extension>
-				<strength value="example"/>
-				<description value="Allowed values to answer questions."/>
-				<valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
-			</binding>
-			<mapping>
-				<identity value="rim"/>
-				<map value="N/A - MIF rather than RIM level"/>
-			</mapping>
-		</element>
-		<element id="Questionnaire.item.item">
-			<path value="Questionnaire.item.item"/>
-			<short value="Nested questionnaire items"/>
-			<definition value="Text, questions and other groups to be nested beneath a question or group."/>
-			<comment value="There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting."/>
-			<requirements value="Reports can consist of complex nested groups."/>
-			<min value="0"/>
-			<max value="*"/>
-			<contentReference value="#Questionnaire.item"/>
-			<condition value="que-1a"/>
-			<condition value="que-1b"/>
-			<condition value="que-1c"/>
-			<mapping>
-				<identity value="rim"/>
-				<map value=".outboundRelationship[typeCode=COMP].target"/>
-			</mapping>
-		</element>
-	</differential>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="Questionnaire"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Specialized.Definitional Artifacts"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="3"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fhir"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = retired"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/template">
+    <valueString value="MetadataResource"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.5.1253"/>
+  </identifier>
+  <version value="5.0.0"/>
+  <name value="Questionnaire"/>
+  <title value="Questionnaire"/>
+  <status value="draft"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/fiwg/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
+  <purpose value="To support structured, hierarchical registration of data gathered using digital forms and other questionnaires.  Questionnaires provide greater control over presentation and allow capture of data in a domain-independent way (i.e. capturing information that would otherwise require multiple distinct types of resources)."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="objimpl"/>
+    <uri value="http://hl7.org/fhir/object-implementation"/>
+    <name value="Object Implementation Information"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 v2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Questionnaire"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/MetadataResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Questionnaire">
+      <path value="Questionnaire"/>
+      <short value="A structured set of questions"/>
+      <definition value="A structured set of questions intended to guide the collection of answers from end-users. Questionnaires provide detailed control over order, presentation, phraseology and grouping to allow coherent, consistent data collection."/>
+      <alias value="Form"/>
+      <alias value="CRF"/>
+      <alias value="Survey"/>
+      <min value="0"/>
+      <max value="*"/>
+      <constraint>
+        <key value="cnl-0"/>
+        <severity value="warning"/>
+        <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
+        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-2"/>
+        <severity value="error"/>
+        <human value="The link ids for groups and questions must be unique within the questionnaire"/>
+        <expression value="descendants().linkId.isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Observation[moodCode=DEF]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="infrastructure.information"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.url">
+      <path value="Questionnaire.url"/>
+      <short value="Canonical identifier for this questionnaire, represented as a URI (globally unique)"/>
+      <definition value="An absolute URI that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this questionnaire is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the questionnaire is stored on different servers."/>
+      <comment value="The name of the referenced questionnaire can be conveyed using the http://hl7.org/fhir/StructureDefinition/display extension."/>
+      <requirements value="…  This is the id that will be used to link a QuestionnaireResponse to the Questionnaire the response is for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <constraint>
+        <key value="cnl-1"/>
+        <severity value="warning"/>
+        <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
+      </constraint>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.url"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier[scope=BUSN;reliability=ISS]"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.identifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Is this 80%?"/>
+      </extension>
+      <path value="Questionnaire.identifier"/>
+      <short value="Additional identifier for the questionnaire"/>
+      <definition value="A formal identifier that is used to identify this questionnaire when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
+      <comment value="Typically, this is used for identifiers that can go in an HL7 V3 II (instance identifier) data type, and can then identify this questionnaire outside of FHIR, where it is not possible to use the logical URI."/>
+      <requirements value="Allows externally provided and/or usable business identifiers to be easily associated with the module."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".identifier"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.version">
+      <path value="Questionnaire.version"/>
+      <short value="Business version of the questionnaire"/>
+      <definition value="The identifier that is used to identify this version of the questionnaire when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the questionnaire author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence."/>
+      <comment value="There may be different questionnaire instances that have the same identifier but different versions.  The version can be appended to the url in a reference to allow a reference to a particular business version of the questionnaire with the format [url]|[version]. The version SHOULD NOT contain a '#' - see [Business Version](resource.html#bv-format)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.version"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.version"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.versionAlgorithm[x]">
+      <path value="Questionnaire.versionAlgorithm[x]"/>
+      <short value="How to compare versions"/>
+      <definition value="Indicates the mechanism used to compare versions to determine which is more current."/>
+      <comment value="If set as a string, this is a FHIRPath expression that has two additional context variables passed in - %version1 and %version2 and will return a negative number if version1 is newer, a positive number if version2 and a 0 if the version ordering can't be successfully be determined."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="extensible"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-algorithm"/>
+      </binding>
+    </element>
+    <element id="Questionnaire.name">
+      <path value="Questionnaire.name"/>
+      <short value="Name for this questionnaire (computer friendly)"/>
+      <definition value="A natural language name identifying the questionnaire. This name should be usable as an identifier for the module by machine processing applications such as code generation."/>
+      <comment value="The name is not expected to be globally unique. The name should be a simple alphanumeric type name to ensure that it is machine-processing friendly."/>
+      <requirements value="Support human navigation and code generation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="cnl-0"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.name"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.title">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.title"/>
+      <short value="Name for this questionnaire (human friendly)"/>
+      <definition value="A short, descriptive, user-friendly title for the questionnaire."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.title"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".title"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.derivedFrom">
+      <path value="Questionnaire.derivedFrom"/>
+      <short value="Based on Questionnaire"/>
+      <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
+      <requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.derivedFrom"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.status">
+      <path value="Questionnaire.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="The status of this questionnaire. Enables tracking the life-cycle of the content."/>
+      <comment value="Allows filtering of questionnaires that are appropriate for use versus not."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="que-1a"/>
+      <isModifier value="true"/>
+      <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.status"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.status"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".status"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.experimental">
+      <path value="Questionnaire.experimental"/>
+      <short value="For testing purposes, not real usage"/>
+      <definition value="A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage."/>
+      <comment value="Allows filtering of questionnaires that are appropriate for use versus not."/>
+      <requirements value="Enables experimental content to be developed following the same lifecycle that would be used for a production-level questionnaire."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="If absent, this resource is treated as though it is not experimental."/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.experimental"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.class"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.subjectType">
+      <path value="Questionnaire.subjectType"/>
+      <short value="Resource that can be subject of QuestionnaireResponse"/>
+      <definition value="The types of subjects that can be the subject of responses created for the questionnaire."/>
+      <comment value="If none are specified, then the subject is unlimited."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ResourceType"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="One of the resource types defined as part of this version of FHIR."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.date">
+      <path value="Questionnaire.date"/>
+      <short value="Date last formally published"/>
+      <definition value="The date  (and optionally time) when the questionnaire was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the questionnaire changes."/>
+      <comment value="The date is often not tracked until the resource is published, but may be present on draft content. Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the questionnaire. Additional specific dates may be added as extensions or be found by consulting Provenances associated with past versions of the resource."/>
+      <alias value="Revision Date"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.date"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.recorded"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].time"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.publisher">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.publisher"/>
+      <short value="Name of the publisher/steward (organization or individual)"/>
+      <definition value="The name of the organization or individual responsible for the release and ongoing maintenance of the questionnaire."/>
+      <comment value="Usually an organization but may be an individual. The publisher (or steward) of the questionnaire is the organization or individual primarily responsible for the maintenance and upkeep of the questionnaire. This is not necessarily the same individual or organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the questionnaire. This item SHOULD be populated unless the information is available from context."/>
+      <requirements value="Helps establish the &quot;authority/credibility&quot; of the questionnaire.  May also allow for contact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.publisher"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.witness"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=AUT].role"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.contact">
+      <path value="Questionnaire.contact"/>
+      <short value="Contact details for the publisher"/>
+      <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.contact"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=CALLBCK].role"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.description">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.description"/>
+      <short value="Natural language description of the questionnaire"/>
+      <definition value="A free text natural language description of the questionnaire from a consumer's perspective."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.description"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.useContext">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Questionnaire.useContext"/>
+      <short value="The context that the content is intended to support"/>
+      <definition value="The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances."/>
+      <comment value="When multiple useContexts are specified, there is no expectation that all or any of the contexts apply."/>
+      <requirements value="Assist in searching for appropriate content."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="UsageContext"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.useContext"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.jurisdiction">
+      <path value="Questionnaire.jurisdiction"/>
+      <short value="Intended jurisdiction for questionnaire (if applicable)"/>
+      <definition value="A legal or geographic region in which the questionnaire is intended to be used."/>
+      <comment value="It may be possible for the questionnaire to be used in jurisdictions other than those for which it was originally designed or intended."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Jurisdiction"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="Countries and regions within which this artifact is targeted for use."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/jurisdiction"/>
+      </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.jurisdiction"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.purpose">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.purpose"/>
+      <short value="Why this questionnaire is defined"/>
+      <definition value="Explanation of why this questionnaire is needed and why it has been designed as it has."/>
+      <comment value="This element does not describe the usage of the questionnaire. Instead, it provides traceability of ''why'' the resource is either needed or ''why'' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this questionnaire."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.purpose"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.why[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".reasonCode.text"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.copyright">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.copyright"/>
+      <short value="Use and/or publishing restrictions"/>
+      <definition value="A copyright statement relating to the questionnaire and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the questionnaire."/>
+      <comment value="..."/>
+      <requirements value="Consumers must be able to determine any legal restrictions on the use of the questionnaire and/or its content."/>
+      <alias value="License"/>
+      <alias value="Restrictions"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.copyright"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.copyrightLabel">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.copyrightLabel"/>
+      <short value="Copyright holder and year(s)"/>
+      <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Questionnaire.approvalDate">
+      <path value="Questionnaire.approvalDate"/>
+      <short value="When the questionnaire was approved by publisher"/>
+      <definition value="The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage."/>
+      <comment value="The 'date' element may be more recent than the approval date because of minor changes or editorial corrections."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.approvalDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;approval&quot;].effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.lastReviewDate">
+      <path value="Questionnaire.lastReviewDate"/>
+      <short value="When the questionnaire was last reviewed by the publisher"/>
+      <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
+      <comment value="If specified, this date follows the original approval date."/>
+      <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.lastReviewDate"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=&quot;SUBJ&quot;; subsetCode=&quot;RECENT&quot;].act[classCode=CACT;moodCode=EVN;code=&quot;review&quot;].effectiveTime"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.effectivePeriod">
+      <path value="Questionnaire.effectivePeriod"/>
+      <short value="When the questionnaire is expected to be used"/>
+      <definition value="The period during which the questionnaire content was or is planned to be in active use."/>
+      <comment value="The effective period for a questionnaire  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the questionnaire are or are expected to be used instead."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Definition.effectivePeriod"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+      <mapping>
+        <identity value="objimpl"/>
+        <map value="no-gen-base"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.code">
+      <path value="Questionnaire.code"/>
+      <short value="Concept that represents the overall questionnaire"/>
+      <definition value="An identifier for this question or group of questions in a particular terminology such as LOINC."/>
+      <requirements value="Allows linking of the complete Questionnaire resources to formal terminologies.  It's common for &quot;panels&quot; of questions to be identified by a code."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireConcept"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for questionnaires, groups and individual questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-questions"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="right"/>
+      </extension>
+      <path value="Questionnaire.item"/>
+      <short value="Questions and sections within the Questionnaire"/>
+      <definition value="A particular question, question grouping or display text that is part of the questionnaire."/>
+      <comment value="The content of the questionnaire is constructed from an ordered, hierarchical collection of items."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="que-9"/>
+        <severity value="error"/>
+        <human value="Read-only can't be specified for &quot;display&quot; items"/>
+        <expression value="type!='display' or readOnly.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-8"/>
+        <severity value="error"/>
+        <human value="Initial values can't be specified for groups or display items"/>
+        <expression value="(type!='group' and type!='display') or initial.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-6"/>
+        <severity value="error"/>
+        <human value="Required and repeat aren't permitted for display items"/>
+        <expression value="type!='display' or (required.empty() and repeats.empty())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-5"/>
+        <severity value="error"/>
+        <human value="Only coding, decimal, integer, date, dateTime, time, string or quantity  items can have answerOption or answerValueSet"/>
+        <expression value="(type='coding' or type = 'decimal' or type = 'integer' or type = 'date' or type = 'dateTime' or type = 'time' or type = 'string' or type = 'quantity') or (answerValueSet.empty() and answerOption.empty())"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-4"/>
+        <severity value="error"/>
+        <human value="A question cannot have both answerOption and answerValueSet"/>
+        <expression value="answerOption.empty() or answerValueSet.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-3"/>
+        <severity value="error"/>
+        <human value="Display items cannot have a &quot;code&quot; asserted"/>
+        <expression value="type!='display' or code.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-10"/>
+        <severity value="error"/>
+        <human value="Maximum length can only be declared for simple question types"/>
+        <expression value="(type in ('boolean' | 'decimal' | 'integer' | 'string' | 'text' | 'url')) or answerConstraint='optionOrString' or maxLength.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-1a"/>
+        <severity value="error"/>
+        <human value="Group items must have nested items when Questionanire is complete"/>
+        <expression value="(type='group' and %resource.status='complete') implies item.empty().not()"/>
+      </constraint>
+      <constraint>
+        <key value="que-1b"/>
+        <severity value="warning"/>
+        <human value="Groups should have items"/>
+        <expression value="type='group' implies item.empty().not()"/>
+      </constraint>
+      <constraint>
+        <key value="que-1c"/>
+        <severity value="error"/>
+        <human value="Display items cannot have child items"/>
+        <expression value="type='display' implies item.empty()"/>
+      </constraint>
+      <constraint>
+        <key value="que-13"/>
+        <severity value="error"/>
+        <human value="Can only have multiple initial values for repeating items"/>
+        <expression value="repeats=true or initial.count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-11"/>
+        <severity value="error"/>
+        <human value="If one or more answerOption is present, initial cannot be present.  Use answerOption.initialSelected instead"/>
+        <expression value="answerOption.empty() or initial.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-12"/>
+        <severity value="error"/>
+        <human value="If there are more than one enableWhen, enableBehavior must be specified"/>
+        <expression value="enableWhen.count() &gt; 1 implies enableBehavior.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <constraint>
+        <key value="que-14"/>
+        <severity value="warning"/>
+        <human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
+        <expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.linkId">
+      <path value="Questionnaire.item.linkId"/>
+      <short value="Unique id for item in questionnaire"/>
+      <definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[QuestionnaireResponse](questionnaireresponse.html#) does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <condition value="que-2"/>
+      <constraint>
+        <key value="que-15"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.definition">
+      <path value="Questionnaire.item.definition"/>
+      <short value="ElementDefinition - details for the item"/>
+      <definition value="This element is a URI that refers to an [ElementDefinition](elementdefinition.html) or to an [ObservationDefinition](observationdefinition.html) that provides information about this item, including information that might otherwise be included in the instance of the Questionnaire resource. A detailed description of the construction of the URI is shown in [Comments](questionnaire.html#definition), below."/>
+      <comment value="The uri refers to an ElementDefinition in a [StructureDefinition](structuredefinition.html#) or to an [ObservationDefinition](observationdefinition.html) and always starts with the [canonical URL](references.html#canonical) for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its id [Element.id](types-definitions.html#Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition."/>
+      <requirements value="A common pattern is to define a set of data elements and then build multiple questionnaires for different circumstances to gather the data. This element provides traceability to the common definition and allows the content for the question to come from the underlying definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=INST].target[classCode=OBS, moodCode=DEF]"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.code">
+      <path value="Questionnaire.item.code"/>
+      <short value="Corresponding concept for this item in a terminology"/>
+      <definition value="A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)."/>
+      <comment value="The value may come from the ElementDefinition referred to by .definition."/>
+      <requirements value="Allows linking of groups of questions to formal terminologies."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <condition value="que-3"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireConcept"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Codes for questionnaires, groups and individual questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-questions"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".code"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.prefix">
+      <path value="Questionnaire.item.prefix"/>
+      <short value="E.g. &quot;1(a)&quot;, &quot;2.5.3&quot;"/>
+      <definition value="A short label for a particular group, question or set of display text within the questionnaire used for reference by the individual completing the questionnaire."/>
+      <comment value="These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.  Typically, these won't be used for &quot;display&quot; items, though such use is not prohibited.  Systems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire."/>
+      <requirements value="Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there's a need for the questionnaire design to have control over what labels are used."/>
+      <alias value="label"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="Not supported"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.text">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.item.text"/>
+      <short value="Primary text for the item"/>
+      <definition value="The name of a section, the text of a question or text content for a display item."/>
+      <comment value="When using this element to represent the name of a section, use group type item and also make sure to limit the text element to a short string suitable for display as a section heading.  Group item instructions should be included as a display type item within the group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".text"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.type">
+      <path value="Questionnaire.item.type"/>
+      <short value="group | display | boolean | decimal | integer | date | dateTime +"/>
+      <definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.)."/>
+      <comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition."/>
+      <requirements value="Defines the format in which the user is to be prompted for the answer."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="que-9"/>
+      <condition value="que-8"/>
+      <condition value="que-6"/>
+      <condition value="que-5"/>
+      <condition value="que-3"/>
+      <condition value="que-10"/>
+      <condition value="que-1a"/>
+      <condition value="que-1b"/>
+      <condition value="que-1c"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireItemType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Distinguishes groups from questions and display text and indicates data type for questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/item-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.enableWhen">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
+        <valueCode value="down"/>
+      </extension>
+      <path value="Questionnaire.item.enableWhen"/>
+      <short value="Only allow data when"/>
+      <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
+      <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.  This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.  In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 &gt; 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc."/>
+      <requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="que-12"/>
+      <constraint>
+        <key value="que-7"/>
+        <severity value="error"/>
+        <human value="If the operator is 'exists', the value must be a boolean"/>
+        <expression value="operator = 'exists' implies (answer is Boolean)"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+      </constraint>
+      <isModifier value="true"/>
+      <isModifierReason value="If enableWhen is present and the condition evaluates to false, then the Questionnaire behaves as though the elements weren't actually present"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.enableWhen.question">
+      <path value="Questionnaire.item.enableWhen.question"/>
+      <short value="The linkId of question that determines whether item is enabled/disabled"/>
+      <definition value="The linkId for the question whose answer (or lack of answer) governs whether this item is enabled."/>
+      <comment value="If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the &quot;ancestor&quot; axis and then the &quot;preceding&quot; axis and then the &quot;following&quot; axis.  If there are multiple items with the same linkId and all are equadistant (e.g. a question references a question that appears in a separate repeating group), that is an error.  (Consider using the enableWhenExpression extension to define logic to handle such a situation.)"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.enableWhen.operator">
+      <path value="Questionnaire.item.enableWhen.operator"/>
+      <short value="exists | = | != | &gt; | &lt; | &gt;= | &lt;="/>
+      <definition value="Specifies the criteria by which the question is enabled."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="que-7"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireItemOperator"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The criteria by which a question is enabled."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-operator"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.enableWhen.answer[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.item.enableWhen.answer[x]"/>
+      <short value="Value for question comparison based on operator"/>
+      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <condition value="que-7"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireQuestionOption3"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Allowed values to answer questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.enableBehavior">
+      <path value="Questionnaire.item.enableBehavior"/>
+      <short value="all | any"/>
+      <definition value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
+      <comment value="This element must be specified if more than one enableWhen value is provided."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="que-12"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="EnableWhenBehavior"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Controls how multiple enableWhen values are interpreted -  whether all or any must be true."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-enable-behavior"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.disabledDisplay">
+      <path value="Questionnaire.item.disabledDisplay"/>
+      <short value="hidden | protected"/>
+      <definition value="Indicates if and how items that are disabled (because enableWhen evaluates to 'false') should be displayed."/>
+      <comment value="If not specified, rendering behavior is up to the client.  This element is only meaningful if enableWhen or an equivalent extension is present"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DisabledDisplay"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Defines how disabled elements should be rendered"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-disabled-display"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.required">
+      <path value="Questionnaire.item.required"/>
+      <short value="Whether the item must be included in data results"/>
+      <definition value="An indication, if true, that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire."/>
+      <comment value="If the required item is a question, it must have a direct answer (i.e. an answer to the question itself, not merely answers to child questions) in order for the QuestionnaireResponse to be complete.  If the required item is a group, it must have at least one descendant question which has an answer  Questionnaire.item.required only has meaning for elements that are conditionally enabled with enableWhen if the condition evaluates to true.  It also only has meaning if the parent element is present.  If a non-required 'group' item contains a 'required' question item, it's completely fine to omit the group (because it's not required) despite it having a required child.  Similarly, if an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one descendant item with a populated answer). The value for 'required' may come from the ElementDefinition referred to by .definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="Items are assumed not to be required unless explicitly specified, though extensions may impose additional expectations"/>
+      <condition value="que-6"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.repeats">
+      <path value="Questionnaire.item.repeats"/>
+      <short value="Whether the item may repeat"/>
+      <definition value="An indication, if true, that a QuestionnaireResponse for this item may include multiple answers associated with a single instance of this item (for question-type items) or multiple repetitions of the item (for group-type items)."/>
+      <comment value="If a question is marked as repeats=true, then multiple answers can be provided for the question in the corresponding QuestionnaireResponse.  When rendering the questionnaire, it is up to the rendering software whether to render the question text for each answer repetition (i.e. &quot;repeat the question&quot;) or to simply allow entry/selection of multiple answers for the question (repeat the answers).  Which is most appropriate visually may depend on the type of answer as well as whether there are nested items.&#xA;&#xA;The resulting QuestionnaireResponse will be populated the same way regardless of rendering - one 'question' item with multiple answer values.&#xA;&#xA; The value may come from the ElementDefinition referred to by .definition.  When repeats=true for a group, it'll be represented with multiple items with the same linkId in the QuestionnaireResponse.  For a question, it'll be represented by a single item with that linkId with multiple answers."/>
+      <requirements value="Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="Items are generally assumed not to repeat unless explicitly specified. Systems SHOULD always populate this value"/>
+      <condition value="que-6"/>
+      <condition value="que-13"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.readOnly">
+      <path value="Questionnaire.item.readOnly"/>
+      <short value="Don't allow human editing"/>
+      <definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
+      <comment value="If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
+      <requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <condition value="que-9"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.maxLength">
+      <path value="Questionnaire.item.maxLength"/>
+      <short value="No more than this many characters"/>
+      <definition value="The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse."/>
+      <comment value="For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. The value may come from the ElementDefinition referred to by .definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <condition value="que-10"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="N/A"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.answerConstraint">
+      <path value="Questionnaire.item.answerConstraint"/>
+      <short value="optionsOnly | optionsOrType | optionsOrString"/>
+      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+      <requirements value="Introduces the ability for questions to have 'other' answers"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
+      <condition value="que-10"/>
+      <condition value="que-14"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireAnswerConstraint"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Indicates differnt modes for restricting values when options or valueset are specified"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answer-constraint"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.answerValueSet">
+      <path value="Questionnaire.item.answerValueSet"/>
+      <short value="Valueset containing permitted answers"/>
+      <definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
+      <comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
+      </type>
+      <condition value="que-5"/>
+      <condition value="que-4"/>
+      <condition value="que-14"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.answerOption">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="100,400"/>
+      </extension>
+      <path value="Questionnaire.item.answerOption"/>
+      <short value="Permitted answer"/>
+      <definition value="One of the permitted answers for the question."/>
+      <comment value="This element can be used when the value set machinery of answerValueSet is deemed too cumbersome or when there's a need to capture possible answers that are not codes."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="que-5"/>
+      <condition value="que-4"/>
+      <condition value="que-11"/>
+      <condition value="que-14"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.answerOption.value[x]">
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.item.answerOption.value[x]"/>
+      <short value="Answer value"/>
+      <definition value="A potential answer that's allowed as the answer to this question."/>
+      <comment value="The data type of the value must agree with the item.type."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireQuestionOption"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Allowed values to answer questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.answerOption.initialSelected">
+      <path value="Questionnaire.item.answerOption.initialSelected"/>
+      <short value="Whether option is selected by default"/>
+      <definition value="Indicates whether the answer value is selected when the list of possible answers is initially shown."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <meaningWhenMissing value="Only selected items explicitly marked to be selected"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.initial">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#11003."/>
+      </extension>
+      <path value="Questionnaire.item.initial"/>
+      <short value="Initial value(s) when item is first rendered"/>
+      <definition value="One or more values that should be pre-populated in the answer when initially rendering the questionnaire for user input."/>
+      <comment value="The user is allowed to change the value and override the default (unless marked as read-only). If the user doesn't change the value, then this initial value will be persisted when the QuestionnaireResponse is initially created.  Note that initial values can influence results.  The data type of initial.answer[x] must agree with the item.type, and only repeating items can have more then one initial value."/>
+      <requirements value="In some workflows, having defaults saves time."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="que-8"/>
+      <condition value="que-13"/>
+      <condition value="que-11"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.initial.value[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="GF#15668."/>
+      </extension>
+      <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="Questionnaire.item.initial.value[x]"/>
+      <short value="Actual value for initializing the question"/>
+      <definition value="The actual value to for an initial answer."/>
+      <comment value="The type of the initial value must be consistent with the type of the item."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="date"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="time"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="uri"/>
+      </type>
+      <type>
+        <code value="Attachment"/>
+      </type>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="QuestionnaireQuestionOption2"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Allowed values to answer questions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/questionnaire-answers"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A - MIF rather than RIM level"/>
+      </mapping>
+    </element>
+    <element id="Questionnaire.item.item">
+      <path value="Questionnaire.item.item"/>
+      <short value="Nested questionnaire items"/>
+      <definition value="Text, questions and other groups to be nested beneath a question or group."/>
+      <comment value="There is no specified limit to the depth of nesting.  However, Questionnaire authors are encouraged to consider the impact on the user and user interface of overly deep nesting."/>
+      <requirements value="Reports can consist of complex nested groups."/>
+      <min value="0"/>
+      <max value="*"/>
+      <contentReference value="#Questionnaire.item"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target"/>
+      </mapping>
+    </element>
+  </differential>
 </StructureDefinition>

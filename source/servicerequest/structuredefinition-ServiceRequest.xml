@@ -99,6 +99,13 @@
         <expression value="orderDetail.empty() or code.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
       </constraint>
+      <constraint>
+        <key value="bdystr-1"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+      </constraint>
       <mapping>
         <identity value="workflow"/>
         <map value="Request"/>
@@ -501,6 +508,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PlanDefinition"/>
       </type>
+      <condition value="prr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1098,6 +1106,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="bdystr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1135,13 +1144,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <constraint>
-        <key value="bdystr-1"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if bodySite is not present"/>
-        <expression value="bodySite.exists() or bodyStructure.exists()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
-      </constraint>
+      <condition value="bdystr-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>

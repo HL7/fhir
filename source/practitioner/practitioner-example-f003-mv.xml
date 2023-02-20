@@ -45,11 +45,13 @@
         <country value="NLD"/> <!-- ISO 3166 Codes (Countries) -->
     </address>
     <communication>
-        <coding>
-            <system value="urn:ietf:bcp:47"/>
-            <!-- List of ISO 639-1 language codes (ISO 3066) -->
-            <code value="nl"/>
-            <display value="Dutch"/>
-        </coding>
+        <language>
+            <coding>
+                <system value="urn:ietf:bcp:47"/>
+                <!-- List of ISO 639-1 language codes (ISO 3066) -->
+                <code value="nl"/>
+                <display value="Dutch"/>
+            </coding>
+        </language>
     </communication>
 </Practitioner>

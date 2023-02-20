@@ -136,7 +136,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -1288,6 +1288,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-3"/>
       <condition value="pld-4"/>
       <mapping>
         <identity value="workflow"/>
@@ -1637,6 +1638,7 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <condition value="pld-0"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1652,6 +1654,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-0"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1703,6 +1706,7 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <condition value="pld-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1718,6 +1722,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="pld-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1736,6 +1741,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="pld-4"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
