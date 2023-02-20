@@ -26,11 +26,11 @@
 	<color value="blue"/>
 	<category value="measurement"/>
  	<measurementFrequency>
-        <value value="1"/> 
-        <unit value="Hertz"/> 
-        <system value="http://unitsofmeasure.org"/> 
-        <code value="Hz"/> 
-    </measurementFrequency>
+    	<value value="1"/> 
+    	 <unit value="Hertz"/> 
+    	 <system value="http://unitsofmeasure.org"/> 
+    	 <code value="Hz"/> 
+	</measurementFrequency>
 	<calibration>
 		<type value="two-point"/>
 		<state value="calibrated"/>
