@@ -65,63 +65,6 @@
 		</concept>
 	</concept>
 	<concept>
-		<code value="research-study-registration-activity"/>
-		<display value="Research Study Registration Activity"/>
-		<concept>
-			<code value="record-verification"/>
-			<display value="Record Verification"/>
-			<definition value="Record has been verified."/>
-		</concept>
-		<concept>
-			<code value="primary-outcome-data-collection"/>
-			<display value="Primary outcome data collection"/>
-		</concept>
-		<concept>
-			<code value="registration-submission"/>
-			<display value="Registration submission"/>
-		</concept>
-		<concept>
-			<code value="registration-submission-qc"/>
-			<display value="Registration submission Quality Check"/>
-		</concept>
-		<concept>
-			<code value="registration-posting"/>
-			<display value="Registration posting"/>
-		</concept>
-		<concept>
-			<code value="results-submission"/>
-			<display value="Results submission"/>
-		</concept>
-		<concept>
-			<code value="results-submission-qc"/>
-			<display value="Results submission Quality Check"/>
-		</concept>
-		<concept>
-			<code value="results-posting"/>
-			<display value="Results posting"/>
-		</concept>
-		<concept>
-			<code value="disposition-submission"/>
-			<display value="Disposition submission"/>
-		</concept>
-		<concept>
-			<code value="disposition-submission-qc"/>
-			<display value="Disposition submission Quality Check"/>
-		</concept>
-		<concept>
-			<code value="disposition-posting"/>
-			<display value="Disposition posting"/>
-		</concept>
-		<concept>
-			<code value="update-submission"/>
-			<display value="Update submission "/>
-		</concept>
-		<concept>
-			<code value="update-posting"/>
-			<display value="Update posting"/>
-		</concept>
-	</concept>
-	<concept>
 		<code value="SEVCO:01000"/>
 		<display value="Study Design"/>
 		<definition value="A plan specification for how and what kinds of data will be gathered as part of an investigation which may produce testable explanations, conclusions and predictions or test a hypothesis. "/>
