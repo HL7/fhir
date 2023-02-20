@@ -604,7 +604,7 @@
       <path value="AuditEvent.agent.type"/>
       <short value="How agent participated"/>
       <definition value="The Functional Role of the user when performing the event."/>
-      <comment value="For example: assembler, author, prescriber, signer, investigator, etc.."/>
+      <comment value="For example: assembler, author, prescriber, signer, investigator, etc."/>
       <requirements value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
       <min value="0"/>
       <max value="1"/>
@@ -651,7 +651,7 @@
       <path value="AuditEvent.agent.role"/>
       <short value="Agent role in the event"/>
       <definition value="The structural roles of the agent indicating the agent's competency. The security role enabling the agent with respect to the activity."/>
-      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc.."/>
+      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
       <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
       <max value="*"/>
@@ -792,7 +792,7 @@
     <element id="AuditEvent.agent.policy">
       <path value="AuditEvent.agent.policy"/>
       <short value="Policy that authorized the agent participation in the event"/>
-      <definition value="Where the policy(ies) are known that authorized the agent participation in the event. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc.. The policy would also indicate the security token used."/>
+      <definition value="Where the policy(ies) are known that authorized the agent participation in the event. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used."/>
       <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <requirements value="This value is used retrospectively to determine the authorization policies."/>
       <min value="0"/>

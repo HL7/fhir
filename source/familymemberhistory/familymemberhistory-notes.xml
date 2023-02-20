@@ -2,7 +2,7 @@
 <h3>Processing information about the Family Member History</h3>
     <p>The Family Member History <a href="list.html">List</a> may contain other than FamilyMemberHistory resources. For example,
         a full Family History could be a <a href="list.html">List</a> that might include a mixture of FamilyMemberHistory records 
-        as well as <a href="observation.html">Observation</a> records of things like "maternal family history of breast cancer", "number of siblings", "number of female family members with breast cancer" etc..</p> 
+        as well as <a href="observation.html">Observation</a> records of things like "maternal family history of breast cancer", "number of siblings", "number of female family members with breast cancer" etc.</p> 
 	<p>The <a href="list.html">List</a> representing a patient's "family history" can include <a href="condition.html">Condition</a> and <a href="observation.html">Observation</a> records that capture "family-history" relevant assertions about the patient themselves that would typically be captured as part of a family history.</p>
 
 <h3>No Known Patient History, No Known Problems, and Negated Conditions</h3>

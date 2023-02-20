@@ -125,7 +125,7 @@ Audit Event Actions for RESTful operations:
 	<a name="recordingsearch"/>
 	<h4>Recording Search Events</h4>
 	<p>
-A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc..
+A search event is recorded as an Execute action as the server must execute the search parameters to get the results. The category is a <code>rest</code> operation. The code should be <code>search</code>. The Server is identified in an <code>.agent</code> as the role <code>Destination Role ID</code>, and the client is identified in an <code>.agent</code> as the role <code>Source Role ID</code>. Additional <code>.agent</code> elements may be used to identify user, application, organization, etc.
 </p><p>
 A Search Event records one <code>.entity</code> element that holds the search request, and should not record the contents of the search response so as to limit duplication of sensitive health information that is already present in the system, and discoverable by replaying the search request.
 </p><p>

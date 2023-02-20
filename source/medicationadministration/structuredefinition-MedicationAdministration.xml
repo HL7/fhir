@@ -625,7 +625,7 @@
       </extension>
       <path value="MedicationAdministration.dosage"/>
       <short value="Details of how medication was taken"/>
-      <definition value="Describes the medication dosage information details e.g. dose, rate, site, route, etc.."/>
+      <definition value="Describes the medication dosage information details e.g. dose, rate, site, route, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -688,7 +688,7 @@
     <element id="MedicationAdministration.dosage.route">
       <path value="MedicationAdministration.dosage.route"/>
       <short value="Path of substance into body"/>
-      <definition value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.."/>
+      <definition value="A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

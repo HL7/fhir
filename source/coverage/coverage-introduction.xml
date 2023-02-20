@@ -33,7 +33,7 @@ a specific individual - essentially the insurance card information. This may alt
 				<td><a href="contract.html">Contract</a></td>
 				<td>A Contract resource holds the references to parties who have entered into an agreement of some type, the parties who may sign or witness
 				such an agreement, descriptors of the type of agreement and even the actual text or executable copy of the agreement. The agreement may be of 
-				a variety of types including service contracts, insurance contracts, directives, etc.. The contract may be either definitional or actual instances.
+				a variety of types including service contracts, insurance contracts, directives, etc. The contract may be either definitional or actual instances.
 				</td>
 			</tr>
 			<tr>

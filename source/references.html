@@ -153,7 +153,7 @@ Notes:
    </li>
  <li>URLs are always considered to be case-sensitive</li>
  <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
- <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc..). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
+ <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
 <p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>subject</code> on a FHIR RESTful server:</p>
@@ -392,7 +392,7 @@ the latest version. In principle, the server chooses based on the following info
 resources:
 </p>
 <ul>
-  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc..</li>
+  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
   <li>Publication Date</li>
   <li>Status</li>
 </ul>

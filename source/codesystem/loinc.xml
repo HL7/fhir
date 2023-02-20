@@ -75,7 +75,7 @@ they support
     Servers may choose to include fragments (but not, due to size constraints, all of LOINC) -->
   <content value="not-present"/>
   
-<!-- <count value="65000"/>... if working with a specific version, you could nominate a count of the total number of concepts (including the answers, hierarchy etc.. -->  
+<!-- <count value="65000"/>... if working with a specific version, you could nominate a count of the total number of concepts (including the answers, hierarchy etc. -->  
 
   <!-- 
     generally defined filters for specifying value sets

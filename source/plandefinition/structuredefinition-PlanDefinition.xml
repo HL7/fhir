@@ -274,7 +274,7 @@
       <path value="PlanDefinition.title"/>
       <short value="Name for this plan definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the plan definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -425,7 +425,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc..)."/>
+        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -494,7 +494,7 @@
       <path value="PlanDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -517,7 +517,7 @@
       <path value="PlanDefinition.description"/>
       <short value="Natural language description of the plan definition"/>
       <definition value="A free text natural language description of the plan definition from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the plan definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the plan definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the plan definition is presumed to be the predominant language in the place the plan definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -671,7 +671,7 @@
       <path value="PlanDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -901,7 +901,7 @@
       </extension>
       <path value="PlanDefinition.goal"/>
       <short value="What the plan is trying to accomplish"/>
-      <definition value="A goal describes an expected outcome that activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, meeting the acceptance criteria for a test as specified by a quality specification, etc.."/>
+      <definition value="A goal describes an expected outcome that activities within the plan are intended to achieve. For example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, meeting the acceptance criteria for a test as specified by a quality specification, etc."/>
       <requirements value="Goal information needs to be captured for order sets, protocols, and care plan definitions to better describe the objectives of the protocol activities and to guide the creation of specific goals within the derived care plans and orders."/>
       <min value="0"/>
       <max value="*"/>
@@ -1081,7 +1081,7 @@
     <element id="PlanDefinition.goal.target.detail[x]">
       <path value="PlanDefinition.goal.target.detail[x]"/>
       <short value="The target value to be achieved"/>
-      <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc.. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
+      <definition value="The target value of the measure to be achieved to signify fulfillment of the goal, e.g. 150 pounds or 7.0%, or in the case of pharmaceutical quality - NMT 0.6%, Clear solution, etc. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any value at or above the low value."/>
       <comment value="A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the goal.target.measure defines a coded value."/>
       <min value="0"/>
       <max value="1"/>
@@ -1510,7 +1510,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc..)."/>
+        <description value="The possible types of subjects for a plan definition (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -1851,7 +1851,7 @@
     <element id="PlanDefinition.asNeeded[x]">
       <path value="PlanDefinition.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1866,7 +1866,7 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
@@ -1877,7 +1877,7 @@
     <element id="PlanDefinition.action.location">
       <path value="PlanDefinition.action.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc.."/>
+      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may just identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <alias value="facility"/>
@@ -2011,8 +2011,8 @@
     </element>
     <element id="PlanDefinition.action.participant.function">
       <path value="PlanDefinition.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc.."/>
-      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc.."/>
+      <short value="E.g. Author, Reviewer, Witness, etc"/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

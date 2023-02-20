@@ -210,7 +210,7 @@
       <path value="ValueSet.title"/>
       <short value="Name for this value set (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the value set."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -310,7 +310,7 @@
       <path value="ValueSet.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -437,7 +437,7 @@
       <path value="ValueSet.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -510,7 +510,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="ValueSet.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc.."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the ValueSet, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the ValueSet so that it can be found by topical and keyword searches."/>
@@ -587,7 +587,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc.."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A ValueSet must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -779,7 +779,7 @@
       </extension>
       <path value="ValueSet.compose.include.concept.designation"/>
       <short value="Additional representations for this concept"/>
-      <definition value="Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.."/>
+      <definition value="Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc."/>
       <comment value="Concepts have both a ```display``` and an array of ```designation```. The display is equivalent to a special designation with an implied ```designation.use``` of &quot;primary code&quot; and a language equal to the [Resource Language](resource.html#language)."/>
       <min value="0"/>
       <max value="*"/>
@@ -1025,7 +1025,7 @@
     <element id="ValueSet.expansion.identifier">
       <path value="ValueSet.expansion.identifier"/>
       <short value="Identifies the value set expansion (business identifier)"/>
-      <definition value="An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc.. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier."/>
+      <definition value="An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier."/>
       <comment value="Typically, this uri is a UUID (e.g. urn:uuid:8230ff20-c97a-4167-a59d-dc2cb9df16dd)."/>
       <min value="0"/>
       <max value="1"/>
@@ -1283,7 +1283,7 @@
     <element id="ValueSet.expansion.contains.designation">
       <path value="ValueSet.expansion.contains.designation"/>
       <short value="Additional representations for this item"/>
-      <definition value="Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc.. These are relevant when the conditions of the expansion do not fix to a single correct representation."/>
+      <definition value="Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation."/>
       <comment value="The designations provided must be based on the value set and code system definitions."/>
       <min value="0"/>
       <max value="*"/>

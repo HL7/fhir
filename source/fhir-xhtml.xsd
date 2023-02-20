@@ -13,7 +13,7 @@
   
   The content that is restricted to not appear:
     - javascript attributes and the script element
-    - head, body etc.. (FHIR just uses div)
+    - head, body etc. (FHIR just uses div)
     - forms, objects, and inserted and deleted text
   -->
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -195,7 +195,7 @@
   <xs:simpleType name="Text">
     <xs:annotation>
       <xs:documentation>
-      used for titles etc..
+      used for titles etc.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
@@ -500,7 +500,7 @@
   <xs:complexType name="Flow" mixed="true">
     <xs:annotation>
       <xs:documentation>
-      "Flow" mixes block and inline and is used for list items etc..
+      "Flow" mixes block and inline and is used for list items etc.
       </xs:documentation>
     </xs:annotation>
     <xs:choice minOccurs="0" maxOccurs="unbounded">

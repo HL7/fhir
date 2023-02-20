@@ -35,22 +35,22 @@
   <concept>
     <code value="encounter"/>
     <display value="Encounter"/>
-    <definition value="Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc..)"/>
+    <definition value="Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)"/>
   </concept>
   <concept>
     <code value="observation"/>
     <display value="Observation"/>
-    <definition value="Plan to capture information about a patient (vitals, labs, diagnostic images, etc..)"/>
+    <definition value="Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)"/>
   </concept>
   <concept>
     <code value="procedure"/>
     <display value="Procedure"/>
-    <definition value="Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc..)"/>
+    <definition value="Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)"/>
   </concept>
   <concept>
     <code value="supply"/>
     <display value="Supply"/>
-    <definition value="Plan to provide something to the patient (medication, medical supply, etc..)"/>
+    <definition value="Plan to provide something to the patient (medication, medical supply, etc.)"/>
   </concept>
   <concept>
     <code value="other"/>

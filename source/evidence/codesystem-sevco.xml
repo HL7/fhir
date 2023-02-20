@@ -751,7 +751,7 @@
         </designation>
         <property>
           <code value="external-definitions"/>
-          <valueString value="from CTO:\n\nnot included\n\nfrom SCO:\n \nnot included\n\nfrom NCIt:\n\nPostmarketing Surveillance\n\nPrograms to identify adverse events that did not appear during the drug approval process.\n\nOngoing safety monitoring of marketed drugs. See also Phase 4 studies, Phase 5 studies.\n\nalso Phase V Trial (phase 5, trial phase 5)\n\nPostmarketing surveillance is sometimes referred to as Phase V. See outcomes research.\n\nfrom OCRe:\n \nnot included\n\nfrom EDDA:\n\npostmarketing evaluation study (post-marketing product surveillance)\n\nSurveillance of drugs, devices, appliances, etc.., for efficacy or adverse effects, after they have been released for general sale. [MeSH 2014_2014_02_10]"/>
+          <valueString value="from CTO:\n\nnot included\n\nfrom SCO:\n \nnot included\n\nfrom NCIt:\n\nPostmarketing Surveillance\n\nPrograms to identify adverse events that did not appear during the drug approval process.\n\nOngoing safety monitoring of marketed drugs. See also Phase 4 studies, Phase 5 studies.\n\nalso Phase V Trial (phase 5, trial phase 5)\n\nPostmarketing surveillance is sometimes referred to as Phase V. See outcomes research.\n\nfrom OCRe:\n \nnot included\n\nfrom EDDA:\n\npostmarketing evaluation study (post-marketing product surveillance)\n\nSurveillance of drugs, devices, appliances, etc., for efficacy or adverse effects, after they have been released for general sale. [MeSH 2014_2014_02_10]"/>
         </property>
         <property>
           <code value="editors"/>
@@ -1808,7 +1808,7 @@
         </designation>
         <property>
           <code value="external-definitions"/>
-          <valueString value="Medical Subject Heading (MESH): this heading is used as a Publication Type; for original report of the conduct or results of a specific evaluation study; a different heading EVALUATION STUDIES AS TOPIC is used for general design, methodology, economics, etc.. of evaluation studies\nScope Note\nWorks consisting of studies determining the effectiveness or utility of processes, personnel, and equipment. https://meshb.nlm.nih.gov/record/ui?ui=D023362"/>
+          <valueString value="Medical Subject Heading (MESH): this heading is used as a Publication Type; for original report of the conduct or results of a specific evaluation study; a different heading EVALUATION STUDIES AS TOPIC is used for general design, methodology, economics, etc. of evaluation studies\nScope Note\nWorks consisting of studies determining the effectiveness or utility of processes, personnel, and equipment. https://meshb.nlm.nih.gov/record/ui?ui=D023362"/>
         </property>
         <property>
           <code value="comment"/>
@@ -1854,7 +1854,7 @@
         </designation>
         <property>
           <code value="external-definitions"/>
-          <valueString value="https://meshb.nlm.nih.gov/record/ui?ui=D023361\nMeSH Heading:  Validation Study\nAnnotation:\nThis heading is used as a Publication Type for original report of the conduct or results of a specific validation study. A different heading VALIDATION STUDIES AS TOPIC is used for general design, methodology, economics, etc.. of validation studies. CATALOGER: Do not use\nScope Note:\nWorks consisting of research using processes by which the reliability and relevance of a procedure for a specific purpose are established.\nEntry Term(s):\nValidation Studies"/>
+          <valueString value="https://meshb.nlm.nih.gov/record/ui?ui=D023361\nMeSH Heading:  Validation Study\nAnnotation:\nThis heading is used as a Publication Type for original report of the conduct or results of a specific validation study. A different heading VALIDATION STUDIES AS TOPIC is used for general design, methodology, economics, etc. of validation studies. CATALOGER: Do not use\nScope Note:\nWorks consisting of research using processes by which the reliability and relevance of a procedure for a specific purpose are established.\nEntry Term(s):\nValidation Studies"/>
         </property>
         <property>
           <code value="comment"/>

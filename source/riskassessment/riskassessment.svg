@@ -173,7 +173,7 @@ status</a>
  [1..1] « <a
    xlink:href="valueset-observation-status.html"
    id="n409"><title
-   id="n410">The status of the risk assessment; e.g. preliminary, final, amended, etc.. (Strength=Required)</title>
+   id="n410">The status of the risk assessment; e.g. preliminary, final, amended, etc. (Strength=Required)</title>
 ObservationStatus</a>
 ! »</text>
     <text
@@ -355,7 +355,7 @@ reasonReference</a>
        class="diagram-class-detail"><a
    xlink:href="riskassessment-definitions.html#RiskAssessment.basis"
    id="n499"><title
-   id="title102">Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc..)</title>
+   id="title102">Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.)</title>
 basis</a>
  : <a
    xlink:href="references.html#Reference"

@@ -377,7 +377,7 @@
       </extension>
       <path value="ImmunizationRecommendation.recommendation.dateCriterion"/>
       <short value="Dates governing proposed immunization"/>
-      <definition value="Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.."/>
+      <definition value="Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -399,7 +399,7 @@
     <element id="ImmunizationRecommendation.recommendation.dateCriterion.code">
       <path value="ImmunizationRecommendation.recommendation.dateCriterion.code"/>
       <short value="Type of date"/>
-      <definition value="Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.."/>
+      <definition value="Date classification of recommendation.  For example, earliest date to give, latest date to give, etc."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -410,7 +410,7 @@
           <valueString value="ImmunizationRecommendationDateCriterion"/>
         </extension>
         <strength value="example"/>
-        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc..)."/>
+        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
       </binding>
       <mapping>

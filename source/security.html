@@ -60,7 +60,7 @@ deployment architecture is a matter for system design:
 <td valign="center" style="border-left: 1px solid grey">
 <table class="dense">
  <tr><td><img height="32" width="32" src="security-icon-user.png"/></td><td>The consumer that is using a healthcare related system</td></tr>
- <tr><td><img height="32" width="32" src="security-icon-app.png"/></td><td>The client application the user is using (application, mobile app, website, etc..)</td></tr>
+ <tr><td><img height="32" width="32" src="security-icon-app.png"/></td><td>The client application the user is using (application, mobile app, website, etc.)</td></tr>
  <tr><td><img height="32" width="32" src="security-icon-sec.png"/></td><td>The security system (authentication and access control)</td></tr>
  <tr><td><img height="32" width="32" src="security-icon-fhir.png"/></td><td>The clinical/healthcare repository</td></tr>
 </table>
@@ -99,7 +99,7 @@ particular FHIR operation or not.
 <!--
 These HTTP calls may be authenticated against a single user account (including 
 using <a href="http://www.oauth.org">OAuth</a>), but this arrangement doesn't cater for common transaction metadata such as multiple users, 
-responsible party, reasons, consents, etc.. that are commonly encountered in healthcare. Instead, 
+responsible party, reasons, consents, etc. that are commonly encountered in healthcare. Instead, 
 use of this RESTful implementation assumes that appropriate security and logs are managed by the client (perhaps 
 through using <a href="http://wiki.ihe.net/index.php?title=Audit_Trail_and_Node_Authentication">ATNA</a>), and 
 that the server trusts the client to maintain these. One implication is that this RESTful framework is 
@@ -226,7 +226,7 @@ Authorization/Access Control
 
 <p>
 Correctly identifying people, devices, locations and organizations is one of the foundations that any security system is built on. 
-Most applications of security protocols, whether authentication, access control, digital signatures, etc.. rely on the correct mapping between
+Most applications of security protocols, whether authentication, access control, digital signatures, etc. rely on the correct mapping between
 the relevant resources and the underlying systems. Note that this isn't necessary. There is nothing in FHIR that requires or relies 
 on any security being in place, or any particular security implementation. However, real-world usage will generally require this. 
 </p>

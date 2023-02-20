@@ -67,11 +67,11 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Steps</h4>
         <ol>
             <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
-                <a href="servicerequest.html">ServiceRequest</a>, etc..) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
+                <a href="servicerequest.html">ServiceRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="https://terminology.hl7.org/CodeSystem-common-tags.html#common-tags-actionable">actionable</a>
                 <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
             <li>The filler synchronously responds with a "201" indicating that they have received and stored (created) the resource on their system</li>
             <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>,
-                <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc..) to the appropriate resource endpoint on the placer system, including a <code>basedOn</code> link to the 'request' resource that the action
+                <a href="diagnosticreport.html">DiagosticReport</a>, <a href="encounter.html">Encounter</a>, etc.) to the appropriate resource endpoint on the placer system, including a <code>basedOn</code> link to the 'request' resource that the action
                 was performed in fulfillment of.</li>
             <li>The placer system synchronously responds with a "201" indicating they've received and store (created) the resource on their system</li>
         </ol>
@@ -104,11 +104,11 @@ in order to support consistent definitions for schema and UML derived code.
         <img alt="Diagram showing POST of request to placer/queue server system, receiver uses polling workflow" src="workflow-optionc.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc..) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
+            <li>Placer system creates a 'request' resource (e.g. ServiceRequest etc.) by a system action or a POST on either its own system or a third-party queue server system and places an "actionable" tag on the resource
                 that indicates the request is intended to be acted upon. The request explicitly identifies the intended fullfiller</li>
             <li>The filler system uses polling (or a subscription) at the placer or queue server system to see if there are any "new" requests that: are tagged as "actionable", have the filler identified as the intended performer, and are a type of request
                 "of interest" to the filler.</li>
-            <li>At some later point, the filler creates an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc..) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
+            <li>At some later point, the filler creates an 'event' resource (e.g. MedicationDispense, DiagosticReport, Encounter, etc.) via a system action, or a POST on either its own system, the same queue server as the request was placed on, or some alternate
                 queue server, including a link to the 'request' resource that the action was performed in fulfillment of</li>
             <li>The placer system uses polling (or a subscription) to the filler or queue server system to see if there are any "new" events that are tied to any outstanding requests the placer has initiated</li>
         </ol>
@@ -143,7 +143,7 @@ in order to support consistent definitions for schema and UML derived code.
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optioni.png" />
         <h4>Steps</h4>
         <ol>
-            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc..) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
+            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. MedicationRequest, DiagnosticOrder, ReferralRequest, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
                 queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
             <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
             <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>
@@ -205,7 +205,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc..) and a need to stay consistent with that architecture
+            Existing messaging infrastructure (e.g. v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.) and a need to stay consistent with that architecture
         </p>
 
         <a name="optione"></a>

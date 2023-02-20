@@ -10,7 +10,7 @@ e.g. the resource <code>Patient/123</code> is the root resource of the Patient C
 for <code>Patient/123</code>. 
 Thus an operation that retrieves everything within the compartment will include the base 
 resource; a scope that grants access to everything within the compartment will grant access 
-to the resource; etc.. 
+to the resource; etc. 
 </p>
 
 <a name="use"></a>
@@ -110,7 +110,7 @@ with use of the FHIR RESTful API may be limited to accessing records from the
 compartment instance(s) logically associated with their identity. Irrespective of whether
 compartments are being used explicitly or implicitly, servers will need to make arrangements
 to make some resources with no direct link to a patient available to the client (medications, 
-substances, binaries, etc..).
+substances, binaries, etc.).
 </p>
 <p>
 Note that resources may cross between compartments, or interlink them. Examples of 
@@ -121,7 +121,7 @@ items that identify different subjects. Such cross-linking may arise for
 many valid reasons, including:
 </p>
 <ul>
- <li>Cases where subject records are inter-linked - Transplants, Perinatal care, family therapy etc..</li>
+ <li>Cases where subject records are inter-linked - Transplants, Perinatal care, family therapy etc.</li>
  <li>Workflow management where action lists link multiple patients and/or practitioners</li>
 </ul>
 <p>

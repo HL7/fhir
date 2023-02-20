@@ -33,7 +33,7 @@ by these extensions isn't known in the data source.
   </li>
   <li>
     'shallComplyWith' only occurs for Request resources and is a shortcut for defining the data elements in the Request.  Instead of providing details about the
-    code, product, timing, dose, etc.., the Request simply includes a reference to the Definition and says "do what it says".  The obligation is placed on the
+    code, product, timing, dose, etc., the Request simply includes a reference to the Definition and says "do what it says".  The obligation is placed on the
     system fulfilling the Request to determine how to follow the protocol.
   </li>
 </ul>
@@ -47,7 +47,7 @@ by these extensions isn't known in the data source.
 
 <h3>Additional guidance on these extensions</h3>
 <p>
-  External references might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier. The <a href="[%extensions-location%]StructureDefinition-display.html">display extension</a>) 
+  External references might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier. The <a href="[%extensions-location%]StructureDefinition-display.html">display extension</a>) 
   on canonical can be used to convey the title of the referenced artifact in addition to (or in place of) the discrete elements referencing it.
 </p>
 </div>

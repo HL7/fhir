@@ -44,7 +44,7 @@ Logical models are abstract data structures, normally defined for a given purpos
     <p>Logical models are expressed in FHIR with <a href="structuredefinition.html">StructureDefinition</a> with <a href="elementdefinition.html">ElementDefinitions</a>.</p>
     <p>The StructureDefinition defines:</p>
         <ul>
-            <li> metadata - title, status, authorship, purpose, etc.. </li>
+            <li> metadata - title, status, authorship, purpose, etc. </li>
             <li> Base of the structure (Base, Element, or another logical model)</li>
         </ul>
     <p>ElementDefinition capture the actual data elements that constitute the structure. ElementDefinitions in a logical model typically contain:</p> 
@@ -57,7 +57,7 @@ Logical models are abstract data structures, normally defined for a given purpos
         </ul>
         
     <h3 id="data-types-in-logical-models">Datatypes in logical models</h3>
-    <p>Elements in a logical model are expected to have a type because of how FHIR structures are defined. It is posible to use the FHIR <a href="datatypes.html">datatypes</a>, although this brings "physical" constraints, formats, etc.. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
+    <p>Elements in a logical model are expected to have a type because of how FHIR structures are defined. It is posible to use the FHIR <a href="datatypes.html">datatypes</a>, although this brings "physical" constraints, formats, etc. into abstract logical data models which might not be intended. For example, a logical model may need to define a date, regardless of the "physical" format of the date being
     <code>DDMMYY</code>, <code>DDMMYYYY</code> or <code>MM-DD-YYYY</code>.</p> <p>It is possible to define datatypes for use in logical models, by profiling the existing types in FHIR. However, redefining the FHIR primitive datatypes is not supported.</p>
 
     <h3 id="terminology-bindings">Terminology bindings</h3>
@@ -69,13 +69,13 @@ Such specifications can be persisted in logical models, and thic can be used to 
 <h4>Functional data modeling</h4>
 <p>
 FHIR logical models are typically used to capture the functional data requirements for an implementation.
-For example, analysts can use logical models to determine and agree upon the functional data needs as above - attributes, structure, datatypes, cardinalities, relationships, terminologies, etc.. without introducing techical constraints on the data structure or considering the actual FHIR resources in a specific version.
+For example, analysts can use logical models to determine and agree upon the functional data needs as above - attributes, structure, datatypes, cardinalities, relationships, terminologies, etc. without introducing techical constraints on the data structure or considering the actual FHIR resources in a specific version.
 Projects and organizations can use and publish logical models to define their "data dictionaries" - a compilation of data elements - as the semantic definitions and expectations for a given purpose.
 
 
 Logical models are normally intended to be designed (and validated) on a functional level, independently of technical implementation.
 As business/functional analysts design the data needs, technical implementers can implement logical models by projecting them onto a physical implementation - typically as one or several FHIR resources (including extensions). 
-The implementation can also be in other standards such as HL7 V2, CDA, SPL, or GS1 XML, etc.. 
+The implementation can also be in other standards such as HL7 V2, CDA, SPL, or GS1 XML, etc. 
 </p>
 
 <h5>Patterns</h5>

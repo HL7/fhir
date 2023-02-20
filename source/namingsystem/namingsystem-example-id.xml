@@ -48,7 +48,7 @@
     </coding>
     <text value="IHI"/>
   </type>
-  <description value="Australian HI Identifier as established by relevant regulations etc.."/>
+  <description value="Australian HI Identifier as established by relevant regulations etc."/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>

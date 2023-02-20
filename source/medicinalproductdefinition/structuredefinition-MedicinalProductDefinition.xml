@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc..)."/>
+  <description value="Detailed definition of a medicinal product, typically for uses other than direct patient care (e.g. regulatory use, drug catalogs, to support prescribing, adverse events management etc.)."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
@@ -412,7 +412,7 @@
     <element id="MedicinalProductDefinition.pediatricUseIndicator">
       <path value="MedicinalProductDefinition.pediatricUseIndicator"/>
       <short value="If authorised for use in children"/>
-      <definition value="If authorised for use in children, or infants, neonates etc.."/>
+      <definition value="If authorised for use in children, or infants, neonates etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

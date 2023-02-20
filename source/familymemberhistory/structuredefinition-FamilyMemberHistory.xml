@@ -171,7 +171,7 @@
       <path value="FamilyMemberHistory.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory."/>
-      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -386,7 +386,7 @@
     <element id="FamilyMemberHistory.relationship">
       <path value="FamilyMemberHistory.relationship"/>
       <short value="Relationship to the subject"/>
-      <definition value="The type of relationship this person has to the patient (father, mother, brother etc..)."/>
+      <definition value="The type of relationship this person has to the patient (father, mother, brother etc.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -618,7 +618,7 @@
     </element>
     <element id="FamilyMemberHistory.condition.outcome">
       <path value="FamilyMemberHistory.condition.outcome"/>
-      <short value="deceased | permanent disability | etc.."/>
+      <short value="deceased | permanent disability | etc"/>
       <definition value="Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation."/>
       <min value="0"/>
       <max value="1"/>
@@ -630,7 +630,7 @@
           <valueString value="ConditionOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The result of the condition for the patient; e.g. death, permanent disability, temporary disability, etc.."/>
+        <description value="The result of the condition for the patient; e.g. death, permanent disability, temporary disability, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/condition-outcome"/>
       </binding>
       <mapping>
@@ -737,7 +737,7 @@
           <valueString value="ProcedureOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The result of the procedure; e.g. death, permanent disability, temporary disability, etc.."/>
+        <description value="The result of the procedure; e.g. death, permanent disability, temporary disability, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
     </element>

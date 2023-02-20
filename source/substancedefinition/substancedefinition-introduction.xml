@@ -13,7 +13,7 @@
 			By contrast the <a href="substance.html">Substance</a> resource can act as either a concise definition 
 			(a subset of SubstanceDefinition) or as an instance (an actual batch).</p>
 		<p>SubstanceDefinition is not generally used directly to represent an ingredient, nor as a product that is given to a patient.
-			When acting as an ingredient, the <a href="ingredient.html">Ingredient</a> resource gives the context necessary (strength, role etc..) 
+			When acting as an ingredient, the <a href="ingredient.html">Ingredient</a> resource gives the context necessary (strength, role etc.) 
 			and, within it, uses this resource to describe the substance.
 			Any substance that is to be used as medication would be considered a medicinal product (even a plain one such as water)
 			and as such would be described using <a href="medicinalproductdefinition.html">MedicinalProductDefinition</a> or for a concise summary suitable for day-to-day prescribing, <a href="medication.html">Medication</a>.

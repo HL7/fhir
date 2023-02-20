@@ -66,7 +66,7 @@
           <text value="Midwife"/>
         </role>
         <member>
-          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc.... -->
+          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
           <reference value="#pr1"/>
           <display value="Mavis Midwife"/>
         </member>
@@ -81,7 +81,7 @@
           <text value="Obstretitian"/>
         </role>
         <member>
-          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc.... -->
+          <!-- This links to the clinician resource, so we get all the stuff related to that like address, contact etc... -->
           <reference value="#pr2"/>
           <display value="Oscar Obstetrician"/>
         </member>

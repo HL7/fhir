@@ -158,7 +158,7 @@ code</a>
  [0..1] « <a
    xlink:href="valueset-detectedissue-category.html"
    id="n300"><title
-   id="title35">Codes identifying the general type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.. (Strength=Preferred)</title>
+   id="title35">Codes identifying the general type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc. (Strength=Preferred)</title>
 DetectedIssueCategory</a>
 ? »</text>
     <text
@@ -389,7 +389,7 @@ action</a>
  [1..1] « <a
    xlink:href="valueset-detectedissue-mitigation-action.html"
    id="n392"><title
-   id="title108">Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc.. (Strength=Preferred)</title>
+   id="title108">Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc. (Strength=Preferred)</title>
 DetectedIssueMitigationAction</a>
 ? »</text>
     <text

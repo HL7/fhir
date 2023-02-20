@@ -25,16 +25,16 @@ on existing knowledge and previous experience.
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-Risk assessments are a specialized type of observation.  A specialized resource is used to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc..  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
+Risk assessments are a specialized type of observation.  A specialized resource is used to provide a simpler mechanism to capture of a series of risks and to associate those risks with time-ranges, probabilities, etc.  All risk assertions are captured at one time based on a single set of source inputs.  Capture of a single risk MAY be done using the <a href="observation.html">Observation</a> class, particularly in circumstances where it's treated as a generic observation, but for consistency, all risk assessments and prognosis SHOULD be captured using <b>RiskAssessment</b>.
 </p>
 <p>
 Risk assessments may be based on a variety of factors, including:
 </p>
 <ul>
 <li>Basic demographic information from the <a href="patient.html">Patient</a> or <a href="group.html">Group</a> resources</li>
-<li>Various <a href="observation.html">Observations</a> including vital signs, lab information, assessments, genetic information, etc..</li>
+<li>Various <a href="observation.html">Observations</a> including vital signs, lab information, assessments, genetic information, etc.</li>
 <li><a href="familymemberhistory.html">FamilyMemberHistory</a></li>
-<li>Current, past and proposed therapies <a href="immunization.html">Immunization</a>, <a href="procedure.html">Procedure</a>, <a href="careplan.html">CarePlan</a>, etc..</li>
+<li>Current, past and proposed therapies <a href="immunization.html">Immunization</a>, <a href="procedure.html">Procedure</a>, <a href="careplan.html">CarePlan</a>, etc.</li>
 </ul>
 <p>
 Because so many resources can potentially be used, no limit is placed on what resources can be sent in <code>RiskAssessment.basis</code>.  However, some resources would be nonsensical for this use (e.g. <a href="messageheader.html">MessageHeader</a>).

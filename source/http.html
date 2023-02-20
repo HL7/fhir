@@ -966,7 +966,7 @@ The body of a PATCH interaction SHALL be either:
 In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
 have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
-interaction; all the version and error handling etc.. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
+interaction; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
 Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL support <a href="#versionaware">Concurrency Management</a>.
@@ -1249,7 +1249,7 @@ on how many matches are found:
 <ul>
  <li><b>No matches</b>: The server processes the create as above where, if the resource is created, the server returns a <code>201 Created</code> HTTP status code, and SHALL also return a <code>Location</code> header which contains the new <a href="resource.html#metadata">Logical Id</a> and <a href="resource.html#metadata">Version Id</a> of the created resource version</li>
  <li><b>One Match</b>: The server ignores the post and returns <code>200 OK</code>, with headers and body populated
- as they would have been if a create had actually occurred. (i.e. the body is set as per the prefer header, location and etag headers set, etc..)</li>
+ as they would have been if a create had actually occurred. (i.e. the body is set as per the prefer header, location and etag headers set, etc.)</li>
  <li><b>Multiple matches</b>: The server returns a <code>412 Precondition Failed</code> error indicating the client's criteria were not selective enough</li>
 </ul>
 <p>
@@ -1486,7 +1486,7 @@ The <code>batch</code> and <code>transaction</code> interactions submit a set of
 The actions may be performed independently as a "batch", or as a single atomic "transaction" where
 the entire set of changes succeed or fail as a single entity. Multiple actions on multiple resources
 of the same or different types may be submitted, and they may be a mix of other interactions defined
-on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc..), or using the <a href="operations.html">operations</a>
+on this page (e.g. <code>read</code>, <code>search</code>, <code>create</code>, <code>update</code>, <code>delete</code>, etc.), or using the <a href="operations.html">operations</a>
 framework.
 </p>
 <p>
@@ -1546,7 +1546,7 @@ created within the batch are considered to be non-conformant.
 <p>
 When processing the batch, the HTTP response code is <code>200 OK</code> if the batch was processed correctly, regardless of the success of the
 operations within the Batch. To determine the status of the operations, look inside the returned Bundle. A response code on an
-entry of other than <code>2xx</code> (<code>200</code>, <code>202</code> etc..) indicates that processing the request in the entry failed.
+entry of other than <code>2xx</code> (<code>200</code>, <code>202</code> etc.) indicates that processing the request in the entry failed.
 </p>
 
 <a name="trules"> </a>
@@ -1827,7 +1827,7 @@ Notes:
 </p>
 <ul>
  <li>conditional creates, updates and deletes are converted to direct updates and deletes in a history list</li>
- <li>operations do not appear directly in the history log, but side effects (e.g. creation of audit logs. stored binaries, etc..) will appear where relevant</li>
+ <li>operations do not appear directly in the history log, but side effects (e.g. creation of audit logs. stored binaries, etc.) will appear where relevant</li>
  <li>The resource in the entry is the resource as processed by the server, not as submitted by the client (<a href="updates.html">may be different</a>)</li>
  <li>The server SHOULD populate at least <a href="bundle-definitions.html#Bundle.entry.response.lastModified">response.lastModified</a> so the time of processing is clear in the history record</li>
  <li>Servers may choose to only record successful interactions. Servers may choose to only use <code>200 OK</code> instead of other more specific success codes</li>

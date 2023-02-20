@@ -814,7 +814,7 @@
           <valueString value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes describing body site laterality (left, right, etc..)."/>
+        <description value="Codes describing body site laterality (left, right, etc.)."/>
         <valueSet value="http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_244.html"/>
       </binding>
       <mapping>
@@ -1049,7 +1049,7 @@
       <path value="ImagingStudy.series.instance.title"/>
       <short value="Description of instance"/>
       <definition value="The description of the instance."/>
-      <comment value="Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc.."/>
+      <comment value="Particularly for post-acquisition analytic objects, such as SR, presentation states, value mapping, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -187,8 +187,8 @@
         <valueString value="[3417]."/>
       </extension>
       <path value="SupplyRequest.category"/>
-      <short value="The kind of supply (central, non-stock, etc..)"/>
-      <definition value="Category of supply, e.g.  central, non-stock, etc.. This is used to support work flows associated with the supply process."/>
+      <short value="The kind of supply (central, non-stock, etc.)"/>
+      <definition value="Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process."/>
       <alias value="kind"/>
       <min value="0"/>
       <max value="1"/>
@@ -477,7 +477,7 @@
     <element id="SupplyRequest.requester">
       <path value="SupplyRequest.requester"/>
       <short value="Individual making the request"/>
-      <definition value="The device, practitioner, etc.. who initiated the request."/>
+      <definition value="The device, practitioner, etc. who initiated the request."/>
       <alias value="author"/>
       <alias value="source"/>
       <min value="0"/>

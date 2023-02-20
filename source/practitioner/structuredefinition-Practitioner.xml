@@ -47,7 +47,7 @@
     </telecom>
   </contact>
   <description value="A person who is directly or indirectly involved in the provisioning of healthcare or related services."/>
-  <purpose value="Need to track doctors, staff, locums etc.. for both healthcare practitioners, funders, etc.."/>
+  <purpose value="Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>

@@ -47,7 +47,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource describes the properties (regulated, has real time clock, etc..), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc..) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
+  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
@@ -799,7 +799,7 @@
         <valueCode value="400,180"/>
       </extension>
       <path value="Device.property"/>
-      <short value="Inherent, essentially fixed, characteristics of the device.  e.g., time properties, size, material, etc.."/>
+      <short value="Inherent, essentially fixed, characteristics of the device.  e.g., time properties, size, material, etc."/>
       <definition value="Static or essentially fixed characteristics or features of the device (e.g., time or timing attributes, resolution, accuracy, intended use or instructions for use, and physical attributes) that are not otherwise captured in more specific attributes."/>
       <comment value="Dynamic or current properties, such as settings, of an individual device are described using a Device instance-specific [DeviceMetric] and recorded using [Observation].  Static characteristics of a device could also be documented in an associated [DeviceDefinition] instance. The Device instance's properties, and their values, could be, but need not be, the same as those described in an associated DeviceDefinition."/>
       <min value="0"/>
@@ -858,7 +858,7 @@
     <!-- <element id="Device.operation">
       <path value="Device.operation"/>
       <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
-      <definition value="The status of the device itself - whether it is switched on, or activated, etc.."/>
+      <definition value="The status of the device itself - whether it is switched on, or activated, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -886,7 +886,7 @@
     <element id="Device.operation.statusReason">
       <path value="Device.operation.statusReason"/>
       <short value="The rationale given for the current operational status"/>
-      <definition value="The reasons given for the current operational status - i.e. why is the device switched on etc.."/>
+      <definition value="The reasons given for the current operational status - i.e. why is the device switched on etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -985,7 +985,7 @@
     <element id="Device.association.statusReason">
       <path value="Device.association.statusReason"/>
       <short value="The reasons given for the current association status"/>
-      <definition value="The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc.."/>
+      <definition value="The reasons given for the current association status - i.e. why is the device explanted, or attached to the patient, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1042,7 +1042,7 @@
       <path value="Device.contact"/>
       <short value="Details for human/organization for support"/>
       <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc.."/>
+      <comment value="used for troubleshooting etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

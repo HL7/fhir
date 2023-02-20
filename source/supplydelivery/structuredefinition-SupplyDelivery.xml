@@ -145,7 +145,7 @@
       <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component or step."/>
       <comment value="Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
-      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc.."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -868,7 +868,7 @@
       <path value="DocumentReference.custodian"/>
       <short value="Organization which maintains the document"/>
       <definition value="Identifies the organization or group who is responsible for ongoing maintenance of and access to the document."/>
-      <comment value="Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc.. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization."/>
+      <comment value="Identifies the logical organization (software system, vendor, or department) to go to find the current version, where to report issues, etc. This is different from the physical location (URL, disk drive, or server) of the document, which is the technical location of the document, which host may be delegated to the management of some other organization."/>
       <min value="0"/>
       <max value="1"/>
       <type>

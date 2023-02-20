@@ -22,7 +22,7 @@
 Filter requests have access to the same set of search parameters that are available to the search operation
 in that resource context on the server
 (e.g., <a href="search.html#standard">standard parameters</a>, 
-<a href="search.html#parameters">parameters for each resource</a>, etc..).  The <code>_filter</code> parameter 
+<a href="search.html#parameters">parameters for each resource</a>, etc.).  The <code>_filter</code> parameter 
 provides a syntax for expressing a set of query expressions on the underlying resources.
 </p>
 
@@ -47,7 +47,7 @@ The _filter syntax has the following features:
 <li>A filter can be a logical one (x or x, or x and x, or not x).</li>
 <li>A filter can contain other filters in a set of parentheses: "()".</li>
 <li>A filter can be a test - path operation value, where operation is taken from the table below, and value is either a "true", "false", a JSON string, or a token (any sequence of non-whitespace characters, excluding ")" and "]". Values are never case sensitive.</li>
-<li>A 'path' is a name, with chained searches done by name.name etc..as per existing source. There can also be a filter: name[filter].name.</li>
+<li>A 'path' is a name, with chained searches done by name.name etc.as per existing source. There can also be a filter: name[filter].name.</li>
 <li>Reverse chaining is also allowed, using _has:Resource:index1:index2 as the parameter</li>
 <li>The name is one of the defined search parameters that are used with the other search mechanism, with some special exemptions defined below.</li>
 </ul>

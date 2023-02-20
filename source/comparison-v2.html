@@ -22,7 +22,7 @@
 widely adopted, being prominent in in-patient settings throughout the world, though also
 used in a variety of other contexts as well.  HL7 V2 uses messages composed of re-usable
 segments to communicate healthcare-related information between a sending and receiving
-system as well as to invoke particular behavior (patient transfers, lab orders, etc..)
+system as well as to invoke particular behavior (patient transfers, lab orders, etc.)
 It also supports one-way communication through notifications, provides support for queries and other workflows.
 </p>
 <h3>HL7 V2 Similarities and Differences</h3>
@@ -50,7 +50,7 @@ Order Message) includes:
   <li>optional TQ1 and TQ2 segments describing the timing of the order</li>
   <li>optional NTE segments dealing with supplemental notes or rendering of the order</li>
   <li>optional RXR segments describing route information</li>
-  <li>etc..</li>
+  <li>etc.</li>
 </ul>
 <p>
 The HL7 V2 approach to granularity emphasizes re-use of "patterns" of information.  For example, timing and
@@ -60,7 +60,7 @@ too deeply.  FHIR takes a different approach to reusability, focusing on objects
 independently.  The <a href="medicationrequest.html">MedicationRequest</a> resource encompasses
 all of the aspects of the above segments, with the exception of some of the workflow aspects of ORC which
 is handled by the <a href="task.html">Task</a> resource.  The <a href="medicationrequest.html">MedicationRequest</a>
-resource is itself complex, having nested structures for dosage instructions, dispensing instructions, etc..
+resource is itself complex, having nested structures for dosage instructions, dispensing instructions, etc.
 that are not simple datatypes.
 </p>
 <p>
@@ -76,10 +76,10 @@ systems won't collide. (This can be an issue with Z-segments.)
 </p>
 <p>
 <b>Inter-version compatibility:</b> HL7 version 2 has strict processes for maintaining forward and backward
-compatibility.  Content can only be added to the end of existing fields, components, etc..  Applications are
+compatibility.  Content can only be added to the end of existing fields, components, etc.  Applications are
 expected to ignore unexpected content or repetitions.  FHIR promises similar compatibility rules.  The path
 to an element within a FHIR instance will remain unchanged in future versions.  Specific rules on handling
-"new" elements (ignoring, checking for "must understand" indicators, etc..) will be developed during the STU
+"new" elements (ignoring, checking for "must understand" indicators, etc.) will be developed during the STU
 period.
 </p>
 <p>

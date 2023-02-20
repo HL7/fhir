@@ -33,17 +33,17 @@
   <concept>
     <code value="encounter"/>
     <display value="Encounter"/>
-    <definition value="To meet with the patient (in-patient, out-patient, etc..)."/>
+    <definition value="To meet with the patient (in-patient, out-patient, etc.)."/>
   </concept>
   <concept>
     <code value="observation"/>
     <display value="Observation"/>
-    <definition value="To capture information about a patient (vitals, labs, diagnostic images, etc..)."/>
+    <definition value="To capture information about a patient (vitals, labs, diagnostic images, etc.)."/>
   </concept>
   <concept>
     <code value="procedure"/>
     <display value="Procedure"/>
-    <definition value="To modify the patient in some way (surgery, physiotherapy, education, counseling, etc..)."/>
+    <definition value="To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)."/>
   </concept>
   <concept>
     <code value="referral"/>
@@ -53,7 +53,7 @@
   <concept>
     <code value="supply"/>
     <display value="Supply"/>
-    <definition value="To provide something to the patient (medication, medical supply, etc..)."/>
+    <definition value="To provide something to the patient (medication, medical supply, etc.)."/>
   </concept>
   <concept>
     <code value="other"/>

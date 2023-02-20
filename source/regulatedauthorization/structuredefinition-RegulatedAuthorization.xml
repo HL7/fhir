@@ -177,7 +177,7 @@
     <element id="RegulatedAuthorization.region">
       <path value="RegulatedAuthorization.region"/>
       <short value="The territory in which the authorization has been granted"/>
-      <definition value="The territory (e.g., country, jurisdiction etc..) in which the authorization has been granted."/>
+      <definition value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -237,7 +237,7 @@
     </element>
     <element id="RegulatedAuthorization.validityPeriod">
       <path value="RegulatedAuthorization.validityPeriod"/>
-      <short value="The time period in which the regulatory approval etc.. is in effect, e.g. a Marketing Authorization includes the date of authorization and/or expiration date"/>
+      <short value="The time period in which the regulatory approval etc. is in effect, e.g. a Marketing Authorization includes the date of authorization and/or expiration date"/>
       <definition value="The time period in which the regulatory approval, clearance or licencing is in effect. As an example, a Marketing Authorization includes the date of authorization and/or an expiration date."/>
       <min value="0"/>
       <max value="1"/>
@@ -331,7 +331,7 @@
     <element id="RegulatedAuthorization.regulator">
       <path value="RegulatedAuthorization.regulator"/>
       <short value="The regulatory authority or authorizing body granting the authorization"/>
-      <definition value="The regulatory authority or authorizing body granting the authorization. For example, European Medicines Agency (EMA), Food and Drug Administration (FDA), Health Canada (HC), etc.."/>
+      <definition value="The regulatory authority or authorizing body granting the authorization. For example, European Medicines Agency (EMA), Food and Drug Administration (FDA), Health Canada (HC), etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -179,7 +179,7 @@
           <valueString value="RiskAssessmentStatus"/>
         </extension>
         <strength value="required"/>
-        <description value="The status of the risk assessment; e.g. preliminary, final, amended, etc.."/>
+        <description value="The status of the risk assessment; e.g. preliminary, final, amended, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/observation-status"/>
       </binding>
       <mapping>
@@ -207,7 +207,7 @@
           <valueString value="RiskAssessmentMethod"/>
         </extension>
         <strength value="example"/>
-        <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc.."/>
+        <description value="The mechanism or algorithm used to make the assessment; e.g. TIMI, PRISM, Cardiff Type 2 diabetes, etc."/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -394,7 +394,7 @@
     <element id="RiskAssessment.basis">
       <path value="RiskAssessment.basis"/>
       <short value="Information used in assessment"/>
-      <definition value="Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc..)."/>
+      <definition value="Indicates the source data considered as part of the assessment (for example, FamilyHistory, Observations, Procedures, Conditions, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -449,7 +449,7 @@
           <valueString value="RiskAssessmentOutcome"/>
         </extension>
         <strength value="example"/>
-        <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc.."/>
+        <description value="The condition or other outcome; e.g. death, remission, amputation, infection, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>

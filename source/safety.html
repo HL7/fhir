@@ -60,7 +60,7 @@ These basic safety checks relate to using the FHIR specification correctly.
  <li title="current"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#current"> </a>My system manages lists of <a href="lifecycle.html#current">current resources</a> correctly</li>
  <li title="error-checks"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#error-checks"> </a>When other systems <a href="http.html#summary">return http errors from the RESTful API</a> and <a href="operations.html">Operations</a> (perhaps using <a href="operationoutcome.html">Operation Outcome</a>), my system checks for them and handles them appropriately </li>
  <li title="link-merge"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#link-merge"> </a>My system ensures checks for patient links (and/or merges) and handles data that is linked to patients accordingly</li>
- <li title="cs-declare"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cs-declare"> </a>My system publishes a <a href="capabilitystatement.html">Capability Statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc.., so other implementers know how the system functions</li>
+ <li title="cs-declare"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#cs-declare"> </a>My system publishes a <a href="capabilitystatement.html">Capability Statement</a> with <a href="structuredefinition.html">StructureDefinitions</a>, <a href="valueset.html">ValueSets</a>, and <a href="operationdefinition.html">OperationDefinitions</a>, etc., so other implementers know how the system functions</li>
  <li title="valid-checked"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#valid-checked"> </a>All resources in use are <a href="validation.html">valid</a> against the base specification and the <a href="profiling.html">profiles</a> that apply to my system (see note about the <a href="validation.html#correct-use">correct run-time use of validation</a>)</li>
  <li title="obs-focus"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#obs-focus"> </a>I've reviewed the <a href="observation.html">Observation</a> resource, and understand how <code>focus</code> is a mechanism for observations to be about someone or something other than the patient or subject of record.</li>  
 </ol>
@@ -190,7 +190,7 @@ With regard to #38, Systems SHOULD check the narrative status. Specifically, if 
 <a name="other"> </a>
 <h3>Other Safety Checks</h3> 
 <p>
-Obviously, this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc..
+Obviously, this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
 </p>
 <p>
 In addition, server developers should check these specific additional checks for client convenience:

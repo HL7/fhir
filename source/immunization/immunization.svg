@@ -595,7 +595,7 @@ ImmunizationFundingSource</a>
        style="fill:#000000"><a
    xlink:href="immunization-definitions.html#Immunization.performer.function"
    id="n925"><title
-   id="title181">Describes the type of performance (e.g. ordering provider, administering provider, etc..)</title>
+   id="title181">Describes the type of performance (e.g. ordering provider, administering provider, etc.)</title>
 function</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

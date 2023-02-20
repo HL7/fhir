@@ -49,7 +49,7 @@ distinct from <b>Communication</b> where there is a specific intended sender and
 once.
 </p>
 <p>
- When there is a need to organize clinical and administrative content into sections, the <a href="composition.html">Composition</a> resource should be used instead.  For example, an initial case report to a public health agency may include organized sections for vital signs, immunizations, social history, etc..
+ When there is a need to organize clinical and administrative content into sections, the <a href="composition.html">Composition</a> resource should be used instead.  For example, an initial case report to a public health agency may include organized sections for vital signs, immunizations, social history, etc.
 </p>
 
 <p><b>Communication and Encounter</b></p>

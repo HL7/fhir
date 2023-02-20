@@ -23,12 +23,12 @@
   <concept>
     <code value="device"/>
     <display value="Device"/>
-    <definition value="The protocol describes the appropriate use of a particular device (medical device, software, etc..)."/>
+    <definition value="The protocol describes the appropriate use of a particular device (medical device, software, etc.)."/>
   </concept>
   <concept>
     <code value="drug"/>
     <display value="Drug"/>
-    <definition value="The protocol describes the appropriate use of a particular medication including indications for use, dosages, treatment cycles, etc.."/>
+    <definition value="The protocol describes the appropriate use of a particular medication including indications for use, dosages, treatment cycles, etc."/>
   </concept>
   <concept>
     <code value="study"/>

@@ -158,7 +158,7 @@ These profiles describe the information handled/produced by the system on a per 
 Some examples of the uses for these kind of profiles:
 </p>
 <ul>
- <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc.. Typical labs would support several hundred different reports</li>
+ <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc. Typical labs would support several hundred different reports</li>
  <li>A care manager which handles a set of different types of care plans and associated clinical resources</li>
  <li>A medications formulary that handles several different levels of sophistication in its medication representations</li>
 </ul>
@@ -214,7 +214,7 @@ Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 <a name="api"></a>
 <h3>Extending and Restricting the API</h3>
 <p>
-A CapabilityStatement resource lists the REST interactions (read, update, search, etc..) that a server provides or that a client uses, along with
+A CapabilityStatement resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with
 some supporting information for each. It can also be used to define a set of desired behaviors (e.g. as part of a specification or
 a Request for Proposal).  The only interaction that servers are required to support is the <a href="http.html#capabilities">capabilities</a>
 interaction itself - to retrieve the server's CapabilityStatement. Beyond that, servers and clients support and use whichever
@@ -462,7 +462,7 @@ is known as "slicing" and the Systolic and Diastolic elements are called "slices
 <p>
 Note that when the resource is exchanged, the serialization format that is exchanged is not
 altered by the constraining definition. This means that the item profile names defined in the
-structure definition ("systolic", etc.. in this example) are never exchanged. A resource
+structure definition ("systolic", etc. in this example) are never exchanged. A resource
 instance looks like this:
 </p>
 <pre>
@@ -541,7 +541,7 @@ Further notes about the use of the different discriminator types:
    This is the most commonly used discriminator type: to decide based on the value of an element as 
    specified by a fixed value, a pattern value, or a required value set binding. 
    Typical example: slice on the value of <code>Patient.telecom.system</code>, for values phone, email,
-   or slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc..
+   or slice on the value of <code>Observation.code</code>, for values LOINC codes 1234-5, 4235-8 etc.
    There are <a href="elementdefinition-examples.html#pattern-examples">some examples of slicing</a> based on discriminator-type <code>value</code> with patterns.
  </td></tr>
  <tr><td>pattern</td><td>
@@ -649,7 +649,7 @@ Some examples of discriminators:
  <tr>  <td>List.entry</td> <td>type, value</td> <td>item.resolve(), item.resolve().value</td> <td>Entries are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
  <tr>  <td>EndPoint.header</td> <td>value</td> <td>value</td> <td>Slicing a primitive field by value, e.g. to specify a set list of headers in a profile</td> </tr>
-  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc..) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
+  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
 Notes:
@@ -999,7 +999,7 @@ When a profile does this, it SHALL also make clear exactly what kind of "support
   <li>The system must display the element to the user and/or allow the user to capture the element via the UI</li>
   <li>The element must appear in an output report</li>
   <li>The element must be taken into account when performing decision support, calculations or other processing</li>
-  <li>etc..</li>
+  <li>etc.</li>
 </ul>
 <p>
 The specific meaning of "Must Support" SHALL be defined. Profiles can do this in one of two ways:

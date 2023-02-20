@@ -12,8 +12,8 @@ other resources.  This pattern serves two purposes:
   this may become available in a future release.)</li>
 </ul>
 <p>
-The notion of "request" encompasses all types of orders (original orders, filler representations of orders, reflex orders, etc..) as well as proposals/recommendations for action to occur, 
-plans, scheduling, etc..  Any sort of description of an activity that is "desired" where the description is specific as to the subject of the activity and the 
+The notion of "request" encompasses all types of orders (original orders, filler representations of orders, reflex orders, etc.) as well as proposals/recommendations for action to occur, 
+plans, scheduling, etc.  Any sort of description of an activity that is "desired" where the description is specific as to the subject of the activity and the 
 approximate timing of the activity would be considered a "Request".
 </p>
 </div>

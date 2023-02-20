@@ -438,7 +438,7 @@
           <valueString value="Encounter.specialArrangement"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Encounter-special-arrangement"/>
-        <description value="Wheelchair, translator, stretcher, etc.."/>
+        <description value="Wheelchair, translator, stretcher, etc."/>
         <code value="special-arrangement"/>
         <type value="token"/>
         <expression value="Encounter.specialArrangement"/>

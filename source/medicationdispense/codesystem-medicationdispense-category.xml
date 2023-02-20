@@ -27,7 +27,7 @@
   <concept>
     <code value="community"/>
     <display value="Community"/>
-    <definition value="Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc..)."/>
+    <definition value="Includes dispenses for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc.)."/>
   </concept>
   <concept>
     <code value="discharge"/>

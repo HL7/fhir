@@ -125,7 +125,7 @@
 		</a>
 	  <a name="code-interop"></a>
 		<h4>Interoperability Issues using code value pairs in FHIR</h4>
-		<p>A recurring issue for many observation events, regardless of the particular pattern, is determining how to populate observation.code and observation.value. While this is typically straight-forward for laboratory observations, it can get blurry for other types of observations, such as findings and disorders, family history observations, etc.. This discussion focuses on the way in which the coded representation of such statements is expressed using the <code>Observation.code</code> and <code>Observation.value</code> elements. </p>
+		<p>A recurring issue for many observation events, regardless of the particular pattern, is determining how to populate observation.code and observation.value. While this is typically straight-forward for laboratory observations, it can get blurry for other types of observations, such as findings and disorders, family history observations, etc. This discussion focuses on the way in which the coded representation of such statements is expressed using the <code>Observation.code</code> and <code>Observation.value</code> elements. </p>
 		<p>There are two distinct facets that are central to a FHIR Observations:</p>
 		<ul>
 			<li>The action taken to make the finding and/or the property about which the property was observed.  For example: measurement of blood hemoglobin.

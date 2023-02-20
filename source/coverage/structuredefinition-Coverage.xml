@@ -246,7 +246,7 @@
           <valueString value="CoverageType"/>
         </extension>
         <strength value="preferred"/>
-        <description value="The type of insurance: public health, worker compensation; private accident, auto, private health, etc..) or a direct payment by an individual or organization."/>
+        <description value="The type of insurance: public health, worker compensation; private accident, auto, private health, etc.) or a direct payment by an individual or organization."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-type"/>
       </binding>
       <mapping>
@@ -531,7 +531,7 @@
           <valueString value="CoverageClass"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The policy classifications, e.g. Group, Plan, Class, etc.."/>
+        <description value="The policy classifications, e.g. Group, Plan, Class, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class"/>
       </binding>
     </element>
@@ -540,7 +540,7 @@
       <short value="Value associated with the type"/>
       <definition value="The alphanumeric identifier associated with the insurer issued label."/>
       <comment value="For example, the Group or Plan number."/>
-      <requirements value="The insurer issued label and identifier are necessary to identify the specific policy, group, etc..."/>
+      <requirements value="The insurer issued label and identifier are necessary to identify the specific policy, group, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -591,7 +591,7 @@
     <element id="Coverage.order">
       <path value="Coverage.order"/>
       <short value="Relative order of the coverage"/>
-      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc.. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
+      <definition value="The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis."/>
       <requirements value="Used in managing the coordination of benefits."/>
       <min value="0"/>
       <max value="1"/>
@@ -641,7 +641,7 @@
       <path value="Coverage.costToBeneficiary.type"/>
       <short value="Cost category"/>
       <definition value="The category of patient centric costs associated with treatment."/>
-      <comment value="For example visit, specialist visits, emergency, inpatient care, etc.."/>
+      <comment value="For example visit, specialist visits, emergency, inpatient care, etc."/>
       <requirements value="Needed to identify the category associated with the amount for the patient."/>
       <min value="0"/>
       <max value="1"/>

@@ -52,7 +52,7 @@
   <concept>
     <code value="billing"/>
     <display value="Billing"/>
-    <definition value="Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc.. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)"/>
+    <definition value="Indicates that all transactions are recorded and the finance system can perform the billing process, including preparing insurance claims, scrubbing charges, invoicing etc. During this time any new charges will not be included in the current billing run/cycle. (account.status is active)"/>
   </concept>
   <concept>
     <code value="closed-baddebt"/>

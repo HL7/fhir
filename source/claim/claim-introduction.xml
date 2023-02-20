@@ -26,7 +26,7 @@ The valueset is extensible to accommodate other types of claims as required by t
 The Claim also supports:
 			<ul>
 				<li>Up to a 3-tier hierarchy of Goods, products, and Services, to support simple to complex billing, see <a href="financial-module.html#3-tier">3-Tier Line Item Hierarchy</a>.</li>
-				<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc.. insurance coverages.</li>
+				<li>Multiple insurance programs arranged in a Coordination of Benefit sequence to enable exchange with primary, secondary, tertiary etc. insurance coverages.</li>
 				<li>Assignment of benefit - the benefit may be requested to be directed to the subscriber, the provider or another party.</li>
 			</ul>
 		</p>

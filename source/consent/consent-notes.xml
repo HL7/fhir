@@ -248,7 +248,7 @@ necessary consent content derived from a Consent Directive for use in workflow m
     <li>Request one or more Consent where status=active by Consent.scope (with patient(s), if none specified, get all).  Policy will decide how to deal with multiple per patient and how to iterate through (e.g., select most recent).</li>
     <li>Locally inspect Consent.provision for base policy acceptance/denial with Consent.policyRule</li>
     <li>If policyRule not understandable, refer to Privacy Office</li>
-    <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc..) as above</li>
+    <li>Locally inspect Consent.provision for contexts (e.g., provision.purpose, provision.actor, etc.) as above</li>
     <li>Inspect Consent.provision.provision (et.al) for exceptions</li>
   </ol>
 </div>

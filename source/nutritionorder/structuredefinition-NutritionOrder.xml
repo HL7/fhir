@@ -174,7 +174,7 @@
       <path value="NutritionOrder.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this NutritionOrder."/>
-      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>

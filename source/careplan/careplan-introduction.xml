@@ -33,11 +33,11 @@ oncologist, home nursing staff, pharmacy and others
 <li>
 Plans to manage specific disease/condition(s) (e.g. nutritional plan for a patient post bowel 
 resection, neurological plan post head injury, pre-natal plan, post-partum plan, grief management 
-plan, etc..)
+plan, etc.)
 </li>
 <li>
 Decision support generated plans following specific practice guidelines (e.g. stroke care plan, 
-diabetes plan, falls prevention, etc..)
+diabetes plan, falls prevention, etc.)
 </li>
 <li>
 Self-maintained patient or care-giver authored plans identifying their goals and an integrated understanding of actions to be taken.  This does not include the legal Advance Directives, which should be represented with either the Consent resource with Consent.category = Advance Directive or with a specific request resource with intent = directive.  Informal advance directives could be represented as a Goal, such as "I want to die at home."

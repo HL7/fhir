@@ -267,7 +267,7 @@ How to resolve a reference in a Bundle:
     ends) here. The reference has no defined meaning within this specification.</p>
   <p>Note that the rules for resolving references in contained resources are the same as those for
     resolving references in the resource that contains the contained resource. I.e. the fullUrl of
-    the containing resource is used when determining the base for relative references, etc..</p>
+    the containing resource is used when determining the base for relative references, etc.</p>
   <p>Several portions of this algorithm are dependent on on the presence of Bundle.entry.fullUrl. In
     instances where references might be resolved within a Bundle but entries do not have fullURLs,
     resolution expectations are undefined. For this reason, Bundles where cross-Bundle references
@@ -292,7 +292,7 @@ end-point serves the <a href="http.html#interactions">usual interactions</a>.
 Bundles are treated as static resources on the /Bundle end-point (i.e. when a
 batch, transaction, or message is POSTed to /Bundle, it is stored as is, and 
 the content is not processed as batch, transaction, or message - instead, they
-are processed like normal resource, with indexing / auditing etc.. Performing a 
+are processed like normal resource, with indexing / auditing etc. Performing a 
 GET /[base]/Bundle/[location] will return the same resource.
 </p>
 <p>

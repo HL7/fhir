@@ -33,7 +33,7 @@ A <code>QuestionnaireResponse</code> may be stand-alone or may point to the defi
 If the QuestionnaireResponse refers to a Questionnaire:
 </p>
 <ul>
- <li>The QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc..</li>
+ <li>The QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.</li>
  <li>The linkage between the questions and groups in the two resources is established using the <code>linkId</code> element</li>
  <li>LinkIds are unique across all items in a Questionnaire, but can sometimes appear multiple times within a QuestionnaireResponse if the corresponding item (or one of its ancestors) is allowed to repeat.</li>
  <li>When a QuestionnaireResponse references a Questionnaire, all the items in the questionnaire SHOULD be included in the QuestionnaireResponse 
@@ -60,10 +60,10 @@ Validating QuestionnaireResponses
 </h3>
 <p>
 Rules imposed by a Questionnaire about expectations for answers are not expected to be met until a Questionnaire is deemed to be 'completed' (or 'amended').  For example, items
-that are marked as 'required' may be omitted, minimum numbers of answers might not be met, length requirement for answers, co-occurrence constraints, etc.. might all be violated when
+that are marked as 'required' may be omitted, minimum numbers of answers might not be met, length requirement for answers, co-occurrence constraints, etc. might all be violated when
 the QuestionnaireResponse is still in the process of being completed.  QuestionnaireResponses may be stored in this 'incomplete' state.  Such QuestionnaireResponses might also include
-data for disabled questions, entries and text for non-answered questions, etc..  However, once a QuestionnaireResponse is marked as 'completed' (including if it is subsequently changed
-to 'amended'), all requirements of the associated Questionnaire must be met, all non-answered question items must be removed, all non-enabled items must be removed, etc..  (Display items
+data for disabled questions, entries and text for non-answered questions, etc.  However, once a QuestionnaireResponse is marked as 'completed' (including if it is subsequently changed
+to 'amended'), all requirements of the associated Questionnaire must be met, all non-answered question items must be removed, all non-enabled items must be removed, etc.  (Display items
 MAY be retained.  Certain extensions on the Questionnaire item may mandate that a display item needed for a human reviewer to interpret the QuestionnaireResponse be retained in a
 completed QuestionnaireResponse.)
 </p>
@@ -94,7 +94,7 @@ Access Control
 </h3>
 <p>
 For most resources, the type of information that can be conveyed in the resource is determined by the resource, and the key attributes that
-determine the sensitivity level of the information are also known; e.g., drug, observation type, clinical trial randomization status, etc..  However, for QuestionnaireResponse, the
+determine the sensitivity level of the information are also known; e.g., drug, observation type, clinical trial randomization status, etc.  However, for QuestionnaireResponse, the
 sensitivity of an instance is dependent on what type of Questionnaire it is associated with.  And the data elements that determine that
 sensitivity could be the answers to any of the questions.  This makes automatically enforcing access control rules more challenging.  Designers
 should take these challenges into account and may need to place stricter access controls around QuestionnaireResponse to ensure that access to
@@ -106,7 +106,7 @@ information is not granted improperly.
 Profiling QuestionnaireResponses
 </h3>
 <p>
-It is possible to <a href="profiling.html">profile</a> QuestionnaireResponse in the same way as any other resource.  However, such profiling should not be used to constrain QuestionnaireResponse to only be able to capture the answers associated with a single type of form - that is what the <a href="questionnaire.html">Questionnaire</a> resource is for.  Profiling QuestionnaireResponse is appropriate when there's a need to enforce that certain metadata is always present, to indicate limitations on what types of answers can be handled, etc.. - independent of what Questionnaire is being completed.
+It is possible to <a href="profiling.html">profile</a> QuestionnaireResponse in the same way as any other resource.  However, such profiling should not be used to constrain QuestionnaireResponse to only be able to capture the answers associated with a single type of form - that is what the <a href="questionnaire.html">Questionnaire</a> resource is for.  Profiling QuestionnaireResponse is appropriate when there's a need to enforce that certain metadata is always present, to indicate limitations on what types of answers can be handled, etc. - independent of what Questionnaire is being completed.
 </p>
 
 </div>

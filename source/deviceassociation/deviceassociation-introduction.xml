@@ -6,7 +6,7 @@
 <p>Device Association records the relationship between a device and a subject and/or operator. The scope covers all devices including, but not limited to: implantables (which previously was documented as the .association in the Device resource), wheelchairs, RTLS, personal health and point of care devices, diagnostic, imaging and durable medical equipment. This resource is intended to apply to any delivery environment and discipline where a device association is useful to record.</p>
 <p>The subjects may include:</p>
 <ul>
-<li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc..</li>
+<li><strong>Patient</strong> - the following are often associated with a specific patient: implantables, prosthetics, activity trackers, mobility assistance, care monitoring, etc.</li>
 <li><strong>Group</strong> - some devices may be associated with a family group or treatment group. For example a weight scale or blood pressure cuff.</li>
 <li><strong>Practitioner</strong> - a device that is associated with the practitioner: pager, alert monitor, cell phone, laptop/tablet</li>
 <li><strong>Device</strong> - a device may be associated with another device when it is independent of the focal device.  Note: this is different than the containment tree with parent element in the Device resource. For example a RFID tag used to track the location of a wheelchair.</li>

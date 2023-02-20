@@ -6,7 +6,7 @@
 <p>Procedure is one of the <a href="workflow.html#event">event</a> resources in the FHIR <a href="workflow.html">workflow</a> specification.</p>
 
 <p>
-This resource is used to record the details of current and historical procedures performed on, with, or for a patient, practitioner, device, organization, or location. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, verification of enrollment qualifications for a social program etc.. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves.
+This resource is used to record the details of current and historical procedures performed on, with, or for a patient, practitioner, device, organization, or location. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, personal support services, adult day care services, non-emergency transportation, home modification, exercise, verification of enrollment qualifications for a social program etc. Procedures may be performed by a healthcare professional, a service provider, a friend or relative or in some cases by the patient themselves.
 </p>
 <p>
 Procedures can be performed on other non-patient subjects.  For example, a procedure can represent an inspection to verify temperature or humidity for storage at a given location.  Additionally, a procedure can represent the verification of the practitioner's qualifications for accreditation.
@@ -40,7 +40,7 @@ the Procedure resource is used to describe the activity.
 </p>
 <p> Some diagnostic procedures might not have a Procedure record. The Procedure record is only necessary when 
 there is a need to capture information about the physical intervention that was performed to capture the diagnostic 
-information (e.g. anesthetic, incision, scope size, etc..)</p>
+information (e.g. anesthetic, incision, scope size, etc.)</p>
 <p>
 A <a href="task.html">Task</a> is a workflow step such as cancelling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient. 
 Procedures are actions that are intended to result in a physical or mental change to or for the subject (e.g. surgery, physiotherapy, training, counseling). 

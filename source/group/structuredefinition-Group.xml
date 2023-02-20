@@ -195,7 +195,7 @@
     <element id="Group.code">
       <path value="Group.code"/>
       <short value="Kind of Group members"/>
-      <definition value="Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc.."/>
+      <definition value="Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc."/>
       <comment value="This would generally be omitted for Person resources."/>
       <min value="0"/>
       <max value="1"/>
@@ -208,7 +208,7 @@
           <valueString value="GroupKind"/>
         </extension>
         <strength value="example"/>
-        <description value="Kind of particular resource; e.g. cow, syringe, lake, etc.."/>
+        <description value="Kind of particular resource; e.g. cow, syringe, lake, etc."/>
       </binding>
       <mapping>
         <identity value="w5"/>
@@ -318,7 +318,7 @@
           <valueString value="GroupCharacteristicKind"/>
         </extension>
         <strength value="example"/>
-        <description value="List of characteristics used to describe group members; e.g. gender, age, owner, location, etc.."/>
+        <description value="List of characteristics used to describe group members; e.g. gender, age, owner, location, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -354,7 +354,7 @@
           <valueString value="GroupCharacteristicValue"/>
         </extension>
         <strength value="example"/>
-        <description value="Value of descriptive member characteristic; e.g. red, male, pneumonia, Caucasian, etc.."/>
+        <description value="Value of descriptive member characteristic; e.g. red, male, pneumonia, Caucasian, etc."/>
       </binding>
       <mapping>
         <identity value="rim"/>

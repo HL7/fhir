@@ -15,7 +15,7 @@
   <div>
   <h2>Boundaries and Relationships</h2>
   <p>
-    The MolecularSequence resource should only be used to capture a molecular sequence. It will not be used for other entities such as variant, variant annotations, genotypes, haplotypes, etc.. Those concepts will be captured in <code>Observation</code> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The sequence that was observed that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
+    The MolecularSequence resource should only be used to capture a molecular sequence. It will not be used for other entities such as variant, variant annotations, genotypes, haplotypes, etc. Those concepts will be captured in <code>Observation</code> profiles found in the <a href="http://hl7.org/fhir/uv/genomics-reporting/index.html">Genomics Reporting Implementation Guide</a>. The sequence that was observed that led to the identification of those concepts can be delivered with this resource, and will be referenced by those observations.
   </p>
   <p>
     MolecularSequence will not be used to capture data such as precise read of DNA sequences and sequence alignment are not included; such data may be accessible through references to <a href="http://ga4gh.org/#/">GA4GH</a> (Global Alliance for Genomics and Health) API, and may be referenced to by the <code>formatted</code> element.

@@ -165,7 +165,7 @@
       <path value="HealthcareService.offeredIn"/>
       <short value="The service within which this service is offered"/>
       <definition value="When the HealthcareService is representing a specific, schedulable service, the availableIn property can refer to a generic service."/>
-      <comment value="For example, if there is a generic Radiology service that offers CT Scans, MRIs, etc..  You could have HealthcareService resources for the CT Scans and MRIs, which have an offeredIn reference to the Radiology HealthcareService."/>
+      <comment value="For example, if there is a generic Radiology service that offers CT Scans, MRIs, etc.  You could have HealthcareService resources for the CT Scans and MRIs, which have an offeredIn reference to the Radiology HealthcareService."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -337,7 +337,7 @@
       <path value="HealthcareService.contact"/>
       <short value="Official contact details for the HealthcareService"/>
       <definition value="The contact details of communication devices available relevant to the specific HealthcareService. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc..&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location's contacts."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the HealthcareService itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the location's contacts."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
       <min value="0"/>
       <max value="*"/>

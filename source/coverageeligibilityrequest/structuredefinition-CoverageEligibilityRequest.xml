@@ -363,7 +363,7 @@
     <element id="CoverageEligibilityRequest.supportingInfo.information">
       <path value="CoverageEligibilityRequest.supportingInfo.information"/>
       <short value="Data to be provided"/>
-      <definition value="Additional data or information such as resources, documents, images etc.. including references to the data or the actual inclusion of the data."/>
+      <definition value="Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data."/>
       <comment value="Could be used to provide references to other resources, document. For example could contain a PDF in an Attachment of the Police Report for an Accident."/>
       <requirements value="To convey the data content to be provided when the information is more than a simple code or period."/>
       <min value="1"/>
@@ -481,7 +481,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision etc.."/>
+        <description value="Benefit categories such as: oral, medical, vision etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>

@@ -412,7 +412,7 @@
     <element id="ManufacturedItemDefinition.component.constituent.location">
       <path value="ManufacturedItemDefinition.component.constituent.location"/>
       <short value="The physical location of the constituent/ingredient within the component"/>
-      <definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc.."/>
+      <definition value="The physical location of the constituent/ingredient within the component. Example – if the component is the bead in the capsule, then the location would be where the ingredient resides within the product part – intragranular, extra-granular, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

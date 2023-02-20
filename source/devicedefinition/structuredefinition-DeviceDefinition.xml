@@ -722,7 +722,7 @@
       <path value="DeviceDefinition.property.value[x]"/>
       <short value="Property value - as a code or quantity"/>
       <definition value="Property value - the data type depends on the property type."/>
-      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc.."/>
+      <comment value="The usage of CodeableConcept is for concepts that are normally coded but for which a code is not available - for example a device implant size that is not standardized. The property string is for text characteristics, e.g. long descriptions, warnings, etc."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -770,7 +770,7 @@
       <path value="DeviceDefinition.contact"/>
       <short value="Details for human/organization for support"/>
       <definition value="Contact details for an organization or a particular human that is responsible for the device."/>
-      <comment value="used for troubleshooting etc.."/>
+      <comment value="used for troubleshooting etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

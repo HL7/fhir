@@ -16,7 +16,7 @@
     Use of Procedure.used
 </h3>
     <p>
-        For devices, these are devices that are incidental to / or used to perform the procedure - scalpels, gauze, endoscopes, etc.. 
+        For devices, these are devices that are incidental to / or used to perform the procedure - scalpels, gauze, endoscopes, etc. 
         Devices that are the focus of the procedure should appear in Procedure.device instead.
     </p>
 </div>

@@ -22,7 +22,7 @@ Some specimens are biological and can contain one or more components including b
 The current definition of the specimen resource contains only basic information about specimen containers. It does not
 address the recursive nature of containers or the tracking of the location of a container within its parent container
 (for instance: a tube in a tray in a rack in a freezer). The frequency with which these elements are tracked may depend on the context
-of use; general lab, bio-banking, etc.. Comments from reviewers on the appropriate scope for this resource, and the need for tracking
+of use; general lab, bio-banking, etc. Comments from reviewers on the appropriate scope for this resource, and the need for tracking
 related specimen management attributes, are welcomed.
 </p>
 	</div>

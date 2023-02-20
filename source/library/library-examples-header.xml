@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<p>These examples illustrate the use of the Library resource to share quality measurement and improvement logic as a FHIR resource. Note that the actual content of each library (the Clinical Quality Language (CQL) source, or the XML for the information model definition, etc..) should be contained in the <code>content</code> element as an <code>Attachment</code>. For illustration purposes, the content of each library is included in its raw form, and linked here.</p>
+<p>These examples illustrate the use of the Library resource to share quality measurement and improvement logic as a FHIR resource. Note that the actual content of each library (the Clinical Quality Language (CQL) source, or the XML for the information model definition, etc.) should be contained in the <code>content</code> element as an <code>Attachment</code>. For illustration purposes, the content of each library is included in its raw form, and linked here.</p>
 
 <table>
 	<thead>

@@ -733,7 +733,7 @@
         <valueCode value="right"/>
       </extension>
       <path value="Specimen.container"/>
-      <short value="Direct container of specimen (tube/slide, etc..)"/>
+      <short value="Direct container of specimen (tube/slide, etc.)"/>
       <definition value="The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here."/>
       <min value="0"/>
       <max value="*"/>

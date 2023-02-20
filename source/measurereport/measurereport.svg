@@ -421,7 +421,7 @@ code</a>
  [0..1] « <a
    xlink:href="valueset-measure-population.html"
    id="n584"><title
-   id="n585">The type of population (e.g. initial, numerator, denominator, etc..). (Strength=Extensible)</title>
+   id="n585">The type of population (e.g. initial, numerator, denominator, etc.). (Strength=Extensible)</title>
 MeasurePopulationType</a>
 + »</text>
     <text
@@ -645,7 +645,7 @@ code</a>
  [0..1] « <a
    xlink:href="valueset-measure-population.html"
    id="n650"><title
-   id="n651">The type of population (e.g. initial, numerator, denominator, etc..). (Strength=Extensible)</title>
+   id="n651">The type of population (e.g. initial, numerator, denominator, etc.). (Strength=Extensible)</title>
 MeasurePopulationType</a>
 + »</text>
     <text

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- This is a bare-bones referral intended to show how the Basic resource might be used.
 A real referral would likely include references to supporting information such as medication lists,
-problem lists, allergy lists, etc..
+problem lists, allergy lists, etc.
 Note: ServiceRequest has been incorporated in the specification; this example will be rewritten
 in a future version (todo).
 -->

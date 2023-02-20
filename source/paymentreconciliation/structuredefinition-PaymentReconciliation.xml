@@ -160,7 +160,7 @@
     <element id="PaymentReconciliation.kind">
       <path value="PaymentReconciliation.kind"/>
       <short value="Workflow originating payment"/>
-      <definition value="The workflow or activity which gave rise to or during which the payment ocurred such as a kiosk, deposit on account, periodic payment etc.."/>
+      <definition value="The workflow or activity which gave rise to or during which the payment ocurred such as a kiosk, deposit on account, periodic payment etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -382,7 +382,7 @@
     <element id="PaymentReconciliation.cardBrand">
       <path value="PaymentReconciliation.cardBrand"/>
       <short value="Type of card"/>
-      <definition value="The card brand such as debit, Visa, Amex etc.. used if a card is the method of payment."/>
+      <definition value="The card brand such as debit, Visa, Amex etc. used if a card is the method of payment."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -574,7 +574,7 @@
       <path value="PaymentReconciliation.allocation.type"/>
       <short value="Category of payment"/>
       <definition value="Code to indicate the nature of the payment."/>
-      <comment value="For example: payment, adjustment, funds advance, etc.."/>
+      <comment value="For example: payment, adjustment, funds advance, etc."/>
       <requirements value="Needed to provide context for the amount."/>
       <min value="0"/>
       <max value="1"/>

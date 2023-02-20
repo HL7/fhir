@@ -31,7 +31,7 @@
   <p>
     Request resources describe what activity is desired/authorized.  Requests do not track the execution/fulfillment
     of the plan, proposal or order.  I.e. the request resource will not indicate actual performer, actual performance
-    time, actual action performed, etc..  Information about what action (if any) has occurred against the request is
+    time, actual action performed, etc.  Information about what action (if any) has occurred against the request is
     tracked using the corresponding <a href="event.html">Event</a> resource(s).  Events that are associated with
     the request should have a <code>basedOn</code> link referencing the request.  In addition, a linkage can be
     established (and information about progress of execution) may be found in <a href="task.html">Task</a> resources
@@ -140,7 +140,7 @@
     <li><code>supportingInfo</code> is information typically provided at the time the request is activated, though it can be added later.</li>
     <li><code>supportingInfo</code> is information needed by the filler in order to be able to perform the order (e.g. recent lab tests
       supporting a referral, patient height/weight/age supporting a dosage instruction - or allowing calculation of dosage, previous
-      procedures done, etc.. to support a Claim.</li>
+      procedures done, etc. to support a Claim.</li>
     <li><code>notes</code> should never be used to reflect information conveyed in <code>supportingInfo</code>.</li>
   </ul>
 
@@ -149,7 +149,7 @@
   <p>
     This pattern contains an element called "relevantHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the
     resource to summarize key events that have happened over the lifespan of the resource.  For example, when the request was created,
-    when it was suspended, when it was released, etc..  The list of referenced Provenence entries don't necessarily include <i>all</i> events
+    when it was suspended, when it was released, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events
     that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to
     downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
     Provenance for changes to other resources (e.g. fulfilling events) might also be included if the source system tracks those as

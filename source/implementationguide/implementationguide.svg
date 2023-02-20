@@ -1147,7 +1147,7 @@ anchor</a>
     <a
        xlink:href="implementationguide-definitions.html#ImplementationGuide.dependsOn"
        id="n1157"><title
-   id="title326">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc..defined in other implementation guides</title>
+   id="title326">Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides</title>
 dependsOn</a>
   </text>
   <text
@@ -1258,7 +1258,7 @@ grouping</a>
     <a
        xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.resource"
        id="n1175"><title
-   id="title350">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc..) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
+   id="title350">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
 resource</a>
   </text>
   <text
@@ -1494,7 +1494,7 @@ definition</a>
     <a
        xlink:href="implementationguide-definitions.html#ImplementationGuide.manifest.resource"
        id="n1213"><title
-   id="title400">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc..) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
+   id="title400">A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource</title>
 resource</a>
   </text>
   <text

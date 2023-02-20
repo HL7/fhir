@@ -108,8 +108,8 @@
     </element>
     <element id="PackagedProductDefinition.name">
       <path value="PackagedProductDefinition.name"/>
-      <short value="A name for this package. Typically as listed in a drug formulary, catalogue, inventory etc."/>
-      <definition value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc.."/>
+      <short value="A name for this package. Typically as listed in a drug formulary, catalogue, inventory etc"/>
+      <definition value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -123,8 +123,8 @@
     </element>
     <element id="PackagedProductDefinition.type">
       <path value="PackagedProductDefinition.type"/>
-      <short value="A high level category e.g. medicinal product, raw material, shipping container etc."/>
-      <definition value="A high level category e.g. medicinal product, raw material, shipping/transport container, etc.."/>
+      <short value="A high level category e.g. medicinal product, raw material, shipping container etc"/>
+      <definition value="A high level category e.g. medicinal product, raw material, shipping/transport container, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -609,8 +609,8 @@
     </element>
     <element id="PackagedProductDefinition.packaging.containedItem.item">
       <path value="PackagedProductDefinition.packaging.containedItem.item"/>
-      <short value="The actual item(s) of medication, as manufactured, or a device, or other medically related item (food, biologicals, raw materials, medical fluids, gases etc..), as contained in the package"/>
-      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc..), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.packaging.packaging)."/>
+      <short value="The actual item(s) of medication, as manufactured, or a device, or other medically related item (food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package"/>
+      <definition value="The actual item(s) of medication, as manufactured, or a device (typically, but not necessarily, a co-packaged one), or other medically related item (such as food, biologicals, raw materials, medical fluids, gases etc.), as contained in the package. This also allows another whole packaged product to be included, which is solely for the case where a package of other entire packages is wanted - such as a wholesale or distribution pack (for layers within one package, use PackagedProductDefinition.packaging.packaging)."/>
       <min value="1"/>
       <max value="1"/>
       <type>

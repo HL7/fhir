@@ -242,7 +242,7 @@
       <path value="CapabilityStatement.title"/>
       <short value="Name for this capability statement (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -341,7 +341,7 @@
       <path value="CapabilityStatement.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -356,7 +356,7 @@
       <path value="CapabilityStatement.description"/>
       <short value="Natural language description of the capability statement"/>
       <definition value="A free text natural language description of the capability statement from a consumer's perspective. Typically, this is used when the capability statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the capability statement as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the capability statement as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the capability statement is presumed to be the predominant language in the place the capability statement was created).This does not need to be populated if the description is adequately implied by the software or implementation details."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -453,7 +453,7 @@
       <path value="CapabilityStatement.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -919,7 +919,7 @@
       </extension>
       <path value="CapabilityStatement.rest.resource.supportedProfile"/>
       <short value="Use-case specific profiles"/>
-      <definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc.. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
+      <definition value="A list of profiles representing different use cases the system hosts/produces. A supported profile is a statement about the functionality of the data and services provided by the server (or the client) for supported use cases. For example, a system can define and declare multiple Observation profiles for laboratory observations, vital sign observations, etc. By declaring supported profiles, systems provide a way to determine whether individual resources are conformant. See further discussion in [Using Profiles](profiling.html#profile-uses)."/>
       <comment value="Supported profiles must conform to the resource profile in the `.rest.resource.profile` element if it is present. The resource profile is a system-wide profile applied across *all* instances of the resource supported by the system. A supported profile is a statement about the functionality of the data and services provided by the server (or used by the client) for a particular set of use cases and will not necessarily apply to all data consumed or exposed by the server."/>
       <min value="0"/>
       <max value="*"/>
@@ -1183,7 +1183,7 @@
       <path value="CapabilityStatement.rest.resource.searchParam"/>
       <short value="Search parameters supported by implementation"/>
       <definition value="Search parameters for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation."/>
-      <comment value="The search parameters should include the control search parameters such as _sort, _count, etc.. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+      <comment value="The search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -1354,7 +1354,7 @@
       <path value="CapabilityStatement.rest.searchParam"/>
       <short value="Search parameters for searching all resources"/>
       <definition value="Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation. This is only for searches executed against the system-level endpoint."/>
-      <comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc.. These search parameters should include the control search parameters such as _sort, _count, etc.. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
+      <comment value="Typically, the only search parameters supported for all searches are those that apply to all resources - tags, profiles, text search etc. These search parameters should include the control search parameters such as _sort, _count, etc. that also apply to this resource (though many will be listed at [CapabilityStatement.rest.searchParam](capabilitystatement-definitions.html#CapabilityStatement.rest.searchParam)). The behavior of some search parameters may be further described by other code or extension elements, or narrative within the capability statement or linked [SearchParameter](searchparameter.html#) definitions."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#CapabilityStatement.rest.resource.searchParam"/>
@@ -1508,7 +1508,7 @@
     <element id="CapabilityStatement.messaging.supportedMessage.definition">
       <path value="CapabilityStatement.messaging.supportedMessage.definition"/>
       <short value="Message supported by this system"/>
-      <definition value="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc.."/>
+      <definition value="Points to a message definition that identifies the messaging event, message structure, allowed responses, etc."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1562,7 +1562,7 @@
       </extension>
       <path value="CapabilityStatement.document.documentation"/>
       <short value="Description of document support"/>
-      <definition value="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc.."/>
+      <definition value="A description of how the application supports or uses the specified document profile.  For example, when documents are created, what action is taken with consumed documents, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

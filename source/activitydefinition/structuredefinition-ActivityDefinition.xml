@@ -254,7 +254,7 @@
       <path value="ActivityDefinition.title"/>
       <short value="Name for this activity definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the activity definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -382,7 +382,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc..)."/>
+        <description value="The possible types of subjects for an activity (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -451,7 +451,7 @@
       <path value="ActivityDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -474,7 +474,7 @@
       <path value="ActivityDefinition.description"/>
       <short value="Natural language description of the activity definition"/>
       <definition value="A free text natural language description of the activity definition from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the activity definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the activity definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the activity definition is presumed to be the predominant language in the place the activity definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -631,7 +631,7 @@
       <path value="ActivityDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -728,7 +728,7 @@
         <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
       </extension>
       <path value="ActivityDefinition.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc.."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches."/>
       <min value="0"/>
@@ -819,7 +819,7 @@
     </element>
     <element id="ActivityDefinition.relatedArtifact">
       <path value="ActivityDefinition.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc.."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -1003,7 +1003,7 @@
     <element id="ActivityDefinition.asNeeded[x]">
       <path value="ActivityDefinition.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1018,7 +1018,7 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
@@ -1029,7 +1029,7 @@
     <element id="ActivityDefinition.location">
       <path value="ActivityDefinition.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.."/>
+      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may just identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <alias value="facility"/>
@@ -1124,7 +1124,7 @@
     </element>
     <element id="ActivityDefinition.participant.role">
       <path value="ActivityDefinition.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc.."/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc"/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -1146,8 +1146,8 @@
     </element>
     <element id="ActivityDefinition.participant.function">
       <path value="ActivityDefinition.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc.."/>
-      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc.."/>
+      <short value="E.g. Author, Reviewer, Witness, etc"/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1200,7 +1200,7 @@
     <element id="ActivityDefinition.quantity">
       <path value="ActivityDefinition.quantity"/>
       <short value="How much is administered/consumed/supplied"/>
-      <definition value="Identifies the quantity expected to be consumed at once (per dose, per meal, etc..)."/>
+      <definition value="Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)."/>
       <alias value="dose"/>
       <min value="0"/>
       <max value="1"/>

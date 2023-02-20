@@ -92,7 +92,7 @@
       <path value="Observation"/>
       <short value="Measurements and simple assertions"/>
       <definition value="Measurements and simple assertions made about a patient, device or other subject."/>
-      <comment value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc..  Other resources are used to provide context for observations such as laboratory reports, etc.."/>
+      <comment value="Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as laboratory reports, etc."/>
       <alias value="Vital Signs"/>
       <alias value="Measurement"/>
       <alias value="Results"/>
@@ -788,7 +788,7 @@
     </element>
     <element id="Observation.interpretation">
       <path value="Observation.interpretation"/>
-      <short value="High, low, normal, etc.."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
@@ -1117,7 +1117,7 @@
       <short value="Reference range qualifier"/>
       <definition value="Codes to indicate the what part of the targeted reference population it applies to. For example, the normal or therapeutic range."/>
       <comment value="This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed."/>
-      <requirements value="Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc..,  - for proper interpretation."/>
+      <requirements value="Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc.,  - for proper interpretation."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1446,7 +1446,7 @@
         <valueString value="#9676."/>
       </extension>
       <path value="Observation.component.interpretation"/>
-      <short value="High, low, normal, etc.."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>

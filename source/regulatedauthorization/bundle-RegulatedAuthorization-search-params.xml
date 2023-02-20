@@ -89,7 +89,7 @@
           <valueString value="RegulatedAuthorization.region"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/RegulatedAuthorization-region"/>
-        <description value="The territory (e.g., country, jurisdiction etc..) in which the authorization has been granted"/>
+        <description value="The territory (e.g., country, jurisdiction etc.) in which the authorization has been granted"/>
         <code value="region"/>
         <type value="token"/>
         <expression value="RegulatedAuthorization.region"/>

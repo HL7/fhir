@@ -16,7 +16,7 @@ with different types or levels of organization.
 <h2>Boundaries and Relationships</h2>
 <p>
 The Organization resource is used for collections of people that have come together to achieve an objective.  
-The <a href="group.html">Group</a> resource is used to identify a collection of people (or animals, devices, etc..) 
+The <a href="group.html">Group</a> resource is used to identify a collection of people (or animals, devices, etc.) 
 that are gathered for the purpose of analysis or acting upon, but are not expected to act themselves.
 </p>
 	<p>

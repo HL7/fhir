@@ -23,7 +23,7 @@
 			<value value="http://hl7.org"/>
 		</telecom>
 	</contact>
-	<description value="This is the code specifying the high-level kind of document (e.g. Prescription, Discharge Summary, Report, etc..). Made up of a set of non-healthcare specific codes and all LOINC codes where scale type = 'DOC'."/>
+	<description value="This is the code specifying the high-level kind of document (e.g. Prescription, Discharge Summary, Report, etc.). Made up of a set of non-healthcare specific codes and all LOINC codes where scale type = 'DOC'."/>
 	<copyright value="This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use."/>
 	<compose>
 		<include>

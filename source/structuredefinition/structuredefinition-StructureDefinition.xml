@@ -357,7 +357,7 @@
       <path value="StructureDefinition.title"/>
       <short value="Name for this structure definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the structure definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc..Applications don't have to use this name but can always fall back to it. The title also corresponds to the label for the root element."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.Applications don't have to use this name but can always fall back to it. The title also corresponds to the label for the root element."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -468,7 +468,7 @@
       <path value="StructureDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc.."/>
+      <comment value="May be a web site, an email address, a telephone number, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -483,7 +483,7 @@
       <path value="StructureDefinition.description"/>
       <short value="Natural language description of the structure definition"/>
       <definition value="A free text natural language description of the structure definition from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the structure definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the structure definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the structure definition is presumed to be the predominant language in the place the structure definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -579,7 +579,7 @@
       <path value="StructureDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -698,7 +698,7 @@
     </element>
     <element id="StructureDefinition.mapping.comment">
       <path value="StructureDefinition.mapping.comment"/>
-      <short value="Versions, Issues, Scope limitations etc.."/>
+      <short value="Versions, Issues, Scope limitations etc"/>
       <definition value="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage."/>
       <min value="0"/>
       <max value="1"/>

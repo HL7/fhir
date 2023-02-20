@@ -121,10 +121,10 @@ In addition to this administrative gender, other kinds of gender or sex properti
 <ul>
 	<li><b>Gender Identity</b> - a gender the patient has indicated they consider themselves to be.  The gender identity can influence how the patient prefers to be addressed by care providers and other individuals.   The standard <a href="[%extensions-location%]StructureDefinition-individual-genderIdentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.  When determining how to address the patient, the <a href="[%extensions-location%]StructureDefinition-individual-pronouns.html">pronouns</a> extension may also be applicable.
 	</li>
-	<li><b>Sex for Clinical Use (SFCU)</b> - a categorization of a patient's clinical sex derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, etc.. This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practicies associated with the relevant reference population.  The standard <a href="[%extensions-location%]StructureDefinition-patient-sexForClinicalUse.html">sexForClinicalUse</a> extension may be used to communicate this property.
+	<li><b>Sex for Clinical Use (SFCU)</b> - a categorization of a patient's clinical sex derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, etc. This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practicies associated with the relevant reference population.  The standard <a href="[%extensions-location%]StructureDefinition-patient-sexForClinicalUse.html">sexForClinicalUse</a> extension may be used to communicate this property.
 	
 	<ul>
-	<li><b>Clinical Observations about sex characteristics</b> - a testable observation about a biological property of the patient.  This could include karyotypic/genetic/chromosomal sex, gonadal sex, ductal sex, hormone levels, or various other phenotypic attributes, etc..  Clinical observations about sex characteristics should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.  These observations may serve as supporting information for the Sex for Clinical Use categorization.
+	<li><b>Clinical Observations about sex characteristics</b> - a testable observation about a biological property of the patient.  This could include karyotypic/genetic/chromosomal sex, gonadal sex, ductal sex, hormone levels, or various other phenotypic attributes, etc.  Clinical observations about sex characteristics should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.  These observations may serve as supporting information for the Sex for Clinical Use categorization.
 	</li>
 	</ul>
 	</li>	
@@ -264,7 +264,7 @@ The match-grade extension has one of the <a href="[%extensions-location%]ValueSe
 One optional parameter to the MPI match operation is "userid", which is
 used to pass the user details from a trusted client to the MPI. This may 
 be used by the MPI to restrict the possible matches that are returned, based 
-on the user's rights. For example, a staff member covered by policies, etc..,
+on the user's rights. For example, a staff member covered by policies, etc.,
 may well get a different result than a patient trying to find their own 
 record. Note that this parameter is used where the user would not be 
 expected to log in to the MPI directly; whether this is appropriate or not is 

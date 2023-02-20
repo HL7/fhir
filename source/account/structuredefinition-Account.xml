@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/pafm/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.."/>
+  <description value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="rim"/>
@@ -70,7 +70,7 @@
       </extension>
       <path value="Account"/>
       <short value="Tracks balance, charges, for patient or cost center"/>
-      <definition value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.."/>
+      <definition value="A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc."/>
       <alias value="Cost center"/>
       <alias value="Record"/>
       <min value="0"/>
@@ -182,7 +182,7 @@
     <element id="Account.name">
       <path value="Account.name"/>
       <short value="Human-readable label"/>
-      <definition value="Name used for the account when displaying it to humans in reports, etc.."/>
+      <definition value="Name used for the account when displaying it to humans in reports, etc."/>
       <alias value="Title"/>
       <min value="0"/>
       <max value="1"/>
@@ -312,7 +312,7 @@
     <element id="Account.owner">
       <path value="Account.owner"/>
       <short value="Entity managing the Account"/>
-      <definition value="Indicates the service area, hospital, department, etc.. with responsibility for managing the Account."/>
+      <definition value="Indicates the service area, hospital, department, etc. with responsibility for managing the Account."/>
       <min value="0"/>
       <max value="1"/>
       <type>

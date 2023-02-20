@@ -602,7 +602,7 @@
       <path value="ClaimResponse.item.adjudication.category"/>
       <short value="Type of adjudication information"/>
       <definition value="A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item."/>
-      <comment value="For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.."/>
+      <comment value="For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc."/>
       <requirements value="Needed to enable understanding of the context of the other information in the adjudication."/>
       <min value="1"/>
       <max value="1"/>
@@ -1028,7 +1028,7 @@
           <valueString value="ServicePlace"/>
         </extension>
         <strength value="example"/>
-        <description value="Place of service: pharmacy, school, prison, etc.."/>
+        <description value="Place of service: pharmacy, school, prison, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-place"/>
       </binding>
       <mapping>
@@ -1125,7 +1125,7 @@
     <element id="ClaimResponse.addItem.bodySite.site">
       <path value="ClaimResponse.addItem.bodySite.site"/>
       <short value="Location"/>
-      <definition value="Physical service site on the patient (limb, tooth, etc..)."/>
+      <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
       <comment value="For example: Providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="1"/>
@@ -1623,7 +1623,7 @@
       <path value="ClaimResponse.total"/>
       <short value="Adjudication totals"/>
       <definition value="Categorized monetary totals for the adjudication."/>
-      <comment value="Totals for amounts submitted, co-pays, benefits payable etc.."/>
+      <comment value="Totals for amounts submitted, co-pays, benefits payable etc."/>
       <requirements value="To provide the requestor with financial totals by category for the adjudication."/>
       <min value="0"/>
       <max value="*"/>
@@ -1636,7 +1636,7 @@
       <path value="ClaimResponse.total.category"/>
       <short value="Type of adjudication information"/>
       <definition value="A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item."/>
-      <comment value="For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.."/>
+      <comment value="For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc."/>
       <requirements value="Needed to convey the type of total provided."/>
       <min value="1"/>
       <max value="1"/>

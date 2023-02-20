@@ -503,7 +503,7 @@
       <path value="Encounter.participant.type"/>
       <short value="Role of participant in encounter"/>
       <definition value="Role of participant in encounter."/>
-      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc.."/>
+      <comment value="The participant type indicates how an individual actor participates in an encounter. It includes non-practitioner participants, and for practitioners this is to describe the action type in the context of this encounter (e.g. Admitting Dr, Attending Dr, Translator, Consulting Dr). This is different to the practitioner roles which are functional roles, derived from terms of employment, education, licensing, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -914,7 +914,7 @@
     </element>
     <element id="Encounter.specialArrangement">
       <path value="Encounter.specialArrangement"/>
-      <short value="Wheelchair, translator, stretcher, etc.."/>
+      <short value="Wheelchair, translator, stretcher, etc"/>
       <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>
@@ -1188,8 +1188,8 @@
     </element>
     <element id="Encounter.location.form">
       <path value="Encounter.location.form"/>
-      <short value="The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc..)"/>
-      <definition value="This will be used to specify the required levels (bed/ward/room/etc..) desired to be recorded to simplify either messaging or query."/>
+      <short value="The physical type of the location (usually the level in the location hierarchy - bed, room, ward, virtual etc.)"/>
+      <definition value="This will be used to specify the required levels (bed/ward/room/etc.) desired to be recorded to simplify either messaging or query."/>
       <comment value="This information is de-normalized from the Location resource to support the easier understanding of the encounter resource and processing in messaging or query.&#xA;&#xA;There may be many levels in the hierachy, and this may only pic specific levels that are required for a specific usage scenario."/>
       <min value="0"/>
       <max value="1"/>

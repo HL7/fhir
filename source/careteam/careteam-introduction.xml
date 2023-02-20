@@ -22,7 +22,7 @@ The Care Team, depending on where used, may include care team members specific t
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Care Team is distinct from Group. Group identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc..) The participants within a CareTeam are the individual members or organized group of individuals.   
+Care Team is distinct from Group. Group identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) The participants within a CareTeam are the individual members or organized group of individuals.   
 
 CareTeam can be referenced by EpisodeOfCare, Encounter, or CarePlan to identify the set of individuals (and their respective roles) who are intended to be involved in providing the care defined by those resources. 
 

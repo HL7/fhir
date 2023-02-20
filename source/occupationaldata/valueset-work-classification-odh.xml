@@ -18,7 +18,7 @@
       <value value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7597"/>
     </telecom>
   </contact>
-  <description value="A value set consisting of codes pertaining to the classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc..). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status)."/>
+  <description value="A value set consisting of codes pertaining to the classification of a person's job (one job) as defined by compensation and sector (e.g. paid, unpaid, self-employed, government, etc.). This is different from employment status: a person who is a volunteer (work classification) may have chosen not to be in the labor force (employment status)."/>
   <compose>
     <include>
       <valueSet value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7597"/>

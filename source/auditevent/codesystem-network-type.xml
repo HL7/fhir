@@ -70,6 +70,6 @@
   <concept>
     <code value="5"/>
     <display value="URI"/>
-    <definition value="URI (User directory, HTTP-PUT, ftp, etc..)."/>
+    <definition value="URI (User directory, HTTP-PUT, ftp, etc.)."/>
   </concept>
 </CodeSystem>

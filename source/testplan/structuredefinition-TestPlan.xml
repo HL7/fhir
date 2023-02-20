@@ -237,7 +237,7 @@
     <element id="TestPlan.category">
       <path value="TestPlan.category"/>
       <short value="The category of the Test Plan - can be acceptance, unit, performance"/>
-      <definition value="The category of the Test Plan - can be acceptance, unit, performance, etc.."/>
+      <definition value="The category of the Test Plan - can be acceptance, unit, performance, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -449,8 +449,8 @@
     </element>
     <element id="TestPlan.testCase.testData.source[x]">
       <path value="TestPlan.testCase.testData.source[x]"/>
-      <short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc.."/>
-      <definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc.."/>
+      <short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc"/>
+      <definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -489,9 +489,6 @@
       <type>
         <code value="CodeableReference"/>
       </type>
-      <targetProfile>
-        <code value="Resource"/>
-      </targetProfile>
     </element>
     <element id="TestPlan.testCase.assertions.result">
       <path value="TestPlan.testCase.assertions.result"/>
@@ -502,9 +499,6 @@
       <type>
         <code value="CodeableReference"/>
       </type>
-      <targetProfile>
-        <code value="Resource"/>
-      </targetProfile>
     </element>
   </differential>
 </StructureDefinition>

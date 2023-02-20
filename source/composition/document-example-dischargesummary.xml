@@ -39,7 +39,7 @@
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
-      <!--   The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc..   -->
+      <!--   The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc.   -->
         <encounter>
           <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
         </encounter>

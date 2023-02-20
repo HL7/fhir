@@ -36,14 +36,14 @@ For elements that are part of the resource, the expectation is that "most" syste
 i.e. most systems will support capturing a patient's name, gender and date of birth.  But "most" does not mean
 "all". It is possible to be fully FHIR conformant and claim to support the Patient resource, but be incapable
 of storing any of those data elements.  There are use-cases where names may be unnecessary (e.g. agricultural
-veterinary systems, anonymized reporting, etc..) and similar use-cases for almost every data element.  No FHIR
+veterinary systems, anonymized reporting, etc.) and similar use-cases for almost every data element.  No FHIR
 resource elements start off as <a href="elementdefinition-definitions.html#ElementDefinition.mustSupport">mustSupport</a>
 and very few resource elements start off with a minimum cardinality other than "0".
 </p>
 <p>
 In the case of extensions, the very nature of a concept being an extension means that the designers of the
 specification expected that fewer than "most" systems would support the element, though support might vary
-widely by context.  An extension might be used by 100% of systems in some country, discipline, etc.. and not
+widely by context.  An extension might be used by 100% of systems in some country, discipline, etc. and not
 used by any systems in another context.  In any event, there is no guarantee that an arbitrary
 receiver will recognize and be able to persist any given extension.
 </p>

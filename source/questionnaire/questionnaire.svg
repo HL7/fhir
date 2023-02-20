@@ -543,7 +543,7 @@ text</a>
        style="fill:#000000"><a
    xlink:href="questionnaire-definitions.html#Questionnaire.item.type"
    id="n953"><title
-   id="title164">The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc..)</title>
+   id="title164">The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.)</title>
 type</a>
  : <a
    xlink:href="datatypes.html#code"

@@ -90,7 +90,7 @@
 		If a topic requires more granularity than interactions provide, a topic can provide state-change tests using either <a href="fhirpath.html">FHIRPath</a> or query (<a href="search.html">Search</a>) definitions.
 	</p>
 	<p>
-		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly or with minimal changes. In this scenario, the benefit of a computable definition is quite large (e.g., user-defined Subscription Topics, high portability, etc..). Second, implementers that do not use computable definitions directly will be able to read definitions during their implementation in order to precisely understand what is being defined.
+		Computable Definitions serve two purposes when defining topics. First, some server implementers may be able to use computable definitions directly or with minimal changes. In this scenario, the benefit of a computable definition is quite large (e.g., user-defined Subscription Topics, high portability, etc.). Second, implementers that do not use computable definitions directly will be able to read definitions during their implementation in order to precisely understand what is being defined.
 	</p>
 
 		<a name="query-criteria" />
@@ -146,7 +146,7 @@
 			The element <code>canFilterBy.filterParameter</code> contains the name of a parameter used to filter events for the focus resource, as defined by <code>resourceTrigger.resource</code> or <code>eventTrigger.resource</code>.  The name used in this element is only valid in the context of the Subscription Topic.
     </p>
     <p>
-      The filter parameter MAY be a Search Parameter, either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or Search Parameter defined for a specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc..).  When a Search Parameter is used, the topic SHALL contain a reference to a valid canonical definition in the <code>canFilterBy.filterDefinition</code> element.
+      The filter parameter MAY be a Search Parameter, either from the list of <a href="search.html#Summary">Parameters for all resources</a> (e.g., <code>_id</code>, <code>_tag</code>) or Search Parameter defined for a specific resource (e.g., <a href="encounter.html#search">Encounter Search Parameters</a>, <a href="patient.html#search">Patient search parameters</a>, etc.).  When a Search Parameter is used, the topic SHALL contain a reference to a valid canonical definition in the <code>canFilterBy.filterDefinition</code> element.
 		</p>
     <p>
       The filter parameter MAY be a filter defined in the context of a topic.  When a parameter is defined by a topic, the <code>canFilterBy.filterDefinition</code> SHOULD point to a URL containing detailed information about the parameter - e.g., datatype of the parameter.

@@ -114,7 +114,7 @@
     <concept>
       <code value="url"/>
       <display value="Url"/>
-      <definition value="Question with a URL (website, FTP site, etc..) answer (valueUri)."/>
+      <definition value="Question with a URL (website, FTP site, etc.) answer (valueUri)."/>
     </concept>
     <concept>
       <code value="coding"/>
@@ -124,12 +124,12 @@
     <concept>
       <code value="attachment"/>
       <display value="Attachment"/>
-      <definition value="Question with binary content such as an image, PDF, etc.. as an answer (valueAttachment)."/>
+      <definition value="Question with binary content such as an image, PDF, etc. as an answer (valueAttachment)."/>
     </concept>
     <concept>
       <code value="reference"/>
       <display value="Reference"/>
-      <definition value="Question with a reference to another resource (practitioner, organization, etc..) as an answer (valueReference)."/>
+      <definition value="Question with a reference to another resource (practitioner, organization, etc.) as an answer (valueReference)."/>
     </concept>
     <concept>
       <code value="quantity"/>

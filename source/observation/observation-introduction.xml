@@ -22,7 +22,7 @@
       </li>
       <li>Social history like tobacco use,  family support, or cognitive status</li>
       <li>Core characteristics like pregnancy status, or a death assertion</li>
-      <li>Product quality tests such as pH, Assay, Microbial limits, etc.. on product and substance</li>
+      <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
     </ul>
 
     <p>
@@ -43,7 +43,7 @@
           <td style="width:15%;text-align:center;">
             <a href="observation-vitalsigns.html">Vital signs</a>
           </td>
-          <td>The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc..) associated with a patient </td>
+          <td>The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
         </tr>
       </tbody>
     </table>

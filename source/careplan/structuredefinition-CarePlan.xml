@@ -157,7 +157,7 @@
       <path value="CarePlan.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan."/>
-      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -313,7 +313,7 @@
     <element id="CarePlan.category">
       <path value="CarePlan.category"/>
       <short value="Type of plan"/>
-      <definition value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc.."/>
+      <definition value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc."/>
       <comment value="There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.addresses."/>
       <requirements value="Used for filtering what plan(s) are retrieved and displayed to different types of users."/>
       <min value="0"/>
@@ -327,7 +327,7 @@
           <valueString value="CarePlanCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc.."/>
+        <description value="Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-category"/>
       </binding>
       <mapping>
@@ -562,7 +562,7 @@
       </extension>
       <path value="CarePlan.addresses"/>
       <short value="Health issues this plan addresses"/>
-      <definition value="Identifies the conditions/problems/concerns/diagnoses/etc.. whose management and/or mitigation are handled by this plan."/>
+      <definition value="Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan."/>
       <comment value="Use CarePlan.addresses.concept when a code sufficiently describes the concern (e.g. condition, problem, diagnosis, risk). Use CarePlan.addresses.reference when referencing a resource, which allows more information to be conveyed, such as onset date. CarePlan.addresses.concept and CarePlan.addresses.reference are not meant to be duplicative. For a single concern, either CarePlan.addresses.concept or CarePlan.addresses.reference can be used. CarePlan.addresses.concept may be a summary code, or CarePlan.addresses.reference may be used to reference a very precise definition of the concern using Condition. Both CarePlan.addresses.concept and CarePlan.addresses.reference can be used if they are describing different concerns for the care plan."/>
       <requirements value="The element can identify risks addressed by the plan as well as concerns.  Also scopes plans - multiple plans may exist addressing different concerns."/>
       <min value="0"/>
@@ -600,7 +600,7 @@
     <element id="CarePlan.supportingInfo">
       <path value="CarePlan.supportingInfo"/>
       <short value="Information considered as part of plan"/>
-      <definition value="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc.."/>
+      <definition value="Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc."/>
       <comment value="Use &quot;concern&quot; to identify specific conditions addressed by the care plan.  supportingInfo can be used to convey one or more Advance Directives or Medical Treatment Consent Directives by referencing Consent or any other request resource with intent = directive."/>
       <requirements value="Identifies barriers and other considerations associated with the care plan."/>
       <min value="0"/>
@@ -647,7 +647,7 @@
       </extension>
       <path value="CarePlan.activity"/>
       <short value="Action to occur or has occurred as part of plan"/>
-      <definition value="Identifies an action that has occurred or is a planned action to occur as part of the plan. For example, a medication to be used, lab tests to perform, self-monitoring that has occurred, education etc.."/>
+      <definition value="Identifies an action that has occurred or is a planned action to occur as part of the plan. For example, a medication to be used, lab tests to perform, self-monitoring that has occurred, education etc."/>
       <requirements value="Allows systems to prompt for performance of planned activities, and validate plans against best practice."/>
       <min value="0"/>
       <max value="*"/>
@@ -709,7 +709,7 @@
       <short value="Comments about the activity status/progress"/>
       <definition value="Notes about the adherence/status/progress of the activity."/>
       <comment value="This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description."/>
-      <requirements value="Can be used to capture information about adherence, progress, concerns, etc.."/>
+      <requirements value="Can be used to capture information about adherence, progress, concerns, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -769,7 +769,7 @@
       </extension>
       <path value="CarePlan.activity.plannedActivityDetail"/>
       <short value="In-line definition of activity"/>
-      <definition value="A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.."/>
+      <definition value="A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc."/>
       <requirements value="Details in a simple form for generic care plan systems."/>
       <min value="0"/>
       <max value="1"/>
@@ -833,7 +833,7 @@
       <path value="CarePlan.activity.plannedActivityDetail.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity."/>
-      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
       <requirements value="Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity."/>
       <min value="0"/>
       <max value="*"/>
@@ -900,7 +900,7 @@
           <valueString value="CarePlanActivityReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as &quot;general wellness&quot;, prophylaxis, surgical preparation, etc.."/>
+        <description value="Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as &quot;general wellness&quot;, prophylaxis, surgical preparation, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/clinical-findings"/>
       </binding>
       <mapping>
@@ -964,7 +964,7 @@
     <element id="CarePlan.activity.plannedActivityDetail.statusReason">
       <path value="CarePlan.activity.plannedActivityDetail.statusReason"/>
       <short value="Reason for current status"/>
-      <definition value="Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.."/>
+      <definition value="Provides reason why the activity isn't yet started, is on hold, was cancelled, etc."/>
       <comment value="Will generally not be present if status is &quot;complete&quot;.  Be sure to prompt to update this (or at least remove the existing value) if the status is changed."/>
       <min value="0"/>
       <max value="1"/>
@@ -976,7 +976,7 @@
           <valueString value="CarePlanActivityStatusReason"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes that describe the reason why the activity isn't yet started, is on hold, was cancelled, etc.."/>
+        <description value="Codes that describe the reason why the activity isn't yet started, is on hold, was cancelled, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-activity-status-reason"/>
       </binding>
       <mapping>
@@ -1042,7 +1042,7 @@
       </extension>
       <path value="CarePlan.activity.plannedActivityDetail.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.."/>
+      <definition value="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc."/>
       <comment value="May reference a specific clinical location or may identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <min value="0"/>
@@ -1212,7 +1212,7 @@
     <element id="CarePlan.activity.plannedActivityDetail.description">
       <path value="CarePlan.activity.plannedActivityDetail.description"/>
       <short value="Extra info describing activity to perform"/>
-      <definition value="This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.."/>
+      <definition value="This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -40,7 +40,7 @@
 		</p>
 		<blockquote>
 			<p>
-				<b>Note:</b> Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc..
+				<b>Note:</b> Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc.
 			</p>
 		</blockquote>
 		<blockquote>
@@ -175,7 +175,7 @@
 			<li>Using FHIR Messaging to invoke the same operation, see <a href="#messaging">below</a></li>
 			<li>An integration engine sending HL7v2 A40 merge message (A18 may also be applicable in backward compatibility modes)</li>
 			<li>Directly calling the $merge operation on the dependent systems (requires the system to have both patient resources)</li>
-			<li>Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc....)</li>
+			<li>Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc...)</li>
 			<li>Using Subscriptions to detect the merge operation has occurred (on Provenance and/or Patient)</li>
 			<li>Polling the Merge Provenance resource (or the Patient resource for the relevant link change)</li>
 			<li>(other non standard notification channels)</li>
@@ -349,7 +349,7 @@
 					Linking two or more patients does not require the actual merging of patient information; following a link event, the affected patient data records should remain distinct.  
 					For example, this event could be used in a hospital network environment in which there are multiple campuses and in which records need to be linked.  
 					For example, hospital A, hospital B, and hospital C would each keep their own records on a patient, but an A24 link event would be sent to a corporate-wide MPI to enable the coupling of ID information with the corporate ID number.  
-					It is used for corporate data repositories, etc..  
+					It is used for corporate data repositories, etc.  
 					This event is not meant to link mothers and babies since a field exists (PID-21-mother’s identifier) for that purpose.  See Section 3.5.3, “Patient record links,” for a discussion of issues related to implementing patient link messages and MPI issues.
 				</p>
 				<p>

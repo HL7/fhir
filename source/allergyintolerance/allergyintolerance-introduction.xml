@@ -130,7 +130,7 @@ AllergyIntolerance describes a specific type of risk - propensity to reaction to
 		</p>
 		<ul>
 			<li>The allergy/intolerance list exists as a patient safety tool to inform decision support around ordering of medications and nutrition and to guide clinical treatment.  Other reactions triggered by physical stimuli -- light, heat, cold, pressure, vibration, which may mimic allergic or intolerance reactions, should be recorded as <a href="condition.html">Condition</a> on the problem list, not using AllergyIntolerance.</li>
-			<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example, abnormal use or mistakes/errors made in maladministration of an agent or substance, incorrect dosage, mislabeling, harm or injury caused by an intervention or procedure, overdose/poisoning, etc..</li>
+			<li>Not to be used to record adverse events, including failures of clinical process, interventions or products. For example, abnormal use or mistakes/errors made in maladministration of an agent or substance, incorrect dosage, mislabeling, harm or injury caused by an intervention or procedure, overdose/poisoning, etc.</li>
 			<li>Not to be used as a proxy for an adverse event report. See above for how it may be used as one component of an adverse event report.</li>
 			<li>Not to be used for recording alerts. Alerts are handled using <a href="flag.html">Flag</a> or - where event-specific, <a href="detectedissue.html">DetectedIssue</a>.
 			</li>

@@ -59,7 +59,7 @@
 
     When a computable unit is provided, UCUM (http://unitsofmeasure.org)
     is always preferred, but it doesn't provide notional units (such as
-    "tablet"), etc.. For these, something else is required (e.g. SNOMED CT)
+    "tablet"), etc. For these, something else is required (e.g. SNOMED CT)
     -->
 	<valueQuantity>
 		<value value="185"/>

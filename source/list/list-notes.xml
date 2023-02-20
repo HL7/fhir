@@ -10,7 +10,7 @@ family history or other information typically handled via <b>List</b>, they have
   <li>They can query for List instances of the appropriate type; or </li>
   <li>They can query against the resource endpoint for the resources that make up the list
     (e.g. <a href="allergyintolerance.html">AllergyIntolerance</a>, <a href="condition.html">Condition</a>
-    <a href="medicationstatement.html">MedicationStatement</a>, etc..), possibly filtering by time, etc..</li>
+    <a href="medicationstatement.html">MedicationStatement</a>, etc.), possibly filtering by time, etc.</li>
   <li>They can query against the resource endpoint, requesting one of the 
   <a href="lifecycle.html#current">Current</a> resource lists</li>
 </ul>
@@ -144,7 +144,7 @@ human-readable rendering of the content. In addition, if the List.text.status is
 "generated", then the narrative should not suggest the list 
 contains items for which there are no corresponding List.item elements. 
 If the list has flags, the representation should make clear use of visual 
-hints (borders, lines, bullet marks, etc..) to ensure that human readers 
+hints (borders, lines, bullet marks, etc.) to ensure that human readers 
 do not get confused about which flags belong with which item on space-poor 
 displays (e.g. to prevent wrapping from separating the flags from the items).
 </p>

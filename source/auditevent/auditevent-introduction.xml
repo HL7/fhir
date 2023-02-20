@@ -72,7 +72,7 @@ or other system administration purposes.
 </p>
 <p>
 Relationship of AuditEvent and Provenance resources are often (though not exclusively) created by the application 
-responding to the create/read/query/update/delete/execute etc.. event. 
+responding to the create/read/query/update/delete/execute etc. event. 
 A <a href="provenance.html">Provenance</a> resource contains overlapping 
 information, but is a record-keeping assertion that gathers information about the context in which the information 
 in a resource "came to be" in its current state, e.g., whether it was created de novo or obtained from another entity 

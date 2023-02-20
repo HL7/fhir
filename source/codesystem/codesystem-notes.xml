@@ -185,7 +185,7 @@ by the FHIR specification.
  <tr><td>http://hl7.org/fhir/concept-properties#effectiveDate : date</td><td>The date at which the concept status was last changed</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#deprecationDate : date</td><td>Date Concept was deprecated</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#retirementDate : date</td><td>Date Concept was retired</td></tr>
- <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc..). This is also known as 'Abstract'</td></tr>
+ <tr><td>http://hl7.org/fhir/concept-properties#notSelectable : boolean</td><td>This concept is a grouping concept and not intended to be used in the normal use of the code system (though may be used for filters etc.). This is also known as 'Abstract'</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#parent : code</td><td>An immediate parent of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#child : code</td><td>An immediate child of the concept in the hierarchy</td></tr>
  <tr><td>http://hl7.org/fhir/concept-properties#partOf : code</td><td>The concept identified in this property (by its code) contains this concept as a component</td></tr>
@@ -428,12 +428,12 @@ informative.
 
 <p>
 For medications, the relationship between the code system and the medication resource
-is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc..) represent 
+is complex. Many medication related code systems (e.g. RxNorm, DM+D, AMT, etc.) represent 
 more complex information than just code, display name and code system.  These often 
 contain information about the content of the medication
 A similar principle applies to observation definitions, which overlap significantly
 with LOINC and other related code systems, which contain a set of observation 
-definitions, that contain methods, units, etc.. Other similar arrangements exist
+definitions, that contain methods, units, etc. Other similar arrangements exist
 for <a href="location.html">Location</a> and many other kinds of resource.
 </p>
 <p>
@@ -442,9 +442,9 @@ Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used 
 manage the codes, display names and relationships.  A separate "detail"
 resource (e.g., <a href="medication.html">Medication resource instances</a> for RxNorm code details,
 <a href="observationdefinition.html">ObservationDefinition</a> instances for LOINC code details, or 
-<a href="location.html">Location</a>, etc..) is used to convey detailed
+<a href="location.html">Location</a>, etc.) is used to convey detailed
 information (dose form &amp; strength, allowed data type or permitted values, address &amp;
-hours of operation, etc..).  One "detail" resource instance is created for each code.
+hours of operation, etc.).  One "detail" resource instance is created for each code.
 </p>
 <p>
 This division accomplishes several things:

@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 <p>
 This resource covers the administration of all medications.  Please refer to the <a href="immunization.html">Immunization</a> resource/Profile for the treatment of vaccines.
-It will principally be used within care settings (including inpatient) to record medication administrations, including self-administrations of oral medications, injections, intravenous infusions, etc..  It can also be used in outpatient settings to record allergy shots and other non-immunization administrations.  In some
+It will principally be used within care settings (including inpatient) to record medication administrations, including self-administrations of oral medications, injections, intravenous infusions, etc.  It can also be used in outpatient settings to record allergy shots and other non-immunization administrations.  In some
 cases, it might be used for home-health reporting, such as recording self-administered or even device-administered insulin. 
 </p>
     <p>Note:  devices coated with a medication (e.g. heparin) are not typically recorded as a medication administration.  However, administration of a medication via an implanted medication pump (e.g., insulin) would be recorded as a MedicationAdministration.</p>

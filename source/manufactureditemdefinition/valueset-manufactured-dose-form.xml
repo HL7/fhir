@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Dose form for a medication, as manufactured (and before any mixing etc..), not necessarily ready for administration to the patient."/>
+  <description value="Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient."/>
   <immutable value="true"/>
   <compose>
     <include>

@@ -431,7 +431,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision etc.."/>
+        <description value="Benefit categories such as: oral, medical, vision etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -630,7 +630,7 @@
           <valueString value="BenefitType"/>
         </extension>
         <strength value="example"/>
-        <description value="Deductable, visits, co-pay, etc.."/>
+        <description value="Deductable, visits, co-pay, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-type"/>
       </binding>
     </element>

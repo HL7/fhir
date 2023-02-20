@@ -506,7 +506,7 @@
           <valueString value="MeasurePopulation"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of population (e.g. initial, numerator, denominator, etc..)."/>
+        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
       <mapping>
@@ -772,7 +772,7 @@
           <valueString value="MeasurePopulation"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The type of population (e.g. initial, numerator, denominator, etc..)."/>
+        <description value="The type of population (e.g. initial, numerator, denominator, etc.)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/measure-population"/>
       </binding>
       <mapping>

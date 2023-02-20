@@ -214,7 +214,7 @@
       <path value="ChargeItem.partOf"/>
       <short value="Part of referenced ChargeItem"/>
       <definition value="ChargeItems can be grouped to larger ChargeItems covering the whole set."/>
-      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc.."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -400,7 +400,7 @@
     <element id="ChargeItem.performer.function">
       <path value="ChargeItem.performer.function"/>
       <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc..)."/>
+      <definition value="Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -431,7 +431,7 @@
     <element id="ChargeItem.performer.actor">
       <path value="ChargeItem.performer.actor"/>
       <short value="Individual who was performing"/>
-      <definition value="The device, practitioner, etc.. who performed or participated in the service."/>
+      <definition value="The device, practitioner, etc. who performed or participated in the service."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -615,7 +615,7 @@
     <element id="ChargeItem.enterer">
       <path value="ChargeItem.enterer"/>
       <short value="Individual who was entering"/>
-      <definition value="The device, practitioner, etc.. who entered the charge item."/>
+      <definition value="The device, practitioner, etc. who entered the charge item."/>
       <comment value="The enterer is also the person considered responsible for factor/price overrides if applicable."/>
       <min value="0"/>
       <max value="1"/>

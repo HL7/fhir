@@ -94,7 +94,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc..)"/>
+    <documentation value="The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)"/>
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
@@ -110,7 +110,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The task the system user is performing, e.g. laboratory results review, medication list review, etc.. This information can be used to tailor decision support outputs, such as recommended information resources"/>
+    <documentation value="The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources"/>
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>
@@ -118,7 +118,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The current setting of the request (inpatient, outpatient, etc..)"/>
+    <documentation value="The current setting of the request (inpatient, outpatient, etc.)"/>
     <type value="CodeableConcept"/>
   </parameter>
   <parameter>

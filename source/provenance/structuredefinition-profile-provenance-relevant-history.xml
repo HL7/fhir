@@ -86,7 +86,7 @@
     </element>
     <element id="Provenance.occurred[x]">
       <path value="Provenance.occurred[x]"/>
-      <definition value="This indicates the time the resource action (creation, revision, deletion, etc..) occurred."/>
+      <definition value="This indicates the time the resource action (creation, revision, deletion, etc.) occurred."/>
       <comment value="Both low and high will be set to the time the record event occurred.  (In a future version, this element will likely be a choice with dateTime so that multiple values aren't needed.)."/>
       <min value="1"/>
       <max value="1"/>

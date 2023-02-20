@@ -199,7 +199,7 @@
     <element id="Provenance.policy">
       <path value="Provenance.policy"/>
       <short value="Policy or plan the activity was defined by"/>
-      <definition value="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.."/>
+      <definition value="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc."/>
       <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <min value="0"/>
       <max value="*"/>
@@ -482,7 +482,7 @@
       <path value="Provenance.agent.type"/>
       <short value="How the agent participated"/>
       <definition value="The Functional Role of the agent with respect to the activity."/>
-      <comment value="For example: assembler, author, prescriber, signer, investigator, etc.."/>
+      <comment value="For example: assembler, author, prescriber, signer, investigator, etc."/>
       <requirements value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
       <min value="0"/>
       <max value="1"/>
@@ -519,7 +519,7 @@
       <path value="Provenance.agent.role"/>
       <short value="What the agents role was"/>
       <definition value="The structural roles of the agent indicating the agent's competency. The security role enabling the agent with respect to the activity."/>
-      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc.."/>
+      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
       <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
       <max value="*"/>

@@ -427,7 +427,7 @@
     <element id="MedicationStatement.relatedClinicalInformation">
       <path value="MedicationStatement.relatedClinicalInformation"/>
       <short value="Link to information relevant to the usage of a medication"/>
-      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc.."/>
+      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

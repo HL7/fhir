@@ -51,7 +51,7 @@
           <valueString value="ResearchStudy.focus.concept"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus-code"/>
-        <description value="Drugs, devices, etc.. under study, as a code"/>
+        <description value="Drugs, devices, etc. under study, as a code"/>
         <code value="focus-code"/>
         <type value="token"/>
         <expression value="ResearchStudy.focus.concept"/>
@@ -70,7 +70,7 @@
           <valueString value="ResearchStudy.focus.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ResearchStudy-focus-reference"/>
-        <description value="Drugs, devices, etc.. under study, as a reference"/>
+        <description value="Drugs, devices, etc. under study, as a reference"/>
         <code value="focus-reference"/>
         <type value="reference"/>
         <expression value="ResearchStudy.focus.reference"/>

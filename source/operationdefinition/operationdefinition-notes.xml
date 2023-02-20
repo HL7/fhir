@@ -105,7 +105,7 @@ an operation:
 </ul>
 <p>
 The parameters is a simple list of possible parameters, along with cardinalities and types.
-The profiles allow a rich set of validation rules etc.. to be provided. OperationDefinitions SHALL
+The profiles allow a rich set of validation rules etc. to be provided. OperationDefinitions SHALL
 always define the parameters using <code>OperationDefinition.parameter</code> in the resource,
 and MAY also provide profiles for the parameters. If present, the profiles SHALL NOT disagree
 with the parameters defined for the operation.
@@ -162,7 +162,7 @@ according to the named query OperationDefinition. Parameters may repeat if permi
 </p>
 <p>
 For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 
-(e.g. _id, _text, _count, _sort, etc..) as well as search parameters that pertain to the resources 
+(e.g. _id, _text, _count, _sort, etc.) as well as search parameters that pertain to the resources 
 returned by the operation (e.g. name for Patient or Organization) are allowed. "In scope" doesn't 
 mean all servers will support them. If a server wishes to declare which search parameters it supports 
 for a given named query, it must explicitly list these in its OperationDefinition (which might be a 

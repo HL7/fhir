@@ -716,7 +716,7 @@
       </extension>
       <path value="Immunization.performer.function"/>
       <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc..)."/>
+      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

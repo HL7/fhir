@@ -365,7 +365,7 @@
           <valueString value="NamingSystem.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/NamingSystem-type"/>
-        <description value="e.g. driver,  provider,  patient, bank etc.."/>
+        <description value="e.g. driver,  provider,  patient, bank etc."/>
         <code value="type"/>
         <type value="token"/>
         <expression value="NamingSystem.type"/>

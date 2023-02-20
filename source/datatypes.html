@@ -216,7 +216,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   <td>instant<a name="instant"></a></td>
   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone offset.
     Actual time zone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
-    Note: This is intended for when precisely observed times are required (typically system logs etc..), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
+    Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
 </tr>
@@ -748,7 +748,7 @@ how the codes are related can only be determined by consulting the definitions o
 <p>
 A coding may be marked as a "userSelected" if a user selected the particular coded value
 in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists,
-it is the preferred choice for performing translations etc..
+it is the preferred choice for performing translations etc.
 </p>
 
 <div class="use">
@@ -1141,7 +1141,7 @@ of Ratio.
 Examples where a Quantity is typically used are rates, densities, concentrations.
 Examples where a Ratio is used are: titers (e.g. 1:128); concentration ratios where
 the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr),
-and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc..).
+and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc.).
 </p>
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not
@@ -1367,7 +1367,7 @@ used for codes that correspond 1..1 with the Identifier.system. Some identifiers
 categories due to variations in common usage.
 </p>
 <p>
-The <code>assigner</code> is used to indicate what registry/state/facility/etc.. assigned the identifier.
+The <code>assigner</code> is used to indicate what registry/state/facility/etc. assigned the identifier.
 As a <a href="references.html">Reference</a>, the assigner can include just a text description in the <code>display</code>.
 </p>
 
@@ -1519,7 +1519,7 @@ See also <a href="datatypes-examples.html#ContactPoint">Examples</a>, <a href="d
 </p>
 
 <p>
-Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc..
+Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc.
 </p>
 [%dt ContactPoint 12%]
 <p>
@@ -1634,7 +1634,7 @@ part of the base specification</a>, and the structured data portions of the Timi
  <tr><td>PM</td>                 <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>                 <td>AFT or EVE</td>  <td></td></tr>
 </table>
 <p>
-These codes SHALL be understood as having the formal meanings documented in this table. Note that BID, etc.. are defined as 'at institutionally specified times'.
+These codes SHALL be understood as having the formal meanings documented in this table. Note that BID, etc. are defined as 'at institutionally specified times'.
 For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID
 should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured
 representation should be used (in this case, <code>timeOfDay</code>).

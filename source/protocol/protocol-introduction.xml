@@ -3,7 +3,7 @@
 <div>
 <h2>Scope and Usage</h2>
 <p>
-This draft resource has been published for Workflow group discussion purposes. It is used to define the set of activities that can be performed that have relationships in terms of order, pre-conditions etc.. see <a href="https://en.wikipedia.org/wiki/Medical_guideline">Visit W3Schools</a>  For example <a href="http://www.healthquality.va.gov/guidelines/CD/htn/VADoDCPGfortheManagementofHTN.pdf">Visit W3Schools</a>  (todo)<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+This draft resource has been published for Workflow group discussion purposes. It is used to define the set of activities that can be performed that have relationships in terms of order, pre-conditions etc. see <a href="https://en.wikipedia.org/wiki/Medical_guideline">Visit W3Schools</a>  For example <a href="http://www.healthquality.va.gov/guidelines/CD/htn/VADoDCPGfortheManagementofHTN.pdf">Visit W3Schools</a>  (todo)<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
 </div>
 

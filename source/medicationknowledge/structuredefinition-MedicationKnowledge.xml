@@ -103,8 +103,8 @@
     <element id="MedicationKnowledge.code">
       <path value="MedicationKnowledge.code"/>
       <short value="Code that identifies this medication"/>
-      <definition value="A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc.. It could also be a national or local formulary code, optionally with translations to other code systems."/>
-      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc..) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc.. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
+      <definition value="A code that specifies this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems."/>
+      <comment value="Depending on the context of use, the code that was actually selected by the user (prescriber, dispenser, etc.) will have the coding.userSelected set to true.  As described in the coding datatype: &quot;A coding may be marked as a &quot;userSelected&quot; if a user selected the particular coded value in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists, it is the preferred choice for performing translations etc. Other codes can only be literal translations to alternative code systems, or codes at a lower level of granularity (e.g. a generic code for a vendor-specific primary one)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -251,7 +251,7 @@
     <element id="MedicationKnowledge.productType">
       <path value="MedicationKnowledge.productType"/>
       <short value="Category of the medication or product"/>
-      <definition value="Category of the medication or product (e.g. branded product, therapeutic moeity, generic product, innovator product, etc..)."/>
+      <definition value="Category of the medication or product (e.g. branded product, therapeutic moeity, generic product, innovator product, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -434,7 +434,7 @@
     <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent">
       <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.treatmentIntent"/>
       <short value="Intention of the treatment"/>
-      <definition value="The overall intention of the treatment, for example, prophylactic, supporative, curative, etc.."/>
+      <definition value="The overall intention of the treatment, for example, prophylactic, supporative, curative, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -454,7 +454,7 @@
     <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type">
       <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.dosage.type"/>
       <short value="Category of dosage for a medication"/>
-      <definition value="The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc..)."/>
+      <definition value="The type or category of dosage for a given medication (for example, prophylaxis, maintenance, therapeutic, etc.)."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -474,7 +474,7 @@
     <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment">
       <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.administrationTreatment"/>
       <short value="Type of treatment the guideline applies to"/>
-      <definition value="The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc.."/>
+      <definition value="The type of the treatment that the guideline applies to, for example, long term therapy, first line treatment, etc."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -484,7 +484,7 @@
     <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic">
       <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic"/>
       <short value="Characteristics of the patient that are relevant to the administration guidelines"/>
-      <definition value="Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc..)."/>
+      <definition value="Characteristics of the patient that are relevant to the administration guidelines (for example, height, weight, gender, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -504,7 +504,7 @@
     <element id="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]">
       <path value="MedicationKnowledge.indicationGuideline.dosingGuideline.patientCharacteristic.value[x]"/>
       <short value="The specific characteristic"/>
-      <definition value="The specific characteristic (e.g. height, weight, gender, etc..)."/>
+      <definition value="The specific characteristic (e.g. height, weight, gender, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -556,7 +556,7 @@
     <element id="MedicationKnowledge.medicineClassification.classification">
       <path value="MedicationKnowledge.medicineClassification.classification"/>
       <short value="Specific category assigned to the medication"/>
-      <definition value="Specific category assigned to the medication (e.g. anti-infective, anti-hypertensive, antibiotic, etc..)."/>
+      <definition value="Specific category assigned to the medication (e.g. anti-infective, anti-hypertensive, antibiotic, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -598,7 +598,7 @@
     <element id="MedicationKnowledge.clinicalUseIssue">
       <path value="MedicationKnowledge.clinicalUseIssue"/>
       <short value="Potential clinical issue with or between medication(s)"/>
-      <definition value="Potential clinical issue with or between medication(s) (for example, drug-drug interaction, drug-disease contraindication, drug-allergy interaction, etc..)."/>
+      <definition value="Potential clinical issue with or between medication(s) (for example, drug-drug interaction, drug-disease contraindication, drug-allergy interaction, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -867,7 +867,7 @@
     </element>
     <element id="MedicationKnowledge.definitional.ingredient.type">
       <path value="MedicationKnowledge.definitional.ingredient.type"/>
-      <short value="A code that defines the type of ingredient, active, base, etc.."/>
+      <short value="A code that defines the type of ingredient, active, base, etc"/>
       <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
       <min value="0"/>
       <max value="1"/>
@@ -908,7 +908,7 @@
     <element id="MedicationKnowledge.definitional.drugCharacteristic">
       <path value="MedicationKnowledge.definitional.drugCharacteristic"/>
       <short value="Specifies descriptive properties of the medicine"/>
-      <definition value="Specifies descriptive properties of the medicine, such as color, shape, imprints, etc.."/>
+      <definition value="Specifies descriptive properties of the medicine, such as color, shape, imprints, etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

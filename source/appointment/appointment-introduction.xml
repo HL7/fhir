@@ -8,9 +8,9 @@
 			a series of repeating visits would require multiple appointment resources to be created for each instance.
 			Examples include a scheduled surgery, a follow-up for a
 			clinical visit, a scheduled conference call between clinicians to discuss a case (where the patient is a subject, but not a participant), the reservation
-			of a piece of diagnostic equipment for a particular use, etc..
+			of a piece of diagnostic equipment for a particular use, etc.
 			The visit scheduled by an appointment
-			may be in person or remote (by phone, video conference, etc..)  All that matters is that the time and
+			may be in person or remote (by phone, video conference, etc.)  All that matters is that the time and
 			usage of one or more individuals, locations and/or pieces of equipment is being fully or partially
 			reserved for a designated period of time.
 		</p>
@@ -40,7 +40,7 @@
 					Just because a time is indicated as available doesn't guarantee that an appointment can be made.
 					The booking system that is going to process the request may make other qualifying decisions to
 					determine if the appointment can be made, such as permissions, assessments, availability of other
-					resources, etc..
+					resources, etc.
 				</p>
 				<p>
 					This step is optional, as the creation of the appointment is never a guaranteed action.
