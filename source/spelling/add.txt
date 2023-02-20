@@ -13,6 +13,7 @@ included_structure
 _profile
 _tag
 _has
+loy
 _source
 _id
 _content

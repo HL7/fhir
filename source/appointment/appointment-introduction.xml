@@ -218,7 +218,7 @@
     <h3>Appointment Statuses and Encounters</h3>
     <p>
       Appointments can be considered as Administrative only, and the Encounter is expected to have
-      clinical implications.
+      clinical implications. Both resources align with the <a href="lifecycle.html#clinical">Clinical Workflow Process Life Cycle</a> pattern.
     </p>
     <p>
       In general, it is expected that appointments will result in the creation of an Encounter.

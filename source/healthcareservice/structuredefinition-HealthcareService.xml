@@ -471,7 +471,8 @@
           <valueString value="ServiceCharacteristic"/>
         </extension>
         <strength value="example"/>
-        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibiliy)."/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibility)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-mode"/>
       </binding>
       <mapping>
         <identity value="rim"/>

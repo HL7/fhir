@@ -45,7 +45,7 @@
 				<result>
 					<reference value="Observation/f001"/>
 				</result>
-				<result>
+			 	<result>
 					<reference value="Observation/f002"/>
 				</result>
 				<result>
@@ -56,7 +56,7 @@
 				</result>
 				<result>
 					<reference value="Observation/f005"/>
-				</result>
+				</result> 
 				<conclusion value="Core lab"/>
 			</DiagnosticReport>
 		</resource>

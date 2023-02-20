@@ -749,18 +749,94 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Observation-value-string"/>
+        <id value="Observation-value-markdown"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="normative"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Observation.value[x]"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-string"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-markdown"/>
         <description value="The value of the observation, if the value is a string, and also searches in CodeableConcept.text"/>
-        <code value="value-string"/>
+        <code value="value-markdown"/>
         <type value="string"/>
-        <expression value="Observation.value.ofType(string) | Observation.value.ofType(CodeableConcept).text"/>
+        <expression value="Observation.value.ofType(markdown) | Observation.value.ofType(CodeableConcept).text"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+   </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-reference"/>
+        <description value="Reference contained in valueReference."/>
+        <code value="value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-value-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-value-canonical"/>
+        <description value="URL contained in valueCanonical."/>
+        <code value="value-canonical"/>
+        <type value="uri"/>
+        <expression value="Observation.value.ofType(canonical)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Observation.component.valueReference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-reference"/>
+        <description value="Reference contained in valueReference."/>
+        <code value="component-value-reference"/>
+        <type value="reference"/>
+        <expression value="Observation.component.value.ofType(Reference)"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Observation-component-value-canonical"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="normative"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="{{name}}.url"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Observation-component-value-canonical"/>
+        <description value="URL contained in valueCanonical."/>
+        <code value="component-value-canonical"/>
+        <type value="uri"/>
+        <expression value="Observation.component.value.ofType(canonical)"/>
         <processingMode value="normal"/>
       </SearchParameter>
    </resource>

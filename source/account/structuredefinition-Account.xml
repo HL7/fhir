@@ -501,7 +501,7 @@
     <element id="Account.diagnosis.packageCode">
       <path value="Account.diagnosis.packageCode"/>
       <short value="Package Code specific for billing"/>
-      <definition value="Package Code specific for billing, such as CPT, ICD, DRG, HCPCS. These are expected to be defined by specific jurisdictions."/>
+      <definition value="The package code can be used to group diagnoses that may be priced or delivered as a single product. Such as DRGs."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -577,20 +577,10 @@
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="Account.procedure.onAdmission">
-      <path value="Account.procedure.onAdmission"/>
-      <short value="Procedure was intended at Admission"/>
-      <definition value="Was the procedure intended to be performed at Admission of the related Encounter."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="boolean"/>
-      </type>
-    </element>
     <element id="Account.procedure.packageCode">
       <path value="Account.procedure.packageCode"/>
       <short value="Package Code specific for billing"/>
-      <definition value="Package Code specific for billing, such as CPT or HCPCS, these are expected to be defined by specific jurisdictions."/>
+      <definition value="The package code can be used to group procedures that may be priced or delivered as a single product. Such as DRGs."/>
       <min value="0"/>
       <max value="*"/>
       <type>
