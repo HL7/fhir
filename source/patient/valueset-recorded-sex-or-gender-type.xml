@@ -42,12 +42,5 @@
         <display value="Gender identity"/>
       </concept>
     </include>
-    <include>
-      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
-      <concept>
-        <code value="0010,0040"/>
-        <display value="Patient's Sex"/>
-      </concept>
-    </include>
   </compose>
 </ValueSet>
