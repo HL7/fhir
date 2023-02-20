@@ -702,7 +702,7 @@
         </extension>
         <strength value="example"/>
         <description value="A characterization or type of the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-organization-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.party">
