@@ -42,6 +42,13 @@
         <display value="Non-binary gender identity"/>
       </concept>
     </include>
+	<include>
+      <system value="http://terminology.hl7.org/CodeSystem/data-absent-reason"/>
+      <concept>
+        <code value="asked-declined"/>
+        <display value="Asked But Declined"/>
+      </concept>
+    </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-NullFlavor"/>
       <concept>
