@@ -50,7 +50,6 @@
     </element>
     <element id="Bundle.entry">
       <path value="Bundle.entry" />
-      <sliceName value="other" />
       <min value="1" />
       <max value="1" />
     </element>
