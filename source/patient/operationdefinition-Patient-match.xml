@@ -91,7 +91,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)  If the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)"/>
+    <documentation value="The bundle type is &quot;searchset&quot;&#xD;&#xD;A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)  If the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)"/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

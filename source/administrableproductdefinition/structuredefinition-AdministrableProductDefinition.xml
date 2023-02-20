@@ -150,6 +150,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicinalProductDefinition"/>
       </type>
+      <condition value="apd-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>

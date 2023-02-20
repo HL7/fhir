@@ -10902,6 +10902,10 @@
     <display value="Genus Anser"/>
     <display value="Goose genus"/>
   </concept>
+  <concept id="159010009" display="Hospital pharmacist">
+    <display value="Hospital pharmacist"/>
+    <display value="Hospital pharmacist (occupation)"/>
+  </concept>
   <concept id="159285000" display="Medical laboratory technician">
     <display value="Medical laboratory technician"/>
     <display value="Medical laboratory technician (occupation)"/>
@@ -13797,6 +13801,10 @@
     <display value="Rehabilitation - specialty"/>
     <display value="Rehabilitation"/>
   </concept>
+  <concept id="394603008" display="Cardiothoracic surgery">
+    <display value="Cardiothoracic surgery (qualifier value)"/>
+    <display value="Cardiothoracic surgery"/>
+  </concept>
   <concept id="394604002" display="Ear, nose and throat surgery">
     <display value="Ear, nose and throat surgery (qualifier value)"/>
     <display value="Ear, nose and throat surgery"/>
@@ -13836,6 +13844,10 @@
   <concept id="394612005" display="Urology">
     <display value="Urology (qualifier value)"/>
     <display value="Urology"/>
+  </concept>
+  <concept id="394618009" display="Hospital nurse">
+    <display value="Hospital nurse (occupation)"/>
+    <display value="Hospital nurse"/>
   </concept>
   <concept id="394649004" display="Nuclear medicine - speciality">
     <display value="Nuclear medicine - specialty (qualifier value)"/>
@@ -15627,6 +15639,10 @@
     <display value="Vaccination clinic"/>
     <display value="Vaccination clinic (environment)"/>
   </concept>
+  <concept id="46255001" display="Pharmacist">
+    <display value="Pharmacist"/>
+    <display value="Pharmacist (occupation)"/>
+  </concept>
   <concept id="46392004" display="Delaine merino sheep">
     <display value="Delaine merino sheep"/>
     <display value="Delaine merino sheep (organism)"/>
@@ -16132,6 +16148,10 @@
     <display value="Black death"/>
     <display value="Plague (disorder)"/>
   </concept>
+  <concept id="59058001" display="General physician">
+    <display value="General physician"/>
+    <display value="General physician (occupation)"/>
+  </concept>
   <concept id="59210004" display="Navajo sheep">
     <display value="Navajo sheep"/>
     <display value="Navajo sheep (organism)"/>
@@ -16173,6 +16193,10 @@
     <display value="Boil"/>
     <display value="Furunculus"/>
     <display value="Furuncle (morphologic abnormality)"/>
+  </concept>
+  <concept id="59944000" display="Psychologist">
+    <display value="Psychologist"/>
+    <display value="Psychologist (occupation)"/>
   </concept>
   <concept id="6053007" display="DK pig 33">
     <display value="DK pig 33"/>

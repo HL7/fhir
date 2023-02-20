@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir">
-	<id value="f001"/><!--  urn:oid:2.16.840.1.113883.4.642.1.7  --><!--  2.16.840.1.113883.4.642.1.118  --><identifier>
+	<id value="f001"/>
+	<identifier>
 		<use value="official"/>
 		<system value="http://www.bmc.nl/zorgportal/identifiers/observations"/>
 		<value value="6323"/>

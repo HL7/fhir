@@ -115,7 +115,7 @@
         <valueString value="Under &quot;Comments&quot; it said: &quot;The identifier changes when a new/different person steps into the same role&quot;. This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case."/>
       </extension>
       <path value="PractitionerRole.identifier"/>
-      <short value="Business Identifiers that are specific to a role/location"/>
+      <short value="Identifiers for a role/location"/>
       <definition value="Business Identifiers that are specific to a role/location."/>
       <comment value="A specific identifier value (e.g. Minnesota Registration ID) may appear on multiple PractitionerRole instances which could be for different periods, or different Roles (or other reasons).  A specific identifier may be included multiple times in the same PractitionerRole instance with different identifier validity periods."/>
       <requirements value="Often, specific identities are assigned for the agent."/>
@@ -149,7 +149,7 @@
     <element id="PractitionerRole.active">
       <path value="PractitionerRole.active"/>
       <short value="Whether this practitioner role record is in active use"/>
-      <definition value="Whether this practitioner role record is in active use."/>
+      <definition value="	Whether this practitioner role record is in active use. Some systems may use this property to mark non-active practitioners, such as those that are not currently employed."/>
       <comment value="If this value is false, you may refer to the period to see when the role was in active use. If there is no period specified, no inference can be made about when it was active."/>
       <requirements value="Need to be able to mark a practitioner role record as not to be used because it was created in error, or otherwise no longer in active use."/>
       <min value="0"/>
@@ -210,7 +210,7 @@
     </element>
     <element id="PractitionerRole.practitioner">
       <path value="PractitionerRole.practitioner"/>
-      <short value="Practitioner that is able to provide the defined services for the organization"/>
+      <short value="Practitioner that provides services for the organization"/>
       <definition value="Practitioner that is able to provide the defined services for the organization."/>
       <min value="0"/>
       <max value="1"/>
@@ -311,7 +311,7 @@
     </element>
     <element id="PractitionerRole.location">
       <path value="PractitionerRole.location"/>
-      <short value="The location(s) at which this practitioner provides care"/>
+      <short value="Location(s) where the practitioner provides care"/>
       <definition value="The location(s) at which this practitioner provides care."/>
       <min value="0"/>
       <max value="*"/>
@@ -335,7 +335,7 @@
     </element>
     <element id="PractitionerRole.healthcareService">
       <path value="PractitionerRole.healthcareService"/>
-      <short value="The list of healthcare services that this worker provides for this role's Organization/Location(s)"/>
+      <short value="Healthcare services provided for this role's Organization/Location(s)"/>
       <definition value="The list of healthcare services that this worker provides for this role's Organization/Location(s)."/>
       <min value="0"/>
       <max value="*"/>
@@ -363,6 +363,63 @@
         <code value="ExtendedContactDetail"/>
       </type>
     </element>
+    <element id="PractitionerRole.characteristic">
+      <path value="PractitionerRole.characteristic"/>
+      <short value="Collection of characteristics (attributes)"/>
+      <definition value="Collection of characteristics (attributes)."/>
+      <comment value="These could be such things as is the service mode used by this role."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ServiceCharacteristic"/>
+        </extension>
+        <strength value="example"/>
+        <description value="A custom attribute that could be provided at a service (e.g. Wheelchair accessibility)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-mode"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".actrelationship[typeCode=PERT].observation"/>
+      </mapping>
+    </element>
+    <element id="PractitionerRole.communication">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Note: cannot be named &quot;language&quot; because of technical reasons."/>
+      </extension>
+      <path value="PractitionerRole.communication"/>
+      <short value="A language the practitioner (in this role) can use in patient communication"/>
+      <definition value="A language the practitioner can use in patient communication. The practitioner may know several languages (listed in practitioner.communication), however these are the languages that could be advertised in a directory for a patient to search."/>
+      <comment value="The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems code this but instead have it as free text. Hence CodeableConcept instead of code as the data type.&#xD;&#xD;Note that for non-patient oriented communication, see Practitioner.communication.  Note that all 'person' type resources (Person, RelatedPerson, Patient, Practitioner) have a communication structure that includes preferences.  Role or service oriented resources such as HealthcareService and PractitionerRole only include languages that are available for interacting with patients."/>
+      <requirements value="Knowing which language a practitioner speaks can help in facilitating patients to locate practitioners that speak their language."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Language"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="IETF language tag for a human language"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/all-languages"/>
+        <additional>
+          <purpose value="starter"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/languages"/>
+        </additional>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="./languageCommunication"/>
+      </mapping>
+    </element>
     <element id="PractitionerRole.availability">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="390,0"/>
@@ -383,8 +440,8 @@
     </element>
     <element id="PractitionerRole.endpoint">
       <path value="PractitionerRole.endpoint"/>
-      <short value="Technical endpoints providing access to services operated for the practitioner with this role"/>
-      <definition value="Technical endpoints providing access to services operated for the practitioner with this role."/>
+      <short value="Endpoints for interacting with the practitioner in this role"/>
+      <definition value="	Technical endpoints providing access to services operated for the practitioner with this role. Commonly used for locating scheduling services, or identifying where to send referrals electronically."/>
       <requirements value="Organizations have multiple systems that provide various services and may also be different for practitioners too.&#xA;&#xA;So the endpoint satisfies the need to be able to define the technical connection details for how to connect to them, and for what purpose."/>
       <min value="0"/>
       <max value="*"/>

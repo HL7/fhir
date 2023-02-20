@@ -487,6 +487,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
       </type>
+      <condition value="docRef-1"/>
+      <condition value="docRef-2"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.context"/>
@@ -575,6 +577,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="docRef-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentC80FacilityType"/>
@@ -611,6 +614,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="docRef-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DocumentC80PracticeSetting"/>

@@ -133,7 +133,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -265,6 +265,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="nsd-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -644,6 +645,21 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="nsd-1"/>
+      <constraint>
+        <key value="nsd-2"/>
+        <severity value="error"/>
+        <human value="Can't have more than one preferred identifier for a type"/>
+        <expression value="$this.where(preferred = true).select(type).isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
+      <constraint>
+        <key value="nsd-3"/>
+        <severity value="error"/>
+        <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
+        <expression value="$this.where(authoritative = true).select(type | period).isDistinct()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="NamingSystem.uniqueId.type">
@@ -656,6 +672,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="nsd-1"/>
+      <condition value="nsd-2"/>
+      <condition value="nsd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -692,13 +711,7 @@
         <code value="boolean"/>
       </type>
       <meaningWhenMissing value="If there are multiple ids, and one is labeled &quot;preferred&quot;, then the assumption is that the others are not preferred. In the absence of any id marked as preferred, no inference can be drawn"/>
-      <constraint>
-        <key value="nsd-2"/>
-        <severity value="error"/>
-        <human value="Can't have more than one preferred identifier for a type"/>
-        <expression value="uniqueId.where(preferred = true).select(type).isDistinct()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-      </constraint>
+      <condition value="nsd-2"/>
     </element>
     <element id="NamingSystem.uniqueId.comment">
       <path value="NamingSystem.uniqueId.comment"/>
@@ -721,6 +734,7 @@
       <type>
         <code value="Period"/>
       </type>
+      <condition value="nsd-3"/>
     </element>
     <element id="NamingSystem.uniqueId.authoritative">
       <path value="NamingSystem.uniqueId.authoritative"/>
@@ -731,13 +745,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <constraint>
-        <key value="nsd-3"/>
-        <severity value="error"/>
-        <human value="Can't have more than one authoritative identifier for a type/period combination (only one authoritative identifier allowed at any given point of time)"/>
-        <expression value="uniqueId.where(authoritative = true).select(type).isDistinct().select(period).isDistinct()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/NamingSystem"/>
-      </constraint>
+      <condition value="nsd-3"/>
     </element>
   </differential>
 </StructureDefinition>
