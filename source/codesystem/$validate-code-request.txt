@@ -23,7 +23,7 @@ POST [base]/CodeSystem/$validate-code
     "name" : "codeSystem",
     "resource": {
       "resourceType" : "codeSystem",
-    [etc.]
+    [etc..]
     }
   }
   ]

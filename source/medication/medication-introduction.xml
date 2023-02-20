@@ -14,11 +14,11 @@ In these cases, the ingredients of the medicine must be specified together with 
 does not provide full details.
 </p>
 <p>
-The Medication resource allows for medications to be characterized by the form of the drug and the ingredient (or ingredients), and how it is packaged. The medication will include the ingredient(s), and their strength(s) and the package can include the amount (for example, number of tablets, volume, etc.) that is contained in a particular container (for example, 100 capsules of Amoxicillin 500mg per bottle).
+The Medication resource allows for medications to be characterized by the form of the drug and the ingredient (or ingredients), and how it is packaged. The medication will include the ingredient(s), and their strength(s) and the package can include the amount (for example, number of tablets, volume, etc..) that is contained in a particular container (for example, 100 capsules of Amoxicillin 500mg per bottle).
 </p>
     <p> The Medication resource can be used to describe a compounded (aka extemporaneous or magistral) product that is manufactured by the pharmacy at the time of dispensing.  In this case there will be multiple ingredients which are typically base chemicals (for example, hydrocortisone powder) and there may be other ingredients that are manufactured products (for example, Glaxal Base).</p>
 <p>
-When a medication includes a package, further details about the composition can be provided. A package has a container (vacuum packed box, jar, etc.) and a list of the products or other packages that are in the package.
+When a medication includes a package, further details about the composition can be provided. A package has a container (vacuum packed box, jar, etc..) and a list of the products or other packages that are in the package.
 </p>
 </div>    
     

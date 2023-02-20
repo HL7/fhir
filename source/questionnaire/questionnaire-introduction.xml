@@ -13,7 +13,7 @@ the constraints are on the allowed answers.  The results of a <b>Questionnaire</
 <p>
 Questionnaires cover the need to communicate data originating from forms used in medical history examinations, research questionnaires and sometimes full
 clinical specialty records. In many systems this data is collected using user-defined screens and forms. Questionnaires define specifics about data capture -
-exactly what questions were asked, in what order, what choices for answers were, etc. Each of these questions is part of the Questionnaire,
+exactly what questions were asked, in what order, what choices for answers were, etc.. Each of these questions is part of the Questionnaire,
 and as such the Questionnaire is a separately identifiable Resource, whereas the individual questions are not.  (Questionnaire questions can be linked to
 shared data elements using the <code>Questionnaire.item.definition</code> element.)
 </p>
@@ -61,8 +61,8 @@ the user.
 Questionnaires differ from <a href="list.html">Lists</a> because <a href="list.html">Lists</a> group existing resources, while <b>Questionnaires</b> group
 arbitrary questions.
 Questionnaires are distinct from <a href="observation.html">Observations</a> and <a href="diagnosticreport.html">DiagnosticReports</a> in that both of these resources are
-intended to capture only certain types of information (lab, imaging, vitals, etc.) and should not be used to capture the full breadth of healthcare information (allergies,
-medications, care plans, etc.), while Questionnaires are able to capture any information at all.  More importantly, Observation and DiagnosticReport focus on capturing the
+intended to capture only certain types of information (lab, imaging, vitals, etc..) and should not be used to capture the full breadth of healthcare information (allergies,
+medications, care plans, etc..), while Questionnaires are able to capture any information at all.  More importantly, Observation and DiagnosticReport focus on capturing the
 discrete information in a standardized form so that the information can be used consistently regardless of where or how it is captured.  Questionnaire focuses on information
 capture.  The same information can be captured using a wide variety of questionnaires with differently phrased questions organized in different manners.  As such, the
 Questionnaire resource provides a means to standardize the information gathering process (how information is captured), but not how data is interoperably compared, analyzed
@@ -93,7 +93,7 @@ times or highly interactive data capture.  Broader workflow is typically managed
 Questionnaires are similar to the notion of "logical models" supported by the <a href="structuredefinition.html">StructureDefinition</a> resource.  Both support the representation
 of a collection of data points with labels, data types and hierarchy.  It will be common to find the two of them mapped together.  The primary difference is that Questionnaire
 is focused on user-facing data collection.  It describes specific questions and includes information such as what number/label should be displayed beside each question,
-conditions in which questions should be displayed (or not), what instructions should be provided to the user, etc.  StructureDefinition, on the other hand, merely defines a
+conditions in which questions should be displayed (or not), what instructions should be provided to the user, etc..  StructureDefinition, on the other hand, merely defines a
 data structure with no guidance on display or rules around capture mechanism, only what data should exist in the end.  As well, logical models are not intended to capture
 data directly.  Rather, they provide a basis for mapping between data capture structures.
 </p>
@@ -101,7 +101,7 @@ data directly.  Rather, they provide a basis for mapping between data capture st
 Questionnaires are excellent tools for data capture.  They allow tight control over what data is gathered and ensure information is gathered consistently across multiple users.  
 However, data gathered using different questionnaires - or even different versions of the same questionnaire - is often not comparable.  It is also not very searchable or easily 
 integrated with discrete data sources.  Because of this, the general recommendation in FHIR is to use questionnaires for raw data capture but then to convert the resulting 
-QuestionnaireResponse instances into other FHIR resources - Observations, MedicationStatements, FamilyMemberHistories, etc.  This allows the data gathered to then be easily 
+QuestionnaireResponse instances into other FHIR resources - Observations, MedicationStatements, FamilyMemberHistories, etc..  This allows the data gathered to then be easily 
 combined with other data into FHIR documents and messages and exposed over FHIR REST interfaces.
 </p>
 </div>

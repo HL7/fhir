@@ -41,7 +41,7 @@ In this scenario, the PHR provider:
 </p> 
 
 <ul>
- <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc.)</li>
+ <li>Provides the patient with a login that identifies them (or links the patient record to an external identity provided by OpenID, Facebook, Google, etc..)</li>
  <li>Authenticates the client using an appropriate OAuth server for the login (possibly their own) and restricts the client to viewing records associated with the specific patient (or patients, where appropriate access has been arranged)</li>
 </ul>
 
@@ -50,7 +50,7 @@ The EMR exposes a FHIR server that supports the <a href="http.html#search">searc
 </p>
 <ol>
  <li>the <a href="patient.html">Patient</a> resource in order to provide demographics to the client. When a client searches patients with no search criteria, they get a list of all patients they have access to</li>
- <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc. (PDFs are preferred)</li>
+ <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on the <a href="documentreference.html">Document Reference</a> resource to provide access to general patient documents in the form of PDFs etc.. (PDFs are preferred)</li>
  <li><a href="http.html#search">search</a> and <a href="http.html#read">read</a> on a set of <a href="clinicalsummary-module.html">clinical resources</a></li> 
 </ol>
 <p>

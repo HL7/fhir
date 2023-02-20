@@ -8,8 +8,8 @@
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 This resource provides information on a selected set of imaging objects, along with information on how to 
 retrieve those instances (either in native DICOM format, or in a rendered format, such as JPEG), or launch an image viewer. 
-The ImagingManifest is used to make available information concerning images etc. 
-that are intended to be exchanged into other clinical contexts such as diagnostic reports, Care Plans, etc. 
+The ImagingManifest is used to make available information concerning images etc.. 
+that are intended to be exchanged into other clinical contexts such as diagnostic reports, Care Plans, etc.. 
 </p><p>
 ImagingManifest provides a FHIR transformation of a DICOM Key Object Selection file as profiled by the IHE’s 
 XDS-I profile. Although ImagingManifest can address certain uses outside XDS-I (such as launching a viewer), 

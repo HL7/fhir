@@ -157,7 +157,7 @@
     <element id="CommunicationRequest.groupIdentifier">
       <path value="CommunicationRequest.groupIdentifier"/>
       <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc..  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <alias value="grouperId"/>
       <min value="0"/>
@@ -273,7 +273,7 @@
     <element id="CommunicationRequest.category">
       <path value="CommunicationRequest.category"/>
       <short value="Message category"/>
-      <definition value="The type of message to be sent such as alert, notification, reminder, instruction, etc."/>
+      <definition value="The type of message to be sent such as alert, notification, reminder, instruction, etc.."/>
       <comment value="There may be multiple axes of categorization and one communication request may serve multiple purposes."/>
       <min value="0"/>
       <max value="*"/>
@@ -285,7 +285,7 @@
           <valueString value="CommunicationCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for general categories of communications such as alerts, instruction, etc."/>
+        <description value="Codes for general categories of communications such as alerts, instruction, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/communication-category"/>
       </binding>
       <mapping>
@@ -355,7 +355,7 @@
           <valueString value="CommunicationMedium"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for communication mediums such as phone, fax, email, in person, etc."/>
+        <description value="Codes for communication mediums such as phone, fax, email, in person, etc.."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationMode"/>
       </binding>
     </element>

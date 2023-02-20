@@ -41,7 +41,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Codes for general categories of communications such as alerts, instructions, etc."/>
+  <description value="Codes for general categories of communications such as alerts, instructions, etc.."/>
   <immutable value="true"/>
   <compose>
     <include>

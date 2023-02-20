@@ -135,8 +135,8 @@
     </element>
     <element id="Flag.category">
       <path value="Flag.category"/>
-      <short value="Clinical, administrative, etc."/>
-      <definition value="Allows a flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context."/>
+      <short value="Clinical, administrative, etc.."/>
+      <definition value="Allows a flag to be divided into different categories like clinical, administrative etc.. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context."/>
       <comment value="The value set will often need to be adjusted based on local business rules and usage context."/>
       <min value="0"/>
       <max value="*"/>
@@ -195,7 +195,7 @@
       </extension>
       <path value="Flag.subject"/>
       <short value="Who/What is flag about?"/>
-      <definition value="The patient, related person, location, group, organization, or practitioner etc. this is about record this flag is associated with."/>
+      <definition value="The patient, related person, location, group, organization, or practitioner etc.. this is about record this flag is associated with."/>
       <min value="1"/>
       <max value="1"/>
       <type>

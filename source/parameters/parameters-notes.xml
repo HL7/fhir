@@ -5,7 +5,7 @@
 Note: for technical compatibility reasons, the <i>Parameters</i> resource inherits from 
 <a href="resource.html">Resource</a>, but since the parameter exchange format has no
 end-point and/or persistence, it never has an id, a versionId, or a lastUpdated. 
-The other features of Resource (tags, profiles, security labels, language etc.) may
+The other features of Resource (tags, profiles, security labels, language etc..) may
 have use when operations are executed.
 </p>
 
@@ -39,7 +39,7 @@ The following rules apply to name and identifier uniqueness within a Parameters 
  <tr>
   <td>References</td>
   <td>When resolving references in resources, the applicable <a href="operationdefinition.html">Operation Definition</a> may 
-	  specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to it's 
+	  specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to its 
 		<a href="references.html">general resource resolution methods</a></td>
  </tr>
  

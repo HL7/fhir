@@ -50,7 +50,7 @@ Provide feedback <a href="http://hl7.org/fhir-issues">here</a>.
 Generally, electronic records do not contain assertions of conditions that a patient does not have.  There are however two exceptions:
 <ul>
 <li>It is appropriate to capture a "refuted" Condition record if the Condition was considered present and subsequent evidence refuted it. Specifically, Condition.verificationStatus can convey refuted. The corresponding evidence of that refutation can be conveyed in Condition.evidence. When the condition is refuted, other elements may be retained for legal reasons, but those other elements are no longer clinically relevant.</li>
-<li>It is common as part of checklists prior to admission, surgery, enrollment in trials, etc. to ask questions such as "are you pregnant", "do you have a history of hypertension", etc.  This information should NOT be captured using the Condition resource but should instead be captured using QuestionnaireResponse or Observation.  In this case, the combination of the question and answer would convey that a particular condition was not present.</li>
+<li>It is common as part of checklists prior to admission, surgery, enrollment in trials, etc.. to ask questions such as "are you pregnant", "do you have a history of hypertension", etc..  This information should NOT be captured using the Condition resource but should instead be captured using QuestionnaireResponse or Observation.  In this case, the combination of the question and answer would convey that a particular condition was not present.</li>
 </ul>
 </p>
 
@@ -76,7 +76,7 @@ For example,  it is possible that a nurse records the condition on behalf of a p
 <h3>Use of Condition.clinicalStatus</h3>
 
 <p>
-The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc. will be different for a remission than for the initial occurrence.
+The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc.. will be different for a remission than for the initial occurrence.
 </p>
 
 <h3>Diagnosis Role and Rank within an Encounter</h3>

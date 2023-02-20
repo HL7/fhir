@@ -13,7 +13,7 @@ other resources.  This pattern serves two purposes:
 </ul>
 <p>
 An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity 
-or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
+or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc..  It does not 
 include resources that describe objects or roles (e.g. patient, device, location).
 </p>
 </div>

@@ -5,7 +5,7 @@
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>RegulatedAuthorization is a resource covering the authorization of a type of regulated product, treatment, facility or activity. 
 		</p>
-		<p>Regulated products include animal and human drugs, devices, biologically derived, radiation-emitting, and nutritional products, software, etc. 
+		<p>Regulated products include animal and human drugs, devices, biologically derived, radiation-emitting, and nutritional products, software, etc.. 
 			which are subject to local, regional or international legislation for their use.
 		</p>
 		<p>
@@ -17,7 +17,7 @@
 		<p>
 			Regulated activities include conducting a Clinical Trial e.g. either parts or the whole of a certain trial. Marketing regulated products to patients in general, manufacturing regulated products. 
 			Storage or distribution of controlled substances. 
-			Recording whether a laboratory test is approved for use by a regulator, etc.
+			Recording whether a laboratory test is approved for use by a regulator, etc..
 		</p>
 
 

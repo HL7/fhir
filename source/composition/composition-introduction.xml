@@ -41,16 +41,16 @@ is dynamic – items are added and removed over time.  The List resource referen
 curated and have specific business meaning.
 </li>
 <li>
-The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc.. by enumerating them, 
 or by describing qualities that group members have. The Group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole (e.g., performing therapy on a group, calculating risk for a group, 
-etc.).  This resource will commonly be used for public health (e.g., describing an at-risk population), clinical trials (e.g., 
+etc..).  This resource will commonly be used for public health (e.g., describing an at-risk population), clinical trials (e.g., 
 defining a test subject pool) and similar purposes.
 </li>
 <li>
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have narrative 
 and is used to group collections of resources for transmission, persistence or processing (e.g., messages, documents, transactions, 
-query responses, etc.).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
+query responses, etc..).  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
 <li>
 The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 

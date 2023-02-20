@@ -67,7 +67,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -237,7 +237,7 @@
     <element id="TestPlan.category">
       <path value="TestPlan.category"/>
       <short value="The category of the Test Plan - can be acceptance, unit, performance"/>
-      <definition value="The category of the Test Plan - can be acceptance, unit, performance, etc."/>
+      <definition value="The category of the Test Plan - can be acceptance, unit, performance, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -449,8 +449,8 @@
     </element>
     <element id="TestPlan.testCase.testData.source[x]">
       <path value="TestPlan.testCase.testData.source[x]"/>
-      <short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc."/>
-      <definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc."/>
+      <short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc.."/>
+      <definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>

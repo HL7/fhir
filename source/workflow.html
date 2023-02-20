@@ -68,7 +68,7 @@ in order to support consistent definitions for schema and UML derived code.
             they might best be used.</p>
         <p><b>Workflow definition</b></p>
         <p>
-            The definition of protocols, order sets, guidelines and other structures that define what sorts of activities should occur, what order they should occur on, what dependencies they have, in what circumstances they should start or end, etc. is handled by
+            The definition of protocols, order sets, guidelines and other structures that define what sorts of activities should occur, what order they should occur on, what dependencies they have, in what circumstances they should start or end, etc.. is handled by
             a pair of resources:
         </p>
         <ul>
@@ -81,7 +81,7 @@ in order to support consistent definitions for schema and UML derived code.
 
         <a name="respatterns"></a>
         <h3>Workflow Resource Patterns</h3>
-        <p>Not all resources in FHIR are related to workflow - many are used to describe entities and roles (patients, medications, etc.) or infrastructure (structure definitions, value sets, etc.). However, a large proportion of the FHIR resources are devoted
+        <p>Not all resources in FHIR are related to workflow - many are used to describe entities and roles (patients, medications, etc..) or infrastructure (structure definitions, value sets, etc..). However, a large proportion of the FHIR resources are devoted
             to the description of activities in one fashion or another and almost all of these fall into the realm of workflow - they describe things that can be done (definitions), are desired to be done (requests) or that have been done (events). The
             table below summarizes the list of workflow-relevant resources:</p>
 
@@ -235,9 +235,9 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             Note that requests, events and definitions don't exist in a 1:1:1 relationship. Some requests and events have obvious pairings. For example, a
             <a href="supplyrequest.html">SupplyRequest</a> will generally always pair with a <a href="supplydelivery.html">SupplyDelivery</a>. The same goes for
-            <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc. On the other hand, for other resources there isn't a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
+            <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc.. On the other hand, for other resources there isn't a strict pairing. A <a href="servicerequest.html">ServiceRequest</a> might
             be responded to by an <a href="encounter.html">Encounter</a>,
-            <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="servicerequest.html">ServiceRequest</a>.
+            <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc.. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="servicerequest.html">ServiceRequest</a>.
             The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
         </p>
 
@@ -283,13 +283,13 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="event"></a>
         <h4>Event Resource Pattern</h4>
         <p>
-            Events are resources that represent the ongoing or completed execution of some activity or observation. For example, a clinical procedure, a financial transaction, the recording of a diagnosis, etc. An <a href="event.html">Event pattern</a>            defines the common elements typically present on all event resources.
+            Events are resources that represent the ongoing or completed execution of some activity or observation. For example, a clinical procedure, a financial transaction, the recording of a diagnosis, etc.. An <a href="event.html">Event pattern</a>            defines the common elements typically present on all event resources.
         </p>
 
         <a name="definition"></a>
         <h4>Definition Resource Pattern</h4>
         <p>
-            Definitions are resources that represent activities that could be performed in a time and subject-independent manner such as a protocol, order set, clinical guideline, etc. A <a href="definition.html">Definition pattern</a> defines the common
+            Definitions are resources that represent activities that could be performed in a time and subject-independent manner such as a protocol, order set, clinical guideline, etc.. A <a href="definition.html">Definition pattern</a> defines the common
             elements typically present on all definition resources.
         </p>
 

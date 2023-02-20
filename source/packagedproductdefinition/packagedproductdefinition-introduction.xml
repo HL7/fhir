@@ -5,7 +5,7 @@
 		<p style="border:2px; border-style:solid; border-color:#999999; padding: 1em; border-radius: 4px 4px 4px 4px;"><b><i>For an overview of this resource and others in the Medication Definition domain, also see the <a href="medication-definition-module.html">module page</a></i></b></p>
 		<p>
 			A medically related item or items of any type, in a container or package, representing the unit that has been prepared for sale, supply, shipping or storage.
-			These can include packaged medications, devices and other items such as food, biologicals, raw materials, cosmetics, medical fluids, gases etc.
+			These can include packaged medications, devices and other items such as food, biologicals, raw materials, cosmetics, medical fluids, gases etc..
 			This resource represents the whole package of items, and all the packaging within, rather than the individual items themselves 
 			and may contain other packages (parent/child relationships). 
 			In some cases a "product" exists at exists at logically different levels, and therefore has a variety of available packages associated with it.  

@@ -8,7 +8,7 @@
 <p>The InventoryItem Resource:</p>
 <ul>
 <li>is meant to be used in the logistics workflows aspects, when the specific resources cannot be used (due to indefinition, ambiguity, or need to cross-over between resources).</li>
-<li>is NOT intended be used in clinical workflows, where the specific product resources shall be used: Medication, Device, etc.</li>
+<li>is NOT intended be used in clinical workflows, where the specific product resources shall be used: Medication, Device, etc..</li>
 </ul>
 
 <p>
@@ -31,7 +31,7 @@ The InventoryItem resource can be referenced from the following resources:
 <li><strong><a href="servicerequest.html">ServiceRequest</a></strong> - for example for requesting transport of items</li>
 </ul>
 
-<p>Because the InventoryItem resource does not contain all the clinical characteristics of the products like Medication, Device, etc. the InventoryItem can refer to any of those product items.</p>
+<p>Because the InventoryItem resource does not contain all the clinical characteristics of the products like Medication, Device, etc.. the InventoryItem can refer to any of those product items.</p>
 </div>
 
 <!-- (optional):

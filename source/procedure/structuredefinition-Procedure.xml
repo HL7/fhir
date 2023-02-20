@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -156,7 +156,7 @@
       <path value="Procedure.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, order set or other definition that is adhered to in whole or in part by this Procedure."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -852,7 +852,7 @@
     <element id="Procedure.report">
       <path value="Procedure.report"/>
       <short value="Any report resulting from the procedure"/>
-      <definition value="This could be a histology result, pathology report, surgical report, etc."/>
+      <definition value="This could be a histology result, pathology report, surgical report, etc.."/>
       <comment value="There could potentially be multiple reports - e.g. if this was a procedure which took multiple biopsies resulting in a number of anatomical pathology reports."/>
       <min value="0"/>
       <max value="*"/>
@@ -944,7 +944,7 @@
       </extension>
       <path value="Procedure.focalDevice"/>
       <short value="Manipulated, implanted, or removed device"/>
-      <definition value="A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure."/>
+      <definition value="A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc..) as a focal portion of the Procedure."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -997,7 +997,7 @@
       <short value="Items used during procedure"/>
       <definition value="Identifies medications, devices and any other substance used as part of the procedure."/>
       <comment value="For devices actually implanted or removed, use Procedure.focalDevice.manipulated."/>
-      <requirements value="Used for tracking contamination, etc."/>
+      <requirements value="Used for tracking contamination, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>

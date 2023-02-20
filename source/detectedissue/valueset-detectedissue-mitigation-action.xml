@@ -35,7 +35,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Kinds of mitigating actions and observations that can be associated with a detected issue or contraindication, such as 'added concurrent therapy', 'prior therapy documented', etc."/>
+  <description value="Kinds of mitigating actions and observations that can be associated with a detected issue or contraindication, such as 'added concurrent therapy', 'prior therapy documented', etc.."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

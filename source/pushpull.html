@@ -14,7 +14,7 @@ or consumer.
 
  A person or animal receiving care at multiple organizations will therefore have its information present in multiple Patient Resources.			
  
- What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a HL7 v2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on HL7 v2 and V3. Am I missing something? 
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a HL7 V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on HL7 V2 and V3. Am I missing something? 
  
 -->
       
@@ -53,7 +53,7 @@ on a regular basis, and when it finds any, it can pull it into the repository an
 <p>
 Which combination of push, pull and interface repositories is appropriate for any given 
 context depends on a host of factors around deployment architecture, network and business 
-topology, security policies, etc. However, it is often constrained by the capabilities of 
+topology, security policies, etc.. However, it is often constrained by the capabilities of 
 the various systems and the standards used in the exchange.
 </p>
 <p>

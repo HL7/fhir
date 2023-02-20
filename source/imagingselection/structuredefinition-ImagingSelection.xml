@@ -63,7 +63,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -377,9 +377,9 @@
     <element id="ImagingSelection.endpoint">
       <path value="ImagingSelection.endpoint"/>
       <short value="The network service providing retrieval for the images referenced in the imaging selection"/>
-      <definition value="The network service providing retrieval access to the selected images, frames, etc. See implementation notes for information about using DICOM endpoints."/>
+      <definition value="The network service providing retrieval access to the selected images, frames, etc.. See implementation notes for information about using DICOM endpoints."/>
       <comment value="Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG) formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach."/>
-      <requirements value="Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the selected images, frames, etc."/>
+      <requirements value="Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the selected images, frames, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>

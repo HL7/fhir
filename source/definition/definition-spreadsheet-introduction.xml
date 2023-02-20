@@ -14,7 +14,7 @@ other resources.  This pattern serves two purposes:
 <p>
 This pattern describes common properties typically found on "definition" resources.  "Definition" resources are resources that describe clinical, administrative or other events 
 that <b>can</b> potentially occur.  They do so in a manner that is independent of a particular patient or subject and independent of any particular timeframe.  Examples include 
-protocols, order sets, questionnaires, etc.  Definitions are intended to be instantiated by <a href="request.html">Requests</a> (orders, plans and proposals) and 
+protocols, order sets, questionnaires, etc..  Definitions are intended to be instantiated by <a href="request.html">Requests</a> (orders, plans and proposals) and 
 <a href="event.html">Events</a>. For example a 
 <a href="plandefinition.html">PlanDefinition</a> might represent an order set that is subsequently instantiated by a combination of <a href="medicationrequest.html">MedicationRequests</a>
 and <a href="servicerequest.html">ServiceRequests</a> and results in the execution of various <a href="medicationadministration.html">MedicationAdministration</a>, 

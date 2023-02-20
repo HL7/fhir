@@ -50,7 +50,7 @@
         <li>Describe a client's request to be notified about events defined by a <code>SubscriptionTopic</code></li>
         <li>Set actual filters, as defined in the referenced <code>SubscriptionTopic</code></li>
         <li>Describe the <a href="subscription.html#channels">channel</a> and endpoint used to send notifications</li>
-        <li>Describe the payload included in notifications (MIME type, content level, etc.)</li>
+        <li>Describe the payload included in notifications (MIME type, content level, etc..)</li>
       </ul>
     </li>
     <li><a href="bundle.html#subscription-notification">subscription-notification Bundles</a>
@@ -149,10 +149,10 @@
     Client ensures that the endpoint is prepared (if applicable - see <a href="subscription.html#channels">channels</a>).
   </li>
   <li>
-    Client requests a <a href="subscription.html">Subscription</a> (e.g., via <code>HTTP POST</code>, <code>HTTP PUT</code>, etc.).
+    Client requests a <a href="subscription.html">Subscription</a> (e.g., via <code>HTTP POST</code>, <code>HTTP PUT</code>, etc..).
   </li>
   <li>
-    Server MAY accept the <a href="subscription.html">Subscription</a> request (e.g., supported channel and payload).  Note that the server MAY modify the request to be suitable (e.g., changing heartbeat timeouts, etc.).  Clients SHALL check the returned resource or query for the accepted version if not returned to ensure an accepted request conforms with their expectations.
+    Server MAY accept the <a href="subscription.html">Subscription</a> request (e.g., supported channel and payload).  Note that the server MAY modify the request to be suitable (e.g., changing heartbeat timeouts, etc..).  Clients SHALL check the returned resource or query for the accepted version if not returned to ensure an accepted request conforms with their expectations.
   </li>
   <li>
     Server MAY reject the <a href="subscription.html">Subscription</a> request (e.g., unsupported channel type).
@@ -176,8 +176,8 @@
   The <code>SubscriptionTopic</code> resource is used to define conceptual or computable events for <code>Subscription</code> resources.  Conceptually, subscription topics specify:
   <ul>
     <li>What causes a notification, either by referencing an event definition in an event trigger (e.g., <code>http://example.com/fhir/events#something-interesting-happened</code>) or by describing a resource state change in a resource trigger (e.g., an <code>Encounter</code> is created or updated to have an <code>Encounter.state</code> of <code>active</code>).</li>
-    <li>What filters a client is allowed to request.  For example, a topic that allows clients to restrict notifications to a particular patient id or group, a specific procedure, etc., relevant to that particular topic.</li>
-    <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc.</li>
+    <li>What filters a client is allowed to request.  For example, a topic that allows clients to restrict notifications to a particular patient id or group, a specific procedure, etc.., relevant to that particular topic.</li>
+    <li>What related resources the server MAY include in notifications.  For example, while a discharge notification would likely be focused on the <code>Encounter</code> resource, since that is the resource that is updated, it is likely desireable to include the patient information, observations, diagnosed conditions, location information, etc..</li>
   </ul>
 </p>
 <p>
@@ -196,7 +196,7 @@
 <a name="overview-subscription"/>
 <h2>Subscriptions</h2>
 <p>
-  The <code>Subscription</code> resource is used to request notifications for a specific client about a specific topic (as defined by a <code>SubscriptionTopic</code>).  Conceptually, a subscription specifies: a <b>topic</b> (<code>SubscriptionTopic</code>), the notification <b>channel</b> (e.g., REST, websockets, email, etc.), and the notification <b>payload</b> (e.g., MIME type, amount of detail, etc.).  Detailed information about channel-types and payload configuration can be found on the <a href="subscription.html">Subscription</a> resource page.
+  The <code>Subscription</code> resource is used to request notifications for a specific client about a specific topic (as defined by a <code>SubscriptionTopic</code>).  Conceptually, a subscription specifies: a <b>topic</b> (<code>SubscriptionTopic</code>), the notification <b>channel</b> (e.g., REST, websockets, email, etc..), and the notification <b>payload</b> (e.g., MIME type, amount of detail, etc..).  Detailed information about channel-types and payload configuration can be found on the <a href="subscription.html">Subscription</a> resource page.
 </p>
 <p>
   When a FHIR Server accepts a request to create a <code>Subscription</code>, the server is indicating to the client that the server:
@@ -232,7 +232,7 @@
 <a name="overview-notification"/>
 <h2>Subscription Notifications</h2>
 <p>
-  The <code>SubscriptionStatus</code> resource is used to encapsulate information about a subscription and meta-information about the notification itself (e.g., how many events are included, etc.).  There are currently two areas where the resource is used: in <a href="bundle.html#subscription-notification">subscription-notification Bundles</a> and as the return type for the <a href="subscription-operation-status.html">$status operation</a>.
+  The <code>SubscriptionStatus</code> resource is used to encapsulate information about a subscription and meta-information about the notification itself (e.g., how many events are included, etc..).  There are currently two areas where the resource is used: in <a href="bundle.html#subscription-notification">subscription-notification Bundles</a> and as the return type for the <a href="subscription-operation-status.html">$status operation</a>.
 </p>
 <p>
   Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications.  While the Subscriptions Framework is able to support such mechanisms, defining them is beyond the scope of the standard.
@@ -261,7 +261,7 @@
   When sending an event notification, applications can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
 </p>
 <p>
-  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
+  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc..).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
 </p>
 <p>
   Each notification sent by the application could reveal information about the application and subscriber relationship, as well as sensitive administrative or clinical information. Applications are responsible for ensuring appropriate security is employed for each channel they support. The <code>Subscription</code> resource does not address these concerns directly; it is assumed that these are administered by other configuration processes. For instance, an application might maintain a whitelist of acceptable endpoints or trusted certificate authorities for <code>rest-hook</code> channels.
@@ -314,7 +314,7 @@
   When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 </p>
 <p>
-  The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
+  The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc.. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
 </p>
 <p>
   Once the server has activated the subscription, it sets the status to <code>active</code>.  Note that the server MAY choose to activate a subscription immediately on creation (without any additional processing).
@@ -370,7 +370,7 @@
 <a name="using-events-operation"/>
 <h4>Using the <code>$events</code> operation</h4>
 <p>
-  Servers MAY choose to support the <a href="subscription-operation-events.html">$events</a> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc.).
+  Servers MAY choose to support the <a href="subscription-operation-events.html">$events</a> operation, as defined on the <code>Subscription</code> resource.  The <code>$events</code> operation allows clients to request events which have occurred in the past.  Servers which implement the operation MAY use implementation-specific criteria to restrict availability of events (e.g., most recent 10 events, events within the past 30 days, etc..).
 </p>
 <p>
   During a recovery process, clients MAY try to retrieve missing events via the <code>$events</code> operation, which should allow processing to continue as normal.

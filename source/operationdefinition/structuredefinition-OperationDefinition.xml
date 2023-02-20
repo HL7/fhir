@@ -222,7 +222,7 @@
       <path value="OperationDefinition.title"/>
       <short value="Name for this operation definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the operation definition."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -365,7 +365,7 @@
       <path value="OperationDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -384,7 +384,7 @@
       <path value="OperationDefinition.description"/>
       <short value="Natural language description of the operation definition"/>
       <definition value="A free text natural language description of the operation definition from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the operation definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the operation definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the operation definition is presumed to be the predominant language in the place the operation definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -500,7 +500,7 @@
       <path value="OperationDefinition.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -627,7 +627,7 @@
       <path value="OperationDefinition.inputProfile"/>
       <short value="Validation information for in parameters"/>
       <definition value="Additional validation information for the in parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource as a whole."/>
-      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
+      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc..), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -639,7 +639,7 @@
       <path value="OperationDefinition.outputProfile"/>
       <short value="Validation information for out parameters"/>
       <definition value="Additional validation information for the out parameters - a single profile that covers all the parameters. The profile is a constraint on the parameters resource."/>
-      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc.), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
+      <comment value="If present the profile shall not conflict with what is specified in the parameters in the operation definition (max/min etc..), though it may provide additional constraints. The constraints expressed in the profile apply whether the operation is invoked by a POST wih parameters or not."/>
       <min value="0"/>
       <max value="1"/>
       <type>

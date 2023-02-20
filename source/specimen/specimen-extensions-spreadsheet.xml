@@ -995,7 +995,7 @@
 					<Data ss:Type="String">Profile Name</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of an element for the purposes of this profile (used for slicing, code generation, etc.&#10;(see Confluence for more details)</Font>
+							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">The name of an element for the purposes of this profile (used for slicing, code generation, etc..&#10;(see Confluence for more details)</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -1058,7 +1058,7 @@
 					<Data ss:Type="String">Type</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>
+							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -7803,7 +7803,7 @@
 					<Data ss:Type="String">Type</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>
+							<Font html:Color="#000000" html:Face="Tahoma" html:Size="8" x:Family="Swiss">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -8075,7 +8075,7 @@
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s98">
-					<Data ss:Type="String">The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc…</Data>
+					<Data ss:Type="String">The urgency of sample collection, such as STAT, ASAP, ASAP-ED, ROUTINE, ROUTINE-AM, etc.…</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s99">
@@ -8233,7 +8233,7 @@
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s121">
-					<Data ss:Type="String">Qualitative description of the occupied space value for the specimen, such as small, moderate, large, scant, etc.</Data>
+					<Data ss:Type="String">Qualitative description of the occupied space value for the specimen, such as small, moderate, large, scant, etc..</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s122">

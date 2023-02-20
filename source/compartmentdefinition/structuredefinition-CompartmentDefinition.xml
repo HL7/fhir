@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -192,7 +192,7 @@
       <path value="CompartmentDefinition.title"/>
       <short value="Name for this compartment definition (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the capability statement."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -291,7 +291,7 @@
       <path value="CompartmentDefinition.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -306,7 +306,7 @@
       <path value="CompartmentDefinition.description"/>
       <short value="Natural language description of the compartment definition"/>
       <definition value="A free text natural language description of the compartment definition from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the compartment definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the compartment definition as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the compartment definition is presumed to be the predominant language in the place the compartment definition was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

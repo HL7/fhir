@@ -170,7 +170,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="itemName">
 				<xs:annotation>
-					<xs:documentation>Inserts the name of the current element or the name of one of it's ancestors.</xs:documentation>
+					<xs:documentation>Inserts the name of the current element or the name of one of its ancestors.</xs:documentation>
 					<xs:documentation>Parameters: item (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: prohibited</xs:documentation>
 				</xs:annotation>
@@ -247,14 +247,14 @@
 			</xs:enumeration>
 			<xs:enumeration value="freehandDocumentRef">
 				<xs:annotation>
-					<xs:documentation>An absolute reference to a specific document (e.g. ITS, transport protocol, etc.)</xs:documentation>
+					<xs:documentation>An absolute reference to a specific document (e.g. ITS, transport protocol, etc..)</xs:documentation>
 					<xs:documentation>Parameters: root (required, fixed to 'DEFN'), artifact (required, fixed to 'DC'), {domain, realmNamespace, name} (required), {version, releaseDate} (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the freehandDocument</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 			<xs:enumeration value="publicationRef">
 				<xs:annotation>
-					<xs:documentation>An absolute reference to a specific publication (e.g. ballot, normative edition, etc.)</xs:documentation>
+					<xs:documentation>An absolute reference to a specific publication (e.g. ballot, normative edition, etc..)</xs:documentation>
 					<xs:documentation>Parameters: root (required, 'BAL' or 'PUB), {realmNamespace, realmNamespace} (required), {domain, version, releaseDate} (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: optional - text - to be rendered within the link; default, if text absent, is the @title of the package</xs:documentation>
 				</xs:annotation>

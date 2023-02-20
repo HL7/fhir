@@ -121,7 +121,7 @@ Full audit trails can be constructed and used to detect anomalous access pattern
 </li></ul>
 <p>
 For general security considerations and principles, see <a href="security.html">Security</a>.
-Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc.
+Please leverage mature Security Frameworks covering device security, cloud security, big-data security, service-to-service security, etc..
 See <a href="https://nccoe.nist.gov/projects/building_blocks/mobile_device_security"> NIST Mobile Device Security</a>
 and <a href="https://www.owasp.org">OWASP</a>. 
 These security frameworks include prioritized lists of most important concerns.
@@ -348,7 +348,7 @@ For details, see
 </p><p>
 Digital Signatures bind cryptographically the exact contents, so that any changes will make the Digital Signature invalid. 
 When a Resource is <a href="http.html#create">created</a>, or <a href="http.html#update">updated</a> 
-the server is expected to update relevant elements that it manages (id, lastupdated, etc.). 
+the server is expected to update relevant elements that it manages (id, lastupdated, etc..). 
 These changes, although expected of normal RESTful create/update operations, will break any Digital Signature that has been calculated prior. 
 One solution is to create the Digital Signature after the REST create operation completes, one must first confirm that the resulting 
 created/updated Resource is as expected, then the Digital Signature is formed.
@@ -385,7 +385,7 @@ Note that often Quasi-Identifier and Indirect-Identifier are often considered th
 </p><p>
 <em>Modifying an element:</em> The de-identification process may determine that specific elements need to be modified to lower privacy 
 risk. Some methods of modifying are: eliminating the element, setting to a static value (e.g. "removed"), fuzzing (e.g. adjusting by 
-some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
+some random value), masking (e.g. encryption), pseudonym (e.g. replace with an alias), etc.. <a href="narrative.html">Narrative</a> and <a href="datatypes.html#Attachment">Attachment</a> elements present particularly difficult challenges.
 See standards below for further details.
 </p><p>
 <em>Discussion:</em>

@@ -8,7 +8,7 @@
 			This is typically for regulatory or manufacturing use cases, rather than day to day prescribing or dispensing.
 		</p>
 		<p>
-			This resource represents (for example) a single physical tablet. It can also represent physical liquids, powders, capsules etc. 
+			This resource represents (for example) a single physical tablet. It can also represent physical liquids, powders, capsules etc.. 
 			When prescribing, it is not usually necessary to represent the physical properties of the tablet that the patient will eventually receive and consume.
 			Prescriptions make statements about types of products or substances, in general terms or more specific, which may be fulfilled by tablets (in some cases) 
 			but usually without directly talking about the details of those tablets. 

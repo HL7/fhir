@@ -4,7 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-A DocumentReference resource is used to index a document, clinical note, and other binary objects such as a photo, video, or audio recording, including those resulting from diagnostic or care provision procedures, to make them available to a healthcare system. A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, author, etc. can be presented to the user), and has defined update management. The DocumentReference resource can be used with any document format that has a recognized mime type and that conforms to this definition.
+A DocumentReference resource is used to index a document, clinical note, and other binary objects such as a photo, video, or audio recording, including those resulting from diagnostic or care provision procedures, to make them available to a healthcare system. A document is some sequence of bytes that is identifiable, establishes its own context (e.g., what subject, author, etc.. can be presented to the user), and has defined update management. The DocumentReference resource can be used with any document format that has a recognized mime type and that conforms to this definition.
 </p>
 <p>
 Typically, DocumentReference resources are used in document indexing systems, such as <a href="https://profiles.ihe.net/ITI/TF/Volume1/ch-10.html">IHE XDS</a> and as profiled in <a href="https://profiles.ihe.net/ITI/MHD/">IHE Mobile Access to Health Documents</a>.
@@ -53,7 +53,7 @@ that are authored and assembled in FHIR. DocumentReference is intended for gener
 The document that is a target of the reference can be a reference to a FHIR document served by another server, or
 the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be
 stored on some other server system. The document reference is also able to address documents that are retrieved
-by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message query - though
+by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> message query - though
 the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
 <p>

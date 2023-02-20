@@ -32,7 +32,7 @@
           <valueString value="DetectedIssue.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-category"/>
-        <description value="Issue Category, e.g. drug-drug, duplicate therapy, etc."/>
+        <description value="Issue Category, e.g. drug-drug, duplicate therapy, etc.."/>
         <code value="category"/>
         <type value="token"/>
         <expression value="DetectedIssue.category"/>
@@ -51,7 +51,7 @@
           <valueString value="DetectedIssue.code"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DetectedIssue-code"/>
-        <description value="Issue Type, e.g. drug-drug, duplicate therapy, etc."/>
+        <description value="Issue Type, e.g. drug-drug, duplicate therapy, etc.."/>
         <code value="code"/>
         <type value="token"/>
         <expression value="DetectedIssue.code"/>

@@ -62,7 +62,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -733,7 +733,7 @@
         <valueCode value="right"/>
       </extension>
       <path value="Specimen.container"/>
-      <short value="Direct container of specimen (tube/slide, etc.)"/>
+      <short value="Direct container of specimen (tube/slide, etc..)"/>
       <definition value="The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here."/>
       <min value="0"/>
       <max value="*"/>

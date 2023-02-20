@@ -11,7 +11,7 @@ to be referenced by other resources except as described below.
 <p>
 Because Parameters does not reflect a persistent healthcare-related entity but rather just a collection
 of data passed into or out of an operation, there is generally no need to have a RESTful endpoint at
-which such instances can be created, updated, queried, etc.  However, there are a few limited cases
+which such instances can be created, updated, queried, etc..  However, there are a few limited cases
 where this can make sense:
 </p>
 <ul>
@@ -29,7 +29,7 @@ where this can make sense:
 Technically, Parameters is a specialization of Resource and as such could potentially appear anywhere
 that 'Resource' is permitted and could be referenced anywhere an element has an unconstrained type of
 Reference.  For example, it could appear in FHIR documents, as contained resources, referenced by
-extensions, in elements like Observation.focus, etc.  However, <b>such use is prohibited</b> unless the
+extensions, in elements like Observation.focus, etc..  However, <b>such use is prohibited</b> unless the
 element containing the Resource or Reference type explicitly indicates that Parameters is permitted.
 If there is a requirement to exchange arbitrary collections of data elements, this need should typically
 be met using <a href="basic.html">Basic</a>.

@@ -25,7 +25,7 @@
   <concept>
     <code value="frr01"/>
     <display value="Order Stopped"/>
-    <definition value="The order has been stopped by the prescriber but this fact has not necessarily captured electronically. Example: A verbal stop, a fax, etc."/>
+    <definition value="The order has been stopped by the prescriber but this fact has not necessarily captured electronically. Example: A verbal stop, a fax, etc.."/>
   </concept>
   <concept>
     <code value="frr02"/>
@@ -35,7 +35,7 @@
   <concept>
     <code value="frr03"/>
     <display value="Incomplete data"/>
-    <definition value="Data needed to safely act on the order which was expected to become available independent of the order is not yet available. Example: Lab results, diagnostic imaging, etc."/>
+    <definition value="Data needed to safely act on the order which was expected to become available independent of the order is not yet available. Example: Lab results, diagnostic imaging, etc.."/>
   </concept>
   <concept>
     <code value="frr04"/>
@@ -50,7 +50,7 @@
   <concept>
     <code value="frr06"/>
     <display value="Unable to provide care"/>
-    <definition value="Fulfiller not able to provide appropriate care associated with fulfilling the order. Example: Therapy requires ongoing monitoring by fulfiller and fulfiller will be ending practice, leaving town, unable to schedule necessary time, etc."/>
+    <definition value="Fulfiller not able to provide appropriate care associated with fulfilling the order. Example: Therapy requires ongoing monitoring by fulfiller and fulfiller will be ending practice, leaving town, unable to schedule necessary time, etc.."/>
   </concept>
   <concept>
     <code value="altchoice"/>

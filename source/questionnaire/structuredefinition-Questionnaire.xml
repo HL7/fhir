@@ -75,7 +75,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -255,7 +255,7 @@
       <path value="Questionnaire.title"/>
       <short value="Name for this questionnaire (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the questionnaire."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -443,7 +443,7 @@
       <path value="Questionnaire.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -466,7 +466,7 @@
       <path value="Questionnaire.description"/>
       <short value="Natural language description of the questionnaire"/>
       <definition value="A free text natural language description of the questionnaire from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the questionnaire as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the questionnaire is presumed to be the predominant language in the place the questionnaire was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -602,7 +602,7 @@
       <path value="Questionnaire.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -810,7 +810,7 @@
       <constraint>
         <key value="que-14"/>
         <severity value="warning"/>
-        <human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
+        <human value="Can only have answerConstraint if answerOption or answerValueSet are present.  (This is a warning because extensions may serve the same purpose)"/>
         <expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
@@ -926,7 +926,7 @@
     <element id="Questionnaire.item.type">
       <path value="Questionnaire.item.type"/>
       <short value="group | display | boolean | decimal | integer | date | dateTime +"/>
-      <definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc.)."/>
+      <definition value="The type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, Coding, etc..)."/>
       <comment value="Additional constraints on the type of answer can be conveyed by extensions. The value may come from the ElementDefinition referred to by .definition."/>
       <requirements value="Defines the format in which the user is to be prompted for the answer."/>
       <min value="1"/>
@@ -963,7 +963,7 @@
       <path value="Questionnaire.item.enableWhen"/>
       <short value="Only allow data when"/>
       <definition value="A constraint indicating that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true."/>
-      <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.  This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.  In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 &gt; 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc."/>
+      <comment value="If multiple repetitions of this extension are present, the interpretation is driven by enableBehavior (either all repetitions must evaluate to true for this item to be enabled, or only one must evaluate to true for the item to be enabled).  If the enableWhen.question has multiple answers, the condition evaluates to true if *any* of the answers for the referenced item match the enableWhen condition.  This element is a modifier because if enableWhen is present for an item, &quot;required&quot; is ignored unless one of the enableWhen conditions is met. When an item is disabled, all of its descendants are disabled, regardless of what their own enableWhen logic might evaluate to.  If enableWhen logic depends on an item that is disabled, the logic should proceed as though the item is not valued - even if a default value or other value might be retained in memory in the event of the item being re-enabled.  In some cases, the comparison between the indicated answer and the specified value may differ only by precision.  For example, the enableWhen might be Q1 &gt; 1970, but the answer to Q1 is 1970-10-15.  There is not a clear answer as to whether 1970-10-15 should be considered 'greater' than 1970, given that it is an imprecise value.  In these indeterminate situations, the form filler has the option of refusing to render the form.  If the form **is** displayed, items where enableWhen is indeterminate SHOULD be treated as enabled with a warning indicating that the questionnaire logic was faulty and it is possible that the item should not be enabled.  Questionnaires SHOULD be designed to take into account challenges around varying precision to minimize non-deterministic situations by setting constraints around expected precision, etc.."/>
       <requirements value="Allows questionnaires to adapt based on answers to other questions. E.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions."/>
       <min value="0"/>
       <max value="*"/>
@@ -1029,7 +1029,7 @@
       </extension>
       <path value="Questionnaire.item.enableWhen.answer[x]"/>
       <short value="Value for question comparison based on operator"/>
-      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc.), consider using the enableWhenExpression extension."/>
+      <definition value="A value that the referenced question is tested using the specified operator in order for the item to be enabled.  If there are multiple answers, a match on any of the answers suffices.  If different behavior is desired (all must match, at least 2 must match, etc..), consider using the enableWhenExpression extension."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -1165,7 +1165,7 @@
       <short value="Don't allow human editing"/>
       <definition value="An indication, when true, that the value cannot be changed by a human respondent to the Questionnaire."/>
       <comment value="If specified on a 'group', then all items beneath the specified group are read only.  For questions, this only marks the answer associated with the specific item read only.  Descendant questions are not impacted.  The value of readOnly elements can be established by asserting extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers."/>
-      <requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc."/>
+      <requirements value="Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1200,7 +1200,7 @@
     <element id="Questionnaire.item.answerConstraint">
       <path value="Questionnaire.item.answerConstraint"/>
       <short value="optionsOnly | optionsOrType | optionsOrString"/>
-      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueSet), indicates whether values *other* than those specified can be selected."/>
       <requirements value="Introduces the ability for questions to have 'other' answers"/>
       <min value="0"/>
       <max value="1"/>
@@ -1225,7 +1225,7 @@
     </element>
     <element id="Questionnaire.item.answerValueSet">
       <path value="Questionnaire.item.answerValueSet"/>
-      <short value="Valueset containing permitted answers"/>
+      <short value="ValueSet containing permitted answers"/>
       <definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
       <comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>

@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -427,7 +427,7 @@
     <element id="MedicationStatement.relatedClinicalInformation">
       <path value="MedicationStatement.relatedClinicalInformation"/>
       <short value="Link to information relevant to the usage of a medication"/>
-      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc."/>
+      <definition value="Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>

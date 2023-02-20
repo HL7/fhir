@@ -51,7 +51,7 @@ Notes:
      the contents of the POST/PUT and determines the ids of the resource(s) to which the interaction applies</li>
  <li>Servers MAY ignore the header, but SHOULD process it if they support provenance</li>
  <li>Some server frameworks impose a length limit on individual HTTP headers, or on the the headers as a whole. Servers MAY reject a request if the X-Provenance header is too long</li>
- <li>The use of the header is not documented for other HTTP methods (GET etc)</li>
+ <li>The use of the header is not documented for other HTTP methods (GET etc.)</li>
  <li>When recording an AuditEvent, one AuditEvent may be used to record the create of the resource and provenance</li>
 </ul>
 
@@ -79,8 +79,8 @@ a business requirement to do so.
 <h3>Use of Provenance to record Import and Transform</h3>
 <p>
 Provenance can be used to record activities of an automaton that transforms input. Such as middleware 
-that extracts information from a HL7 v2 message and creates FHIR resources, or middleware that extracts 
-information from an HL7 CDA document and creates FHIR resources, etc. The Provenance in these cases is 
+that extracts information from a HL7 V2 message and creates FHIR resources, or middleware that extracts 
+information from an HL7 CDA document and creates FHIR resources, etc.. The Provenance in these cases is 
 recording the activity of the middleware.
 </p><p>
 The middleware in this case would, in addition to creating the target resources, create a <code>Provenance</code> 

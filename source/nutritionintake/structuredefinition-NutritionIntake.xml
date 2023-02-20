@@ -367,7 +367,7 @@
     <element id="NutritionIntake.consumedItem.type">
       <path value="NutritionIntake.consumedItem.type"/>
       <short value="The type of food or fluid product"/>
-      <definition value="Indicates what a category of item that was consumed: eg., food, fluid, enteral, etc."/>
+      <definition value="Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -465,7 +465,7 @@
     <element id="NutritionIntake.consumedItem.notConsumedReason">
       <path value="NutritionIntake.consumedItem.notConsumedReason"/>
       <short value="Reason food or fluid was not consumed"/>
-      <definition value="Document the reason the food or fluid was not consumed, such as refused, held, etc."/>
+      <definition value="Document the reason the food or fluid was not consumed, such as refused, held, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -483,7 +483,7 @@
     <element id="NutritionIntake.ingredientLabel">
       <path value="NutritionIntake.ingredientLabel"/>
       <short value="Total nutrient for the whole meal, product, serving"/>
-      <definition value="Total nutrient amounts for the whole meal, product, serving, etc."/>
+      <definition value="Total nutrient amounts for the whole meal, product, serving, etc.."/>
       <comment value="Individual item nutrients are not currently included in the resource and will likely end up as a reference in nutritionProduct to represent the individual items."/>
       <min value="0"/>
       <max value="*"/>

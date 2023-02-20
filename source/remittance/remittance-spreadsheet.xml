@@ -868,7 +868,7 @@
 					<Data ss:Type="String">Type</Data>
 					<Comment ss:Author="">
 						<ss:Data xmlns="http://www.w3.org/TR/REC-html40">
-							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>
+							<Font html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>
 						</ss:Data>
 					</Comment>
 					<NamedCell ss:Name="_FilterDatabase"/>
@@ -11282,7 +11282,7 @@ Comment the row by starting with '!'</Font>
 					<Data ss:Type="String">ServiceCode</Data>
 				</Cell>
 				<Cell ss:StyleID="s78">
-					<Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc.)</Data>
+					<Data ss:Type="String">The type of insurance: public health, worker compensation; private accident, auto, private health, etc..)</Data>
 				</Cell>
 				<Cell ss:StyleID="s114">
 					<Data ss:Type="String">value set</Data>

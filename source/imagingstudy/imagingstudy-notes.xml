@@ -362,7 +362,7 @@ facility. First, a FHIR query is made against the Observation resource to
 query for the most recent value of PSA (the EMR also queries previous
 values of PSA for trending). For the CT exam, the EMR software queries on
 the ImagingStudy resource to retrieve a list of available images with other
-relevant constraints (such as modality, body region etc.). This returns
+relevant constraints (such as modality, body region etc..). This returns
 back the studies available, with relevant meta-data about each study,
 its series and images. This information will help Karen to select which
 study would like to review. Using the WADO-RS references provided, the

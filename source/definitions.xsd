@@ -239,7 +239,7 @@
   </xs:element>
   <xs:element name="v2">
     <xs:annotation>
-      <xs:documentation>Mapping to a v2 segment/field/etc., if desired and appropriate</xs:documentation>
+      <xs:documentation>Mapping to a v2 segment/field/etc.., if desired and appropriate</xs:documentation>
     </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string"/>

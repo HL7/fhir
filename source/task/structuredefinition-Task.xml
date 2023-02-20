@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -173,7 +173,7 @@
     <element id="Task.basedOn">
       <path value="Task.basedOn"/>
       <short value="Request fulfilled by this task"/>
-      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, CarePlan, etc. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by focus.  For example, based on a CarePlan (= basedOn), a task is created to fulfill a ServiceRequest ( = focus ) to collect a specimen from a patient."/>
+      <definition value="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a &quot;request&quot; resource such as a ServiceRequest, MedicationRequest, CarePlan, etc.. which is distinct from the &quot;request&quot; resource the task is seeking to fulfill.  This latter resource is referenced by focus.  For example, based on a CarePlan (= basedOn), a task is created to fulfill a ServiceRequest ( = focus ) to collect a specimen from a patient."/>
       <comment value="Task.basedOn is never the same as Task.focus.  Task.basedOn will typically not be present for 'please fulfill' Tasks as a distinct authorization is rarely needed to request fulfillment.  If the Task is seeking fulfillment of an order, the order to be fulfilled is always communicated using `focus`, never basedOn.  However, authorization may be needed to perform other types of Task actions.  As an example of when both would be present, a Task seeking suspension of a prescription might have a Task.basedOn pointing to the ServiceRequest ordering surgery (which is the driver for suspending the MedicationRequest - which would be the Task.focus)."/>
       <min value="0"/>
       <max value="*"/>
@@ -194,7 +194,7 @@
     <element id="Task.groupIdentifier">
       <path value="Task.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Task and Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc..  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -270,7 +270,7 @@
     <element id="Task.statusReason">
       <path value="Task.statusReason"/>
       <short value="Reason for current status"/>
-      <definition value="An explanation as to why this task is held, failed, was refused, etc."/>
+      <definition value="An explanation as to why this task is held, failed, was refused, etc.."/>
       <comment value="This applies to the current status.  Look at the history of the task to see reasons for past statuses."/>
       <min value="0"/>
       <max value="1"/>
@@ -307,7 +307,7 @@
           <valueString value="TaskBusinessStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc."/>
+        <description value="The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc.."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -317,8 +317,8 @@
     <element id="Task.intent">
       <path value="Task.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc."/>
-      <comment value="This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Task, i.e. i+R[9]Cs this a proposed task, a planned task, an actionable task, etc.."/>
+      <comment value="This element is immutable.  Proposed tasks, planned tasks, etc.. must be distinct instances.&#xA;&#xA;In most cases, Tasks will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -458,7 +458,7 @@
     <element id="Task.focus">
       <path value="Task.focus"/>
       <short value="What task is acting on"/>
-      <definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc.) by this task."/>
+      <definition value="The request being fulfilled or the resource being manipulated (changed, suspended, etc..) by this task."/>
       <comment value="If multiple resources need to be manipulated, use sub-tasks.  (This ensures that status can be tracked independently for each referenced resource.)."/>
       <requirements value="Used to identify the thing to be done."/>
       <min value="0"/>
@@ -777,7 +777,7 @@
       <path value="Task.location"/>
       <short value="Where task occurs"/>
       <definition value="Principal physical location where the this task is performed."/>
-      <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
+      <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc..) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>
       <max value="1"/>
@@ -1003,7 +1003,7 @@
           <valueString value="TaskInputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc.."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1208,7 +1208,7 @@
           <valueString value="TaskOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc.."/>
       </binding>
       <mapping>
         <identity value="rim"/>

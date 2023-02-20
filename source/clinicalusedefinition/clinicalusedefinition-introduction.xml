@@ -7,7 +7,7 @@
 			ClinicalUseDefinition is to record an instance of facts about a particular medication, substance, 
 			device, procedure, biologically derived product or nutrition product, in relation to its intended use (indication), 
 			situations where it should not normally be used (contraindication), 
-			known side effects (undesirable effects), clashes with other substances - medications, foods etc. 
+			known side effects (undesirable effects), clashes with other substances - medications, foods etc.. 
 			(interactions) and critical information about risks or hazards to caution the user or consumer (warnings). 
 			The resource is used to record one such instance, and all its details. 
 		</p>
@@ -24,16 +24,16 @@
 			decision support activities.
 		</p>
 		<p>
-			The clinical issue does not refer to any actual instance of the medication, device or procedure etc. being used, or to any actual patient event. 
+			The clinical issue does not refer to any actual instance of the medication, device or procedure etc.. being used, or to any actual patient event. 
 		</p>
 		<p>
 			The resource is used to record one instance of one of these: 
 		</p>
 		<ul>
-			<li>Indication - A medical situation in which a medicinal product, medical device or procedure etc. is appropriate for use</li>
-			<li>Contraindication - A reason why a medicinal product, medical device or procedure etc. is not to be used in a certain context</li>
-			<li>Interaction - The interactions of the medicinal product or medical device etc. with other medicinal products, food, substances etc.</li>
-			<li>Undesirable Effect - A potential negative outcome from the use of a medicinal product, medical device or procedure etc. See also AdverseEvent, which is for actual events (or near misses), and AllergyIntolerance.</li>
+			<li>Indication - A medical situation in which a medicinal product, medical device or procedure etc.. is appropriate for use</li>
+			<li>Contraindication - A reason why a medicinal product, medical device or procedure etc.. is not to be used in a certain context</li>
+			<li>Interaction - The interactions of the medicinal product or medical device etc.. with other medicinal products, food, substances etc..</li>
+			<li>Undesirable Effect - A potential negative outcome from the use of a medicinal product, medical device or procedure etc.. See also AdverseEvent, which is for actual events (or near misses), and AllergyIntolerance.</li>
 			<li>Warning – Critical information about the environmental or health or physical risks or hazards, that serve as caution to the user or consumer.</li>
 		</ul>
 	</div>

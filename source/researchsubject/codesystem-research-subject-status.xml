@@ -84,7 +84,7 @@
   <concept>
     <code value="on-study-intervention"/>
     <display value="On-study-intervention"/>
-    <definition value="The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc.) that the study is evaluating."/>
+    <definition value="The person is receiving the treatment or participating in an activity (e.g. yoga, diet, etc..) that the study is evaluating."/>
   </concept>
   <concept>
     <code value="on-study-observation"/>

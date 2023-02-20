@@ -730,7 +730,7 @@ priorPrescription</a>
        class="diagram-class-detail"><a
    xlink:href="medicationrequest-definitions.html#MedicationRequest.detectedIssue"
    id="n1139"><title
-   id="title227">Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc</title>
+   id="title227">Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.</title>
 detectedIssue</a>
  : <a
    xlink:href="references.html#Reference"

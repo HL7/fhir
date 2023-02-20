@@ -49,12 +49,12 @@
       <value value="http://www.hl7.org/Special/committees/Vocab/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
+  <description value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc..  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -88,7 +88,7 @@
       </extension>
       <path value="NamingSystem"/>
       <short value="System of unique identification"/>
-      <definition value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
+      <definition value="A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc..  Represents a &quot;System&quot; used within the Identifier and Coding data types."/>
       <min value="0"/>
       <max value="*"/>
       <constraint>
@@ -219,7 +219,7 @@
       <path value="NamingSystem.title"/>
       <short value="Title for this naming system (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the naming system."/>
-      <comment value="This title does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This title does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -342,7 +342,7 @@
       <path value="NamingSystem.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -370,7 +370,7 @@
     </element>
     <element id="NamingSystem.type">
       <path value="NamingSystem.type"/>
-      <short value="e.g. driver,  provider,  patient, bank etc."/>
+      <short value="e.g. driver,  provider,  patient, bank etc.."/>
       <definition value="Categorizes a naming system for easier search by grouping related naming systems."/>
       <comment value="This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well."/>
       <min value="0"/>
@@ -393,8 +393,8 @@
       </extension>
       <path value="NamingSystem.description"/>
       <short value="Natural language description of the naming system"/>
-      <definition value="A free text natural language description of the naming system from a consumer's perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the naming system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the naming system is presumed to be the predominant language in the place the naming system was created)."/>
+      <definition value="A free text natural language description of the naming system from a consumer's perspective. Details about what the namespace identifies including scope, granularity, version labeling, etc.."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the naming system as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the naming system is presumed to be the predominant language in the place the naming system was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -486,7 +486,7 @@
       <path value="NamingSystem.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -547,7 +547,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="NamingSystem.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc.."/>
       <definition value="Descriptions related to the content of the NamingSystem. Topics provide a high-level categorization as well as keywords for the NamingSystem that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the NamingSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the NamingSystem so that it can be found by topical and keyword searches."/>
@@ -609,7 +609,7 @@
     </element>
     <element id="NamingSystem.relatedArtifact">
       <path value="NamingSystem.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc.."/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A NamingSystem must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -625,7 +625,7 @@
       </extension>
       <path value="NamingSystem.usage"/>
       <short value="How/where is it used"/>
-      <definition value="Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc."/>
+      <definition value="Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -639,7 +639,7 @@
       <path value="NamingSystem.uniqueId"/>
       <short value="Unique identifiers used for system"/>
       <definition value="Indicates how the system may be identified when referenced in electronic exchange."/>
-      <comment value="Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc."/>
+      <comment value="Multiple identifiers may exist, either due to duplicate registration, regional rules, needs of different communication technologies, etc.."/>
       <min value="1"/>
       <max value="*"/>
       <type>
@@ -666,7 +666,7 @@
       <path value="NamingSystem.uniqueId.type"/>
       <short value="oid | uuid | uri | iri-stem | v2csmnemonic | other"/>
       <definition value="Identifies the unique identifier scheme used for this particular identifier."/>
-      <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc.).  Other includes RUIDs from v3, standard v2 code name strings, etc. Preferred identifiers for the same identifier type SHOULD NOT overlap by period."/>
+      <comment value="Different identifier types may be used in different types of communications (OIDs for v3, URIs for FHIR, etc..).  Other includes RUIDs from v3, standard v2 code name strings, etc.. Preferred identifiers for the same identifier type SHOULD NOT overlap by period."/>
       <min value="1"/>
       <max value="1"/>
       <type>

@@ -223,7 +223,7 @@
           <valueString value="ClinicalUseDefinition.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/ManufacturedItemDefinition-status"/>
-        <description value="Whether this is a current issue or one that has been retired etc"/>
+        <description value="Whether this is a current issue or one that has been retired etc."/>
         <code value="status"/>
         <type value="token"/>
         <expression value="ClinicalUseDefinition.status"/>

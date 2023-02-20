@@ -16,7 +16,7 @@ A flag has a subject representing the resource that will trigger its display. Th
     <li>A patient who is enrolled in a clinical trial (subject=Group)</li>
     <li>Special guidance or caveats to be aware of when following a protocol (subject=PlanDefinition)</li>
     <li>Warnings about using a drug in a formulary requires special approval (subject=Medication)</li>
-    <li>etc.</li>
+    <li>etc..</li>
 </ul>
 <p>
     

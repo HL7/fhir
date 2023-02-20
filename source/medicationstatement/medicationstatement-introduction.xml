@@ -8,7 +8,7 @@
             <li>the recording of an intake medication list upon admission to hospital</li>
             <li>the summarization of a patient's "active medications" in a patient profile</li>
         </ul>
-        <p>A MedicationStatement SHALL NOT be used to record substance abuse or the use of other agents such as tobacco or alcohol UNLESS those agents have been prescribed, eg. nicotine patches or gum, long term care alcohol, etc.  These should recorded as Social History Observations.</p>
+        <p>A MedicationStatement SHALL NOT be used to record substance abuse or the use of other agents such as tobacco or alcohol UNLESS those agents have been prescribed, e.g. nicotine patches or gum, long term care alcohol, etc..  These should recorded as Social History Observations.</p>
         <p> This resource does not produce a medication list, but it does produce individual
             medication statements that may be used in the List resource to construct various types
             of medication lists. Note that other medication lists can also be constructed from the
@@ -66,6 +66,6 @@
             instances of any of the preceding three types may be used to infer a medication
             statement. However, medication statements can also be captured on the basis of other
             information, including an assertion by the patient or a care-giver, the results of a lab
-            test, etc. </p>
+            test, etc.. </p>
         <p> To indicate the link between a MedicationStatement instance and the Medication Request, Dispense, or Administration that was used to derive the MedicationStatement, the reference should be placed in the MedicationStatement.derivedFrom element.</p>  </div>
 </div>

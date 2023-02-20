@@ -904,7 +904,7 @@ location[x]</a>
 ); <a
    xlink:href="valueset-service-place.html"
    id="n1736"><title
-   id="n1737">Place of service: pharmacy, school, prison, etc. (Strength=Example)</title>
+   id="n1737">Place of service: pharmacy, school, prison, etc.. (Strength=Example)</title>
 ExampleServicePlaceCodes</a>
 ?? »</text>
     <text
@@ -974,7 +974,7 @@ net</a>
        style="fill:#000000"><a
    xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite"
    id="n1773"><title
-   id="title298">Physical service site on the patient (limb, tooth, etc.)</title>
+   id="title298">Physical service site on the patient (limb, tooth, etc..)</title>
 bodySite</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

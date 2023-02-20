@@ -43,7 +43,7 @@ The scope of the resource may change when the other possible scopes are investig
                 the
                 <code>policyBasis</code> attribute which provides a more flexible mechanism to reference a policy coded in a policy language of choice (e.g.,
                 <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=xacml">XACML</a>,
-                <a href="https://www.w3.org/community/odrl/">ODRL</a>, etc.).
+                <a href="https://www.w3.org/community/odrl/">ODRL</a>, etc..).
             </li>
         </ul>
     </div>

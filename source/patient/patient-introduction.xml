@@ -23,7 +23,7 @@ created and maintained by each organization providing care for a patient. A pati
 organizations may therefore have its information present in multiple Patient Resources.
 </p>
 <p>
-Not all concepts are included within the base resource (such as race, ethnicity, organ donor status, nationality, etc.), 
+Not all concepts are included within the base resource (such as race, ethnicity, organ donor status, nationality, etc..), 
 but may be found in <a href="patient-profiles.html">profiles</a> defined for specific jurisdictions (e.g., US Meaningful Use Program) 
 or <a href="patient-core.html">standard extensions</a>. Such fields vary widely between jurisdictions and often have different 
 names and valuesets for the similar concepts, but they are not similar enough to be able to map and exchange.

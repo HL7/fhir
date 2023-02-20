@@ -35,12 +35,12 @@
 		</p>
 		<p>
 			A list of drug definitions would be list of MedicinalProductDefinitions, but each would have a series of 
-			associated packs and manufactured items (and ingredients etc.), with references to the appropriate resources.
+			associated packs and manufactured items (and ingredients etc..), with references to the appropriate resources.
 		</p>
 		<p>
 			The "product level" at the top has features such as names and identifiers, classifications, legal status, 
 			and usage characteristics (indications, contra-indications) 
-			since they are common to all package types available for this product, the tablets (or powders etc.) that physically are the medication, 
+			since they are common to all package types available for this product, the tablets (or powders etc..) that physically are the medication, 
 			as well as the form of the drug that is eventually given to the patient. 
 		</p>
 		<p>

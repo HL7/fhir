@@ -150,7 +150,7 @@ InvoiceStatus</a>
        class="diagram-class-detail"><a
    xlink:href="invoice-definitions.html#Invoice.cancelledReason"
    id="n397"><title
-   id="title31">In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc.)</title>
+   id="title31">In case of Invoice cancellation a reason must be given (entered in error, superseded by corrected invoice etc..)</title>
 cancelledReason</a>
  : <a
    xlink:href="datatypes.html#string"
@@ -351,7 +351,7 @@ note</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.participant.role"
    id="n480"><title
-   id="title97">Describes the type of involvement (e.g. transcriptionist, creator etc.). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device</title>
+   id="title97">Describes the type of involvement (e.g. transcriptionist, creator etc..). If the invoice has been created automatically, the Participant may be a billing engine or another kind of device</title>
 role</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
@@ -365,7 +365,7 @@ role</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.participant.actor"
    id="n486"><title
-   id="title102">The device, practitioner, etc. who performed or participated in the service</title>
+   id="title102">The device, practitioner, etc.. who performed or participated in the service</title>
 actor</a>
  : <a
    xlink:href="references.html#Reference"
@@ -443,7 +443,7 @@ sequence</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.lineItem.chargeItem_x_"
    id="n515"><title
-   id="title123">The ChargeItem contains information such as the billing code, date, amount etc. If no further details are required for the lineItem, inline billing codes can be added using the CodeableConcept data type instead of the Reference</title>
+   id="title123">The ChargeItem contains information such as the billing code, date, amount etc.. If no further details are required for the lineItem, inline billing codes can be added using the CodeableConcept data type instead of the Reference</title>
 chargeItem[x]</a>
  : <a
    xlink:href="formats.html#umlchoice"
@@ -511,7 +511,7 @@ InvoicePriceComponentType</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.code"
    id="n540"><title
-   id="title142">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc</title>
+   id="title142">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.</title>
 code</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

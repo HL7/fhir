@@ -9,9 +9,9 @@ This information can be used to form assessments about its quality, reliability,
 </p>
 <p>
 Provenance resources are a record-keeping assertion that gathers information about the context in which the information in a resource was obtained. 
-Provenance resources are prepared by the application that initiates the create/update etc. of the resource.
+Provenance resources are prepared by the application that initiates the create/update etc.. of the resource.
 An <a href="auditevent.html">AuditEvent</a> resource contains overlapping information, but is created as events occur, to track and audit the events. 
-AuditEvent resources are often (though not exclusively) created by the application responding to the read/query/create/update/etc. event. 
+AuditEvent resources are often (though not exclusively) created by the application responding to the read/query/create/update/etc.. event. 
 </p>
 </div>
 

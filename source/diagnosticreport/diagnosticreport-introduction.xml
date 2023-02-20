@@ -16,11 +16,11 @@ The DiagnosticReport resource has information about the diagnostic report itself
 The DiagnosticReport resource is suitable for the following kinds of diagnostic reports:
 </p>
 <ul>
- <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc.)</li>
+ <li>Laboratory (Clinical Chemistry, Hematology, Microbiology, etc..)</li>
  <li>Pathology / Histopathology / related disciplines</li>
- <li>Imaging Investigations (x-ray, CT, MRI, etc.)</li>
- <li>Other diagnostics such as Cardiology, Gastroenterology, etc.</li>
- <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
+ <li>Imaging Investigations (x-ray, CT, MRI, etc..)</li>
+ <li>Other diagnostics such as Cardiology, Gastroenterology, etc..</li>
+ <li>Product quality tests such as pH, Assay, Microbial limits, etc.. on product and substance</li>
 </ul>
 <p>
 The DiagnosticReport resource is not intended to support cumulative result presentation (tabular presentation of past and present results in the resource).
@@ -74,7 +74,7 @@ In contrast to the <a href="observation.html">Observation</a> resource, the Diag
 </p>
 
 <p>
-If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="servicerequest.html">ServiceRequest</a>) and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
+If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="servicerequest.html">ServiceRequest</a>) and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc..), the <a href="composition.html">Composition</a> resource would be more appropriate.
 </p>
 
 <p>

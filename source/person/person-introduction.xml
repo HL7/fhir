@@ -54,7 +54,7 @@
     These linkages assert that all the records relate to the same individual.
   </p>
   <p>
-    Person instances are NEVER directly referenced as actors (authors, subjects, performers, etc.)
+    Person instances are NEVER directly referenced as actors (authors, subjects, performers, etc..)
     Individual actors are always identified as either Patient, Practitioner or RelatedPerson, depending on the role
     of the individual when undertaking the action. Therefore this resource SHALL NOT be referenced by any
     other clinical or administrative resources.<br/>

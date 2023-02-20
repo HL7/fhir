@@ -16,7 +16,7 @@
 [%normative page infrastructure%]
 
 <p>
-The <a href="http.html">RESTful API</a> defines a set of common interactions (read, update, search, etc.)
+The <a href="http.html">RESTful API</a> defines a set of common interactions (read, update, search, etc..)
 performed on a repository of typed resources. These interactions follow
 the RESTful paradigm of managing state by <b>C</b>reate/<b>R</b>ead/<b>U</b>pdate/<b>D</b>elete actions on a set of identified
 resources. While this approach solves many use cases, there is some 
@@ -106,7 +106,7 @@ Operations may be invoked using a <code>GET</code>, with parameters as HTTP URL 
 If the response is a <a href="bundle.html">Bundle</a>, the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
 be '<a href="codesystem-bundle-type.html#bundle-type-collection">collection</a>', though it could be one of the other types. For eample, 
 if the operation has <a href="http.html#search">search semantics</a>, such as 
-matching resource counts, and <a href="http.html#paging">page links (next etc) then
+matching resource counts, and <a href="http.html#paging">page links (next etc.) then
 the <a href="bundle-definitions.html#Bundle.type">Bundle.type</a> will typically 
 be '<a href="codesystem-bundle-type.html#bundle-type-search-set">search-set</a>'</a>.
 </p>
@@ -275,7 +275,7 @@ Other kinds of 3xx codes should be understood to indicate that the
 operation did not proceed, and the client will need to re-issue the
 operation if it can perform the redirection (e.g. may get redirected
 to an authentication step). User agents should note that servers
-may issue redirects, etc. to authenticate the client in response to
+may issue redirects, etc.. to authenticate the client in response to
 an operation request. An HTTP status code of 4xx or 5xx indicates
 an error, and an <a href="operationoutcome.html">OperationOutcome</a>
 SHOULD be returned with details.

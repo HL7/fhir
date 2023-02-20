@@ -3,7 +3,7 @@
   <h2>Tasks vs. other Requests</h2>
   <p>
     While Task can be used to seek fulfillment of other authorizations such as <a href="servicerequest.html">ServiceRequests</a>, 
-    <a href="medicationrequest.html">MedicationRequests</a>, etc., Task can also be used on its own to solicit action without any 
+    <a href="medicationrequest.html">MedicationRequests</a>, etc.., Task can also be used on its own to solicit action without any 
     prior authorization.  However, such requests for action should be tightly time-bound and be satisfied with a single 'event'.  
     I.e. they should ask as a task-list checkbox that can easily be marked as complete.  Any action that requires ongoing repeated 
     performance should be captured using a different type of resource, not Task.

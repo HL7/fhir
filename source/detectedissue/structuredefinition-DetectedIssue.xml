@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/dss/index.cfm"/>
     </telecom>
   </contact>
-  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc."/>
+  <description value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -77,7 +77,7 @@
     <element id="DetectedIssue">
       <path value="DetectedIssue"/>
       <short value="Clinical issue with action"/>
-      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc."/>
+      <definition value="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.."/>
       <alias value="DDI"/>
       <alias value="drug-drug interaction"/>
       <alias value="Contraindication"/>
@@ -166,7 +166,7 @@
     </element>
     <element id="DetectedIssue.category">
       <path value="DetectedIssue.category"/>
-      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc.."/>
       <definition value="A code that classifies the general type of detected issue."/>
       <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what detected issues are retrieved and displayed."/>
@@ -198,7 +198,7 @@
     </element>
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
-      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc.."/>
       <definition value="Identifies the specific type of issue identified."/>
       <alias value="type"/>
       <min value="0"/>
@@ -212,7 +212,7 @@
           <valueString value="DetectedIssueCategory"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc."/>
+        <description value="Codes identifying the type of detected issue; e.g. Drug-drug interaction, Timing issue, Duplicate therapy, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-category"/>
       </binding>
       <mapping>
@@ -561,7 +561,7 @@
           <valueString value="DetectedIssueMitigationAction"/>
         </extension>
         <strength value="preferred"/>
-        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc."/>
+        <description value="Codes describing steps taken to resolve the issue or other circumstances that mitigate the risk associated with the issue; e.g. 'added concurrent therapy', 'prior therapy documented', etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/detectedissue-mitigation-action"/>
       </binding>
       <mapping>

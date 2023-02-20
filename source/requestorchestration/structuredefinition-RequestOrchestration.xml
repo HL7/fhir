@@ -177,7 +177,7 @@
     <element id="RequestOrchestration.groupIdentifier">
       <path value="RequestOrchestration.groupIdentifier"/>
       <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc..  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
       <alias value="grouperid"/>
@@ -896,7 +896,7 @@
     <element id="RequestOrchestration.action.location">
       <path value="RequestOrchestration.action.location"/>
       <short value="Where it should happen"/>
-      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc."/>
+      <definition value="Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc.."/>
       <comment value="May reference a specific clinical location or may just identify a type of location."/>
       <requirements value="Helps in planning of activity."/>
       <alias value="facility"/>
@@ -996,7 +996,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.role">
       <path value="RequestOrchestration.action.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc.."/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -1018,8 +1018,8 @@
     </element>
     <element id="RequestOrchestration.action.participant.function">
       <path value="RequestOrchestration.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
-      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
+      <short value="E.g. Author, Reviewer, Witness, etc.."/>
+      <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>

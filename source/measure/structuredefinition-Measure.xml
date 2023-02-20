@@ -278,7 +278,7 @@
       <path value="Measure.title"/>
       <short value="Name for this measure (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the measure."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -397,7 +397,7 @@
           <valueString value="SubjectType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc..)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
       </binding>
       <mapping>
@@ -487,7 +487,7 @@
       <path value="Measure.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -510,7 +510,7 @@
       <path value="Measure.description"/>
       <short value="Natural language description of the measure"/>
       <definition value="A free text natural language description of the measure from a consumer's perspective."/>
-      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the measure as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
+      <comment value="This description can be used to capture details such as comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc.. It is not a rendering of the measure as conveyed in the 'text' field of the resource itself. This item SHOULD be populated unless the information is available from context (e.g. the language of the measure is presumed to be the predominant language in the place the measure was created)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -664,7 +664,7 @@
       <path value="Measure.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -758,7 +758,7 @@
     </element>
     <element id="Measure.topic">
       <path value="Measure.topic"/>
-      <short value="The category of the measure, such as Education, Treatment, Assessment, etc."/>
+      <short value="The category of the measure, such as Education, Treatment, Assessment, etc.."/>
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
@@ -837,7 +837,7 @@
     </element>
     <element id="Measure.relatedArtifact">
       <path value="Measure.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc.."/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>

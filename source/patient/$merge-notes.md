@@ -18,7 +18,7 @@ The merge operation will have multiple stages, and some of these may take additi
 
 During the Data Processing stage any of the related patient resources (source, target, and result) and any resources referencing any of these patients may be indeterminate until the merge processing operation completes. These resources may be in the process of being changed or deleted, or having references updated, and there is no implied sequence for these updates to be made. There is also no implication that these changes are happening within a single transaction. Data consumers should wait until the merge process completes before querying for data about any of the relevant patients.
 
-**Note:** Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc.
+**Note:** Some servers may also update the inactive source patient resource to remove most of the data to make it more clear that the resource should not be used, and the replaced-by link is the key information. Even to the extent of clearing the name and contact details etc..
 
 **Note:** Systems may do any other internal checks or business rule validation when preparing for or performing a merge.
 
@@ -98,7 +98,7 @@ The indication that a merge has been completed can be notified through several w
 * Using FHIR Messaging to invoke the same operation
 * An integration engine sending HL7v2 A40 merge message (A18 may also be applicable in backward compatibility modes)
 * Directly calling the $merge operation on the dependent systems (requires the system to have both patient resources)
-* Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc...)
+* Client data refresh notification (to be defined, could be triggered by merge, security changes, system migrations, consent changes, etc....)
 * Using Subscriptions to detect the merge operation has occurred (on Provenance and/or Patient)
 * Polling the Merge Provenance resource (or the Patient resource for the relevant link change)
 * (other non standard notification channels)
@@ -202,7 +202,7 @@ An A45 event is used to signal a move of records identified by the MRG-5 - Prior
 ### ADT/ACK - link patient information (event A24)
 *(For information only, not in scope of FHIR for now)*
 
-The A24 event is used when the first PID segment needs to be linked to the second PID segment and when both patient identifiers identify the same patient.  Linking two or more patients does not require the actual merging of patient information; following a link event, the affected patient data records should remain distinct.  For example, this event could be used in a hospital network environment in which there are multiple campuses and in which records need to be linked.  For example, hospital A, hospital B, and hospital C would each keep their own records on a patient, but an A24 link event would be sent to a corporate-wide MPI to enable the coupling of ID information with the corporate ID number.  It is used for corporate data repositories, etc.  This event is not meant to link mothers and babies since a field exists (PID-21-mother’s identifier) for that purpose.  See Section 3.5.3, “Patient record links,” for a discussion of issues related to implementing patient link messages and MPI issues.
+The A24 event is used when the first PID segment needs to be linked to the second PID segment and when both patient identifiers identify the same patient.  Linking two or more patients does not require the actual merging of patient information; following a link event, the affected patient data records should remain distinct.  For example, this event could be used in a hospital network environment in which there are multiple campuses and in which records need to be linked.  For example, hospital A, hospital B, and hospital C would each keep their own records on a patient, but an A24 link event would be sent to a corporate-wide MPI to enable the coupling of ID information with the corporate ID number.  It is used for corporate data repositories, etc..  This event is not meant to link mothers and babies since a field exists (PID-21-mother’s identifier) for that purpose.  See Section 3.5.3, “Patient record links,” for a discussion of issues related to implementing patient link messages and MPI issues.
 
 This event can also be used to link two patient identifiers when a patient changes from inpatient to outpatient, or vice versa.  This event can also be used to link two visits of the same patient.
 

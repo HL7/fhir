@@ -39,7 +39,7 @@
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
-      <!--   The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc.   -->
+      <!--   The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc..   -->
         <encounter>
           <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
         </encounter>
@@ -551,7 +551,7 @@
     <onBehalfOf>
       <reference value="Organization/example"/>
     </onBehalfOf>
-    <!-- a real document would typically have an digital signature, but
+    <!-- a real document would typically have a digital signature, but
       the publishing tools are not yet setup to produce a valid digital
       signature. For now, an image of a signature -->
     <sigFormat value="image/jpg"/>

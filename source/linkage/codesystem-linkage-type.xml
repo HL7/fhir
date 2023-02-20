@@ -48,16 +48,16 @@
   <concept>
     <code value="source"/>
     <display value="Source of Truth"/>
-    <definition value="The resource represents the &quot;source of truth&quot; (from the perspective of this Linkage resource) for the underlying event/condition/etc."/>
+    <definition value="The resource represents the &quot;source of truth&quot; (from the perspective of this Linkage resource) for the underlying event/condition/etc.."/>
   </concept>
   <concept>
     <code value="alternate"/>
     <display value="Alternate Record"/>
-    <definition value="The resource represents an alternative view of the underlying event/condition/etc.  The resource may still be actively maintained, even though it is not considered to be the source of truth."/>
+    <definition value="The resource represents an alternative view of the underlying event/condition/etc..  The resource may still be actively maintained, even though it is not considered to be the source of truth."/>
   </concept>
   <concept>
     <code value="historical"/>
     <display value="Historical/Obsolete Record"/>
-    <definition value="The resource represents an obsolete record of the underlying event/condition/etc.  It is not expected to be actively maintained."/>
+    <definition value="The resource represents an obsolete record of the underlying event/condition/etc..  It is not expected to be actively maintained."/>
   </concept>
 </CodeSystem>

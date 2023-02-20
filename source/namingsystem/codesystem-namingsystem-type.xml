@@ -53,12 +53,12 @@
   <concept>
     <code value="codesystem"/>
     <display value="Code System"/>
-    <definition value="The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc."/>
+    <definition value="The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.."/>
   </concept>
   <concept>
     <code value="identifier"/>
     <display value="Identifier"/>
-    <definition value="The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.)."/>
+    <definition value="The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc..)."/>
   </concept>
   <concept>
     <code value="root"/>

@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -271,7 +271,7 @@
       <path value="ImmunizationRecommendation.recommendation.targetDisease"/>
       <short value="Disease to be immunized against"/>
       <definition value="The targeted disease for the recommendation."/>
-      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration but sometimes that administration (eg. MMR) will encompass multiple diseases, thus the targetDisease element is allowed to repeat."/>
+      <comment value="A given instance of the .recommendation backbone element should correspond to a single recommended administration but sometimes that administration (e.g. MMR) will encompass multiple diseases, thus the targetDisease element is allowed to repeat."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -325,7 +325,7 @@
         <code value="CodeableConcept"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because the forecastStatus indicates whether a patient needs additional doses (due, overdue, etc) or not  (contraindicated, complete, etc)."/>
+      <isModifierReason value="This element is labeled as a modifier because the forecastStatus indicates whether a patient needs additional doses (due, overdue, etc.) or not  (contraindicated, complete, etc.)."/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -377,7 +377,7 @@
       </extension>
       <path value="ImmunizationRecommendation.recommendation.dateCriterion"/>
       <short value="Dates governing proposed immunization"/>
-      <definition value="Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc."/>
+      <definition value="Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -399,7 +399,7 @@
     <element id="ImmunizationRecommendation.recommendation.dateCriterion.code">
       <path value="ImmunizationRecommendation.recommendation.dateCriterion.code"/>
       <short value="Type of date"/>
-      <definition value="Date classification of recommendation.  For example, earliest date to give, latest date to give, etc."/>
+      <definition value="Date classification of recommendation.  For example, earliest date to give, latest date to give, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -410,7 +410,7 @@
           <valueString value="ImmunizationRecommendationDateCriterion"/>
         </extension>
         <strength value="example"/>
-        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc.)."/>
+        <description value="Classifies date criterion with respect to conveying information about a patient's vaccination status (e.g. due date, latest to give date, etc..)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion"/>
       </binding>
       <mapping>
@@ -534,7 +534,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="? No clear way to associate in HL7 v2 or IG"/>
+        <map value="? No clear way to associate in HL7 V2 or IG"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

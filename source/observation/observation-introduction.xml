@@ -22,7 +22,7 @@
       </li>
       <li>Social history like tobacco use,  family support, or cognitive status</li>
       <li>Core characteristics like pregnancy status, or a death assertion</li>
-      <li>Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance</li>
+      <li>Product quality tests such as pH, Assay, Microbial limits, etc.. on product and substance</li>
     </ul>
 
     <p>
@@ -43,7 +43,7 @@
           <td style="width:15%;text-align:center;">
             <a href="observation-vitalsigns.html">Vital signs</a>
           </td>
-          <td>The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient </td>
+          <td>The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc..) associated with a patient </td>
         </tr>
       </tbody>
     </table>
@@ -57,7 +57,7 @@ At its core, Observation allows expressing a name-value pair or structured colle
 </p>
 
 <p>
-The Observation resource should not be used to record clinical diagnosis about a patient or subject that are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource. The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions, including symptoms and assessments of the presence or absence of diagnostically significant phenomena. Symptoms may sometimes be recorded as Conditions if no etiology has yet been identified, or if the symptom is severe enough to merit independent treatment, but in most cases a symptom can be represented in an Observation with a relationship to the Condition of concern. There will however be situations of overlap. For example, a response to a question of "have you ever taken illicit drugs" could in principle be represented using MedicationStatement, but most systems would treat such an assertion as an Observation.  In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system might not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from laboratory, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource. Adhering to such convention is an appropriate use of Observation. If implementers are uncertain whether a proposed use of Observation is appropriate, they're encouraged to consult with implementers on <a href="https://chat.fhir.org/"> chat.fhir.org implementer's stream</a>
+The Observation resource should not be used to record clinical diagnosis about a patient or subject that are typically captured in the <a href="condition.html">Condition</a> resource or the ClinicalImpression resource. The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions, including symptoms and assessments of the presence or absence of diagnostically significant phenomena. Symptoms may sometimes be recorded as Conditions if no etiology has yet been identified, or if the symptom is severe enough to merit independent treatment, but in most cases a symptom can be represented in an Observation with a relationship to the Condition of concern. There will however be situations of overlap. For example, a response to a question of "have you ever taken illicit drugs" could in principle be represented using MedicationStatement, but most systems would treat such an assertion as an Observation.  In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> feed, a system might not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from laboratory, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource. Adhering to such convention is an appropriate use of Observation. If implementers are uncertain whether a proposed use of Observation is appropriate, they're encouraged to consult with implementers on <a href="https://chat.fhir.org/"> chat.fhir.org implementer's stream</a>
 </p>
 
 <p>

@@ -259,7 +259,7 @@
     </element>
     <element id="DiagnosticReport.category">
       <path value="DiagnosticReport.category"/>
-      <short value="Biochemistry, Haematology etc."/>
+      <short value="Biochemistry, Haematology etc.."/>
       <definition value="The section of the diagnostic service that performs the examination e.g. biochemistry, haematology, MRI."/>
       <min value="0"/>
       <max value="1"/>

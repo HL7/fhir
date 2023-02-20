@@ -270,8 +270,8 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
    <td valign="top">label</td>
    <td>
      <ul>
-       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g. 5.0.0-ballot1, 5.0.0-snapshot3, etc.</li>
-       <li>The content preceding the label indicates the 'intended' release number that will result at the conclusion of ballot, review, etc.</li>
+       <li>A tag at the end of a release represents a 'working' version of the specification that is building up to the specified release number; e.g. 5.0.0-ballot1, 5.0.0-snapshot3, etc..</li>
+       <li>The content preceding the label indicates the 'intended' release number that will result at the conclusion of ballot, review, etc..</li>
        <li>label can be any string, however typical labels will be:
          <ul>
            <li>"snapshotN" - a frozen release of a specification for connectathon, ballot dependencies or other reasons</li>
@@ -378,7 +378,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       </td>
     </tr>
     <tr>
-      <td>Artifacts (resources, profiles, code systems, etc.)</td>
+      <td>Artifacts (resources, profiles, code systems, etc..)</td>
       <td>
       New artifacts including new resources and datatypes may be introduced.  Existing artifacts will not have any computable identifiers (e.g. resource names) changed.  Artifacts may be <a href="#deprecation">deprecated</a>
       </td>
@@ -386,7 +386,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>Elements</td>
       <td>
-       New optional elements and/or content (e.g. XML attributes, etc.) may be introduced
+       New optional elements and/or content (e.g. XML attributes, etc..) may be introduced
       at any location in resource and datatype structures provided they do not constitute "isModifier" elements.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This means there will be no change to resource names and no changes to names assigned to slices and
@@ -406,7 +406,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
       <td>Descriptions</td>
       <td>
       Descriptive information about a resource - short labels, definitions, usage notes, aliases, examples, rationale,
-      mappings, etc. may be
+      mappings, etc.. may be
       updated or revised to provide additional clarity or guidance, but not in such a manner as to invalidate a
       reasonable interpretation of the previously documented use of an element.  (This does not preclude fixing
       obvious errors.)
@@ -445,7 +445,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
         <p>
         These expectations only apply to Value Sets and Code Systems maintained as part of the FHIR specification.  HL7
         cannot enforce these rules on terminology artifacts maintained by other authorities
-        - e.g. UCUM unit codes, ISO language codes, etc.
+        - e.g. UCUM unit codes, ISO language codes, etc..
         </p>
       </td>
     </tr>
@@ -537,7 +537,7 @@ has a process allowing violation of these rules in <a href="https://confluence.h
     <tr>
       <td>References</td>
       <td>
-      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc.), 
+      Where one conformance resource points to another (e.g. CapabilityStatement to profile, profile to profiles, profile to value set, etc..), 
       the reference may change to point to a newer version of the conformance resource or to a distinct conformance resource so long as the 
       content of the newly referenced resource adheres to the compatibility rules with respect to the previously referenced version.
       We will add the sentence: Additional resources or profiles can also be added to the list of available targets for a reference.
@@ -574,7 +574,7 @@ The specification will provide guidance with deprecated materials showing how to
 <code>Deprecated</code> materials are eligible to be balloted to be <code>withdrawn</code> two years after their <code>deprecated</code> status is published.
 </p>
 <p>
-The computable artifact labels (e.g. codes, element names, urls, etc.) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
+The computable artifact labels (e.g. codes, element names, urls, etc..) associated with withdrawn materials SHALL not be used in future versions of HL7 specifications.
 Materials marked "deprecated" may have that marking removed as part of a subsequent ballot at a later moment, while withdrawn materials SHALL NOT.
 </p>
 <p>
@@ -595,8 +595,8 @@ Additional discussion on inter-versioning issues can be found here:
 
 <p>
 Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change while an artifact has a
-status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifications of definitions, etc.) or major (refactoring of
-resources, changes to serialization rules, eliminating or adding datatypes, etc.)  There is no commitment to backward or forward compatibility
+status of <i>Draft</i> or <i>Trial Use</i>.  These changes may be minor (clarifications of definitions, etc..) or major (refactoring of
+resources, changes to serialization rules, eliminating or adding datatypes, etc..)  There is no commitment to backward or forward compatibility
 during the trial use process until content is normative.  Changes will not be made without cause, however the interests of long-term
 implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will
 shift more towards early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly
@@ -623,7 +623,7 @@ that the specification will evolve and change prior to becoming <i>Normative</i>
 </p>
 <p>
 A key aspect of the FHIR specification development process is gaining feedback from implementers making
-use of the specification. As well, the process is conditional on real world implementation in order to
+use of the specification. As well, the process is conditional on real-world implementation in order to
 move through the maturity cycle. For this reason, all FHIR implementers are encouraged to register their
 usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
@@ -699,7 +699,7 @@ Implementers should be aware of the following issues when using these extensions
 </p>
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help</li>
- <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
+ <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
  <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern (see example below).</li>

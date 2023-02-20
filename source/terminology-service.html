@@ -415,7 +415,7 @@ The server returns some or all of the following information:
  <li> a recommended display for the code </li>
  <li> properties of the code (e.g. status) </li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
- <li> relationships between this code and other codes (parent/child properties, etc.)</li>
+ <li> relationships between this code and other codes (parent/child properties, etc..)</li>
  <li> Component properties of the specified code (e.g. to support reasoning) (e.g. decomposition)</li>
 </ul>
 <p>
@@ -601,7 +601,7 @@ POST [base]/ValueSet/$validate-code
     "name" : "valueSet",
     "resource": {
       "resourceType" : "ValueSet",
-    [etc.]
+    [etc..]
     }
   }
   ]
@@ -1207,7 +1207,7 @@ Return a 422 Unprocessable Entity with
 </pre>
 </div>
 <p>
-The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it's only choice is to initialize the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of 'all the codes' so it can rebuild the table again).
+The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, its only choice is to initialize the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of 'all the codes' so it can rebuild the table again).
 If the concept(s) submitted are processed ok, but there's no new concepts, or no new entries in the table, return a 200 OK with :
 </p>
 <div class="example">

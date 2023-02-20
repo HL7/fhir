@@ -32,7 +32,7 @@ this case the <i>status</i> element is set to 'planned'.
 </p>
 
 <p>
-The admission component is intended to store the extended information relating to a admission event.
+The admission component is intended to store the extended information relating to an admission event.
 It is always expected to be the same period as the encounter itself. Where the period is different, another
 encounter instance should be used to capture this information as a partOf this encounter instance.
 </p>
@@ -50,7 +50,7 @@ During the life-cycle of an encounter it will pass through many statuses and sub
 organization/department's workflow(s) e.g. planned, in-progress, completed/cancelled.
 The status property tracks the (current) overall status of the encounter, whereas the subjectStatus property more closely tracks
 the patient explicitly. For example in a hospital emergency department the subjectStatus would reflect the patient's status 
-e.g. arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc.<br/>
+e.g. arrived (when the patient first presents to the ED), triaged (when the patient is assessed by a triage nurse), etc..<br/>
 This status information is often used for other things, and often an analysis of the status history is required for things like billing.
 This could be done by scanning through all the resource history versions of the encounter, checking the period of each,
 and then doing some form of post processing. However, this information is not always completed in real-time (or even in the same system)

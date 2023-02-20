@@ -36,14 +36,14 @@ For elements that are part of the resource, the expectation is that "most" syste
 i.e. most systems will support capturing a patient's name, gender and date of birth.  But "most" does not mean
 "all". It is possible to be fully FHIR conformant and claim to support the Patient resource, but be incapable
 of storing any of those data elements.  There are use-cases where names may be unnecessary (e.g. agricultural
-veterinary systems, anonymized reporting, etc.) and similar use-cases for almost every data element.  No FHIR
+veterinary systems, anonymized reporting, etc..) and similar use-cases for almost every data element.  No FHIR
 resource elements start off as <a href="elementdefinition-definitions.html#ElementDefinition.mustSupport">mustSupport</a>
 and very few resource elements start off with a minimum cardinality other than "0".
 </p>
 <p>
 In the case of extensions, the very nature of a concept being an extension means that the designers of the
 specification expected that fewer than "most" systems would support the element, though support might vary
-widely by context.  An extension might be used by 100% of systems in some country, discipline, etc. and not
+widely by context.  An extension might be used by 100% of systems in some country, discipline, etc.. and not
 used by any systems in another context.  In any event, there is no guarantee that an arbitrary
 receiver will recognize and be able to persist any given extension.
 </p>
@@ -106,7 +106,7 @@ file when it receives an update from that system.
 One approach commonly followed by HL7 version 2 messaging interfaces is to not update any elements
 not included in an instance.  For example, if a Patient instance were received with no telecom or
 contact information, all existing telecom and contact information would be retained and only those
-elements included in the instance would be updated.  Technically, this same approach can be followed with FHIR, however it would be atypical and unexpected. Also, unlike <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>, FHIR does not have a defined construct to use to indicate that a particular data element should explicitly be set to empty if processing a PUT in a mode where omitted elements are typically retained. Systems wishing to fully emulate HL7 v2 behavior will need to use an extension to mirror this behavior.
+elements included in the instance would be updated.  Technically, this same approach can be followed with FHIR, however it would be atypical and unexpected. Also, unlike <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>, FHIR does not have a defined construct to use to indicate that a particular data element should explicitly be set to empty if processing a PUT in a mode where omitted elements are typically retained. Systems wishing to fully emulate HL7 V2 behavior will need to use an extension to mirror this behavior.
 </p>
 <p>
 One of the types of changes that can occur when a resource is created or updated 

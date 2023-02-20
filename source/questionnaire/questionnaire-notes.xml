@@ -30,8 +30,8 @@ of the healthcare space.  Many of these more sophisticated requirements are addr
 <ul>
   <li>Rendering grids of questions, multi-column drop-downs, multi-language questionnaires, and other 'advanced' formatting capabilities</li>
   <li>Advanced dynamic questionnaires including calculated scores, enabling of questions and groups based on complex logic, drop-downs driven by answers to other questions</li>
-  <li>Support for populating questionnaires from existing clinical data based on the current patient, encounter, etc., including the ability to render the form as HTML or to redirect to a website to complete unanswered items</li>
-  <li>Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationStatements, etc.</li>
+  <li>Support for populating questionnaires from existing clinical data based on the current patient, encounter, etc.., including the ability to render the form as HTML or to redirect to a website to complete unanswered items</li>
+  <li>Support for extracting information from a completed QuestionnaireResponse to generate other FHIR resources such as Observations, MedicationStatements, etc..</li>
   <li>Support for completing 'adaptive' questionnaires (see below)</li>
 </ul>
 
@@ -46,7 +46,7 @@ As such, some questionnaires might be 'active' but have either no questions or a
 <h3>Using Questionnaires versus using Resources</h3>
 <p>
 There is considerable overlap between the information covered by <b>Questionnaires</b> and other Resources (especially <a href="familymemberhistory.html">FamilyMemberHistory</a>,
-<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc.).
+<a href="medicationstatement.html">MedicationStatement</a>, <a href="observation.html">Observation</a>, <a href="procedure.html">Procedure</a>, etc..).
 <b>Questionnaire's</b> flexible structure can easily be misused to capture any data, even data that should be captured as separate Resources. The choice between using <b>Questionnaires</b> or separate
 Resources may be dictated by the procedure of collection and recording; e.g. if the data is captured as a physician-agreed (electronic) form, it might be impossible or undesirable to
 distill separate resources from it and capturing the data in a <b>Questionnaire</b> would be most appropriate.
@@ -72,7 +72,7 @@ can be used to identify the Questionnaire as the data source for the other resou
 <a name="profiling"> </a>
 <h3>Profiling Questionnaires</h3>
 <p>
-<a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc.  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
+<a href="profiling.html">Profiling</a> can be used to define the constraints of a set of Questionnaires - for example that a particular system only supports Questionnaires where answers have certain data types, only recognizes certain extensions, mandates the presence of certain metadata, etc..  However, profiling should NOT be used to define the content of a specific Questionnaire instance.  To define a Questionnaire instance, simply create an instance of Questionnaire as you would any other resource.
 </p>
 
 <a name="structure"> </a>
@@ -81,12 +81,12 @@ can be used to identify the Questionnaire as the data source for the other resou
 A Questionnaire is built out of two components, Questionnaire and item:</p>
 <ul>
   <li>The main component is Questionnaire, which holds information <em>about</em> the Questionnaire,
-  like the identifier, publisher, date authored, title, etc. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though these provide little computable information).</li>
+  like the identifier, publisher, date authored, title, etc.. The Questionnaire contains zero or more items which define the content of the questionnaire  (zero items allows for the possibility of narrative-only questionnaires, though these provide little computable information).</li>
   <li>Items have one of three sub-types, distinguished by the <code>type</code> element:
     <ul>
       <li><b>display</b> items convey text to be rendered on the form that won't capture data and which won't contain nested items.  This might include copyright or authorship information,
         instructions or other background information.</li>
-      <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc.  Groups don't have answers associated with them directly, but generally contain child
+      <li><b>group</b> items organize content of the questionnaire into sections, sub-sections, etc..  Groups don't have answers associated with them directly, but generally contain child
         'question' items which do.  </li>
       <li><b>question</b> items ask a specific question to which an answer may be given.  There isn't a single
         <code>type</code> for question items. Instead, the type conveys the data type of the answer for the question.  If an item isn't a 'display' or a 'group', 
@@ -99,7 +99,7 @@ A Questionnaire is built out of two components, Questionnaire and item:</p>
   </li>
 </ul>
 <p>
-Specific controls on dynamic display of groups, questions, etc. based on the answers to other questions is outside the scope of the base resource and
+Specific controls on dynamic display of groups, questions, etc.. based on the answers to other questions is outside the scope of the base resource and
 are handled using extensions.
 </p>
 <p>
@@ -183,7 +183,7 @@ In addition, extensions and elements that have corresponding extensions should a
 </ul>
 
 <p>
-Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc. 
+Any information provided in these elements overrides the information from the definition, and some are always required to be populated so that invariants can be enforced, etc.. 
 The url refers to an ElementDefinition in  <a href="structuredefinition.html">StructureDefinition</a>, and always starts with the canonical URL for the target resource.
 When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by its
 id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence
@@ -299,7 +299,7 @@ As well, when enableWhen expressions are used that reference boolean elements, d
 <h3>Questions with multiple answer types</h3>
 <p>
 In some questionnaires, it may be possible to respond to a question with multiple types of answers.  For example, capturing a coded answer plus free text,
-capturing a coded value plus a numeric priority, etc.  In FHIR, this is handled through nested questions.  Each question has a single data type.  However,
+capturing a coded value plus a numeric priority, etc..  In FHIR, this is handled through nested questions.  Each question has a single data type.  However,
 each question can have nested child questions.  These nested child questions can have text (e.g. "Please specify") or can have no text at all if the appropriate
 guidance is provided by the parent question or group.
 </p>

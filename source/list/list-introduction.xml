@@ -5,12 +5,12 @@
 <h2>Scope and Usage</h2>
 <p>
 The List resource is a flat, possibly ordered collection of records. List resources are used in many places, 
-including allergies, medications, alerts, family history, medical history, etc. List resources can be used to 
+including allergies, medications, alerts, family history, medical history, etc.. List resources can be used to 
 support patient-specific clinical lists as well as lists that manage workflows such as tracking patients, managing 
-teaching cases, etc. Resources supported by the List resource can be homogeneous – consisting of only one type of 
+teaching cases, etc.. Resources supported by the List resource can be homogeneous – consisting of only one type of 
 resource (e.g. allergy lists) as well as heterogeneous – containing a variety of resources (e.g. a problem list 
 including <a href="condition.html">Conditions</a>, <a href="allergyintolerance.html">AllergyIntolerances</a>, 
-recent <a href="procedure.html">Procedures</a>, etc.). A list cannot be the subject of an intervention or a direct action.
+recent <a href="procedure.html">Procedures</a>, etc..). A list cannot be the subject of an intervention or a direct action.
 </p>
 <p>
 Lists will typically include references to the resources that make up the list, however in some cases the details 
@@ -54,10 +54,10 @@ is dynamic – items are added and removed over time.  The List resource referen
 curated and have specific business meaning.
 </li>
 <li>
-The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc. by enumerating them, 
+The <a href="group.html">Group</a> resource - defines a group of specific people, animals, devices, etc.. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
-etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. defining a test subject pool) and similar purposes.
+etc..  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. defining a test subject pool) and similar purposes.
 </li>
 <li>
 The <a href="composition.html">Composition</a> resource - defines a set of healthcare-related information that is assembled 
@@ -69,12 +69,12 @@ often reference Lists as the focus of particular sections.
 <li>
 The <a href="bundle.html">Bundle</a> resource - is an infrastructure container for a group of resources.  It does not have a narrative 
 and is used to group collections of resources for transmission, persistence or processing (e.g. messages, documents, transactions, 
-query responses, etc.)  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
+query responses, etc..)  The content of bundles is typically algorithmically determined for a particular exchange or persistence purpose.
 </li>
 <li>
 The <a href="domainresource.html">DomainResource</a>.<code>contained</code> element - allows multiple resources to be nested
 inside any DomainResource.  This is a special type of grouping where the grouped resources lose independent existence - they
-no longer have their own identifiers, can't easily be queried independently, etc.  Use of this grouping is a technical 
+no longer have their own identifiers, can't easily be queried independently, etc..  Use of this grouping is a technical 
 mechanism for managing the independence of resources and has no impact on meaning. Contained, bundled, and remotely referenced
 resources convey the same meaning.
 </li>

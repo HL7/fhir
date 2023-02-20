@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -863,7 +863,7 @@
     <element id="ExplanationOfBenefit.supportingInfo.category">
       <path value="ExplanationOfBenefit.supportingInfo.category"/>
       <short value="Classification of the supplied information"/>
-      <definition value="The general class of the information supplied: information; exception; accident, employment; onset, etc."/>
+      <definition value="The general class of the information supplied: information; exception; accident, employment; onset, etc.."/>
       <comment value="This may contain a category for the local bill type codes."/>
       <requirements value="Required to group or associate information items with common characteristics. For example: admission information or prior treatments."/>
       <min value="1"/>
@@ -916,7 +916,7 @@
     <element id="ExplanationOfBenefit.supportingInfo.value[x]">
       <path value="ExplanationOfBenefit.supportingInfo.value[x]"/>
       <short value="Data to be provided"/>
-      <definition value="Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data."/>
+      <definition value="Additional data or information such as resources, documents, images etc.. including references to the data or the actual inclusion of the data."/>
       <comment value="Could be used to provide references to other resources, document. For example, could contain a PDF in an Attachment of the Police Report for an Accident."/>
       <requirements value="To convey the data content to be provided when the information is more than a simple code or period."/>
       <min value="0"/>
@@ -982,7 +982,7 @@
       <path value="ExplanationOfBenefit.diagnosis.sequence"/>
       <short value="Diagnosis instance identifier"/>
       <definition value="A number to uniquely identify diagnosis entries."/>
-      <comment value="Diagnosis are presented in list order to their expected importance: primary, secondary, etc."/>
+      <comment value="Diagnosis are presented in list order to their expected importance: primary, secondary, etc.."/>
       <requirements value="Necessary to maintain the order of the diagnosis items and provide a mechanism to link to claim details."/>
       <min value="1"/>
       <max value="1"/>
@@ -1147,7 +1147,7 @@
     </element>
     <element id="ExplanationOfBenefit.precedence">
       <path value="ExplanationOfBenefit.precedence"/>
-      <short value="Precedence (primary, secondary, etc.)"/>
+      <short value="Precedence (primary, secondary, etc..)"/>
       <definition value="This indicates the relative order of a series of EOBs related to different coverages for the same suite of services."/>
       <requirements value="Needed to coordinate between multiple EOBs for the same suite of services."/>
       <min value="0"/>
@@ -1226,8 +1226,8 @@
       </extension>
       <path value="ExplanationOfBenefit.accident"/>
       <short value="Details of the event"/>
-      <definition value="Details of a accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
+      <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1261,7 +1261,7 @@
           <valueString value="AccidentType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Type of accident: work place, auto, etc."/>
+        <description value="Type of accident: work place, auto, etc.."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ActIncidentCode"/>
       </binding>
     </element>
@@ -1398,7 +1398,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc."/>
+        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -1634,7 +1634,7 @@
     <element id="ExplanationOfBenefit.item.bodySite.site">
       <path value="ExplanationOfBenefit.item.bodySite.site"/>
       <short value="Location"/>
-      <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
+      <definition value="Physical service site on the patient (limb, tooth, etc..)."/>
       <comment value="For example: Providing a tooth code, allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="1"/>
@@ -1786,7 +1786,7 @@
       <path value="ExplanationOfBenefit.item.adjudication.category"/>
       <short value="Type of adjudication information"/>
       <definition value="A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item."/>
-      <comment value="For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc."/>
+      <comment value="For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.."/>
       <requirements value="Needed to enable understanding of the context of the other information in the adjudication."/>
       <min value="1"/>
       <max value="1"/>
@@ -1908,7 +1908,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc."/>
+        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -2166,7 +2166,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc."/>
+        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -2675,7 +2675,7 @@
     <element id="ExplanationOfBenefit.addItem.bodySite.site">
       <path value="ExplanationOfBenefit.addItem.bodySite.site"/>
       <short value="Location"/>
-      <definition value="Physical service site on the patient (limb, tooth, etc.)."/>
+      <definition value="Physical service site on the patient (limb, tooth, etc..)."/>
       <comment value="For example, providing a tooth code allows an insurer to identify a provider performing a filling on a tooth that was previously removed."/>
       <requirements value="Allows insurer to validate specific procedures."/>
       <min value="1"/>
@@ -3170,7 +3170,7 @@
       <path value="ExplanationOfBenefit.total"/>
       <short value="Adjudication totals"/>
       <definition value="Categorized monetary totals for the adjudication."/>
-      <comment value="Totals for amounts submitted, co-pays, benefits payable etc."/>
+      <comment value="Totals for amounts submitted, co-pays, benefits payable etc.."/>
       <requirements value="To provide the requestor with financial totals by category for the adjudication."/>
       <min value="0"/>
       <max value="*"/>
@@ -3183,7 +3183,7 @@
       <path value="ExplanationOfBenefit.total.category"/>
       <short value="Type of adjudication information"/>
       <definition value="A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item."/>
-      <comment value="For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc."/>
+      <comment value="For example, codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.."/>
       <requirements value="Needed to convey the type of total provided."/>
       <min value="1"/>
       <max value="1"/>
@@ -3486,7 +3486,7 @@
           <valueString value="BenefitCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc."/>
+        <description value="Benefit categories such as: oral, medical, vision, oral-basic etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-benefitcategory"/>
       </binding>
     </element>
@@ -3614,7 +3614,7 @@
           <valueString value="BenefitType"/>
         </extension>
         <strength value="example"/>
-        <description value="Deductable, visits, co-pay, etc."/>
+        <description value="Deductable, visits, co-pay, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/benefit-type"/>
       </binding>
     </element>

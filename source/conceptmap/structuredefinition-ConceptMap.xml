@@ -203,7 +203,7 @@
       <path value="ConceptMap.title"/>
       <short value="Name for this concept map (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the concept map."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -300,7 +300,7 @@
       <path value="ConceptMap.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -412,7 +412,7 @@
       <path value="ConceptMap.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -473,7 +473,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="ConceptMap.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc.."/>
       <definition value="Descriptions related to the content of the ConceptMap. Topics provide a high-level categorization as well as keywords for the ConceptMap that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the ConceptMap, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the ConceptMap so that it can be found by topical and keyword searches."/>
@@ -535,7 +535,7 @@
     </element>
     <element id="ConceptMap.relatedArtifact">
       <path value="ConceptMap.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc.."/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A ConceptMap must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>

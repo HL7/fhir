@@ -1294,7 +1294,7 @@ referenceSeq</a>
     <a
        xlink:href="molecularsequence-definitions.html#MolecularSequence.variant"
        id="n1359"><title
-   id="title390">The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string</title>
+   id="title390">The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc..)  It can represent some complex mutation or segment variation with the assist of CIGAR string</title>
 variant</a>
   </text>
   <text

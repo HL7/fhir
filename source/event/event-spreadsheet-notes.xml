@@ -26,7 +26,7 @@
   <p>
     This pattern contains an element called "eventHistory" that points to <a href="provenance.html">Provenance</a>.  This allows the 
     resource to summarize key events that have happened over the lifespan of the resource.  For example, when the event started, 
-    when it was suspended, when it was resumed, etc.  The list of referenced Provenence entries don't necessarily include <i>all</i> events 
+    when it was suspended, when it was resumed, etc..  The list of referenced Provenence entries don't necessarily include <i>all</i> events 
     that have occurred over the lifespan of the resource.  Instead, they list those the author considers 'significant' and relevant to 
     downstream users.  Modifications to drafts or small corrections that do not impact fulfillment might not be needed.  In some cases,
     Provenance for changes to other resources (e.g. component events) might also be included if the source system tracks those as

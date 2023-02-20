@@ -78,13 +78,13 @@
     <a name="deciding-rest-hook"/>
     <h4>REST-Hook</h4>
     <p>
-      The FHIR standard makes extensive use of the RESTful model.  Given the popularity of REST and widespread adoption, most implementers should consider using REST-hook channels whenever possible.  In general, REST-based systems are well-supported (e.g., tooling, infrastructure, documentation, etc.), and will present the lowest bar for implementation.
+      The FHIR standard makes extensive use of the RESTful model.  Given the popularity of REST and widespread adoption, most implementers should consider using REST-hook channels whenever possible.  In general, REST-based systems are well-supported (e.g., tooling, infrastructure, documentation, etc..), and will present the lowest bar for implementation.
     </p>
 
     <a name="deciding-websocket"/>
     <h4>Websocket</h4>
     <p>
-      Websockets are unique in the pre-defined channel types in being the only channel that does not require the client to have an endpoint.  Due to this property, the websocket channel is very useful for clients where creating an endpoint would be difficult or impossible (e.g., mobile clients, web-based clients, etc.).
+      Websockets are unique in the pre-defined channel types in being the only channel that does not require the client to have an endpoint.  Due to this property, the websocket channel is very useful for clients where creating an endpoint would be difficult or impossible (e.g., mobile clients, web-based clients, etc..).
     </p>
 
     <a name="deciding-email"/>
@@ -207,7 +207,7 @@
 				Client sends a <code>bind-with-token</code> message via websockets, with the token provided by the server.  Note: this operation can be repeated concurrently for multiple subscriptions that share the same <code>websocket-url</code>, and serially for continued operation over a single websocket connection.
 			</li>
 			<li>
-				Server sends one or more <code>handshake</code> messages via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc.).  Clients are expected to handle either flow.
+				Server sends one or more <code>handshake</code> messages via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc..).  Clients are expected to handle either flow.
 			</li>
 			<li>
 				Server sends a notification of type <code>heartbeat</code> at any time (SHOULD at least once per <code>heartbeatPeriod</code>).
@@ -228,7 +228,7 @@
 				Client sends a <code>bind-with-token</code> message via websockets, with the token provided by the server.  Note: this operation can be repeated concurrently for multiple subscriptions that return the same <code>websocket-url</code>, and serially for continued operation over a single websocket connection.
       </li>
       <li>
-				Server sends one or more <code>handshake</code> messages via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc.).  Clients are expected to handle either flow.
+				Server sends one or more <code>handshake</code> messages via websockets (one per Subscription included in the token).  Note: some servers may additionally send one or more <code>event-notification</code> messages at this time (e.g., all messages since last connected, last 'n' messages, etc..).  Clients are expected to handle either flow.
       </li>
 			<li>
 				Either the server or the client may close the websocket connection.
@@ -313,7 +313,7 @@
 				Server MAY respond with a success code and create the subscription with a state of <code>requested</code>.
 			</li>
 			<li>
-				Server sends an initial message via the specified email server (e.g., verify the request, opt-out instructions, etc.).
+				Server sends an initial message via the specified email server (e.g., verify the request, opt-out instructions, etc..).
 			</li>
 			<li>
 				Email Server responds with a channel appropriate response code (e.g., <code>250: OK</code>).
@@ -380,7 +380,7 @@
 			<a name="message-security" />
 			<h4>Channel Security Notes</h4>
 			<p>
-				Servers MAY require that the end-point is white-listed prior to allowing these kinds of subscriptions.  Additionally, servers MAY impose authorization/authentication requirements for server to server communication (e.g., certificate pinning, etc.). 
+				Servers MAY require that the end-point is white-listed prior to allowing these kinds of subscriptions.  Additionally, servers MAY impose authorization/authentication requirements for server to server communication (e.g., certificate pinning, etc..). 
 			</p>
 
 
@@ -402,7 +402,7 @@
 		<ul>
       <li>A system for Subscription.channelType that reflects the publisher of the definition (e.g., "https://myorg.example.org" instead of "urn:uuid:be35238b-0ed6-4062-93cf-818b8023a103")</li>
 			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel0012')</li>
-			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc.)</li>
+			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc..)</li>
 			<li>The meaning of the <code>Subscription.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
 			<li>Any variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
       <li>Whether <code>handshake</code> notifications are used, and guidance on usage if they are</li>
@@ -431,7 +431,7 @@
 		When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 	</p>
 	<p>
-		The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire.
+		The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc.. Note that the subscription MAY remain active after the client access tokens expire.
 	</p>
 	<p>
 		Once the server has activated the subscription, it sets the status to <code>active</code> (note: the server may do this as it accepts the resource if it wants).

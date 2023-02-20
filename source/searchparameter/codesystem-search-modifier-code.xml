@@ -98,7 +98,7 @@
   <concept>
     <code value="type"/>
     <display value="Type"/>
-    <definition value="The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc.)."/>
+    <definition value="The search parameter only applies to the Resource Type specified as a modifier (e.g. the modifier is not actually :type, but :Patient etc..)."/>
   </concept>
   <concept>
     <code value="identifier"/>

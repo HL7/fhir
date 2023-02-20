@@ -12,14 +12,14 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
+FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
 Applications asserting conformance to this framework claim to be conformant to "FHIR messaging"  (see <a href="conformance-rules.html">Conformance</a>).
 </p>
 
 <p>
 In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
-real world.
+real-world.
 </p>
 <p>
 Messages are <a href="bundle.html">Bundle</a> resources, with the following rules:
@@ -536,7 +536,7 @@ in the system <code>http://hl7.org/fhir/restful-interaction</code>.  (If <code>s
 the string would start with a <code>?</code> rather than <code>[resource]?</code>.)  Systems would indicate support for this search 
 mechanism using their CapabilityStatement as they would any other messaging event.  If a system supports messaging 
 search but not RESTful search, the means of describing any limitations on what resources, search parameters, 
-qualifiers, etc. they support is not currently defined.
+qualifiers, etc.. they support is not currently defined.
 </p>
 <p>
 Messaging interfaces may also choose to define alternative search mechanisms including query-by-example 

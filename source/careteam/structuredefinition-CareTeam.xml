@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -276,7 +276,7 @@
     <element id="CareTeam.participant.role">
       <path value="CareTeam.participant.role"/>
       <short value="Type of involvement"/>
-      <definition value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc."/>
+      <definition value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc.."/>
       <comment value="Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.  If a participant has multiple roles within the team, then there should be multiple participants."/>
       <min value="0"/>
       <max value="1"/>
@@ -290,7 +290,7 @@
           <valueString value="CareTeamParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>

@@ -33,7 +33,7 @@
       <value value="http://hl7.org/special/committees/structure"/>
     </telecom>
   </contact>
-  <description value="The Clinical Document profile constrains Composition to specify a clinical document (matching CDA). &#xA;&#xA;The base Composition is a general resource for compositions or documents about any kind of subject that might be encountered in healthcare including such things as guidelines, medicines, etc. A clinical document is focused on documents related to the provision of care process, where the subject is a patient, a group of patients, or a closely related concept. A clinical document has additional requirements around confidentiality that do not apply in the same way to other kinds of documents."/>
+  <description value="The Clinical Document profile constrains Composition to specify a clinical document (matching CDA). &#xA;&#xA;The base Composition is a general resource for compositions or documents about any kind of subject that might be encountered in healthcare including such things as guidelines, medicines, etc.. A clinical document is focused on documents related to the provision of care process, where the subject is a patient, a group of patients, or a closely related concept. A clinical document has additional requirements around confidentiality that do not apply in the same way to other kinds of documents."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>

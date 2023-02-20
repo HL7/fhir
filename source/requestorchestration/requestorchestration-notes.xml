@@ -13,7 +13,7 @@
   <p>
     Each "option" request can only be interpreted in the context of a RequestOrchestration that references it.  This is
     because the RequestOrchestration defines the context in which the option request may/should/must occur, including
-    any triggers, timing constraints, choices, sequencing requirements, etc.  Typically such "option" requests
+    any triggers, timing constraints, choices, sequencing requirements, etc..  Typically such "option" requests
     will be <a href="references.html#contained">contained</a> resources due to this dependency.  However, in some
     cases "option" requests may be stand-alone if they are immutable or tightly tied to a
     <a href="activitydefinition.html">ActivityDefinition</a> such that the option resources can safely be referenced

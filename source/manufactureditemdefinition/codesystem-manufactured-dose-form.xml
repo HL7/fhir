@@ -37,7 +37,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Dose form for a medication, as manufactured (and before any mixing etc.), not necessarily ready for administration to the patient."/>
+  <description value="Dose form for a medication, as manufactured (and before any mixing etc..), not necessarily ready for administration to the patient."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/manufactured-dose-form"/>
   <content value="complete"/>

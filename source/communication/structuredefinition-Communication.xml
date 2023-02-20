@@ -139,7 +139,7 @@
       <path value="Communication.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Communication."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -159,7 +159,7 @@
       <path value="Communication.basedOn"/>
       <short value="Request fulfilled by this communication"/>
       <definition value="An order, proposal or plan fulfilled in whole or in part by this Communication."/>
-      <comment value="This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc."/>
+      <comment value="This must point to some sort of a 'Request' resource, such as CarePlan, CommunicationRequest, ServiceRequest, MedicationRequest, etc.."/>
       <alias value="fulfills"/>
       <min value="0"/>
       <max value="*"/>
@@ -264,7 +264,7 @@
     <element id="Communication.category">
       <path value="Communication.category"/>
       <short value="Message category"/>
-      <definition value="The type of message conveyed such as alert, notification, reminder, instruction, etc."/>
+      <definition value="The type of message conveyed such as alert, notification, reminder, instruction, etc.."/>
       <comment value="There may be multiple axes of categorization and one communication may serve multiple purposes."/>
       <min value="0"/>
       <max value="*"/>
@@ -276,7 +276,7 @@
           <valueString value="CommunicationCategory"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for general categories of communications such as alerts, instructions, etc."/>
+        <description value="Codes for general categories of communications such as alerts, instructions, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/communication-category"/>
       </binding>
       <mapping>
@@ -326,7 +326,7 @@
           <valueString value="CommunicationMedium"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for communication mediums such as phone, fax, email, in person, etc."/>
+        <description value="Codes for communication mediums such as phone, fax, email, in person, etc.."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v3-ParticipationMode"/>
       </binding>
     </element>

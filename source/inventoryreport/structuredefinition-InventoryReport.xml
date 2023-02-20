@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -203,8 +203,8 @@
     </element>
     <element id="InventoryReport.operationTypeReason">
       <path value="InventoryReport.operationTypeReason"/>
-      <short value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
-      <definition value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
+      <short value="The reason for this count - regular count, ad-hoc count, new arrivals, etc.."/>
+      <definition value="The reason for this count - regular count, ad-hoc count, new arrivals, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>

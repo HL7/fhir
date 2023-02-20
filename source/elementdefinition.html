@@ -42,10 +42,10 @@ no repeating primitives in datatypes? No id's on primitives in datatypes...No da
 		The definition of an element in a resource or an extension. The definition includes:
 </p>
 <ul>
-		<li>Path (name), Cardinality, and datatype</li>
+		<li>Path (name), cardinality, and datatype</li>
 		<li>Definitions, usage notes, and requirements</li>
 		<li>Default or fixed values</li>
-		<li>Constraints, Length limits, and other usage rules</li>
+		<li>Constraints, length limits, and other usage rules</li>
 		<li>Terminology Binding</li>
 		<li>Mappings to other specifications</li>
 		<li>Structural Usage Information such as <a href="profiling.html#slicing">Slicing</a></li>
@@ -333,11 +333,11 @@ same path must conform.
 			 extension is referenced in a profile, it must be marked as mandatory.</li>
 		<li>For some simple types, rather than pointing to a FHIR datatype, the element will be defined as having a datatype defined by [FHIRPath].
 		E.g. <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a>. This occurs when the generic behavior of the FHIR primitive type is not desired
-		(e.g. inheriting extension, id, etc.). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
+		(e.g. inheriting extension, id, etc..). Implementations should map these FHIRPath datatypes to the appropriate simple datatype defined in their implementation language.
 		For example, in Java, FHIRPath System.String might best map to the `java.lang.String` class.</li>
 		<li>In addition, when an element has a datatype of <a href="http://hl7.org/fhirpath/System.String">http://hl7.org/fhirpath/System.String</a> then it will typically also include a
 		<a href="[%extensions-location%]StructureDefinition-structuredefinition-fhir-type.html">structuredefinition-fhir-type</a> extension. This extension might further constrain the allowed value of an element that might be treated as a string.
-		For example, limiting the permitted value regex, length, etc. to the corresponding FHIR-defined datatype (but NOT permitting the additional elements such as id and extension).
+		For example, limiting the permitted value regex, length, etc.. to the corresponding FHIR-defined datatype (but NOT permitting the additional elements such as id and extension).
 		If the extension is not present, no additional constraints apply.</li>
 </ul>
 <p>

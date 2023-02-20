@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="w5"/>
@@ -678,7 +678,7 @@
     </element>
     <element id="Consent.provision.documentType">
       <path value="Consent.provision.documentType"/>
-      <short value="e.g. Resource Type, Profile, CDA, etc."/>
+      <short value="e.g. Resource Type, Profile, CDA, etc.."/>
       <definition value="The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the documentType element is that the codes refer to document types defined in a standard somewhere."/>
       <min value="0"/>
@@ -698,7 +698,7 @@
     </element>
     <element id="Consent.provision.resourceType">
       <path value="Consent.provision.resourceType"/>
-      <short value="e.g. Resource Type, Profile, etc."/>
+      <short value="e.g. Resource Type, Profile, etc.."/>
       <definition value="The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to."/>
       <comment value="Multiple types are or'ed together. The intention of the resourceType element is that the codes refer to profiles or document types defined in a standard or an implementation guide somewhere."/>
       <min value="0"/>
@@ -718,7 +718,7 @@
     </element>
     <element id="Consent.provision.code">
       <path value="Consent.provision.code"/>
-      <short value="e.g. LOINC or SNOMED CT code, etc. in the content"/>
+      <short value="e.g. LOINC or SNOMED CT code, etc.. in the content"/>
       <definition value="If this code is found in an instance, then the provision applies."/>
       <min value="0"/>
       <max value="*"/>

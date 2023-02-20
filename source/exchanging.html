@@ -19,7 +19,7 @@
     FHIR offers numerous architectural approaches for sharing data between systems.  Each approach has pros and cons.  The most appropriate approach depends on the circumstances under which data is exchanged.  This page provides an overview of each approach, with pros, cons and a decision tree to help guide choices about which approach best suits a specific set of circumstances.
   </p>
   <p>
-    The recommendations expressed here reflect the general beliefs of the community based on experience to date.  Even so, there are other considerations that impact implementation choices, including legacy infrastructure, the existing capabilities of communication partners, etc.  Following the guidance here is not required to claim FHIR conformance but adhering to these recommendations is likely to result in lower long-term implementation costs, more interoperability partners, etc..
+    The recommendations expressed here reflect the general beliefs of the community based on experience to date.  Even so, there are other considerations that impact implementation choices, including legacy infrastructure, the existing capabilities of communication partners, etc..  Following the guidance here is not required to claim FHIR conformance but adhering to these recommendations is likely to result in lower long-term implementation costs, more interoperability partners, etc...
   </p>
   <p>
     Not all the options listed here were defined in early versions of FHIR and it is likely that new exchange alternatives will continue to be identified by the FHIR community over time.  As these approaches become more broadly used, more standardized and experience accumulates within the community this documentation will continue to be updated.  Feedback on the advice offered here is welcome - simply use the <a href="http://hl7.org/fhir-issues">Propose a Change</a> button at the bottom of any FHIR specification page.
@@ -36,7 +36,7 @@
     Note: Implementation guides SHOULD provide an explanation of the considerations (whether drawn from this document or otherwise) that drove the selection of the interoperability approach chosen for the guide and the use cases it is trying to solve.
   </p>
   <p>
-    The guidance provided in this section is focused on the choice of technical exchange mechanism.  It does not cover higher level design decisions, such as what sorts of exchanges should occur, what parties they should occur between, what points in the workflow the exchange should happen in, etc.  These decisions should be made prior to trying to apply the guidance here. Also, Implementation guides SHOULD provide an explanation of the considerations (whether drawn from this document or otherwise) that drove the selection of the interoperability approach chosen for the guide and the use cases it is trying to solve.
+    The guidance provided in this section is focused on the choice of technical exchange mechanism.  It does not cover higher level design decisions, such as what sorts of exchanges should occur, what parties they should occur between, what points in the workflow the exchange should happen in, etc..  These decisions should be made prior to trying to apply the guidance here. Also, Implementation guides SHOULD provide an explanation of the considerations (whether drawn from this document or otherwise) that drove the selection of the interoperability approach chosen for the guide and the use cases it is trying to solve.
   </p>
   <p>
   This section focuses on the technical alternatives that enable exchange between data sources and data consumers.  All such exchanges, and the decisions about the mechanisms used, will also need to take into account the creation of and adherence to regulations, contracts, business arrangements and other conventions and ensure that the information shared is 'appropriate' to the use-case.  Implementers and designers may want to consult legal counsel as part of their design process.
@@ -48,7 +48,7 @@
   This section is also intended to have international scope and the terminology used here is used in its traditional English usage, not necessarily as it might be defined in particular jurisdictions.  For example, the term 'sensitive data' in some jurisdictions has a specific legal meaning.  When used here, it simply means that the data may need some additional level of protection, whether for privacy, business or other reasons.
   </p>
   <p>
-    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 v2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
+    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 V2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
   </p>
   <a name="organization"> </a>
   <h3>Organization of this section</h3>
@@ -96,7 +96,7 @@ shared in FHIR</li>
     <li>Are there regulations, business policies, or privacy and/or security concerns that mandate or prohibit particular approaches?</li>
     <li>What impact does the proposed solution have on performance/response time?</li>
     <li>Will the exchange mechanism allow appropriate constraint on data retrieved (whether enforced by data source, data consumer or both)?</li>
-    <li>etc.</li>
+    <li>etc..</li>
   </ul>
   <a name="approaches"> </a>
   <h3>Overview of approaches</h3>
@@ -141,7 +141,7 @@ shared in FHIR</li>
   </ol>
   <p>Assertions around the degree of re-usability and community adoption are not country-specific and are not based on formal measures, but rather from an informal subjective evaluation based on what's been observed in the area of implementation, questions, global and regional IGs and feedback from implementers.  There are no formal measures of these characteristics available (as yet).  There may be variability in terms of adoption within specific subsets of the FHIR community and adoption patterns may change over time.  These considerations are intended to inform, but not constrain design decisions of individual implementation guides.</p>
   <p>
-    As a rule, use of less re-useable and/or less adopted communication mechanisms will require more negotiation to achieve interoperability, and therefore the costs associated with the solution are likely to be greater.  That does not mean that architectural circumstances will not make these approaches necessary (and justify the increased cost), merely that if there is a choice between equally viable architectural alternatives, consideration should generally be given to the one with lowest overall long-term cost to the interoperability community.  Reducing overall cost to industry (payers, providers, patients and care-givers, etc.) is expected to be beneficial to most, if not all participants in the long term.
+    As a rule, use of less re-useable and/or less adopted communication mechanisms will require more negotiation to achieve interoperability, and therefore the costs associated with the solution are likely to be greater.  That does not mean that architectural circumstances will not make these approaches necessary (and justify the increased cost), merely that if there is a choice between equally viable architectural alternatives, consideration should generally be given to the one with lowest overall long-term cost to the interoperability community.  Reducing overall cost to industry (payers, providers, patients and care-givers, etc..) is expected to be beneficial to most, if not all participants in the long term.
   </p>
   <p>The table below is ordered first by those that maximize long-term re-use and then by those that are most supported in real production systems.  All things being equal, those appearing earlier in the table are likely to be better choices.  However, all things aren't equal, <b>so consider the ratings in the table in parallel with the decision tree found <a href="#decision-tree">following the table</a></b>, i.e. a 'High/High' rating does not imply that the solution will be the best option for a particular use-case.  However, if after evaluating the options based on the decision tree, there are multiple possible options, their respective adoption and re-usability ratings may help to choose between them.
   </p>
@@ -315,7 +315,7 @@ shared in FHIR</li>
         <td>High</td>
         <td>Moderate</td>
         <td>The <i>data consumer</i> creates a Task either on the <i>data source's</i> system or a system monitored by the <i>data source</i> requesting the sharing of data.  The <i>data source</i> then updates the Task with agreement to perform, progress status, and eventually a link to the requested data.  The <i>data consumer</i> monitors the Task by <a href="exchanging-subscription.html">subscription</a> or <a href="exchanging-polling.html">polling</a>.</td>
-        <td>A payer needs the clinical data that 'supports' an emergency surgery.  The payer does not know where the relevant supporting information is stored or in what form it might take (lab results, radiology reports, PDFs, etc.)  To avoid looking at irrelevant data, the payer submits a Task to the EHR asking a clinician or administrator to locate and return the relevant documentation.</td>
+        <td>A payer needs the clinical data that 'supports' an emergency surgery.  The payer does not know where the relevant supporting information is stored or in what form it might take (lab results, radiology reports, PDFs, etc..)  To avoid looking at irrelevant data, the payer submits a Task to the EHR asking a clinician or administrator to locate and return the relevant documentation.</td>
       </tr>
       <tr>
         <th>
@@ -414,7 +414,7 @@ shared in FHIR</li>
         <td>Low</td>
         <td>Moderate</td>
         <td>The <i>data source</i> sends a FHIR message to the <i>data consumer</i> providing information related to some sort of event that has occurred.</td>
-        <td>An EHR notifies a payer that a patient has been admitted and provides additional information, such as patient condition, etc.</td>
+        <td>An EHR notifies a payer that a patient has been admitted and provides additional information, such as patient condition, etc..</td>
       </tr>
     </tbody>
   </table>
@@ -476,11 +476,11 @@ shared in FHIR</li>
   </p>
   <ul>
     <li>The data might not exist in queryable electronic form.  It might only exist on paper, in someone's head or in some non-integrated third-party system.</li>
-    <li>The data might not exist in a predictable location.  For example, different systems might store the relevant information in different resources, using different codes or categories, etc.  This means that the <i>data consumer</i> would not know the appropriate system-to-system query to use.  However, a human being at that specific location/organization would be aware of the organizational conventions and have a much better idea of how to find the data.  (Obviously, this need is minimized as standards impose tighter conventions for data representation and coding.  However, gaining consensus on and getting implementation of those standards can take considerable time.)</li>
+    <li>The data might not exist in a predictable location.  For example, different systems might store the relevant information in different resources, using different codes or categories, etc..  This means that the <i>data consumer</i> would not know the appropriate system-to-system query to use.  However, a human being at that specific location/organization would be aware of the organizational conventions and have a much better idea of how to find the data.  (Obviously, this need is minimized as standards impose tighter conventions for data representation and coding.  However, gaining consensus on and getting implementation of those standards can take considerable time.)</li>
     <li>The <i>data source</i> might not have the ability to filter the available data down to what is needed in a situation where it would be impractical or inappropriate to share all the candidate data.  A human who knows the system, on the other hand, might have access to local tools/knowledge that would allow the appropriate record(s) to be found and/or filtered.</li>
     <li>The description of the data to be returned and/or the description of the context that justifies the sharing of the data might not be amenable to expression in a computable form, therefore requiring interpretation/evaluation by a person familiar with the <i>data source</i> to 'execute' the request.  For example, "Please provide all data that supports the decision to order surgery X" would not necessarily be something that could be resolved merely by traversing links in the data.</li>
     <li>There may be a need to organize, synthesize, and/or filter the data in a way that requires human cognition.  For standardized frequent queries, automation is often possible, but in some cases, automating all the possibilities is impractical.</li>
-    <li>There may be a lack of trust between the <i>data consumer</i> and the <i>data source</i>, such that the <i>data source</i> wishes to have human review of any data provided to ensure that the sharing is appropriate, necessary redaction is applied, appropriate approvals are in order, etc.</li>
+    <li>There may be a lack of trust between the <i>data consumer</i> and the <i>data source</i>, such that the <i>data source</i> wishes to have human review of any data provided to ensure that the sharing is appropriate, necessary redaction is applied, appropriate approvals are in order, etc..</li>
     <li>There may be differences in regulatory expectations around data that is queried directly vs. information that is 'pushed' in response to a human-mediated request, such that the latter is more practical/cost-effective overall.  (Though with this argument, care should be taken that the distribution of costs is equitable, rather than simply being offloaded from the <i>data consumer</i> to the <i>data source</i>.)</li>
   </ul>
   <p>
@@ -546,7 +546,7 @@ shared in FHIR</li>
     There are two main mechanisms in FHIR for requesting data from a human being (or potentially from a human being): <a href="communicationrequest.html">CommunicationRequest</a> and <a href="task.html">Task</a>.
   </p>
   <p>
-    CommunicationRequest is used to represent proposals, plans and formal authorizations (orders) for data to be exchanged.  A CommunicationRequest would be appropriate for use when there is a need for a formal order, along the same lines as a prescription, lab order, referral, etc., but in this case indicating that certain information must flow to a <i>data consumer</i>.  CommunicationRequest, like other <a href="request.html">Request</a> resources cannot ask for action on its own.  Instead, it must leverage one of the FHIR <a href="workflow-communications.html">workflow communication patterns</a> to seek fulfillment of the specified request
+    CommunicationRequest is used to represent proposals, plans and formal authorizations (orders) for data to be exchanged.  A CommunicationRequest would be appropriate for use when there is a need for a formal order, along the same lines as a prescription, lab order, referral, etc.., but in this case indicating that certain information must flow to a <i>data consumer</i>.  CommunicationRequest, like other <a href="request.html">Request</a> resources cannot ask for action on its own.  Instead, it must leverage one of the FHIR <a href="workflow-communications.html">workflow communication patterns</a> to seek fulfillment of the specified request
   </p>
   <p>
     Task is used to explicitly ask for an action to be performed.  Sometimes it is used together with a Request resource, however it can also be used on its own to ask for execution of a simple action - such as requesting someone fill out a form or return a specified piece of information.  Because Task can be used to ask for an action to be performed and can, itself, track acceptance or rejection of the request, progress status of the request and eventually be updated to point to the 'output' of the request, it saves on overhead compared with using CommunicationRequest which (for any of the afore-mentioned functions) would need to be paired with Task.  As such, Task is generally preferred when there is not a need for a formal authorization and when the capabilities of Task to describe the data requested are as sufficient as those available on CommunicationRequest.  Even when authorization is needed, Task may still be relevant as the authorization may span multiple exchanges covering a broad set of data, while Task allows initiation of a single transfer of very specific information.
@@ -631,7 +631,7 @@ shared in FHIR</li>
   <a name="filter"> </a>
   <h4>_filter searchable?</h4>
   <p>
-    The <a href="search_filter.html">_filter</a> search mechanism provides additional capabilities beyond what can be expressed using basic <a href="#rest-search">REST search</a>.  Specifically, it provides full nested logical expression capabilities (and/or/not/parenthesis) and allows arbitrary filtering of chained parameters (e.g. Observations for patients where the legal name starts with 'Bob').  It also supports a slightly broader set of comparison operations (e.g. "ends with").  _filter can be used together with base REST search capabilities, meaning that <a href="search.html#include">_include</a>, <a href="search.html#revinclude">_revinclude</a>, <a href="search.html#sort">_sort</a>, etc.  This mechanism is treated as 'separate' from basic REST search because support for _filter tends to be less than other REST search parameters.  Unlike other REST search parameters (for which support is defined on a per parameter basis), if _filter is supported, the expectation is that the full _filter expression language is available and supported.
+    The <a href="search_filter.html">_filter</a> search mechanism provides additional capabilities beyond what can be expressed using basic <a href="#rest-search">REST search</a>.  Specifically, it provides full nested logical expression capabilities (and/or/not/parenthesis) and allows arbitrary filtering of chained parameters (e.g. Observations for patients where the legal name starts with 'Bob').  It also supports a slightly broader set of comparison operations (e.g. "ends with").  _filter can be used together with base REST search capabilities, meaning that <a href="search.html#include">_include</a>, <a href="search.html#revinclude">_revinclude</a>, <a href="search.html#sort">_sort</a>, etc..  This mechanism is treated as 'separate' from basic REST search because support for _filter tends to be less than other REST search parameters.  Unlike other REST search parameters (for which support is defined on a per parameter basis), if _filter is supported, the expectation is that the full _filter expression language is available and supported.
   </p>
   <p>
     If _filter searching is appropriate, details on the process can be found <a href="exchanging-search.html#filter">here</a>.  Like any other search mechanisms, implementers must also determine whether to invoke the request as <a href="#synchronous">synchronous or asynchronous</a>.  If _filter is not a good fit, the next architectural approach to consider is using <a href="#cql">CQL</a>.
@@ -642,7 +642,7 @@ shared in FHIR</li>
   <a name="cql"> </a>
   <h4>CQL searchable?</h4>
   <p>
-    <a href="https://cql.hl7.org">CQL</a> stands for Clinical Quality Language.  It is a high-level language that supports manipulation of healthcare data.  CQL is a full-blown Turing-complete programming language that allows filtering and generation of data structures.  It is not tightly bound to FHIR, though it does rely on FHIR data types.  It includes the ability to execute sub-queries, define modules and functions, import external libraries, etc.  However, it is a language specifically designed to manipulate data structures and includes rich terminology support.  It builds on the <a href="http://hl7.org/fhirpath">FHIRPath</a> language to allow easy navigation, filtering, and execution of mathematical and collection-based operations on hierarchical and linked data structures.  Because it is a 'complete' programming language and has an internal capacity to execute sub-queries, it allows the definition of arbitrarily complex data searches.
+    <a href="https://cql.hl7.org">CQL</a> stands for Clinical Quality Language.  It is a high-level language that supports manipulation of healthcare data.  CQL is a full-blown Turing-complete programming language that allows filtering and generation of data structures.  It is not tightly bound to FHIR, though it does rely on FHIR data types.  It includes the ability to execute sub-queries, define modules and functions, import external libraries, etc..  However, it is a language specifically designed to manipulate data structures and includes rich terminology support.  It builds on the <a href="http://hl7.org/fhirpath">FHIRPath</a> language to allow easy navigation, filtering, and execution of mathematical and collection-based operations on hierarchical and linked data structures.  Because it is a 'complete' programming language and has an internal capacity to execute sub-queries, it allows the definition of arbitrarily complex data searches.
   </p>
   <p>
     The primary downside of CQL is its complexity.  It is closer to using Java to retrieve data than SQL, though far more tuned for data manipulation than Java is.  Because of its complexity, it is not widely supported in the FHIR implementation space, though it is supported by some of the FHIR reference implementations.  Also, as a programming language, it can raise the risk of performance issues for systems that choose to allow execution of arbitrary CQL against their repositories.  It is also much harder to analyze the 'safety' of a specific ad-hoc query in terms of whether it violates access permissions associated with a user's privileges.
@@ -733,7 +733,7 @@ shared in FHIR</li>
     However, subscription requires more sophisticated infrastructure on the part of both the <i>data source</i> and <i>data consumer</i>.  The <i>data source</i> must expose a <a href="subscription.html">subscription</a> end-point and must build in an event-detection mechanism into its processing or persistence layer such that it can trigger notifications when an event of interest occurs.
   </p>
   <p>
-    Subscription also involves an enhancement of the <i>data source</i>'s security model because the authorization that is in place at the time the subscription is established will not necessarily be the same as what is in place when the subscription triggers a notification.  For example, if a subscription is established with patient consent conveyed via an OAuth token, it is unlikely that the OAuth token will still be valid during the subsequent time-period when event notifications are triggered by the subscription.  Consents may have changed, user privileges may have changed, etc.  Also, the subscription notifications will be directed to a 'system', not necessarily a 'user'.  The security design of the <i>data source</i> will have to take these differences into account.
+    Subscription also involves an enhancement of the <i>data source</i>'s security model because the authorization that is in place at the time the subscription is established will not necessarily be the same as what is in place when the subscription triggers a notification.  For example, if a subscription is established with patient consent conveyed via an OAuth token, it is unlikely that the OAuth token will still be valid during the subsequent time-period when event notifications are triggered by the subscription.  Consents may have changed, user privileges may have changed, etc..  Also, the subscription notifications will be directed to a 'system', not necessarily a 'user'.  The security design of the <i>data source</i> will have to take these differences into account.
   </p>
   <p>
     On the <i>data consumer</i> side, the system must be able to receive notifications at any time.  This imposes an availability and 'interrupt' capability that not all systems will possess.  The system must also be able to route the received information to the appropriate user/module for the information to be used.
@@ -814,7 +814,7 @@ shared in FHIR</li>
   <a name="group-transmit"> </a>
   <h4>Group transmission?</h4>
   <p>
-    Even when the expectation is that resources will be stored and potentially accessed independently, FHIR defines mechanisms for transmitting multiple resource actions (creates, updates, patches, deletes, operations, etc.) as a collection.  This can reduce the amount of back-and-forth traffic between the <i>data consumer</i> and <i>data source</i> and reduce some of the communication overhead.  The impact on bandwidth will be slight as the volume of 'resource' data will be the same (and in fact, slightly increased, due to the additional size  of the <a href="bundle.html">Bundle</a> resource needed to package the various requests) and there will be a reduction in repeated transmission of HTTP headers, security tokens etc.  The primary savings is in the communication overhead associated with processing requirements that happen once for each transmission (e.g. authorization verification, SSL handshakes, etc.)  This savings can be significant.
+    Even when the expectation is that resources will be stored and potentially accessed independently, FHIR defines mechanisms for transmitting multiple resource actions (creates, updates, patches, deletes, operations, etc..) as a collection.  This can reduce the amount of back-and-forth traffic between the <i>data consumer</i> and <i>data source</i> and reduce some of the communication overhead.  The impact on bandwidth will be slight as the volume of 'resource' data will be the same (and in fact, slightly increased, due to the additional size  of the <a href="bundle.html">Bundle</a> resource needed to package the various requests) and there will be a reduction in repeated transmission of HTTP headers, security tokens etc..  The primary savings is in the communication overhead associated with processing requirements that happen once for each transmission (e.g. authorization verification, SSL handshakes, etc..)  This savings can be significant.
   </p>
   <p>
     Obviously, sending multiple actions in a single Bundle can only happen if the use-case requires the transmission of multiple requests.  However, each of the actions must be reasonably independent.  Depending on the mechanism, it can be possible for resources to reference other resources contained within the same Bundle, but it is not possible to have conditional actions that depend on the results of other actions performed within the same Bundle - separate RESTful calls must be done and the <i>data consumer</i> must evaluate the first and decide what to do in a subsequent request.
@@ -1016,7 +1016,7 @@ must consider a range of scenarios, depending on the data that is available:
       If the element minimum cardinality is 0, then the element can simply be omitted.
       If the element mininmum cardinality is 1, then the authoring system has a problem.
       In principle, the first question is why is an element that there is no data for 
-      mandatory? The authoring system may be required to change it's own workflow to procure 
+      mandatory? The authoring system may be required to change its own workflow to procure 
       a value for the element. However this is not always necessary (or possible). 
       <br/><br/>
       The first possibility is that that authoring system can provide a fixed value that 
@@ -1055,7 +1055,7 @@ must consider a range of scenarios, depending on the data that is available:
       that is not correct for the source system.
       <br/><br/>
       In general, specification and profile designers try to avoid the situation 
-      where real world systems have data that is invalid, but all designs are a 
+      where real-world systems have data that is invalid, but all designs are a 
       trade-off between different pros and cons, and systems do not always have 
       valid data. Again, one solution is to redesign the system or the clinical 
       workflow to ensure that data is always valid, but this isn't always possible
@@ -1084,13 +1084,13 @@ must consider a range of scenarios, depending on the data that is available:
       are ubiquitous. 
       <br/><br/>
       If the applicable profiles include a required binding to a code/coding type, then the source system 
-      must choose one of the allowed codes from the relevant value set. It can still provide it's 
+      must choose one of the allowed codes from the relevant value set. It can still provide its 
       own code in an extension, and in general this is encouraged. There is no standard extension 
       for this purpose; look for applicable extensions in the <a href="http://hl7.org/fhir/registry">FHIR Registry</a>. 
       <br/><br/>
       If the binding is a required binding to a CodeableConcept, then the source system 
       must choose one of the applicable codes and put that in one of the codings, and
-      then it should provide it's own code in another coding. The same is true if the 
+      then it should provide its own code in another coding. The same is true if the 
       binding is an extensible binding, and one of the existing codes is applicable. 
       <br/><br/>
       As above, applicable profiles may influence an applications choices in this regard.

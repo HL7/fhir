@@ -1142,7 +1142,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Profile Name</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">The name of an element for the purposes of this profile (used for slicing, code generation, etc. (see Confluence for more details)</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">The name of an element for the purposes of this profile (used for slicing, code generation, etc.. (see Confluence for more details)</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Discriminator</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -1174,7 +1174,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Type</Data><Comment ss:Author=""><Data>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Must Support</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -2792,7 +2792,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Profile Name</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
         html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">The name of an element for the purposes of this profile (used for slicing, code generation, etc. (see Confluence for more details)</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">The name of an element for the purposes of this profile (used for slicing, code generation, etc.. (see Confluence for more details)</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Discriminator</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -2824,7 +2824,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Type</Data><Comment ss:Author=""><Data>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Must Support</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"
@@ -6125,7 +6125,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Type</Data><Comment ss:Author=""><Data>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
-        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc. - see Confluence</Font>       </Data></Comment><NamedCell
+        xmlns="http://www.w3.org/TR/REC-html40">Data type, resource reference, profiles, aggregations, class names, type references, etc.. - see Confluence</Font>       </Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Is Modifier</Data><Comment
       ss:Author=""><Data>        <Font html:Face="Tahoma" x:Family="Swiss"

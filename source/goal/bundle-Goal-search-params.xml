@@ -32,7 +32,7 @@
           <valueString value="Goal.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Goal-category"/>
-        <description value="E.g. Treatment, dietary, behavioral, etc."/>
+        <description value="E.g. Treatment, dietary, behavioral, etc.."/>
         <code value="category"/>
         <type value="token"/>
         <expression value="Goal.category"/>

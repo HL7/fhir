@@ -35,7 +35,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="Kinds of issues or contraindications, such as 'drug-drug interaction', 'duplicate therapy', etc."/>
+  <description value="Kinds of issues or contraindications, such as 'drug-drug interaction', 'duplicate therapy', etc.."/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>

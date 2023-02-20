@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -716,7 +716,7 @@
       </extension>
       <path value="Immunization.performer.function"/>
       <short value="What type of performance was done"/>
-      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc.)."/>
+      <definition value="Describes the type of performance (e.g. ordering provider, administering provider, etc..)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1025,7 +1025,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)"/>
+        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 V2 VXU message - most likely would appear in OBX segments if at all)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1062,7 +1062,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="(HL7 v2 doesn't seem to provide for this)"/>
+        <map value="(HL7 V2 doesn't seem to provide for this)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

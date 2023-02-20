@@ -32,7 +32,7 @@
   <concept>
     <code value="life-event"/>
     <display value="Life Event"/>
-    <definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."/>
+    <definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc..)."/>
   </concept>
   <concept>
     <code value="replaced"/>

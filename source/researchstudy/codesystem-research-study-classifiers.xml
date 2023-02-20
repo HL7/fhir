@@ -1150,8 +1150,8 @@
 			<code value="SEVCO:01026"/>
 			<concept>
 				<code value="SEVCO:01039"/>
-				<display value="Real world data collection from healthcare records"/>
-				<definition value="Real world data collection from data obtained routinely for a purpose of recording healthcare delivery in a record controlled by a healthcare professional."/>
+				<display value="Real-world data collection from healthcare records"/>
+				<definition value="Real-world data collection from data obtained routinely for a purpose of recording healthcare delivery in a record controlled by a healthcare professional."/>
 				<designation>
 					<use>
 						<display value="Alternative term"/>
@@ -1174,18 +1174,18 @@
 					<use>
 						<display value="Alternative term"/>
 					</use>
-					<value value="Real world data collection from medical records"/>
+					<value value="Real-world data collection from medical records"/>
 				</designation>
 			</concept>
 			<concept>
 				<code value="SEVCO:01050"/>
-				<display value="Real world data collection from personal health records"/>
-				<definition value="Real world data collection from data obtained routinely for a purpose of recording data related to personal health in a record controlled by the person, guardian, or caretaker."/>
+				<display value="Real-world data collection from personal health records"/>
+				<definition value="Real-world data collection from data obtained routinely for a purpose of recording data related to personal health in a record controlled by the person, guardian, or caretaker."/>
 				<designation>
 					<use>
 						<display value="Alternative term"/>
 					</use>
-					<value value="Real world data collection from personal care records"/>
+					<value value="Real-world data collection from personal care records"/>
 				</designation>
 				<designation>
 					<use>
@@ -1196,8 +1196,8 @@
 			</concept>
 			<concept>
 				<code value="SEVCO:01040"/>
-				<display value="Real world data collection from healthcare financing records"/>
-				<definition value="Real world data collection from data obtained routinely for a purpose of recording healthcare financing."/>
+				<display value="Real-world data collection from healthcare financing records"/>
+				<definition value="Real-world data collection from data obtained routinely for a purpose of recording healthcare financing."/>
 				<designation>
 					<use>
 						<display value="Alternative term"/>
@@ -1209,8 +1209,8 @@
 				<code value="SEVCO:01048"/>
 				<concept>
 					<code value="SEVCO:01046"/>
-					<display value="Real world data collection from monitoring procedures"/>
-					<definition value="Real world data collection from data obtained routinely for a purpose of repeated testing."/>
+					<display value="Real-world data collection from monitoring procedures"/>
+					<definition value="Real-world data collection from data obtained routinely for a purpose of repeated testing."/>
 					<designation>
 						<use>
 							<display value="Alternative term"/>
@@ -1218,8 +1218,8 @@
 						<value value="RWD collection from monitoring procedures"/>
 					</designation>
 				</concept>
-				<display value="Real world data collection from testing procedures"/>
-				<definition value="Real world data collection from data obtained routinely for a purpose of testing, such as diagnostic testing or screening examination."/>
+				<display value="Real-world data collection from testing procedures"/>
+				<definition value="Real-world data collection from data obtained routinely for a purpose of testing, such as diagnostic testing or screening examination."/>
 				<designation>
 					<use>
 						<display value="Alternative term"/>
@@ -1227,7 +1227,7 @@
 					<value value="RWD collection from testing procedures"/>
 				</designation>
 			</concept>
-			<display value="Real world data collection"/>
+			<display value="Real-world data collection"/>
 			<definition value="A study design process in which the study data are obtained from a source of data collected during a routine process in the natural environment rather than using a process designed or controlled by the researcher."/>
 			<designation>
 				<use>

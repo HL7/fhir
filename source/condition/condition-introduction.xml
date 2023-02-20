@@ -47,7 +47,7 @@ These examples may also be represented using other resources, such as <a href="f
 <h2>Boundaries and Relationships</h2>
 <p>
     The condition resource may be referenced by other resources as "reasons" for an action (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
-<a href="procedure.html">Procedure</a>, <a href="servicerequest.html">ServiceRequest</a>, etc.)
+<a href="procedure.html">Procedure</a>, <a href="servicerequest.html">ServiceRequest</a>, etc..)
 </p>
 <p>
 This resource is not typically used to record information about subjective and objective information that might lead to the recording of a Condition resource. Such signs and symptoms are typically captured using the <a href="observation.html">Observation</a> resource;

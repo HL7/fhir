@@ -14,7 +14,7 @@ or consumer.
 
  A person or animal receiving care at multiple organizations will therefore have its information present in multiple Patient Resources.
 
- What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a HL7 v2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on HL7 v2 and V3. Am I missing something?
+ What are the explicit mechanisms that should be used to synchronize them? This dynamic behavior,  is not covered at any depth (that I can see), except to suggest that a message that emulates a HL7 V2 or V3 event be employed. The entire notion of dynamic behavior of a model employing resources is not covered well. If one happens to employ RESTful services (not required AFAICS) then, yes, we have CRUD verb mappings on resources, but no real discussion of the dynamic behavior of multiple resources involved in transactions/events, except to fall back on HL7 V2 and V3. Am I missing something?
 
 -->
 
@@ -152,11 +152,11 @@ data is located.  There are three primary mechanisms for discovery:
 </p>
 <ul>
   <li>Manual configuration: Systems are manually configured to point to other (relevant) servers with guidance around what types of data reside in which
-   server, the address of the server, any necessary authentication information, etc. either hard-coded in the software or managed through system 
+   server, the address of the server, any necessary authentication information, etc.. either hard-coded in the software or managed through system 
    configuration files</li>
   <li>Traversal: Client systems are expected to start queries from a single server that manages the "primary" resources (e.g. 
-   <a href="encounter.html">encounters</a>, <a href="diagnosticreport.html">diagnostic reports</a>, <a href="episodeofcare.html">episodes</a>, etc.)  Other relevant
-   information such as diagnoses, observations, conditions, procedures, etc. is found by navigating references from those primary resources to other resource -
+   <a href="encounter.html">encounters</a>, <a href="diagnosticreport.html">diagnostic reports</a>, <a href="episodeofcare.html">episodes</a>, etc..)  Other relevant
+   information such as diagnoses, observations, conditions, procedures, etc.. is found by navigating references from those primary resources to other resource -
    on whatever servers that information happens to reside on</li>
  <li>System registry: Client systems discover the 'current' set of relevant servers by querying a central location for the 
    <a href="endpoint.html">Endpoints</a> for servers that carry relevant data for a particular community.  As servers join or leave the community, the list
@@ -168,23 +168,23 @@ data is located.  There are three primary mechanisms for discovery:
 <h4>Managing shared entities</h4>
 <p>
 A typical multi-server environment is one where each server is responsible for different "types" of information.  For example, one server handles lab
-information, one handles medication information, one handles imaging information, etc.  In this scenario, it's not uncommon for each of the servers to also
+information, one handles medication information, one handles imaging information, etc..  In this scenario, it's not uncommon for each of the servers to also
 hold their own records for certain types of resources such as <a href="patient.html">Patient</a>, <a href="practitioner.html">Practitioner</a>,
-<a href="location.html">Location</a>, etc.  When exploring linking the systems together, consideration needs to be given for how to manage such shared entities.
+<a href="location.html">Location</a>, etc..  When exploring linking the systems together, consideration needs to be given for how to manage such shared entities.
 Possibilities include:
 </p>
 <ul>
   <li>Shared registry:  A single system acts as a source of truth for a particular resource type and all other systems cease maintaining local information and instead merely reference resources on the central server.</li>
   <li>Source-of-truth registry: A single system acts as source of truth for a particular resource type and pushes a read-only view of the information to other servers.  Records are created or updated only in the source of truth system.</li>
-  <li>Linked resources: Each system maintains their own 'version' of information for a given individual, but linkages are maintained allowing determination which instances from different servers represent the same individual.  This can be done using the <a href="person.html">Person</a> resource for patients, practitioners and <a href="relatedperson.html">RelatedPerson</a>s.  The <a href="linkage.html">Linkage</a> resource can be used for other shared resources.  Linkages can also be managed just by sharing <code>identifier</code> values (e.g. shared medical record numbers, license numbers, etc.)</li>
-  <li>Independent resources: Each system manages their resources independently and no linkage is maintained.  Determination of what resources are appropriate to link to must be managed by human-based searching and matching on the patients/providers/etc. in each system separately</li>
+  <li>Linked resources: Each system maintains their own 'version' of information for a given individual, but linkages are maintained allowing determination which instances from different servers represent the same individual.  This can be done using the <a href="person.html">Person</a> resource for patients, practitioners and <a href="relatedperson.html">RelatedPerson</a>s.  The <a href="linkage.html">Linkage</a> resource can be used for other shared resources.  Linkages can also be managed just by sharing <code>identifier</code> values (e.g. shared medical record numbers, license numbers, etc..)</li>
+  <li>Independent resources: Each system manages their resources independently and no linkage is maintained.  Determination of what resources are appropriate to link to must be managed by human-based searching and matching on the patients/providers/etc.. in each system separately</li>
 </ul>
 <p>
-Choice of architecture will be driven by the capabilities of the systems involved, needs of organizational workflow, ability to integrate legacy data, etc.  Other architectures are possible, and mixtures of architectures are possible too.  For example, a shared registry for patients while using linked resources for practitioners; shared registry for "licensed" practitioners while independent resources for administrative staff; etc.
+Choice of architecture will be driven by the capabilities of the systems involved, needs of organizational workflow, ability to integrate legacy data, etc..  Other architectures are possible, and mixtures of architectures are possible too.  For example, a shared registry for patients while using linked resources for practitioners; shared registry for "licensed" practitioners while independent resources for administrative staff; etc..
 </p>
 <p>
 Where synchronization is required, this can be done by polling, by having the "master" system pushing updates to other systems, by using FHIR's 
-<a href="subscriptions.html">Subscription framework</a>, through database synchronization technologies or other means.  Design decisions will also be necessary around synchronization frequency, managing merges in a distributed environment, etc.
+<a href="subscriptions.html">Subscription framework</a>, through database synchronization technologies or other means.  Design decisions will also be necessary around synchronization frequency, managing merges in a distributed environment, etc..
 </p>
 
 <a name="queries"> </a>

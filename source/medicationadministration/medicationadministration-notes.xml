@@ -61,12 +61,12 @@
                 <tr>
                 <td>MedicationRequest.dosageInstructions.dosage.timing.bounds</td>
                 
-                <td>Time the medication should be administered e.g. 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc. </td>
+                <td>Time the medication should be administered e.g. 10am on a specific date, or at time of sleep, or after breakfast, or over 60 minutes starting at 3pm on a specific date, etc.. </td>
                 </tr>
                 <tr>
                     <td>MedicationRequest.dosageInstructions.dosage.route </td>
                 
-                <td>Route of administration e.g. oral, intravenous, topical, etc. </td>
+                <td>Route of administration e.g. oral, intravenous, topical, etc.. </td>
                 </tr>
                 <tr>
                     <td>MedicationRequest.dosageInstructions.dosage.site </td>
@@ -74,9 +74,9 @@
                 <td>Anatomical site where the drug enters the body e.g. subclavian vein</td>
         </tr>
     </table>
-   <p>Other attributes may be included, such as those for access sites, dosage instructions, reason, device used, etc.  The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what  attributes an individual implementation may include in their design.  </p>
+   <p>Other attributes may be included, such as those for access sites, dosage instructions, reason, device used, etc..  The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what  attributes an individual implementation may include in their design.  </p>
   <ul>
-      <li>Recording a Medication Administration - this represents a specific medication administration that includes a dose, or IV rate, a route of administration, and optional administration method, a date and time, or in the case of some IV medications a start date/time and end date/time, administration site, name of person who administered the medication, optional details about the administration e.g., patient refused, patient only took a partial dose because they were ill, etc.  </li>
+      <li>Recording a Medication Administration - this represents a specific medication administration that includes a dose, or IV rate, a route of administration, and optional administration method, a date and time, or in the case of some IV medications a start date/time and end date/time, administration site, name of person who administered the medication, optional details about the administration e.g., patient refused, patient only took a partial dose because they were ill, etc..  </li>
   </ul>
     <table border="1" cellpadding="1" cellspacing="2" frame="box">
         <tr>
@@ -114,7 +114,7 @@
             <tr>
                 <td>MedicationAdministration.supportingInformation.reference (resource)</td>
                 
-                <td>Used to capture data such as lab test values or heart rate, or blood pressure values, etc. This type of data is often expressed in the order and is used to determine if the medication should be administered or held. </td>
+                <td>Used to capture data such as lab test values or heart rate, or blood pressure values, etc.. This type of data is often expressed in the order and is used to determine if the medication should be administered or held. </td>
             </tr>
             <tr>
                 <td>MedicationAdministration.performer.function (=performer)
@@ -130,19 +130,19 @@
                 <td>Identifies who verified the medication to be administered.  This is most often a clinician who is verifying the administration for another clinician where there is a requirement for verification prior to administration.  </td>
             </tr>
     </table>
-    <p>Other attributes may be included e.g. method, reason, etc. The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what attributes an individual implementation may include in their design.  
+    <p>Other attributes may be included e.g. method, reason, etc.. The list of attributes above is meant to help the reader understand the definitions. It is not meant to define what attributes an individual implementation may include in their design.  
         </p>
     
     <h3>Rationale</h3>
     <p>Scheduled Medication Administration information is used to inform the person who will administer the medication(s) the date/time, and medication specific information e.g., dose, route, method, special instructions for each medication a person is scheduled to take. </p>
     
-    <p>Recording Medication Administration details provides a place to capture the data about the actual administration e.g., date/time or time interval of administration, dose, route, method, device, performer, etc. </p>
+    <p>Recording Medication Administration details provides a place to capture the data about the actual administration e.g., date/time or time interval of administration, dose, route, method, device, performer, etc.. </p>
     
     <p>Depending on the type of application, this type of information may be presented to the user who is administering the medication in an EHR module for medication administration, in a mobile application for the patient or caregiver.   </p>
     
     <h3>Setting</h3>
     
-    <p>Medication administrations occur in all types of settings e.g. hospitals, outpatient clinics, home, ambulance, ER, etc.  </p>
+    <p>Medication administrations occur in all types of settings e.g. hospitals, outpatient clinics, home, ambulance, ER, etc..  </p>
     
     <h3>Description</h3>
     
@@ -167,7 +167,7 @@
         <li>Over-the-counter (OTC) medications that the patient informs/adds to the list - this would include herbals and supplements</li>
         <li>NOTE: Medication errors may lead to medications potentially showing up on a list of medications to be administered e.g., medication order was written for the wrong patient
             In this case, the MAR indicates that a medication should be administered to a patient (later found to be in error e.g., wrong patient)</li>
-        <li>NOTE: Medication errors may also lead to medications showing up on a list of administered medications e.g., medication was mistakenly administered to the wrong patient, or the wrong dose was administered, or wrong route was used, etc.  </li>
+        <li>NOTE: Medication errors may also lead to medications showing up on a list of administered medications e.g., medication was mistakenly administered to the wrong patient, or the wrong dose was administered, or wrong route was used, etc..  </li>
    
 
     

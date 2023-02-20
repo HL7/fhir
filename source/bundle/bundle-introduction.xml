@@ -52,10 +52,10 @@ is dynamic – items are added and removed over time.  The list resource referen
 curated and have specific business meaning.
 </li>
 <li>
-The <a href="group.html">Group</a> resource – Defines a group of specific people, animals, devices, etc. by enumerating them, 
+The <a href="group.html">Group</a> resource – Defines a group of specific people, animals, devices, etc.. by enumerating them, 
 or by describing qualities that group members have. The group resource refers to other resources, possibly implicitly.  
 Groups are intended to be acted upon or observed as a whole; e.g. performing therapy on a group, calculating risk for a group, 
-etc.  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
+etc..  This resource will commonly be used for public health (e.g. describing an at-risk population), clinical trials (e.g. 
 defining a test subject pool) and similar purposes.
 </li>
 <li>

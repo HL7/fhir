@@ -237,7 +237,7 @@
       <path value="ExampleScenario.title"/>
       <short value="Name for this example scenario (human friendly)"/>
       <definition value="A short, descriptive, user-friendly title for the ExampleScenario."/>
-      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc."/>
+      <comment value="This name does not need to be machine-processing friendly and may contain punctuation, white-space, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -336,7 +336,7 @@
       <path value="ExampleScenario.contact"/>
       <short value="Contact details for the publisher"/>
       <definition value="Contact details to assist a user in finding and communicating with the publisher."/>
-      <comment value="May be a web site, an email address, a telephone number, etc."/>
+      <comment value="May be a web site, an email address, a telephone number, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -442,7 +442,7 @@
       <path value="ExampleScenario.copyrightLabel"/>
       <short value="Copyright holder and year(s)"/>
       <definition value="A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')."/>
-      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc. goes in the more general 'copyright' element."/>
+      <comment value="The (c) symbol should NOT be included in this string. It will be added by software when rendering the notation. Full details about licensing, restrictions, warrantees, etc.. goes in the more general 'copyright' element."/>
       <requirements value="Defines the content expected to be rendered in all representations of the artifact."/>
       <min value="0"/>
       <max value="1"/>
@@ -627,7 +627,7 @@
     <element id="ExampleScenario.instance.structureVersion">
       <path value="ExampleScenario.instance.structureVersion"/>
       <short value="E.g. 4.0.1"/>
-      <definition value="Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc. is instance compliant with."/>
+      <definition value="Conveys the version of the data structure instantiated.  I.e. what release of FHIR, X12, OpenEHR, etc.. is instance compliant with."/>
       <min value="0"/>
       <max value="1"/>
       <type>

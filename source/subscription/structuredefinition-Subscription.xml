@@ -340,7 +340,7 @@
     <element id="Subscription.heartbeatPeriod">
       <path value="Subscription.heartbeatPeriod"/>
       <short value="Interval in seconds to send 'heartbeat' notification"/>
-      <definition value="If present,  a 'hearbeat&quot; notification (keepalive) is sent via this channel with an the interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
+      <definition value="If present,  a 'hearbeat&quot; notification (keepalive) is sent via this channel with an interval period equal to this elements integer value in seconds.    If not present, a heartbeat notification is not sent."/>
       <min value="0"/>
       <max value="1"/>
       <type>

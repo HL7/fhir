@@ -295,7 +295,7 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
+            Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc..), and a need to stay consistent with that architecture.
         </p>
         <h4>Usage examples</h4>
         <p>
@@ -366,7 +366,7 @@ in order to support consistent definitions for schema and UML derived code.
         </p>
         <img alt="Diagram showing POST of &quot;request&quot; resource for filler system, response via Task workflow" src="workflow-optionh-a.png" />
         <ol>
-            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. ServiceRequest etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
+            <li>Placer system invokes a "create" action by POSTing a 'request' resource (e.g. ServiceRequest etc..) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler, placer or
                 queue server system and sets a "tag" on the resource that indicates the request is "actionable"</li>
             <li>Filler POSTs a Task resource to its own system or a queue server system, pointing to the request resource and indicating intent to fulfill or refusal to fulfill</li>
             <li>Placer system uses either polling or pub/sub to become aware of the existence of the task and fulfillment intent</li>

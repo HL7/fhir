@@ -76,7 +76,7 @@
 	</collection>
 	<!--
       the container identifier is not the same as the specimen identifier
-      usually, it is pre-printed/implanted etc.on the container prior to
+      usually, it is pre-printed/implanted etc..on the container prior to
       use. It might a RFID in the container, or it might be a UDI
       (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)
     -->

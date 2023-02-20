@@ -30,7 +30,7 @@ been adopted as an ISO standard.
 <p>
 v3 messaging has been adopted by a number of large projects, particularly in the
 electronic health record area, though it has not achieved the market penetration of
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>.  The HL7 RIM and the ISO 21090 datatypes have also been
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>.  The HL7 RIM and the ISO 21090 datatypes have also been
 used by other SDOs and projects that have not leveraged the full HL7 v3 methodology.
 Most of the comments and guidance provided here will apply to those solutions as well.
 </p>
@@ -42,7 +42,7 @@ of the HL7 v3 methodology and it is front and center in the specification and th
 format.  All data elements in HL7 v3 instances are derived from either the RIM or the ISO
 datatypes.  In FHIR, this is true of most resources and datatype elements, but not all.
 Some resources (<a href="structuredefinition.html">StructureDefinition</a>, <a href="capabilitystatement.html">CapabilityStatement</a>,
-<a href="valueset.html">ValueSet</a>, etc.) deal with content that is outside the RIM's scope.  And in a few circumstances, adjustments have been made in
+<a href="valueset.html">ValueSet</a>, etc..) deal with content that is outside the RIM's scope.  And in a few circumstances, adjustments have been made in
 the FHIR datatypes that are not yet supported in the HL7 v3 datatypes model.  The expectation
 is that these changes will be supported in the next version of the v3 datatypes model.  The
 main difference is that the serialization format of FHIR is not driven by the RIM
@@ -52,10 +52,10 @@ to implement FHIR with absolutely no knowledge of the HL7 RIM.
 <p>
 <b>Codes:</b> v3 places considerable reliance on coded attributes to convey the
 meaning of instances.  Examples include <i>classCode</i>, <i>moodCode</i>, <i>determinerCode</i>,
-etc.
+etc..
 The allowed codes for these attributes are strictly controlled by HL7.  FHIR also has attributes
 that are limited to codes defined in the FHIR specification - those using the <a href="datatypes.html#code">code</a>
-datatype.  However, these are generally limited to attributes with business meaning - status, contact types, etc.
+datatype.  However, these are generally limited to attributes with business meaning - status, contact types, etc..
 </p>
 <p>Both FHIR and v3 make use of value sets to define the sets of codes that can be used for
 attributes within particular contexts.  However, in FHIR, a <a href="valueset.html">ValueSet</a>
@@ -117,7 +117,7 @@ value or otherwise fall outside the bounds of a "normal" value.  To deal with th
 concept of "null flavor" on almost every attribute and datatype property in its models.  These coded null flavors
 could be sent in place of or in addition to the data that would typically be sent for the attribute, association or
 datatype property.  Examples include the ideas of "Unknown", "Not asked", "Positive infinity", "Trace amount",
-"Masked", "Other", etc.  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were
+"Masked", "Other", etc..  Unless an element was explicitly marked as "mandatory" - meaning no null flavors were
 permitted - these null flavors could appear anywhere.
 </p>
 <p>
@@ -168,13 +168,13 @@ explicitly controlled.  When converting to FHIR, the context will need to be pro
 approach - if any information changes, the entire record is sent, including the modified data elements.  However,
 the v3 methodology does support the introduction of an "updateMode" property to allow only the changes to be sent
 for all or part of an instance.  Each element repetition is flagged with an updateMode to indicate whether the
-element is to be added, removed, updated, etc.  Additional updateModes allow further control over updates.  As
+element is to be added, removed, updated, etc..  Additional updateModes allow further control over updates.  As
 with the <a href="comparison-v2.html#V2-updateMode">v2 discussion</a> above, implementers will need to generate a full snapshot of
 each resource or consider using the <a href="http.html#patch">Patch Operation</a> instead.
 </p>
 <p>
 <b>Additional considerations:</b> Most of the implementation considerations for interoperating between FHIR and
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> also hold with v3.  Specifically: <a href="comparison-v2.html#V2-extensions">Extensions</a>, <a href="comparison-v2.html#V2-contained">Independent vs.
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> also hold with v3.  Specifically: <a href="comparison-v2.html#V2-extensions">Extensions</a>, <a href="comparison-v2.html#V2-contained">Independent vs.
 Contained resources</a>, <a href="comparison-v2.html#V2-identification">Resource Identification</a>, <a href="comparison-v2.html#V2-merging">Merging
 references and resources</a> and <a href="comparison-v2.html#V2-humanReadable">Generating human-readable content</a>.
 </p>

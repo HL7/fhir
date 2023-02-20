@@ -199,7 +199,7 @@
     <element id="Provenance.policy">
       <path value="Provenance.policy"/>
       <short value="Policy or plan the activity was defined by"/>
-      <definition value="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc."/>
+      <definition value="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.."/>
       <comment value="For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element."/>
       <min value="0"/>
       <max value="*"/>
@@ -482,7 +482,7 @@
       <path value="Provenance.agent.type"/>
       <short value="How the agent participated"/>
       <definition value="The Functional Role of the agent with respect to the activity."/>
-      <comment value="For example: assembler, author, prescriber, signer, investigator, etc."/>
+      <comment value="For example: assembler, author, prescriber, signer, investigator, etc.."/>
       <requirements value="Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. This element will hold the functional role that the agent played in the activity that is the focus of this Provenance. Where an agent played multiple functional roles, they will be listed as multiple .agent elements representing each functional participation. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models."/>
       <min value="0"/>
       <max value="1"/>
@@ -519,7 +519,7 @@
       <path value="Provenance.agent.role"/>
       <short value="What the agents role was"/>
       <definition value="The structural roles of the agent indicating the agent's competency. The security role enabling the agent with respect to the activity."/>
-      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc."/>
+      <comment value="For example: Chief-of-Radiology, Nurse, Physician, Medical-Student, etc.."/>
       <requirements value="Structural roles reflect the structural aspects of relationships between entities. Structural roles describe prerequisites, feasibilities, or competences for acts. Functional roles reflect functional aspects of relationships between entities. Functional roles are bound to the realization/performance of acts, where actions might be concatenated to an activity or even to a process. See ISO 21298:2018 - Health Informatics - Functional and structural roles, and ISO 22600-2:2014 - Health Informatics - Privilege Management and Access Control - Part 2: formal models.."/>
       <min value="0"/>
       <max value="*"/>
@@ -690,7 +690,7 @@
       <path value="Provenance.entity.agent"/>
       <short value="Entity is attributed to this agent"/>
       <definition value="The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which used the entity."/>
-      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity."/>
+      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 V2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Provenance.agent"/>

@@ -147,7 +147,7 @@
           <valueString value="Flag.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Flag-category"/>
-        <description value="The category of the flag, such as clinical, administrative, etc."/>
+        <description value="The category of the flag, such as clinical, administrative, etc.."/>
         <code value="category"/>
         <type value="token"/>
         <expression value="Flag.category"/>

@@ -75,7 +75,7 @@ extensions, but only the following datatypes may include <a href="extensibility.
 
 <a name="imports"></a>
 <p>
-The following table describes the primitive types that are used in this specification. Primitive types are those that specialise <a href="types.html#PrimitiveType">PrimitiveType</a>, with a value, and no additional elements as children (though, like
+The following table describes the primitive types that are used in this specification. Primitive types are those that specialize <a href="types.html#PrimitiveType">PrimitiveType</a>, with a value, and no additional elements as children (though, like
 all types, they have <code>id</code> and <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Examples</a>.
 </p>
 
@@ -216,7 +216,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
   <td>instant<a name="instant"></a></td>
   <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone offset.
     Actual time zone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
-    Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
+    Note: This is intended for when precisely observed times are required (typically system logs etc..), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
 </tr>
@@ -411,14 +411,14 @@ Notes:
       <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply.</li>
     </ul>
  </li>
- <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
+ <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 V2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
  <li>Issues with the specified regexes:
    <ul>
      <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes.</li>
-     <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used.
+     <li>The string regex has problems with Unicode - specifically, it might or might not allow Unicode whitespace to some degree depending on Unicode support in the regex engine being used.
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
-     <li>The unicode issues also apply to the regex for <code>code</code>.</li>
+     <li>The Unicode issues also apply to the regex for <code>code</code>.</li>
      <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
      <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed.</li>
    </ul>
@@ -748,7 +748,7 @@ how the codes are related can only be determined by consulting the definitions o
 <p>
 A coding may be marked as a "userSelected" if a user selected the particular coded value
 in a user interface (e.g. the user selects an item in a pick-list). If a user selected coding exists,
-it is the preferred choice for performing translations etc.
+it is the preferred choice for performing translations etc..
 </p>
 
 <div class="use">
@@ -1141,7 +1141,7 @@ of Ratio.
 Examples where a Quantity is typically used are rates, densities, concentrations.
 Examples where a Ratio is used are: titers (e.g. 1:128); concentration ratios where
 the denominator is significant (e.g. 5mg/10mL); observed frequencies (e.g. 2 repetitions/8 hr),
-and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc.).
+and where the numerator or denominator is an amount of a currency (no UCUM code for $ etc..).
 </p>
 <p>
 Common factors in the numerator and denominator are not automatically cancelled out. Ratios are not
@@ -1367,7 +1367,7 @@ used for codes that correspond 1..1 with the Identifier.system. Some identifiers
 categories due to variations in common usage.
 </p>
 <p>
-The <code>assigner</code> is used to indicate what registry/state/facility/etc. assigned the identifier.
+The <code>assigner</code> is used to indicate what registry/state/facility/etc.. assigned the identifier.
 As a <a href="references.html">Reference</a>, the assigner can include just a text description in the <code>display</code>.
 </p>
 
@@ -1519,7 +1519,7 @@ See also <a href="datatypes-examples.html#ContactPoint">Examples</a>, <a href="d
 </p>
 
 <p>
-Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc.
+Details for all kinds of technology-mediated contact points for a person or organization, including telephone, email, etc..
 </p>
 [%dt ContactPoint 12%]
 <p>
@@ -1634,7 +1634,7 @@ part of the base specification</a>, and the structured data portions of the Timi
  <tr><td>PM</td>                 <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>                 <td>AFT or EVE</td>  <td></td></tr>
 </table>
 <p>
-These codes SHALL be understood as having the formal meanings documented in this table. Note that BID, etc. are defined as 'at institutionally specified times'.
+These codes SHALL be understood as having the formal meanings documented in this table. Note that BID, etc.. are defined as 'at institutionally specified times'.
 For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID
 should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or a structured
 representation should be used (in this case, <code>timeOfDay</code>).
@@ -1682,7 +1682,7 @@ Notes:
 <ul>
  <li>The Signature datatype can be used to hold a digital-signature, but may also be used to hold electronic-signatures.</li>
  <li>Electronic-Signatures, such as image of ink signature, do not protect the signed content from change, but do carry details about who signed, when signature happened, and what the signature means.</li>
- <li>One consequence of digital-signature on an Resource (document) is that URLs, identifiers and internal references are frozen and
+ <li>One consequence of digital-signature on a Resource (document) is that URLs, identifiers and internal references are frozen and
 cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
 ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
 recommended that systems consider carefully the impact of any signature processes. The impact of signatures
@@ -1731,7 +1731,7 @@ When the signature is an JSON Digital Signature (contentType = application/jose)
  <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm SHA256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
  <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
  <li>The Signature SHOULD conform to JAdES-XL for support of long term signatures. The JAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>

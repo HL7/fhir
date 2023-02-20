@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -179,7 +179,7 @@
     <element id="Transport.groupIdentifier">
       <path value="Transport.groupIdentifier"/>
       <short value="Requisition or grouper id"/>
-      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc..  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Billing and/or reporting can be linked to whether multiple requests were created as a single unit."/>
       <min value="0"/>
       <max value="1"/>
@@ -201,7 +201,7 @@
       <short value="Part of referenced event"/>
       <definition value="A larger event of which this particular event is a component or step."/>
       <comment value="Not to be used to link an event to an Encounter - use Event.context for that.&#xD;&#xD;[The allowed reference resources may be adjusted as appropriate for the event resource]."/>
-      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc."/>
+      <requirements value="E.g. Drug administration as part of a procedure, procedure as part of observation, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -254,7 +254,7 @@
     <element id="Transport.statusReason">
       <path value="Transport.statusReason"/>
       <short value="Reason for current status"/>
-      <definition value="An explanation as to why this transport is held, failed, was refused, etc."/>
+      <definition value="An explanation as to why this transport is held, failed, was refused, etc.."/>
       <comment value="This applies to the current status.  Look at the history of the transport to see reasons for past statuses."/>
       <min value="0"/>
       <max value="1"/>
@@ -278,8 +278,8 @@
     <element id="Transport.intent">
       <path value="Transport.intent"/>
       <short value="unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"/>
-      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc."/>
-      <comment value="This element is immutable.  Proposed transports, planned transports, etc. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
+      <definition value="Indicates the &quot;level&quot; of actionability associated with the Transport, i.e. i+R[9]Cs this a proposed transport, a planned transport, an actionable transport, etc.."/>
+      <comment value="This element is immutable.  Proposed transports, planned transports, etc.. must be distinct instances.&#xA;&#xA;In most cases, Transports will have an intent of &quot;order&quot;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -825,7 +825,7 @@
           <valueString value="TransportInputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concomitent Medications&quot;, etc.."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1030,7 +1030,7 @@
           <valueString value="TransportOutputParameterType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc."/>
+        <description value="Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc.."/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -1254,7 +1254,7 @@
       <path value="Transport.reason"/>
       <short value="Why transport is needed"/>
       <definition value="A resource reference indicating why this transport needs to be performed."/>
-      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc. This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
+      <comment value="Transports might be justified based on an Observation, a Condition, a past or planned procedure, etc.. This should only be included if there is no focus or if it differs from the reason indicated on the focus.    Use the CodeableConcept text element in `Transport.reasonCode` if the data is free (uncoded) text."/>
       <min value="0"/>
       <max value="1"/>
       <type>

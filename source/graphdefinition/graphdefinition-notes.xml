@@ -54,7 +54,7 @@ Then, when it reads the returned resource, it can fetch the referenced resources
   GET [base]/Patient/example
   GET [base]/Practitioner/example
   GET [base]/MedicationRequest/example
-  ... etc.
+  ... etc..
 </pre>
 <p>
 This is a very inefficient way to retrieve all the required resources. An alternative 

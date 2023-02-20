@@ -12,7 +12,7 @@
 		<xs:sequence>
 			<xs:element name="note" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
-					<xs:documentation>Notes, etc. about the current ballot state, decisions and the like.</xs:documentation>
+					<xs:documentation>Notes, etc.. about the current ballot state, decisions and the like.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>

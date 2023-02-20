@@ -46,7 +46,7 @@
       <value value="http://www.hl7.org/Special/committees/rcrim/index.cfm"/>
     </telecom>
   </contact>
-  <description value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
+  <description value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.. has been performed)."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="idmp"/>
@@ -72,7 +72,7 @@
     <element id="AdministrableProductDefinition">
       <path value="AdministrableProductDefinition"/>
       <short value="A medicinal product in the final form, suitable for administration - after any mixing of multiple components"/>
-      <definition value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc. has been performed)."/>
+      <definition value="A medicinal product in the final form which is suitable for administering to a patient (after any mixing of multiple components, dissolution etc.. has been performed)."/>
       <alias value="Pharmaceutical Product"/>
       <min value="0"/>
       <max value="*"/>

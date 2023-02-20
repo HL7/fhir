@@ -157,8 +157,8 @@ Protected Health Information and as such must be afforded the same protection an
 <li>Final processing of the (member) enrollment or premium payment.</li>
 <li>The person or organization who pays for the goods an/or services.</li>
 </ul>
-Note: This definition excludes any business associate used to create or receive a transaction on behalf of a payer, e.g. a clearinghouse processing eligibility inquiries and response on behalf of a payer Information Source. US Realm examples of the value of a payer ID include, but are not limited to NAIC code, EIN, etc.</td></tr>
- <tr><td>Network</td><td></td><td>n/a</td><td>An insurer defined grouping of Providers for which the Beneficiary's plan preferentially covers the costs of treatment, e.g. closed, rental, etc.</td></tr>
+Note: This definition excludes any business associate used to create or receive a transaction on behalf of a payer, e.g. a clearinghouse processing eligibility inquiries and response on behalf of a payer Information Source. US Realm examples of the value of a payer ID include, but are not limited to NAIC code, EIN, etc..</td></tr>
+ <tr><td>Network</td><td></td><td>n/a</td><td>An insurer defined grouping of Providers for which the Beneficiary's plan preferentially covers the costs of treatment, e.g. closed, rental, etc..</td></tr>
  <tr><td>Payer</td><td>Payor, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Payor</td><td>Payer, Insurer</td><td>Organization</td><td>A public or private insurer.</td></tr>
  <tr><td>Policy</td><td></td><td>Contract</td><td>A contract between an Insurer and an individual or other entity such as an employer to reimburse covered parties (Beneficiaries) for some or all of a prescribed suite of health-related goods and services.</td></tr>
@@ -431,17 +431,17 @@ While it is most common, it is not always the case that all claims originate wit
 <p>
 eClaims request and response resources may be exchanged between providers and payors individually or via batches. eClaim requests, individual and batches, 
  may be created on a payor system via FHIR REST or sent to the payor, either synchronously via FHIR operations or another request-response protocol such as:
- WSI Web Services, a SOA exchange, MLLP, etc. 
+ WSI Web Services, a SOA exchange, MLLP, etc.. 
 </p>
 <h4>Individual eClaim Requests and Responses</h4>
 <p>An individual eClaim request or response, for example a <a href="claim.html">Claim</a> (use=claim), may be either a simple Claim resource which refers to or contains
  any supporting resources or <a href="bundle.html">Bundle</a> resource containing a single request, e.g. a <a href="claim.html">Claim</a>, 
- and any associated resources (Patient, Practitioner, Organization, Coverage, etc.). 
+ and any associated resources (Patient, Practitioner, Organization, Coverage, etc..). 
 </p>
 <h4>eClaim Batches</h4>
 <p>A batch of eClaim requests or responses is a (<a href="bundle.html">FHIR Bundle</a>) containing one or more eClaim requests or responses, as above.
 The batch is simply a 'bag' of request or responses, typically of a consistent type of request or response, for example: all eligibility, preauthorizations,
- claim, payment notifications, etc. There is no assurance provided that when receiving a batch of 100 claim responses that they relate to the 100 claims 
+ claim, payment notifications, etc.. There is no assurance provided that when receiving a batch of 100 claim responses that they relate to the 100 claims 
  just submitted. 
 </p> 
 <a name="real-time"></a>
@@ -492,7 +492,7 @@ should remove unnecessary tax-related elements. Therefore: .net=.quantity * .uni
 guide should clarify whether line items are inclusive or exclusive of tax.
 </p>
 <p>
-For jurisdictions where tax is applied per line item/detail/sub-detail etc. a single tax element shall be added to the respective 
+For jurisdictions where tax is applied per line item/detail/sub-detail etc.. a single tax element shall be added to the respective 
 strictures for .item, ,item.detail, .item.detail.subdetail and similarly in the addItem structure of the Claim, ClaimResponse and 
 ExplanationOfBenefit resources. The Tax element contains the total of any taxes and extensions may be used to breakdown the Tax should 
 that be required. Therefore: .net= (.quantity * .unitPrice * .factor) + .tax. The total tax may be reflected in the resource.total 

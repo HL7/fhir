@@ -26,7 +26,7 @@ code { counter-increment: listing; }
 FHIR (<i>Fast Healthcare Interoperability Resources</i>) is designed to enable the exchange of healthcare-related information.
 This includes clinical data as well as healthcare-related administrative, public health and research data.  It covers
 both human and veterinary medicine and is intended to be usable world-wide in a wide variety of contexts, including in-patient,
-ambulatory care, acute care, long-term care, community care, allied health, etc.
+ambulatory care, acute care, long-term care, community care, allied health, etc..
 </p>
 
 <p>
@@ -52,27 +52,27 @@ From a clinical perspective, the most important parts of the FHIR specification 
 Think of Resources as paper "forms" reflecting different types of clinical and administrative information that can
 be captured and shared.
 The FHIR specification defines a generic "form template" for each type of clinical information - so one for
-allergies, one for prescriptions, one for referrals, etc.
+allergies, one for prescriptions, one for referrals, etc..
 </p>
 <p>
 FHIR data consists of repositories containing completed "forms" (resource instances).  The resource instances describe patient-related information (such as
 demographics, health conditions and procedures) as well as administrative information (such as practitioners, organizations and locations).  Some resources are infrastructure components used to
 support the technical exchange of information by describing what systems are able to do, defining allowed sets
-of codes, etc.  FHIR repositories might be electronic health record (EHR) systems, pharmacy systems,
-hospital information systems (HIS), etc.  Some systems, such as clinical decision support engines, may
+of codes, etc..  FHIR repositories might be electronic health record (EHR) systems, pharmacy systems,
+hospital information systems (HIS), etc..  Some systems, such as clinical decision support engines, may
 expose FHIR interfaces even though they don't actually store any patient or administrative information themselves.
 </p>
 <p>
 Each Resource defines a small amount of highly-focused data. A single resource doesn't say very much, but a collection of Resources
 taken together creates a useful clinical record. Information systems map the actions that a user takes (look up patient records, make a
-note in their history, etc.) to operations on the relevant resources.
+note in their history, etc..) to operations on the relevant resources.
 </p>
 
 <a name="Extensibility"></a>
 <h3>Extensibility and Profiling</h3>
 <p>
 The paper forms (Resources) in FHIR are somewhat generic.  They have to be usable in different countries and by different types of clinicians
-in different contexts (human care, veterinary care, public health, research, etc.).  Recognizing that
+in different contexts (human care, veterinary care, public health, research, etc..).  Recognizing that
 a <i>one size fits all</i> approach is not appropriate in the healthcare space, FHIR provides the ability to adjust the
 forms (Resources) to be able to handle the needs of different implementation spaces by defining "extensions"
 as well as enforcing constraints.  For example, a "prescription" form might have extension elements
@@ -103,7 +103,7 @@ of profiles directly by clinicians is part of the plan for FHIR, but is still in
 <a name="Narrative"></a>
 <h3>Narrative</h3>
 <p>
-FHIR is intended to support sharing data in a computable manner.  I.e. The information shared should be usable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc.  However, not every system is
+FHIR is intended to support sharing data in a computable manner.  I.e. The information shared should be usable for computer-mediated processes such as decision support, rules triggering, trend analysis, etc..  However, not every system is
 the same and not all systems are able to recognize all discrete data.  Also, there is still considerable value in data exchange
 in circumstances where not all or even none of that data is captured in a discrete manner.  For this reason, FHIR resources
 support sharing not only discrete data for computation, but also a human-readable view so that the humans
@@ -132,7 +132,7 @@ might look like this:
 
 <p>
 In other cases, the narrative might be free-form text commentary entered directly by a practitioner, such as
-referral letters, pathology reports, etc.  Certain parts of the narrative content could also later be exposed as
+referral letters, pathology reports, etc..  Certain parts of the narrative content could also later be exposed as
 discrete data.
 </p>
 
@@ -150,7 +150,7 @@ or "paradigms" of exchange supported by FHIR: via a REST interface, by exchangin
 REST is the simplest exchange mechanism.  Continuing with the "form" metaphor, a RESTful server can be thought
 of as a room full of filing cabinets.  Within the room is a cabinet for each "type" of form (or Resource) it supports.  The cabinet contains
 folders where each folder has a unique number and represents one particular real-world thing: one Patient, one Encounter,
-one Medication, etc.  Each folder (which represents a single Resource <i>instance</i>) contains multiple pieces of paper, with each piece of paper representing a specific "version"
+one Medication, etc..  Each folder (which represents a single Resource <i>instance</i>) contains multiple pieces of paper, with each piece of paper representing a specific "version"
 of that instance.  Every time someone updates a record, a new piece of paper is added to the top of the
 file folder.  To see the history of a resource, you simply have to flip through the pieces of paper in the folder.
 </p>

@@ -9,7 +9,7 @@
   <a name="content-phi"/>
   <h2>Content and PHI</h2>
   <p>
-    Subscription notifications MAY contain PHI. Applications are responsible for following <a href="security.html">FHIR security guidance</a> and compliance with relevant security requirements (e.g., corporate policy, government regulation, etc.). Hinting for the allowed amount of PHI is available in the relevant <code>Subscription</code> resource, via the channel and payload information.
+    Subscription notifications MAY contain PHI. Applications are responsible for following <a href="security.html">FHIR security guidance</a> and compliance with relevant security requirements (e.g., corporate policy, government regulation, etc..). Hinting for the allowed amount of PHI is available in the relevant <code>Subscription</code> resource, via the channel and payload information.
   </p>
   <p>
     Since Subscription Topic definitions contain human-readable descriptions and definitions, the purpose of a topic may be understood by viewing the resource.  Given that canonical links to topics are intended to be resolvable and/or searchable (e.g., indexed in a registry), it is assumed that anyone with a link to a topic also knows what that topic is about. Thus, topics MAY be considered PHI and SHOULD be reviewed before inclusion in a notification.

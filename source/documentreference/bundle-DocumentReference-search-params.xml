@@ -89,7 +89,7 @@
           <valueString value="DocumentReference.content.attachment.contentType"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DocumentReference-contenttype"/>
-        <description value="Mime type of the content, with charset etc."/>
+        <description value="Mime type of the content, with charset etc.."/>
         <code value="contenttype"/>
         <type value="token"/>
         <expression value="DocumentReference.content.attachment.contentType"/>

@@ -714,7 +714,7 @@ value</a>
        style="fill:#000000"><a
    xlink:href="valueset-definitions.html#ValueSet.expansion.identifier"
    id="n886"><title
-   id="title201">An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier</title>
+   id="title201">An identifier that uniquely identifies this expansion of the valueset, based on a unique combination of the provided parameters, the system default parameters, and the underlying system code system versions etc.. Systems may re-use the same identifier as long as those factors remain the same, and the expansion is the same, but are not required to do so. This is a business identifier</title>
 identifier</a>
  : <a
    xlink:href="datatypes.html#uri"
@@ -905,7 +905,7 @@ abstract</a>
        style="fill:#000000"><a
    xlink:href="valueset-definitions.html#ValueSet.expansion.contains.inactive"
    id="n956"><title
-   id="title257">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use)</title>
+   id="title257">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)</title>
 inactive</a>
  : <a
    xlink:href="datatypes.html#boolean"
@@ -982,7 +982,7 @@ display</a>
     <a
        xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation"
        id="n983"><title
-   id="title281">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc</title>
+   id="title281">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.</title>
 designation</a>
   </text>
   <text
@@ -1241,7 +1241,7 @@ parameter</a>
     <a
        xlink:href="valueset-definitions.html#ValueSet.expansion.contains.designation"
        id="n1025"><title
-   id="title337">Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc. These are relevant when the conditions of the expansion do not fix to a single correct representation</title>
+   id="title337">Additional representations for this item - other languages, aliases, specialized purposes, used for particular purposes, etc.. These are relevant when the conditions of the expansion do not fix to a single correct representation</title>
 designation</a>
   </text>
   <text

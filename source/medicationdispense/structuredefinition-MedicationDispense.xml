@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -430,7 +430,7 @@
     <element id="MedicationDispense.performer.actor">
       <path value="MedicationDispense.performer.actor"/>
       <short value="Individual who was performing"/>
-      <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
+      <definition value="The device, practitioner, etc.. who performed the action.  It should be assumed that the actor is the dispenser of the medication."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -497,8 +497,8 @@
     </element>
     <element id="MedicationDispense.type">
       <path value="MedicationDispense.type"/>
-      <short value="Trial fill, partial fill, emergency fill, etc."/>
-      <definition value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
+      <short value="Trial fill, partial fill, emergency fill, etc.."/>
+      <definition value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -509,7 +509,7 @@
           <valueString value="MedicationDispenseType"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
-          <valueString value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
+          <valueString value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.."/>
         </extension>
         <strength value="example"/>
         <description value="ActPharmacySupplyType "/>

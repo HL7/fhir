@@ -174,8 +174,8 @@
     </element>
     <element id="ClinicalUseDefinition.subject">
       <path value="ClinicalUseDefinition.subject"/>
-      <short value="The medication, product, substance, device, procedure etc. for which this is an indication"/>
-      <definition value="The medication, product, substance, device, procedure etc. for which this is an indication."/>
+      <short value="The medication, product, substance, device, procedure etc.. for which this is an indication"/>
+      <definition value="The medication, product, substance, device, procedure etc.. for which this is an indication."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -202,8 +202,8 @@
     </element>
     <element id="ClinicalUseDefinition.status">
       <path value="ClinicalUseDefinition.status"/>
-      <short value="Whether this is a current issue or one that has been retired etc"/>
-      <definition value="Whether this is a current issue or one that has been retired etc."/>
+      <short value="Whether this is a current issue or one that has been retired etc."/>
+      <definition value="Whether this is a current issue or one that has been retired etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -392,8 +392,8 @@
     </element>
     <element id="ClinicalUseDefinition.contraindication.otherTherapy.treatment">
       <path value="ClinicalUseDefinition.contraindication.otherTherapy.treatment"/>
-      <short value="Reference to a specific medication, substance etc. as part of an indication or contraindication"/>
-      <definition value="Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc.) as part of an indication or contraindication."/>
+      <short value="Reference to a specific medication, substance etc.. as part of an indication or contraindication"/>
+      <definition value="Reference to a specific medication (active substance, medicinal product or class of products, biological, food etc..) as part of an indication or contraindication."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -621,8 +621,8 @@
         <valueCode value="800,364"/>
       </extension>
       <path value="ClinicalUseDefinition.interaction.interactant"/>
-      <short value="The specific medication, product, food etc. or laboratory test that interacts"/>
-      <definition value="The specific medication, product, food, substance etc. or laboratory test that interacts."/>
+      <short value="The specific medication, product, food etc.. or laboratory test that interacts"/>
+      <definition value="The specific medication, product, food, substance etc.. or laboratory test that interacts."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -636,8 +636,8 @@
     </element>
     <element id="ClinicalUseDefinition.interaction.interactant.item[x]">
       <path value="ClinicalUseDefinition.interaction.interactant.item[x]"/>
-      <short value="The specific medication, product, food etc. or laboratory test that interacts"/>
-      <definition value="The specific medication, product, food, substance etc. or laboratory test that interacts."/>
+      <short value="The specific medication, product, food etc.. or laboratory test that interacts"/>
+      <definition value="The specific medication, product, food, substance etc.. or laboratory test that interacts."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -658,7 +658,7 @@
           <valueString value="Interactant"/>
         </extension>
         <strength value="example"/>
-        <description value="An interactant - a substance that may have an clinically significant effect on another."/>
+        <description value="An interactant - a substance that may have a clinically significant effect on another."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/interactant"/>
       </binding>
       <mapping>

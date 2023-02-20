@@ -53,7 +53,7 @@
  </concept>
  <concept>
   <code value="cs-declare"/>
-  <definition value="My system publishes a [Capability Statement](capabilitystatement.html) with [StructureDefinitions](structuredefinition.html), [ValueSets](valueset.html), and [OperationDefinitions](operationdefinition.html), etc., so other implementers know how the system functions"/>
+  <definition value="My system publishes a [Capability Statement](capabilitystatement.html) with [StructureDefinitions](structuredefinition.html), [ValueSets](valueset.html), and [OperationDefinitions](operationdefinition.html), etc.., so other implementers know how the system functions"/>
  </concept>
  <concept>
   <code value="valid-checked"/>

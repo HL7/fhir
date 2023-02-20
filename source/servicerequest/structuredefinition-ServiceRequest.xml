@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -130,7 +130,7 @@
       <path value="ServiceRequest.identifier"/>
       <short value="Identifiers assigned to this order"/>
       <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
-      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
+      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 V2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 V2).  For further discussion and examples see the resource notes section below."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -194,7 +194,7 @@
       <path value="ServiceRequest.instantiatesUri"/>
       <short value="Instantiates external protocol or definition"/>
       <definition value="The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this ServiceRequest."/>
-      <comment value="This might be an HTML page, PDF, etc. or could just be a non-resolvable URI identifier."/>
+      <comment value="This might be an HTML page, PDF, etc.. or could just be a non-resolvable URI identifier."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -473,7 +473,7 @@
       <short value="True if service/procedure should not be performed"/>
       <definition value="Set this to true if the record is saying that the service/procedure should NOT be performed."/>
       <comment value="In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation."/>
-      <requirements value="Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc."/>
+      <requirements value="Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -751,7 +751,7 @@
       </extension>
       <path value="ServiceRequest.asNeeded[x]"/>
       <short value="Preconditions for service"/>
-      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+      <definition value="If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -766,7 +766,7 @@
           <valueString value="ProcedureAsNeededReason"/>
         </extension>
         <strength value="example"/>
-        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc."/>
+        <description value="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medication-as-needed-reason"/>
       </binding>
       <mapping>
@@ -876,7 +876,7 @@
           <valueString value="ServiceRequestParticipantRole"/>
         </extension>
         <strength value="example"/>
-        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc."/>
+        <description value="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc.."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participant-role"/>
       </binding>
       <mapping>
@@ -902,7 +902,7 @@
       </extension>
       <path value="ServiceRequest.performer"/>
       <short value="Requested performer"/>
-      <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc."/>
+      <definition value="The desired performer for doing the requested service.  For example, the surgeon, dermatopathologist, endoscopist, etc.."/>
       <comment value="If multiple performers are present, it is interpreted as a list of *alternative* performers without any preference regardless of order.  If order of preference is needed use the [[[http://hl7.org/fhir/StructureDefinition/request-performerOrder]]].  Use CareTeam to represent a group of performers (for example, Practitioner A *and* Practitioner B)."/>
       <alias value="request recipient"/>
       <min value="0"/>

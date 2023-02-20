@@ -46,7 +46,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="workflow"/>
@@ -198,7 +198,7 @@
     <element id="InventoryItem.responsibleOrganization.role">
       <path value="InventoryItem.responsibleOrganization.role"/>
       <short value="The role of the organization e.g. manufacturer, distributor, or other"/>
-      <definition value="The role of the organization e.g. manufacturer, distributor, etc."/>
+      <definition value="The role of the organization e.g. manufacturer, distributor, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -208,7 +208,7 @@
     <element id="InventoryItem.responsibleOrganization.organization">
       <path value="InventoryItem.responsibleOrganization.organization"/>
       <short value="An organization that is associated with the item"/>
-      <definition value="An organization that has an association with the item, e.g. manufacturer, distributor, responsible, etc."/>
+      <definition value="An organization that has an association with the item, e.g. manufacturer, distributor, responsible, etc.."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -260,7 +260,7 @@
     <element id="InventoryItem.inventoryStatus">
       <path value="InventoryItem.inventoryStatus"/>
       <short value="The usage status like recalled, in use, discarded"/>
-      <definition value="The usage status e.g. recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc."/>
+      <definition value="The usage status e.g. recalled, in use, discarded... This can be used to indicate that the items have been taken out of inventory, or are in use, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>

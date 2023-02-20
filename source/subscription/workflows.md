@@ -78,7 +78,7 @@ sequenceDiagram
   C->>S: Create Subscription<br/>channelType = message
   S-->>C: OK<br/>Subscription.status = requested
   S->>E: POST: $process-message<br/>content: Bundle:message<br/>entry: Bundle:subscription-notification<br/>type: handshake
-  E-->>S: OK (e.g., 200, 202, etc.)
+  E-->>S: OK (e.g., 200, 202, etc..)
   loop Sending Messages
     alt heartbeat
       S->>E: Bundle: message<br/>entry: Bundle:subscription-notification<br/>type: heartbeat

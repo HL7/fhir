@@ -13,7 +13,7 @@
           <valueString value="SupplyRequest.category"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/SupplyRequest-category"/>
-        <description value="The kind of supply (central, non-stock, etc.)"/>
+        <description value="The kind of supply (central, non-stock, etc..)"/>
         <code value="category"/>
         <type value="token"/>
         <expression value="SupplyRequest.category"/>

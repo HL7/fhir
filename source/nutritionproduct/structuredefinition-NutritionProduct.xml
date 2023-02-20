@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -156,7 +156,7 @@
       </extension>
       <path value="NutritionProduct.category"/>
       <short value="Broad product groups or categories used to classify the product, such as Legume and Legume Products, Beverages, or Beef Products"/>
-      <definition value="Nutrition products can have different classifications - according to its nutritional properties, preparation methods, etc."/>
+      <definition value="Nutrition products can have different classifications - according to its nutritional properties, preparation methods, etc.."/>
       <alias value="class"/>
       <min value="0"/>
       <max value="*"/>

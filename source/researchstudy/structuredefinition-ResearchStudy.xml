@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -254,7 +254,7 @@
       <path value="ResearchStudy.partOf"/>
       <short value="Part of larger study"/>
       <definition value="A larger research study of which this particular study is a component or step."/>
-      <requirements value="Allows breaking a study into components (e.g. by study site) each with their own PI, status, enrollment, etc."/>
+      <requirements value="Allows breaking a study into components (e.g. by study site) each with their own PI, status, enrollment, etc.."/>
       <alias value="container"/>
       <min value="0"/>
       <max value="*"/>
@@ -386,7 +386,7 @@
     <element id="ResearchStudy.studyDesign">
       <path value="ResearchStudy.studyDesign"/>
       <short value="Classifications of the study design characteristics"/>
-      <definition value="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc."/>
+      <definition value="Codes categorizing the type of study such as investigational vs. observational, type of blinding, type of randomization, safety vs. efficacy, etc.."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -412,7 +412,7 @@
     </element>
     <element id="ResearchStudy.focus">
       <path value="ResearchStudy.focus"/>
-      <short value="Drugs, devices, etc. under study"/>
+      <short value="Drugs, devices, etc.. under study"/>
       <definition value="The medication(s), food(s), therapy(ies), device(s) or other concerns or interventions that the study is seeking to gain more information about."/>
       <min value="0"/>
       <max value="*"/>
@@ -618,7 +618,7 @@
     <element id="ResearchStudy.classifier">
       <path value="ResearchStudy.classifier"/>
       <short value="Classification for the study"/>
-      <definition value="Additional grouping mechanism or categorization of a research study. Example: FDA regulated device, FDA regulated drug, MPG Paragraph 23b (a German legal requirement), IRB-exempt, etc. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
+      <definition value="Additional grouping mechanism or categorization of a research study. Example: FDA regulated device, FDA regulated drug, MPG Paragraph 23b (a German legal requirement), IRB-exempt, etc.. Implementation Note: do not use the classifier element to support existing semantics that are already supported thru explicit elements in the resource."/>
       <min value="0"/>
       <max value="*"/>
       <type>

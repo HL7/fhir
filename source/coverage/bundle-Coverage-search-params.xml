@@ -32,7 +32,7 @@
           <valueString value="Coverage.class.type"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-class-type"/>
-        <description value="Coverage class (eg. plan, group)"/>
+        <description value="Coverage class (e.g. plan, group)"/>
         <code value="class-type"/>
         <type value="token"/>
         <expression value="Coverage.class.type"/>
@@ -51,7 +51,7 @@
           <valueString value="Coverage.class.value"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Coverage-class-value"/>
-        <description value="Value of the class (eg. Plan number, group number)"/>
+        <description value="Value of the class (e.g. Plan number, group number)"/>
         <code value="class-value"/>
         <type value="token"/>
         <expression value="Coverage.class.value"/>

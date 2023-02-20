@@ -153,7 +153,7 @@ Notes:
    </li>
  <li>URLs are always considered to be case-sensitive</li>
  <li>The URL may contain a reference to a canonical URL (see below) and applications can use the canonical URL resolution methods they support when resolving references, though the <code>|[version]</code> syntax part of the canonical reference is not supported</li>
- <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc.). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
+ <li>References SHALL be a reference to an actual FHIR resource, and SHALL be resolvable (given that access control works, there is no temporary unavailability, etc..). Resolution can be either by retrieval from the URL, or, where applicable by resource type, by treating an absolute reference as a canonical URL (<a href="#canonical">see below</a>) and looking it up in a local registry/repository</li>
 </ul>
 <div class="example">
 <p>A relative reference to the <a href="patient.html">Patient</a> "034AB16" in an element named <code>subject</code> on a FHIR RESTful server:</p>
@@ -316,7 +316,7 @@ the <code>url</code> element on the conformance/knowledge resources (which has t
 </pre>
 <p>
 Note the exception to this rule: if the target resource is contained in another resource, which is referencing it, then the canonical 
-URL is a fragment identifier referring to the target resource by it's <code>id</code> (<a href="#canonical-fragments">see below</a>).
+URL is a fragment identifier referring to the target resource by its <code>id</code> (<a href="#canonical-fragments">see below</a>).
 </p>
 <p>
 References of type <code>canonical</code> may include a version, in order to be precise about which version of the
@@ -392,7 +392,7 @@ the latest version. In principle, the server chooses based on the following info
 resources:
 </p>
 <ul>
-  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc.</li>
+  <li>Version e.g. Based on <a href="http://semver.org">Semver</a> Version practices, dateTime, etc..</li>
   <li>Publication Date</li>
   <li>Status</li>
 </ul>
@@ -527,7 +527,7 @@ refers to it.
 </p>
 <p>
 For example, consider a situation where an interface engine is creating a <a href="condition.html">Condition</a>
-record on a patient from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message, and the only information about the primary surgeon is her
+record on a patient from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> message, and the only information about the primary surgeon is her
 first name and last name (REL-7.2 &amp; REL-7.3). In the absence of a controlled practitioner directory,
 this is not enough information to create an identified <a href="practitioner.html">Practitioner</a>
 resource since more than one practitioner might have the same name.

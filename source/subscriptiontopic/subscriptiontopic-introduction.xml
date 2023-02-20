@@ -23,7 +23,7 @@
   <p>
     <code>SubscriptionTopic</code> elements belong to a few general categories:
     <ul>
-      <li>Canonical information, such as: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.url">url</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.title">title</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.publisher">publisher</a>, etc.</li>
+      <li>Canonical information, such as: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.url">url</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.title">title</a>, <a href="subscriptiontopic-definitions.html#SubscriptionTopic.publisher">publisher</a>, etc..</li>
       <li>What triggers a notification: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger">resourceTrigger</a> and <a href="subscriptiontopic-definitions.html#SubscriptionTopic.eventTrigger">eventTrigger</a>.  More information can be found in the <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> section.</li>
       <li>How clients can filter notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.canFilterBy">canFilterBy</a>.  More information can be found in the <a href="subscriptiontopic.html#filters">Defining Allowed Filters</a> section.</li>
       <li>Related resources that MAY be included in notifications: <a href="subscriptiontopic-definitions.html#SubscriptionTopic.notificationShape">notificationShape</a>.  More information can be found in the <a href="subscriptiontopic.html#notification-shape">Notification Shape</a> section.</li>

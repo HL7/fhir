@@ -148,7 +148,7 @@
     <element id="Location.operationalStatus">
       <path value="Location.operationalStatus"/>
       <short value="The operational status of the location (typically only for a bed/room)"/>
-      <definition value="The operational status covers operation values most relevant to beds (but can also apply to rooms/units/chairs/etc. such as an isolation unit/dialysis chair). This typically covers concepts such as contamination, housekeeping, and other activities like maintenance."/>
+      <definition value="The operational status covers operation values most relevant to beds (but can also apply to rooms/units/chairs/etc.. such as an isolation unit/dialysis chair). This typically covers concepts such as contamination, housekeeping, and other activities like maintenance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -287,7 +287,7 @@
       <path value="Location.contact"/>
       <short value="Official contact details for the location"/>
       <definition value="The contact details of communication devices available at the location. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc.&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the organization's contacts."/>
+      <comment value="The address/telecom use code 'home' are not to be used. Note that these contacts are not the contact details of people who provide the service (that would be through PractitionerRole), these are official contacts for the Healthcare itself for specific purposes. E.g. Mailing Addresses, Billing Addresses, Contact numbers for Booking or Billing Enquiries, general web address, web address for online bookings etc..&#xA;&#xA;If this is empty (or the type of interest is empty), refer to the organization's contacts."/>
       <requirements value="Need to keep track of both simple contact details and also assigned contacts within larger organizations."/>
       <min value="0"/>
       <max value="*"/>

@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="workflow"/>
@@ -339,7 +339,7 @@
     <element id="DeviceDispense.performer.actor">
       <path value="DeviceDispense.performer.actor"/>
       <short value="Individual who was performing"/>
-      <definition value="The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the device."/>
+      <definition value="The device, practitioner, etc.. who performed the action.  It should be assumed that the actor is the dispenser of the device."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -378,7 +378,7 @@
     </element>
     <element id="DeviceDispense.type">
       <path value="DeviceDispense.type"/>
-      <short value="Trial fill, partial fill, emergency fill, etc."/>
+      <short value="Trial fill, partial fill, emergency fill, etc.."/>
       <definition value="Indicates the type of dispensing event that is performed."/>
       <min value="0"/>
       <max value="1"/>

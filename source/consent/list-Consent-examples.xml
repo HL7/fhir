@@ -42,7 +42,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc.)"/>
+      <valueString value="Withhold or withdraw consent for disclosure of records related to specific domain (e.g. DI, LAB, etc..)"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="consent-example-notThis"/>
