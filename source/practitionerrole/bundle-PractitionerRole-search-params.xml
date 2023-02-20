@@ -268,4 +268,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="PractitionerRole-communication"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="PractitionerRole.communication"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PractitionerRole-communication"/>
+        <description value="One of the languages that the practitioner can communicate with"/>
+        <code value="communication"/>
+        <type value="token"/>
+        <expression value="PractitionerRole.communication"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
