@@ -47,11 +47,6 @@
     <definition value="Gateway."/>
   </concept>
   <concept>
-    <code value="container"/>
-    <display value="container"/>
-    <definition value="The linked device is a container for the current device."/>
-  </concept>
-  <concept>
     <code value="replaces"/>
     <display value="Replaces"/>
     <definition value="The current device replaces the linked device."/>
@@ -60,10 +55,5 @@
     <code value="previous"/>
     <display value="Previous"/>
     <definition value="The current device is a previous device and has been replaced by the linked device."/>
-  </concept>
-  <concept>
-    <code value="supported"/>
-    <display value="Supported"/>
-    <definition value="The current device is supported by the linked device."/>
   </concept>
 </CodeSystem>

@@ -206,7 +206,7 @@
         <description value="Search by task output"/>
         <code value="output"/>
         <type value="reference"/>
-        <expression value="Task.output"/>
+        <expression value="Task.output.value.ofType(Reference)"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

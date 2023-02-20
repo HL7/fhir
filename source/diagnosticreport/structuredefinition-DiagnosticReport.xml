@@ -566,6 +566,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </type>
+      <condition value="dgr-1"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBXs"/>
@@ -718,6 +719,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Composition"/>
       </type>
+      <condition value="dgr-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value.reference"/>
@@ -732,7 +734,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <mapping>
         <identity value="v2"/>

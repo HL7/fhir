@@ -152,8 +152,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="con-2"/>
       <condition value="con-3"/>
+      <condition value="con-2"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labeled as a modifier because the status contains codes that mark the condition as no longer active."/>
       <isSummary value="true"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="MessageHeader"/>
   <meta>
     <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
@@ -162,26 +162,22 @@
         <map value="FiveWs.subject"/>
       </mapping>
     </element>
-    <element id="MessageHeader.destination.endpoint">
-      <path value="MessageHeader.destination.endpoint"/>
-      <short value="Actual destination address or id"/>
+    <element id="MessageHeader.destination.endpoint[x]">
+      <path value="MessageHeader.destination.endpoint[x]"/>
+      <short value="Actual destination address or Endpoint resource"/>
       <definition value="Indicates where the message should be routed."/>
-      <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
+      <comment value="The url may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to route the message."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="MSH-25 (or MSH-6)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom"/>
-      </mapping>
     </element>
     <element id="MessageHeader.destination.name">
       <path value="MessageHeader.destination.name"/>
@@ -345,26 +341,22 @@
         <map value="unique(./communicationFunction[typeCode=&quot;SND&quot;])"/>
       </mapping>
     </element>
-    <element id="MessageHeader.source.endpoint">
-      <path value="MessageHeader.source.endpoint"/>
-      <short value="Actual message source address or id"/>
+    <element id="MessageHeader.source.endpoint[x]">
+      <path value="MessageHeader.source.endpoint[x]"/>
+      <short value="Actual source address or Endpoint resource"/>
       <definition value="Identifies the routing target to send acknowledgements to."/>
-      <comment value="The id may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
+      <comment value="The url may be a non-resolvable URI for systems that do not use standard network-based addresses."/>
       <requirements value="Identifies where to send responses, may influence security permissions."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="url"/>
       </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Endpoint"/>
+      </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="v2"/>
-        <map value="MSH-24"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value="./telecom[isNormalDatatype()]"/>
-      </mapping>
     </element>
     <element id="MessageHeader.source.name">
       <path value="MessageHeader.source.name"/>
