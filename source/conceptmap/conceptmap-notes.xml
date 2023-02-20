@@ -110,8 +110,6 @@ model.
 <a name="implicit-cm"></a>
 <h2>Implicit Concept Maps</h2>
 <p>
-Implicit concept maps are those whose specification can be predicted based on the grammar and/or content of 
-the underlying code system and/or other release data, and the known structure of the URL that identifies them.
 Implicit concept maps are defined in a specification which references the underlying code system structures or 
 other release data, and includes a prescribed URI pattern to identify the concept map.  For example, there are 
 some implicit concept map URI patterns defined for SNOMED CT. 

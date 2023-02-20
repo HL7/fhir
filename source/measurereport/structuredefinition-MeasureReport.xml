@@ -444,6 +444,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <condition value="mrp-1"/>
       <mapping>
         <identity value="rim"/>
@@ -584,6 +585,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -626,6 +628,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -652,6 +655,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="mrp-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
@@ -673,6 +677,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>

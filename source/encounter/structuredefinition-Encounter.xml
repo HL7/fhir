@@ -509,6 +509,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="enc-1"/>
+      <condition value="enc-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -566,6 +568,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
+      <condition value="enc-1"/>
+      <condition value="enc-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -864,24 +868,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <!-- <element id="Encounter.diagnosis.rank">
-      <path value="Encounter.diagnosis.rank"/>
-      <short value="Ranking of the diagnosis (for each role type)"/>
-      <definition value="Ranking of the diagnosis (for each role type)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="DG1-15 (Diagnosis Priority)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].priority"/>
-      </mapping>
-    </element> -->
     <element id="Encounter.account">
       <path value="Encounter.account"/>
       <short value="The set of accounts that may be used for billing for this Encounter"/>
@@ -956,7 +942,7 @@
       <path value="Encounter.specialCourtesy"/>
       <short value="Special courtesies (VIP, board member)"/>
       <definition value="Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy)."/>
-      <comment value="Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.&#xD;&#xD;It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.&#xD;&#xD;It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used." />
+      <comment value="Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.&#xD;&#xD;It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.&#xD;&#xD;It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used."/>
       <min value="0"/>
       <max value="*"/>
       <type>

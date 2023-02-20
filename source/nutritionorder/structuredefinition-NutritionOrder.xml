@@ -1251,7 +1251,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="nor-1"/>
     </element>
     <element id="NutritionOrder.enteralFormula.additive.type">
       <path value="NutritionOrder.enteralFormula.additive.type"/>

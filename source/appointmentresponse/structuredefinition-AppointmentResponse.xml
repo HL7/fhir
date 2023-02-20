@@ -240,6 +240,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -279,6 +280,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>

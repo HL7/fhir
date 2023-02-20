@@ -349,7 +349,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="gol-1"/>
       <constraint>
         <key value="gol-1"/>
         <severity value="error"/>

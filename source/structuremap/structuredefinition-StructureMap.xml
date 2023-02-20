@@ -123,7 +123,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -840,6 +840,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="smp-1"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.target.element">
@@ -851,6 +852,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="smp-1"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureMap.group.rule.target.variable">

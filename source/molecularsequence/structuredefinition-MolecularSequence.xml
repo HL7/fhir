@@ -267,7 +267,7 @@
         <key value="msq-6"/>
         <severity value="error"/>
         <human value="Have and only have one of the following elements in startingSequence: 1. genomeAssembly; 2 sequence"/>
-        <expression value="(genomeAssembly.count()+sequenceCodeableConcept.count()+ sequenceReference.count()+ sequenceString.count()) = 1"/>
+        <expression value="(genomeAssembly.count()+sequence.count()) = 1"/>
         <source value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </constraint>
       <constraint>
@@ -288,6 +288,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="msq-6"/>
+      <condition value="msq-5"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -307,6 +309,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="msq-5"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -334,6 +337,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/MolecularSequence"/>
       </type>
+      <condition value="msq-6"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
