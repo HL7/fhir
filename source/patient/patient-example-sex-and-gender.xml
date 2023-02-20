@@ -52,15 +52,6 @@
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
-				<code value="M"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
 		<extension url="type">
 			<valueCodeableConcept>
 			  <coding>
@@ -113,15 +104,6 @@
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
-				<code value="M"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
 		<extension url="type">
 			<valueCodeableConcept>
 			  <coding>
@@ -169,15 +151,6 @@
 			<valueCodeableConcept>
 			  <coding>
 				<system value="http://ohio.example.gov/drivers-license-sex"/>
-				<code value="M"/>
-				<display value="Male"/>
-			  </coding>
-			</valueCodeableConcept>
-		</extension>
-		<extension url="internationalEquivalent">
-			<valueCodeableConcept>
-			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/icaosex"/>
 				<code value="M"/>
 				<display value="Male"/>
 			  </coding>
