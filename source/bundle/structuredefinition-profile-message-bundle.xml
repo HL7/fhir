@@ -50,67 +50,27 @@
     </element>
     <element id="Bundle.entry">
       <path value="Bundle.entry" />
-      <slicing>
-        <discriminator>
-          <type value="exists" />
-          <path value="entry" />
-        </discriminator>
-        <description value="Slice to enforce first entry is NessageHeader." />
-        <ordered value="true" />
-        <rules value="openAtEnd" />
-      </slicing>
-      <min value="1" />
-    </element>
-    <element id="Bundle.entry:first">
-      <path value="Bundle.entry" />
-      <sliceName value="first" />
+      <sliceName value="other" />
       <min value="1" />
       <max value="1" />
     </element>
-    <element id="Bundle.entry:first.fullUrl">
+    <element id="Bundle.entry.fullUrl">
       <path value="Bundle.entry.fullUrl" />
       <min value="1" />
     </element>
-    <element id="Bundle.entry:first.resource">
-      <path value="Bundle.entry.resource" />
-      <min value="1" />
-      <type>
-        <code value="MessageHeader" />
-      </type>
-    </element>
-    <element id="Bundle.entry:first.search">
-      <path value="Bundle.entry.search" />
-      <max value="0" />
-    </element>
-    <element id="Bundle.entry:first.request">
-      <path value="Bundle.entry.request" />
-      <max value="0" />
-    </element>
-    <element id="Bundle.entry:first.response">
-      <path value="Bundle.entry.response" />
-      <max value="0" />
-    </element>
-    <element id="Bundle.entry:other">
-      <path value="Bundle.entry" />
-      <sliceName value="other" />
-    </element>
-    <element id="Bundle.entry:other.fullUrl">
-      <path value="Bundle.entry.fullUrl" />
-      <min value="1" />
-    </element>
-    <element id="Bundle.entry:other.resource">
+    <element id="Bundle.entry.resource">
       <path value="Bundle.entry.resource" />
       <min value="1" />
     </element>
-    <element id="Bundle.entry:other.search">
+    <element id="Bundle.entry.search">
       <path value="Bundle.entry.search" />
       <max value="0" />
     </element>
-    <element id="Bundle.entry:other.request">
+    <element id="Bundle.entry.request">
       <path value="Bundle.entry.request" />
       <max value="0" />
     </element>
-    <element id="Bundle.entry:other.response">
+    <element id="Bundle.entry.response">
       <path value="Bundle.entry.response" />
       <max value="0" />
     </element>
