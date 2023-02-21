@@ -848,28 +848,43 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.canFilterBy.modifier">
-      <path value="SubscriptionTopic.canFilterBy.modifier"/>
-      <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
-      <definition value="Allowable operators to apply when determining matches (Search Modifiers).  If the filterParameter is a SearchParameter, this list of modifiers SHALL be a strict subset of the modifiers defined on that SearchParameter."/>
+    <element id="SubscriptionTopic.canFilterBy.comparator">
+      <path value="SubscriptionTopic.canFilterBy.comparator"/>
+      <short value="eq | ne | gt | lt | ge | le | sa | eb | ap"/>
+      <definition value="Comparators allowed for the filter parameter."/>
+      <comment value="If no comparators are listed, clients should not expect servers to support any comparators."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionTopicFilterBySearchModifier"/>
+          <valueString value="SearchComparator"/>
         </extension>
         <strength value="required"/>
-        <description value="Operator to apply to filter label."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
+        <description value="Search Comparator Codes supported in this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy.modifier">
+      <path value="SubscriptionTopic.canFilterBy.modifier"/>
+      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
+      <definition value="Modifiers allowed for the filter parameter."/>
+      <comment value="If no modifiers are listed, clients should not expect servers to support any modifiers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SearchModifierCode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Search Modifier Codes supported in this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-modifier-code"/>
+      </binding>
     </element>
     <element id="SubscriptionTopic.notificationShape">
       <path value="SubscriptionTopic.notificationShape"/>

@@ -231,6 +231,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="scr-1"/>
+        <severity value="error"/>
+        <human value="Subscription filters may only contain a modifier or a comparator"/>
+        <expression value="(comparator.exists() and modifier.exists()).not()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Subscription"/>
+      </constraint>
       <isSummary value="true"/>
     </element>
     <element id="Subscription.filterBy.resourceType">
@@ -268,24 +275,44 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="Subscription.filterBy.modifier">
-      <path value="Subscription.filterBy.modifier"/>
-      <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
-      <definition value="Operator to apply when determining matches (Search Modifiers), from the list of allowed modifiers for this filter in the relevant SubscriptionTopic."/>
-      <comment value="If filterDefinition refers to a SearchParameter, then the modifiers indicated must be allowed by the SearchParameter."/>
+    <element id="Subscription.filterBy.comparator">
+      <path value="Subscription.filterBy.comparator"/>
+      <short value="eq | ne | gt | lt | ge | le | sa | eb | ap"/>
+      <definition value="Comparator applied to this filter parameter."/>
+      <comment value="Must be a comparator allowed by the SubscriptionTopic relevant to this Subscription filter."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
+      <condition value="scr-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionFilterBySearchModifier"/>
+          <valueString value="SearchComparator"/>
         </extension>
         <strength value="required"/>
-        <description value="Operator to apply to filter label."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
+        <description value="Search Comparator Codes applied to this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
+      </binding>
+    </element>
+    <element id="Subscription.filterBy.modifier">
+      <path value="Subscription.filterBy.modifier"/>
+      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
+      <definition value="Modifier applied to this filter parameter."/>
+      <comment value="Must be a modifier allowed by the SubscriptionTopic relevant to this Subscription filter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <condition value="scr-1"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SearchModifierCode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Search Modifier Code applied to this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-modifier-code"/>
       </binding>
     </element>
     <element id="Subscription.filterBy.value">
@@ -343,7 +370,7 @@
     </element>
     <element id="Subscription.parameter.name">
       <path value="Subscription.parameter.name"/>
-      <short value="Name of the parameter"/>
+      <short value="Name (key) of the parameter"/>
       <definition value="Parameter name for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the name would be Authorization."/>
       <min value="1"/>
       <max value="1"/>
@@ -353,7 +380,7 @@
     </element>
     <element id="Subscription.parameter.value">
       <path value="Subscription.parameter.value"/>
-      <short value="Value of the parameter"/>
+      <short value="Value of the parameter to use or pass through"/>
       <definition value="Parameter value for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the value would be `Bearer 0193...`."/>
       <min value="1"/>
       <max value="1"/>
@@ -364,7 +391,7 @@
     <element id="Subscription.heartbeatPeriod">
       <path value="Subscription.heartbeatPeriod"/>
       <short value="Interval in seconds to send 'heartbeat' notification"/>
-      <definition value="If present, a 'hearbeat' notification (keepalive) is sent via this channel with an interval period equal to this elements integer value in seconds.  If not present, a heartbeat notification is not sent."/>
+      <definition value="If present, a 'heartbeat' notification (keep-alive) is sent via this channel with an interval period equal to this elements integer value in seconds.  If not present, a heartbeat notification is not sent."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -1,29 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?><SubscriptionTopic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/SubscriptionTopic.xsd">
 	<id value="example"/>
-	<url value="http://argonautproject.org/subscription-ig/SubscriptionTopic/admission"/>
+	<url value="http://example.org/FHIR/R5/SubscriptionTopic/example"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.24.2"/>
+    <value value="urn:uuid:1caa02ba-051b-4602-8856-65921748ae76"/>
   </identifier>
-  <version value="0.3"/>
-	<title value="admission"/>
+  <version value="1.0.0-beta.1"/>
+  <title value="example"/>
 	<status value="draft"/>
-	<date value="2019-08-01"/>
-  <description value="Admission SubscriptionTopic for testing framework and behavior"/>
+  <date value="2019-01-01"/>
+  <description value="Example topic for completed encounters"/>
 	<resourceTrigger>
-		<description value="Beginning of a clinical encounter"/>
-		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
-    <queryCriteria>
-      <current value="status:in-progress"/>
-      <previous value="status:not=in-progress"/>
-      <requireBoth value="true"/>
+		<description value="An Encounter has been completed"/>
+		<resource value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
+    <supportedInteraction value="update"/>
+		<queryCriteria>
+			<previous value="status:not=completed"/>
+      <resultForCreate value="test-passes"/>
+			<current value="status=completed"/>
+      <resultForDelete value="test-fails"/>
+			<requireBoth value="true"/>
 		</queryCriteria>
-		<fhirPathCriteria value="%previous.status!='in-progress' and %current.status='in-progress'"/>
-		<canFilterBy>
-			<searchParamName value="patient"/>
-			<searchModifier value="="/>
-			<documentation value="Exact match to a patient resource (reference)"/>
-		</canFilterBy>
+		<fhirPathCriteria value="(%previous.empty() | (%previous.status != 'completed')) and (%current.status = 'completed')"/>
 	</resourceTrigger>
-	<!-- insert contents here -->
+  <canFilterBy>
+    <description value="Filter based on the subject of an encounter."/>
+    <resource value="Encounter"/>
+    <filterParameter value="subject"/>
+  </canFilterBy>
+  <canFilterBy>
+    <description value="Filter based on the group membership of the subject of an encounter."/>
+    <resource value="Encounter"/>
+    <filterParameter value="_in"/>
+  </canFilterBy>
+  <canFilterBy>
+    <description value="Filter based on the length of an encounter."/>
+    <resource value="Encounter"/>
+    <filterParameter value="length"/>
+    <comparator value="gt"/>
+    <comparator value="lt"/>
+    <comparator value="ge"/>
+    <comparator value="le"/>
+  </canFilterBy>
+  <canFilterBy>
+    <description value="Filter based on the account for billing an encounter."/>
+    <resource value="Encounter"/>
+    <filterParameter value="account"/>
+    <modifier value="missing"/>
+    <modifier value="not"/>
+    <modifier value="identifier"/>
+  </canFilterBy>
+  <notificationShape>
+    <resource value="Encounter"/>
+    <include value="Encounter:patient"/>
+    <include value="Encounter:practitioner"/>
+    <include value="Encounter:service-provider"/>
+    <include value="Encounter:account"/>
+    <include value="Encounter:diagnosis"/>
+    <include value="Encounter:observation"/>
+    <include value="Encounter:location"/>
+  </notificationShape>
 </SubscriptionTopic>

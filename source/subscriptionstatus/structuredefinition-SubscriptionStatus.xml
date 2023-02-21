@@ -111,7 +111,6 @@
       <type>
         <code value="code"/>
       </type>
-      <condition value="sst-1"/>
       <isModifier value="true"/>
       <isModifierReason value="Not known why this is labelled a modifier"/>
       <isSummary value="true"/>
@@ -148,11 +147,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="sst-1"/>
     </element>
     <element id="SubscriptionStatus.notificationEvent.eventNumber">
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>
-      <short value="Event number"/>
+      <short value="Sequencing index of this event"/>
       <definition value="Either the sequential number of this event in this subscription context or a relative event number for this notification."/>
       <comment value="In subscriptions where delivery of notifications IS NOT guaranteed (e.g., REST-Hook), this number is a unique and monotonically-increasing event number for a subscription. In channels where delivery of notifications IS guaranteed, this number is a relative index for the events present in the notification (e.g., 1, 2, etc.)."/>
       <min value="1"/>
@@ -173,7 +171,7 @@
     </element>
     <element id="SubscriptionStatus.notificationEvent.focus">
       <path value="SubscriptionStatus.notificationEvent.focus"/>
-      <short value="The focus of this event"/>
+      <short value="Reference to the primary resource or information of this event"/>
       <definition value="The focus of this event. While this will usually be a reference to the focus resource of the event, it MAY contain a reference to a non-FHIR object."/>
       <min value="0"/>
       <max value="1"/>
@@ -184,7 +182,7 @@
     </element>
     <element id="SubscriptionStatus.notificationEvent.additionalContext">
       <path value="SubscriptionStatus.notificationEvent.additionalContext"/>
-      <short value="Additional context for this event"/>
+      <short value="References related to the focus resource and/or context of this event"/>
       <definition value="Additional context information for this event. Generally, this will contain references to additional resources included with the event (e.g., the Patient relevant to an Encounter), however it MAY refer to non-FHIR objects."/>
       <min value="0"/>
       <max value="*"/>

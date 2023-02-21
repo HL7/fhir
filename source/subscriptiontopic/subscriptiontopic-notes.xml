@@ -60,7 +60,7 @@
     If a topic is designed to cover multiple resources, it can contain multiple <code>resourceTrigger</code> elements with each resource.  If a topic is generic to all resources, the <code>Resource</code> is available within the <a href="valueset-fhir-types.html">FHIR Type</a> value set.
   </p>
   <p>
-    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with either <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates may not test for the previous state correctly during create processing.
+    Note that <code>supportedInteraction</code> filters can be used either alone, resulting in notifications for every time a resource has the interaction (e.g., every <code>create</code>), or with either <code>queryCriteria</code> or <code>fhirPathCriteria</code>.  When one or more supported interactions are defined, criteria SHOULD only be evaluated for interactions that are included.  For example, a FHIRPath expression designed for resource updates might not test for the previous state correctly during create processing.
   </p>
 	
 		<a name="resource-trigger-create" />
@@ -191,17 +191,20 @@
       As described in <a href="#filters-param-name">Filter Parameter</a>, parameters backed by full Search Parameter definitions SHALL contain a link to the canonical URL in this element and other parameters SHOULD contain a useful URI in this element.
     </p>
 
+		<a name="filters-comparator"/>
 		<a name="filters-modifier"/>
-		<h4>Modifier</h4>
-		<p>
-			The element <code>canFilterBy.modifier</code> contains a search modifier used when evaluating a change.  Allowed search parameters are pulled from <a href="search.html">Search</a>, with the addition of <code>=</code> to show simple equality (e.g., no modifier). Note that modifiers are only valid for specific types of data (e.g., a modifier of <code>sa</code> (starts after) has no meaning when applied to a string).
-		</p>
-		<p>
-			If a search modifier is not provided, it is defaulted to <code>=</code> (no modifier).
-		</p>
+		<h4>Comparators and Modifiers</h4>
     <p>
-      If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.
+      In addition to the element or elements for a filter, sometimes it is necessary to describe additional behavior used in the filtering tests (e.g., asking for values in a range). To specify this, filters can specify <code>comparator</code> and <code>modifier</code> values, matching the behaviors defined by <a href="searchparameter.html">SearchParameters</a>.  Details about interactions with element types can be found on the search page, in the <a href="search.html#modifiers">Modifiers</a> and <a href="search.html#prefix">Prefixes</a> sections. 
     </p>
+		<p>
+      Note:
+      <ul>
+        <li>If no <code>comparator</code> or <code>modifier</code> is provided, the comparison is the default <code>=</code> match.</li>
+        <li>If a filter parameter is a defined Search Parameter, the list of allowed modifiers SHALL be a strict subset of the modifiers defined on the Search Parameter.</li>
+        <li>While filters may allow both, no single filter value allowed to have both a <code>comparator</code> and a <code>modifier</code>.</li>
+      </ul>
+		</p>
 
 		<a name="filters-timing"/>
 		<h4>Filter Timing and Interactions</h4>
