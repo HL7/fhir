@@ -23,7 +23,7 @@ resource structures and interfaces.  This may be considered a violation of REST 
 diverse systems.
 </p>
 <p>
-Each "resource type" has the same set of interactions defined that can be used to manage the resources
+For each "resource type" the same set of interactions are defined which can be used to manage the resources
 in a highly granular fashion. Applications claiming conformance to this framework
 claim to be conformant to "RESTful FHIR"  (see <a href="conformance-rules.html">Conformance</a>).
 </p>
@@ -90,7 +90,7 @@ The interactions on this page are defined like this:
   VERB [base]/[type]/[id] {?_format=[mime-type]}
 </pre>
 <ul>
- <li>The first word is the HTTP verb used for the interaction</li>
+ <li>VERB corresponds to the HTTP verb used for the interaction</li>
  <li>Content surrounded by [] is mandatory, and will be replaced by the string literal identified. Possible insertion values:
    <ul>
      <li><code>base</code>: The <a href="#root">Service Base URL</a></li>
@@ -133,7 +133,7 @@ Base URL takes the form of
 http{s}://server{/path}
 </pre>
 <p>
-The path portion is optional, and does not include a trailing slash. Each
+The path portion is optional and does not include a trailing slash. Each
 resource type defined in this specification has a manager (or "entity set")
 that lives at the address <code>/[type]</code> where the
 <code>[type]</code> is the name of the resource type.
@@ -513,8 +513,8 @@ for the specification:
 Versions from before the publication of the <a href="http://hl7.org/fhir/DSTU1/index.html">first DSTU</a> (which is 0.0) are not supported.
 </p>
 <p>
-This parameter can be used anywhere that the FHIR Mime type is used. When used in an HTTP request, the
-version parameter may be used on either the Content-Type header, or the Accept header, or both, and
+The MIME-type parameter can be used anywhere where a FHIR Mime type is used. When used in an HTTP request, the
+fhirVersion parameter may be used on either the Content-Type header, or the Accept header, or both, and
 applies to the entire interaction (the behavior of the interactions as described on ths page, the
 search parameters and functionality, and the accompanying conformance resources). It is an error for
 the Accept header to specify a different version than the Content-Type header unless invoking an operation
@@ -618,8 +618,8 @@ was admitted at 2pm in their local timezone).
 </p>
 <p>
 However when the server is executing logic on behalf of the client, particularly for various operations, it
-may be important for the server to know what timezone the request is made on behalf of. In such cases, 
-the client timezone may be communiciated to the server using the <code>client-timezone</code> header 
+may be important for the server to know what timezone the request is made in (or on behalf of). In such cases, 
+the client timezone may be communicated to the server using the <code>client-timezone</code> header 
 defined in this <a href="https://tools.ietf.org/html/draft-sharhalakis-httptz-05">RFC</a> (note that this 
 RFC was not adopted by the community). 
 </p>
@@ -655,7 +655,7 @@ contention management when a resource is brought back to life.
 </p>
 
 <p>
-In addition, the search parameter <code>_summary</code> can be used when reading a resource:
+In addition, the search parameter <code>_summary</code> can be used in a <a href="#read">read interaction</a>:
 </p>
 <pre class="http">
   GET [base]/[type]/[id] {?_summary=text}
@@ -693,7 +693,7 @@ and a <code>Last-Modified</code> header.
 </p>
 <p>
 The <a href="resource.html#metadata">Version Id</a> ("vid") is an opaque identifier that conforms to the same <a href="datatypes.html#id">format requirements</a> as
-a <a href="resource.html#id">Logical Id</a>. The id may have been found by performing a history interaction (see below), by recording the
+a <a href="resource.html#id">Logical Id</a>. The version Id may have been found by performing a history interaction (see below), by recording the
 version id from a content location returned from a <code>read</code> or from a version specific reference in a
 content model. If the version referred to is actually one where the resource was deleted, the
 server should return a <code>410 Gone</code> status code (see the <a href="#delete">delete</a> interaction for addition details).
@@ -907,7 +907,7 @@ This is also known as 'Optimistic Locking'.
 </p>
 <p>
 Note the <a href="https://tools.ietf.org/html/rfc7232#section-3.1">RFC 7232 3.1 If-Match</a> specification
-defines the use of <code>"the strong comparison function when comparing entity-tags"</code>. FHIR diverges
+defines the use of <code>the strong comparison function when comparing entity-tags</code>. FHIR diverges
 from this behavior to use the weak <code>ETag</code> representation.
 </p>
 <pre class="http">
@@ -965,11 +965,12 @@ The body of a PATCH interaction SHALL be either:
 <p>
 In either case, the server SHALL process its own copy of the resource in the format indicated, applying
 the operations specified in the document, following the relevant PATCH specification. When the operations
-have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
+have all been processed, the server processes the resulting document as an <a href="#update"><code>update</code></a>
 interaction; all the version and error handling etc. apply as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
-Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL support <a href="#versionaware">Concurrency Management</a>.
+Processing PATCH operations may be very version sensitive. For this reason,  servers that support PATCH SHALL 
+support <a href="#versionaware">Resource Contention</a> on the PATCH operation.
 Clients SHOULD always consider using version specific PATCH operations so that inappropriate
 actions are not executed.
 </p>
@@ -981,7 +982,7 @@ Unlike this rest of this page, the conditional create, update, patch and delete 
 further experience is gained with their use. Their status will be reviewed in a future version of FHIR.
 </p>
 <p>
-In addition, servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD
+Servers that support PATCH, and that support <a href="#cond-update">Conditional Update</a> SHOULD
 also support conditional PATCH. When the server processes a conditional PATCH, it performs a search using its standard
 <a href="search.html">search facilities</a> for the resource type, with the goal of resolving a single logical id for this request. The action it takes depends
 on how many matches are found:
@@ -1067,7 +1068,7 @@ is performed by an HTTP <code>DELETE</code> command as shown:
 The request body SHALL be empty.
 </p>
 <p>
-A delete interaction means that the resource is no longer found through a <a href="#search">search</a> interaction.
+A delete interaction means that the resource can no longer found through a <a href="#search">search</a> interaction.
 Subsequent <a href="#read">non-version specific reads</a> of the resource return a <code>410 Gone</code> HTTP
 status code when the server wishes to indicate that the resource is deleted. For security reasons, the
 server may return other status codes as defined under <a href="security.html#AccessDenied">Access Denied Response Handling</a>.
@@ -1168,7 +1169,7 @@ refrain from doing so (see <a href="resource.html#meta">metadata description</a>
 <p>
 A server SHOULD otherwise accept the resource as submitted when it accepts the create, and return the same
 content when it is subsequently read. However some systems might not be able to do this; see
-the note on <a href="#transactional-integrity">transactional integrity</a> for discussion.
+the note on <a href="#transactional-integrity">transactional integrity</a> (and also <a href="updates.html">Variations between Submitted data and Retrieved data</a>).
 </p>
 <p>
 The server returns a <code>201 Created</code> HTTP status code, and SHALL also return a <code>Location</code> header which
@@ -1179,7 +1180,7 @@ the created resource version:
   Location: [base]/[type]/[id]/_history/[vid]
 </pre>
 <p>
-where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id for the resource version.
+where <code>[id]</code> and <code>[vid]</code> are the newly created id and version id of the created resource.
 The Location header should be as specific as possible - if the server understands versioning, the version is
 included. If a server does not track versions, the Location header will just contain [base]/[type]/[id]. The
 Location MAY be an absolute or relative URL.
@@ -1195,16 +1196,17 @@ In either case, the server SHOULD include a response body containing an <a href=
 </p>
 <p>
 Note: Servers MAY determine that the <code>create</code> request matches an existing record with high confidence and MAY return a <code>201</code>,
-effectively making it look to the client as though a new resource had been created, even though the the "created" resource is actually
-a pre-existing resource. Add a note that client developers should review all returned data (as they always should for all interactions)
-to ensure that it matches expectations.
+effectively making it look to the client as though a new resource had been created, even though the "created" resource is actually
+a pre-existing resource.
 </p>
 <p>
-Note: Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered.
+Notes:
 </p>
-<p>
-Note: A client may attempt to create a resource containing a <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them.
-</p>
+<ul>
+<li>Clients should review all returned data (as they always should for all interactions) to ensure that it matches expectations</li>
+<li>Servers MAY choose to preserve XML comments, instructions, and formatting or JSON whitespace when accepting creates, but are not required to do so. The impact of this on digital signatures may need to be considered</li>
+<li>A client may attempt to create a resource containing a <code>SUBSETTED</code> tag. It is at the server's discretion whether to accept requests that are tagged as <code>SUBSETTED</code> and, if so, how to handle them</li>
+</ul>
 <p>
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
 </p>
@@ -1280,7 +1282,7 @@ Because of the way that some user agents and proxies treat <code>GET</code> and 
 to the get based search method above, servers that support <i>search</i> SHALL also support a <code>POST</code> based search:
 </p>
 <pre class="http">
-POST  [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
+POST [base]/[type]/_search{?[parameters]{&amp;_format=[mime-type]}}
 Content-Type: application/x-www-form-urlencoded
 
 param1=value&amp;param2=value
@@ -1585,25 +1587,45 @@ are processed  (see <a href="bundle.html#bundle-unique">about Ids in a bundle</a
 part of the bundle are left untouched.
 </p>
 <p>
+When processing a <a href="#create"><code>create</code></a> (POST), the full URL is treated as the id of the resource on the
+source, and is ignored; the server generates an id for the resource. For updates,
+the server performs a mapping between the fullUrl specified and the local URL the server
+knows that instance as, if possible. If the server does not have a mapping for the fullUrl,
+the server ignores the base URL and attempts an update assuming the base is the same
+as the server base.  This allows the same transaction bundle to be sent to multiple systems
+without changing the fullUrls for each target.
+</p>
+<p>
+When processing a batch or transaction, a server MAY choose to honor existing
+logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but
+since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
+may choose to assign new ids to all submitted resources, irrespective of any claimed
+logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
+</p>
+<a name="url-fixing"> </a>
+<h4>Replacing hyperlinks and full-urls</h4>
+<p>
 Servers SHALL replace all matching links in the bundle, found in the resource ids,
 <a href="references.html">resource references</a>, elements of type <a href="datatypes.html#uri">uri</a>,
 <a href="datatypes.html#url">url</a>, <a href="datatypes.html#oid">oid</a>, <a href="datatypes.html#uuid">uuid</a>,
-and <code>&lt;a href=""</code> &amp; <code>&lt;img src=""</code> in the Narrative elements in DomainResource.text or
+and <code>&lt;a href=""&gt;</code> &amp; <code>&lt;img src=""&gt;</code> in the Narrative elements in DomainResource.text or
 Composition.section.text. Elements of type canonical are not replaced. Servers SHOULD also replace references found
 in elements of type <a href="datatypes.html#markdown">markdown</a>, including extensions. Replacement within URLs is
 based on either an exact match or a match of the portion of the URL preceding a '#'.
 </p>
 <p>
-E.g. If posting a resource with a reference of <code>"http://somewhere.org/StructureDefinition/myprofile#some.element.path"</code>
-and <code>"http://somewhere.org/StructureDefinition/myprofile"</code> is the fullUrl of another entry in the transaction, the server
+E.g. If posting a resource with a reference of <code>http://somewhere.org/StructureDefinition/myprofile#some.element.path</code>
+and <code>http://somewhere.org/StructureDefinition/myprofile</code> is the fullUrl of another entry in the transaction, the server
 would replace the 'myprofile' id portion of the reference with whatever id it assigns and, if the target server base
-differs from <code>"http://somewhere.org"</code>, would also replace the base portion of the URL.
+differs from <code>http://somewhere.org</code>, would also replace the base portion of the URL.
 </p>
 <p>
 Similarly if the narrative includes <code>&lt;img src="urn:uuid:someguid"/&gt;</code> and there is an entry within the
-transaction creating a Binary with a full url of <code>"urn:uuid:someguid"</code>, that entire URL would be replaced with the new
+transaction creating a Binary with a full url of <code>urn:uuid:someguid</code>, that entire URL would be replaced with the new
 absolute URL of the created Binary resource.
 </p>
+<a name="vs-refs"> </a>
+<h4>Version specific references and updates</h4>
 <p>
 If a reference within a transaction contains a version-specific reference, the expectation is that the referenced version
 already exists - either on the target server or on another server. If the intention is to point to a version created as
@@ -1620,8 +1642,8 @@ need to happen before the 'update' (per transaction rules), the created record w
 version-specific reference to the newly updated version of the reference target.
 </p>
 <p>
-Note, the use of the <code><a href="references.html">Reference</a></code> datatype standard
-<code><a href="[%extensions-location%]StructureDefinition-resolve-as-version-specific.html">extension resolve-as-version-specific</a></code>
+Note: the use of the <code><a href="references.html">Reference</a></code> datatype standard extension
+<code><a href="[%extensions-location%]StructureDefinition-resolve-as-version-specific.html">resolve-as-version-specific</a></code>
 is a request to turn the non-versioned reference into a reference to the most recent version of the target
 resource. In the case of a resource created in the transaction, the reference becomes a reference to the
 initial version. In the case of an update or conditional create, the reference becomes a reference to the
@@ -1630,22 +1652,6 @@ reference resolution process.  It is not guaranteed that all systems will recogn
 able to apply it. If the extension is not supported or versioned references are not supported, the
 resulting reference will be version-agnostic. A client can attempt to perform a subsequent update/patch to
 force a version-specific reference if they wish.
-</p>
-<p>
-When processing a <a href="#create"><code>create</code></a> (POST), the full URL is treated as the id of the resource on the
-source, and is ignored; the server generates an id for the resource. For updates,
-the server performs a mapping between the fullUrl specified and the local URL the server
-knows that instance as, if possible. If the server does not have a mapping for the fullUrl,
-the server ignores the base URL and attempts an update assuming the base is the same
-as the server base.  This allows the same transaction bundle to be sent to multiple systems
-without changing the fullUrls for each target.
-</p>
-<p>
-When processing a batch or transaction, a server MAY choose to honor existing
-logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but
-since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
-may choose to assign new ids to all submitted resources, irrespective of any claimed
-logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
 </p>
 
 <p><b>Conditional References</b></p>
@@ -1958,7 +1964,7 @@ Notes:
 </p>
 <ul>
  <li>A server MAY to choose to maintain the information that would be lost, but there is no defined way for a server to determine whether the client omitted the information because it wasn't supported (perhaps in this case) or whether it wishes to delete the information.</li>
- <li>If a server has changed the content of the resource from what was submitted before the records was stored, the server SHOULD either return the record (regardless of the <code>PREFER</code> response header) or omit the etag from the response.</li>
+ <li>If a server has changed the content of the resource from what was submitted before the it was stored, the server SHOULD either return the stored resource (regardless of the <code>PREFER</code> response header) or omit the <code>ETag</code> from the response.</li>
  <li>If a client receives a copy of the resource in the response body of a create, update or patch, it SHOULD use the returned content as the basis for subsequent update or patch requests.</li>
  <li>This behavior might not be strictly necessary if out-of-band agreements are in place to ensure data consistency is maintained.</li>
 </ul>
