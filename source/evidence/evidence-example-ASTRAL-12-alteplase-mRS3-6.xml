@@ -104,7 +104,7 @@
   </variableDefinition>
   <studyDesign>
     <coding>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
+      <system value="http://hl7.org/fhir/study-design"/>
       <code value="SEVCO:01016"/>
       <display value="Uncontrolled cohort design"/>
     </coding>
