@@ -20,7 +20,7 @@
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.827"/>
   </identifier>
-  <version value="5.0.0"/>
+  <version value="5.0.0-snapshot3"/>
   <name value="ResearchStudyPrimaryPurposeType"/>
   <title value="Research Study Primary Purpose Type"/>
   <status value="draft"/>
@@ -41,12 +41,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-prim-purp-type"/>
-      </filter>
+      <system value="http://hl7.org/fhir/research-study-prim-purp-type"/>
     </include>
   </compose>
 </ValueSet>

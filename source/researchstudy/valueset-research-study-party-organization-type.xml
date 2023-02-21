@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-study-party-org-type"/>
+  <id value="research-study-party-organization-type"/>
   <meta>
     <lastUpdated value="2022-05-12T12:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
@@ -13,7 +13,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/research-study-party-organization-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.3.3077"/>
@@ -39,12 +39,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-	  <filter>
-	    <property value="concept"/>
-	    <op value="descendent-of"/>
-	    <value value="research-study-party-organization-type"/>
-	  </filter>
+      <system value="http://hl7.org/fhir/research-study-party-organization-type"/>
     </include>
   </compose>
 </ValueSet>
