@@ -24,11 +24,11 @@
 		<fullUrl value="http://example.org/fhir/Provenance/anon0"/>
 		<resource>
 			<Provenance>
-                <!-- This Provenance shows a link between real world and anon for a given patient -->
+                <!-- This Provenance shows a link between real-world and anon for a given patient -->
 				<id value="anon0"/>
 				<meta>
 					<security>
-                        <!-- Provenance is the link between real world and anon, so is highest possible confidentiality -->
+                        <!-- Provenance is the link between real-world and anon, so is highest possible confidentiality -->
 						<system value="http://terminology.hl7.org/CodeSystem/v3-Confidentiality"/>
 						<code value="V"/>
 					</security>

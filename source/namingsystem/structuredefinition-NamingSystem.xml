@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -370,7 +370,7 @@
     </element>
     <element id="NamingSystem.type">
       <path value="NamingSystem.type"/>
-      <short value="e.g. driver,  provider,  patient, bank etc."/>
+      <short value="e.g. driver,  provider,  patient, bank etc"/>
       <definition value="Categorizes a naming system for easier search by grouping related naming systems."/>
       <comment value="This will most commonly be used for identifier namespaces, but categories could potentially be useful for code systems and authorities as well."/>
       <min value="0"/>
@@ -547,7 +547,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="NamingSystem.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the NamingSystem. Topics provide a high-level categorization as well as keywords for the NamingSystem that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the NamingSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the NamingSystem so that it can be found by topical and keyword searches."/>
@@ -609,7 +609,7 @@
     </element>
     <element id="NamingSystem.relatedArtifact">
       <path value="NamingSystem.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A NamingSystem must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>

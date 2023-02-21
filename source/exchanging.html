@@ -48,7 +48,7 @@
   This section is also intended to have international scope and the terminology used here is used in its traditional English usage, not necessarily as it might be defined in particular jurisdictions.  For example, the term 'sensitive data' in some jurisdictions has a specific legal meaning.  When used here, it simply means that the data may need some additional level of protection, whether for privacy, business or other reasons.
   </p>
   <p>
-    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 v2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
+    NOTE: This document focuses on exchanging information using FHIR but, in theory, the principles described here would apply equally well to equivalent exchange mechanisms using other standards.  For example, FHIR messaging would be like HL7 V2 and FHIR documents would be like HL7 CDA.  If using other standards, the set of architectural approaches to exchange are likely to be more limited than those available for FHIR.
   </p>
   <a name="organization"> </a>
   <h3>Organization of this section</h3>
@@ -1016,7 +1016,7 @@ must consider a range of scenarios, depending on the data that is available:
       If the element minimum cardinality is 0, then the element can simply be omitted.
       If the element mininmum cardinality is 1, then the authoring system has a problem.
       In principle, the first question is why is an element that there is no data for 
-      mandatory? The authoring system may be required to change it's own workflow to procure 
+      mandatory? The authoring system may be required to change its own workflow to procure 
       a value for the element. However this is not always necessary (or possible). 
       <br/><br/>
       The first possibility is that that authoring system can provide a fixed value that 
@@ -1055,7 +1055,7 @@ must consider a range of scenarios, depending on the data that is available:
       that is not correct for the source system.
       <br/><br/>
       In general, specification and profile designers try to avoid the situation 
-      where real world systems have data that is invalid, but all designs are a 
+      where real-world systems have data that is invalid, but all designs are a 
       trade-off between different pros and cons, and systems do not always have 
       valid data. Again, one solution is to redesign the system or the clinical 
       workflow to ensure that data is always valid, but this isn't always possible
@@ -1084,13 +1084,13 @@ must consider a range of scenarios, depending on the data that is available:
       are ubiquitous. 
       <br/><br/>
       If the applicable profiles include a required binding to a code/coding type, then the source system 
-      must choose one of the allowed codes from the relevant value set. It can still provide it's 
+      must choose one of the allowed codes from the relevant value set. It can still provide its 
       own code in an extension, and in general this is encouraged. There is no standard extension 
       for this purpose; look for applicable extensions in the <a href="http://hl7.org/fhir/registry">FHIR Registry</a>. 
       <br/><br/>
       If the binding is a required binding to a CodeableConcept, then the source system 
       must choose one of the applicable codes and put that in one of the codings, and
-      then it should provide it's own code in another coding. The same is true if the 
+      then it should provide its own code in another coding. The same is true if the 
       binding is an extensible binding, and one of the existing codes is applicable. 
       <br/><br/>
       As above, applicable profiles may influence an applications choices in this regard.

@@ -32,7 +32,7 @@ this case the <i>status</i> element is set to 'planned'.
 </p>
 
 <p>
-The admission component is intended to store the extended information relating to a admission event.
+The admission component is intended to store the extended information relating to an admission event.
 It is always expected to be the same period as the encounter itself. Where the period is different, another
 encounter instance should be used to capture this information as a partOf this encounter instance.
 </p>

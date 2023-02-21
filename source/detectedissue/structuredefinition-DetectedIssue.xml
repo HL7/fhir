@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -166,7 +166,7 @@
     </element>
     <element id="DetectedIssue.category">
       <path value="DetectedIssue.category"/>
-      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
       <definition value="A code that classifies the general type of detected issue."/>
       <comment value="In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set."/>
       <requirements value="Used for filtering what detected issues are retrieved and displayed."/>
@@ -198,7 +198,7 @@
     </element>
     <element id="DetectedIssue.code">
       <path value="DetectedIssue.code"/>
-      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc."/>
+      <short value="Specific type of detected issue, e.g. drug-drug, duplicate therapy, etc"/>
       <definition value="Identifies the specific type of issue identified."/>
       <alias value="type"/>
       <min value="0"/>

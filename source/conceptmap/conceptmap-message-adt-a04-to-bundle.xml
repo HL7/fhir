@@ -453,7 +453,7 @@
         </dependsOn>
         <product>
           <property value="narrative"/>
-          <valueString value="If in context of a episode of care"/>
+          <valueString value="If in context of an episode of care"/>
         </product>
       </target>
     </element>

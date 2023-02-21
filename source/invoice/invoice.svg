@@ -511,7 +511,7 @@ InvoicePriceComponentType</a>
        style="fill:#000000"><a
    xlink:href="invoice-definitions.html#Invoice.lineItem.priceComponent.code"
    id="n540"><title
-   id="title142">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc</title>
+   id="title142">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.</title>
 code</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

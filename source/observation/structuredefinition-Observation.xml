@@ -65,7 +65,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -788,7 +788,7 @@
     </element>
     <element id="Observation.interpretation">
       <path value="Observation.interpretation"/>
-      <short value="High, low, normal, etc."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
@@ -1446,7 +1446,7 @@
         <valueString value="#9676."/>
       </extension>
       <path value="Observation.component.interpretation"/>
-      <short value="High, low, normal, etc."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>

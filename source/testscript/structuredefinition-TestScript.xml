@@ -1099,7 +1099,7 @@
     </element>
     <element id="TestScript.setup.action.operation.accept">
       <path value="TestScript.setup.action.operation.accept"/>
-      <short value="Mime type to accept in the payload of the response, with charset etc."/>
+      <short value="Mime type to accept in the payload of the response, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Accept' header."/>
       <comment value="If this is specified, then test engine shall set the 'Accept' header to the corresponding value.  If you'd like to explicitly set the 'Accept' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>
@@ -1128,7 +1128,7 @@
     </element>
     <element id="TestScript.setup.action.operation.contentType">
       <path value="TestScript.setup.action.operation.contentType"/>
-      <short value="Mime type of the request payload contents, with charset etc."/>
+      <short value="Mime type of the request payload contents, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Content-Type' header."/>
       <comment value="If this is specified, then test engine shall set the 'Content-Type' header to the corresponding value.  If you'd like to explicitly set the 'Content-Type' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>

@@ -52,7 +52,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -255,7 +255,7 @@
         <valueString value="Is this in the 80%?"/>
       </extension>
       <path value="MessageHeader.sender"/>
-      <short value="Real world sender of the message"/>
+      <short value="Real-world sender of the message"/>
       <definition value="Identifies the sending system to allow the use of a trust relationship."/>
       <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
       <requirements value="Allows routing beyond just the application level."/>

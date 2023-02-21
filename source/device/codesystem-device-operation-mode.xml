@@ -53,7 +53,7 @@
   <concept>
     <code value="service"/>
     <display value="Service"/>
-    <definition value="The device operates in a mode that is intended for correcting an functional problem of the device only. Arbitrary values may be generated."/>
+    <definition value="The device operates in a mode that is intended for correcting a functional problem of the device only. Arbitrary values may be generated."/>
   </concept>
   <concept>
     <code value="maintenance"/>

@@ -57,7 +57,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -1449,7 +1449,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a enteral formula."/>
+          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming an enteral formula."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaAsNeededReason"/>

@@ -510,7 +510,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="ValueSet.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the ValueSet. Topics provide a high-level categorization as well as keywords for the ValueSet that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the ValueSet, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the ValueSet so that it can be found by topical and keyword searches."/>
@@ -587,7 +587,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="ValueSet.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A ValueSet must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -1234,7 +1234,7 @@
     <element id="ValueSet.expansion.contains.inactive">
       <path value="ValueSet.expansion.contains.inactive"/>
       <short value="If concept is inactive in the code system"/>
-      <definition value="If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use)."/>
+      <definition value="If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)."/>
       <comment value="This should only have a value if the concept is inactive."/>
       <min value="0"/>
       <max value="1"/>

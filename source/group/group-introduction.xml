@@ -29,7 +29,7 @@ While a particular List instance may represent a "snapshot", from a business pro
 is dynamic – items are added and removed over time.  The List resource references other resources.  Lists may be 
 curated and have specific business meaning. For use cases where Group is suitable (e.g. for a list of Patients to be
 viewed on a dashboard), the Group resource should be preferred to the List resource. The underlying rationale is that a collection of
-patients, practitioners, etc is likely to be of interest as the subject of a measure, observation, communication, etc,
+patients, practitioners, etc. is likely to be of interest as the subject of a measure, observation, communication, etc.,
 which Group is intended to support.
 </li>
 <li>

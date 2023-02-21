@@ -122,7 +122,7 @@ specification, and defines some additional FHIR specific properties.
       <ul>
         <li><b>Conformance</b> - a set of Conformance Resources in the base package folder (/package)</li>
         <li><b>IG</b> - a FHIR implementation guide package (has an ImplementationGuide resource in /package, along with conformance resources, and also contains example resources in /package/example)</li>
-        <li><b>Core</b> - contains the conformance related resources for the main FHIR specification (effectively, this is a special type of "conformance" that marks it as the core specification, which could also be inferred from it's name such as hl7.fhir.r4.core, but other branches / ballots etc may vary, so this is simpler than inferring from the name)</li>
+        <li><b>Core</b> - contains the conformance related resources for the main FHIR specification (effectively, this is a special type of "conformance" that marks it as the core specification, which could also be inferred from its name such as hl7.fhir.r4.core, but other branches / ballots etc. may vary, so this is simpler than inferring from the name)</li>
         <li><b>Examples</b>  - contains the example resources found in the main FHIR specification in /package</li>
         <li><b>Group</b> - a package that only includes (e.g. depends on) other packages (won't contain FHIR resources directly). The versions listed in this package must include all the versions found in the included packages. Note that this is is used for the set of packages that represent a full core specification</li>
         <li><b>Tool</b> - A package that contains tool specific files to support specific tools (won't contain FHIR resources or specify a FHIR version)</li>
@@ -200,7 +200,7 @@ rebuild it at any time (or built it and add it if it is not present).
 </pre>
 <p>
 The index version is a fixed value that may change if this file format
-is changed. Tools should rebuild the file if they do not recognise
+is changed. Tools should rebuild the file if they do not recognize
 the version. The files array contains an object for each resource 
 in the package with the following properties:
 </p>
@@ -240,8 +240,8 @@ To load a package onto the package servers:
 </p>
 <ul>
   <li>Publish the package at a known place on the web</li>
-  <li>Register the package in an rss feed. Use <a href="http://hl7.org/fhir/package-feed.xml">http://hl7.org/fhir/package-feed.xml</a> as a template</li>
-  <li>Register the rss feed in the master list of package feeds at <a href="https://github.com/FHIR/ig-registry/blob/master/package-feeds.json">https://github.com/FHIR/ig-registry/blob/master/package-feeds.json</a>. Make the change via a Git PR</li>
+  <li>Register the package in an RSS feed. Use <a href="http://hl7.org/fhir/package-feed.xml">http://hl7.org/fhir/package-feed.xml</a> as a template</li>
+  <li>Register the RSS feed in the master list of package feeds at <a href="https://github.com/FHIR/ig-registry/blob/master/package-feeds.json">https://github.com/FHIR/ig-registry/blob/master/package-feeds.json</a>. Make the change via a Git PR</li>
   <li>The package registries crawl the registered feeds looking for new packages on a regular basis</li>
 </ul>
 

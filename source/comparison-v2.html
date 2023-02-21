@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-[%settitle Relationship between FHIR and HL7 v2 Messaging%]
+[%settitle Relationship between FHIR and HL7 V2 Messaging%]
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -12,31 +12,31 @@
 
 
 
-[%cmpheader HL7 v2%]
+[%cmpheader HL7 V2%]
 
 <h2>HL7 Version 2</h2>
 <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
-<a name="HL7 v2"></a>
+<a name="HL7 V2"></a>
 <p>
-<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> was HL7's first information exchange standard and is one of its most
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> was HL7's first information exchange standard and is one of its most
 widely adopted, being prominent in in-patient settings throughout the world, though also
-used in a variety of other contexts as well.  HL7 v2 uses messages composed of re-usable
+used in a variety of other contexts as well.  HL7 V2 uses messages composed of re-usable
 segments to communicate healthcare-related information between a sending and receiving
 system as well as to invoke particular behavior (patient transfers, lab orders, etc.)
 It also supports one-way communication through notifications, provides support for queries and other workflows.
 </p>
-<h3>HL7 v2 Similarities and Differences</h3>
+<h3>HL7 V2 Similarities and Differences</h3>
 <p>
-<b>Event-based:</b> FHIR supports an event-based messaging paradigm similar to the HL7 v2
-messaging structure (though, unlike HL7 v2, FHIR supports other paradigms as well including
+<b>Event-based:</b> FHIR supports an event-based messaging paradigm similar to the HL7 V2
+messaging structure (though, unlike HL7 V2, FHIR supports other paradigms as well including
 documents, REST and other service models).  Refer to the <a href="messageheader.html">Message Header</a> resource.
 </p>
 <p>
-<b>Granularity:</b> HL7 v2's "Segment" structure provides re-usable chunks of data that
-roughly correspond to FHIR's idea of <a href="resource.html">resources</a>.  However, HL7 v2
+<b>Granularity:</b> HL7 V2's "Segment" structure provides re-usable chunks of data that
+roughly correspond to FHIR's idea of <a href="resource.html">resources</a>.  However, HL7 V2
 segments can't be independently manipulated.  Additionally, not all segments have the characteristics
 of independent identity held by FHIR resources.  Due to differences in scope and approach to
-extensibility, HL7 v2 segments and datatypes are frequently cluttered with data elements that are not
+extensibility, HL7 V2 segments and datatypes are frequently cluttered with data elements that are not
 used by (or even understood by) the majority of implementations.
 </p>
 <p>
@@ -53,7 +53,7 @@ Order Message) includes:
   <li>etc.</li>
 </ul>
 <p>
-The HL7 v2 approach to granularity emphasizes re-use of "patterns" of information.  For example, timing and
+The HL7 V2 approach to granularity emphasizes re-use of "patterns" of information.  For example, timing and
 route information are not useful on their own, but they are useful in many circumstances.  Due to the
 3-level nesting limit, separate segments are also required for data structures that would otherwise nest
 too deeply.  FHIR takes a different approach to reusability, focusing on objects that can be maintained
@@ -64,7 +64,7 @@ resource is itself complex, having nested structures for dosage instructions, di
 that are not simple datatypes.
 </p>
 <p>
-<b>Extensibility:</b> HL7 v2 provides an extensibility mechanism through the use of "Z-segments".
+<b>Extensibility:</b> HL7 V2 provides an extensibility mechanism through the use of "Z-segments".
 The meaning of these extensions is opaque without prior manual explanation by the sender.  Extensions
 are supposed to be restricted to data elements that do not affect the meaning of the "standard" segments.
 FHIR <a href="extensibility.html">Extensions</a>, on the other hand, can appear at any level (including
@@ -83,62 +83,62 @@ to an element within a FHIR instance will remain unchanged in future versions.  
 period.
 </p>
 <p>
-<b>Human readability:</b> In general, HL7 v2 instances do not provide for human readable versions of the
+<b>Human readability:</b> In general, HL7 V2 instances do not provide for human readable versions of the
 content exchanged.  While some systems may make use of NTE segments to provide a human-readable rendering
 of all or part of a message payload, the rules for when or if this occurs is site-specific.  FHIR requires
 human readable content to be provided for each resource.
 </p>
 <p>
-<b>Update behavior:</b> HL7 v2 data is typically exchanged in "snapshot" mode - updates are communicated by
+<b>Update behavior:</b> HL7 V2 data is typically exchanged in "snapshot" mode - updates are communicated by
 sending a complete copy of the instance with the new data filled in.  However, some segments and messages in
-HL7 v2 support more sophisticated exchanges where only changed data is sent and codes or special values indicate
+HL7 V2 support more sophisticated exchanges where only changed data is sent and codes or special values indicate
 what sort of change is to occur (e.g. add this address, remove this name).  Out-of-the-box, FHIR only functions
 using snapshot mode.  While the use of <a href="extensibility.html#modifierExtension">ModifierExtensions</a> to
-introduce equivalent behavior to HL7 v2 is possible, doing so would create interoperability issues and would make
+introduce equivalent behavior to HL7 V2 is possible, doing so would create interoperability issues and would make
 use of the resources difficult outside the messaging paradigm.
 </p>
 <p>
-<b>Optionality &amp; Profiles:</b> Both HL7 v2 and FHIR provide a similar degree of flexibility at the
+<b>Optionality &amp; Profiles:</b> Both HL7 V2 and FHIR provide a similar degree of flexibility at the
 international standard level.  Most data elements are optional.  However, there are two differences.
 FHIR resources are much more limited in terms of what elements are included in the core specification - only
-those elements that the vast majority of systems will support.  HL7 v2 tends to include many elements that
-are used in only very limited circumstances. FHIR uses extensions for those circumstances.  HL7 v2 and FHIR both
+those elements that the vast majority of systems will support.  HL7 V2 tends to include many elements that
+are used in only very limited circumstances. FHIR uses extensions for those circumstances.  HL7 V2 and FHIR both
 provide formal mechanisms for defining profiles to give guidance on the use of the specification.  However,
-the HL7 v2 mechanism has not been widely used.  FHIR <a href="profiling.html">Profiles</a> form an essential
+the HL7 V2 mechanism has not been widely used.  FHIR <a href="profiling.html">Profiles</a> form an essential
 component of the methodology and are built into tooling, increasing the likelihood of their use.
 </p>
 
-<h3>HL7 v2 Interoperability Considerations</h3>
+<h3>HL7 V2 Interoperability Considerations</h3>
 <p>
-<b>Mapping:</b> One of the biggest challenges with HL7 v2 interoperability is the variation of implementation.
+<b>Mapping:</b> One of the biggest challenges with HL7 V2 interoperability is the variation of implementation.
 Even when identical scenarios are being handled in similar business environments, the data elements supported
 can vary and even the place where a given data element is placed in an instance can vary.  As a result, defining
-consistent mapping rules between HL7 v2 and FHIR at an international or even regional level is not terribly realistic.
+consistent mapping rules between HL7 V2 and FHIR at an international or even regional level is not terribly realistic.
 The FHIR mappings provided give a starting point for consideration, but mappings will generally need to be done
 on an implementation by implementation basis.
 </p>
 <p>
-<b>Extensions:</b><a name="HL7 v2-extensions"></a> While some HL7 v2 elements will map to FHIR core, a large percentage
-will not.  Where a HL7 v2 element is not supported by core, an extension will be needed to share the information.
-Where there is interest, HL7 may choose to publish and maintain extensions for HL7 v2 elements that are not supported
+<b>Extensions:</b><a name="HL7 V2-extensions"></a> While some HL7 V2 elements will map to FHIR core, a large percentage
+will not.  Where a HL7 V2 element is not supported by core, an extension will be needed to share the information.
+Where there is interest, HL7 may choose to publish and maintain extensions for HL7 V2 elements that are not supported
 as part of the core FHIR specification.  The FHIR extension registry <!-- Todo: Link --> should be searched prior
 to defining local extensions.  If time permits, the relevant HL7 WG should be contacted with a request to define
-additional HL7 v2 extensions if needed ones are not present.  If time does not permit, applications can define their
+additional HL7 V2 extensions if needed ones are not present.  If time does not permit, applications can define their
 own extensions, but should have a migration plan for if/when HL7 defines it later.  For Z-segments, URIs should
 be defined to be specific to the system/environment that defined the Z-segment (e.g. http://acme.org/fhir/extensions/consent),
 not based on the name of the Z-segment itself (given that Z-segments with the same name but different meaning may
 exist) (e.g. http://hl7.org/ZAC).
 </p>
 <p>
-<b>Resource identification:</b><a name="HL7 v2-identification"></a> HL7 v2 messages will often reference objects that
+<b>Resource identification:</b><a name="HL7 V2-identification"></a> HL7 V2 messages will often reference objects that
 have already been referred to in previous messages.  When converting the messages to FHIR, these references
-will need to point to the same resource URI.  Given that not all HL7 v2 message objects have identifiers in the
+will need to point to the same resource URI.  Given that not all HL7 V2 message objects have identifiers in the
 message, this can be somewhat problematic.  An approach to handling this issue exists for FHIR <a href="http.html#transaction">transactions</a>.
 However, the ramifications of using this approach in a messaging environment have not yet been resolved.
 Implementers will need to explore their own strategies as part of early adoption.
 </p>
 <p>
-<b>Merging references and resources:</b><a name="HL7 v2-merging"></a> HL7 v2 message instances may well reference the
+<b>Merging references and resources:</b><a name="HL7 V2-merging"></a> HL7 V2 message instances may well reference the
 same "object" numerous times.  For example, a message containing a patient's medication history is likely to
 include references to the same clinicians and clinics/hospitals many times.  While in some cases, the data
 captured for a given object might be identical in all uses, in other cases the information might vary.  For
@@ -163,15 +163,15 @@ information needed/available.  This creates two challenges:
   represent it using multiple resources.</li>
 </ol>
 <p>
-<b>Identified vs. Contained resources:</b><a name="HL7 v2-contained"></a> Each HL7 v2 message will be mapped to
+<b>Identified vs. Contained resources:</b><a name="HL7 V2-contained"></a> Each HL7 V2 message will be mapped to
 multiple resource instances - often 10s or even 100s of resource instances.  To maintain consistency
-with the HL7 v2 messaging paradigm, all resource data will typically be sent over the wire as part of the
+with the HL7 V2 messaging paradigm, all resource data will typically be sent over the wire as part of the
 FHIR message rather than being sent by reference as would be typical in a RESTful implementation.
 However, FHIR provides two different ways of communicating the resources as part of the message <a href="compartmentdefinition.html">bundle</a>:
 they can either be sent as "fully identified" resources (direct entries in the bundle with their
 own identity, and able to be the subject of independent transactions), or they can be sent as <a href="references.html#contained">contained</a>
 resources, meaning they are only identified relative to another resource and cannot be retrieved or
-otherwise manipulated on their own.  A HL7 v2 to FHIR conversion process will need to make the determination
+otherwise manipulated on their own.  A HL7 V2 to FHIR conversion process will need to make the determination
 of what data elements are or must be present, for a resource to be fully identified.  In some cases, the
 determination will be done at the time of mapping.  In other cases, it may depend on the content of a
 particular instance. As an example, an XCN containing just a name (<code>|^Smith^John|</code>) doesn't
@@ -180,14 +180,14 @@ a contained resource, whereas an XCN of <code>|12345^Smith^John|</code> generall
 process will need to be aware of the scope and management processes around the identifier.
 </p>
 <p>
-<b>Generating human-readable content:</b><a name="HL7 v2-humanReadable"></a> FHIR requires that every
+<b>Generating human-readable content:</b><a name="HL7 V2-humanReadable"></a> FHIR requires that every
 resource have a human readable <a href="narrative.html">narrative</a> that contains all information
-relevant to human decision-making.  When converting from HL7 v2, developers (likely with guidance from
+relevant to human decision-making.  When converting from HL7 V2, developers (likely with guidance from
 clinicians) will need to determine what information from the message should be rendered and how
 to generate this content.
 </p>
 <p>
-<b>Delete indicator and update modes:</b><a name="HL7 v2-updateMode"></a>In HL7 v2, "action" codes can determine
+<b>Delete indicator and update modes:</b><a name="HL7 V2-updateMode"></a>In HL7 V2, "action" codes can determine
 whether particular segments represent information to be added, updated or deleted.  Fields can be
 populated with a "delete indicator" (two consecutive double-quotes with no other characters) to note a field is
 to be deleted.  An omitted element or repetition is generally interpreted as "retain existing data

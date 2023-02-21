@@ -67,7 +67,7 @@
   <concept>
     <code value="final"/>
     <display value="Final"/>
-    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
+    <definition value="The observation is complete and there are no further actions needed. Additional information such &quot;released&quot;, &quot;signed&quot;, etc. would be represented using [Provenance](provenance.html) which provides not only the act but also the actors and dates and other related data. These act states would be associated with an observation status of `preliminary` until they are all completed and then a status of `final` would be applied."/>
   </concept>
   <concept>
     <code value="amended"/>
