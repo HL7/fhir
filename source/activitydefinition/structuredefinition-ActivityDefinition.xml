@@ -124,7 +124,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -702,7 +702,7 @@
       <path value="ActivityDefinition.effectivePeriod"/>
       <short value="When the activity definition is expected to be used"/>
       <definition value="The period during which the activity definition content was or is planned to be in active use."/>
-      <comment value="The effective period for a activity definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <comment value="The effective period for an activity definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the activity definition are or are expected to be used instead."/>
       <min value="0"/>
       <max value="1"/>
@@ -728,7 +728,7 @@
         <valueString value="Topic was originally modeled as a type of useContext, but was broken out as a separate element for ease of reference."/>
       </extension>
       <path value="ActivityDefinition.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the activity definition so that it can be found by topical searches."/>
       <min value="0"/>
@@ -819,7 +819,7 @@
     </element>
     <element id="ActivityDefinition.relatedArtifact">
       <path value="ActivityDefinition.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="Activity definitions must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -1124,7 +1124,7 @@
     </element>
     <element id="ActivityDefinition.participant.role">
       <path value="ActivityDefinition.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc"/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -1146,7 +1146,7 @@
     </element>
     <element id="ActivityDefinition.participant.function">
       <path value="ActivityDefinition.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <short value="E.g. Author, Reviewer, Witness, etc"/>
       <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>

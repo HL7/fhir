@@ -4148,7 +4148,7 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">Height rule</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Media</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">Height can only be used for a image or video</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Height can only be used for an image or video</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">height.empty() or type != 'audio'</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">not(f:type/@value='audio') or not(f:height)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -4157,7 +4157,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Width rule</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Media</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Width can only be used for a image or video</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Width can only be used for an image or video</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">width.empty() or type != 'audio'</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">not(f:type/@value='audio') or not(f:width)</Data></Cell>
    </Row>
@@ -4166,7 +4166,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Frames rule</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Media</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Frames can only be used for a image</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Frames can only be used for an image</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">frames.empty() or type = 'photo'</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">(f:type/@value='photo') or not(f:frames)</Data></Cell>
    </Row>

@@ -248,8 +248,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="A type of resource, or a Reference"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="Subscription.filterBy.filterParameter">
@@ -359,7 +364,7 @@
     <element id="Subscription.heartbeatPeriod">
       <path value="Subscription.heartbeatPeriod"/>
       <short value="Interval in seconds to send 'heartbeat' notification"/>
-      <definition value="If present, a 'heartbeat' notification (keep-alive) is sent via this channel with an the interval period equal to this elements integer value in seconds. If not present, a heartbeat notification is not sent."/>
+      <definition value="If present, a 'hearbeat' notification (keepalive) is sent via this channel with an interval period equal to this elements integer value in seconds.  If not present, a heartbeat notification is not sent."/>
       <min value="0"/>
       <max value="1"/>
       <type>

@@ -153,7 +153,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurred[x]"/>
+        <map value="Event.occurrence"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -267,7 +267,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -376,7 +376,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.patient"/>
+        <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -559,6 +559,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
+      <condition value="prov-1"/>
+      <condition value="prov-2"/>
+      <condition value="prov-3"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -587,6 +590,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
       </type>
+      <condition value="prov-1"/>
+      <condition value="prov-2"/>
+      <condition value="prov-3"/>
       <mapping>
         <identity value="rim"/>
         <map value="Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]"/>
@@ -684,7 +690,7 @@
       <path value="Provenance.entity.agent"/>
       <short value="Entity is attributed to this agent"/>
       <definition value="The entity is attributed to an agent to express the agent's responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which used the entity."/>
-      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity."/>
+      <comment value="A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 V2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity's use in the context of this Provenance activity."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Provenance.agent"/>

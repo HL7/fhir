@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -111,6 +111,17 @@
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
       </mapping>
+    </element>
+    <element id="ExplanationOfBenefit.traceNumber">
+      <path value="ExplanationOfBenefit.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.status">
       <path value="ExplanationOfBenefit.status"/>
@@ -299,7 +310,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.agent"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -320,7 +331,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.agent"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -603,10 +614,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.location"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
@@ -1226,8 +1233,8 @@
       </extension>
       <path value="ExplanationOfBenefit.accident"/>
       <short value="Details of the event"/>
-      <definition value="Details of a accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
+      <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1361,6 +1368,17 @@
       <max value="*"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.traceNumber">
+      <path value="ExplanationOfBenefit.item.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.revenue">
@@ -1591,7 +1609,7 @@
     <element id="ExplanationOfBenefit.item.net">
       <path value="ExplanationOfBenefit.item.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -1739,7 +1757,7 @@
           <valueUri value="https://x12.org/codes/service-review-decision-reason-codes"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/claim-decision-reason"/>
       </binding>
     </element>
     <element id="ExplanationOfBenefit.item.reviewOutcome.preAuthRef">
@@ -1871,6 +1889,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+   <element id="ExplanationOfBenefit.item.detail.traceNumber">
+      <path value="ExplanationOfBenefit.item.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.revenue">
@@ -2053,7 +2082,7 @@
     <element id="ExplanationOfBenefit.item.detail.net">
       <path value="ExplanationOfBenefit.item.detail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the line item.detail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2129,6 +2158,17 @@
       <max value="1"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.item.detail.subDetail.traceNumber">
+      <path value="ExplanationOfBenefit.item.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail.subDetail.revenue">
@@ -2311,7 +2351,7 @@
     <element id="ExplanationOfBenefit.item.detail.subDetail.net">
       <path value="ExplanationOfBenefit.item.detail.subDetail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the line item.detail.subDetail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2416,6 +2456,17 @@
       <max value="*"/>
       <type>
         <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.provider">
@@ -2644,7 +2695,7 @@
     <element id="ExplanationOfBenefit.addItem.net">
       <path value="ExplanationOfBenefit.addItem.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the addItem. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2760,6 +2811,17 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.detail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.revenue">
@@ -2902,7 +2964,7 @@
     <element id="ExplanationOfBenefit.addItem.detail.net">
       <path value="ExplanationOfBenefit.addItem.detail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the group (if a grouper) or the addItem.detail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>
@@ -2961,6 +3023,17 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.detail.subDetail.traceNumber">
+      <path value="ExplanationOfBenefit.addItem.detail.subDetail.traceNumber"/>
+      <short value="Number for tracking"/>
+      <definition value="Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners."/>
+      <requirements value="Allows partners to uniquely identify components for tracking."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.revenue">
@@ -3103,7 +3176,7 @@
     <element id="ExplanationOfBenefit.addItem.detail.subDetail.net">
       <path value="ExplanationOfBenefit.addItem.detail.subDetail.net"/>
       <short value="Total item cost"/>
-      <definition value="The quantity times the unit price for an additional service or product or charge."/>
+      <definition value="The total amount claimed for the addItem.detail.subDetail. Net = unit price * quantity * factor."/>
       <comment value="For example, the formula: quantity * unitPrice * factor  = net. Quantity and factor are assumed to be 1 if not supplied."/>
       <requirements value="Provides the total amount claimed  for the group (if a grouper) or the line item."/>
       <min value="0"/>

@@ -111,6 +111,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sst-1"/>
       <isModifier value="true"/>
       <isModifierReason value="Not known why this is labelled a modifier"/>
       <isSummary value="true"/>
@@ -147,6 +148,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sst-1"/>
     </element>
     <element id="SubscriptionStatus.notificationEvent.eventNumber">
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>

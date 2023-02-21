@@ -16,7 +16,7 @@
         <description value="Returns statements based on adherence or compliance"/>
         <code value="adherence"/>
         <type value="token"/>
-        <expression value="MedicationStatement.adherence"/>
+        <expression value="MedicationStatement.adherence.code"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

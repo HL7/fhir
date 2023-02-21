@@ -2,4 +2,25 @@
 
 <!-- content goes here -->
 
+<h2>Additional Information</h2>
+<p>
+The information presented in different backbone elements, such as <b>.supportingInfo</b> or <b>.adjudication</b>, has a 
+different context based on the <b>.category</b> code presented in each, for example, adjudication occurrence may represent an amount 
+paid by the patient while another may represent the amount paid to the provider.
+</p>
+<p>
+Additionally, there are several places in the resource which point to other sections of the resource via the use of 
+a <b>.sequence</b> number in the referred-to element and an <b>.<i>element</i>Sequence</b> in the referring element.
+Sequence numbers appear in such element as <b>.careTeam</b> referred to by <b>.careTeamSequence</b>, 
+<b>.diagnosis</b> referred to by <b>.diagnosisSequence</b>, <b>.procedure</b> referred to by <b>.procedureSequence</b>, 
+<b>.supportingInfo</b> referred to by <b>.informationSequence</b> and <b>.item</b> referred to by <b>.itemSequence</b>.
+</p>
+<p>
+The <b>.noteNumber</b> element, which appears at the <b>.item</b>, <b>.detail</b> and <b>.subDetail</b> levels in the 
+ <b>.item</b> and <b>.addItem</b> structures, contains a list of numbers which match the value of the <b>.number</b> 
+ element in the <b>.processNote</b> structure. The process notes are indivdual chunks of text describing a situation 
+ associated with insurer explanation of adjudication results. Rather than repeating the same text in the adjudication of
+ line item or detail, the insurer can provide the text once in the <b>.processNote</b> structure then include the associated 
+ number value in the list of <b>.noteNumber</b>s for each of the appropriate line items or details.
+</p>
 </div>

@@ -60,7 +60,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -150,7 +150,7 @@
       <path value="ObservationDefinition.version"/>
       <short value="Business version of the ObservationDefinition"/>
       <definition value="The identifier that is used to identify this version of the ObservationDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the ObservationDefinition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable."/>
-      <comment value="There may be multiple different instances of a ObservationDefinition that have the same identifier but different versions."/>
+      <comment value="There may be multiple different instances of an observationDefinition that have the same identifier but different versions."/>
       <min value="0"/>
       <max value="1"/>
       <type>

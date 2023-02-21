@@ -113,7 +113,7 @@ notes: do not list revision in the version
             <a href="metadatatypes.html#Availability">Availability</a>, <a href="metadatatypes.html#ExtendedContactDetail">ExtendedContactDetail</a>,
             <a href="metadatatypes.html#MonetaryComponent">MonetaryComponent</a> and <a href="metadatatypes.html#VirtualServiceDetail">VirtualServiceDetail</a></li>
         <li>Complete Rework <a href="subscriptions.html">Subscriptions framework</a></li>
-        <li>Hundreds of clarifications, technical corrections etc</li>
+        <li>Hundreds of clarifications, technical corrections etc.</li>
         <li><a href="https://jira.hl7.org/browse/FHIR-5507?filter=19551">3157 change requests</a> were applied to R5, of which 
           <a href="https://jira.hl7.org/browse/FHIR-7612?filter=19552">1486 changes</a> were considered substantive.</li>
       </ul>
@@ -285,7 +285,7 @@ notes: do not list revision in the version
        <tr style="background-color: #eeeeee"><td colspan="3"><b>Normative / Conformance + Terminology</b></td></tr>
        <tr><td>Remove ValueSet.$expand profile parameter, and add parameters from ExpansionProfile <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16337%] &amp; [%GF#16490%]</td> <td>[%diff valueset-operation-expand.html ValueSet.$expand%]</td></tr>
        <tr><td>Remove ValueSet.$expand.limitedExpansion parameter, and document how to use count instead <b style="color: maroon">Breaking change!</b></td> <td>Vocab: [%GF#16449%]</td> <td>[%diff valueset-operation-expand.html ValueSet $expand operation%]</td></tr>
-       <tr><td>Move Valueset.extensible to an extension</td> <td>Vocab: [%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
+       <tr><td>Move ValueSet.extensible to an extension</td> <td>Vocab: [%GF#16427%]</td> <td>[%diff valueset.html ValueSet%]</td></tr> 
        <tr><td>Add <a href="capabilitystatement-definitions.html#CapabilityStatement.implementation.custodian">CapabilityStatement.implementation.custodian</a></td> <td>FHIR-I: [%GF#16342%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
        <tr><td>Add CapabilityStatement.imports</td> <td>FHIR-I: [%GF#14299%]</td> <td>[%diff capabilitystatement.html CapabilityStatement%]</td></tr>
 
@@ -412,7 +412,7 @@ notes: do not list revision in the version
         <li>Add draft resources <a href="adverseevent.html">AdverseEvent</a> and <a href="graphdefinition.html">GraphDefinition</a></li>
         <li>Change to the <a href="profiling.html#discriminator">way discriminators work</a> in profiles (for profile/tooling authors)</li>
         <li>Finalization of the <a href="rdf.html">Turtle (RDF) format, along with JSON-LD (later removed)</a></li>
-        <li>Consolidation of Vresion management issues into a single <a href="versions.html">Version Policy</a> page, and update to current policy</li>
+        <li>Consolidation of Version management issues into a single <a href="versions.html">Version Policy</a> page, and update to current policy</li>
         <li>Add <a href="search.html#missing">rules about how missing data</a> in search</li>
       </ul>
       <p>
@@ -445,7 +445,7 @@ notes: do not list revision in the version
         <li>Change <a href="datatypes.html#HumanName">HumanName</a>.family from 0..* to 0..1</li>
         <li>Rename MedicationOrder and DiagnosticOrder to  <a href="medicationrequest.html">MedicationRequest</a> and DiagnosticRequest and make a series of changes to align with the <a href="request.html">Request Pattern</a></li>
         <li>Add cross resource search + rework composite parameter expressions</li>
-        <li>Harmonise resource metadata across the Terminology, Conformance, and Knowledge resources</li>
+        <li>Harmonize resource metadata across the Terminology, Conformance, and Knowledge resources</li>
         <li>Change the way <a href="references.html#canonical">versioned references to canonical URLs</a> are handled</li>
         <li>REST - servers must <a href="http.html#create">return a location header</a> on a create</li>
         <li><a href="condition.html">Condition</a> status elements reworked</li>
@@ -640,7 +640,7 @@ notes: do not list revision in the version
       <ul>
        <li>Remove the Clinical Quality Improvement Framework (CQIF) from this published version</li>
        <li>made fixes to generated schematrons</li>
-       <li>updated generated comformance resources (StructureDefinitions and SearchParameters) so they were consistent with the specification</li>
+       <li>updated generated conformance resources (StructureDefinitions and SearchParameters) so they were consistent with the specification</li>
        <li>Many spelling / grammar / broken link fixes</li>
       </ul>
     </td>
@@ -825,7 +825,7 @@ notes: do not list revision in the version
         <li><a href="valueset.html">ValueSet</a>: replace  ValueSet.compose.include.code with ValueSet.compose.include.concept (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3258">3258</a>), added new rules about expansion content (<a href="https://jira.hl7.org/projects/FHIR/issues/FHIR-3138">3138</a>)</li>
         <li>Remove DeviceObservationReport and Query</li>
         <li>Collapse AdverseReaction into <a href="allergyintolerance.html">AllergyIntolerance</a></li>
-        <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a></li>
+        <li><a href="appointment.html">Appointment</a> changes - individual field renamed to actor, and added mappings to <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a></li>
         <li><a href="familymemberhistory.html">FamilyMemberHistory</a> combined with <a href="list.html">List</a> replaces FamilyHistory (with corresponding updates to related profiles)</li>
         <li><a href="flag.html">Flag</a> replaces Alert including improved clarification of how it is used and replacement of "note" with "code"</li>
         <li><a href="careplan.html">CarePlan</a> significantly refactored including splitting Goal out as a distinct resource, moving elements between activity and detail, introduction of several new elements and supported relationship types</li>

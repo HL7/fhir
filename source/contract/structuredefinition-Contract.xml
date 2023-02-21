@@ -80,7 +80,7 @@
       <max value="*"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request"/>
+        <map value="Event"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -104,7 +104,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.identifier"/>
+        <map value="Event.identifier"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -160,7 +160,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.status"/>
+        <map value="Event.status"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -251,7 +251,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
+        <map value="Event.authoredOn"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -271,7 +271,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
+        <map value="Event.occurrence[x]"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -312,7 +312,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.subject"/>
+        <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -474,7 +474,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Event.code"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -648,7 +648,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.identifier"/>
+        <map value="Event.identifier"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -667,7 +667,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.authoredOn"/>
+        <map value="Event.authoredOn"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -690,7 +690,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.occurrence[x]"/>
+        <map value="Event.occurrence[x]"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -734,7 +734,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.code"/>
+        <map value="Event.code"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1683,7 +1683,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.performer"/>
+        <map value="Event.performer"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1764,7 +1764,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Event.reasonCode"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1799,7 +1799,7 @@
           <valueString value="ContractActionStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for the status of an term action."/>
+        <description value="Codes for the status of a term action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-actionstatus"/>
       </binding>
     </element>
@@ -2089,7 +2089,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.requester"/>
+        <map value="Event.requester"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -1250,62 +1250,6 @@
         <map value=".participation[typeCode=LOC].role"/>
       </mapping>
     </element>
-    <element id="Transport.reason">
-      <path value="Transport.reason"/>
-      <short value="Business status of transported entity"/>
-      <definition value="The business status of the person or item being currently transported."/>
-      <comment value="This element should be used to capture the current business status of the entity being transported, not the status of transport."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TransportReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates the current business status of the entity being transported."/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.location"/>
-      </mapping>
-    </element>
-    <!-- <element id="Transport.reasonCode">
-      <path value="Transport.reasonCode"/>
-      <short value="Why transport is needed"/>
-      <definition value="A description or code indicating why this transport needs to be performed."/>
-      <comment value="This should only be included if there is no focus or if it differs from the reason indicated on the focus."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="TransportReason"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Indicates why the transport is needed.  E.g. Suspended because patient admitted to hospital."/>
-      </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.location"/>
-      </mapping>
-      <mapping>
-        <identity value="w5"/>
-        <map value="FiveWs.why[x]"/>
-      </mapping>
-      <mapping>
-        <identity value="v2"/>
-        <map value="EVN.7"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".reasonCode"/>
-      </mapping>
-    </element> -->
     <element id="Transport.reason">
       <path value="Transport.reason"/>
       <short value="Why transport is needed"/>

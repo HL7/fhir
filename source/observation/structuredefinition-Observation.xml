@@ -65,7 +65,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -111,6 +111,13 @@
         <severity value="error"/>
         <human value="dataAbsentReason SHALL only be present if Observation.value[x] is not present"/>
         <expression value="dataAbsentReason.empty() or value.empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+      </constraint>
+      <constraint>
+        <key value="obs-8"/>
+        <severity value="error"/>
+        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
+        <expression value="bodySite.exists() implies bodyStructure.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
@@ -422,6 +429,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -557,7 +565,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -690,7 +698,7 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="boolean"/>
@@ -727,6 +735,7 @@
         <code value="canonical"/>
       </type>
       <condition value="obs-7"/>
+      <condition value="obs-6"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="sct-concept"/>
@@ -779,7 +788,7 @@
     </element>
     <element id="Observation.interpretation">
       <path value="Observation.interpretation"/>
-      <short value="High, low, normal, etc."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>
@@ -850,6 +859,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-8"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="BodySite"/>
@@ -892,13 +902,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BodyStructure"/>
       </type>
-      <constraint>
-        <key value="obs-8"/>
-        <severity value="error"/>
-        <human value="bodyStructure SHALL only be present if Observation.bodySite is not present"/>
-        <expression value="bodyStructure.empty() or bodySite.empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
-      </constraint>
+      <condition value="obs-8"/>
       <mapping>
         <identity value="rim"/>
         <map value="targetSiteCode"/>
@@ -954,7 +958,7 @@
         <key value="obs-9"/>
         <severity value="error"/>
         <human value="If Observation.specimen is a reference to Group, the group can only have specimens"/>
-        <expression value="reference = 'Group' implies member.entity.resolve() is Specimen"/>
+        <expression value="(reference.resolve().exists() and reference.resolve() is Group) implies reference.resolve().member.entity.resolve().all($this is Specimen)"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Observation"/>
       </constraint>
       <mapping>
@@ -1088,7 +1092,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationReferenceRangeNormalValue"/>
@@ -1198,8 +1201,9 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
+      <condition value="obs-3"/>
       <mapping>
         <identity value="v2"/>
         <map value="OBX-7"/>
@@ -1285,6 +1289,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="v2"/>
@@ -1306,6 +1311,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="obs-7"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1350,7 +1356,7 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="boolean"/>
@@ -1418,7 +1424,6 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
-      <condition value="obs-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ObservationValueAbsentReason"/>
@@ -1441,7 +1446,7 @@
         <valueString value="#9676."/>
       </extension>
       <path value="Observation.component.interpretation"/>
-      <short value="High, low, normal, etc."/>
+      <short value="High, low, normal, etc"/>
       <definition value="A categorical assessment of an observation value.  For example, high, low, normal."/>
       <comment value="Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result."/>
       <requirements value="For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result."/>

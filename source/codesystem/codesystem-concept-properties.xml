@@ -86,7 +86,7 @@
   <concept>
     <code value="partOf"/>
     <display value="Part Of"/>
-    <definition value="The concept identified in this property (by it's code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm"/>
+    <definition value="The concept identified in this property (by its code) contains this concept as a component (i.e. a part-of relationship rather than a subsumption relationship such as elbow is part-of arm"/>
   </concept>
   <concept>
     <code value="synonym"/>

@@ -24,7 +24,7 @@
       <valueString value="practitionerrole-examples-general"/>
     </extension>
     <item>
-      <reference value="PractitionerRole/3ad0687e-f477-468c-afd5-fcc2bf897808"/>
+      <reference value="Bundle/3ad0687e-f477-468c-afd5-fcc2bf897808"/>
       <display value="HL7"/>
     </item>
   </entry>

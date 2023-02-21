@@ -293,7 +293,8 @@ The following filters are defined for all code systems:
    <td>[property]</td>
    <td>=</td>
    <td>[string]</td>
-   <td>Includes all codes that have a property value equal to the specified string, where [property] is the code for any <a href="#properties">defined property</a></td>
+   <td>Includes all codes that have a property value equal to the specified string, where [property] is the code for any <a href="#properties">defined property</a>. 
+     Where the type of the property is on of <code>integer</code>, <code>dateTime</code> or <code>decimal</code>, the FHIR search prefixes and semantics apply (see below)</td>
    <td></td>
  </tr>
  <tr>
@@ -333,9 +334,11 @@ The following filters are defined for all code systems:
  </tr> 
 </table>
 
+<!--
 [%ballot-note filters%]
 Ballot feedback is sought in relation to the additional concept filters for code systems supporting is-a relationships included in the table below, which has been added for R5.
 [%end-note%]
+-->
 
 <p>
 The following filters are defined for all code systems that support "is-a" relationships between concepts. (The filters can be used regardless of whether the "is-a" relationships are conveyed as concept properties or as concept nesting):
@@ -391,6 +394,51 @@ The following filters are defined for all code systems that support "is-a" relat
    <td></td>
  </tr>
 </table>
+
+<a name="fhir-search"> </a>
+<h3>FHIR Search Semantics</h3>
+<p>
+If the  <code>=</code> filter is used with a property that is defined on the CodeSystem, and if the 
+property has a type of <code>integer</code>, <code>dateTime</code> or <code>decimal</code>, then the
+FHIR search rules apply. This means that the following prefixes may be used in the value of the filter:
+</p>
+<ul>
+ <li><b>eq</b>: the code has a value for the property on the code and it is equal to the provided value</li>
+ <li><b>ne</b>: the code has a value for the property on the code and it is not equal to the provided value</li>
+ <li><b>gt</b>: the code has a value for the property on the code and it is greater than the provided value</li>
+ <li><b>lt</b>: the code has a value for the property on the code and it is less than the provided value</li>
+ <li><b>ge</b>: the code has a value for the property on the code and it is greater or equal to the provided value</li>
+ <li><b>le</b>: the code has a value for the property on the code and it is less or equal to the provided value</li>
+ <li><b>sa</b>: the code has a value for the property on the code and it is starts after the provided value</li>
+ <li><b>eb</b>: the code has a value for the property on the code and it is ends before the provided value</li>
+ <li><b>ap</b>: the code has a value for the property on the code and it is approximately the same to the provided value</li>
+</ul>
+<p>
+The semantics of prefixes are as explained on the search page with regard to precision and range considerations, particularly on dates and decimals. 
+Note that <code>eq</code> is not redundant - in it's absence, the semantics are for a direct string match, not a smart match as defined by the 
+search semantics.
+</p>
+<p>
+Some Examples:
+</p>
+<pre class="json">
+{ "property": "retiredDate", "operator": "=", "value": "lt2021-01-01" }
+</pre>
+<p>
+Any code that was retired before 2021. Regarding precision:
+</p>
+<pre class="json">
+{ "property": "retiredDate", "operator": "=", "value": "eq2022" }
+</pre>
+<p>
+would match a concept with a retiredDate of 2022-09-12. However:
+</p>
+<pre class="json">
+{ "property": "retiredDate", "operator": "=", "value": "2022" }
+</pre>
+<p>
+would not match a concept with a retiredDate of 2022-09-12.
+</p>
 
 <!--
 <div class="draft-content">

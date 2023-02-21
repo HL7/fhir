@@ -99,14 +99,14 @@
       <constraint>
         <key value="csd-2"/>
         <severity value="warning"/>
-        <human value="If there is a explicit hierarchy, a hierarchyMeaning should be provided"/>
+        <human value="If there is an explicit hierarchy, a hierarchyMeaning should be provided"/>
         <expression value="concept.concept.exists() implies hierarchyMeaning.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
       <constraint>
         <key value="csd-3"/>
         <severity value="warning"/>
-        <human value="If there is a implicit hierarchy, a hierarchyMeaning should be provided"/>
+        <human value="If there is an implicit hierarchy, a hierarchyMeaning should be provided"/>
         <expression value="concept.where(property.code = 'parent' or property.code = 'child').exists() implies hierarchyMeaning.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </constraint>
@@ -148,7 +148,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -520,7 +520,7 @@
         <valueString value="Although topic could be modeled as a type of useContext, it was specifically modeled as an element because it is central to indexing support."/>
       </extension>
       <path value="CodeSystem.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptions related to the content of the CodeSystem. Topics provide a high-level categorization as well as keywords for the CodeSystem that can be useful for filtering and searching."/>
       <comment value="This element provides topical categorization and keywords for the CodeSystem, as opposed to the more structured context-of-use information provided in the useContext element"/>
       <requirements value="Repositories must be able to determine how to categorize the CodeSystem so that it can be found by topical and keyword searches."/>
@@ -597,7 +597,7 @@
         <valueCode value="trial-use"/>
       </extension>
       <path value="CodeSystem.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="A CodeSystem must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -642,6 +642,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -686,6 +688,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -710,6 +713,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CodeSystem"/>
       </type>
+      <condition value="csd-4"/>
       <isSummary value="true"/>
     </element>
     <element id="CodeSystem.count">
@@ -883,6 +887,9 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-1"/>
+      <condition value="csd-2"/>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -896,6 +903,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-1"/>
     </element>
     <element id="CodeSystem.concept.display">
       <path value="CodeSystem.concept.display"/>
@@ -975,6 +983,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -994,6 +1003,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="csd-5"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="ConceptDesignationUse"/>
@@ -1028,6 +1038,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.code">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
@@ -1041,6 +1052,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="csd-3"/>
     </element>
     <element id="CodeSystem.concept.property.value[x]">
       <path value="CodeSystem.concept.property.value[x]"/>

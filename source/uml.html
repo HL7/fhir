@@ -181,7 +181,7 @@ to being abstract, and potentially an interface, classes that do follow the inte
 <ul>
   <li>There is no direct implementation of the patterns</li>
   <li>The relationship between the attributes and associations may be indirect - e.g. attributes may be renamed, restructured, or have different value domains</li>
-  <li>Such patterns are there primarily to provide document general design intentions, which are subject to ongoing harmonization with observed real world requirements</li>
+  <li>Such patterns are there primarily to provide document general design intentions, which are subject to ongoing harmonization with observed real-world requirements</li>
   <li>The relationship between the patterns and the resources that follow them is found in the <a href="mappings.html">mappings for the resources</a></li>
 </ul>
 <p>
@@ -221,7 +221,7 @@ If the datatype assigned to an attribute is a reference to another resource (one
 <a href="references.html#Reference">Reference</a>, <a href="datatypes.html#canonical">canonical</a> or <a href="datatypes.html#CodeableReference">CodeableReference</a>), 
 then a stereotype may be provided that indicates which kinds of resources the references are allowed to refer to. If this stereotype is provided, only the specified 
 resources are allowed to be referenced. Note: as such, this is conceptually equivalent to an OCL constraint on the attribute, but the rules can only be evaluated by
-fetching the target of the reference from the specified URL and examining it's content. 
+fetching the target of the reference from the specified URL and examining its content. 
 </p>
 <p>
 The format of this stereotype is a list of resource types defined within this specification (concrete specializations of <a href="resource.html#Resource">Resource</a>) 

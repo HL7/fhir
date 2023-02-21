@@ -40,12 +40,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-reason-stopped"/>
-      </filter>
+      <system value="http://hl7.org/fhir/research-study-reason-stopped"/>
     </include>
   </compose>
 </ValueSet>

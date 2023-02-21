@@ -39,7 +39,7 @@ The following rules apply to name and identifier uniqueness within a Parameters 
  <tr>
   <td>References</td>
   <td>When resolving references in resources, the applicable <a href="operationdefinition.html">Operation Definition</a> may 
-	  specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to it's 
+	  specify how references may be resolved between parameters. If a reference cannot be resolved between the parameters, the application should fall back to its 
 		<a href="references.html">general resource resolution methods</a></td>
  </tr>
  

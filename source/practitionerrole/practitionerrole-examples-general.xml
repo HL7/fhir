@@ -24,19 +24,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="17561000" />
+            <display value="Cardiologist" />
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.011" />
-            <display value="Cardiothoracal surgery" />
+            <system value="http://snomed.info/sct" />
+            <code value="394603008" />
+            <display value="Cardiothoracic surgery" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -69,8 +67,9 @@
         </organization>
         <code>
           <coding>
-            <system value="http://terminology.hl7.org/CodeSystem/v2-0286" />
-            <code value="RP" />
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
           </coding>
         </code>
         <location>
@@ -114,6 +113,13 @@
           <reference value="Organization/2" />
           <display value="Good Health Clinic" />
         </organization>
+        <code>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
+          </coding>
+        </code>
       </PractitionerRole>
     </resource>
   </entry>
@@ -143,6 +149,11 @@
           <display value="Good Health Clinic" />
         </organization>
         <code>
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="59944000" />
+            <display value="Psychologist"/>
+          </coding>
           <text value="On call physcologist"/>
         </code>
         <contact>
@@ -186,19 +197,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.015" />
-            <display value="Physician" />
+            <system value="http://snomed.info/sct" />
+            <code value="394814009" />
+            <display value="General practice" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -224,19 +233,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.018" />
-            <display value="Ear-, Nose and Throat" />
+            <system value="http://snomed.info/sct" />
+            <code value="394604002" />
+            <display value="Surgery-Ear, nose and throat surgery" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -260,10 +267,14 @@
           <display value="Cleveland Clinic" />
         </organization>
         <code>
-          <text value="Primary Surgon" />
+          <text value="Primary Surgeon" />
         </code>
         <specialty>
-          <text value="Orthopedic" />
+          <coding>
+            <system value="http://snomed.info/sct" />
+            <code value="394604002" />
+            <display value="Surgery-Ear, nose and throat surgery" />
+          </coding>
         </specialty>
       </PractitionerRole>
     </resource>
@@ -397,19 +408,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.018" />
-            <display value="Keel- neus- en oorarts" />
+            <system value="http://snomed.info/sct" />
+            <code value="394604002" />
+            <display value="Surgery-Ear, nose and throat surgery" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -435,19 +444,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="159010009" />
+            <display value="Hospital pharmacist" />
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="17.000" />
+            <system value="http://snomed.info/sct" />
+            <code value="46255001" />
             <display value="Pharmacist" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -473,19 +480,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="59058001" />
+            <display value="General physician"/>
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.018" />
-            <display value="Ear-, Nose and Throat" />
+            <system value="http://snomed.info/sct" />
+            <code value="394604002" />
+            <display value="Surgery-Ear, nose and throat surgery" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -511,19 +516,17 @@
         </organization>
         <code>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.000" />
-            <display value="Arts" />
+            <system value="http://snomed.info/sct" />
+            <code value="17561000" />
+            <display value="Cardiologist" />
           </coding>
-          <text value="Care role" />
         </code>
         <specialty>
           <coding>
-            <system value="urn:oid:2.16.840.1.113883.2.4.15.111" />
-            <code value="01.011" />
-            <display value="Cardiothoracal surgery" />
+            <system value="http://snomed.info/sct" />
+            <code value="394603008" />
+            <display value="Cardiothoracic surgery" />
           </coding>
-          <text value="specialization" />
         </specialty>
       </PractitionerRole>
     </resource>
@@ -557,8 +560,8 @@
         <specialty>
           <coding>
             <system value="http://snomed.info/sct" />
-            <code value="9632001" />
-            <display value="Nursing procedure" />
+            <code value="394618009" />
+            <display value="Hospital nurse" />
           </coding>
         </specialty>
       </PractitionerRole>

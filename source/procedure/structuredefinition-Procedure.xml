@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -444,7 +444,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -605,6 +605,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="prc-1"/>
+        <severity value="error"/>
+        <human value="Procedure.performer.onBehalfOf can only be populated when performer.actor isn't Practitioner or PractitionerRole"/>
+        <expression value="onBehalfOf.exists() and actor.resolve().exists() implies actor.resolve().where($this is Practitioner or $this is PractitionerRole).empty()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </constraint>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -672,6 +679,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
       <isSummary value="true"/>
+	    <condition value="prc-1"/>
       <mapping>
         <identity value="workflow"/>
         <map value="Event.performer.actor"/>
@@ -701,14 +709,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
-	  <condition value="prc-1"/>
-      <constraint>
-        <key value="prc-1"/>
-        <severity value="error"/>
-        <human value="Procedure.performer.onBehalfOf can only be populated when performer.actor isn't Practitioner or PractitionerRole"/>
-        <expression value="performer.onBehalfOf.exists() and performer.actor.resolve().exists() implies performer.actor.resolve().where($this is Practitioner or $this is PractitionerRole).empty()"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
-      </constraint>
+	    <condition value="prc-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".scoper"/>

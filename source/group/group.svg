@@ -178,7 +178,7 @@ actual</a>
        class="diagram-class-detail"><a
    xlink:href="group-definitions.html#Group.code"
    id="n322"><title
-   id="title41">Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc</title>
+   id="title41">Provides a specific type of resource the group includes; e.g. &quot;cow&quot;, &quot;syringe&quot;, etc.</title>
 code</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"
