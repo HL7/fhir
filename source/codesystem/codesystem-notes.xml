@@ -333,9 +333,11 @@ The following filters are defined for all code systems:
  </tr> 
 </table>
 
+<!--
 [%ballot-note filters%]
 Ballot feedback is sought in relation to the additional concept filters for code systems supporting is-a relationships included in the table below, which has been added for R5.
 [%end-note%]
+-->
 
 <p>
 The following filters are defined for all code systems that support "is-a" relationships between concepts. (The filters can be used regardless of whether the "is-a" relationships are conveyed as concept properties or as concept nesting):

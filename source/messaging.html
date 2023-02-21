@@ -178,20 +178,6 @@ This specification does not dictate any particular error handling protocols or r
 </p>
 
 
-[%ballot-note id-feedback%]
-Since this page was first written, Bundle.identifier was added. 
-FHIR-I is considering rewriting this so that the decisions are 
-made against Bundle.identifier not Bundle.id. This would allow 
-intermediaries to use the Bundle.id as the primary internal id
-for bundle. There's an additional proposal to add MessageHeader.identifier
-and change to using that instead of MessageHeader.id. 
-</p>
-<p>
-Ballot input is solicited on two issues: should this section 
-change at all (e.g. change to Bundle.identifier), and should 
-it be based on MessageHeader.identifier (assuming this is added).
-[%end-note%]
-
 <h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
 An incoming message contains two identifiers: the Bundle.id and

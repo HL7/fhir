@@ -2,7 +2,7 @@
 	<div>
 		<a name="scope"></a>
 		<h2>Scope and Usage</h2>
-		
+<!--		
 [%ballot-note scope1%]
 In terms of scope and usage, the  Orders and Observations workgroups wish to
 draw the attention of reviewers and implementers to the following issues and changes.
@@ -14,6 +14,7 @@ draw the attention of reviewers and implementers to the following issues and cha
       <p>
 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>
 [%end-note%]
+-->
 		<p>
 			<strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.  It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow  pattern for <a href="workflow.html">
 					<em>request</em> resources</a>.</strong>
