@@ -360,10 +360,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
-      <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
       </mapping>
@@ -824,7 +820,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonReference"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

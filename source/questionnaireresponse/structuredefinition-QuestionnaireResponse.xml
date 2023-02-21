@@ -179,10 +179,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"/>
       </mapping>

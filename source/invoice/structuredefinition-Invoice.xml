@@ -239,10 +239,6 @@
       </type>
       <isSummary value="true"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
-      <mapping>
         <identity value="v2"/>
         <map value="PV1 in proximity to FT1 segment"/>
       </mapping>

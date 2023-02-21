@@ -283,10 +283,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"/>
       </mapping>

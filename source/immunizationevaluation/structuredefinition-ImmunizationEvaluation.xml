@@ -182,7 +182,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurrenceDateTime"/>
+        <map value="Event.occurrence"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
