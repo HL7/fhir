@@ -508,7 +508,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>
@@ -742,7 +742,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>

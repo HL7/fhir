@@ -153,7 +153,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.occurred[x]"/>
+        <map value="Event.occurrence"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -267,7 +267,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -376,7 +376,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.patient"/>
+        <map value="Event.subject"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

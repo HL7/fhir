@@ -557,10 +557,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
     </element>
     <element id="OperationDefinition.resource">
       <path value="OperationDefinition.resource"/>
