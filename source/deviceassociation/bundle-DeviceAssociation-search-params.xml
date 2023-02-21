@@ -48,13 +48,13 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceAssociation.operator"/>
+          <valueString value="DeviceAssociation.operation.operator"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-operator"/>
-        <description value="The identity of a patient for whom to list associations"/>
+        <description value="The identity of a operator for whom to list associations"/>
         <code value="operator"/>
         <type value="reference"/>
-        <expression value="DeviceAssociation.operator"/>
+        <expression value="DeviceAssociation.operation.operator"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
