@@ -53,7 +53,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-operation-period"/>
         <description value="Search the device's operation during a period of time"/>
-        <code value="subject"/>
+        <code value="operation-period"/>
         <type value="date"/>
         <expression value="DeviceAssociation.operation.period"/>
         <processingMode value="normal"/>
@@ -72,7 +72,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-period"/>
         <description value="Search association during a period of time"/>
-        <code value="subject"/>
+        <code value="period"/>
         <type value="date"/>
         <expression value="DeviceAssociation.period"/>
         <processingMode value="normal"/>
@@ -90,7 +90,7 @@
           <valueString value="DeviceAssociation.status"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceAssociation-status"/>
-        <description value="Search based on the status of the association: 	implanted | explanted | attached | entered-in-error | unknown"/>
+        <description value="Search based on the status of the association,	implanted | explanted | attached | entered-in-error | unknown"/>
         <code value="status"/>
         <type value="token"/>
         <expression value="DeviceAssociation.status"/>
