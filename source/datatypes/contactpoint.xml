@@ -7002,7 +7002,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s151"><Data ss:Type="String">SMS</Data></Cell>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">A contact that can be used for sending an sms message (e.g. mobile phones, some landlines)</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A contact that can be used for sending a sms message (e.g. mobile phones, some landlines)</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>

@@ -44,7 +44,7 @@
                   
             <b>value: </b>
                   
-            <span>ChalmydiaScreening_Common</span>
+            <span>ChlamydiaScreening_Common</span>
                
           </td>
             
@@ -366,7 +366,7 @@
   </text>
   <identifier>
     <use value="official"/>
-    <value value="ChalmydiaScreening_Common"/>
+    <value value="ChlamydiaScreening_Common"/>
   </identifier>
   <version value="2.0.0"/>
   <name value="ChlamydiaScreeningCommonLibrary"/>

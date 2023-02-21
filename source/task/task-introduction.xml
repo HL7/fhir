@@ -9,10 +9,10 @@
       activity.
     </p>
     <p> Note that there are a variety of processes associated with making and processing orders.
-      Some orders may be handled immediately by automated systems but most require real world
-      actions by one or more humans. Some orders can only be processed when other real world actions
+      Some orders may be handled immediately by automated systems but most require real-world
+      actions by one or more humans. Some orders can only be processed when other real-world actions
       happen, such as a patient presenting themselves so that the action to be performed
-      can actually be performed. Often these real world dependencies are only implicit in the order
+      can actually be performed. Often these real-world dependencies are only implicit in the order
       details. </p>
   </div>
   <div>

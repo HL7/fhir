@@ -127,7 +127,7 @@
           <valueString value="PackagedProductDefinition.name"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/PackagedProductDefinition-name"/>
-        <description value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc"/>
+        <description value="A name for this package. Typically what it would be listed as in a drug formulary or catalogue, inventory etc."/>
         <code value="name"/>
         <type value="token"/>
         <expression value="PackagedProductDefinition.name"/>

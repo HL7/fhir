@@ -75,7 +75,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -806,7 +806,7 @@
       <constraint>
         <key value="que-14"/>
         <severity value="warning"/>
-        <human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
+        <human value="Can only have answerConstraint if answerOption or answerValueSet are present.  (This is a warning because extensions may serve the same purpose)"/>
         <expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
@@ -1196,7 +1196,7 @@
     <element id="Questionnaire.item.answerConstraint">
       <path value="Questionnaire.item.answerConstraint"/>
       <short value="optionsOnly | optionsOrType | optionsOrString"/>
-      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueSet), indicates whether values *other* than those specified can be selected."/>
       <requirements value="Introduces the ability for questions to have 'other' answers"/>
       <min value="0"/>
       <max value="1"/>
@@ -1221,7 +1221,7 @@
     </element>
     <element id="Questionnaire.item.answerValueSet">
       <path value="Questionnaire.item.answerValueSet"/>
-      <short value="Valueset containing permitted answers"/>
+      <short value="ValueSet containing permitted answers"/>
       <definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
       <comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>

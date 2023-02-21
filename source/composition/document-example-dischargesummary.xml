@@ -551,7 +551,7 @@
     <onBehalfOf>
       <reference value="Organization/example"/>
     </onBehalfOf>
-    <!-- a real document would typically have an digital signature, but
+    <!-- a real document would typically have a digital signature, but
       the publishing tools are not yet setup to produce a valid digital
       signature. For now, an image of a signature -->
     <sigFormat value="image/jpg"/>

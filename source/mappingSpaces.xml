@@ -46,7 +46,7 @@
 		<url>http://hl7.org/v2</url>
     <link>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185</link>
 		<columnName>v2 Mapping</columnName>
-		<title>HL7 v2 Mapping</title>
+		<title>HL7 V2 Mapping</title>
 		<id>v2</id>
 		<sort>1</sort>
     <publish>true</publish>

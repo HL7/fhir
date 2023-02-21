@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -155,7 +155,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16"/>
+        <map value="No clear equivalent in HL7 V2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -768,7 +768,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"/>
+        <map value="EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 V2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -910,7 +910,7 @@
     </element>
     <element id="Encounter.specialArrangement">
       <path value="Encounter.specialArrangement"/>
-      <short value="Wheelchair, translator, stretcher, etc."/>
+      <short value="Wheelchair, translator, stretcher, etc"/>
       <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
       <min value="0"/>
       <max value="*"/>

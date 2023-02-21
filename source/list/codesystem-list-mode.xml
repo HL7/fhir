@@ -53,7 +53,7 @@
   <concept>
     <code value="working"/>
     <display value="Working List"/>
-    <definition value="This list is the master list, maintained in an ongoing fashion with regular updates as the real world list it is tracking changes."/>
+    <definition value="This list is the master list, maintained in an ongoing fashion with regular updates as the real-world list it is tracking changes."/>
   </concept>
   <concept>
     <code value="snapshot"/>

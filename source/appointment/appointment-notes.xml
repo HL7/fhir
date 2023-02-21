@@ -489,7 +489,7 @@
 <a name="notes"></a>
 	<h2>Notes:</h2>
 	<ul>
-		<li>Placer/Filler (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>)<br/>
+		<li>Placer/Filler (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a>)<br/>
 			The appointment information is effectively the same between the filler and placer, and given the nature of the
 			FHIR resource, there is only a single resource for both purposes. The placer is the actor that performs the
 			PUT or POST operation on the resource, and the filler is the actor that receives these resource messages and

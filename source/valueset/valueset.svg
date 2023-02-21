@@ -905,7 +905,7 @@ abstract</a>
        style="fill:#000000"><a
    xlink:href="valueset-definitions.html#ValueSet.expansion.contains.inactive"
    id="n956"><title
-   id="title257">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether an concept is inactive (and it may depend on the context of use)</title>
+   id="title257">If the concept is inactive in the code system that defines it. Inactive codes are those that are no longer to be used, but are maintained by the code system for understanding legacy data. It might not be known or specified whether a concept is inactive (and it may depend on the context of use)</title>
 inactive</a>
  : <a
    xlink:href="datatypes.html#boolean"
@@ -982,7 +982,7 @@ display</a>
     <a
        xlink:href="valueset-definitions.html#ValueSet.compose.include.concept.designation"
        id="n983"><title
-   id="title281">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc</title>
+   id="title281">Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.</title>
 designation</a>
   </text>
   <text

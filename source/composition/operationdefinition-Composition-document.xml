@@ -76,7 +76,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Whether to store the document at the bundle end-point (/Bundle) or not once it is generated. Value = true or false (default is for the server to decide). If the document is stored, it's location can be inferred from the Bundle.id, but it SHOULD be provided explicitly in the HTTP Location header in the response"/>
+    <documentation value="Whether to store the document at the bundle end-point (/Bundle) or not once it is generated. Value = true or false (default is for the server to decide). If the document is stored, its location can be inferred from the Bundle.id, but it SHOULD be provided explicitly in the HTTP Location header in the response"/>
     <type value="boolean"/>
   </parameter>
   <parameter>

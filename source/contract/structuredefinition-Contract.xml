@@ -1799,7 +1799,7 @@
           <valueString value="ContractActionStatus"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for the status of an term action."/>
+        <description value="Codes for the status of a term action."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/contract-actionstatus"/>
       </binding>
     </element>

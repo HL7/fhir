@@ -25,7 +25,7 @@ The Product pattern is being developed. The committee is looking for feedback on
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Product pattern is instantiated in resources like Medication, Device, etc, and it is used in requesting a product (xxxRequest resources), or reporting a delivery or a usage 
+The Product pattern is instantiated in resources like Medication, Device, etc., and it is used in requesting a product (xxxRequest resources), or reporting a delivery or a usage 
 (xxxUsage resources), or in a procedure. 
 </p>
 

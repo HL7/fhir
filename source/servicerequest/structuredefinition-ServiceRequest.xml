@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -130,7 +130,7 @@
       <path value="ServiceRequest.identifier"/>
       <short value="Identifiers assigned to this order"/>
       <definition value="Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller."/>
-      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2).  For further discussion and examples see the resource notes section below."/>
+      <comment value="The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 V2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 V2).  For further discussion and examples see the resource notes section below."/>
       <min value="0"/>
       <max value="*"/>
       <type>

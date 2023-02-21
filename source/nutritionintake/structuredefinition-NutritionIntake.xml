@@ -367,7 +367,7 @@
     <element id="NutritionIntake.consumedItem.type">
       <path value="NutritionIntake.consumedItem.type"/>
       <short value="The type of food or fluid product"/>
-      <definition value="Indicates what a category of item that was consumed: eg., food, fluid, enteral, etc."/>
+      <definition value="Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc."/>
       <min value="1"/>
       <max value="1"/>
       <type>

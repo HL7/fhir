@@ -52,7 +52,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -356,7 +356,7 @@
       <path value="PractitionerRole.contact"/>
       <short value="Official contact details relating to this PractitionerRole"/>
       <definition value="The contact details of communication devices available relevant to the specific PractitionerRole. This can include addresses, phone numbers, fax numbers, mobile numbers, email addresses and web sites."/>
-      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc"/>
+      <requirements value="Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these. Sometimes these also include a named person/organization that handles contact for specific purposes, such as a receptionist, or accounts clerk etc."/>
       <min value="0"/>
       <max value="*"/>
       <type>

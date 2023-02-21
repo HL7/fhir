@@ -431,7 +431,7 @@
     <element id="ActorDefinition.derivedFrom">
       <path value="ActorDefinition.derivedFrom"/>
       <short value="Definition of this actor in another context / IG"/>
-      <definition value="A url that identifies the definition of this actor in another IG (which IG must be listed in the dependencies). This actor inherits all the obligations etc as defined in the other IG."/>
+      <definition value="A url that identifies the definition of this actor in another IG (which IG must be listed in the dependencies). This actor inherits all the obligations etc. as defined in the other IG."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -1233,8 +1233,8 @@
       </extension>
       <path value="ExplanationOfBenefit.accident"/>
       <short value="Details of the event"/>
-      <definition value="Details of a accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
+      <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>

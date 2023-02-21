@@ -126,9 +126,15 @@ Some advantages of using implicit concept maps are that they may be used:
 <li>To provide a convenient way, in the definition of a ConceptMap to reference another concept map provided in a code system distribution</li>
 </ul>
 <p>
-Implementers SHOULD NOT create ConceptMap resources where the ConceptMap.url value matches the pattern of a 
-known implicit concept map. 
+If there is an explicit concept map resource with the same URI as a known implicit concept map, 
+it SHALL conform the pattern described in the definition of the implicit concept map.
+It is up to the discretion of the server how to handle explicit instances when it is 
+also able to process requests for the implicit concept map.
 </p>
+[%impl-note%]
+If the relevant server(s) support implicit concept maps, implementers are discouraged from creating their own explicit concept maps with the same URI,
+as their existence may create confusion.
+[%end-note%]
 <p>
 Implicit concept map URIs can be used anywhere a concept map URI can be used. Support for implicit concept 
 map URI patterns varies across terminology servers. Code system publishers may define implicit concept map 

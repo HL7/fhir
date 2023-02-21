@@ -471,7 +471,7 @@
     </element>
     <element id="EvidenceVariable.relatedArtifact">
       <path value="EvidenceVariable.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="EvidenceVariables must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -598,7 +598,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionExpression">
       <path value="EvidenceVariable.characteristic.definitionExpression"/>
-      <short value="Defines the characteristic (without using type and value) by a Expression"/>
+      <short value="Defines the characteristic (without using type and value) by an expression"/>
       <definition value="Defines the characteristic using Expression."/>
       <min value="0"/>
       <max value="1"/>
@@ -615,7 +615,7 @@
     </element>
     <element id="EvidenceVariable.characteristic.definitionId">
       <path value="EvidenceVariable.characteristic.definitionId"/>
-      <short value="Defines the characteristic (without using type and value) by a id"/>
+      <short value="Defines the characteristic (without using type and value) by an id"/>
       <definition value="Defines the characteristic using id."/>
       <min value="0"/>
       <max value="1"/>
