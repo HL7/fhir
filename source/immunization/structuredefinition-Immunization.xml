@@ -421,7 +421,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -508,7 +508,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedBoolean"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -554,7 +554,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedReference"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

@@ -142,10 +142,6 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/guidance-module-code"/>
       </binding>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiatesUri | Event.instantiatesCanonical"/>
-      </mapping>
     </element>
     <element id="GuidanceResponse.status">
       <path value="GuidanceResponse.status"/>
