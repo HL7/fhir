@@ -160,6 +160,15 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
         <title value="De Novo Mutation Detection and Interpretation"/>
+        <focus>
+            <reference value="Patient/denovoChild"/>
+        </focus>
+        <focus>
+            <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+        </focus>
+        <focus>
+            <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+        </focus>
         <!-- 0..1<specimen> Reference(Specimen) The specimen used in the analysis event </specimen>-->
         <date value="2022-07-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
