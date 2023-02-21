@@ -437,7 +437,7 @@
         </extension>
         <strength value="required"/>
         <description value="A type of resource, or a Reference (from all versions)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
         <additionalBinding>
           <purpose value="ui"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
@@ -526,7 +526,7 @@
         </extension>
         <strength value="required"/>
         <description value="A type of resource, or a Reference (from all versions)"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
         <additionalBinding>
           <purpose value="ui"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
