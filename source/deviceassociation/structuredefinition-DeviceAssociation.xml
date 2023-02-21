@@ -178,7 +178,7 @@
     </element>
     <element id="DeviceAssociation.operation">
       <path value="DeviceAssociation.operation"/>
-      <short value="The details about the device when it is in use to describe its operation."/>
+      <short value="The details about the device when it is in use to describe its operation"/>
       <definition value="The details about the device when it is in use to describe its operation."/>
       <min value="0"/>
       <max value="*"/>
