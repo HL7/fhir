@@ -14,7 +14,7 @@
           <code value="subscription-notification"/>
         </eventCoding>
         <source>
-          <endpoint value="http://example.org/FHIR/R5"/>
+          <endpointUrl value="http://example.org/FHIR/R5"/>
         </source>
         <focus>
           <reference value="urn:uuid:c13b0b59-525c-4e41-b874-b5b87538a5b7"/>
