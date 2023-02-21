@@ -68,8 +68,16 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The structure map to apply. This is only needed if the operation is invoked at the resource level. If the $transform operation is invoked on a particular structure map, this will be ignored by the server"/>
+    <documentation value="The structure map to apply. This is only needed if the operation is invoked at the resource level and no structureMap has been provided. If the $transform operation is invoked on a particular structure map, this will be ignored by the server"/>
     <type value="uri"/>
+  </parameter>
+  <parameter>
+    <name value="sourceMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="The structure map to apply. This is only needed when the operation is invoked at the resource level and no URI has been provided."/>
+    <type value="StructureMap"/>
   </parameter>
   <parameter>
     <name value="content"/>
