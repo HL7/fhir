@@ -414,7 +414,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRTypes"/>
         </extension>
-        <strength value="extensible"/>
+        <strength value="required"/>
         <description value="A type of resource, or a Reference (from all versions)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-resource-types"/>
         <additionalBinding>
