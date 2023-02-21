@@ -213,7 +213,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

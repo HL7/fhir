@@ -2182,10 +2182,6 @@
         <code value="uri"/>
       </type>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="Act[classCode=ACT; moodCode=DEFN]"/>
       </mapping>
