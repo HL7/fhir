@@ -260,7 +260,16 @@
     In order to facilitate these workflows, a Subscription can define additional resources that MAY be included when a notification is sent.  These additions are based off of the focus resource of the notification, and are described as a list of <a href="search.html#include">_include and _revinclude</a> directives.  When notifications are generated, a server SHOULD check the appropriate <code>notificationShape.resource</code> for a matching resource and SHOULD include any additional resources listed via <code>notificationShape.include</code> and <code>notificationShape.revInclude</code>, if they exist and the user context for the subscription is authorized to access them.  Clients SHOULD be prepared to receive these additional resources, but SHALL function properly without them.
   </p>
   <p>
+    Inclusion directives MAY contain additional logic as allowed by search (e.g., iterating over inclusions). Server implementations are under no obligation to support additional logic, just as they are not required to support shape directives.  Servers that do support inclusions but not support complex inclusion logic SHOULD ignore the additional directives in the <code>include</code> and <code>revinclude</code> elements.  Note that there is currently no discovery mechanism for advertising or finding the level of shaping support for a server.  Server implementers SHOULD document their support so that client implementers can discover this out-of-band.
+  </p>
+  <p>
+    In the <a href="subscriptiontopic-example.html">SubscriptionTopic/example</a> example, the focus resource is <a href="encounter.html">Encounter</a> and lists several resources to include. The first inclusion, <code>Encounter:patient&amp;iterate=Patient.link</code> requests that patients related to the encounter are included <i>and</i> that the server should follow the <code>Patient.link</code> element to include patients or related persons listed there.
+  </p>
+  <p>
     Included resources SHOULD be added in the same style as the focus resource - e.g., if notifications are <code>id-only</code>, then included resources should only include their ids as well.
+  </p>
+  <p>
+    Note that the FHIR specification defines other mechanisms for defining graphs of resources - e.g., <a href="graphdefinition.html">GraphDefinition</a> and <a href="graphql.html">GraphQL</a>.  Currently, adoption of these mechanisms is significantly behind implementations of Search-based include.  In order to support this functionality without adding barriers to implementing subscriptions, support for <code>include</code> and <code>revinclude</code> was selected.  If another graph-defining mechanism gains widespread adoption, support could be added via an extension with changes to this resource in a future version of FHIR.
   </p>
 
 	<a name="deriving" />
@@ -276,7 +285,7 @@
 	</ul>
 
   [%stu-note early%]
-	Warning: This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
+	This section is still in early drafting; feedback from topic authors is welcome to refine the following guidance.
 	[%end-note%]
 
 </div>

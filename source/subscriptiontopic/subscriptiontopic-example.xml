@@ -52,7 +52,7 @@
   </canFilterBy>
   <notificationShape>
     <resource value="Encounter"/>
-    <include value="Encounter:patient"/>
+    <include value="Encounter:patient&amp;iterate=Patient.link"/>
     <include value="Encounter:practitioner"/>
     <include value="Encounter:service-provider"/>
     <include value="Encounter:account"/>
