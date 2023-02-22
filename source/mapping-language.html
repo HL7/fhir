@@ -267,6 +267,14 @@ Names must be unique within the context of the map. Typically, the name is trivi
 engine processing the map, so this is often left out. 
 </p>
 <p>The three main parts are described in more detail in the following sections.</p>
+<p>
+  Rules may be applied in any order. In other words, the order is implementation-defined. Mappings should take care to ensure that either:
+</p>
+<ul>
+  <li>they do not have any overlapping rules, or </li>
+  <li>if they do have overlapping rules, that the order in which those rules are applied is not important, or </li>
+  <li>they use <code>first</code> and <code>last</code> keywords to help manage order</li>
+</ul>
 
 <h4>Source Content</h4>
 <p>
