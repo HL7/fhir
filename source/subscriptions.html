@@ -267,6 +267,35 @@
   In order to mitigate the impact from the above issues, the Subscriptions Framework includes mechanisms to detect both scenarios.  More information can be found <a href="#errors-delivery">below</a>.
 </p>
 
+<a name="conformance"/>
+<h2>Conformance</h2>
+<p>
+  In order to claim conformance with this guide, a server:
+</p>
+<ul>
+  <li>SHALL support the <code>Subscription</code> resource
+    <ul>
+      <li><code>read</code> support is required</li>
+      <li><code>write</code> support is required</li>
+      <li><code>search</code> support is recommended</li>
+    </ul>
+  </li>
+  <li>SHALL support the <code>$status</code> operation on the <code>Subscription</code> resource.</li>
+  <li>SHALL support the <code>SubscriptionTopic</code>
+    <ul>
+      <li><code>read</code> support is required</li>
+      <li><code>search</code> support is required</li>
+    </ul>
+  </li>
+  <li>SHALL support at least one channel type, and SHOULD include one from the core-defined channel types</li>
+  <li>SHALL support at least one Payload Type</li>
+</ul>
+
+<a name="conformance-discovery"/>
+<h3>Discovery</h3>
+<p>
+  Some options of the Subscriptions Framework are not easily expressed in a <code>CapabilityStatement</code>.  In addition to the basic support in the CapabilityStatement (e.g., resources, interactions, and operations), a conformant server SHALL support at least one <code>Payload Type</code> and SHOULD support one <code>Channel Type</code> defined in the core specification.  While channel information is not currently discoverable via capabilities, server implementers are expected to document their support out-of-band so that developers can understand support.  Client developers (subscribers) are unlikely to implement more than a few channel types, so it is unlikely that a client is able to "try and error" too many times.  Note that a future publication of FHIR may include more functionality regarding capabilities; this guidance will evolve with any changes.
+</p>
 
 <a name="safety"/>
 <h2>Safety and Security</h2>
