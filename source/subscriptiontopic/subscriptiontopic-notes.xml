@@ -47,6 +47,9 @@
   <p>
     This logical separation of triggers and filters exists to limit the complexity of topics. However, this specification does not place any architectural requirements on severs regarding the separation of triggers and filters.  An implementation is free to separate the two portions or combine the tests as desired.
   </p>
+  <p>
+    Note that triggers can be defined in three ways: as part of the conceptual definition, a computable <code>resourceTrigger</code>, and/or a possibly-computable <code>eventTrigger</code>.  Topics without computable definitions are not expected to trigger unless a server has explicitly added support for them.  For example, a trigger could be based on a complex set of criteria that is difficult to express or depend on information not available in a FHIR context (e.g., user information).  Servers can implement these topics, but they require software changes and cannot be expected to trigger notifications generally.  Servers MAY reject <code>SubscriptionTopic</code> resources that do not include computable definitions or depend on mechanisms the implementation does not support.
+  </p>
 
 	<a name="resource-operation-pairs" />
 	<h3>Triggers and Resource Interactions</h3>
