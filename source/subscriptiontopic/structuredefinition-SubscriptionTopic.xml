@@ -597,8 +597,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
@@ -778,8 +783,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy">
@@ -820,8 +830,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
@@ -917,8 +932,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="A FHIR resource type."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
       <mapping>
         <identity value="rim"/>
