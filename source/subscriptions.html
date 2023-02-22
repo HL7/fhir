@@ -84,6 +84,9 @@
     <li>energy - e.g., mobile devices needing to 'wake up' and poll regularly.</li>
   </ul>
 </p>
+<p>
+  Note that topic-based subscription capabilities have been added to the core specification as of FHIR R5.  In order to facilitate adoption, a <a href="https://hl7.org/fhir/uv/subscriptions-backport/">Backport Implementation Guide</a> is available to provide the equivalent functionality in some earlier versions of FHIR.  When using earlier versions of FHIR supported by the IG, cross version extensions SHOULD NOT be used on <code>Subscription</code> resources to describe any elements described by that guide.
+</p>
 
 <a name="relationtofhircast"/>
 <h3>Relation to FHIRcast</h3>
