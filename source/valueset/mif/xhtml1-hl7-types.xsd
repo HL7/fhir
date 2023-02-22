@@ -170,7 +170,7 @@
 			</xs:enumeration>
 			<xs:enumeration value="itemName">
 				<xs:annotation>
-					<xs:documentation>Inserts the name of the current element or the name of one of it's ancestors.</xs:documentation>
+					<xs:documentation>Inserts the name of the current element or the name of one of its ancestors.</xs:documentation>
 					<xs:documentation>Parameters: item (optional)</xs:documentation>
 					<xs:documentation>Embedded Content: prohibited</xs:documentation>
 				</xs:annotation>

@@ -361,6 +361,9 @@
 		<translation lang="fr">Venue</translation>
 		<translation lang="es">Encuentro</translation>
 	</item>
+	<item id="EncounterHistory">
+		<translation lang="en">EncounterHistory</translation>
+	</item>
 	<item id="Endpoint">
 		<translation lang="en">Endpoint</translation>
 		<translation lang="es">Endpoint</translation>
@@ -1051,6 +1054,9 @@
 		<translation lang="en">TerminologyCapabilities</translation>
 		<translation lang="es">CapacidadTerminologica</translation>
 		<translation lang="zh">术语服务能力</translation>
+	</item>
+	<item id="TestPlan">
+		<translation lang="en">TestPlan</translation>
 	</item>
 	<item id="TestReport">
 		<translation lang="en">TestReport</translation>

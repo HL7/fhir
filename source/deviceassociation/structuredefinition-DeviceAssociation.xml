@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
+<StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="DeviceAssociation"/>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="draft"/>
@@ -20,7 +20,7 @@
   <url value="http://hl7.org/fhir/StructureDefinition/DeviceAssociation"/>
   <version value="5.0.0"/>
   <name value="DeviceAssociation"/>
-  <title value="DeviceAssociation"/>
+  <title value="Device Association"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -46,7 +46,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="workflow"/>
@@ -129,7 +129,6 @@
         <description value="Describes the lifecycle of the association."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-status"/>
       </binding>
-
     </element>
     <element id="DeviceAssociation.statusReason">
       <path value="DeviceAssociation.statusReason"/>
@@ -177,18 +176,18 @@
         <code value="Period"/>
       </type>
     </element>
-    <!-- <element id="DeviceAssociation.operation">
+<element id="DeviceAssociation.operation">
       <path value="DeviceAssociation.operation"/>
-      <short value="The details about the device when it is in use to describe the actions, conditions and status"/>
-      <definition value="The details about the device when it is in use to describe the actions, conditions and status."/>
+      <short value="The details about the device when it is in use to describe its operation"/>
+      <definition value="The details about the device when it is in use to describe its operation."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
-    </element> -->
-    <element id="DeviceAssociation.operator">
-      <path value="DeviceAssociation.operator"/>
+    </element>
+    <element id="DeviceAssociation.operation.operator">
+      <path value="DeviceAssociation.operation.operator"/>
       <short value="The individual performing the action enabled by the device"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
@@ -198,6 +197,16 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.operation.period">
+      <path value="DeviceAssociation.operation.period"/>
+      <short value="Begin and end dates and times for the device's operation"/>
+      <definition value="Begin and end dates and times for the device's operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
       </type>
     </element>
   </differential>

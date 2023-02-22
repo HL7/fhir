@@ -1,74 +1,138 @@
-<?xml version="1.0" encoding="UTF-8"?><CapabilityStatement xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
   <id value="measure-processor"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <h2>Measure Calculation Service Conformance Statement</h2>
+      
       <div>
+        
         <p>Basic conformance statement for a Measure Processor Service. A server can support more functionality
            than defined here, but this is the minimum amount</p>
 
+      
       </div>
+      
       <table>
+        
         <tr>
+          
           <td>Mode</td>
+          
           <td>SERVER</td>
+        
         </tr>
+        
         <tr>
+          
           <td>Description</td>
+          
           <td>RESTful Measure Processor Server</td>
+        
         </tr>
+        
         <tr>
+          
           <td>Transaction</td>
+          
           <td/>
+        
         </tr>
+        
         <tr>
+          
           <td>System History</td>
+          
           <td/>
+        
         </tr>
+        
         <tr>
+          
           <td>System Search</td>
+          
           <td/>
+        
         </tr>
+      
       </table>
+      
       <table>
+        
         <tr>
+          
           <th>
+            
             <b>Resource Type</b>
+          
           </th>
+          
           <th>
+            
             <b>Profile</b>
+          
           </th>
+          
           <th>
+            
             <b>Read</b>
+          
           </th>
+          
           <th>
+            
             <b>V-Read</b>
+          
           </th>
+          
           <th>
+            
             <b>Search</b>
+          
           </th>
+          
           <th>
+            
             <b>Update</b>
+          
           </th>
+          
           <th>
+            
             <b>Updates</b>
+          
           </th>
+          
           <th>
+            
             <b>Create</b>
+          
           </th>
+          
           <th>
+            
             <b>Delete</b>
+          
           </th>
+          
           <th>
+            
             <b>History</b>
+          
           </th>
+        
         </tr>
+      
       </table>
+    
     </div>
   </text>
   <url value="http://hl7.org/fhir/measure-processor"/>
-  <name value="Measure Processor Service Conformance Statement"/>
+  <name value="MeasureProcessorServiceConformanceStatement"/>
+  <title value="Measure Processor Service Conformance Statement"/>
   <status value="draft"/>
   <date value="2016-09-16"/>
   <publisher value="HL7, Inc"/>
@@ -106,10 +170,10 @@
         <code value="read"/>
         <documentation value="Read allows clients to get the logical definitions of the measures"/>
       </interaction>
-	  <interaction>
+      <interaction>
         <code value="search-type"/>
         <documentation value="Search allows clients to filter measures based on a provided search parameter"/>
-	  </interaction>
+      </interaction>
       <searchParam>
         <name value="identifier"/>
         <definition value="http://hl7.org/fhir/SearchParameter/Measure-identifier"/>
@@ -131,8 +195,8 @@
       <definition value="http://hl7.org/fhir/OperationDefinition/Measure-evaluate-measure"/>
     </operation>
     <operation>
-		<name value="data-requirements"/>
-		<definition value="http://hl7.org/fhir/OperationDefinition/Measure-data-requirements"/>
-	</operation>
+      <name value="data-requirements"/>
+      <definition value="http://hl7.org/fhir/OperationDefinition/Measure-data-requirements"/>
+    </operation>
   </rest>
 </CapabilityStatement>

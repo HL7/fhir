@@ -6,7 +6,7 @@
     <valueInteger value="5"/>
   </extension>
   <version value="0.01"/>
-  <name value="observation-bp"/>
+  <name value="Observationbp"/>
   <title value="Observation Blood Pressure Profile"/>
   <status value="draft"/>
   <date value="2018-08-11T08:17:46.560"/>

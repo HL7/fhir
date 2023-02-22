@@ -415,7 +415,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -543,7 +543,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

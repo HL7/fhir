@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/ImplementationGuide.xsd">
+<ImplementationGuide xmlns="http://hl7.org/fhir">
   <id value="MedicationDispense-core"/>
   <version value="0.1"/>
-  <name value="MedicationDispense HL7 Extensions"/>
-  <title value="MedicationDispense HL7 Extensions"/>
+  <name value="MedicationDispenseHL7Extensions"/>
+  <title value="Medication Dispense  H L7  Extensions"/>
   <status value="draft"/>
   <date value="2019-03-23T00:00:00.000"/>
   <publisher value="Health Level Seven, Inc. - FHIR WG"/>

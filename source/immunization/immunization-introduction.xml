@@ -9,7 +9,7 @@
 The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions. This includes immunization of both humans and animals but does not include the administration of non-vaccine agents, even those that may have or claim to have immunological effects.  While the terms "immunization" and "vaccination" are not clinically identical, for the purposes of the FHIR resources, the terms are used synonymously.
 </p>
 <p>
-Additionally, the Immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> immunization implementation guide, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
+Additionally, the Immunization resource is expected to cover key concepts related to the creation, revision and querying of a patient's immunization history. This resource - through consultation with the Public Health work group - is believed to meet key use cases and information requirements as defined in the existing <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> immunization implementation guide, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> POIZ domain and Immunization Domain Analysis Model.
 </p>
 </div>
 

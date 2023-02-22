@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="RequestOrchestration"/>
-  <title value="RequestOrchestration"/>
+  <title value="Request Orchestration"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -177,7 +177,7 @@
     <element id="RequestOrchestration.groupIdentifier">
       <path value="RequestOrchestration.groupIdentifier"/>
       <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition, prescription or similar form."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <comment value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition.  Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <requirements value="Some business processes need to know if multiple items were ordered as part of the same &quot;prescription&quot; or &quot;requisition&quot; for billing or other purposes."/>
       <alias value="grouperid"/>
@@ -316,8 +316,16 @@
       <max value="1"/>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
       </type>
       <mapping>
         <identity value="workflow"/>
@@ -513,7 +521,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -524,7 +532,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <isSummary value="true"/>
     </element>
@@ -691,6 +699,7 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <condition value="pld-0"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -706,6 +715,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="pld-0"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -754,6 +764,7 @@
       <type>
         <code value="DataRequirement"/>
       </type>
+      <condition value="pld-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -769,6 +780,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="pld-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -799,7 +811,7 @@
     </element>
     <element id="RequestOrchestration.action.relatedAction.relationship">
       <path value="RequestOrchestration.action.relatedAction.relationship"/>
-      <short value="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end"/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
       <definition value="The relationship of this action to the related action."/>
       <min value="1"/>
       <max value="1"/>
@@ -814,6 +826,28 @@
         <description value="Defines the types of relationships between actions."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
       </binding>
+    </element>
+    <element id="RequestOrchestration.action.relatedAction.endRelationship">
+      <path value="RequestOrchestration.action.relatedAction.endRelationship"/>
+      <short value="before | before-start | before-end | concurrent | concurrent-with-start | concurrent-with-end | after | after-start | after-end"/>
+      <definition value="The relationship of the end of this action to the related action."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="ActionRelationshipType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Defines the types of relationships between actions."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/action-relationship-type"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
     </element>
     <element id="RequestOrchestration.action.relatedAction.offset[x]">
       <path value="RequestOrchestration.action.relatedAction.offset[x]"/>
@@ -962,7 +996,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.role">
       <path value="RequestOrchestration.action.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc"/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -984,7 +1018,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.function">
       <path value="RequestOrchestration.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <short value="E.g. Author, Reviewer, Witness, etc"/>
       <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -1248,7 +1282,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#RequestOrchestration.action"/>
-      <condition value="rqg-1"/>
     </element>
   </differential>
 </StructureDefinition>

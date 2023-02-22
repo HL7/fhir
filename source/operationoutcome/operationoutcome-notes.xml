@@ -38,7 +38,7 @@ Operation outcomes must include at least one issue. See the <a href="operationou
 <a name="loc"></a>
 <h2>Using the Expression</h2>
 <p>
-Each issue in an operation outcome SHOUD have an expression that
+Each issue in an operation outcome SHOULD have an expression that
 reports a location for the issue. A correctly populated expression can 
 allow client systems to:
 </p>

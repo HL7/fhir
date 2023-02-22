@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="InventoryReport"/>
-  <title value="InventoryReport"/>
+  <title value="Inventory Report"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -203,7 +203,7 @@
     </element>
     <element id="InventoryReport.operationTypeReason">
       <path value="InventoryReport.operationTypeReason"/>
-      <short value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
+      <short value="The reason for this count - regular count, ad-hoc count, new arrivals, etc"/>
       <definition value="The reason for this count - regular count, ad-hoc count, new arrivals, etc."/>
       <min value="0"/>
       <max value="1"/>
@@ -338,50 +338,9 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/InventoryItem"/>
-
       </type>
       <isSummary value="true"/>
     </element>
-    <!-- <element id="InventoryReport.inventoryListing.items.lot">
-      <path value="InventoryReport.inventoryListing.items.lot"/>
-      <short value="The lot number of the item or items"/>
-      <definition value="The lot number of the item or items."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="InventoryReport.inventoryListing.items.serial">
-      <path value="InventoryReport.inventoryListing.items.serial"/>
-      <short value="The serial number of the item"/>
-      <definition value="The serial number of the item."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="string"/>
-      </type>
-    </element>
-    <element id="InventoryReport.inventoryListing.items.expiry">
-      <path value="InventoryReport.inventoryListing.items.expiry"/>
-      <short value="The expiry date of the item or items"/>
-      <definition value="The expiry date of the item or items."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element>
-    <element id="InventoryReport.inventoryListing.items.manufacturingDate">
-      <path value="InventoryReport.inventoryListing.items.manufacturingDate"/>
-      <short value="The manufacturingDate of the item or items"/>
-      <definition value="The manufacturingDate of the item or items."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="dateTime"/>
-      </type>
-    </element> -->
     <element id="InventoryReport.note">
       <path value="InventoryReport.note"/>
       <short value="A note associated with the InventoryReport"/>

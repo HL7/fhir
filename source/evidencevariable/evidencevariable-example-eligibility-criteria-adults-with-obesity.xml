@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<EvidenceVariable xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidencevariable.xsd">
+
+<EvidenceVariable xmlns="http://hl7.org/fhir">
   <id value="example-eligibility-criteria-adults-with-obesity"/>
   <identifier>
     <type>
@@ -11,7 +12,8 @@
       <display value="Computable Publishing LLC"/>
     </assigner>
   </identifier>
-  <title value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>  
+  <name value="StudyEligibilityCriteriaObesePatients18YearsOld"/>
+  <title value="StudyEligibilityCriteria: Obese patients ≥ 18 years old"/>
   <status value="active"/>
   <date value="2022-07-24T21:00:00.088Z"/>
   <publisher value="Computable Publishing LLC"/>

@@ -121,10 +121,12 @@
     timing of future polling requests. The server SHOULD keep an accounting of status queries received from a given
     client, and if a client is polling too frequently, the server SHOULD respond with a
     <code>429 Too Many Requests</code> status code in addition to a <code>Retry-After</code> header, and optionally a <a
-      href="operationoutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent
-    status queries persist, the server MAY return a <code>429 Too Many Requests</code> status code and terminate the
-    session. Other standard HTTP <code>4XX</code> as well as <code>5XX</code> status codes may be used to identify
-    errors as mentioned.
+    href="operationoutcome.html">OperationOutcome Resource</a> with further explanation. If excessively frequent status queries 
+    persist, the server MAY return a <code>429 Too Many Requests</code> status code without returning a status answer. It may 
+    either return a Retry-after header with the 429 indicating the amount of time that needs to pass before it will again 
+    respond to a status check, or it may choose to abandon the asynchronous operation entirely and force a retry. 
+    Other standard HTTP <code>4XX</code> as well as <code>5XX</code> status codes may be used to identify
+  errors as mentioned.
   </p>
 
   <p>When requesting status, the client SHOULD use an <code>Accept</code> header indicating a content type of
@@ -163,7 +165,7 @@
     populated with one or more files in ndjson format containing <a href="operationoutcome.html">OperationOutcome
       Resources</a> to indicate what went wrong (see below). In the case of a partial success, the server SHALL use a
     <code>200</code> status code instead of <code>4XX</code> or <code>5XX</code>. The choice of when to determine that
-    an job has failed in its entirety (error status) vs. returning a partial success (complete status) is left up to the
+    a job has failed in its entirety (error status) vs. returning a partial success (complete status) is left up to the
     server implementer.
   </p>
 

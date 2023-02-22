@@ -54,7 +54,7 @@ VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose
  </ol>
  <li>Computable Expression Option 2</li>
  <ol>
-	<li><a href="extension-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-valueset-expression.html">Extension ValueSet.valueset-expression</a></li>
 	<ol>
 		<li>If valued with <code>ValueSet.compose</code>, must be an expression that aligns with the <code>ValueSet.compose</code></li>
 		<li>If valued without <code>ValueSet.compose</code>, must be a computable expression (e.g., ECL)</li>
@@ -62,7 +62,7 @@ VSD Content Logical Definition (CLD) is analogous to FHIR <code>ValueSet.compose
  </ol>
  <li>Non-computable Expression</li>
  <ol>
-	<li><a href="extension-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
+	<li><a href="[%extensions-location%]StructureDefinition-valueset-rules-text.html">Extension ValueSet.valueset-rules-text</a></li>
 	<ol>
 		<li>An expression that is not computable and is meant to be interpreted by a human</li>
 		<li>May be valued <em>with</em> or <em>without</em> <code>ValueSet.compose</code></li>
@@ -166,7 +166,7 @@ Union:
 For expansion guidance, and how to manage <em>exclude</em>, see <a href="valueset.html#expansion">Value Set Expansion</a>
 </p>
 <p>
-When a ValueSet definition includes other ValueSets, use the <a href="extension-valueset-compose-include-valuesettitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
+When a ValueSet definition includes other ValueSets, use the <a href="[%extensions-location%]StructureDefinition-valueset-compose-include-valueSetTitle.html">ValueSet.valueset-compose-include-ValueSetTitle</a> extension to provide the human readable name of the included Value Set.
 </p>
 
 <a name="fragments"></a>
@@ -237,7 +237,7 @@ Example:
 <a name="name-title"></a>
 <h3>Name and Title</h3>
 <p>
-The VSD element <em>Name</em> aligns with <code>ValueSet.title</code> which does not support preference or language. Use the <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle extension</a> when a language or preference is necessary. <code>ValueSet.title</code> or <a href="extension-valueset-othertitle.html">ValueSet.valueset-otherTitle</a> must be valued.
+The VSD element <em>Name</em> aligns with <code>ValueSet.title</code> which does not support preference or language. Use the <a href="[%extensions-location%]StructureDefinition-valueset-otherTitle.html">ValueSet.valueset-otherTitle extension</a> when a language or preference is necessary. <code>ValueSet.title</code> or <a href="[%extensions-location%]StructureDefinition-valueset-otherTitle.html">ValueSet.valueset-otherTitle</a> must be valued.
 </p>
 
 <a name="activeonly"></a>
@@ -321,7 +321,7 @@ Any display name for a concept provided in the value set is for display to a hum
 The display in the <a href="datatypes.html#Coding">Coding</a> that results from a user 
 selecting a concept from the expansion must be taken from the underlying code system 
 definition, even if a value set is referenced explicitly in the Coding (e.g. by an 
-<a href="extension-valueset-reference.html">extension</a>). The correct display for a 
+<a href="[%extensions-location%]StructureDefinition-valueset-reference.html">extension</a>). The correct display for a 
 code can be determined by a <a href="codesystem-operation-lookup.html">$lookup operation</a>. 
 Any alternative display specified in the value set would go in 
 <a href="datatypes.html#CodeableConcept">CodeableConcept</a>.text, perhaps appended to 
@@ -432,7 +432,7 @@ code systems should be done with care to avoid creating definitional confusion.
 </p>
 <p>
 Value sets should only include well differentiated concepts, but many value sets and code systems
-do not have well differentiated concepts because of various real world constraints.
+do not have well differentiated concepts because of various real-world constraints.
 </p>
 
 <a name="expansion"></a>
@@ -655,28 +655,62 @@ Use cases for the different combinations:
 
 <a name="implicit"></a>
 <h2>Implicit Value Sets</h2>
-  <p>
-    Implicit value sets are those whose specification can be predicted based on the grammar of the
-    underlying code system, and the known structure of the URL that identifies them. The implicit value set 
-    capability allows a single URL to serve as a value set definition, and can serve as the basis for the
-    <a href="valueset-operation-expand.html">$expand</a>
-    operation and for other value set references. If any value set resources exist with an identifier that 
-    conforms to the specified implicit value set URL patterns, the content of the resource must conform to the 
-    template provided. Profiles and other value set references can reference these value sets directly (by 
-    reference as a URI, rather than by a literal value set reference).
+<p>
+Instead of a ValueSet resource as the definition, implicit value sets are defined in a specification which 
+references the underlying code system structures and includes a prescribed URI pattern to identify the 
+value set.  HL7 has defined implicit value set URI patterns for some key code systems.
 </p>
 <p>
-  Some (but not all) code systems have implicit value set URL patterns that have been defined and documented 
-  for use with FHIR terminology services.  Particular FHIR terminology servers might or might not support any 
-  or all of these URL patterns.
+Implicit value sets allow the URI to serve as the basis for ValueSet operations such as 
+<a href="valueset-operation-expand.html">$expand</a> and <a href="valueset-operation-validate-code.html">$validate-code</a>
+without the need to create a defining ValueSet resource instance.
 </p>
-
+<p>
+Some advantages of using implicit value sets are that they may be used:
+</p>
+<ul>
+<li>With read-only terminology servers because a ValueSet resource cannot be posted</li>
+<li>With HTTP GET requests because they are cacheable</li>
+<li>To enable text searches (google like) for concepts across the entirety of large code systems (e.g., SNOMED CT)</li>
+<li>To provide a convenient way to reference all or parts of code systems in the definition of a ValueSet or ConceptMap</li>
+</ul>
+<p>
+In some cases it is not possible to express a value set definition using ValueSet.compose - but 
+it may be possible to express the value set definition with an implicit value set URI. An example 
+of this scenario is all SNOMED CT concept IDs that identify reference sets. 
+</p>
+<p>
+If there is an explicit value set resource with the same URI as a known implicit value set, 
+it SHALL conform the pattern described in the definition of the implicit value set.
+It is up to the discretion of the server how to handle explicit instances when it is 
+also able to process requests for the implicit value set.
+</p>
+[%impl-note%]
+If the relevant server(s) support implicit value sets, implementers are discouraged from creating their own explicit value sets with the same URI,
+as their existence may create confusion.
+[%end-note%]
+<p>
+Implementers SHOULD NOT 
+create ValueSet resources where the ValueSet.url value matches the pattern of a known implicit value set. 
+</p>
+<p>
+Implicit value set URIs can be used anywhere a value set URI can be used. Support for implicit value 
+set URI patterns varies across terminology servers.
+</p>
+<p>
+Some (but not all) code systems have implicit value set URI patterns defined by HL7 and documented 
+for use with FHIR terminology services. Code system publishers may also define implicit value set 
+URI patterns. FHIR terminology servers might or might not support any or all of these URI patterns. 
+Caution should be exercised when using value set URI patterns that have not been defined by HL7 or 
+the code system publisher. 
+</p>
+<!--
 [%ballot-note implicit%]
 At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
 declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
 regarding whether this capability should be added to the TerminologyCapabilities resource.
 [%end-note%]
-
+-->
 <p>
   The following links describe the currently defined FHIR implicit value set URL patterns for these listed code systems:
   <ul>

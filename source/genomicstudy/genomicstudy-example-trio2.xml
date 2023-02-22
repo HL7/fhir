@@ -11,13 +11,7 @@
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
         <value value="urn:uuid:1111-1111-1111-1113"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://hl7.org/fhir/genomicstudy-status"/>
-            <code value="available"/>
-            <display value="Available"/>
-        </coding>
-    </status>
+    <status value="available"/>
     <type>
         <coding>
             <code value="trio"/>
@@ -68,9 +62,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Maternal Sequence Variation Detection Using Next Generation Sequencing"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
+        <focus>
             <reference value="Patient/mother"/>
-        </subject>
+        </focus>
         <specimen>
             <reference value="Specimen/specimenMother"/>
         </specimen>
@@ -117,9 +111,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Paternal Sequence Variation Detection Using Next Generation Sequencing"/>
-        <subject>
+        <focus>
             <reference value="Patient/father"/>
-        </subject>
+        </focus>
         <specimen>
             <reference value="Specimen/specimenFather"/>
         </specimen>
@@ -166,9 +160,15 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
         <title value="De Novo Mutation Detection and Interpretation"/>
-        <subject>
-            <reference value="Patient/proband"/>
-        </subject>
+        <focus>
+            <reference value="Patient/denovoChild"/>
+        </focus>
+        <focus>
+            <reference value="RelatedPerson/relatedPersonDenovoFather"/>
+        </focus>
+        <focus>
+            <reference value="RelatedPerson/relatedPersonDenovoMother"/>
+        </focus>
         <!-- 0..1<specimen> Reference(Specimen) The specimen used in the analysis event </specimen>-->
         <date value="2022-07-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>
@@ -200,7 +200,7 @@
             </type>
             <!-- <generatedBy[x]>0..1 Identifier|Reference(GenomicStudy) The analysis event or other GenomicStudy that generated this input file</generatedBy[x]> -->
         </input>
-                <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
+        <input>  <!-- 0..* Inputs for the analysis event, a combined vcf file-->
             <file>
                 <reference value="DocumentReference/genomicFileFather"/>
             </file>

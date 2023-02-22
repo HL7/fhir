@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SpecimenDefinition"/>
-  <title value="SpecimenDefinition"/>
+  <title value="Specimen Definition"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -157,7 +157,6 @@
       <type>
         <code value="string"/>
       </type>
-      <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
     <element id="SpecimenDefinition.title">
@@ -390,7 +389,7 @@
     </element>
     <element id="SpecimenDefinition.lastReviewDate">
       <path value="SpecimenDefinition.lastReviewDate"/>
-      <short value="The date on which the asset content was last reviewed"/>
+      <short value="The date on which the asset content was last reviewed by the publisher"/>
       <definition value="The date on which the asset content was last reviewed. Review happens periodically after that, but doesn't change the original approval date."/>
       <comment value="If specified, this is usually after the approval date."/>
       <min value="0"/>

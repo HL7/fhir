@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="MedicationKnowledge"/>
-  <title value="MedicationKnowledge"/>
+  <title value="Medication Knowledge"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Pharmacy)"/>
@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -867,7 +867,7 @@
     </element>
     <element id="MedicationKnowledge.definitional.ingredient.type">
       <path value="MedicationKnowledge.definitional.ingredient.type"/>
-      <short value="A code that defines the type of ingredient, active, base, etc."/>
+      <short value="A code that defines the type of ingredient, active, base, etc"/>
       <definition value="Indication of whether this ingredient affects the therapeutic action of the drug."/>
       <min value="0"/>
       <max value="1"/>

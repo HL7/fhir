@@ -58,6 +58,14 @@
       <filter>
         <property value="concept"/>
         <op value="is-a"/>
+        <value value="_ClinicalActionDetectedIssueCode"/>
+      </filter>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
         <value value="_SupplyDetectedIssueCode"/>
       </filter>
     </include>

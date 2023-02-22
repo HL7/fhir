@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ConditionDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConditionDefinition xmlns="http://hl7.org/fhir">
   <id value="example"/>
   <url value="http://hl7.org/fhir/ConditionDefinition/example"/>
   <identifier>
@@ -9,11 +11,12 @@
   <title value="Hyperlipidemia Status"/>
   <status value="draft"/>
   <date value="2019-05-26T10:44:00+10:00"/>
+  <description value="Hyperlipidemia Status"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="55822004"/>
-      <display value="Hyperlipidemia (disorder)"/> 
+      <display value="Hyperlipidemia (disorder)"/>
     </coding>
   </code>
   <hasSeverity value="false"/>
@@ -28,7 +31,7 @@
         <display value="Lipid 1996 panel - Serum or Plasma"/>
       </coding>
       <text value="Lipid Panel"/>
-    </code>    
+    </code>
   </observation>
   <observation>
     <code>

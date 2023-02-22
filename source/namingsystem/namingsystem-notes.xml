@@ -3,10 +3,9 @@
 <a name="duplicates"> </a>
 <h3>Dealing with duplicate entries</h3>
 <p>
-In some cases, the same code or identifier system might accidentally be created more than once in a registry, for example because someone failed to check
-for an existing entry before adding a new one or knows the same concept with a different name.  If this occurs, one of the system entries should be deleted
-and the remaining entry should have its <code>uniqueId</code> updated to include any identifiers present on the original entry (and possibly have its descriptive 
-information modified to include additional information from the duplicate entry).
+In some cases, the same code or identifier system might accidentally be created more than once in a registry, for example because someone 
+failed to check for an existing entry before adding a new one or if they didn't recognize that their addition replicates another. If this 
+occurs, the system publisher should be contacted for guidance. 
 </p>
 
 <a name="duplicates"> </a>

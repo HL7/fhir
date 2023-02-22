@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CareTeam"/>
-  <title value="CareTeam"/>
+  <title value="Care Team"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Patient Care)"/>
@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -248,8 +248,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="ctm-1"/>
-      <condition value="ctm-2"/>
       <constraint>
         <key value="ctm-1"/>
         <severity value="error"/>
@@ -285,6 +283,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="ctm-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -322,6 +321,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
       </type>
+      <condition value="ctm-1"/>
+      <condition value="ctm-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -347,6 +348,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <condition value="ctm-1"/>
       <isSummary value="true"/>
     </element>
     <element id="CareTeam.participant.coverage[x]">

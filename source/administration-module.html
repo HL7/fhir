@@ -21,7 +21,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h3>Introduction</h3>
         <p>
             The Administrative module covers the base data that is then linked into
-            the other modules for clinical content, finance/billing, workflow, etc.<br />
+            the other modules for clinical content, finance/billing, workflow, etc.
             It is built on the FHIR technology platform modules.
         </p>
         <p>
@@ -57,6 +57,7 @@ in order to support consistent definitions for schema and UML derived code.
                     <ul>
                         <li><a href="episodeofcare.html">EpisodeOfCare</a></li>
                         <li><a href="encounter.html">Encounter</a></li>
+                        <li><a href="encounterhistory.html">EncounterHistory</a></li>
                         <li><a href="appointment.html">Appointment</a></li>
                         <li><a href="appointmentresponse.html">AppointmentResponse</a></li>
                         <li><a href="account.html">Account</a></li>
@@ -92,7 +93,7 @@ in order to support consistent definitions for schema and UML derived code.
         </div>
 [%impl-note%]
                 <a href="patient.html#links">Patient linking</a> should also be considered when evaluating
-                searches with references to other resources. e.g. searching for a patients' conditions for a patient.<br />
+                searches with references to other resources. e.g. searching for a patient's conditions for a patient.<br />
                 At present the specification does not define if the links should be also followed to include
                 conditions that reference the linked patients too. We are currently seeking feedback on this.
 [%end-note%]
@@ -195,7 +196,7 @@ in order to support consistent definitions for schema and UML derived code.
         parameters on these extensions (still to be defined).<br/>
         If an encounter has a mix of research and non research content, recommend creating 2 encounters in the system, 
         however could derive that information Based on the presence of the extension on the 
-        obs/diagnosticreport/immunization etc which then feeds to episodeofcare and onto account
+        obs/diagnosticreport/immunization etc. which then feeds to episodeofcare and onto account
         [%end-note%]
 
         <a name="secpriv"></a>

@@ -27,7 +27,12 @@ multiple numbers because of mergers of patient record systems over time.
 <p>
 Where there is a need to implement an automated MRN Identifier created for a patient record, this could be achieved by providing an identifier in the patient with an appropriate assigner, MRN Type and/or system but with <i>no value</i> assigned. Internal business rules can then detect this and replace/populate this identifier with 1 or more identifiers (as required).
 </p>
-
+	
+<a name="merge"></a>
+<h2>Merging records <a style="padding-left: 3px; padding-right: 3px; border: 1px grey solid; font-weight: bold; color: black; background-color: #fff5e6" href="versions.html#std-process" title="Standards Status = Trial Use">Trial Use</a></h2>
+<p>
+There are two common approaches for resolving duplicate patient records: merging and linking.  Linking duplicate patients is described in the <a href="#links">Linking Patients</a> section, or merging duplicate patients as described in the <a href="patient-operation-merge.html">$merge</a> operation page. 
+</p>
 
 
 <a name="links"></a>
@@ -39,8 +44,9 @@ to support the following scenarios where multiple patient records exist:</p>
 <h3>Duplicate Patient records</h3>
 <p>Managing Patient registration is a well-known difficult problem. Around 2% of registrations are in error, 
 mostly duplicate records. Sometimes the duplicate record is caught fairly quickly and retired before much 
-data is accumulated. In other cases, substantial amounts of data may accumulate. By using a link of type 'replaced-by',
-the record containing such a link is marked as a duplicate and the link points forward to a record that should
+data is accumulated. In other cases, substantial amounts of data may accumulate.<br/> 
+There are two common approaches for resolving duplicate patient records: merging and linking. Merging duplicate patients is described in the <a href="patient-operation-merge.html">$merge</a> operation page.<br/>
+Linking duplicate records can be accomplished by using a link of type 'replaced-by' where the record containing such a link is marked as a duplicate and the link points forward to a record that should
 be used instead. Note that the record pointed to may in its turn have been identified as created in error and forward
 to yet another Patient resource. Records that replace another record <i>may</i> use a link type of 'replaces' pointing to the old record.
 </p>
@@ -221,6 +227,7 @@ with a definition to be proposed in a future version of this specification.
 Feedback <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 </p>
+
 <a name="match"></a>
 <h2>Patient Matching using an MPI</h2>
 <p>
@@ -251,7 +258,7 @@ likely to least likely. If there are not patient matches, the MPI SHALL return
 an empty search set with no error, but may include an <a href="operationoutcome.html">operation outcome</a> with 
 further advice. All patient records should have a score from 0 to 1, where
 1 is the most certain match, along with an <a href="extensibility.html">extension</a>
-<a href="extension-match-grade.html">"match-grade"</a> that indicates the MPI's position on the match quality:
+<a href="[%extensions-location%]StructureDefinition-match-grade.html">"match-grade"</a> that indicates the MPI's position on the match quality:
 </p>
 <pre>
   &lt;entry&gt; 
@@ -296,7 +303,7 @@ A <a href="operation-patient-match.html">formal definition</a> for the MPI $matc
 <a name="veterinary"></a>
 <h2>Veterinary Care</h2>
 <p>
-Veterinary care is very much within the scope of FHIR, and the Patient resource can be used to communicate information about animal patients. To support this, there is a standard <a href="extension-patient-animal.html">patient-animal extension</a> which can be used for recording details about species, breed, and gender status. This extension is not intended to cover all relevant properties for veterinary care, and the use of additional domain-relevant extensions is expected for areas such as laboratory, zoological and livestock care.
+Veterinary care is very much within the scope of FHIR, and the Patient resource can be used to communicate information about animal patients. To support this, there is a standard <a href="[%extensions-location%]StructureDefinition-patient-animal.html">patient-animal extension</a> which can be used for recording details about species, breed, and gender status. This extension is not intended to cover all relevant properties for veterinary care, and the use of additional domain-relevant extensions is expected for areas such as laboratory, zoological and livestock care.
 </p>
 <p>
 The veterinary client ("owner") is represented using the RelatedPerson resource.

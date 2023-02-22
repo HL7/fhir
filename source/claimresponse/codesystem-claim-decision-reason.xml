@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="claim-decision-reason"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/claim-decision-reason"/>
+  <version value="5.0.0"/>
+  <name value="ClaimAdjudicationDecisionReasonCodes"/>
+  <title value="Claim Adjudication Decision Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+<description value="This value set provides example Claim Adjudication Decision Reason codes."/>
+  <copyright value="HL7 Inc."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="0001"/>
+    <display value="Not medically necessary"/>
+    <definition value="The payer has determined this product, service, or procedure as not medically necessary."/>
+  </concept>
+  <concept>
+    <code value="0002"/>
+    <display value="Prior authorization not obtained"/>
+    <definition value="Prior authorization was not obtained prior to providing the product, service, or procedure."/>
+  </concept>
+  <concept>
+    <code value="0003"/>
+    <display value="Provider out-of-network"/>
+    <definition value="This provider is considered out-of-network by the payer for this plan."/>
+  </concept>
+  <concept>
+    <code value="0004"/>
+    <display value="Service inconsistent with patient age"/>
+    <definition value="The payer has determined this product, service, or procedure is not consistent with the patient's age."/>
+  </concept>
+  <concept>
+    <code value="0005"/>
+    <display value="Benefit limits exceeded"/>
+    <definition value="The patient or subscriber benefit's have been exceeded."/>
+  </concept>
+</CodeSystem>

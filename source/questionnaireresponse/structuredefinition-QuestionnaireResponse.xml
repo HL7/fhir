@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="QuestionnaireResponse"/>
-  <title value="QuestionnaireResponse"/>
+  <title value="Questionnaire Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -178,10 +178,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="./outboundRelationship[typeCode=INST]/target[classCode=OBS, moodCode=DEFN]"/>
@@ -421,6 +417,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
@@ -471,6 +468,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="qrs-1"/>
+      <condition value="qrs-2"/>
       <mapping>
         <identity value="rim"/>
         <map value=".value[type=LIST_ANY]"/>
@@ -480,7 +479,7 @@
       <path value="QuestionnaireResponse.item.answer.value[x]"/>
       <short value="Single-valued answer to the question"/>
       <definition value="The answer (or one of the answers) provided by the respondent to the question."/>
-      <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.     Note that a question is answered using one of the possible choices defined with answerOption, answerValueSet or some other means and the answer has a complex data type, all elements within the answer in the QuestionnaireResponse **SHOULD** match the elements defined corresponding choice value in the Questionnaire.  However, it is possible that not all elements will be propagated.  Also, some systems might use language translations resulting in different displays.  Comparison of value to the values defined in the Questionnaire (whether by answerOption, answerValueSet or answerExpression) **SHALL NOT** pay attention to Coding.display, Reference.display, Quantity.unit unless those are the only elements present.  As well, systems are not required to check for a match on any extensions (e.g. ordinal values, translations, etc).  Systems **MAY** enforce that if extensions such as ordinal values are present in both Questionnaire and QuestionnaireResponse, they match."/>
+      <comment value="More complex structures (Attachment, Resource and Quantity) will typically be limited to electronic forms that can expose an appropriate user interface to capture the components and enforce the constraints of a complex data type.  Additional complex types can be introduced through extensions. Must match the datatype specified by Questionnaire.item.type in the corresponding Questionnaire.     Note that a question is answered using one of the possible choices defined with answerOption, answerValueSet or some other means and the answer has a complex data type, all elements within the answer in the QuestionnaireResponse **SHOULD** match the elements defined corresponding choice value in the Questionnaire.  However, it is possible that not all elements will be propagated.  Also, some systems might use language translations resulting in different displays.  Comparison of value to the values defined in the Questionnaire (whether by answerOption, answerValueSet or answerExpression) **SHALL NOT** pay attention to Coding.display, Reference.display, Quantity.unit unless those are the only elements present.  As well, systems are not required to check for a match on any extensions (e.g. ordinal values, translations, etc.).  Systems **MAY** enforce that if extensions such as ordinal values are present in both Questionnaire and QuestionnaireResponse, they match."/>
       <requirements value="Ability to retain a single-valued answer to a question."/>
       <min value="1"/>
       <max value="1"/>
@@ -521,6 +520,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="qrs-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireAnswer"/>

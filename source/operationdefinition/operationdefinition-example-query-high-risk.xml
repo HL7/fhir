@@ -1,31 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <OperationDefinition xmlns="http://hl7.org/fhir">
-  <id value="example-query-high-risk" />
-  <url value="http://hl7.org/fhir/OperationDefinition/example-query-high-risk" />
-  <version value="0.0.1" />
-  <name value="Example of High-Risk Patient Query" />
-  <status value="draft" />
-  <kind value="query" />
-  <description value="Example Named Query of Patients based on risk assessments" />
-  <code value="example-query-high-risk" />
-  <resource value="Patient" />
-  <system value="false" />
-  <type value="true" />
-  <instance value="false" />
+  <id value="example-query-high-risk"/>
+  <url value="http://hl7.org/fhir/OperationDefinition/example-query-high-risk"/>
+  <version value="0.0.1"/>
+  <name value="ExampleOfHighRiskPatientQuery"/>
+  <title value="Example of High-Risk Patient Query"/>
+  <status value="draft"/>
+  <kind value="query"/>
+  <description value="Example Named Query of Patients based on risk assessments"/>
+  <code value="example-query-high-risk"/>
+  <resource value="Patient"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="false"/>
   <parameter>
-    <name value="ward" />
-    <use value="in" />
-    <min value="0" />
-    <max value="*" />
-    <documentation value="Ward filters to apply to patient locations" />
-    <type value="string" />
-    <searchType value="reference" />
+    <name value="ward"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Ward filters to apply to patient locations"/>
+    <type value="string"/>
+    <searchType value="reference"/>
   </parameter>
   <parameter>
-    <name value="return" />
-    <use value="out" />
-    <min value="1" />
-    <max value="1" />
-    <documentation value="Searchset bundle" />
-    <type value="Bundle" />
+    <name value="result"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="Searchset bundle"/>
+    <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

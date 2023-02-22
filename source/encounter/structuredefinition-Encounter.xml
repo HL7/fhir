@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -127,7 +127,7 @@
     <element id="Encounter.status">
       <path value="Encounter.status"/>
       <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
+      <definition value="The current state of the encounter (not the state of the patient within the encounter - that is subjectState)."/>
       <comment value="Note that internal business rules will determine the appropriate transitions that may occur between statuses (and also classes)."/>
       <min value="1"/>
       <max value="1"/>
@@ -155,68 +155,11 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16"/>
+        <map value="No clear equivalent in HL7 V2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".statusCode"/>
-      </mapping>
-    </element>
-    <element id="Encounter.statusHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="StatusHistory"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,300"/>
-      </extension>
-      <path value="Encounter.statusHistory"/>
-      <short value="List of past encounter statuses"/>
-      <definition value="The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them."/>
-      <comment value="The current status is always found in the current version of the resource, not the status history."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.statusHistory.status">
-      <path value="Encounter.statusHistory.status"/>
-      <short value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown"/>
-      <definition value="planned | in-progress | on-hold | discharged | completed | cancelled | discontinued | entered-in-error | unknown."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="code"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterStatus"/>
-        </extension>
-        <strength value="required"/>
-        <description value="Current state of the encounter."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-status"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.statusHistory.period">
-      <path value="Encounter.statusHistory.period"/>
-      <short value="The time that the episode was in the specified status"/>
-      <definition value="The time that the episode was in the specified status."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Encounter.class">
@@ -248,62 +191,6 @@
       <mapping>
         <identity value="rim"/>
         <map value=".inboundRelationship[typeCode=SUBJ].source[classCode=LIST].code"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
-        <valueString value="ClassHistory"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-300,0"/>
-      </extension>
-      <path value="Encounter.classHistory"/>
-      <short value="List of past encounter classes"/>
-      <definition value="The class history permits the tracking of the encounters transitions without needing to go  through the resource history.  This would be used for a case where an admission starts of as an emergency encounter, then transitions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kind of discharge from emergency to inpatient."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="BackboneElement"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory.class">
-      <path value="Encounter.classHistory.class"/>
-      <short value="inpatient | outpatient | ambulatory | emergency +"/>
-      <definition value="inpatient | outpatient | ambulatory | emergency +."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Coding"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="EncounterClass"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Classification of the encounter."/>
-        <valueSet value="http://terminology.hl7.org/ValueSet/encounter-class"/>
-      </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.classHistory.period">
-      <path value="Encounter.classHistory.period"/>
-      <short value="The time that the episode was in the specified class"/>
-      <definition value="The time that the episode was in the specified class."/>
-      <min value="1"/>
-      <max value="1"/>
-      <type>
-        <code value="Period"/>
-      </type>
-      <mapping>
-        <identity value="rim"/>
-        <map value="n/a"/>
       </mapping>
     </element>
     <element id="Encounter.priority">
@@ -446,6 +333,7 @@
       <path value="Encounter.subjectStatus"/>
       <short value="The current status of the subject in relation to the Encounter"/>
       <definition value="The subjectStatus value can be used to track the patient's status within the encounter. It details whether the patient has arrived or departed, has been triaged or is currently in a waiting status."/>
+      <comment value="Different use-cases are likely to have different permitted transitions between states, such as an Emergency department could use `arrived` when the patient first presents, then `triaged` once has been assessed by a nurse, then `receiving-care` once treatment begins, however other sectors may use a different set of these values, or their own custom set in place of this example valueset provided."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -471,10 +359,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.context"/>
@@ -552,7 +436,7 @@
     <element id="Encounter.serviceProvider">
       <path value="Encounter.serviceProvider"/>
       <short value="The organization (facility) responsible for this encounter"/>
-      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the example bundle showing an abbreviated set of Encounters for a colonoscopy."/>
+      <definition value="The organization that is primarily responsible for this Encounter's services. This MAY be the same as the organization on the Patient record, however it could be different, such as if the actor performing the services was from an external organization (which may be billed seperately) for an external consultation.  Refer to the colonoscopy example on the Encounter examples tab."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -621,6 +505,8 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="enc-1"/>
+      <condition value="enc-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -678,6 +564,8 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
       </type>
+      <condition value="enc-1"/>
+      <condition value="enc-2"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
@@ -813,7 +701,40 @@
       </mapping>
     </element>
     <element id="Encounter.reason">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Reason"/>
+      </extension>
       <path value="Encounter.reason"/>
+      <short value="The list of medical reasons that are expected to be addressed during the episode of care"/>
+      <definition value="The list of medical reasons that are expected to be addressed during the episode of care."/>
+      <comment value="The reason communicates what medical problem the patient has that should be addressed during the episode of care.  This reason could be patient reported complaint, a clinical indication that was determined in a previous encounter or episode of care, or some planned care such as an immunization recommendation.  In the case where you have a primary reason, but are expecting to also address other problems, you can list the primary reason with a use code of 'Chief Complaint', while the other problems being addressed would have a use code of 'Reason for Visit'.&#xD;&#xD;Examples:&#xD; * pregnancy would use HealthcareService or a coding as the reason&#xD; * patient home monitoring could use Condition as the reason"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="Encounter.reason.use">
+      <path value="Encounter.reason.use"/>
+      <short value="What the reason value should be used for/as"/>
+      <definition value="What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="reason-use"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-reason-use"/>
+      </binding>
+    </element>
+    <element id="Encounter.reason.value">
+      <path value="Encounter.reason.value"/>
       <short value="Reason the encounter takes place (core or reference)"/>
       <definition value="Reason the encounter takes place, expressed as a code or a reference to another resource. For admissions, this can be used for a coded admission diagnosis."/>
       <alias value="Indication"/>
@@ -824,8 +745,8 @@
         <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Observation"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
@@ -847,7 +768,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"/>
+        <map value="EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 V2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -864,6 +785,7 @@
       <path value="Encounter.diagnosis"/>
       <short value="The list of diagnosis relevant to this encounter"/>
       <definition value="The list of diagnosis relevant to this encounter."/>
+      <comment value="Also note that for the purpose of billing, the diagnoses are recorded in the account where they can be ranked appropriately for how the invoicing/claiming documentation needs to be prepared."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -877,22 +799,28 @@
     </element>
     <element id="Encounter.diagnosis.condition">
       <path value="Encounter.diagnosis.condition"/>
-      <short value="The diagnosis or procedure relevant to the encounter"/>
-      <definition value="Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure."/>
+      <short value="The diagnosis relevant to the encounter"/>
+      <definition value="The coded diagnosis or a reference to a Condition (with other resources referenced in the evidence.detail), the use property will indicate the purpose of this specific diagnosis."/>
       <alias value="Admission diagnosis"/>
       <alias value="discharge diagnosis"/>
       <alias value="indication"/>
-      <min value="1"/>
-      <max value="1"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
       </type>
       <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="condition-code"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonReference"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -918,14 +846,14 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="DiagnosisRole"/>
+          <valueString value="DiagnosisUse"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
         <strength value="preferred"/>
         <description value="The type of diagnosis this condition represents."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/diagnosis-role"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
       </binding>
       <mapping>
         <identity value="v2"/>
@@ -934,24 +862,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.diagnosis.rank">
-      <path value="Encounter.diagnosis.rank"/>
-      <short value="Ranking of the diagnosis (for each role type)"/>
-      <definition value="Ranking of the diagnosis (for each role type)."/>
-      <min value="0"/>
-      <max value="1"/>
-      <type>
-        <code value="positiveInt"/>
-      </type>
-      <mapping>
-        <identity value="v2"/>
-        <map value="DG1-15 (Diagnosis Priority)"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=RSON].priority"/>
       </mapping>
     </element>
     <element id="Encounter.account">
@@ -970,13 +880,94 @@
         <map value=".pertains.A_Account"/>
       </mapping>
     </element>
+    <element id="Encounter.dietPreference">
+      <path value="Encounter.dietPreference"/>
+      <short value="Diet preferences reported by the patient"/>
+      <definition value="Diet preferences reported by the patient."/>
+      <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
+      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PatientDiet"/>
+        </extension>
+        <strength value="example"/>
+        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-38"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
+      </mapping>
+    </element>
+    <element id="Encounter.specialArrangement">
+      <path value="Encounter.specialArrangement"/>
+      <short value="Wheelchair, translator, stretcher, etc"/>
+      <definition value="Any special requests that have been made for this encounter, such as the provision of specific equipment or other things."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Arrangements"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Special arrangements."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-arrangements"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-15 / OBR-30 / OBR-43"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".specialArrangementCode"/>
+      </mapping>
+    </element>
+    <element id="Encounter.specialCourtesy">
+      <path value="Encounter.specialCourtesy"/>
+      <short value="Special courtesies (VIP, board member)"/>
+      <definition value="Special courtesies that may be provided to the patient during the encounter (VIP, board member, professional courtesy)."/>
+      <comment value="Although the specialCourtesy property can contain values like VIP, the purpose of this field is intended to be used for flagging additional `benefits` that might occur for the patient during the encounter.&#xD;&#xD;It could include things like the patient is to have a private room, special room features, receive a friendly visit from hospital adminisitration, or should be briefed on treatment by senior staff during the stay.&#xD;&#xD;It is not specifically intended to be used for securing the specific record - that is the purpose of the security meta tag, and where appropriate, both fields could be used."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="Courtesies"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="Special courtesies."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-courtesy"/>
+      </binding>
+      <mapping>
+        <identity value="v2"/>
+        <map value="PV1-16"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".specialCourtesiesCode"/>
+      </mapping>
+    </element>
     <element id="Encounter.admission">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,200"/>
       </extension>
       <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
-      <definition value="Details about the admission to a healthcare service."/>
+      <definition value="Details about the stay during which a healthcare service is provided.&#xD;&#xD;This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge."/>
       <comment value="An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.&#xD;&#xD;The duration recorded in the period of this encounter covers the entire scope of this admission record."/>
       <min value="0"/>
       <max value="1"/>
@@ -1075,86 +1066,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="n/a"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.dietPreference">
-      <path value="Encounter.admission.dietPreference"/>
-      <short value="Diet preferences reported by the patient"/>
-      <definition value="Diet preferences reported by the patient."/>
-      <comment value="For example, a patient may request both a dairy-free and nut-free diet preference (not mutually exclusive)."/>
-      <requirements value="Used to track patient's diet restrictions and/or preference. For a complete description of the nutrition needs of a patient during their stay, one should use the nutritionOrder resource which links to Encounter."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="PatientDiet"/>
-        </extension>
-        <strength value="example"/>
-        <description value="Medical, cultural or ethical food preferences to help with catering requirements."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diet"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-38"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=&quot;diet&quot;]"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.specialCourtesy">
-      <path value="Encounter.admission.specialCourtesy"/>
-      <short value="Special courtesies (VIP, board member)"/>
-      <definition value="Special courtesies (VIP, board member)."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Courtesies"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Special courtesies."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-courtesy"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-16"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".specialCourtesiesCode"/>
-      </mapping>
-    </element>
-    <element id="Encounter.admission.specialArrangement">
-      <path value="Encounter.admission.specialArrangement"/>
-      <short value="Wheelchair, translator, stretcher, etc."/>
-      <definition value="Any special requests that have been made for this admission encounter, such as the provision of specific equipment or other things."/>
-      <min value="0"/>
-      <max value="*"/>
-      <type>
-        <code value="CodeableConcept"/>
-      </type>
-      <binding>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="Arrangements"/>
-        </extension>
-        <strength value="preferred"/>
-        <description value="Special arrangements."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-special-arrangements"/>
-      </binding>
-      <mapping>
-        <identity value="v2"/>
-        <map value="PV1-15 / OBR-30 / OBR-43"/>
-      </mapping>
-      <mapping>
-        <identity value="rim"/>
-        <map value=".specialArrangementCode"/>
       </mapping>
     </element>
     <element id="Encounter.admission.destination">

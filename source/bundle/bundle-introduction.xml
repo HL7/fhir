@@ -4,6 +4,7 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 
+<!--
 [%ballot-note breaking%]
 The following are potentially breaking changes:</p>
 <ul>
@@ -11,7 +12,7 @@ The following are potentially breaking changes:</p>
   <li>The 'outcome' code in Bundle.entry.search.mode = outcome is now deprecated in favor of the new Bundle.issues element.</li>
 </ul>
 [%end-note-np%]
-
+-->
 <p>
 One common operation performed with resources is to gather a collection of resources into a single instance
 with containing context. In FHIR this is referred to as "bundling" the resources together. These resource bundles are useful for a variety of different reasons, including:
@@ -22,6 +23,7 @@ with containing context. In FHIR this is referred to as "bundling" the resources
   <li>Sending a set of resources as part of a message exchange (see <a href="messaging.html">Messaging</a>)</li>
   <li>Grouping a self-contained set of resources to act as an exchangeable and persistable collection with clinical integrity - e.g. a clinical document (see <a href="documents.html">Documents</a>)</li>
   <li>Creating/updating/deleting a set of resources on a server as a single operation (including doing so as a single atomic transaction) (see <a href="http.html#transaction">Transactions</a>)</li>
+  <li>Sending an event notification related to an active Subscription (see <a href="subscriptions.html">Subscriptions)</a></li>
   <li>Storing a collection of resources</li>
 </ul>
 

@@ -168,7 +168,6 @@ A FHIR Terminology Service SHALL support the following operations with the assoc
 </table>
 <a name="examples"></a>
 <h4>CapabilityStatement and TerminologyCapabilities examples</h4>
-The following <a href="capabilitystatement.html">CapabilityStatement</a> and <a href="terminologycapabilities.html">TerminologyCapabilities</a> resources assert the mandatory capabilities described in the previous subsections.
 <ul>
   <li><a href="capabilitystatement-terminology-server.html">FHIR Terminology Service Capability Statement</a></li>
   <li><a href="terminologycapabilities-terminology-server.html">FHIR Terminology Service Terminology Capabilities</a>. Note that in this example the code systems referenced in TerminologyCapabilities.codeSystem data elements are examples and support for these should not be considered a mandatory requirement for a FHIR Terminology Service.</li>
@@ -252,7 +251,7 @@ This extension is added to the root <a href="capabilitystatement.html">Capabilit
 <a name="impl1"></a>
 <h4>Implementation Note</h4>
 <p>When a terminology server exposes an external code system, it makes a set of services available
-internally that serve the operational interfaces below. The internal server depends on the following
+internally that serve the operational interfaces below (starting in <a href="#expand">Value Set Expansion</a>). The internal server depends on the following
 logical information for a terminology:
 </p>
 <ul>
@@ -283,7 +282,7 @@ outside the scope of the FHIR terminology service.
 <p>
 The terminology service uses the code systems and value set resources defined on the system - both
 the implicit ones associated with the external code systems and those explicitly
-available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below.
+available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below (starting in <a href="#expand">Value Set Expansion</a>).
 As code systems and value sets are created, updated or deleted, the outcomes of the operational
 services change. A terminology server should validate incoming resources and ensure integrity
 of the terminology services. Typically, servers provide a test and production
@@ -323,7 +322,7 @@ to reduce the number of codes returned - this may result in a valid expansion.
 For further information, consult the <a href="valueset-operation-expand.html">definition of the operation</a>.
 </p>
 <p>
-The $expand operation has support for paging - for a client to retrieve a big expansion
+The <a href="valueset-operation-expand.html">$expand</a> operation has support for paging - for a client to retrieve a big expansion
 in a set of partial views, in order to present the most optimal user experience.
 The client specifies both an offset and a count - how many codes per page, and where in the sequence
 to start. The return expansion specifies the number of concepts in the expansion, and the offset
@@ -495,7 +494,7 @@ HTTP/1.1 200 OK
 </div>
 
 <a name="standard-props"></a>
-<h4>Standard Properties</h4>
+<h4>Standard $lookup Properties</h4>
 <p>
   The following property names are defined in response to the $lookup operation from all code systems: 
 </p>
@@ -507,7 +506,7 @@ HTTP/1.1 200 OK
  </tr>
  <tr>
   <td>name</td>
-  <td>The name of the code system. Note that this was also known as <code>system</code>, but this is deprecated</td>
+  <td>The name of the code system</td>
   <td>system</td>
  </tr>
  <tr>
@@ -517,17 +516,17 @@ HTTP/1.1 200 OK
  </tr>
  <tr>
   <td>display</td>
-  <td>The recommended display for the code, if one is known</td>
+  <td>The recommended display for the concept, if one is known</td>
   <td>designation</td>
  </tr>
  <tr>
   <td>designation</td>
-  <td>Other designations for the code</td>
+  <td>Other designations for the concept</td>
   <td>designation</td>
  </tr>
  <tr>
   <td>lang.X</td>
-  <td>Designations in language X (where X is an IETF Language code, see <a href="https://www.rfc-editor.org/rfc/rfc5646.html">BCP-47</a></td>
+  <td>Designations in language X (where X is an IETF Language code, see <a href="https://www.rfc-editor.org/rfc/rfc5646.html">BCP-47)</a></td>
   <td>designation</td>
  </tr>
 </table>
@@ -1025,7 +1024,7 @@ whether the concept is post-coordinated or not. Here's a description of how the 
 </p>
 <ol>
  <li> the client defines a name associated with a particular context in which it wishes to maintain a subsumption based closure table</li>
- <li> the client registers this name with the FHIR Terminology server using the $closure operation (described below), with only one parameter, the name of the context</li>
+ <li> the client registers this name with the FHIR Terminology server using the $closure operation (described in <a href="#closure">Maintaining a Closure Table</a> below)), with only one parameter, the name of the context</li>
  <li> any time the client system encounters a new Coding that is not entered in the closure table, it calls the $closure operation with the context name, and the Coding value it has encountered</li>
  <li> the server returns a ConceptMap resource with a list of new entries (code : system -&gt; code : system) that the client should add to its closure table
    <ul>
@@ -1208,7 +1207,7 @@ Return a 422 Unprocessable Entity with
 </pre>
 </div>
 <p>
-The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, it's only choice is to initialize the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of 'all the codes' so it can rebuild the table again).
+The server should only send this when its underlying terminology conditions have been changed (e.g. a new version of SNOMED CT has been loaded). When a client gets this, its only choice is to initialize the closure table, and process all the codes in the closure table again (the assumption here is that the system has some external source of 'all the codes' so it can rebuild the table again).
 If the concept(s) submitted are processed ok, but there's no new concepts, or no new entries in the table, return a 200 OK with :
 </p>
 <div class="example">
@@ -1257,7 +1256,7 @@ If there's new entries in the closure table, the server returns a 200 OK with:
  <li>servers may return the relationship represented in either direction</li>
  <li>it's important to understand the relationship the right way around. From the spec: The equivalence is read from target to source (e.g. the target is 'wider' than the source). So in this case, 128599005 (Structural disorder of heart) subsumes 22298006 (Myocardial infarction)</li>
  <li>In the $closure operation, the response never explicitly states that a code is subsumed by itself. Clients should assume that this is implicit</li>
- <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions is has issued for replay (see below)</li>
+ <li>The version is important. Each new invocation of the $closure operation returns a new version of the concept map. The server must keep track of the versions it has issued for replay (see below)</li>
  <li>As well as entering codes that are actually used, the client also enters search terms into the closure table</li>
  <li>The combination of the system and code is the key to the closure table; if the server encounters two different codes that have the same meaning (e.g. syntactical variation), it should create an "equals" relationship between them</li>
 </ul>

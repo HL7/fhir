@@ -12,14 +12,14 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
+FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
 Applications asserting conformance to this framework claim to be conformant to "FHIR messaging"  (see <a href="conformance-rules.html">Conformance</a>).
 </p>
 
 <p>
 In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
-real world.
+real-world.
 </p>
 <p>
 Messages are <a href="bundle.html">Bundle</a> resources, with the following rules:
@@ -177,20 +177,6 @@ Note that asynchronous messaging can be harder to implement due to the amount of
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
-
-[%ballot-note id-feedback%]
-Since this page was first written, Bundle.identifier was added. 
-FHIR-I is considering rewriting this so that the decisions are 
-made against Bundle.identifier not Bundle.id. This would allow 
-intermediaries to use the Bundle.id as the primary internal id
-for bundle. There's an additional proposal to add MessageHeader.identifier
-and change to using that instead of MessageHeader.id. 
-</p>
-<p>
-Ballot input is solicited on two issues: should this section 
-change at all (e.g. change to Bundle.identifier), and should 
-it be based on MessageHeader.identifier (assuming this is added).
-[%end-note%]
 
 <h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
@@ -417,7 +403,7 @@ To receive messages, a receiver searches for all messages
 destined for itself, since its last check:
 </p>
 <pre>
- GET [base]/Bundle?message.destination-uri=[rcv]&amp;_lastUpdated=>2015-03-01T02:00:02+01:00
+ GET [base]/Bundle?message.destination-uri=[rcv]&amp;_lastUpdated=gt2015-03-01T02:00:02+01:00
 </pre>
 <p>
 The receiver works through the response, processing each message.
@@ -431,7 +417,7 @@ response messages destined for itself, since its last check:
 </p>
 <pre>
  GET [base]/Bundle?message.destination-uri=[snd]&amp;message.response-id:missing=false
-      &amp;_lastUpdated=>2015-03-03T06:03:522+01:00
+      &amp;_lastUpdated=gt2015-03-03T06:03:522+01:00
 </pre>
 <p>
 This lightweight protocol needs ongoing administration to
@@ -484,31 +470,31 @@ The recipient executes the operation as specified, and then:
 Here's an example:
 </p>
 <pre class="xml" fragment="Bundle">
-&lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;urn:uuid:77831928-2a35-4c08-9496-8232323bf48c&quot;/&gt;
+&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
+  &lt;id value="urn:uuid:77831928-2a35-4c08-9496-8232323bf48c"/&gt;
   &lt;!-- normal bundle stuff --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f&quot;/&gt;
+    &lt;fullUrl value="urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f"/&gt;
     &lt;resource&gt;
       &lt;MessageHeader&gt;
 			  &lt;id value="cac8143e-6138-4f45-b086-bb8ebf976aae"/&gt;
         &lt;!-- normal message header stuff --&gt;
         &lt;eventCoding&gt;
-          &lt;system value=&quot;urn:ietf:rfc:3986&quot;/&gt;
+          &lt;system value="urn:ietf:rfc:3986"/&gt;
           &lt;!-- value set expansion --&gt;
-          &lt;code value=&quot;http://hl7.org/fhir/OperationDefinition/ValueSet-expand&quot;/&gt;
+          &lt;code value="http://hl7.org/fhir/OperationDefinition/ValueSet-expand"/&gt;
         &lt;/eventCoding&gt;
         &lt;!-- more normal message header stuff --&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;urn:uuid:00213637-dc7c-40d2-a7de-f4ef1eea5685&quot;/&gt;
+    &lt;fullUrl value="urn:uuid:00213637-dc7c-40d2-a7de-f4ef1eea5685"/&gt;
     &lt;resource&gt;
       &lt;Parameters&gt;
         &lt;parameter&gt;
-          &lt;name value=&quot;identifier&quot;/&gt;
-          &lt;valueUri value=&quot;http://hl7.org/fhir/ValueSet/identifier-type&quot;/&gt;
+          &lt;name value="identifier"/&gt;
+          &lt;valueUri value="http://hl7.org/fhir/ValueSet/identifier-type"/&gt;
         &lt;/parameter&gt;
       &lt;/Parameters&gt;
     &lt;/resource&gt;
@@ -597,34 +583,34 @@ Here's an example:
 </p>
 
 <pre class="xml">
-&lt;Bundle xmlns=&quot;http://hl7.org/fhir&quot;&gt;
-  &lt;id value=&quot;urn:uuid:77831928-2a35-4c08-9496-8232323bf48c&quot;/&gt;
+&lt;Bundle xmlns="http://hl7.org/fhir"&gt;
+  &lt;id value="urn:uuid:77831928-2a35-4c08-9496-8232323bf48c"/&gt;
   &lt;!-- normal bundle stuff --&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;urn:uuid:c466754c-09c0-4f59-9f76-a48bd0ea27c9&quot;/&gt;
+    &lt;fullUrl value="urn:uuid:c466754c-09c0-4f59-9f76-a48bd0ea27c9"/&gt;
     &lt;resource&gt;
       &lt;MessageHeader&gt;
         &lt;!-- normal message header stuff --&gt;
         &lt;eventCoding&gt;
-          &lt;system value=&quot;http://hl7.org/fhir/restful-interaction&quot;/&gt;
+          &lt;system value="http://hl7.org/fhir/restful-interaction"/&gt;
           &lt;!-- Search against Patient --&gt;
-          &lt;code value=&quot;search-type&quot;/&gt;
+          &lt;code value="search-type"/&gt;
         &lt;/eventCoding&gt;
         &lt;!-- more normal message header stuff --&gt;
       &lt;/MessageHeader&gt;
     &lt;/resource&gt;
   &lt;/entry&gt;
   &lt;entry&gt;
-    &lt;fullUrl value=&quot;urn:uuid:59a17a19-46eb-42d9-821a-f93a0c530cac&quot;/&gt;
+    &lt;fullUrl value="urn:uuid:59a17a19-46eb-42d9-821a-f93a0c530cac"/&gt;
     &lt;resource&gt;
       &lt;Parameters&gt;
         &lt;parameter&gt;
-          &lt;name value=&quot;resourceType&quot;/&gt;
-          &lt;valueString value=&quot;Patient&quot;/&gt;
+          &lt;name value="resourceType"/&gt;
+          &lt;valueString value="Patient"/&gt;
         &lt;/parameter&gt;
         &lt;parameter&gt;
-          &lt;name value=&quot;gender&quot;/&gt;
-          &lt;valueString value=&quot;m&quot;/&gt;
+          &lt;name value="gender"/&gt;
+          &lt;valueString value="m"/&gt;
         &lt;/parameter&gt;
       &lt;/Parameters&gt;
     &lt;/resource&gt;

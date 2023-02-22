@@ -75,7 +75,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -134,7 +134,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -273,7 +273,7 @@
     </element>
     <element id="Questionnaire.derivedFrom">
       <path value="Questionnaire.derivedFrom"/>
-      <short value="Instantiates protocol or definition"/>
+      <short value="Based on Questionnaire"/>
       <definition value="The URL of a Questionnaire that this Questionnaire is based on."/>
       <requirements value="Allows a Questionnaire to be created based on another Questionnaire."/>
       <min value="0"/>
@@ -282,10 +282,6 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.derivedFrom"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DRIV].target[classCode=OBS, moodCode=DEFN]"/>
@@ -301,6 +297,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="que-1a"/>
       <isModifier value="true"/>
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
@@ -634,7 +631,7 @@
     </element>
     <element id="Questionnaire.lastReviewDate">
       <path value="Questionnaire.lastReviewDate"/>
-      <short value="When the questionnaire was last reviewed"/>
+      <short value="When the questionnaire was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -718,7 +715,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="que-3"/>
       <constraint>
         <key value="que-9"/>
         <severity value="error"/>
@@ -810,8 +806,8 @@
       <constraint>
         <key value="que-14"/>
         <severity value="warning"/>
-        <human value="Can only have answerConstraint if answerOption or answerValueset are present.  (This is a warning because extensions may serve the same purpose)"/>
-        <expression value="answerConstraint.exists() implies answerOption.exists() or answerValueset.exists()"/>
+        <human value="Can only have answerConstraint if answerOption or answerValueSet are present.  (This is a warning because extensions may serve the same purpose)"/>
+        <expression value="answerConstraint.exists() implies answerOption.exists() or answerValueSet.exists()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
       <mapping>
@@ -823,7 +819,7 @@
       <path value="Questionnaire.item.linkId"/>
       <short value="Unique id for item in questionnaire"/>
       <definition value="An identifier that is unique within the Questionnaire allowing linkage to the equivalent item in a QuestionnaireResponse resource."/>
-      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
       <requirements value="[QuestionnaireResponse](questionnaireresponse.html#) does not require omitted items to be included and may have some items that repeat, so linkage based on position alone is not sufficient."/>
       <min value="1"/>
       <max value="1"/>
@@ -839,7 +835,7 @@
           </extension>
         </severity>
         <human value="Link ids should be 255 characters or less"/>
-        <expression value="$this.length &lt;= 255"/>
+        <expression value="$this.length() &lt;= 255"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
       </constraint>
       <mapping>
@@ -934,6 +930,15 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="que-9"/>
+      <condition value="que-8"/>
+      <condition value="que-6"/>
+      <condition value="que-5"/>
+      <condition value="que-3"/>
+      <condition value="que-10"/>
+      <condition value="que-1a"/>
+      <condition value="que-1b"/>
+      <condition value="que-1c"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireItemType"/>
@@ -961,6 +966,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="que-12"/>
       <constraint>
         <key value="que-7"/>
         <severity value="error"/>
@@ -999,6 +1005,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="que-7"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="QuestionnaireItemOperator"/>
@@ -1143,6 +1150,7 @@
       </type>
       <meaningWhenMissing value="Items are generally assumed not to repeat unless explicitly specified. Systems SHOULD always populate this value"/>
       <condition value="que-6"/>
+      <condition value="que-13"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>
@@ -1188,7 +1196,7 @@
     <element id="Questionnaire.item.answerConstraint">
       <path value="Questionnaire.item.answerConstraint"/>
       <short value="optionsOnly | optionsOrType | optionsOrString"/>
-      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueset), indicates whether values *other* than those specified can be selected."/>
+      <definition value="For items that have a defined set of allowed answers (via answerOption or answerValueSet), indicates whether values *other* than those specified can be selected."/>
       <requirements value="Introduces the ability for questions to have 'other' answers"/>
       <min value="0"/>
       <max value="1"/>
@@ -1196,6 +1204,7 @@
         <code value="code"/>
       </type>
       <meaningWhenMissing value="If not specified, answerConstraint is presumed to be 'optionsOnly'"/>
+      <condition value="que-10"/>
       <condition value="que-14"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1212,7 +1221,7 @@
     </element>
     <element id="Questionnaire.item.answerValueSet">
       <path value="Questionnaire.item.answerValueSet"/>
-      <short value="Valueset containing permitted answers"/>
+      <short value="ValueSet containing permitted answers"/>
       <definition value="A reference to a value set containing a list of values representing permitted answers for a question."/>
       <comment value="LOINC defines many useful value sets for questionnaire responses. See [LOINC Answer Lists](https://terminology.hl7.org/LOINC.html). The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>
@@ -1221,8 +1230,9 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ValueSet"/>
       </type>
-      <condition value="que-4"/>
       <condition value="que-5"/>
+      <condition value="que-4"/>
+      <condition value="que-14"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>
@@ -1241,8 +1251,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="que-4"/>
       <condition value="que-5"/>
+      <condition value="que-4"/>
+      <condition value="que-11"/>
+      <condition value="que-14"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>
@@ -1320,8 +1332,8 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="que-8"/>
-      <condition value="que-11"/>
       <condition value="que-13"/>
+      <condition value="que-11"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A - MIF rather than RIM level"/>
@@ -1399,9 +1411,6 @@
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#Questionnaire.item"/>
-      <condition value="que-1a"/>
-      <condition value="que-1b"/>
-      <condition value="que-1c"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP].target"/>

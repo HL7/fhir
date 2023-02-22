@@ -4,14 +4,8 @@
 <a name="scope"></a>
 <h2>Scope and Usage</h2>
 <p>
-The DeviceMetric resource describes mandatory static properties that characterize a direct or derived, quantitative or qualitative biosignal measurement, setting, or calculation produced by a medical device. 
-The DeviceMetric resource can also be used to describe the non-static but highly relevant properties to the metric such as metric status, metric last calibration time and type, measurement mode, color, reference link to the parent DeviceComponent to where it belongs, and any capabilities that the metric offers (for example: setting the metric label).
-</p>
-<p>
-Note:
-</p>
-<p>
-For the initial scope, this DeviceMetric resource is only applicable to describe a single metric node in the containment tree that is produced by the context scanner in any medical device that implements or derives from the ISO/IEEE 11073 standard.
+ The DeviceMetric resource describes dynamic properties that characterize a direct or derived, quantitative or qualitative setting, or calculation produced by a medical device i.e, readings and settings of, or from the device. 
+ The DeviceMetric resource can also be used to describe the properties relevant to the metric such as status, last calibration time and type, measurement mode, color, and link to the parent Device.
 </p>
 </div>
 
@@ -19,11 +13,17 @@ For the initial scope, this DeviceMetric resource is only applicable to describe
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-There are two related resources
+ These are the DeviceMetric related resources:
 </p>
 <ul>
- <li><a href="device.html">Device</a>  - The physical device that this DeviceMetric belongs to.</li>
+ <li><a href="device.html">Device:</a>  The physical, virtual, or software device that this DeviceMetric is for. Note that the Device.property element is used to record static characteristics or properties of the Device.</li>
 </ul>
+ <ul>
+  <li><a href="device.html">DeviceDefinition:</a>  Describes a "kind" of device - not a specific instance of the device. Note alternatively to Device the DeviceDefinition.property element may be used to record static characteristics or properties of the DeviceDefinition.</li>
+ </ul> 
+ <ul>
+  <li><a href="device.html">Observation:</a>  Used to record the particular value of the DeviceMetric at a point in time.</li>
+ </ul> 
 
 </div>
 </div>

@@ -60,7 +60,7 @@
         (snip)
 			</div>
 		</text>
-    <!-- entries for child - CarePlan, observations, conditions, encounter, Prescriptions, etc -->
+    <!-- entries for child - CarePlan, observations, conditions, encounter, Prescriptions, etc. -->
 	</section>
 	<section>
 		<title value="Mpther's Details"/>
@@ -77,6 +77,6 @@
 				(snip)
 			</div>
 		</text>
-    <!-- entries for mother - Coverage, Observations, Supplies, etc -->    
+    <!-- entries for mother - Coverage, Observations, Supplies, etc. -->    
 	</section>
 </Composition>

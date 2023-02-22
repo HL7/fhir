@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../publish/encounter.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Encounter xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/encounter.xsd">
+    <id value="colonoscopy"/>
+    <status value="completed"/>
+    <!--Encounter has been completed-->
+    <class>
+		<coding>
+			<!--Inpatient encounter for colonoscopy -->
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="IMP"/>
+			<display value="inpatient encounter"/>
+		</coding>
+    </class>
+    <type>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="73761001"/>
+            <display value="Colonoscopy (procedure)"/>
+        </coding>
+        <text value="Colonoscopy"/>
+    </type>
+    <subject>
+        <reference value="Patient/glossy"/>
+        <display value="Henry Levin the 7th"/>
+        <!-- 
+            Note that this patient record is associated with Organization/2,
+            however the service provider is Organization/1 who contracts 
+            gastroenterology services (in this case performed by Dr Adam).
+        -->
+    </subject>
+    <serviceProvider>
+        <reference value="Organization/1"/>
+        <display value="Gastroenterology @ Acme Hospital"/>
+    </serviceProvider>
+    <participant>
+        <type>
+            <coding>
+                <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+                <code value="PART"/>
+            </coding>
+        </type>
+        <actor>
+            <reference value="Practitioner/example"/>
+            <display value="Dr Adam Careful"/>
+        </actor>
+    </participant>
+    <actualPeriod>
+        <start value="2013-03-11"/>
+        <end value="2013-03-20"/>
+    </actualPeriod>
+    <reason>
+        <value>
+            <concept>
+                <text value="Routine investigation"/>
+            </concept>
+        </value>
+    </reason>
+</Encounter>

@@ -27,7 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ArtifactAssessment"/>
-  <title value="ArtifactAssessment"/>
+  <title value="Artifact Assessment"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (Clinical Decision Support)"/>
@@ -204,7 +204,7 @@
     </element>
     <element id="ArtifactAssessment.lastReviewDate">
       <path value="ArtifactAssessment.lastReviewDate"/>
-      <short value="When the artifact assessment was last reviewed"/>
+      <short value="When the artifact assessment was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>

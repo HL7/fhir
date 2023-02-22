@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="DeviceRequest"/>
-  <title value="DeviceRequest"/>
+  <title value="Device Request"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Orders and Observations)"/>
@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -253,7 +253,7 @@
     <element id="DeviceRequest.groupIdentifier">
       <path value="DeviceRequest.groupIdentifier"/>
       <short value="Identifier of composite request"/>
-      <definition value="Composite request this is part of."/>
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -402,7 +402,7 @@
         <code value="boolean"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc)"/>
+      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc.)"/>
       <isSummary value="true"/>
     </element>
     <element id="DeviceRequest.code">
@@ -746,7 +746,7 @@
         <map value=".participation[typeCode=AUT].role"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.performerType">
+    <!-- <element id="DeviceRequest.performerType">
       <path value="DeviceRequest.performerType"/>
       <short value="Filler role"/>
       <definition value="The desired kind of individual or entity to provide the device to the subject of the request (e.g., patient, location)."/>
@@ -780,7 +780,7 @@
         <identity value="rim"/>
         <map value=".participation[typeCode=PRF].role[scoper.determinerCode=KIND].code"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="DeviceRequest.performer">
       <path value="DeviceRequest.performer"/>
       <short value="Requested Filler"/>
@@ -788,7 +788,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Reference"/>
+        <code value="CodeableReference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
@@ -843,7 +843,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

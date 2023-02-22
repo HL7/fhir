@@ -97,6 +97,10 @@
 			</type>
 			<mustSupport value="true"/>
 		</element>
+		<element id="CodeSystem.versionAlgorithm[x]">
+			<path value="CodeSystem.versionAlgorithm[x]"/>
+			<mustSupport value="true"/>
+		</element>
 		<element id="CodeSystem.name">
 			<path value="CodeSystem.name"/>
 			<mustSupport value="true"/>

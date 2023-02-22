@@ -27,7 +27,7 @@
   <publisher value="HL7 (FHIR Project)"/>
   <description value="Example Set of Location Characteristics."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/location-status"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/location-characteristic"/>
   <content value="complete"/>
   <concept>
     <code value="wheelchair"/>

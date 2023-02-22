@@ -75,7 +75,7 @@ extensions, but only the following datatypes may include <a href="extensibility.
 
 <a name="imports"></a>
 <p>
-The following table describes the primitive types that are used in this specification. Primitive types are those that specialise <a href="types.html#PrimitiveType">PrimitiveType</a>, with a value, and no additional elements as children (though, like
+The following table describes the primitive types that are used in this specification. Primitive types are those that specialize <a href="types.html#PrimitiveType">PrimitiveType</a>, with a value, and no additional elements as children (though, like
 all types, they have <code>id</code> and <a href="extensibility.html">extensions</a>). See also the <a href="datatypes-examples.html#primitives">Examples</a>.
 </p>
 
@@ -93,13 +93,15 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>base64Binary<a name="base64Binary"></a><a name="base64binary"></a></td>
-  <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)</td>
+  <td>A stream of bytes, base64 encoded (<a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>). 
+    base64Binary content does not include any whitespace or line feeds, but reading applications should ignore whitespace characters (per <a href="http://tools.ietf.org/html/rfc4648">RFC 4648</a>)
+  </td>
   <td>xs:base64Binary</td>
   <td>A JSON string - base64 content</td>
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>(\s*([0-9a-zA-Z\+\=]){4}\s*)+</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex base64Binary%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="base64binary.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -116,7 +118,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>true|false</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex boolean%]</code></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="boolean.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -136,7 +138,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
  <td style="border-top: 0px silver solid"></td>
- <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+ <td style="border-top: 0px silver solid">Regex: <code>[%regex canonical%]</code></td>
  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.xml.html">XML Definition</a></td>
  <td style="border-top: 0px silver solid"><a style="color: grey" href="canonical.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -151,7 +153,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[^\s]+( [^\s]+)*</code><br/>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex code%]</code><br/>
       This datatype can be <a href="terminologies.html#string">bound</a> to a <a href="valueset.html">ValueSet</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="code.profile.json.html">JSON Definition</a></td>
@@ -159,26 +161,27 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 
  <tr>
   <td>date<a name="date"></a></td>
-  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone</b>. Dates SHALL be valid dates.</td>
+  <td>A date, or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, or YYYY-MM-DD, e.g. 2018, 1973-06, or 1905-08-23. <b>There SHALL be no time zone offset</b>. Dates SHALL be valid dates.</td>
   <td>union of xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex date%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="date.profile.json.html">JSON Definition</a></td>
 </tr>
 <tr>
   <td>dateTime<a name="dateTime"></a><a name="datetime"></a></td>
   <td>A date, date-time or partial date (e.g. just year or year + month) as used in human communication. The format is YYYY, YYYY-MM, YYYY-MM-DD or YYYY-MM-DDThh:mm:ss+zz:zz, e.g. 2018, 1973-06, 1905-08-23, 2015-02-07T13:28:17-05:00 or 2017-01-01T00:00:00.000Z.
-   If hours and minutes are specified, a time zone SHALL be populated. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
+   If hours and minutes are specified, a time zone offset SHALL be populated. Actual time zone codes can be sent using the <%extension http://hl7.org/fhir/StructureDefinition/timezone%> extension, if desired.
+   Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion. Milliseconds are optionally allowed. Dates SHALL be valid dates. <b>The time "24:00" is not allowed</b>. Leap Seconds are allowed - see below</td>
   <td>union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
   <td>A JSON string - a union of xs:dateTime, xs:date, xs:gYearMonth, xs:gYear</td>
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])<br/>(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?)?)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex dateTime%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="datetime.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -191,7 +194,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex decimal%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="decimal.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -204,14 +207,15 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[%id_regex%]</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex id%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="id.profile.json.html">JSON Definition</a></td>
 </tr>
 
 <tr>
   <td>instant<a name="instant"></a></td>
-  <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone.
+  <td>An instant in time in the format YYYY-MM-DDThh:mm:ss.sss+zz:zz (e.g. 2015-02-07T13:28:17.239+02:00 or 2017-01-01T00:00:00Z). The time SHALL specified at least to the second and SHALL include a time zone offset.
+    Actual time zone codes can be sent using the [[[http://hl7.org/fhir/StructureDefinition/timezone extension]]], if desired.
     Note: This is intended for when precisely observed times are required (typically system logs etc.), and not human-reported times - for those, use date or dateTime (which can be as precise as <code>instant</code>, but is not required to be). <code>instant</code> is a more constrained dateTime</td>
   <td>xs:dateTime</td>
   <td>A JSON string - an xs:dateTime</td>
@@ -222,7 +226,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])<br/>T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9}})?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex instant%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="instant.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -236,7 +240,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>-?([0]|([1-9][0-9]*))</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex integer%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="integer.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -250,7 +254,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[0]|[-+]?[1-9][0-9]*</code></td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex integer64%]</code></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="integer64.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -263,7 +267,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>\s*(\S|\s)*</code>  (can't put size limit in the regex - too large)</td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex markdown%]</code>  (can't put size limit in the regex - too large)</td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="markdown.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -276,7 +280,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>urn:oid:[0-2](\.(0|[1-9][0-9]*))+</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex oid%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="oid.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -299,7 +303,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>[ \r\n\t\S]+</code> (see notes below)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex string%]</code> (see notes below)</td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="string.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -312,7 +316,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[1-9][0-9]*</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex positiveInt%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="positiveint.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -320,13 +324,13 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 <tr>
   <td>time<a name="time"></a></td>
   <td>A time during the day, in the format hh:mm:ss. There is no date specified. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored at receiver discretion.
-  <b>The time "24:00" SHALL NOT be used. A time zone SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
+  <b>The time "24:00" SHALL NOT be used. A time zone offset SHALL NOT be present</b>. Times can be converted to a <a href="#Duration">Duration</a> since midnight.</td>
   <td>xs:time</td>
   <td>A JSON string - an xs:time</td>
  </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]{1,9})?</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex time%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="time.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -339,7 +343,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
 </tr>
 <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>[0]|([1-9][0-9]*)</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex unsignedInt%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="unsignedint.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -352,7 +356,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td style="border-top: 0px silver solid">Regex: <code>\S*</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
+   <td style="border-top: 0px silver solid">Regex: <code>[%regex uri%]</code> (This regex is very permissive, but URIs must be valid. Implementers are welcome to use more specific regex statements for a URI in specific contexts)</td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.xml.html">XML Definition</a></td>
    <td style="border-top: 0px silver solid"><a style="color: grey" href="uri.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -370,7 +374,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>\S*</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex url%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="url.profile.json.html">JSON Definition</a></td>
  </tr>
@@ -383,7 +387,7 @@ all types, they have <code>id</code> and <a href="extensibility.html">extensions
  </tr>
  <tr>
   <td style="border-top: 0px silver solid"></td>
-  <td style="border-top: 0px silver solid">Regex: <code>urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}</code></td>
+  <td style="border-top: 0px silver solid">Regex: <code>[%regex uuid%]</code></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.xml.html">XML Definition</a></td>
   <td style="border-top: 0px silver solid"><a style="color: grey" href="uuid.profile.json.html">JSON Definition</a></td>
 </tr>
@@ -407,14 +411,14 @@ Notes:
       <li>Note that large and/or highly precise values are extremely rare in medicine. One element where highly precise decimals may be encountered is the <a href="location.html">Location</a> coordinates. Irrespective of this, the limits documented in XML Schema apply.</li>
     </ul>
  </li>
- <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
+ <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 V2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use.</li>
  <li>Issues with the specified regexes:
    <ul>
      <li>The regexes are provided to assist with tooling, but are informative, <b>not normative</b>. There are several issues with the regexes.</li>
-     <li>The string regex has problems with unicode - specifically, it might or might not allow unicode whitespace to some degree depending on unicode support in the regex engine being used.
+     <li>The string regex has problems with Unicode - specifically, it might or might not allow Unicode whitespace to some degree depending on Unicode support in the regex engine being used.
         The regexes <code>[\r\n\t\x{0020}-\x{FFFF}]*</code> or <code>[\r\n\t\u0020-\uFFFF]*</code> are better expressions of the constraints on string, but poorly supported (see <a href="https://www.regular-expressions.info/unicode.html">Regex Tutorial</a> for details).
         The <code>string</code> regex also applies to <code>markdown</code> as well. The regex does not enforce the length limit</li>
-     <li>The unicode issues also apply to the regex for <code>code</code>.</li>
+     <li>The Unicode issues also apply to the regex for <code>code</code>.</li>
      <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
      <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is always needed.</li>
    </ul>
@@ -447,9 +451,16 @@ Notes:
      <li>Systems are not required to have markdown support, so the content of a string should be readable without markdown processing, per markdown philosophy.</li>
 		 <li>Converting an element that has the type <code>string</code> to <code>markdown</code> in a later version of this FHIR specification
 		    is not considered a breaking change (neither is adding <code>markdown</code> as a choice to an optional element that already has a choice of datatypes).</li>
+     <li>WARNING: Because markdown renderers will interpret certain characters as formatting characters and strip them from the display, it is essential 
+      that systems transmitting plain string data in a markdown field take steps to appropriately escape the string to avoid loss of information when 
+      rendering for human display.</li>
    </ul>
  </li>
 </ul>
+[%impl-note%]
+A simple way to convert plain text to be safe as markdown is to prefix any of the characters *, &amp;, #, [, &lt;, >, and ` with a backslash (\).
+When presenting markdown as plain text, implementers may wish to reverse this transform.
+[%end-note%]
 
 <a name="representations"></a>
 <h3>Representations in XML, JSON, and Turtle</h3>
@@ -697,10 +708,20 @@ the meaning of the code by an application that is not aware of the <code>system<
 </p>
 <p>
 If the 'display' element is populated, the string used in <code>display</code> SHALL be one of the display strings defined for
-that code by the code system (code systems may define multiple display strings for a single code).
-If one of the available display strings is labeled as preferred, it SHOULD be used. If the code system does not define a text representation
-for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be populated, and the meaning of the code won't be
-accessible to systems that don't understand the code expression.
+that code by the code system. Code systems may define multiple display strings for a single code, by use of:
+</p>
+<ul>
+  <li><code>CodeSystem.concept.display</code></li>
+  <li><code>CodeSystem.concept.designation.value</code> (including in supplements)</li>
+</ul>
+<p>Note that displays defined in value sets (<code>ValueSet.include.concept.display</code> and <code>ValueSet.include.concept.designation.value</code>) 
+are not allowed in <code>Coding.display</code>.
+</p>
+<p>
+If one of the available display strings is labeled as preferred, it SHOULD be used (note that <code>CodeSystem.concept.display</code> is preferred 
+for the base resource language if it is populated, but other display strings may be preferred in other languages, or for other usages). 
+If the code system does not define a text representation for display (e.g. SNOMED CT Expressions) then the 'display' element cannot be 
+populated, and the meaning of the code won't be accessible to systems that don't understand the code expression.
 </p>
 
 <p>
@@ -713,7 +734,11 @@ be used in the absence of a known system.
 </p>
 <p>
 If the system is present, and there is no code, then this is understood to mean that there
-is no suitable code in the system in which to represent the code.
+is no suitable code in the system in which to represent the concept. The implication of this is 
+that implementers SHOULD never provide a system without a code unless this is the intended 
+meaning AND it is appropriate for the code system and version.  (E.g. the code system does 
+not have an 'OTHER' concept.)  This approach cannot be used if an appropriate code might 
+exist within the code system but does not exist within the bound ValueSet.
 </p>
 <p>
 If two codings have the same <code>system</code>, <code>version</code> and <code>code</code> then they have the same meaning.
@@ -819,7 +844,8 @@ may be flagged as the user selected code - the code or concept that the user act
 Note that in all but a few cases, only one of the codings may be flagged as the <code>coding.userSelected = true</code>
 - the code or concept that the user actually selected directly. If more than one code is marked as user selected,
 this means the user explicitly chose multiple codes. When none of the <code>coding</code> elements is
-marked as user selected, the text (if present) is the preferred source of meaning.
+marked as user selected, the text (if present) is the preferred source of meaning. Even if a coding is flagged 
+as user-selected, it is good practice to put the specific text the user chose in CodeableConcept.text.
 </p>
 	<p>A free text only representation of the concept without any <code>coding</code> elements is permitted if there is no appropriate code and only free text is available (and not prohibited by the implementation). For example, using text only, the <code>Observation.valueCodeableConcept</code> element would be:</p>
 	<pre class="json">
@@ -1223,26 +1249,40 @@ Period is used in the following places: [%dtusage Period%]
 <p style="background-color: gainsboro; padding: 4px; margin-top: 0px; border-bottom: 1px solid #808080; border-left: 1px solid #808080; border-right: 1px solid #808080">
 See also <a href="datatypes-examples.html#SampledData">Examples</a>, <a href="datatypes-definitions.html#SampledData">Detailed Descriptions</a>, <a href="datatypes-mappings.html#SampledData">Mappings</a>, <a href="datatypes-extras.html#SampledData">Profiles &amp; Extensions</a> and <a href="datatypes-version-maps.html#SampledData">R4 Conversions</a>.
 </p>
-
 <p>
-Data that comes from a series of measurements taken by a device, which may have upper and lower limits. The datatype also supports more than one dimension in the data.
-</p>
-<p>
-A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency. A typical
-use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly simple integers), along with adjustments for scale and
-factor. These are interpreted such that
+A SampledData provides a concise way to handle the data produced by devices that sample a particular physical state at a high frequency.
+A typical use for this is for the output of an ECG or EKG device. The datatype includes a series of raw decimal values (which are mostly 
+simple integers) or codes, along with adjustments for scale and factor. These are interpreted such that
 </p>
 <pre>
 original measured value[i] = SampledData.data[i] * SampledData.factor + SampledData.origin.value
 </pre>
 
 [%dt SampledData 8%]
+
 <p>
-The digits are a set of decimal values separated by a single space (Unicode character u20).
-In addition to decimal values, the special values "E" (error), "L" (below detection limit)
-and "U" (above detection limit) can also be used. If there is more than one dimension, the
-different dimensions are interlaced - all the data points for a particular time are
-represented together.
+SampledData supports multi-dimensional data, where there is more than one measurement
+for each time point. If there is more than one dimension, the different dimensions are 
+interlaced - all the data points for a particular time are represented together.
+</p>
+<p>
+Data points are separated by by a single space (Unicode character u20). Each data 
+point is either a decimal value or a code. Three special codes are defined:
+</p>
+<ul>
+  <li><code>E</code>: error - no valid measurement available for this data point</li>
+  <li><code>L</code>: below detection point - the value was below the device's detection limit (<code>lowerLimit</code>, which must be provided if this code is used)</li>
+  <li><code>U</code>: above detection point - the value was above the device's detection limit (<code>upperLimit</code>, which must be provided if this code is used)</li>
+</ul>
+<p>
+Other codes may be used. In this case, the meaning of the codes is specified by the <code>codeMap</code>
+property which references a <a href="conceptmap.html">ConceptMap</a> that defines the codes used 
+in the data, and maps the codes to properly defined concepts in a <a href="codesystem.html">CodeSystem</a>.
+Note that in this case, source system defined in the ConceptMap is not used in the SampledData and is 
+ignored. There SHALL only be one group in the ConceptMap. The ConceptMap cannot define meanings for 
+any numerical values, nor for the codes 'E', 'U', or 'L' (nor, for safety, 'e', 'u', or 'l'), 
+since they always have the meaning as defined above. There is no escape sequences; codes cannot 
+contain spaces. Also, to make parsing simpler, codes cannot start with numerals.
 </p>
 
 <p>
@@ -1267,12 +1307,7 @@ errors.
 
 [%dt Identifier 9%]
 
-<p>
-The <code>value</code> SHALL be unique within the defined <code>system</code>
-and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
-to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
-that non-case-sensitive processing is safe.
-</p>
+
 <p>
 The <code>system</code> is an absolute URI that defines a set of identifiers (i.e. how the <code>value</code> is made unique).
 It might be a specific application or a recognized standard/specification for a set of identifiers
@@ -1302,6 +1337,12 @@ Note that the scope of a given identifier system may extend beyond identifiers t
 by a single resource.  For example, some systems might draw all "order" identifiers from a single
 namespace, though some might be used on <a href="medicationrequest.html">MedicationRequest</a> while
 others would appear on <a href="servicerequest.html">ServiceRequest</a>.
+</p>
+<p>
+  The <code>value</code> SHALL be unique within the defined <code>system</code>
+  and have a consistent meaning wherever it appears. Identifier.system is always case sensitive. <code>Identifier.value</code> is
+  to be treated as case sensitive unless knowledge of the <code>Identifier.system</code> allows the processer to be confident
+  that non-case-sensitive processing is safe.
 </p>
 <p>
 If the identifier value itself is naturally a globally unique URI (e.g. an OID, a UUID, or a URI with no trailing local part),
@@ -1393,7 +1434,7 @@ name SHALL ensure that when both text and parts are present, no content is inclu
 text that isn't found in a part. The correct order of assembly of the parts is culture
 dependent: the order of the parts within a given part type has significance and SHALL be
 observed. The appropriate order between family name and given names depends on culture and context of use.
-Note that there is an <a href="extension-humanname-assembly-order.html">extension</a> for the few times name
+Note that there is an <a href="[%extensions-location%]StructureDefinition-humanName-assembly-order.html">extension</a> for the few times name
 assembly order is not fixed by the culture.
 </p>
 <p>
@@ -1407,12 +1448,12 @@ In some cultures (e.g. German, Dutch, Spanish, Portuguese), family names are com
 various parts that may need to be managed separately, e.g. they have differing significance
 for searching. In these cases, the full family name is populated in <code>family</code>,
 and a decomposition of the name can be provided using the <code>family</code> extensions
-<a href="extension-humanname-own-name.html">own-name</a>,
-<a href="extension-humanname-own-prefix.html">own-prefix</a>,
-<a href="extension-humanname-partner-name.html">partner-name</a>,
-<a href="extension-humanname-partner-prefix.html">partner-prefix</a>,
-<a href="extension-humanname-fathers-family.html">fathers-family</a> and
-<a href="extension-humanname-mothers-family.html">mothers-family</a>.
+<a href="[%extensions-location%]StructureDefinition-humanName-own-name.html">own-name</a>,
+<a href="[%extensions-location%]StructureDefinition-humanName-own-prefix.html">own-prefix</a>,
+<a href="[%extensions-location%]StructureDefinition-humanName-partner-name.html">partner-name</a>,
+<a href="[%extensions-location%]StructureDefinition-humanName-partner-prefix.html">partner-prefix</a>,
+<a href="[%extensions-location%]StructureDefinition-humanName-fathers-family.html">fathers-family</a> and
+<a href="[%extensions-location%]StructureDefinition-humanName-mothers-family.html">mothers-family</a>.
 </p>
 <p>
 For robust search, servers should search the parts of a family name independently.
@@ -1489,11 +1530,6 @@ For this reason, phone, fax, pager, and email addresses are not handled as forma
 of contact points, the <code>system</code> is "other" and the <code>value</code> SHOULD be a URL so that its use can be determined automatically. Typical
 URL schemes used in the value are http{s}: for web addresses, and URL schemes for various kinds of messaging systems.
 If the value is not a URL, then human interpretation will be required.
-</p>
-<p>
-The <code>rank</code> element can be used to specify a preference for the order in which a set of contacts
-is used. ContactPoints with lower rank values are more preferred than those with higher rank values. Note that <code>rank</code> does not necessarily
-follow the order in which the contacts are represented in the instance.
 </p>
 
 <div class="use">
@@ -1646,7 +1682,7 @@ Notes:
 <ul>
  <li>The Signature datatype can be used to hold a digital-signature, but may also be used to hold electronic-signatures.</li>
  <li>Electronic-Signatures, such as image of ink signature, do not protect the signed content from change, but do carry details about who signed, when signature happened, and what the signature means.</li>
- <li>One consequence of digital-signature on an Resource (document) is that URLs, identifiers and internal references are frozen and
+ <li>One consequence of digital-signature on a Resource (document) is that URLs, identifiers and internal references are frozen and
 cannot be changed. This might be a desired feature, but it may also cripple interoperability between closed
 ecosystems where <a href="managing.html">re-identification</a> frequently occurs. For this reason, it is
 recommended that systems consider carefully the impact of any signature processes. The impact of signatures
@@ -1695,7 +1731,7 @@ When the signature is an JSON Digital Signature (contentType = application/jose)
  <li>The Signature.data is base64 encoded JWS-Signature <a href="https://tools.ietf.org/html/rfc7515">RFC 7515: JSON Web Signature (JWS)</a></li>
  <li>The signature is a <a href="https://tools.ietf.org/html/rfc7515#appendix-F">Detached</a> Signature (where the content that is signed is separate from the signature itself)</li>
  <li>When FHIR Resources are signed, the signature is across the <a href="json.html#canonical">Canonical JSON form</a> of the resource(s)</li>
- <li>The Signature SHOULD use the hashing algorithm SHA256. Signature validation policy will apply to the signature and determine acceptability</li>
+ <li>The Signature SHOULD use the hashing algorithm SHA-256. Signature validation policy will apply to the signature and determine acceptability</li>
  <li>The Signature SHALL include a "srCms signer commitments" element for the Purpose(s) of Signature. The Purpose can be the action being attested to, or the role associated with the signature. The value shall come from ASTM E1762-95(2013). The Signature.type shall contain the same values as the srCms element.</li>
  <li>The Signature SHOULD conform to JAdES-XL for support of long term signatures. The JAdES-X-L specification adds the timestamp of the signing, inclusion of the signing certificate, and statement of revocation</li>
 </ul>

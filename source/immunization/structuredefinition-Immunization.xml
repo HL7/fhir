@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -421,7 +421,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -508,7 +508,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedBoolean"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -554,7 +554,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reportedReference"/>
+        <map value="Event.reported"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1025,7 +1025,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 v2 VXU message - most likely would appear in OBX segments if at all)"/>
+        <map value="OBX-14 (ideally this would be reported in an IAM segment, but IAM is not part of the HL7 V2 VXU message - most likely would appear in OBX segments if at all)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -1062,7 +1062,7 @@
       </type>
       <mapping>
         <identity value="v2"/>
-        <map value="(HL7 v2 doesn't seem to provide for this)"/>
+        <map value="(HL7 V2 doesn't seem to provide for this)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

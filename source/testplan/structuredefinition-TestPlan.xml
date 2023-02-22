@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="TestPlan"/>
+  <meta>
+    <lastUpdated value="2021-01-02T08:58:31.578+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-category">
+    <valueString value="Clinical.Request &amp;amp; Response"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="draft"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="0"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-security-category">
+    <valueCode value="business"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="oo"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/entered-in-error-status">
+    <valueCode value=".status = entered-in-error"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/TestPlan"/>
+  <version value="5.0.0"/>
+  <name value="TestPlan"/>
+  <title value="TestPlan"/>
+  <status value="draft"/>
+  <date value="2021-01-02T08:58:31+11:00"/>
+  <publisher value="Health Level Seven International (Orders and Observations)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="A report of inventory or stock items."/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="dicom"/>
+    <uri value="http://nema.org/dicom"/>
+    <name value="DICOM Tag Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="w5"/>
+    <uri value="http://hl7.org/fhir/fivews"/>
+    <name value="FiveWs Pattern Mapping"/>
+  </mapping>
+  <mapping>
+    <identity value="v2"/>
+    <uri value="http://hl7.org/v2"/>
+    <name value="HL7 V2 Mapping"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="TestPlan"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DomainResource"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="TestPlan">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="TestPlan"/>
+      <short value="A plan for executing testing on an artifact or specifications"/>
+      <definition value="A plan for executing testing on an artifact or specifications."/>
+      <min value="0"/>
+      <max value="*"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="conformance.misc"/>
+      </mapping>
+    </element>
+    <element id="TestPlan.url">
+      <path value="TestPlan.url"/>
+      <short value="Canonical identifier URL"/>
+      <definition value="Canonical identifier URL."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element id="TestPlan.identifier">
+      <path value="TestPlan.identifier"/>
+      <short value="Business identifier"/>
+      <definition value="Business identifier for the Test Plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+    </element>
+    <element id="TestPlan.version">
+      <path value="TestPlan.version"/>
+      <short value="Version"/>
+      <definition value="Version of the test plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.name">
+      <path value="TestPlan.name"/>
+      <short value="Name"/>
+      <definition value="Name."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.title">
+      <path value="TestPlan.title"/>
+      <short value="Human-readable title"/>
+      <definition value="Human-readable title."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.status">
+      <path value="TestPlan.status"/>
+      <short value="draft | active | retired | unknown"/>
+      <definition value="Status."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PublicationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The lifecycle status of an artifact."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/publication-status"/>
+      </binding>
+    </element>
+    <element id="TestPlan.date">
+      <path value="TestPlan.date"/>
+      <short value="Date"/>
+      <definition value="Date."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+    </element>
+    <element id="TestPlan.publisher">
+      <path value="TestPlan.publisher"/>
+      <short value="Publisher"/>
+      <definition value="Publisher."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="TestPlan.contact">
+      <path value="TestPlan.contact"/>
+      <short value="Contact"/>
+      <definition value="Contact."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="ContactDetail"/>
+      </type>
+    </element>
+    <element id="TestPlan.description">
+      <path value="TestPlan.description"/>
+      <short value="Description"/>
+      <definition value="Description of the test plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.jurisdiction">
+      <path value="TestPlan.jurisdiction"/>
+      <short value="Jurisdiction"/>
+      <definition value="Jurisdiction."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="TestPlan.purpose">
+      <path value="TestPlan.purpose"/>
+      <short value="Purpose"/>
+      <definition value="Purpose."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.copyright">
+      <path value="TestPlan.copyright"/>
+      <short value="Copyright"/>
+      <definition value="Copyright."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.category">
+      <path value="TestPlan.category"/>
+      <short value="The category of the Test Plan - can be acceptance, unit, performance"/>
+      <definition value="The category of the Test Plan - can be acceptance, unit, performance, etc."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="TestPlan.scope">
+      <path value="TestPlan.scope"/>
+      <short value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference"/>
+      <definition value="What is being tested with this Test Plan - a conformance resource, or narrative criteria, or an external reference..."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testTools">
+      <path value="TestPlan.testTools"/>
+      <short value="A description of test tools to be used in the test plan - narrative for now"/>
+      <definition value="A description of test tools to be used in the test plan."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependencies">
+      <path value="TestPlan.dependencies"/>
+      <short value="The required criteria to execute the test plan - e.g. preconditions, previous tests"/>
+      <definition value="The required criteria to execute the test plan - e.g. preconditions, previous tests..."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependencies.description">
+      <path value="TestPlan.dependencies.description"/>
+      <short value="Description of the criteria"/>
+      <definition value="Description of the criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.dependencies.predecessor">
+      <path value="TestPlan.dependencies.predecessor"/>
+      <short value="Link to predecessor test plans"/>
+      <definition value="Link to predecessor test plans."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.exitCriteria">
+      <path value="TestPlan.exitCriteria"/>
+      <short value="The threshold or criteria for the test plan to be considered successfully executed - narrative"/>
+      <definition value="The threshold or criteria for the test plan to be considered successfully executed - narrative."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase">
+      <path value="TestPlan.testCase"/>
+      <short value="The test cases that are part of this plan"/>
+      <definition value="The test cases that are part of this plan."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.sequence">
+      <path value="TestPlan.testCase.sequence"/>
+      <short value="Sequence of testing"/>
+      <definition value="Sequence of testing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="integer"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.scope">
+      <path value="TestPlan.testCase.scope"/>
+      <short value="Specific test scope for one test case"/>
+      <definition value="Specific test scope for one test case."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.dependencies">
+      <path value="TestPlan.testCase.dependencies"/>
+      <short value="The required criteria to execute the test case - e.g. preconditions, previous tests"/>
+      <definition value="The required criteria to execute the test case - e.g. preconditions, previous tests."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.dependencies.description">
+      <path value="TestPlan.testCase.dependencies.description"/>
+      <short value="Description of the criteria"/>
+      <definition value="Description of the criteria."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.dependencies.predecessor">
+      <path value="TestPlan.testCase.dependencies.predecessor"/>
+      <short value="Link to predecessor test plans"/>
+      <definition value="Link to predecessor test plans."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testRun">
+      <path value="TestPlan.testCase.testRun"/>
+      <short value="The actual test to be executed"/>
+      <definition value="The actual test to be executed."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testRun.narrative">
+      <path value="TestPlan.testCase.testRun.narrative"/>
+      <short value="The narrative description of the tests"/>
+      <definition value="The narrative description of the tests."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testRun.script">
+      <path value="TestPlan.testCase.testRun.script"/>
+      <short value="The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript"/>
+      <definition value="The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testRun.script.language">
+      <path value="TestPlan.testCase.testRun.script.language"/>
+      <short value="The language for the test cases e.g. 'gherkin', 'testscript'"/>
+      <definition value="The language for the test cases e.g. 'gherkin', 'testscript'."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testRun.script.source[x]">
+      <path value="TestPlan.testCase.testRun.script.source[x]"/>
+      <short value="The actual content of the cases - references to TestScripts or externally defined content"/>
+      <definition value="The actual content of the cases - references to TestScripts or externally defined content."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testData">
+      <path value="TestPlan.testCase.testData"/>
+      <short value="The test data used in the test case"/>
+      <definition value="The test data used in the test case."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testData.type">
+      <path value="TestPlan.testCase.testData.type"/>
+      <short value="The type of test data description, e.g. 'synthea'"/>
+      <definition value="The type of test data description, e.g. 'synthea'."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testData.content">
+      <path value="TestPlan.testCase.testData.content"/>
+      <short value="The actual test resources when they exist"/>
+      <definition value="The actual test resources when they exist."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.testData.source[x]">
+      <path value="TestPlan.testCase.testData.source[x]"/>
+      <short value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc"/>
+      <definition value="Pointer to a definition of test resources - narrative or structured e.g. synthetic data generation, etc."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.assertions">
+      <path value="TestPlan.testCase.assertions"/>
+      <short value="The test assertions"/>
+      <definition value="The test assertions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.assertions.type">
+      <path value="TestPlan.testCase.assertions.type"/>
+      <short value="The test assertion type"/>
+      <definition value="The test assertion type."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.assertions.object">
+      <path value="TestPlan.testCase.assertions.object"/>
+      <short value="The focus or object of the assertion"/>
+      <definition value="The focus or object of the assertion."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+      </type>
+    </element>
+    <element id="TestPlan.testCase.assertions.result">
+      <path value="TestPlan.testCase.assertions.result"/>
+      <short value="The test assertions"/>
+      <definition value="The test assertions."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableReference"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

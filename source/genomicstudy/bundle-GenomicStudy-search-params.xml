@@ -40,7 +40,6 @@
       </SearchParameter>
     </resource>
   </entry>
-
   <entry>
     <resource>
       <SearchParameter>
@@ -82,37 +81,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="GenomicStudy-analysis-patient"/>
+        <id value="GenomicStudy-analysis-focus"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysis.subject"/>
+          <valueString value="GenomicStudy.analysis.focus"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-patient"/>
-        <description value="Who the analysis is about"/>
-        <code value="analysis-patient"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-focus"/>
+        <description value="What the genomic study analysis is about, when it is not about the subject of record"/>
+        <code value="focus"/>
         <type value="reference"/>
-        <expression value="GenomicStudy.analysis.subject.where(resolve() is Patient)"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="GenomicStudy-analysis-subject"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="GenomicStudy.analysis.subject"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/GenomicStudy-analysis-subject"/>
-        <description value="Who the analysis is about"/>
-        <code value="analysis-subject"/>
-        <type value="reference"/>
-        <expression value="GenomicStudy.analysis.subject"/>
+        <expression value="GenomicStudy.analysis.focus"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

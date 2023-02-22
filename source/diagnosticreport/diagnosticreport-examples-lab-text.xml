@@ -14513,7 +14513,7 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
 							<reference value="Patient/124"/>
 						</subject>
 						<reasonCode>
-							<text value="Pre Organ "/>
+							<text value="Pre Organ"/>
 						</reasonCode>
 					</ServiceRequest>
 				</contained>

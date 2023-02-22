@@ -280,6 +280,7 @@ Each FHIR version is identified by a string composed from 4 parts: major.minor.p
            <li>"cibuild" - a 'special' release label that refers to a non-stable release that changes with each commit.</li>
          </ul>
        </li>
+       <li>Each label is sortable relative to other versions with the same label base (e.g., snapshot &lt; snapshot2), but there is no sortable relationship defined between different labels</li>
      </ul>
    </td>
   </tr>
@@ -622,7 +623,7 @@ that the specification will evolve and change prior to becoming <i>Normative</i>
 </p>
 <p>
 A key aspect of the FHIR specification development process is gaining feedback from implementers making
-use of the specification. As well, the process is conditional on real world implementation in order to
+use of the specification. As well, the process is conditional on real-world implementation in order to
 move through the maturity cycle. For this reason, all FHIR implementers are encouraged to register their
 usage <a href="http://fhir.org/implementations/usage">here</a>, which captures contact and other information
 that will allow HL7 to perform appropriate monitoring of FHIR usage. Survey information is confidential and reported in aggregate only.
@@ -698,7 +699,7 @@ Implementers should be aware of the following issues when using these extensions
 </p>
 <ul>
  <li>Implementations should always use the correct element for data when one exists. The version <a href="diff.html">differences</a> and <a href="r4maps.html">maps</a> (and their equivalent for other versions) can help</li>
- <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc)</li>
+ <li>There is no way to represent the few special elements that have the type "Resource" in extensions, so these are not defined (e.g. <code>Bundle.entry.resource</code>, <code>DomainResource.contained</code>, etc.)</li>
  <li>Where complex datatypes have no equivalent in an earlier version, use a complex extension, 
   where the name of the child properties is the name of the complex extension components, and each of these subextensions
   are extensions that also follow this pattern (see example below).</li>
@@ -718,8 +719,8 @@ Implementers should be aware of the following issues when using these extensions
   If the data element being referenced has <code>targetProfile</code> elements that refer to resources, 
   only those targetProfile resources that have URLs that exist in the referencing version can exist.  
   If a resource has been renamed, it can't be used in the prior release (note: this is because there's no 
-  computable way of determining what names would be allowed); the  <a href="extension-alternate-reference.html">alternate-reference</a>
-  and <a href="extension-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
+  computable way of determining what names would be allowed); the  <a href="[%extensions-location%]StructureDefinition-alternate-reference.html">alternate-reference</a>
+  and <a href="[%extensions-location%]StructureDefinition-alternate-canonical.html">alternate-canonical</a> extensions may be used in this context. E.g. if converting 
   from a version that supports 3 target types when the target version only supports 2 target types, any repetition that referred to 
   the non-supported type would be represented as a reference or canonical instance where the content would just be the alternate extension (and a display, since something must be provided).
  </li>

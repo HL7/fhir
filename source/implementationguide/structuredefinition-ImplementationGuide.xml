@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImplementationGuide"/>
-  <title value="ImplementationGuide"/>
+  <title value="Implementation Guide"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -129,7 +129,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -419,12 +419,13 @@
       <path value="ImplementationGuide.fhirVersion"/>
       <short value="FHIR Version(s) this Implementation Guide targets"/>
       <definition value="The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version."/>
-      <comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
+      <comment value="Most implementation guides target a single version - e.g. they describe how to use a particular version, and the profiles and examples etc. are valid for that version. But some implementation guides describe how to use multiple different versions of FHIR to solve the same problem, or in concert with each other. Typically, the requirement to support multiple versions arises as implementation matures and different implementation communities are stuck at different versions by regulation or market dynamics."/>
       <min value="1"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -560,6 +561,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-2"/>
       <constraint>
         <key value="ig-1"/>
         <severity value="error"/>
@@ -581,6 +583,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.grouping.name">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -620,6 +623,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="ig-2"/>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.resource.reference">
       <path value="ImplementationGuide.definition.resource.reference"/>
@@ -637,12 +642,13 @@
       <path value="ImplementationGuide.definition.resource.fhirVersion"/>
       <short value="Versions this applies to (if different to IG)"/>
       <definition value="Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion."/>
-      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [applicable-version](extension-structuredefinition-applicable-version.html) extension."/>
+      <comment value="The resource SHALL be valid against all the versions it is specified to apply to. If the resource referred to is a StructureDefinition, the fhirVersion stated in the StructureDefinition cannot disagree with the version specified here; the specified versions SHALL include the version specified by the StructureDefinition, and may include additional versions using the [[[http://hl7.org/fhir/StructureDefinition/structuredefinition-applicable-version]]] extension."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRVersion"/>
@@ -714,6 +720,7 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="ig-1"/>
     </element>
     <element id="ImplementationGuide.definition.page">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -754,6 +761,7 @@
       <type>
         <code value="markdown"/>
       </type>
+      <condition value="ig-3"/>
     </element>
     <element id="ImplementationGuide.definition.page.name">
       <path value="ImplementationGuide.definition.page.name"/>
@@ -788,6 +796,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="ig-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="GuidePageGeneration"/>

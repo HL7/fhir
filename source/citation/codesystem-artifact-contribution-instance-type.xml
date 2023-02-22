@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><CodeSystem xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
   <id value="artifact-contribution-instance-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
@@ -6,7 +8,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cds"/>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-classification">
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
@@ -19,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ArtifactContributionInstanceType"/>
-  <title value="ArtifactContributionInstanceType"/>
+  <title value="Artifact Contribution Instance Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-03-11T10:55:11.085+11:00"/>

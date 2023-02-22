@@ -26,7 +26,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ResearchStudyStatus"/>
-  <title value="ResearchStudyStatus"/>
+  <title value="Research Study Status"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -45,12 +45,7 @@
   <immutable value="true"/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-      <filter>
-        <property value="concept"/>
-        <op value="descendent-of"/>
-        <value value="research-study-status"/>
-      </filter>
+      <system value="http://hl7.org/fhir/research-study-status"/>
     </include>
   </compose>
 </ValueSet>

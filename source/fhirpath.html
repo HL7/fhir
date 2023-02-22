@@ -227,13 +227,18 @@ then %rootResource is the same as %resource.
 
 <a name="functions"></a>
 <h4>Additional functions</h4>
-<p>FHIR adds (compatible) functionality to the set of common FHIRPath functions:</p>
+<p>FHIR adds (compatible) functionality to the set of common FHIRPath functions.
+Some of these functions are candidates for elevation to the base version of 
+FHIRPath when the next version is released.
+</p>
 
 <p><b>extension(url : string) : collection</b></p>
 <p>Will filter the input collection for items named "extension" with the given url. 
   This is a syntactical shortcut for <code>.extension.where(url = string)</code>, 
   but is simpler to write. Will return an empty collection if the input collection is 
   empty or the url is empty.</p>
+
+<hr/>
 
 <p><b>hasValue() : Boolean</b></p>
 <p>Returns true if the input collection contains a single value which is a FHIR primitive, 
@@ -247,9 +252,13 @@ then %rootResource is the same as %resource.
 <p>In FHIRPath, this means that FHIR primitives have a <code>value</code> child, but, as described above, they are automatically cast to FHIRPath primitives when comparisons are made, and that the primitive value will be included in the set returned by <code>children()</code> or <code>descendants()</code>.</p>
 </blockquote>
 
+<hr/>
+
 <p><b>getValue() : System.[type]</b></p>
 <p>Return the underlying system value for the FHIR primitive if the input collection contains a single value which is a FHIR primitive, 
   and it has a primitive value (see discussion for hasValue()). Otherwise the return value is empty.</p>
+
+  <hr/>
 
 <p><b>resolve() : collection</b></p>
 <p>For each item in the collection, if it is a string that is a <a href="datatypes.html#uri">uri</a>
@@ -259,9 +268,12 @@ then %rootResource is the same as %resource.
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved. 
   If the input is empty, the output will be empty.</p>
 
+  <hr/>
+  
 <p><b>ofType(type : identifier) : collection</b></p>
 <p>An alias for ofType() maintained purely for backwards compatibility.</p>
 
+<hr/>
   
 <p><b>ofType(type : identifier) : collection</b></p>
 <p>Returns a collection that contains all items in the input collection that are of the given type or a subclass thereof.
@@ -270,11 +282,14 @@ then %rootResource is the same as %resource.
   types (so <code>markdown</code> is <strong>not</strong> a subclass of <code>string</code>). Profiled types are 
   not allowed, so to select <code>SimpleQuantity</code> one would pass <code>Quantity</code> as an argument.</p>
 
+  <hr/>
 
 <p><b>elementDefinition() : collection</b></p>
 <p>Returns the FHIR element definition information for each element in the input collection. If the 
   input collection is empty, the return value will be empty.
 </p>
+
+<hr/>
 
 <p><b>slice(structure : string, name : string) : collection</b></p>
 <p>
@@ -286,15 +301,21 @@ then %rootResource is the same as %resource.
 </p>
 <p>For every element in the input collection, if the resolved slice is present on the element, it will be returned. If the slice does not match any element in the input collection, or if the input collection is empty, the result is an empty collection (<code>{ }</code>).</p>
 
+<hr/>
+
 <p><b>checkModifiers(modifier : string) : collection</b></p>
 
-<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument. 
+<p>For each element in the input collection, verifies that there are no modifying extensions defined other than the ones given by the <code>modifier</code> argument (comma separated string). 
   If the check passes, the input collection is returned. Otherwise, an error is thrown, including if modifier is empty.</p>
+
+  <hr/>
 
 <p><b>conformsTo(structure : string) : Boolean</b></p>
 <p>Returns <code>true</code> if the single input element conforms to the profile specified by the <code>structure</code> argument, 
   and false otherwise. If the input is not a single item, the structure is empty, or the structure cannot be resolved to a valid profile, 
   the result is empty.</p>
+
+  <hr/>
 
 <p><b>memberOf(valueset : string) : Boolean</b></p>
 
@@ -314,6 +335,8 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 
 <p>This expression returns components that have a code that is a member of the observation-vitalsignresult valueset.</p>
 
+<hr/>
+
 <p><b>subsumes(code : Coding | CodeableConcept) : Boolean</b></p>
 
 <p>When invoked on a Coding-valued element and the given code is Coding-valued, returns true if the source code is equivalent to the given code, or if the source code subsumes the given code (i.e. the source code is an ancestor of the given code in a subsumption hierarchy), and false otherwise.</p>
@@ -321,6 +344,8 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>When the source or given elements are CodeableConcepts, returns true if any Coding in the source or given elements is equivalent to or subsumes the given code.</p>
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
+
+<hr/>
 
 <p><b>subsumedBy(code: Coding | CodeableConcept) : Boolean</b></p>
 
@@ -330,11 +355,67 @@ Observation.component.where(code.memberOf('http://hl7.org/fhir/ValueSet/observat
 <p>If either the input or the code parameter are not single value collections, the return value is empty.</p>
 <p>Note that implementations are encouraged to make use of a terminology service to provide this functionality.</p>
 
+<hr/>
+
 <p><b>htmlChecks : Boolean</b></p>
 
 <p>When invoked on a single <a href="narrative.html#xhtml">xhtml</a> element returns true if the <a href="narrative.html#rules">rules around
 HTML usage</a> are met, and false if they are not. The return value is empty on any other kind of element, or a collection of 
 xhtml elements.
+</p>
+
+<hr/>
+
+<p><b>lowBoundary : T</b></p>
+
+<p>
+This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
+E.g. the lowBoundary of <code>1.0</code> is <code>0.95000000000</code>, and the lowBoundary of <code>2010-10-10</code> is 
+<code>2010-10-10T00:00:00.000+14:00</code>. This function can be invoked in any singleton primitive type that has a 
+value domain with a natural sort order: 
+<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
+This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
+return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
+The function is not very useful on integer, since it is not a continuously distributed value domain, and the lowBoundary of an integer
+is always the same value, but it is defined on integer for language consistency.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
+</p>
+
+
+<hr/>
+
+<p><b>highBoundary : T</b></p>
+
+<p>
+This function returns the lowest possible value in the natural range expressed by the type it is invoked on. 
+E.g. the highBoundary of <code>1.0</code> is <code>1.05000000000</code>, and the highBoundary of <code>2010-10-10</code> is 
+<code>2010-10-10T23:59:59.999-12:00</code>. This function can be invoked in any singleton primitive type that has a 
+value domain with a natural sort order: 
+<code>decimal</code>, <code>integer</code>, <code>dateTime</code>, <code>instant</code>, <code>date</code>, <code>time</code> and <code>Quantity</code>.
+This function is defined for use with continuously distributed value domains to help deal with precision issues. The 
+return value is considered to have arbitrarily high precision (as precise as the underlying implementation can be).
+The function is not very useful on integer, since it is not a continuously distributed value domain, and the highBoundary of an integer
+is always the same value, but it is defined on integer for language consistency.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
+</p>
+
+
+<hr/>
+
+<p><b>comparable(quantity) : boolean</b></p>
+
+<p>
+This function returns true if the engine executing the FHIRPath statement can compare the singleton Quantity
+with the singleton other Quantity and determine their relationship to each other. Comparable means that both 
+have values and that the code and system for the units are the same (irrespective of system) or both have code + system, 
+system is recognized by the FHIRPath implementation and the codes are comparable within that code system.  E.g. days and hours or inches and cm.
+</p>
+<p>
+This function is intended to be added to the core FHIRPath specification in a future version.
 </p>
 
 <a name="changes"></a>
@@ -674,7 +755,7 @@ Parameters:
 </p>
 <ul>
   <li><b>doPost</b>: A boolean value - true to use a POST, false to use a GET</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> A bundle with the search results, or null.</p>
 
@@ -718,7 +799,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to validate.</li>
   <li><b>mode</b>: how to validate - see <a href="resource-operation-validate.html">Validation Operation</a>.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> An operation outcome with issues, or null if the validation couldn't be performed.</p>
 
@@ -749,7 +830,7 @@ Parameters:
 <ul>
   <li><b>type</b>: The type of the resource to read.</li>
   <li><b>id</b>: The id of the resource to read.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> The Bundle for type/id, or null.</p>
 
@@ -765,7 +846,7 @@ Parameters:
 <ul>
   <li><b>resource</b>: The resource to drive the $apply operation (PlanDefinition, ActivityDefinition).</li>
   <li><b>subject</b>: The subject top apply to - can be a resource, or a string containing type/id for the subject.</li>
-  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc)</li>
+  <li><b>parameters</b>: A parameters resource, or a string with URL parameters (name=value&amp;etc.)</li>
 </ul>
 <p><b>Return Value:</b> The bundle from $apply, or null.</p>
 

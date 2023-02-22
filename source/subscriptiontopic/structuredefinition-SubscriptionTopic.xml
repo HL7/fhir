@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SubscriptionTopic"/>
-  <title value="SubscriptionTopic"/>
+  <title value="Subscription Topic"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -69,7 +69,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -758,7 +758,7 @@
           <valueString value="SubscriptionTopicEventTrigger"/>
         </extension>
         <strength value="example"/>
-        <description value="FHIR Value set/code system definition for HL7 v2 table 0003 (EVENT TYPE CODE)."/>
+        <description value="FHIR Value set/code system definition for HL7 V2 table 0003 (EVENT TYPE CODE)."/>
         <valueSet value="http://terminology.hl7.org/ValueSet/v2-0003"/>
       </binding>
     </element>

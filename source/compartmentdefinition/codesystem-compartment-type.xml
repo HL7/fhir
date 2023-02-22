@@ -26,7 +26,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CompartmentType"/>
-  <title value="CompartmentType"/>
+  <title value="Compartment Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -69,5 +69,10 @@
     <code value="Device"/>
     <display value="Device"/>
     <definition value="The compartment definition is for the device compartment."/>
+  </concept>
+  <concept>
+    <code value="EpisodeOfCare"/>
+    <display value="EpisodeOfCare"/>
+    <definition value="The compartment definition is for the episodeofcare compartment."/>
   </concept>
 </CodeSystem>

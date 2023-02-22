@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="CatalogType"/>
+  <title value="Catalog Type"/>
   <experimental value="true"/>
   <description value="Description Needed Here"/>
   <compose>

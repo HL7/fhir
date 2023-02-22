@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+
+<Library xmlns="http://hl7.org/fhir">
   <id value="composition-example"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Example of a library used as a composition of other artifacts.
     </div>
   </text>
-
   <identifier>
     <use value="official"/>
     <system value="http://example.org"/>
     <value value="Zika Artifacts"/>
   </identifier>
   <version value="1.0.0"/>
+  <name value="ZikaArtifacts"/>
   <title value="Zika Artifacts"/>
   <status value="draft"/>
   <type>
@@ -25,37 +26,30 @@
   <topic>
     <text value="Zika Virus Management"/>
   </topic>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/ActivityDefinition/provide-mosquito-prevention-advice"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/Library/zika-virus-intervention-logic"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://example.org/fhir/PlanDefinition/zika-virus-intervention"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="composed-of"/>
     <resource value="http://hl7.org/fhir/Questionnaire/zika-virus-exposure-assessment"/>
   </relatedArtifact>
-
   <relatedArtifact>
     <type value="derived-from"/>
     <document>

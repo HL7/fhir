@@ -62,7 +62,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -348,7 +348,7 @@
     </element>
     <element id="Specimen.feature">
       <path value="Specimen.feature"/>
-      <short value="The physical feature of a specimen "/>
+      <short value="The physical feature of a specimen"/>
       <definition value="A physical feature or landmark on a specimen, highlighted for context by the collector of the specimen (e.g. surgeon), that identifies the type of feature as well as its meaning (e.g. the red ink indicating the resection margin of the right lobe of the excised prostate tissue or wire loop at radiologically suspected tumor location)."/>
       <min value="0"/>
       <max value="*"/>

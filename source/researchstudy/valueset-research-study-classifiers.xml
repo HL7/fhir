@@ -40,11 +40,6 @@
   <compose>
     <include>
       <system value="http://hl7.org/fhir/research-study-classifiers"/>
-	  <filter>
-	    <property value="concept"/>
-	    <op value="descendent-of"/>
-	    <value value="research-study-classifier"/>
-	  </filter>
     </include>
   </compose>
 </ValueSet>

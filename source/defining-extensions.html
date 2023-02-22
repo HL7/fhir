@@ -109,7 +109,7 @@ If the Extension minimum cardinality is 0, then the extension is, by default,
 optional anywhere it appears. A <a href="profiling.html#resource">profile</a> that
 defines the use of an extension may make the minimum cardinality any number up
 to the maximum cardinality of the extension itself. Example: 
-<a href="extension-patient-birthplace.html">Patient birthplace</a>.
+<a href="[%extensions-location%]StructureDefinition-patient-birthPlace.html">Patient birthplace</a>.
 </p>
 <p>
 If the Extension minimum cardinality is &gt; 1, then the extension must have a
@@ -118,7 +118,7 @@ that defines the use of the extension. The minimum cardinality may be any number
 to the maximum cardinality of the extension. Even with a minimum cardinality &gt; 0, the
 extension is only required to be present in instances if the instances explicitly
 or implicitly conform to a profile that defines the use of the extension. Example:
-<a href="extension-capabilitystatement-expectation.html">CapabilityStatement Expectation</a>.
+<a href="[%extensions-location%]StructureDefinition-capabilitystatement-expectation.html">CapabilityStatement Expectation</a>.
 </p>
 <p><b>Maximum Cardinality</b></p>
 <p>
@@ -126,14 +126,14 @@ If the Extension maximum cardinality is 1, then the extension is only allowed on
 any element on which it appears. A <a href="profiling.html#resource">profile</a> that
 defines the use of an extension can only make the maximum cardinality 1 (or zero if
 the minimum cardinality is 0, and the profile constrains another profile that allows
-the extension). Example: <a href="extension-patient-mothersmaidenname.html">Mother's Maiden Name</a>.
+the extension). Example: <a href="[%extensions-location%]StructureDefinition-patient-mothersMaidenName.html">Mother's Maiden Name</a>.
 </p>
 <p>
 If the Extension maximum cardinality is &gt;1, then the extension is allowed up to
 the specified number of times on any element on which it appears.
 A <a href="profiling.html#resource">profile</a> that defines the use of an
 extension may make the maximum cardinality any value up to the specified maximum.
-Example: <a href="extension-patient-disability.html">Patient Disability</a>.
+Example: <a href="[%extensions-location%]StructureDefinition-patient-disability.html">Patient Disability</a>.
 </p>
 <p><b>Context Invariants</b></p>
 <p>
@@ -143,7 +143,7 @@ check that local requirements around cardinality and other business rules are
 met. 
 </p>
 <p>
-For example, if you use <a href="extension-iso21090-adxp-housenumber.html">the extension for house number</a>, 
+For example, if you use <a href="[%extensions-location%]StructureDefinition-iso21090-adxp-houseNumber.html">the extension for house number</a>, 
 the Address.line needs to be filled as well:
 </p>
 <pre>
@@ -170,7 +170,7 @@ list provides guidance for the correct usage:
   <ul>
     <li>Cardinality</li>
     <li>Short, Definition, Comments</li>
-    <li>IsModifier</li>
+    <li>IsModifier (indicates whether the extension is a modifierExtension)</li>
     <li>MustSupport (is used on invocation of the extension)</li>
     <li>Conditions &amp; Constraints. These SHOULD never be on url/value[x]</li>
     <li>Mappings. these SHALL never be on url/value[x]</li>
@@ -202,7 +202,11 @@ list provides guidance for the correct usage:
 Note: Extensions are always sliced by their <code>url</code> property. Re-slicing extensions by
 additional properties is allowed (see <a href="profiling.html#slicing">Profiling/Slicing</a>).
 </p>
-
+<p>
+The definition of an extension has no defined context, so the use of must-support is 
+discouraged; it is instead appropriate to indicate <a href="obligations.html">must-support status</a>
+in the profiles where the extension is used.
+</p>
 <a name="registration"></a>
 <h3>Publishing Extension Definitions</h3>
 <p>
@@ -249,7 +253,7 @@ may be moved in either direction, but after extensions are finalized as normativ
 <p>
 In some cases, an HL7 work group or other body may publish a profile whose sole
 purpose is to define extensions expected to be needed by implementers in a particular context; e.g. extensions needed
-to map a particular set of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> segments or a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> model.
+to map a particular set of <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> segments or a <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> model.
 </p>
 <p>
 Implementations are encouraged to share their extensions with HL7 and register them with the HL7 extension registry. The domain committees will work

@@ -750,7 +750,7 @@ name[x]</a>
        class="diagram-class-detail"><a
    xlink:href="implementationguide-definitions.html#ImplementationGuide.definition.page.title"
    id="n1027"><title
-   id="title214">A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc</title>
+   id="title214">A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.</title>
 title</a>
  : <a
    xlink:href="datatypes.html#string"

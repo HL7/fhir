@@ -30,7 +30,7 @@ The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type
 &lt;/coding&gt;
 &lt;text value="Placer"/&gt;
 &lt;/type&gt;
-&lt;system value=" http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
+&lt;system value="http://terminology.hl7.org/CodeSystem/v2-0203"/&gt;
 &lt;value value="567890"/&gt;
 &lt;/identifier&gt;
 </pre>
@@ -40,7 +40,7 @@ The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type
 If the diagnostic procedure was performed on the patient directly, the <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element is a dateTime, the time it was performed.
 If specimens were taken, the clinically relevant time of the report can be derived from the specimen collection times, but
 since detailed specimen information is not always available, and nor is the clinically relevant time always exactly the specimen collection time (e.g. complex timed tests), the
-reports SHALL always include an effective[x] element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
+reports SHALL always include an effective[x] element. Note that <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> messages often carry a diagnostically relevant time without carrying any specimen information.
 </p>
 <h3>Associated Observations</h3>
 <ul>

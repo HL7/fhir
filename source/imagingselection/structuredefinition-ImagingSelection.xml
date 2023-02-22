@@ -27,7 +27,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="ImagingSelection"/>
-  <title value="ImagingSelection"/>
+  <title value="Imaging Selection"/>
   <status value="draft"/>
   <date value="2022-06-29T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Imaging Integration)"/>
@@ -63,7 +63,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -520,7 +520,7 @@
       </type>
       <example>
         <label value="General"/>
-        <valueId value="1.2.840.113747.20080222.12753225430534207565993148475333748793.1.1"/>
+        <valueId value="1.2.840.113747.20080222.12753225430534207568475333748793.1.1"/>
       </example>
       <isSummary value="true"/>
       <mapping>

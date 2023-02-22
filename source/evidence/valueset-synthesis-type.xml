@@ -21,7 +21,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="SynthesisType"/>
-  <title value="SynthesisType"/>
+  <title value="Synthesis Type"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>
@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+  <description value="Types of combining results from a body of evidence (e.g. summary data meta-analysis)."/>
   <immutable value="true"/>
   <compose>
     <include>

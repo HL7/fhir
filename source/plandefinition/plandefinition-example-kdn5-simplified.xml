@@ -1,97 +1,167 @@
-<PlanDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd"
- xmlns="http://hl7.org/fhir">
-  <id value="KDN5" />
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PlanDefinition xmlns="http://hl7.org/fhir">
+  <id value="KDN5"/>
   <text>
-    <status value="additional" />
+    <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <table style="width: 100%;">
+        
         <tr>
+          
           <td>
-            <!--link to NCCN image-->
+            
+            
             <div style="width: 200px; height: 100px; vertical-align: top;">National Comprehensive Cancer Network</div>
+          
           </td>
+          
           <td>
+            
             <h3>Chemotherapy Order Template</h3>
+            
             <h1>Kidney Cancer</h1>
+            
             <h2>Gemcitabine/CARBOplatin</h2>
+          
           </td>
+          
           <td style="text-align: right; vertical-align: top;">KDN5</td>
+        
         </tr>
+      
       </table>
+      
       <table style="width: 100%; border-top: 1px solid; border-bottom: 1px solid;">
+        
         <tr>
+          
           <td style="width: 33%; border-right: 1px solid; vertical-align: top">
+            
             <h4>INDICATION:</h4>
+            
             <p>Metastatic or Relapsed – Collecting Duct/Medullary Subtypes</p>
+          
           </td>
+          
           <td style="width: 34%; border-right: 1px solid; vertical-align: top">
+            
             <h4>REFERENCES:</h4>
+            
             <ol>
-              <li><a href="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf">NCCN Guidelines&#174; for Kidney Cancer. V.3.2015.</a></li>
-              <li><a href="http://www.ncbi.nlm.nih.gov/pubmed?term=%22The+Journal+of+urology%22%5BJour%5D+AND+1698%5Bpage%5D+AND+2007%5Bpdat%5D+AND+Oudard+S%5Bauthor%5D">Oudard S, et al. <em>J Urol</em>. 2007;177(5):1698-702.</a><sup>
-                  <a href="http://www.example.org/OrderTemplates/PDF/appendix_E.pdf">a</a></sup>
+              
+              <li>
+                <a href="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf">NCCN Guidelines® for Kidney Cancer. V.3.2015.</a>
               </li>
+              
+              <li>
+                <a href="http://www.ncbi.nlm.nih.gov/pubmed?term=%22The+Journal+of+urology%22%5BJour%5D+AND+1698%5Bpage%5D+AND+2007%5Bpdat%5D+AND+Oudard+S%5Bauthor%5D">Oudard S, et al. 
+                  <em>J Urol</em>. 2007;177(5):1698-702.
+                </a>
+                <sup>
+                  
+                  <a href="http://www.example.org/OrderTemplates/PDF/appendix_E.pdf">a</a>
+                </sup>
+              
+              </li>
+            
             </ol>
+          
           </td>
+          
           <td style="width: 33%; vertical-align: top">
+            
             <h4>NCCN SUPPORTIVE CARE:</h4>
+            
             <ol>
+              
               <li>
+                
                 <i>Emetic Risk:</i>
+                
                 <table>
+                  
                   <tr>
+                    
                     <td>Day 1</td>
+                    
                     <td>Moderate</td>
+                  
                   </tr>
+                  
                   <tr>
+                    
                     <td>Day 8</td>
+                    
                     <td>Low</td>
+                  
                   </tr>
+                
                 </table>
+              
               </li>
+              
               <li>
-                <i>Fever Neutropenia Risk:</i><br/>
-                Refer to <a href="http://www.example.org/professionals/physician_gls/PDF/myeloid_growth.pdf">NCCN Guidelines for Myeloid Growth Factors. V.2.2014</a>
+                
+                <i>Fever Neutropenia Risk:</i>
+                <br/>
+                Refer to 
+                <a href="http://www.example.org/professionals/physician_gls/PDF/myeloid_growth.pdf">NCCN Guidelines for Myeloid Growth Factors. V.2.2014</a>
+              
               </li>
+            
             </ol>
+          
           </td>
+        
         </tr>
+      
       </table>
-      <!-- same as the regimen section of the Composition resource only this version is without the style guide notes -->
+      
+      
       <h4>CHEMOTHERAPY REGIMEN</h4>
+      
       <p>
+        
         <i>21-day cycle for 6 cycles</i>
+      
       </p>
+      
       <ul>
-        <li>Gemcitabine 1250 mg/m<sup>2</sup> IV over 30 minutes on Days 1 and 8</li>
+        
+        <li>Gemcitabine 1250 mg/m
+          <sup>2</sup> IV over 30 minutes on Days 1 and 8
+        </li>
+        
         <li>CARBOplatin AUC 5 IV over 30 minutes on Day 1</li>
+      
       </ul>
+    
     </div>
   </text>
-  <!-- regimen entries represented using contained ActivityDefinition resources (with extensions) -->
   <contained>
     <ActivityDefinition>
-      <id value="1111" />
-      <status value="draft" />
+      <id value="1111"/>
+      <status value="draft"/>
       <productCodeableConcept>
         <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="12574" />
-          <display value="gemcitabine" />
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="12574"/>
+          <display value="gemcitabine"/>
         </coding>
-        <text value="gemcitabine" />
+        <text value="gemcitabine"/>
       </productCodeableConcept>
       <dosage>
-        <text value="1250 mg/m² IV over 30 minutes" />
+        <text value="1250 mg/m² IV over 30 minutes"/>
         <timing>
           <repeat>
-            <duration value="30" />
-            <durationUnit value="min" />
+            <duration value="30"/>
+            <durationUnit value="min"/>
           </repeat>
         </timing>
         <route>
-          <text value="IV" />
+          <text value="IV"/>
         </route>
         <doseAndRate>
           <type>
@@ -102,8 +172,8 @@
             </coding>
           </type>
           <doseQuantity>
-            <value value="1250" />
-            <unit value="mg/m²" />
+            <value value="1250"/>
+            <unit value="mg/m²"/>
           </doseQuantity>
         </doseAndRate>
       </dosage>
@@ -111,26 +181,26 @@
   </contained>
   <contained>
     <ActivityDefinition>
-      <id value="2222" />
-      <status value="draft" />
+      <id value="2222"/>
+      <status value="draft"/>
       <productCodeableConcept>
         <coding>
-          <system value="http://www.nlm.nih.gov/research/umls/rxnorm" />
-          <code value="40048" />
-          <display value="Carboplatin" />
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="40048"/>
+          <display value="Carboplatin"/>
         </coding>
-        <text value="CARBOplatin" />
+        <text value="CARBOplatin"/>
       </productCodeableConcept>
       <dosage>
-        <text value="AUC 5 IV over 30 minutes" />
+        <text value="AUC 5 IV over 30 minutes"/>
         <timing>
           <repeat>
-            <duration value="30" />
-            <durationUnit value="min" />
+            <duration value="30"/>
+            <durationUnit value="min"/>
           </repeat>
         </timing>
         <route>
-          <text value="IV" />
+          <text value="IV"/>
         </route>
         <doseAndRate>
           <type>
@@ -141,183 +211,167 @@
             </coding>
           </type>
           <doseQuantity>
-            <!-- AUC as dose unit or as an extension? -->
-            <extension url="http://example.org/fhir/AUC-dose" >
-              <valueInteger value="5" />
+            <extension url="http://example.org/fhir/AUC-dose">
+              <valueInteger value="5"/>
             </extension>
-            <!-- <value value="5" />
-          <unit value="AUC" />
-          <system value="http://snomed.info/sct" />
-          <code value="413573002" /> -->
           </doseQuantity>
         </doseAndRate>
-
       </dosage>
     </ActivityDefinition>
   </contained>
-
   <identifier>
-    <system value="http://example.org/ordertemplates" />
-    <value value="KDN5" />
+    <system value="http://example.org/ordertemplates"/>
+    <value value="KDN5"/>
   </identifier>
-  <version value="1" />
-  <title value="Gemcitabine/CARBOplatin" />
+  <version value="1"/>
+  <name value="GemcitabineCARBOplatin"/>
+  <title value="Gemcitabine/CARBOplatin"/>
   <type>
-    <text value="Chemotherapy Order Template" />
+    <text value="Chemotherapy Order Template"/>
   </type>
-  <status value="draft" />
-  <experimental value="true" />
-  <publisher value="National Comprehensive Cancer Network, Inc." />
-  <!-- Indications -->
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="A"/>
-		</extension>
-		<code>
-			<system value="http://example.org/fhir/CodeSystem/indications"/>
-			<code value="treamentSetting-or-diseaseStatus"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Metastatic"/>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="A"/>
-		</extension>
-		<code>
-			<system value="http://example.org/fhir/CodeSystem/indications"/>
-			<code value="disease-or-histology"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Collecting Duct/Medullary Subtypes"/>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="A"/>
-		</extension>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Kidney Cancer"/>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="B"/>
-		</extension>
-		<code>
-			<system value="http://example.org/fhir/CodeSystem/indications"/>
-			<code value="treatmentSetting-or-diseaseStatus"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Relapsed"/>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="B"/>
-		</extension>
-		<code>
-			<system value="http://example.org/fhir/CodeSystem/indications"/>
-			<code value="disease-or-histology"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Collecting Duct/Medullary Subtypes"/>
-		</valueCodeableConcept>
-	</useContext>
-	<useContext>
-		<extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
-			<valueString value="B"/>
-		</extension>
-		<code>
-			<system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
-			<code value="focus"/>
-		</code>
-		<valueCodeableConcept>
-			<text value="Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic"/>
-		</valueCodeableConcept>
-	</useContext>
-  <copyright value="All rights reserved." />
-  <approvalDate value="2016-07-27" />
-  <lastReviewDate value="2016-07-27" />
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="National Comprehensive Cancer Network, Inc."/>
+  <description value="Gemcitabine/CARBOplatin"/>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="A"/>
+    </extension>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/indications"/>
+      <code value="treamentSetting-or-diseaseStatus"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Metastatic"/>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="A"/>
+    </extension>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/indications"/>
+      <code value="disease-or-histology"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Collecting Duct/Medullary Subtypes"/>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="A"/>
+    </extension>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Kidney Cancer"/>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="B"/>
+    </extension>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/indications"/>
+      <code value="treatmentSetting-or-diseaseStatus"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Relapsed"/>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="B"/>
+    </extension>
+    <code>
+      <system value="http://example.org/fhir/CodeSystem/indications"/>
+      <code value="disease-or-histology"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Collecting Duct/Medullary Subtypes"/>
+    </valueCodeableConcept>
+  </useContext>
+  <useContext>
+    <extension url="http://hl7.org/fhir/StructureDefinition/usagecontext-group">
+      <valueString value="B"/>
+    </extension>
+    <code>
+      <system value="http://terminology.hl7.org/CodeSystem/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <text value="Kidney Cancer – Collecting Duct/Medullary Subtypes - Metastatic"/>
+    </valueCodeableConcept>
+  </useContext>
+  <copyright value="All rights reserved."/>
+  <approvalDate value="2016-07-27"/>
+  <lastReviewDate value="2016-07-27"/>
   <author>
-    <name value="Lee Surprenant" />
+    <name value="Lee Surprenant"/>
   </author>
-  <!-- list of references for the order template -->
   <relatedArtifact>
-    <type value="derived-from" />
-    <display value="NCCN Guidelines for Kidney Cancer. V.2.2016" />
+    <type value="derived-from"/>
+    <display value="NCCN Guidelines for Kidney Cancer. V.2.2016"/>
     <document>
-      <url value="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf" />
+      <url value="http://www.example.org/professionals/physician_gls/PDF/kidney.pdf"/>
     </document>
   </relatedArtifact>
   <relatedArtifact>
     <type value="citation">
       <extension url="http://example.org/fhir/regimenReferenceType">
-        <valueCode value="a" />
+        <valueCode value="a"/>
       </extension>
     </type>
-    <citation value="Oudard S, et al. J Urol. 2007;177(5):1698-702" />
+    <citation value="Oudard S, et al. J Urol. 2007;177(5):1698-702"/>
     <document>
-      <url value="http://www.ncbi.nlm.nih.gov/pubmed/17437788" />
+      <url value="http://www.ncbi.nlm.nih.gov/pubmed/17437788"/>
     </document>
   </relatedArtifact>
-
   <action>
-    <!-- list of regimen options. in this case only one -->
     <selectionBehavior value="exactly-one"/>
     <action>
-      <!-- list of regimen parts. in this case only one -->
       <selectionBehavior value="all"/>
       <action>
-        <!-- list of cycle definitions. in this case only one -->
-        <groupingBehavior value="sentence-group" />
+        <groupingBehavior value="sentence-group"/>
         <selectionBehavior value="exactly-one"/>
         <action id="cycle-definition-1">
-          <textEquivalent value="21-day cycle for 6 cycles" />
-
+          <textEquivalent value="21-day cycle for 6 cycles"/>
           <timingTiming>
             <repeat>
-              <count value="6" />
-              <duration value="21" />
-              <durationUnit value="d" />
+              <count value="6"/>
+              <duration value="21"/>
+              <durationUnit value="d"/>
             </repeat>
           </timingTiming>
-
-          <!-- list of regimen entry references for this regimen part -->
-          <!-- references would duplicated in each cycle definition option
-          (see codesystem-action-grouping-behavior.html#sentence-group)-->
           <action id="action-1">
             <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
               <extension url="day">
-                <valueInteger value="1" />
+                <valueInteger value="1"/>
               </extension>
               <extension url="day">
-                <valueInteger value="8" />
+                <valueInteger value="8"/>
               </extension>
             </extension>
-            <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" />
+            <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8"/>
             <definitionCanonical value="#1111"/>
           </action>
           <action id="action-2">
             <extension url="http://hl7.org/fhir/StructureDefinition/timing-daysOfCycle">
               <extension url="day">
-                <valueInteger value="1" />
+                <valueInteger value="1"/>
               </extension>
             </extension>
-            <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
+            <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1"/>
             <relatedAction>
               <targetId value="action-1"/>
               <relationship value="concurrent-with-start"/>
             </relatedAction>
             <definitionCanonical value="#2222"/>
-          </action> <!-- end of regimen entries -->
-        </action> <!-- end of cycle definitions -->
-      </action> <!-- end of regimen parts -->
-    </action> <!-- end of regimen options -->
+          </action>
+        </action>
+      </action>
+    </action>
   </action>
 </PlanDefinition>

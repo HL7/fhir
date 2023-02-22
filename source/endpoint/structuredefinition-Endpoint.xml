@@ -180,7 +180,7 @@
     <element id="Endpoint.description">
       <path value="Endpoint.description"/>
       <short value="Additional details about the endpoint that could be displayed as further information to identify the description beyond its name"/>
-      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing it's usage/purpose)."/>
+      <definition value="The description of the endpoint and what it is for (typically used as supplemental information in an endpoint directory describing its usage/purpose)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -195,7 +195,7 @@
     <element id="Endpoint.environmentType">
       <path value="Endpoint.environmentType"/>
       <short value="The type of environment(s) exposed at this endpoint"/>
-      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc)."/>
+      <definition value="The type of environment(s) exposed at this endpoint (dev, prod, test, etc.)."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -268,7 +268,6 @@
         <map value="n/a"/>
       </mapping>
     </element>
-
     <element id="Endpoint.payload">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="right"/>
@@ -276,7 +275,7 @@
       <path value="Endpoint.payload"/>
       <short value="Set of payloads that are provided by this endpoint"/>
       <definition value="The set of payloads that are provided/available at this endpoint."/>
-      <comment value="Note that not all mimetypes or types will be listed under the one endpoint resource, there may be multiple instances that information for cases where other header data such as the endpoint address, active status/period etc is different."/>
+      <comment value="Note that not all mimetypes or types will be listed under the one endpoint resource, there may be multiple instances that information for cases where other header data such as the endpoint address, active status/period etc. is different."/>
       <min value="0"/>
       <max value="*"/>
       <type>

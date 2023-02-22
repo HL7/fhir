@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="Resource-validate"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -39,7 +41,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/Resource-validate"/>
   <version value="5.0.0"/>
-  <name value="validate"/>
+  <name value="Validate"/>
   <title value="Validate a resource"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -68,7 +70,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="Must be present unless the mode is &#34;delete&#34;"/>
+    <documentation value="Must be present unless the mode is &quot;delete&quot;"/>
     <type value="Resource"/>
   </parameter>
   <parameter>
@@ -93,6 +95,17 @@
     <max value="1"/>
     <documentation value="If this is nominated, then the resource is validated against this specific profile. If a profile is nominated, and the server cannot validate against the nominated profile, it SHALL return an error"/>
     <type value="canonical"/>
+  </parameter>
+  <parameter>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+      <valueCode value="trial-use"/>
+    </extension>  
+    <name value="usageContext"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="Indicates an implementation context that applies to this validation.  Influences which [additionalBindings](terminologies.html#binding) are relevant.  NOTE: Expectations around subsumption testing, etc. are not yet defined and may be server-specific."/>
+    <type value="UsageContext"/>
   </parameter>
   <parameter>
     <name value="return"/>

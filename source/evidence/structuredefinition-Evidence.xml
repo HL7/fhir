@@ -102,8 +102,7 @@
       <path value="Evidence.url"/>
       <short value="Canonical identifier for this evidence, represented as a globally unique URI"/>
       <definition value="An absolute URI that is used to identify this evidence when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this summary is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the summary is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred. Multiple instances may share the same URL if they have a distinct version."/>
-	  <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
+      <comment value="In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the meta.source element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the evidence to be referenced by a single globally unique identifier."/>
       <min value="0"/>
       <max value="1"/>
@@ -114,7 +113,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -296,7 +295,7 @@
     </element>
     <element id="Evidence.lastReviewDate">
       <path value="Evidence.lastReviewDate"/>
-      <short value="When the summary was last reviewed"/>
+      <short value="When the summary was last reviewed by the publisher"/>
       <definition value="The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date."/>
       <comment value="If specified, this date follows the original approval date."/>
       <requirements value="Gives a sense of how &quot;current&quot; the content is.  Resources that have not been reviewed in a long time may have a risk of being less appropriate/relevant."/>
@@ -609,7 +608,7 @@
           <valueString value="SynthesisType"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+        <description value="Types of combining results from a body of evidence (e.g. summary data meta-analysis)."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/synthesis-type"/>
       </binding>
     </element>

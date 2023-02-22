@@ -1,225 +1,230 @@
-<?xml version="1.0" encoding="UTF-8"?><Evidence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/evidence.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Evidence xmlns="http://hl7.org/fhir">
   <id value="example-ASTRAL-12-alteplase-mRS3-6"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <p>
-        "Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12" is a univariate risk estimate.
+        &quot;Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12&quot; is a univariate risk estimate.
       </p>
-	</div>
+	
+    </div>
   </text>
-	<url value="http://hl7.org/fhir/Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
-	<identifier>
+  <url value="http://hl7.org/fhir/Evidence/example-ASTRAL-12-alteplase-mRS3-6"/>
+  <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:oid:2.16.840.1.113883.4.642.10.2"/>
   </identifier>
+  <name value="RiskOfMRS36At90DaysAfterAlteplaseForStrokeIfASTRALScore12"/>
   <title value="Risk of mRS3-6 at 90 days after Alteplase for Stroke if ASTRAL score 12"/>
-	<status value="draft"/>
-	<relatedArtifact>
-		<type value="citation"/>
-		<label value="Cooray 2016 Validation Study"/>
-		<display value="External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke."/>
-		<citation value="Cooray C, Mazya M, Bottai M, Dorado L, Skoda O, Toni D, Ford GA, Wahlgren N, Ahmed N. External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke. Stroke. 2016 Jun;47(6):1493-9. Epub 2016 May 12. PMID 27174528"/>
+  <status value="draft"/>
+  <relatedArtifact>
+    <type value="citation"/>
+    <label value="Cooray 2016 Validation Study"/>
+    <display value="External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke."/>
+    <citation value="Cooray C, Mazya M, Bottai M, Dorado L, Skoda O, Toni D, Ford GA, Wahlgren N, Ahmed N. External Validation of the ASTRAL and DRAGON Scores for Prediction of Functional Outcome in Stroke. Stroke. 2016 Jun;47(6):1493-9. Epub 2016 May 12. PMID 27174528"/>
     <document>
-	    <url value="https://doi.org/10.1161/STROKEAHA.116.012802"/>
+      <url value="https://doi.org/10.1161/STROKEAHA.116.012802"/>
     </document>
-	</relatedArtifact>
-	<description value="5.3% risk of mRS 3-6 at 90 days"/>
-	<variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="population"/>
-				<display value="population"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="Group/ASTRAL-Cooray-validation-cohort"/>
-			<type value="Group"/>
-			<display value="ASTRAL validation cohort"/>
-		</observed>
-		<intended>
-			<reference value="Group/ASTRAL-12"/>
-			<type value="Group"/>
-			<display value="patients 0-4.5 hours after acute ischemic stroke onset with ASTRAL score = 12"/>
-		</intended>
-	</variableDefinition>
-	<variableDefinition>
-		<description value="functionally dependent or dead at 3 months"/>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="measuredVariable"/>
-				<display value="measured variable"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
-			<type value="EvidenceVariable"/>
-			<display value="mRS 3-6 at 90 days"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
-			<type value="EvidenceVariable"/>
-			<display value="Dead or functionally dependent at 90 days"/>
-		</intended>
-		<directnessMatch>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/directness"/>
-				<code value="high"/>
-				<display value="High quality match"/>
-			</coding>
-		</directnessMatch>
-	</variableDefinition>
-	<variableDefinition>
-		<variableRole>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
-				<code value="exposure"/>
-				<display value="exposure"/>
-			</coding>
-		</variableRole>
-		<observed>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
-		</observed>
-		<intended>
-			<reference value="EvidenceVariable/example-alteplase-for-stroke"/>
-			<type value="EvidenceVariable"/>
-			<display value="Alteplase for Stroke"/>
-		</intended>
-		<directnessMatch>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/directness"/>
-				<code value="exact"/>
-				<display value="Exact match"/>
-			</coding>
-		</directnessMatch>
-	</variableDefinition>
-	<studyDesign>
-		<coding>
-			<system value="http://hl7.org/fhir/research-study-classifiers"/>
-			<code value="SEVCO:01016"/>
-			<display value="Uncontrolled cohort design"/>
-		</coding>
-	</studyDesign>
-	<statistic>
-		<description value="5.3% risk"/>
-		<statisticType>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
-				<code value="C44256"/>
-				<display value="Proportion"/>
-			</coding>
-			<text value="derived proportion"/>
-		</statisticType>
-		<quantity>
-			<value value="0.0525"/>
-		</quantity>
-		<sampleSize>
-			<note>
-				<text value="number of participants describes number in the total study sample, known data count describes number in study sample with ASTRALscore = 12, total number of events describes number of participants with ASTRAL score = 12 and outcome of mRS 3-6 at 90 days"/>
-			</note>
-			<numberOfParticipants value="36131"/>
-		</sampleSize>
-	</statistic>
-	<certainty>
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/certainty-type"/>
-				<code value="Overall"/>
-				<display value="Overall quality"/>
-			</coding>
-		</type>
-		<rating>
-			<coding>
-				<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-				<code value="high"/>
-				<display value="High quality"/>
-			</coding>
-		</rating>
-		<subcomponent>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="RiskOfBias"/>
-					<display value="Risk of bias"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<description value="Estimated risk from validation calibration plot consistent with predicted risk; observed risk in subgroup with ASTRAL score = 12 consistent with validation calibration plot"/>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Inconsistency"/>
-					<display value="Inconsistency"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Indirectness"/>
-					<display value="Indirectness"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<description value="Narrow confidence interval"/>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="Imprecision"/>
-					<display value="Imprecision"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-		<subcomponent>
-			<type>
-				<coding>
-					<system value="http://hl7.org/fhir/certainty-type"/>
-					<code value="PublicationBias"/>
-					<display value="Publication bias"/>
-				</coding>
-			</type>
-			<rating>
-				<coding>
-					<system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
-					<code value="no-concern"/>
-					<display value="no serious concern"/>
-				</coding>
-			</rating>
-		</subcomponent>
-	</certainty>
+  </relatedArtifact>
+  <description value="5.3% risk of mRS 3-6 at 90 days"/>
+  <variableDefinition>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="population"/>
+        <display value="population"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="Group/ASTRAL-Cooray-validation-cohort"/>
+      <type value="Group"/>
+      <display value="ASTRAL validation cohort"/>
+    </observed>
+    <intended>
+      <reference value="Group/ASTRAL-12"/>
+      <type value="Group"/>
+      <display value="patients 0-4.5 hours after acute ischemic stroke onset with ASTRAL score = 12"/>
+    </intended>
+  </variableDefinition>
+  <variableDefinition>
+    <description value="functionally dependent or dead at 3 months"/>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="measuredVariable"/>
+        <display value="measured variable"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-mRS3-6-at-90days"/>
+      <type value="EvidenceVariable"/>
+      <display value="mRS 3-6 at 90 days"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-dead-or-dependent-90day"/>
+      <type value="EvidenceVariable"/>
+      <display value="Dead or functionally dependent at 90 days"/>
+    </intended>
+    <directnessMatch>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/directness"/>
+        <code value="high"/>
+        <display value="High quality match"/>
+      </coding>
+    </directnessMatch>
+  </variableDefinition>
+  <variableDefinition>
+    <variableRole>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/variable-role"/>
+        <code value="exposure"/>
+        <display value="exposure"/>
+      </coding>
+    </variableRole>
+    <observed>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <type value="EvidenceVariable"/>
+      <display value="Alteplase for Stroke"/>
+    </observed>
+    <intended>
+      <reference value="EvidenceVariable/example-alteplase-for-stroke"/>
+      <type value="EvidenceVariable"/>
+      <display value="Alteplase for Stroke"/>
+    </intended>
+    <directnessMatch>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/directness"/>
+        <code value="exact"/>
+        <display value="Exact match"/>
+      </coding>
+    </directnessMatch>
+  </variableDefinition>
+  <studyDesign>
+    <coding>
+      <system value="http://hl7.org/fhir/study-design"/>
+      <code value="SEVCO:01016"/>
+      <display value="Uncontrolled cohort design"/>
+    </coding>
+  </studyDesign>
+  <statistic>
+    <description value="5.3% risk"/>
+    <statisticType>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/statistic-type"/>
+        <code value="C44256"/>
+        <display value="Proportion"/>
+      </coding>
+      <text value="derived proportion"/>
+    </statisticType>
+    <quantity>
+      <value value="0.0525"/>
+    </quantity>
+    <sampleSize>
+      <note>
+        <text value="number of participants describes number in the total study sample, known data count describes number in study sample with ASTRALscore = 12, total number of events describes number of participants with ASTRAL score = 12 and outcome of mRS 3-6 at 90 days"/>
+      </note>
+      <numberOfParticipants value="36131"/>
+    </sampleSize>
+  </statistic>
+  <certainty>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/certainty-type"/>
+        <code value="Overall"/>
+        <display value="Overall quality"/>
+      </coding>
+    </type>
+    <rating>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+        <code value="high"/>
+        <display value="High quality"/>
+      </coding>
+    </rating>
+    <subcomponent>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="RiskOfBias"/>
+          <display value="Risk of bias"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <description value="Estimated risk from validation calibration plot consistent with predicted risk; observed risk in subgroup with ASTRAL score = 12 consistent with validation calibration plot"/>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Inconsistency"/>
+          <display value="Inconsistency"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Indirectness"/>
+          <display value="Indirectness"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <description value="Narrow confidence interval"/>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="Imprecision"/>
+          <display value="Imprecision"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+    <subcomponent>
+      <type>
+        <coding>
+          <system value="http://hl7.org/fhir/certainty-type"/>
+          <code value="PublicationBias"/>
+          <display value="Publication bias"/>
+        </coding>
+      </type>
+      <rating>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/certainty-rating"/>
+          <code value="no-concern"/>
+          <display value="no serious concern"/>
+        </coding>
+      </rating>
+    </subcomponent>
+  </certainty>
 </Evidence>

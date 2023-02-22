@@ -18,7 +18,7 @@
   <title value="All Resource Types"/>
   <status value="active"/>
   <experimental value="false"/>
-  <description value="All fhir data types (including abstract resources)"/>
+  <description value="All fhir resource types (including abstract resources)"/>
   <immutable value="true"/>
   <compose>
     <include>

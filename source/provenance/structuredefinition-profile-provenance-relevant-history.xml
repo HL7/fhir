@@ -27,8 +27,8 @@
     <value value="urn:oid:2.16.840.1.113883.4.642.5.1318"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="Provenance Relevant History"/>
-  <title value="Provenance Relevant History"/>
+  <name value="ProvenanceRelevantHistory"/>
+  <title value="Provenance  Relevant  History"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2013-12-03"/>
@@ -39,7 +39,7 @@
       <value value="http://www.hl7.org/Special/Committees/fhir-i"/>
     </telecom>
   </contact>
-  <description value="Guidance on using Provenance for related history elements"/>
+  <description value="Guidance on using Provenance for related history elements to provide key events that have happened over the lifespan of the resource  - see the use of this pattern in the [Request Pattern](request.html#history)"/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="workflow"/>

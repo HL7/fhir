@@ -22,7 +22,7 @@
           <code value="patient-link"/>
         </eventCoding>        
         <source>
-          <endpoint value="http://acme.com/ehr/fhir"/>
+          <endpointUrl value="http://acme.com/ehr/fhir"/>
         </source>
         <response>
           <identifier>

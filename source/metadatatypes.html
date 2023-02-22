@@ -120,7 +120,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
 	&lt;/codeFilter&gt;
 	&lt;dateFilter&gt;
-		&lt;path value=&quot;performedPeriod&quot;/&gt;
+		&lt;path value=&quot;performed&quot;/&gt;
 		&lt;valuePeriod&gt;
 			&lt;start value=&quot;2016-01-01&quot;/&gt;
 			&lt;end value=&quot;2016-12-31&quot;/&gt;
@@ -146,8 +146,7 @@ See also <a href="metadatatypes-examples.html#DataRequirement">Examples</a>, <a 
 		&lt;valueSetString value=&quot;Total Colectomy Value Set&quot;/&gt;
 	&lt;/codeFilter&gt;
 	&lt;dateFilter&gt;
-		&lt;path value=&quot;performedPeriod&quot;/&gt;
-		&lt;path value=&quot;performedDateTime&quot;/&gt;
+		&lt;path value=&quot;performed&quot;/&gt;
 	&lt;/dateFilter&gt;
 &lt;/dataRequirement&gt;
 </code></pre>
@@ -253,9 +252,9 @@ depending on the value of <code>type</code>:</p>
 A named event is an event identified by the implementation environment. This allows
 any event generated within the implementation environment to be used as a trigger,
 but it requires pre-coordination of the names involved with the consuming environments.
-<a href="v2/0003/index.html">HL7 v2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code]
+<a href="v2/0003/index.html">HL7 V2 events</a> are assigned the URI http://terminology.hl7.org/CodeSystem/v2-0003#[code]
 e.g. http://terminology.hl7.org/CodeSystem/v2-0003/A01, and reference any data change that would trigger
-the sending of the matching HL7 v2 version, if the application providing the FHIR API
+the sending of the matching HL7 V2 version, if the application providing the FHIR API
 supports v2 events internally.
 </p>
 

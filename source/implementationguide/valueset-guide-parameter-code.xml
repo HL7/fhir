@@ -15,6 +15,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="GuideParameterCode"/>
+  <title value="Guide Parameter Code"/>
   <experimental value="false"/>
   <description value="Codes used to define implementation guide parameters"/>
   <compose>

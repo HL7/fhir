@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><OperationDefinition xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
   <id value="CodeSystem-find-matches"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -33,7 +35,7 @@
   </extension>
   <url value="http://hl7.org/fhir/build/OperationDefinition/CodeSystem-find-matches"/>
   <version value="5.0.0"/>
-  <name value="find-matches"/>
+  <name value="Findmatches"/>
   <title value="Finding codes based on supplied properties"/>
   <status value="draft"/>
   <kind value="operation"/>
@@ -59,6 +61,7 @@
   <parameter>
     <name value="system"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The system in which composition is to be performed. This must be provided unless the operation is invoked on a code system instance"/>
@@ -67,6 +70,7 @@
   <parameter>
     <name value="version"/>
     <use value="in"/>
+    <scope value="type"/>
     <min value="0"/>
     <max value="1"/>
     <documentation value="The version of the system for the inferencing to be performed"/>

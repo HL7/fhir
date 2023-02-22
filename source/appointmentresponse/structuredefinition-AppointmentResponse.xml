@@ -30,7 +30,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="AppointmentResponse"/>
-  <title value="AppointmentResponse"/>
+  <title value="Appointment Response"/>
   <status value="draft"/>
   <date value="2021-01-02T08:58:31+11:00"/>
   <publisher value="Health Level Seven International (Patient Administration)"/>
@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -240,6 +240,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -279,6 +280,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
+      <condition value="apr-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>

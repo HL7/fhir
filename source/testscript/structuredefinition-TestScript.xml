@@ -33,7 +33,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="TestScript"/>
-  <title value="TestScript"/>
+  <title value="Test Script"/>
   <status value="draft"/>
   <date value="2021-01-05T10:01:24+11:00"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
@@ -125,7 +125,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -661,6 +661,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.required">
       <path value="TestScript.metadata.capability.required"/>
@@ -671,6 +672,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.validated">
       <path value="TestScript.metadata.capability.validated"/>
@@ -681,6 +683,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-4"/>
     </element>
     <element id="TestScript.metadata.capability.description">
       <path value="TestScript.metadata.capability.description"/>
@@ -919,6 +922,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.headerField">
       <path value="TestScript.variable.headerField"/>
@@ -930,6 +934,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.hint">
       <path value="TestScript.variable.hint"/>
@@ -951,6 +956,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-3"/>
     </element>
     <element id="TestScript.variable.sourceId">
       <path value="TestScript.variable.sourceId"/>
@@ -1012,6 +1018,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-1"/>
+      <condition value="tst-2"/>
       <constraint>
         <key value="tst-7"/>
         <severity value="error"/>
@@ -1030,6 +1038,9 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptOperationCode"/>
@@ -1088,7 +1099,7 @@
     </element>
     <element id="TestScript.setup.action.operation.accept">
       <path value="TestScript.setup.action.operation.accept"/>
-      <short value="Mime type to accept in the payload of the response, with charset etc."/>
+      <short value="Mime type to accept in the payload of the response, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Accept' header."/>
       <comment value="If this is specified, then test engine shall set the 'Accept' header to the corresponding value.  If you'd like to explicitly set the 'Accept' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>
@@ -1117,7 +1128,7 @@
     </element>
     <element id="TestScript.setup.action.operation.contentType">
       <path value="TestScript.setup.action.operation.contentType"/>
-      <short value="Mime type of the request payload contents, with charset etc."/>
+      <short value="Mime type of the request payload contents, with charset etc"/>
       <definition value="The mime-type to use for RESTful operation in the 'Content-Type' header."/>
       <comment value="If this is specified, then test engine shall set the 'Content-Type' header to the corresponding value.  If you'd like to explicitly set the 'Content-Type' to some other value then use the 'requestHeader' element."/>
       <min value="0"/>
@@ -1205,6 +1216,9 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.requestHeader">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1273,6 +1287,9 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.targetId">
       <path value="TestScript.setup.action.operation.targetId"/>
@@ -1284,6 +1301,9 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.url">
       <path value="TestScript.setup.action.operation.url"/>
@@ -1295,6 +1315,9 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-7"/>
+      <condition value="tst-8"/>
+      <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.assert">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
@@ -1309,6 +1332,8 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tst-1"/>
+      <condition value="tst-2"/>
       <constraint>
         <key value="tst-12"/>
         <severity value="error"/>
@@ -1363,6 +1388,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-13"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionDirectionType"/>
@@ -1384,6 +1411,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.compareToSourceExpression">
       <path value="TestScript.setup.action.assert.compareToSourceExpression"/>
@@ -1395,6 +1424,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.compareToSourcePath">
       <path value="TestScript.setup.action.assert.compareToSourcePath"/>
@@ -1406,6 +1437,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-10"/>
+      <condition value="tst-11"/>
     </element>
     <element id="TestScript.setup.action.assert.contentType">
       <path value="TestScript.setup.action.assert.contentType"/>
@@ -1421,6 +1454,8 @@
         <label value="General"/>
         <valueCode value="application/fhir+xml"/>
       </example>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MimeType"/>
@@ -1469,6 +1504,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.headerField">
       <path value="TestScript.setup.action.assert.headerField"/>
@@ -1480,6 +1517,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.minimumId">
       <path value="TestScript.setup.action.assert.minimumId"/>
@@ -1491,6 +1530,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.navigationLinks">
       <path value="TestScript.setup.action.assert.navigationLinks"/>
@@ -1502,6 +1543,8 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.operator">
       <path value="TestScript.setup.action.assert.operator"/>
@@ -1536,6 +1579,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.requestMethod">
       <path value="TestScript.setup.action.assert.requestMethod"/>
@@ -1547,6 +1592,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="TestScriptRequestMethodCode"/>
@@ -1577,6 +1624,8 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="FHIRConcreteType"/>
@@ -1599,6 +1648,10 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-5"/>
+      <condition value="tst-13"/>
+      <condition value="tst-6"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="AssertionResponseTypes"/>
@@ -1621,6 +1674,10 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="tst-12"/>
+      <condition value="tst-5"/>
+      <condition value="tst-13"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.sourceId">
       <path value="TestScript.setup.action.assert.sourceId"/>
@@ -1654,6 +1711,8 @@
       <type>
         <code value="id"/>
       </type>
+      <condition value="tst-5"/>
+      <condition value="tst-6"/>
     </element>
     <element id="TestScript.setup.action.assert.value">
       <path value="TestScript.setup.action.assert.value"/>

@@ -35,7 +35,7 @@
 	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This information is useful for communicating to environments that may support the computation as well as to environments that do not, or to environments that support the computation but desire human-readable information to more easily understand the logic.</li>
 </ul>
 
-<p>For example, the <code>dynamicValue</code> element of the ActivityDefinition and PlanDefinition resources contains an <code>expression</code> element directly. However, for resources that do not define these elements, the <a href="extension-cqf-expression.html">cqf-expression</a> extension can be used to enable expression information to be associated with any FHIR resource.</p>
+<p>For example, the <code>dynamicValue</code> element of the ActivityDefinition and PlanDefinition resources contains an <code>expression</code> element directly. However, for resources that do not define these elements, the <a href="[%extensions-location%]StructureDefinition-cqf-expression.html">cqf-expression</a> extension can be used to enable expression information to be associated with any FHIR resource.</p>
 
 <a name="expression-description"> </a>
 <h5>Description</h5>
@@ -133,7 +133,7 @@
 ]
 </code></pre>
 
-<p>For resources that do not have a <code>library</code> element, the <a href="extension-cqf-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
+<p>For resources that do not have a <code>library</code> element, the <a href="[%extensions-location%]StructureDefinition-cqf-library.html">library</a> <a href="extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
 
 <p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 
@@ -186,6 +186,8 @@
 <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1</a>.</p>
 
 <p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
+
+<p>For more guidance and best-practices for the use of CQL with FHIR-based knowledge artifacts, refer to the [Using CQL](https://build.fhir.org/ig/HL7/crmi-ig/using-cql.html) topic in the Canonical Resource Management Infrastructure Implementation Guide.</p>
 [%file newfooter%]
 </body>
 </html>

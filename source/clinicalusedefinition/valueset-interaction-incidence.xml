@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
   <id value="interaction-incidence"/>
   <meta>
     <lastUpdated value="2020-12-28T16:55:11.085+11:00"/>
@@ -7,13 +9,21 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <ul>
+        
         <li>Include all codes defined in 
+          
           <a href="codesystem-interaction-incidence.html">
+            
             <code>http://hl7.org/fhir/interaction-incidence</code>
+          
           </a>
+        
         </li>
+      
       </ul>interaction-incidence
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
@@ -32,7 +42,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="InteractionIncidence"/>
-  <title value="InteractionIncidence"/>
+  <title value="Interaction Incidence"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2020-12-28T16:55:11+11:00"/>

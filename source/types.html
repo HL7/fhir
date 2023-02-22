@@ -97,7 +97,7 @@ There are 3 kinds of descendant types that specialize <code>Element</code>:
 <ul>
  <li><a href="datatypes.html#primitive">Primitive datatypes</a>, that add a primitive value property of the specified type</li>
  <li><a href="datatypes.html#complex">Complex datatypes</a>, that add their own children (all of which are also elements)</li>
- <li><a href="#BackboneElement">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
+ <li><a href="#BackboneElement">BackboneElement</a>, a specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
 </ul>
 <p>
 Note that resources themselves all specialize the base type <a href="resource.html">Resource</a>.
@@ -129,7 +129,7 @@ The <code>id</code> property of the element is defined to allow implementers
 to build implementation functionality that makes use of internal references
 inside the resource. This specification does not define any general use for
 the internal id, though some resources (e.g. <a href="elementdefinition.html#id">StructureDefinition</a>) and
-extensions (e.g. <a href="extension-originaltext.html">originalText</a>, <a href="extension-narrativelink.html">narrativeLink</a>) make use of it.
+extensions (e.g. <a href="[%extensions-location%]StructureDefinition-originalText.html">originalText</a>, <a href="[%extensions-location%]StructureDefinition-narrativeLink.html">narrativeLink</a>) make use of it.
 </p>
 <p>
 The internal id is unique within the scope of the resource that contains it.
