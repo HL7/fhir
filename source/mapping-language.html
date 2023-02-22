@@ -377,7 +377,7 @@ The following list specifies that transforms that can be specified. Each transfo
  <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable, e.g. src.a = tgt.b</td></tr>
  <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
  <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
- <tr><td>cast</td> <td>source, type?</td> <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known</td></tr>
+ <tr><td>cast</td> <td>source, type?</td> <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known. . The default namespace for the type is 'FHIR' (see <a href="http://hl7.org/fhirpath/N1/#is-type-specifier">FHIRPath type specifiers</a>)</td></tr>
  <tr><td>append</td> <td>source...</td> <td>source is element or string - just append them all together</td></tr>
  <tr><td>translate</td> <td>source, map_uri, output</td> <td>use the <a href="conceptmap-operation-translate.html">translate operation</a>. The source is some type of code or coded datatype, and the source and map_uri are passed to the translate operation. The output determines what value from the translate operation is used for the result of the operation (code, system, display, Coding, or CodeableConcept)</td></tr>
  <tr><td>reference</td> <td>source</td> <td>return a string that references the provided tree properly</td></tr>
@@ -397,6 +397,20 @@ The following list specifies that transforms that can be specified. Each transfo
 TODO: explain how optional parameters work with transforms (append only?), document list mode
 </p>
 
+<a name="type-cast"> </a>
+<h4>Type Wrangling</h4>
+
+<p>
+The underlying type systems for source and target MAY define required implicit conversions,
+especially around how primitive values are handled and represented as strings (often required
+implicitly when executing the mapping rules).
+</p>
+<p>
+As an example, see the <a href="http://hl7.org/fhir/fhirpath.html#types">FHIRPath specification implicit type conversions</a>,
+which applies to source and/or target if they are resources (or content described by FHIR logical models).
+</p>
+
+<a name="dep-rules"> </a>
 <h4>Dependent Rules</h4>
 
 <p>
