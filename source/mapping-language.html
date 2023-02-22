@@ -454,6 +454,15 @@ implicitly when executing the mapping rules).
 As an example, see the <a href="http://hl7.org/fhir/fhirpath.html#types">FHIRPath specification implicit type conversions</a>,
 which applies to source and/or target if they are resources (or content described by FHIR logical models).
 </p>
+<p>
+In some cases, the transform statements will cause the automatic creation of objects 
+in the target content. If the target model describes a choice of types for the automatically
+constructed object, then the engine raises an error. In such cases, an explicit create 
+should be used:
+</p>
+<pre class="map">
+  tgt.aa = create("x") as t_aa...
+</pre>
 
 <a name="dep-rules"> </a>
 <h4>Dependent Rules</h4>
