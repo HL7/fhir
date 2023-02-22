@@ -4020,6 +4020,7 @@ Notes:
     types, the search parameter MAY include the <a href="#modifiertexttoken">text modifier</a>
     to request sorting based on the text or display portions of the element values.
     For example, <code>_sort=code:text</code> or <code>_sort:-code:text</code>.</li>
+  <li>When sorting on search parameters of <code>date</code> type, if the source data is not a single instance (e.g. a <a href="datatypes.html#Period">Period</a>) the sort behavior is server-defined. If more prescribed search behavior is needed, custom search parameters that assert specific behavior can be defined. Note that most reference implementations search by the <code>start</code> of the period.</li>
 </ul>
 
 <a name="total"></a>
