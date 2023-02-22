@@ -70,6 +70,20 @@
       <definition value="The SubscriptionStatus resource describes the state of a Subscription during notifications."/>
       <min value="0"/>
       <max value="*"/>
+      <constraint>
+        <key value="sst-1"/>
+        <severity value="error"/>
+        <human value="Event notifications must contain events"/>
+        <expression value="(type = 'event-notification' or type = 'query-event') implies notificationEvent.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
+      </constraint>
+      <constraint>
+        <key value="sst-2"/>
+        <severity value="error"/>
+        <human value="Status messages must contain status"/>
+        <expression value="type = 'query-status' implies status.exists()"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/SubscriptionStatus"/>
+      </constraint>
       <mapping>
         <identity value="rim"/>
         <map value="N/A"/>
@@ -88,6 +102,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sst-2"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -111,6 +126,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sst-1"/>
+      <condition value="sst-2"/>
       <isModifier value="true"/>
       <isModifierReason value="Not known why this is labelled a modifier"/>
       <isSummary value="true"/>
@@ -147,6 +164,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sst-1"/>
     </element>
     <element id="SubscriptionStatus.notificationEvent.eventNumber">
       <path value="SubscriptionStatus.notificationEvent.eventNumber"/>

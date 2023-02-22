@@ -138,7 +138,7 @@
       <tr><td>SubscriptionStatus.status</td><td>Required</td><td>Current status of the relevant subscription (e.g., <code>active</code>).</td></tr>
       <tr><td>SubscriptionStatus.type</td><td>Required</td><td>SHALL be <code>query-status</code></td></tr>
       <tr><td>SubscriptionStatus.eventsSinceSubscriptionStart</td><td>Special</td><td>Required for subscriptions with best-effort delivery, optional for subscriptions with guaranteed delivery. See <a href="#event-number">Event Numbering</a> for details.<br/>Note: this value SHALL NOT be incremented by sending a <code>query-status</code> notification.</td></tr>
-      <tr><td>SubscriptionStatus.notificationEvent</td><td>Prohibited</td><td>A <code>query-status</code> notification SHALL NOT contain any event information.</td></tr>
+      <tr><td>SubscriptionStatus.notificationEvent</td><td>Special</td><td>A <code>query-status</code> notification MAY contain recent notifications.</td></tr>
       <tr><td>SubscriptionStatus.topic</td><td>Recommended</td><td>See <a href="#content-phi">Content and PHI</a>, but note that guidance will vary since there is an active user session.</td></tr>
     </table>
 		<ul>
