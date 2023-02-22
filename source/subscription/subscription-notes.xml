@@ -72,6 +72,12 @@
       Notification bundles for <code>full-resource</code> subscriptions SHALL contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification. For example, a notification for a topic based on Encounter SHALL include an Encounter and MAY include additional resources deemed relevant (e.g., the relevant Patient). Each <code>Bundle.entry</code> for a <code>full-resource</code> notification SHALL contain a relevant resource in the <code>entry.resource</code> element.  If a server cannot include the resource contents due to an issue with a specific notification, the server SHALL populate the <code>entry.request</code> and/or <code>entry.response</code> elements.
     </p>
 
+  <a name="batching"/>
+  <h2>Batching Results</h2>
+  <p>
+    Subscriptions allow servers to batch multiple notifications into a single <code>subscription-notification</code> Bundle. For example, if a server has a high-frequency of updates (e.g., several per second), it could be beneficial to combine notifications to reduce traffic and overhead. Note that servers SHALL NOT delay sending notification longer than time span specified by <code>Subscription.heartbeat</code>.
+  </p>
+
 	<a name="channels"/>
 	<h2>Channels</h2>
 		
