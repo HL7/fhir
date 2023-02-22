@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="EpisodeOfCare-everything"/>
+  <meta>
+    <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+    <valueInteger value="2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+    <valueCode value="trial-use"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="false"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$everything-request.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/example">
+    <extension url="list">
+      <valueString value="1"/>
+    </extension>
+    <extension url="response">
+      <valueBoolean value="true"/>
+    </extension>
+    <extension url="content">
+      <valueString value="$everything-response.txt"/>
+    </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
+    <valueMarkdown value="The key differences between this operation and simply searching the episodeofcare compartment are:  &#xA;&#xA;* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) &#xA;* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones)&#xA;&#xA;This frees the client from needing to determine what it could or should ask for, particularly with regard to included resources. Servers should consider returning appropriate Provenance and AuditTrail on the returned resources, even though these are not directly part of the patient compartment. &#xA;&#xA;It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single episodeofcare, or determine whether the context has the rights to the nominated episodeofcare, if there is one, or can determine an appropriate list of episodeofcares to provide data for from the context of the request.  If there is no nominated episodeofcare (GET /[base]/EpisodeOfCare/$everything) and the context is not associated with a single episodeofcare record, the actual list of episodeofcares is all episodeofcares that the user associated with the request has access to. In such cases, the server may choose to return an error rather than all the records. Specifying the relationship between the context, a user and episodeofcare records is outside the scope of this specification (though see [The Smart App Launch Implementation Guide](http://hl7.org/fhir/smart-app-launch).   &#xA;&#xA;When this operation is used to access multiple episodeofcare records at once, the return bundle could be rather a lot of data; servers may choose to require that such requests are made [asynchronously](async.html), and associated with [bulk data formats](resource-formats.html#bulk). Alternatively, clients may choose to page through the result set (or servers may require this). Paging through the results is done the same as for [Searching](http.html#paging), using the [_count](search.html#count) parameter, and Bundle links. Implementers should note that paging will be slower than simply returning all the results at once (more network traffic, multiple latency delays) but may be required in order not to exhaust available memory reading or writing the whole response in a single package. Unlike searching, there is no inherent user-display order for the $everything operation. Servers might consider sorting the returned resources in descending order of last record update, but are not required to do so. Servers should consider returning appropriate Provenance and AuditTrail on the returned resources, even though these are not directly part of the patient compartment.&#xA;&#xA;The _since parameter is provided to support periodic queries to get additional information that has changed about the episodeofcare since the last query. This means that the _since parameter is based on record time. The value of the _since parameter should be set to the time from the server. If using direct response, this is the timestamp in the response header. If using the async interface, this is the transaction timestamp in the json response. Servers should ensure that the timestamps a managed such that the client does not miss any changes. Clients should be able to handle getting the same response more than once in the case that the transaction falls on a time boundary. Clients should ensure that the other query parameters are constant to ensure a coherent set of records when doing periodic queries."/>
+  </extension>
+  <url value="http://hl7.org/fhir/build/OperationDefinition/EpisodeOfCare-everything"/>
+  <version value="5.0.0"/>
+  <name value="Everything"/>
+  <title value="Fetch EpisodeOfCare Record"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <date value="2021-01-05T10:01:24+11:00"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <description value="This operation is used to return all the information related to an episodeofcare described in the resource on which this operation is invoked. The response is a bundle of type &quot;searchset&quot;. At a minimum, the episodeofcare resource itself is returned, along with any other resources that the server has available for the given episodeofcare for the user. The server also returns whatever resources are needed to support the records - e.g. linked practitioners, locations, organizations etc. The principle intended use for this operation is to provide a patient with access to their record, or to allow a client to retrieve everything for an episodeofcare for efficient display).&#xD;&#xD;The server SHOULD return all resources it has that:&#xD;&#xD;* are included in the episodeofcare compartment for the identified episodeofcare (have a reference to the episodeofcare)&#xD;* are referenced by the standard extension for associating an episodeofcare (where no reference element exists) http://hl7.org/fhir/StructureDefinition/workflow-episodeOfCare&#xD;* the server believes are relevant to the context of the episodeofcare for any other reason (internally defined/decided)&#xD;* any resource referenced by the above, including binaries and attachments (to make a more complete package)"/>
+  <affectsState value="false"/>
+  <code value="everything"/>
+  <comment value="The key differences between this operation and simply searching the episodeofcare compartment are:  &#xA;&#xA;* unless the client requests otherwise, the server returns the entire result set in a single bundle (rather than using paging) &#xA;* the server is responsible for determining what resources to return as included resources (rather than the client specifying which ones)&#xA;&#xA;This frees the client from needing to determine what it could or should ask for, particularly with regard to included resources. Servers should consider returning appropriate Provenance and AuditTrail on the returned resources, even though these are not directly part of the patient compartment. &#xA;&#xA;It is assumed that the server has identified and secured the context appropriately, and can either associate the authorization context with a single episodeofcare, or determine whether the context has the rights to the nominated episodeofcare, if there is one, or can determine an appropriate list of episodeofcares to provide data for from the context of the request.  If there is no nominated episodeofcare (GET /[base]/EpisodeOfCare/$everything) and the context is not associated with a single episodeofcare record, the actual list of episodeofcares is all episodeofcares that the user associated with the request has access to. In such cases, the server may choose to return an error rather than all the records. Specifying the relationship between the context, a user and episodeofcare records is outside the scope of this specification (though see [The Smart App Launch Implementation Guide](http://hl7.org/fhir/smart-app-launch).   &#xA;&#xA;When this operation is used to access multiple episodeofcare records at once, the return bundle could be rather a lot of data; servers may choose to require that such requests are made [asynchronously](async.html), and associated with [bulk data formats](resource-formats.html#bulk). Alternatively, clients may choose to page through the result set (or servers may require this). Paging through the results is done the same as for [Searching](http.html#paging), using the [_count](search.html#count) parameter, and Bundle links. Implementers should note that paging will be slower than simply returning all the results at once (more network traffic, multiple latency delays) but may be required in order not to exhaust available memory reading or writing the whole response in a single package. Unlike searching, there is no inherent user-display order for the $everything operation. Servers might consider sorting the returned resources in descending order of last record update, but are not required to do so. Servers should consider returning appropriate Provenance and AuditTrail on the returned resources, even though these are not directly part of the patient compartment.&#xA;&#xA;The _since parameter is provided to support periodic queries to get additional information that has changed about the episodeofcare since the last query. This means that the _since parameter is based on record time. The value of the _since parameter should be set to the time from the server. If using direct response, this is the timestamp in the response header. If using the async interface, this is the transaction timestamp in the json response. Servers should ensure that the timestamps a managed such that the client does not miss any changes. Clients should be able to handle getting the same response more than once in the case that the transaction falls on a time boundary. Clients should ensure that the other query parameters are constant to ensure a coherent set of records when doing periodic queries."/>
+  <resource value="EpisodeOfCare"/>
+  <system value="false"/>
+  <type value="false"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="_since"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Resources updated after this period will be included in the response. The intent of this parameter is to allow a client to request only records that have changed since the last request, based on either the return header time, or or (for asynchronous use), the transaction time"/>
+    <type value="instant"/>
+  </parameter>
+  <parameter>
+    <name value="_type"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="One or more parameters, each containing one or more comma-delimited FHIR resource types to include in the return resources. In the absense of any specified types, the server returns all resource types"/>
+    <type value="code"/>
+  </parameter>
+  <parameter>
+    <name value="_count"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="See discussion below on the utility of paging through the results of the $everything operation"/>
+    <type value="integer"/>
+  </parameter>
+  <parameter>
+    <name value="return"/>
+    <use value="out"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="The bundle type is &quot;searchset&quot;"/>
+    <type value="Bundle"/>
+  </parameter>
+</OperationDefinition>

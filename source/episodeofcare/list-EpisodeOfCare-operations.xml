@@ -4,4 +4,9 @@
   <id value="EpisodeOfCare-operations"/>
   <status value="current"/>
   <mode value="working"/>
+  <entry>
+    <item>
+      <reference value="OperationDefinition/EpisodeOfCare-everything"/>
+    </item>
+  </entry>
 </List>
