@@ -268,6 +268,9 @@
 				<li>
 					Unlike HTTP/S requests, WebSockets can be long-lived.  Because of this, the case of revoking access of an active connection must be considered.
 				</li>
+        <li>
+          This specification does not describe the security details of Websocket tokens issued by the <code>$get-ws-binding-token</code> operation. Issued tokens MAY be single-use (e.g., re-establishing a connection require a new token) or reusable until their expiration (e.g., re-establishing a connection can reuse an existing token).  Additionally, servers are free to issue tokens as either single-client or shared.  Servers SHOULD document their policy on token issuance.
+        </li>
 			</ul>
 
 		<a name="email"/>
