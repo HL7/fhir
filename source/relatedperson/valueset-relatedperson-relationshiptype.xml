@@ -38,15 +38,70 @@
   <description value="A set of codes that can be used to indicate the relationship between a Patient and a Related Person."/>
   <compose>
     <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationType"/>
+      <concept>
+        <code value="WIT"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-RoleClass"/>
+      <concept>
+        <code value="NOT"/>
+      </concept>
+      <concept>
+        <code value="ECON"/>
+      </concept>
+      <concept>
+        <code value="NOK"/>
+      </concept>
+      <concept>
+        <code value="GUARD"/>
+      </concept>
+      <concept>
+        <code value="DEPEN"/>
+      </concept>
+      <concept>
+        <code value="EMP"/>
+      </concept>
+      <concept>
+        <code value="GUAR"/>
+      </concept>
+      <concept>
+        <code value="CAREGIVER"/>
+      </concept>
+    </include>
+    <include>
       <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
+      <concept>
+        <code value="E"/>
+      </concept>
+      <concept>
+        <code value="O"/>
+      </concept>
+      <concept>
+        <code value="U"/>
+      </concept>
     </include>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="_PersonalRelationshipRoleType"/>
-      </filter>
+      <concept>
+        <code value="INTPRTER"/>
+      </concept>
+      <concept>
+        <code value="POWATT"/>
+      </concept>
+      <concept>
+        <code value="DPOWATT"/>
+      </concept>
+      <concept>
+        <code value="HPOWATT"/>
+      </concept>
+      <concept>
+        <code value="SPOWATT"/>
+      </concept>
+      <concept>
+        <code value="BILL"/>
+      </concept>
     </include>
   </compose>
 </ValueSet>
