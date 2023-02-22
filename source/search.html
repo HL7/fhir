@@ -603,11 +603,15 @@ GET [base]/[resource-type]/?param1=value&amp;...{&amp;_format=[mime-type]}
       </td>
     </tr>
     <tr>
-      <td>Compartment Search</td>
-      <td>This search is not available because the search is indistinguishable from a READ operation.</td>
+      <td>Compartment Search - All Contained Resource Types</td>
+      <td>
+<pre>
+  GET [base]/[compartment-type]/[compartment-id]/*?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
     </tr>
     <tr>
-      <td>Compartment and Resource Type Search</td>
+      <td>Compartment Search - Specific Resource Type</td>
       <td>
 <pre>
 GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;...{&amp;_format=[mime-type]}
