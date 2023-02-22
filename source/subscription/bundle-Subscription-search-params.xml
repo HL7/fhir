@@ -24,6 +24,44 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Subscription-content"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.content"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-content"/>
+        <description value="Content level included in notifications"/>
+        <code value="content"/>
+        <type value="token"/>
+        <expression value="Subscription.content"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-filter-value"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.filterBy.value"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-filter-value"/>
+        <description value="Filter value used to narrow notifications"/>
+        <code value="filter-value"/>
+        <type value="string"/>
+        <expression value="Subscription.filterBy.value"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Subscription-identifier"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -43,13 +81,54 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Subscription-name"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.name"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-name"/>
+        <description value="A human-readable name"/>
+        <code value="name"/>
+        <type value="string"/>
+        <expression value="Subscription.name"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="Subscription-owner"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.managingEntity"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-owner"/>
+        <description value="The managing entity"/>
+        <code value="owner"/>
+        <type value="reference"/>
+        <expression value="Subscription.managingEntity"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Subscription-payload"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.contentType"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-payload"/>
-        <description value="The mime-type of the notification payload"/>
-        <code value="payload"/>
+        <description value="The mime-type of notifications"/>
+        <code value="contentType"/>
         <type value="token"/>
         <processingMode value="normal"/>
       </SearchParameter>
@@ -77,14 +156,37 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="Subscription-topic"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.topic"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-topic"/>
+        <description value="The canonical topic url that triggers notifications"/>
+        <code value="topic"/>
+        <type value="uri"/>
+        <expression value="Subscription.topic"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="Subscription-type"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.channelType"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-type"/>
         <description value="The type of channel for the sent notifications"/>
         <code value="type"/>
         <type value="token"/>
+        <expression value="Subscription.channelType"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
@@ -96,10 +198,14 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="Subscription.endpoint"/>
+        </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-url"/>
         <description value="The uri that will receive the notifications"/>
         <code value="url"/>
         <type value="uri"/>
+        <expression value="Subscription.endpoint"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
