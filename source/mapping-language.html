@@ -24,8 +24,8 @@ when the instances are strongly typed - specifically, when they have formal defi
 related features.
 </p>
 <p>
-Note that while the mapping language applies to directed acyclic graphs that allow for poly-heirarchies, 
-most of the contexts of use do not allow or cater for poly-heirarchies, including the types defined as 
+Note that while the mapping language applies to directed acyclic graphs that allow for poly-hierarchies, 
+most of the contexts of use are strict mono-hierarchies (a.k.a trees), including the types defined as 
 part of the FHIR specification.
 </p>
 <p>
@@ -314,9 +314,41 @@ context.element { : type {min..max}} {default ([value])} { list-option } as vari
  <li><b>check ([condition])</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine raises an error. Note: it is usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
 </ul>
 <p>
-If there are multiple source statements, the rule applies for the permutation of the source
-elements from each source statement. E.g. if there are 2 source statements, each with 2 matching elements, the rule applies 4 times, one for each combination. Typically, if there is more than one source statement, only one of the elements would repeat.
+If there are multiple source statements, the rule applies for the permutation of the source elements from each source statement. 
+E.g. if there are 2 source statements, each with 2 matching elements, the rule applies 4 times, one for each combination. 
+Typically, if there is more than one source statement, only one of the elements would repeat. If any of the source data elements
+have no value, then the rule never applies; only existing permutations are executed: for multiple source statements, all of them need to match.
 </p>
+<div class="example">
+<p><b>Example</b></p>
+<p>Given this mapping statement:</p>
+<pre class="map">
+  for src.row as row, row.firstName as firstName 
+</pre>
+<p>applied to this source:</p>
+<pre class="json">
+  "row" : [{
+    "firstName" : "John"
+  },{
+    "firstName" : "Peter"
+  }]
+</pre>
+<p>
+Will result in the the rule firing 4 times: row #1 &amp; "John", row #2 &amp; "Peter", row #2 &amp; "John", and row #1 &amp; "Peter". 
+This somewhat contrived example shows how the iteration works; it's unlikely that this combination of source 
+statements would be useful. The same mapping statement with this data:
+</p>
+<pre class="json">
+  "row" : [{
+    "family" : "John"
+  },{
+    "family" : "Peter"
+  }]
+</pre>
+<p>
+Because there's no firstName values, the rule will never fire.   
+</p>
+</div>
 <p>
 Once the source content is evaluated, the engine performing the evaluation has a list of elements assigned to variables. For each time the rule is applied, each of the variables contains a single value. These variables are now mapped into the target structures in the target transformation.
 </p>
