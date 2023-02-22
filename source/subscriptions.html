@@ -382,7 +382,7 @@
   The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server SHOULD update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
 </p>
 <p>
-  Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
+  Errors a server wishes to make accessible to clients are communicated via <code>SubscriptionStatus.error</code>. Clients MAY receive these errors in notifications sent by the server or detect them by running the <code>$status</code> operation on a subscription. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error).
 </p>
 
 
