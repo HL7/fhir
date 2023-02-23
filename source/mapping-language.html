@@ -104,10 +104,13 @@ at the end of the line as a comment.
 <p>
 All names defined by the map language - group, rule and variable names - must be valid
 <a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes and dots). 
-To avoid parsing ambiguities however, they cannot start with a character, cannot be one of the keywords used
-in the language (see section Reserved Keywords below) and cannot contain a dot or dash, 
-unless the names can be escaped. Escaping can be done by surrounding them by backticks. For example:
-
+To avoid parsing ambiguities however, they SHALL start with a character, cannot be one of the keywords used
+in the language (see section <a href="#reserved">Reserved Keywords</a> below) and cannot contain a dot or dash.
+These id values SHALL NOT be surrounded with backticks.
+The names of context elements (<code>source.context</code> and <code>target.context</code>) are not constrained
+to simple names in the same way since they come from the source and target data models, and these may be 
+surrounded with backticks.
+</p>
 <pre>
    src  document4  `not-found`  `section4.5`  `group` 
 </pre>
