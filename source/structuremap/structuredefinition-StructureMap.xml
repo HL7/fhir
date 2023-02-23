@@ -546,7 +546,7 @@
       </extension>
       <path value="StructureMap.group"/>
       <short value="Named sections for reader convenience"/>
-      <definition value="Organizes the mapping into manageable chunks for human review/ease of maintenance."/>
+      <definition value="Organizes the mapping into managable chunks for human review/ease of maintenance."/>
       <min value="1"/>
       <max value="*"/>
       <type>

@@ -245,7 +245,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
+        <map value="Marketing Authorization.Legal Status of Supply (for a package)"/>
       </mapping>
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply.code">
@@ -268,7 +268,7 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Legal Status of Supply (for a package)"/>
+        <map value="Marketing Authorization.Legal Status of Supply (for a package)"/>
       </mapping>
     </element>
     <element id="PackagedProductDefinition.legalStatusOfSupply.jurisdiction">
