@@ -258,7 +258,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
-          <td>The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).</td>
+          <td>The specified property of the code is in the set of codes or concepts specified in the provided value (comma-separated list).</td>
           
           
           
@@ -290,7 +290,7 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
           
           
           
-          <td>The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).</td>
+          <td>The specified property of the code is not in the set of codes or concepts specified in the provided value (comma-separated list).</td>
           
           
           
@@ -518,12 +518,12 @@ Spelling note: &quot;descendant&quot; is a more correct spelling, but the spelli
   <concept>
     <code value="in"/>
     <display value="In Set"/>
-    <definition value="The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list)."/>
+    <definition value="The specified property of the code is in the set of codes or concepts specified in the provided value (comma-separated list)."/>
   </concept>
   <concept>
     <code value="not-in"/>
     <display value="Not in Set"/>
-    <definition value="The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list)."/>
+    <definition value="The specified property of the code is not in the set of codes or concepts specified in the provided value (comma-separated list)."/>
   </concept>
   <concept>
     <extension url="http://hl7.org/fhir/StructureDefinition/codesystem-concept-comments">

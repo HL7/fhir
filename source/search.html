@@ -2038,7 +2038,7 @@ The date parameter format is <code>yyyy-mm-ddThh:mm:ss[Z|(+|-)hh:mm]</code> (the
 Technically, this is any of the <a href="datatypes.html#date">date</a>, <a href="datatypes.html#dateTime">dateTime</a>,
 and <a href="datatypes.html#instant">instant</a> datatypes; e.g. Any degree of precision can be provided, but it SHALL
 be populated from the left (e.g. can't specify a month without a year), except that the minutes SHALL be present if
-an hour is present, and you SHOULD provide a time zone if the time part is present. Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
+an hour is present, and you SHOULD provide a timezone if the time part is present. Note: Time can consist of hours and minutes with no seconds, unlike the XML Schema dateTime type. Some user agents may escape the <code>:</code>
 characters in the URL, and servers SHALL handle this correctly.
 </p>
 <p>
@@ -2154,9 +2154,9 @@ Other notes:
 		<li>Dates with the year and month are equivalent to an interval that starts at the first instant of the first day of the month and ends on the last instant of the last day of the month, e.g. 2000-04 is equivalent to an interval of [2000-04-01T00:00, 2000-04-30T23:59].</li>
 	</ul>
  </li>
- <li>Where possible, the system should correct for time zones when performing queries. Dates do not have time zones, and time zones
-   should not be considered. Where both search parameters and resource element date times do not have time zones, the servers local
-   time zone should be assumed.
+ <li>Where possible, the system should correct for timezones when performing queries. Dates do not have timezones, and timezones
+   should not be considered. Where both search parameters and resource element date times do not have timezones, the servers local
+   timezone should be assumed.
  </li>
 </ul>
 <p>
@@ -2174,12 +2174,12 @@ Patient/23/Procedure?date=ge2010-01-01&amp;date=le2011-12-31</span>
 
 [%dragons-start%]
 <p>
-Managing time zones and offsets and their impact on search is a very difficult area. The FHIR
-implementation community is still investigating and debating the best way to handle time zones.
+Managing timezones and offsets and their impact on search is a very difficult area. The FHIR
+implementation community is still investigating and debating the best way to handle timezones.
 Implementation guides may make additional rules in this regard.
 </p>
 <p>
-Future versions of this specification may impose rules around the use of time zones with dates.
+Future versions of this specification may impose rules around the use of timezones with dates.
 Implementers and authors of implementation guides should be aware of ongoing work in this area.
 </p>
 <p>
@@ -3983,7 +3983,7 @@ _sort=status,-date,category</span>
 </span>
 </p>
 <p>
-Each item in the comma separated list is a search parameter,
+Each item in the comma-separated list is a search parameter,
 optionally with a '-' prefix. The prefix indicates decreasing
 order; in its absence, the parameter is applied in increasing order.
 </p>
