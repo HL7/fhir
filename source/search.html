@@ -93,6 +93,7 @@ search declarations</a>, and clients are encouraged to do this too.
       <li><a href="#sort">Sorting (_sort)</a></li>
       <li><a href="#total">Total number of matching resources (_total)</a></li>
       <li><a href="#count">Limiting Page Size (_count)</a></li>
+      <li><a href="#_maxresults">Limiting Total Result Size (_maxresults)</a></li>
       <li><a href="#summary">Summary (_summary)</a></li>
       <li><a href="#elements">Selecting Elements (_elements)</a></li>
       <li><a href="#score">Relevance (_score)</a></li>
@@ -3942,6 +3943,12 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
     </td>
   </tr>
   <tr>
+    <td><code><a href="#_maxresults">_maxresults</a></code></td>
+    <td>
+      Limit the total number of <code>match</code> results a request can return.
+    </td>
+  </tr>
+  <tr>
     <td><code><a href="#_revinclude">_revinclude</a></code></td>
     <td>
       Include additional resources, based on following reverse links across references.
@@ -4065,7 +4072,7 @@ parameter: it is just an optimization hint, that might possibly save the server 
 <a name="_count"></a>
 <h4>Limiting Page Size (_count)</h4>
 <p>
-In order to keep the load on clients, servers and the network
+In order to keep the load on clients, servers, and the network
 minimized, the server may choose to return the results in
 a series of pages. The search result set contains the URLs
 that the client uses to request additional pages from the
@@ -4092,13 +4099,13 @@ handle ongoing updates to the resources while the search
 is proceeding.
 </p>
 <p>
-Note: The combination of <code>_sort</code> and <code>_count</code> can be used to return
+The combination of <code>_sort</code> and <code>_count</code> can be used to return
 only the latest resource that meets a particular criteria - set the
 criteria, and then sort by date in descending order, with <code>_count=1</code>.
 This way, the last matching resource will be returned.
 </p>
 <p>
-if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
+If <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
 server returns a bundle that reports the total number of resources that match in Bundle.total,
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
@@ -4107,10 +4114,31 @@ In the same way, the _count parameter only applies to resources with <code>entry
 included resources or operation outcomes.
 </p>
 <p>
-The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
+The <code>_count</code> parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
 number of matches, not how many are returned in a single Bundle response.
 </p>
 
+<a name="_maxresults"></a>
+<h4>Limiting Total Result Size (_maxresults) <span class="stu">TU</span></h4>
+<p>
+  In some scenarios, a client knows that it will only process a certain number of results for a search, regardless of how many records there are.  For example, if an application is providing an overview of patient activity and will only display the most recent observation on a summary screen, telling the server that additional records will never be retrieved allows the server to free any resources that might have been reserved for paging.
+</p>
+<p>
+The parameter <code>_maxresults</code> is defined as an instruction to the server regarding the limit on how many total resources should be returned from a query.  If supported, a server SHOULD NOT return more resources than requested.  As with other parameters, servers supporting <count>_maxresults</count> SHALL include this parameter in the <a href="search.html#selflink">Self Link</a> when returning results.
+</p>
+<p>
+The <code>_maxresults</code> parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
+number of matches, not how many are returned in a response.
+</p>
+<p>
+The combination of <code>_sort</code> and <code>_maxresults</code> can be used to return
+only the latest resource that meets a particular criteria - set the
+criteria, and then sort by date in descending order, with <code>_maxresults=1</code>.
+This way, the last matching resource will be returned.
+</p>
+<p>
+  Note that <code>_maxresults</code> does not absolve a server from paging requirements.  For example, a client can request <code>_maxresults=10&_count=5</code> to receive (at most) two pages of five results each.
+</p>
 
 <a name="summary"></a>
 <a name="_summary"></a>
