@@ -61,7 +61,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -310,7 +310,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.agent"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -331,7 +331,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.agent"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -614,10 +614,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.performer.location"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
@@ -1237,8 +1233,8 @@
       </extension>
       <path value="ExplanationOfBenefit.accident"/>
       <short value="Details of the event"/>
-      <definition value="Details of a accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
+      <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -3461,13 +3457,13 @@
     </element>
     <element id="ExplanationOfBenefit.processNote.type">
       <path value="ExplanationOfBenefit.processNote.type"/>
-      <short value="display | print | printoper"/>
+      <short value="Note purpose"/>
       <definition value="The business purpose of the note text."/>
       <requirements value="To convey the expectation for when the text is used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -3476,7 +3472,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The presentation types of notes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
       </binding>

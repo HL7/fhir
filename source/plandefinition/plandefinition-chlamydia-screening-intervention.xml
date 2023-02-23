@@ -70,7 +70,7 @@
             
         <tr>
                
-          <td style="padding-left: 25px; padding-right: 25px;">Chalmydia Screening CDS Example Using Common</td>
+          <td style="padding-left: 25px; padding-right: 25px;">Chlamydia Screening CDS Example Using Common</td>
             
         </tr>
          
@@ -239,8 +239,8 @@
     <value value="ChlamydiaScreening_CDS_UsingCommon"/>
   </identifier>
   <version value="2.0.0"/>
-  <name value="ChalmydiaScreeningCDSExampleUsingCommon"/>
-  <title value="Chalmydia Screening CDS Example Using Common"/>
+  <name value="ChlamydiaScreeningCDSExampleUsingCommon"/>
+  <title value="Chlamydia Screening CDS Example Using Common"/>
   <status value="draft"/>
   <date value="2015-07-22"/>
   <description value="Chlamydia Screening CDS Example Using Common"/>

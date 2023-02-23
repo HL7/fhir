@@ -57,7 +57,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -294,7 +294,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"/>
+        <map value="OBR-4 (HL7 V2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -332,7 +332,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3 (no HL7 v2 mapping for Group or Device)"/>
+        <map value="PID-3 (no HL7 V2 mapping for Group or Device)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -712,7 +712,7 @@
       <path value="DiagnosticReport.composition"/>
       <short value="Reference to a Composition resource for the DiagnosticReport structure"/>
       <definition value="Reference to a Composition resource instance that provides structure for organizing the contents of the DiagnosticReport."/>
-      <comment value="The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of a anatomic pathology structured report."/>
+      <comment value="The Composition provides structure to the content of the DiagnosticReport (and only contains contents referenced in the DiagnosticReport) - e.g., to order the sections of an anatomic pathology structured report."/>
       <min value="0"/>
       <max value="1"/>
       <type>

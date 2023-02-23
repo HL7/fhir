@@ -5856,7 +5856,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">EventTiming</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Real world event relating to the schedule.</Data></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">Real-world event relating to the schedule.</Data></Cell>
     <Cell ss:StyleID="s114"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s114"/>
     <Cell ss:StyleID="s114"><Data ss:Type="String">#event-timing</Data></Cell>

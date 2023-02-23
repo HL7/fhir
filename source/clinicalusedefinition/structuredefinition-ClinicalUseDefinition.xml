@@ -658,7 +658,7 @@
           <valueString value="Interactant"/>
         </extension>
         <strength value="example"/>
-        <description value="An interactant - a substance that may have an clinically significant effect on another."/>
+        <description value="An interactant - a substance that may have a clinically significant effect on another."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/interactant"/>
       </binding>
       <mapping>

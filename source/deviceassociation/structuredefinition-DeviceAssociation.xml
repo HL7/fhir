@@ -46,7 +46,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="workflow"/>
@@ -176,8 +176,18 @@
         <code value="Period"/>
       </type>
     </element>
-    <element id="DeviceAssociation.operator">
-      <path value="DeviceAssociation.operator"/>
+<element id="DeviceAssociation.operation">
+      <path value="DeviceAssociation.operation"/>
+      <short value="The details about the device when it is in use to describe its operation"/>
+      <definition value="The details about the device when it is in use to describe its operation."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.operation.operator">
+      <path value="DeviceAssociation.operation.operator"/>
       <short value="The individual performing the action enabled by the device"/>
       <definition value="The individual performing the action enabled by the device."/>
       <min value="0"/>
@@ -187,6 +197,16 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.operation.period">
+      <path value="DeviceAssociation.operation.period"/>
+      <short value="Begin and end dates and times for the device's operation"/>
+      <definition value="Begin and end dates and times for the device's operation."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Period"/>
       </type>
     </element>
   </differential>

@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -618,7 +618,7 @@
     </element>
     <element id="FamilyMemberHistory.condition.outcome">
       <path value="FamilyMemberHistory.condition.outcome"/>
-      <short value="deceased | permanent disability | etc."/>
+      <short value="deceased | permanent disability | etc"/>
       <definition value="Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation."/>
       <min value="0"/>
       <max value="1"/>

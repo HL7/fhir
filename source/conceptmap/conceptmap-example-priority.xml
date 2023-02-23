@@ -7,6 +7,16 @@
    <description value="Example inspired by UK extended complex map (999002271000000101)"/>
    <copyright value="Creative Commons 0"/>
    <sourceScopeUri value="http://snomed.info/sct?fhir_vs"/>
+   <property>
+     <code value="priority"/>
+     <description value="The priority with which to choose this mapping over the other mappings for the same code"/>
+     <type value="string"/> <!-- change to integer? -->
+   </property>
+   <property>
+     <code value="mapAdvice"/>
+     <description value="Additional advice for a user using these maps"/>
+     <type value="string"/> 
+   </property>
    <group>
       <source value="http://snomed.info./sct"/>
       <target value="http://hl7.org/fhir/sid/icd-10"/>
@@ -17,7 +27,7 @@
             <relationship value="source-is-narrower-than-target"/>
             <product>
                <property value="priority"/>
-               <valueInteger value="1"/>
+               <valueString value="1"/>
             </product>
             <product>
                <property value="mapAdvice"/>
@@ -29,19 +39,19 @@
             <relationship value="source-is-narrower-than-target"/>
             <product>
                <property value="priority"/>
-               <valueInteger value="3"/>
+               <valueString value="3"/>
             </product>
             <product>
                <property value="mapAdvice"/>
                <valueString value="ADDITIONAL CODE POSSIBLE"/>
-            </product>
+            </product> 
          </target>
          <target>
             <code value="S59.8"/>
             <relationship value="source-is-narrower-than-target"/>
             <product>
                <property value="priority"/>
-               <valueInteger value="2"/>
+               <valueString value="2"/>
             </product>
             <product>
                <property value="mapAdvice"/>

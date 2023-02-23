@@ -76,7 +76,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="xds"/>
@@ -456,7 +456,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="PID-3 (No standard way to define a Practitioner or Group subject in HL7 v2 MDM message)"/>
+        <map value="PID-3 (No standard way to define a Practitioner or Group subject in HL7 V2 MDM message)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -491,7 +491,7 @@
       <condition value="docRef-2"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -724,7 +724,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="TXA-9 (No standard way to indicate a Device in HL7 v2 MDM message)"/>
+        <map value="TXA-9 (No standard way to indicate a Device in HL7 V2 MDM message)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>

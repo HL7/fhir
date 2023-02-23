@@ -179,8 +179,8 @@
     </element>
     <element id="ManufacturedItemDefinition.unitOfPresentation">
       <path value="ManufacturedItemDefinition.unitOfPresentation"/>
-      <short value="The “real world” units in which the quantity of the item is described"/>
-      <definition value="The “real world” units in which the quantity of the manufactured item is described."/>
+      <short value="The “real-world” units in which the quantity of the item is described"/>
+      <definition value="The “real-world” units in which the quantity of the manufactured item is described."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -389,8 +389,8 @@
         <valueCode value="230,300"/>
       </extension>
       <path value="ManufacturedItemDefinition.component.constituent"/>
-      <short value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
-      <definition value="A reference to an constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
+      <short value="A reference to a constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)"/>
+      <definition value="A reference to a constituent of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient)."/>
       <min value="0"/>
       <max value="*"/>
       <type>

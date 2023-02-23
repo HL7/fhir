@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -418,7 +418,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="v2"/>
@@ -1075,7 +1075,7 @@
       <path value="Appointment.occurrenceChanged"/>
       <short value="Indicates that this appointment varies from a recurrence pattern"/>
       <definition value="This appointment varies from the recurring pattern."/>
-      <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, an single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
+      <comment value="For example, if a patient has physical therapy appointments every Tuesday and Thursday, but due to a national holiday, a single occurrence was rescheduled to a different day, while the rest of the recurring series remained on Tuesday / Thursday."/>
       <min value="0"/>
       <max value="1"/>
       <type>

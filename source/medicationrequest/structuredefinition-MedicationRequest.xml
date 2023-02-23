@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -390,7 +390,7 @@
         <code value="boolean"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc)"/>
+      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc.)"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -508,7 +508,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>
@@ -742,7 +742,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>

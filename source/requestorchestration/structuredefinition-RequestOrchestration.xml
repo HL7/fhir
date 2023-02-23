@@ -996,7 +996,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.role">
       <path value="RequestOrchestration.action.participant.role"/>
-      <short value="E.g. Nurse, Surgeon, Parent, etc."/>
+      <short value="E.g. Nurse, Surgeon, Parent, etc"/>
       <definition value="The role the participant should play in performing the described action."/>
       <min value="0"/>
       <max value="1"/>
@@ -1018,7 +1018,7 @@
     </element>
     <element id="RequestOrchestration.action.participant.function">
       <path value="RequestOrchestration.action.participant.function"/>
-      <short value="E.g. Author, Reviewer, Witness, etc."/>
+      <short value="E.g. Author, Reviewer, Witness, etc"/>
       <definition value="Indicates how the actor will be involved in the action - author, reviewer, witness, etc."/>
       <min value="0"/>
       <max value="1"/>

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Claim"/>
   <meta>
@@ -863,7 +862,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonReference"/>
+        <map value="Request.reason"/>
       </mapping>
     </element>
     <element id="Claim.diagnosis.sequence">
@@ -1161,7 +1160,7 @@
       <path value="Claim.accident"/>
       <short value="Details of the event"/>
       <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1628,7 +1627,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
     </element>
     <element id="Claim.item.detail">

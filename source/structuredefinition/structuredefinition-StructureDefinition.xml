@@ -698,7 +698,7 @@
     </element>
     <element id="StructureDefinition.mapping.comment">
       <path value="StructureDefinition.mapping.comment"/>
-      <short value="Versions, Issues, Scope limitations etc."/>
+      <short value="Versions, Issues, Scope limitations etc"/>
       <definition value="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage."/>
       <min value="0"/>
       <max value="1"/>

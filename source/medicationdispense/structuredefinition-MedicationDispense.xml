@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -360,7 +360,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -497,7 +497,7 @@
     </element>
     <element id="MedicationDispense.type">
       <path value="MedicationDispense.type"/>
-      <short value="Trial fill, partial fill, emergency fill, etc."/>
+      <short value="Trial fill, partial fill, emergency fill, etc"/>
       <definition value="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc."/>
       <min value="0"/>
       <max value="1"/>
