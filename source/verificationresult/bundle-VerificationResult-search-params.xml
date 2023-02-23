@@ -21,4 +21,269 @@
       </SearchParameter>
     </resource>
   </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-attestation-method"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="VerificationResult.attestation.communicationMethod"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-attestation-method"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_attestation_method"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was attested to using the specified method"/>
+        <code value="attestation-method"/>
+        <base value="VerificationResult"/>
+        <type value="token"/>
+        <expression value="VerificationResult.attestation.communicationMethod"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="text"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-attestation-onbehalfof"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-attestation-onbehalfof"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_attestation_onbehalfof"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was attested to on behalf of the specified source"/>
+        <code value="attestation-onbehalfof"/>
+        <base value="VerificationResult"/>
+        <type value="reference"/>
+        <expression value="VerificationResult.attestation.onBehalfOf"/>
+        <target value="Practitioner"/>
+        <target value="Organization"/>
+        <target value="PractitionerRole"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="type"/>
+        <chain value="identifier"/>
+        <chain value="address"/>
+        <chain value="name"/>
+        <chain value="partof"/>
+        <chain value="location"/>
+        <chain value="organization"/>
+        <chain value="practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-attestation-who"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-attestation-who"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_attestation_who"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was attested to by the specified source"/>
+        <code value="attestation-who"/>
+        <base value="VerificationResult"/>
+        <type value="reference"/>
+        <expression value="VerificationResult.attestation.who"/>
+        <target value="Practitioner"/>
+        <target value="Organization"/>
+        <target value="PractitionerRole"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="type"/>
+        <chain value="identifier"/>
+        <chain value="address"/>
+        <chain value="name"/>
+        <chain value="partof"/>
+        <chain value="location"/>
+        <chain value="organization"/>
+        <chain value="practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-primarysource-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-primarysource-date"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_primarysource_date"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was validated against a primary source on the specified date"/>
+        <code value="primarysource-date"/>
+        <base value="VerificationResult"/>
+        <type value="date"/>
+        <expression value="VerificationResult.primarySource.validationDate"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <comparator value="eq"/>
+        <comparator value="gt"/>
+        <comparator value="lt"/>
+        <comparator value="ge"/>
+        <comparator value="le"/>
+        <comparator value="sa"/>
+        <comparator value="eb"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-primarysource-type"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-primarysource-type"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_primarysource_type"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was validated against the specified type of primary source organization"/>
+        <code value="primarysource-type"/>
+        <base value="VerificationResult"/>
+        <type value="token"/>
+        <expression value="VerificationResult.primarySource.type"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="text"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-primarysource-who"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-primarysource-who"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_primarysource_who"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was validated against the specified primary source"/>
+        <code value="primarysource-who"/>
+        <base value="VerificationResult"/>
+        <type value="reference"/>
+        <expression value="VerificationResult.primarySource.who"/>
+        <target value="Practitioner"/>
+        <target value="Organization"/>
+        <target value="PractitionerRole"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="type"/>
+        <chain value="identifier"/>
+        <chain value="address"/>
+        <chain value="name"/>
+        <chain value="partof"/>
+        <chain value="location"/>
+        <chain value="organization"/>
+        <chain value="practitioner"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-status-date"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-status-date"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_status_date"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information with a validation status that occurred at the specified date/time"/>
+        <code value="status-date"/>
+        <base value="VerificationResult"/>
+        <type value="date"/>
+        <expression value="VerificationResult.statusDate"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <comparator value="eq"/>
+        <comparator value="gt"/>
+        <comparator value="lt"/>
+        <comparator value="ge"/>
+        <comparator value="le"/>
+        <comparator value="sa"/>
+        <comparator value="eb"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-validation-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-validation-status"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_validation_status"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information with the specified status"/>
+        <code value="validation-status"/>
+        <base value="VerificationResult"/>
+        <type value="token"/>
+        <expression value="VerificationResult.status"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="verificationresult-validator-organization"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/verificationresult-validator-organization"/>
+        <version value="0.2.0"/>
+        <name value="Verificationresult_validator_organization"/>
+        <status value="draft"/>
+        <date value="2023-02-23"/>
+        <description value="Select validation information for data that was validated by the specified organization"/>
+        <code value="validator-organization"/>
+        <base value="VerificationResult"/>
+        <type value="reference"/>
+        <expression value="VerificationResult.validator.organization"/>
+        <target value="Organization"/>
+        <multipleOr value="true"/>
+        <multipleAnd value="true"/>
+        <modifier value="above"/>
+        <modifier value="below"/>
+        <chain value="identifier"/>
+        <chain value="name"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
 </Bundle>
