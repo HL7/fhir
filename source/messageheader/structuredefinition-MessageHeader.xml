@@ -521,6 +521,10 @@
         <map value="FiveWs.why[x]"/>
       </mapping>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event.reason"/>
+      </mapping>
+      <mapping>
         <identity value="v2"/>
         <map value="EVN-4 / ORC-16 / OBR-31 / BPO-13 / RXO-20 / RXE-27 / RXD-21 / RXG-22 / RXA-19"/>
       </mapping>
