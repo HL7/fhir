@@ -84,6 +84,10 @@
       <min value="0"/>
       <max value="*"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>

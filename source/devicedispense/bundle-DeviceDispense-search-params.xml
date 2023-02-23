@@ -40,5 +40,25 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceDispense-patient"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceDispense.subject"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceDispense-patient"/>
+        <description value="Returns device dispenses for a specific patient"/>
+        <code value="patient"/>
+        <type value="reference"/>
+        <expression value="DeviceDispense.subject.where(resolve() is Patient)"/>
+        <processingMode value="normal"/>
+        <target value="Patient"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 
 </Bundle>
