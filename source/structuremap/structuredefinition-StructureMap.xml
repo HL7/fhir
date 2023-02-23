@@ -507,6 +507,39 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="StructureMap.const">
+      <path value="StructureMap.const"/>
+      <short value="Definition of the constant value used in the map rules"/>
+      <definition value="Definition of a constant value used in the map rules."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="StructureMap.const.name">
+      <path value="StructureMap.const.name"/>
+      <short value="Constant name"/>
+      <definition value="Other maps used by this map (canonical URLs)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="StructureMap.const.value">
+      <path value="StructureMap.const.value"/>
+      <short value="FHIRPath exression - value of the constant"/>
+      <definition value="A FHIRPath expression that is the value of this variable."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="StructureMap.group">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/uml-dir">
         <valueCode value="down"/>
@@ -868,7 +901,7 @@
     </element>
     <element id="StructureMap.group.rule.target.listMode">
       <path value="StructureMap.group.rule.target.listMode"/>
-      <short value="first | share | last | collate"/>
+      <short value="first | share | last | single"/>
       <definition value="If field is a list, how to manage the list."/>
       <min value="0"/>
       <max value="*"/>

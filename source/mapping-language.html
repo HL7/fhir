@@ -36,13 +36,14 @@ The mapping language addresses two very different kinds of transformations:
  <li>Differences in content and formats in string (and related) primitives contained within the structures</li>
 </ul>
 <p>
-A map has 6 parts:
+A map has 7 parts:
 </p>
 <ul>
  <li>Metadata</li>
  <li>Embedded <a href="conceptmap.html">ConceptMaps</a> to translate between different code systems</li>
  <li>References to the structures involved in the mapping</li>
  <li>Imports: additional Maps used by this map</li>
+ <li>Constants: constants used in the mapping rules</li>
  <li>A series of groups, each with a list of input variables</li>
  <li>A series of transformation rules in each group</li>
 </ul>
@@ -198,6 +199,35 @@ How imported maps are actually used is discussed below.
 <p>
 The url in the import statement may contain a "*" as a wildcard character (as shown above) to include any matching maps that are available to the mapping engine.
 </p>
+
+
+<a name="constants"></a>
+<h3>Constants</h3>
+<p>
+The map may define any number of constant values that may be re-used through out the rules that follow.
+Each constant has the following grammar:
+</p>
+<pre>
+  let [name] = [fhirpath expression];  
+</pre>
+<p>
+This defines a reusable variable that has the same value across all the maps. The value of the variable is a FHIRPath
+expression terminated by the separator <code>';'</code> (for syntactical simplicity, and so non-FHIRPath aware parsers
+can parse the syntax). Some rules that apply to the constant declarations:
+</p>
+<ul>
+  <li>The names must be unique within a single mapping source file</li>
+  <li>The names are available as source variables and can be referred to from the following elements of the mapping 
+    language: source context, and the FHIRPath expressions for where and check conditions, log statements and target expressions</li>
+  <li>In the FHIRPath expressions, the constants are referred to by name. This means that the constants cannot have the some 
+    name as a <a href="http://hl7.org/fhirpath/N1/#keywords">reserved word in FHIRPath</a> or the <a href="#reserved">mapping language</a></li>
+  <li>Constant expressions can be - and often are - simple literal values e.g. <code>let name = 'example';</code></li>
+  <li>Constants can refer to other constants in their expressions, though circular expressions will result in an error</li>
+  <li>Constants are only evaluated when a reference to them is encountered (lazy evaluation). Once evaluated, they are not 
+    re-evaluated again with the context of the script that contains them</li>
+  <li>If a name of a variable in a local context is the same as a constant expression, then the local variable hides the 
+    Constant declaration</li>
+</ul>
 
 <a name="groups"></a>
 <h3>Groups</h3>
@@ -674,7 +704,7 @@ last
 not_last
 only_one
 share
-collate
+single
 source
 target
 queried
