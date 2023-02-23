@@ -123,18 +123,40 @@ the <code>charset=utf-8</code> parameter SHALL be appended.
 <h3>Metadata</h3>
 
 <p>
-The first part of the mapping syntax establishes the name of the mapping. For example:
+The first part of a mapping file defines the metadata about the map
+using the metadata from the StructureMap resource. Metadata is defined using the  
+syntax <code>/// name{.property}* = {value} </code> where:
+</p>
+<ul>
+  <li>The name is the same as the element name in the StructureMap</li>
+  <li>The property allows for sub-elements to be populated. The property can repeat</li>
+  <li>Additional items with the same name represent repeats</li>
+  <li>The value is a literal representation of the primitive value in FHIRPath format. Extensions are not supported</li>
+  <li>The value for a complex element is empty</li>
+  <li>There is a special representation for markdown: the value is started and finished with <code>"""</code> and may cover multiple lines of markdown</li>
+</ul>
+<p>
+Examples:
 </p>
 <pre>
-  map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
+/// url = 'http://hl7.org/fhir/StructureMap/CodeSystem3to4'
+/// name = 'CodeSystemR3R4'
+/// title = 'R3 to R4 Conversions for CodeSystem'
+/// experimental = true
+/// status = 'final'
+/// jurisdiction =
+/// jurisdiction.coding = 
+/// jurisdiction.coding.system = 'urn:iso:std:iso:3166'
+/// jurisdiction.coding.code = 'AQ'
+
+/// description = """
+You should use my *awesome* map.
+It does really cool things.
+"""  
 </pre>
 <p>
-The letters "map" are the first non-whitespace non-comment characters
-in the source. This is followed by the canonical URL that identifies
-the map uniquely, and then a human readable name for the map, delimited by double-quotes.
-</p>
-<p>
-<i>todo: add additional metadata? Yes, maybe in comments like javadoc or C# xmldoc?</i>
+Values for <code>url</code> and <code>name</code> SHALL be provided.
+If no value is provided for <code>status</code>, then the status "draft" is assumed.
 </p>
 
 <a name="typing"></a>
