@@ -53,7 +53,7 @@ that are authored and assembled in FHIR. DocumentReference is intended for gener
 The document that is a target of the reference can be a reference to a FHIR document served by another server, or
 the target can be stored in the special <a href="http.html#binary">FHIR Binary Resource</a>, or the target can be
 stored on some other server system. The document reference is also able to address documents that are retrieved
-by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> message query - though
+by a service call such as an XDS.b RetrieveDocumentSet, or a DICOM exchange, or an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> message query - though
 the way each of these service calls works must be specified in some external standard or other documentation.
 </p>
 <p>

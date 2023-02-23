@@ -62,25 +62,6 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="MessageHeader-destination-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.destination.endpoint"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-destination-uri"/>
-        <description value="Actual destination address or id"/>
-        <code value="destination-uri"/>
-        <type value="uri"/>
-        <expression value="MessageHeader.destination.endpoint"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
         <id value="MessageHeader-event"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
@@ -184,7 +165,7 @@
           <valueString value="MessageHeader.sender"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-sender"/>
-        <description value="Real world sender of the message"/>
+        <description value="Real-world sender of the message"/>
         <code value="sender"/>
         <type value="reference"/>
         <expression value="MessageHeader.sender"/>
@@ -207,25 +188,6 @@
         <code value="source"/>
         <type value="string"/>
         <expression value="MessageHeader.source.name"/>
-        <processingMode value="normal"/>
-      </SearchParameter>
-    </resource>
-  </entry>
-  <entry>
-    <resource>
-      <SearchParameter>
-        <id value="MessageHeader-source-uri"/>
-        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
-          <valueCode value="trial-use"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="MessageHeader.source.endpoint"/>
-        </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-source-uri"/>
-        <description value="Actual message source address or id"/>
-        <code value="source-uri"/>
-        <type value="uri"/>
-        <expression value="MessageHeader.source.endpoint"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

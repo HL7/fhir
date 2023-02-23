@@ -432,7 +432,7 @@ code systems should be done with care to avoid creating definitional confusion.
 </p>
 <p>
 Value sets should only include well differentiated concepts, but many value sets and code systems
-do not have well differentiated concepts because of various real world constraints.
+do not have well differentiated concepts because of various real-world constraints.
 </p>
 
 <a name="expansion"></a>
@@ -677,7 +677,20 @@ Some advantages of using implicit value sets are that they may be used:
 <p>
 In some cases it is not possible to express a value set definition using ValueSet.compose - but 
 it may be possible to express the value set definition with an implicit value set URI. An example 
-of this scenario is all SNOMED CT concept IDs that identify reference sets. Implementers SHOULD NOT 
+of this scenario is all SNOMED CT concept IDs that identify reference sets. 
+</p>
+<p>
+If there is an explicit value set resource with the same URI as a known implicit value set, 
+it SHALL conform the pattern described in the definition of the implicit value set.
+It is up to the discretion of the server how to handle explicit instances when it is 
+also able to process requests for the implicit value set.
+</p>
+[%impl-note%]
+If the relevant server(s) support implicit value sets, implementers are discouraged from creating their own explicit value sets with the same URI,
+as their existence may create confusion.
+[%end-note%]
+<p>
+Implementers SHOULD NOT 
 create ValueSet resources where the ValueSet.url value matches the pattern of a known implicit value set. 
 </p>
 <p>
@@ -691,13 +704,13 @@ URI patterns. FHIR terminology servers might or might not support any or all of 
 Caution should be exercised when using value set URI patterns that have not been defined by HL7 or 
 the code system publisher. 
 </p>
-
+<!--
 [%ballot-note implicit%]
 At present, the TerminologyCapabilities resource does not provide a means for a terminology server to 
 declare that it provides support for an implicit value set URL pattern. Ballot feedback is sought 
 regarding whether this capability should be added to the TerminologyCapabilities resource.
 [%end-note%]
-
+-->
 <p>
   The following links describe the currently defined FHIR implicit value set URL patterns for these listed code systems:
   <ul>

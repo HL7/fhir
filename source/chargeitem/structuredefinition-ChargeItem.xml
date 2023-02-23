@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -136,10 +136,6 @@
       </type>
       <isSummary value="false"/>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
-      <mapping>
         <identity value="v2"/>
         <map value="Varies by domain"/>
       </mapping>
@@ -159,10 +155,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ChargeItemDefinition"/>
       </type>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.instantiates"/>
-      </mapping>
       <mapping>
         <identity value="v2"/>
         <map value="Varies by domain"/>
@@ -324,7 +316,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.context"/>
+        <map value="Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -678,7 +670,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -715,7 +707,7 @@
       <isSummary value="false"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonReference"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -803,10 +795,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="false"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.supportingInfo"/>
-      </mapping>
     </element>
   </differential>
 </StructureDefinition>

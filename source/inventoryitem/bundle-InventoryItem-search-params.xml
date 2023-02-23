@@ -15,7 +15,7 @@
         <url value="http://hl7.org/fhir/build/SearchParameter/InventoryItem-code"/>
         <description value="Search for products that match this code"/>
         <code value="code"/>
-        <type value="reference"/>
+        <type value="token"/>
         <expression value="InventoryItem.code"/>
         <processingMode value="normal"/>
       </SearchParameter>

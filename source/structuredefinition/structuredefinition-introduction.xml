@@ -64,7 +64,7 @@ find the structure when registered in repositories.
    </td></tr>
  <tr><td>versionAlgorithm</td><td>Indicates the mechanism used to compare versions to determine which is more current</td></tr>
  <tr><td>name</td><td>A Computer-ready name (e.g. a token) that identifies the structure - suitable for code generation. 
-   Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
+   Note that this name (and other names relevant for code generation, including element &amp; slice names, codes etc.) may collide with reserved words in the relevant target language, and code generators will need to handle this </td></tr>
  <tr><td>title</td><td>A free text natural language name identifying the structure	</td></tr>
  <tr><td>status</td><td>The status of the structure	allows filtering of StructureDefinitions that are appropriate for use vs. not. See the <a href="valueset-publication-status.html">Status Codes</a></td></tr>
  <tr><td>experimental</td><td>This structure was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine usage</td></tr>

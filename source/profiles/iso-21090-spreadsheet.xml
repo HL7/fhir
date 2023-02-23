@@ -5608,7 +5608,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">http://terminology.hl7.org/CodeSystem/v3-EntityNamePartQualifierR2</Data></Cell>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Legal status</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">For organizations a suffix indicating the legal status, e.g., Inc., "Co.", "AG", "GmbH", "B.V." "S.A.", "Ltd." Etc.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">For organizations a suffix indicating the legal status, e.g., Inc., "Co.", "AG", "GmbH", "B.V." "S.A.", "Ltd." etc.</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s158"/>

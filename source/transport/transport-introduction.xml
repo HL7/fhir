@@ -23,7 +23,7 @@ Sample use cases involving patients include
     <a name="bnc"></a>
     <h2>Background and Context</h2>
     <p>
-    With the emergence of IHE profiles on the movement of laboratory specimens (<a href="https://wiki.ihe.net/index.php/Specimen_Event_Tracking#:~:text=The%20Specimen%20Event%20Tracking%20(SET,future%20usage%2C%20and%20to%20final">SET</a>) and the growing needs around the movement of patients (documentation, scheduling, real-time updates), there is a need to capture the data around the movement of a patient or item in the healthcare setting. While the Task resource captures some of the data generated around a event, the Transport resource is built to capture the documentation along with the request/fulfillment of a transport event. 
+    With the emergence of IHE profiles on the movement of laboratory specimens (<a href="https://wiki.ihe.net/index.php/Specimen_Event_Tracking#:~:text=The%20Specimen%20Event%20Tracking%20(SET,future%20usage%2C%20and%20to%20final">SET</a>) and the growing needs around the movement of patients (documentation, scheduling, real-time updates), there is a need to capture the data around the movement of a patient or item in the healthcare setting. While the Task resource captures some of the data generated around an event, the Transport resource is built to capture the documentation along with the request/fulfillment of a transport event. 
     </p>
 </div>
 

@@ -109,7 +109,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -652,7 +652,7 @@
     </element>
     <element id="Citation.citedArtifact.identifier">
       <path value="Citation.citedArtifact.identifier"/>
-      <short value="Unique identifier. May include DOI, PMID, PMCID, etc."/>
+      <short value="Unique identifier. May include DOI, PMID, PMCID, etc"/>
       <definition value="A formal identifier that is used to identify the cited artifact when it is represented in other formats, or referenced in a specification, model, design or an instance."/>
       <comment value="This element will contain unique identifiers that support de-duplication of citations. Commonly used identifiers for study citations include digital object identifier (DOI), PubMed ID (PMID), and PubMed Central ID (PMCID). To maintain interoperability, the suggested identifier.system values to use for these 3 identifiers are: DOI = &quot;https://doi.org&quot; PMID = &quot;https://pubmed.ncbi.nlm.nih.gov&quot; PMCID = &quot;https://www.ncbi.nlm.nih.gov/pmc/&quot;"/>
       <requirements value="Allows externally provided and/or usable identifiers to be associated with the cited artifact."/>

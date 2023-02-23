@@ -57,9 +57,6 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Proband Sequence Variation Detection Using Next Generation Sequencing"/>
-        <subject>
-            <reference value="Patient/denovoChild"/>
-        </subject>
         <specimen>
             <reference value="Specimen/denovo-1"/>
         </specimen>
@@ -113,9 +110,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Maternal Sequence Variation Detection Using Next Generation Sequencing"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
+        <focus>
             <reference value="Patient/denovoMother"/>
-        </subject>
+        </focus>
         <specimen>
             <reference value="Specimen/denovo-2"/>
         </specimen>
@@ -163,9 +160,9 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://pubmed.ncbi.nlm.nih.gov/33927380/"/>
         <title value="Paternal Sequence Variation Detection Using Next Generation Sequencing"/>
-        <subject>
+        <focus>
             <reference value="Patient/denovoFather"/>
-        </subject>
+        </focus>
         <specimen>
             <reference value="Specimen/denovo-3"/>
         </specimen>
@@ -213,9 +210,6 @@
         <!-- <instantiatesCanonical>0..1 canonical(PlanDefinition) The defined protocol that describes the analysis</instantiatesCanonical> -->
         <instantiatesUri value="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6885382/"/>
         <title value="De Novo Mutation Detection and Interpretation"/>
-        <subject>
-            <reference value="Patient/denovoChild"/>
-        </subject>
         <!-- <specimen> 0..1 Reference(Specimen) The specimen used in the analysis event</specimen> -->
         <date value="2021-01-01T03:01:10-06:00"/><!-- 0..1 The date of the analysis event -->
         <note>

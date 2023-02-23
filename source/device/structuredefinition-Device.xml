@@ -47,7 +47,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
+  <description value="This resource describes the properties (regulated, has real time clock, etc.), adminstrative (manufacturer name, model number, serial number, firmware, etc.), and type (knee replacement, blood pressure cuff, MRI, etc.) of a physical unit (these values do not change much within a given module, for example the serail number, manufacturer name, and model number). An actual unit may consist of several modules in a distinct hierarchy and these are represented by multiple Device resources and bound through the 'parent' element."/>
   <purpose value="Allows institutions to track their devices."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
@@ -504,6 +504,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <constraint>
+        <key value="dev-1"/>
+        <severity value="error"/>
+        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
+        <expression value="where(display = true).count() &lt;= 1"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </constraint>
       <mapping>
         <identity value="interface"/>
         <map value="Participant.name"/>
@@ -563,13 +570,7 @@
       <type>
         <code value="boolean"/>
       </type>
-      <constraint>
-        <key value="dev-1"/>
-        <severity value="error"/>
-        <human value="only one name.display SHALL be true when there is more than one Device.name"/>
-        <expression value="Device.name.display.where(display = true).exists implies Device.name.display.where(display = true).count() = 1"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Device"/>
-      </constraint>
+      <condition value="dev-1"/>
       <isModifier value="true"/>
       <isModifierReason value="This element is labelled as a modifier because it is a status element that can indicate that that a name is preferred."/>
       <isSummary value="true"/>
@@ -943,8 +944,8 @@
     </element>
     <element id="Device.duration">
       <path value="Device.duration"/>
-      <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)"/>
-      <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc)."/>
+      <short value="A measurement of time during the device's operation (e.g., days, hours, mins, etc.)"/>
+      <definition value="A measurement of time during the device's operation (e.g., days, hours, mins, etc.)."/>
       <min value="0"/>
       <max value="1"/>
       <type>

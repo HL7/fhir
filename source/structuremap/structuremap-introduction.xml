@@ -51,7 +51,7 @@ resources - either resources, or logical models, and is described accordingly.
 However, there is no direct relationship between the mapping language contained 
 in the StructureMap resource, and the existence of the appropriate structure 
 definitions, so that this mapping language could be used to define a map from 
-an HL7 v2 message to a CDA document. Note, that various implementation 
+an HL7 V2 message to a CDA document. Note, that various implementation 
 contexts may introduce a direct relationship (e.g. see [op to defined]). <!-- TODO - define the operation -->
 </p>
 <p>

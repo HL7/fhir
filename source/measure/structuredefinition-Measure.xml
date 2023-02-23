@@ -134,7 +134,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -758,7 +758,7 @@
     </element>
     <element id="Measure.topic">
       <path value="Measure.topic"/>
-      <short value="The category of the measure, such as Education, Treatment, Assessment, etc."/>
+      <short value="The category of the measure, such as Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the measure so that it can be found by topical searches."/>
       <min value="0"/>
@@ -837,7 +837,7 @@
     </element>
     <element id="Measure.relatedArtifact">
       <path value="Measure.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related artifacts such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related artifact is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="Measures must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>
@@ -1162,6 +1162,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>
@@ -1439,6 +1440,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>
@@ -1453,6 +1455,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="mea-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureStratifierExample"/>
@@ -1475,6 +1478,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".text"/>
@@ -1489,6 +1493,7 @@
       <type>
         <code value="Expression"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
@@ -1507,6 +1512,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mea-1"/>
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>

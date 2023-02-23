@@ -191,7 +191,7 @@
     <element id="MeasureReport.dataUpdateType">
       <path value="MeasureReport.dataUpdateType"/>
       <short value="incremental | snapshot"/>
-      <definition value="Indicates whether the data submitted in an data-exchange report represents a snapshot or incremental update. A snapshot update replaces all previously submitted data for the receiver, whereas an incremental update represents only updated and/or changed data and should be applied as a differential update to the existing submitted data for the receiver."/>
+      <definition value="Indicates whether the data submitted in a data-exchange report represents a snapshot or incremental update. A snapshot update replaces all previously submitted data for the receiver, whereas an incremental update represents only updated and/or changed data and should be applied as a differential update to the existing submitted data for the receiver."/>
       <comment value="This element only applies to Data-collection reports used to communicate the data-of-interest for a measure"/>
       <requirements value="Allows receiving systems to support incremental exchange of data, reducing overall bandwidth requirements."/>
       <min value="0"/>
@@ -444,6 +444,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <condition value="mrp-1"/>
       <mapping>
         <identity value="rim"/>
@@ -584,6 +585,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -626,6 +628,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
@@ -652,6 +655,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="mrp-2"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="MeasureReportStratifierValueExample"/>
@@ -673,6 +677,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="mrp-2"/>
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>

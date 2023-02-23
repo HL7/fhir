@@ -66,7 +66,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -417,6 +417,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -466,6 +467,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
+      <condition value="tsk-1"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -908,6 +910,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="tsk-1"/>
       <mapping>
         <identity value="rim"/>
         <map value="Instead of pointing to request, would point to component of request, having these characteristics"/>

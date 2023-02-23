@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -148,7 +148,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -433,14 +433,16 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="AllResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SearchParameter.type">
@@ -452,6 +454,8 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="spd-2"/>
+      <condition value="spd-3"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -518,14 +522,16 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ResourceType"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
-          <valueBoolean value="true"/>
+          <valueString value="FHIRTypes"/>
         </extension>
         <strength value="required"/>
-        <description value="One of the resource types defined as part of this version of FHIR."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/resource-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SearchParameter.multipleOr">
@@ -558,6 +564,7 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="spd-3"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="SearchComparator"/>
@@ -595,6 +602,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="spd-2"/>
     </element>
     <element id="SearchParameter.component">
       <path value="SearchParameter.component"/>

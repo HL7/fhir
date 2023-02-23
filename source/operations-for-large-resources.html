@@ -13,11 +13,26 @@
 
 <table class="colsd"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Draft</a></td></tr></table>
 
-[%ballot-note large-operations-stu-note%]
-These operations have been drafted based on a long-articulated need, but we do not yet have implementation
-experience working with them. If inclusion of these operations is not supported by ballot feedback, we may
-remove these operations from the specification before FHIR R5 is published.
-[%end-note%]
+<p>
+This page defines three operations that allow for efficient 
+maintenance of very large Group and List resources. These 
+operations make it possible to add and remove items from the 
+list or group, and to retrieve a focused subset of the 
+information in the list and group without having to transmit 
+the entire resource.
+</p>
+<p>
+Adding and deleting from the resource can also be done using 
+the <a href="http.html#patch">PATCH</a> interaction. Implementers 
+are welcome to use the patch interaction but these operations 
+provide more certainty and simplicity, since they are tailored
+directly to the List and Group resources. Similarly, Implementers
+can retrieve a subset of a List or Group resources
+using <a href="graphql.html">GraphQL</a>, but not all servers support 
+GraphQL, and these operations are simpler than using GraphQL 
+to filter the data (and potentially quicker for the server than 
+using GraphQL).
+</p>
 
 <h2><code>$add</code> operation</h2>
 <p>

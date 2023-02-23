@@ -72,7 +72,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="cpha3pharm"/>
@@ -415,7 +415,7 @@
       <short value="Dependent number"/>
       <definition value="A designator for a dependent under the coverage."/>
       <comment value="Sometimes the member number is constructed from the subscriberId and the dependant number."/>
-      <requirements value="For some coverages a single identifier is issued to the Subscriber and then a additional dependent number is issued to each beneficiary."/>
+      <requirements value="For some coverages a single identifier is issued to the Subscriber and then an additional dependent number is issued to each beneficiary."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -428,7 +428,7 @@
       </mapping>
       <mapping>
         <identity value="v2"/>
-        <map value="- No exact HL7 v2 equivalent concept seems to exist;"/>
+        <map value="- No exact HL7 V2 equivalent concept seems to exist;"/>
       </mapping>
     </element>
     <element id="Coverage.relationship">
@@ -531,7 +531,7 @@
           <valueString value="CoverageClass"/>
         </extension>
         <strength value="extensible"/>
-        <description value="The policy classifications, eg. Group, Plan, Class, etc."/>
+        <description value="The policy classifications, e.g. Group, Plan, Class, etc."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/coverage-class"/>
       </binding>
     </element>

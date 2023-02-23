@@ -102,7 +102,7 @@
   </entry>
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
-      <valueString value="Valueset including inactive concepts"/>
+      <valueString value="ValueSet including inactive concepts"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
       <valueString value="valueset-example-inactive"/>

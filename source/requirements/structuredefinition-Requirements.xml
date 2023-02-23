@@ -103,7 +103,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -481,7 +481,7 @@
       <path value="Requirements.statement.derivedFrom"/>
       <short value="Another statement this clarifies/restricts ([url#]key)"/>
       <definition value="Another statement on one of the requirements that this requirement clarifies or restricts."/>
-      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. if there is more than one, it should be in the format ```url#key```"/>
+      <comment value="This can be just a key, if there is only one matching statement in the requirements statements referenced in Requirements.derivedFrom. If there is more than one, it should be in the format ```url#key```"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -504,7 +504,7 @@
       <path value="Requirements.statement.satisfiedBy"/>
       <short value="Design artifact that satisfies this requirement"/>
       <definition value="A reference to another artifact that satisfies this requirement. This could be a Profile, extension, or an element in one of those, or a CapabilityStatement, OperationDefinition, SearchParameter, CodeSystem(/code), ValueSet, Libary etc."/>
-      <comment value="This is for use when the requirement is met be an pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
+      <comment value="This is for use when the requirement is met be a pre-existing artifact e.g. a rule that's met by the base FHIR spec, or a national implementation guide."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -513,8 +513,8 @@
     </element>
     <element id="Requirements.statement.reference">
       <path value="Requirements.statement.reference"/>
-      <short value="External artifact (rule/document etc that) created this requirement"/>
-      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc, or external regulation, or business requirements expressed elsewhere."/>
+      <short value="External artifact (rule/document etc. that) created this requirement"/>
+      <definition value="A reference to another artifact that created this requirement. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
       <min value="0"/>
       <max value="*"/>
       <type>

@@ -54,7 +54,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -83,7 +83,6 @@
       <definition value="A container for a collection of resources."/>
       <min value="0"/>
       <max value="*"/>
-
       <constraint>
         <key value="bdl-1"/>
         <severity value="error"/>
@@ -98,22 +97,6 @@
         <expression value="(type = 'searchset') or entry.search.empty()"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
       </constraint>
-      <!--
-      <constraint>
-        <key value="bdl-3"/>
-        <severity value="error"/>
-        <human value="entry.request mandatory for batch/transaction/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression value="entry.all(request.exists() = (%resource.type = 'batch' or %resource.type = 'transaction' or %resource.type = 'history')) or (type='subscription-notification')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
-      </constraint>
-      <constraint>
-        <key value="bdl-4"/>
-        <severity value="error"/>
-        <human value="entry.response mandatory for batch-response/transaction-response/history, allowed for subscription-notification, otherwise prohibited"/>
-        <expression value="entry.all(response.exists() = (%resource.type = 'batch-response' or %resource.type = 'transaction-response' or %resource.type = 'history')) or (type='subscription-notification')"/>
-        <source value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
-      </constraint>
-      -->
       <constraint>
         <key value="bdl-3a"/>
         <severity value="error"/>
@@ -202,7 +185,7 @@
         <key value="bdl-16"/>
         <severity value="error"/>
         <human value="Issue.severity for all issues within the OperationOutcome must be either 'information' or 'warning'."/>
-        <expression value="issues.exists() implies (issues.OperationOutcome.issue.severity = 'information' or issues.OperationOutcome.issue.severity = 'warning')"/>
+        <expression value="issues.exists() implies (issues.issue.severity = 'information' or issues.issue.severity = 'warning')"/>
       </constraint>
       <constraint>
         <key value="bdl-17"/>
@@ -210,7 +193,6 @@
         <human value="Use and meaning of issues for documents has not been validated because the content will not be rendered in the document."/>
         <expression value="type = 'document' implies issues.empty()"/>
       </constraint>
-
       <mapping>
         <identity value="v2"/>
         <map value="N/A"/>
@@ -238,6 +220,7 @@
       <type>
         <code value="Identifier"/>
       </type>
+      <condition value="bdl-9"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -258,6 +241,21 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="bdl-1"/>
+      <condition value="bdl-2"/>
+      <condition value="bdl-3a"/>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3c"/>
+      <condition value="bdl-3d"/>
+      <condition value="bdl-7"/>
+      <condition value="bdl-9"/>
+      <condition value="bdl-10"/>
+      <condition value="bdl-11"/>
+      <condition value="bdl-12"/>
+      <condition value="bdl-13"/>
+      <condition value="bdl-14"/>
+      <condition value="bdl-15"/>
+      <condition value="bdl-17"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -282,6 +280,7 @@
       <type>
         <code value="instant"/>
       </type>
+      <condition value="bdl-10"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -311,7 +310,7 @@
       </extension>
       <path value="Bundle.link"/>
       <short value="Links related to this Bundle"/>
-      <definition value="A series of links that provide context to this bundle."/>
+      <definition value="A series of links that provide context to this bundle. The behavior of navigation link types (next/prev/first/last) are well defined for searchset and history Bundles but are not currently defined for other types. Implementers who choose to use such link relationships for other bundle types will need to negotiate behavior with their interoperability partners."/>
       <comment value="Both Bundle.link and Bundle.entry.link are defined to support providing additional context when Bundles are used (e.g. [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS)). &#xA;&#xA;Bundle.entry.link corresponds to links found in the HTTP header if the resource in the entry was [read](http.html#read) directly.&#xA;&#xA;This specification defines some specific uses of Bundle.link for [searching](search.html#conformance) and [paging](http.html#paging), but no specific uses for Bundle.entry.link, and no defined function in a transaction - the meaning is implementation specific."/>
       <min value="0"/>
       <max value="*"/>
@@ -359,6 +358,17 @@
         <code value="BackboneElement"/>
       </type>
       <orderMeaning value="For bundles of type 'document' and 'message', the first resource is special (must be Composition or MessageHeader respectively). For all bundles, the meaning of the order of entries depends on the bundle type"/>
+      <condition value="bdl-2"/>
+      <condition value="bdl-3a"/>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3c"/>
+      <condition value="bdl-3d"/>
+      <condition value="bdl-7"/>
+      <condition value="bdl-11"/>
+      <condition value="bdl-12"/>
+      <condition value="bdl-13"/>
+      <condition value="bdl-14"/>
+      <condition value="bdl-15"/>
       <constraint>
         <key value="bdl-8"/>
         <severity value="error"/>
@@ -394,6 +404,9 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="bdl-7"/>
+      <condition value="bdl-15"/>
+      <condition value="bdl-8"/>
       <isSummary value="true"/>
     </element>
     <element id="Bundle.entry.resource">
@@ -405,6 +418,14 @@
       <type>
         <code value="Resource"/>
       </type>
+      <condition value="bdl-3a"/>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3c"/>
+      <condition value="bdl-7"/>
+      <condition value="bdl-11"/>
+      <condition value="bdl-12"/>
+      <condition value="bdl-13"/>
+      <condition value="bdl-5"/>
       <isSummary value="true"/>
     </element>
     <element id="Bundle.entry.search">
@@ -466,7 +487,12 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="bdl-3"/>
+      <condition value="bdl-3a"/>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3c"/>
+      <condition value="bdl-14"/>
+      <condition value="bdl-15"/>
+      <condition value="bdl-5"/>
       <isSummary value="true"/>
     </element>
     <element id="Bundle.entry.request.method">
@@ -478,6 +504,10 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3c"/>
+      <condition value="bdl-14"/>
+      <condition value="bdl-15"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -556,7 +586,10 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="bdl-4"/>
+      <condition value="bdl-3a"/>
+      <condition value="bdl-3b"/>
+      <condition value="bdl-3d"/>
+      <condition value="bdl-5"/>
       <isSummary value="true"/>
     </element>
     <element id="Bundle.entry.response.status">
@@ -647,6 +680,8 @@
         <code value="Resource"/>
         <profile value="http://hl7.org/fhir/StructureDefinition/OperationOutcome"/>
       </type>
+      <condition value="bdl-16"/>
+      <condition value="bdl-17"/>
       <isSummary value="true"/>
     </element>
   </differential>

@@ -580,7 +580,7 @@ InvoicePriceComponentType</a>
        style="fill:#000000"><a
    xlink:href="chargeitemdefinition-definitions.html#ChargeItemDefinition.propertyGroup.priceComponent.code"
    id="n618"><title
-   id="title169">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc</title>
+   id="title169">A code that identifies the component. Codes may be used to differentiate between kinds of taxes, surcharges, discounts etc.</title>
 code</a>
  : <a
    xlink:href="datatypes.html#CodeableConcept"

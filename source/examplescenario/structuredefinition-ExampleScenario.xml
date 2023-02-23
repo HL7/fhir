@@ -152,7 +152,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -227,6 +227,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="cnl-0"/>
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.title">
@@ -254,6 +255,9 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="exs-3"/>
+      <condition value="exs-4"/>
+      <condition value="exs-5"/>
       <isModifier value="true"/>
       <isModifierReason value="This is labeled as &quot;Is Modifier&quot; because applications should not use a retired {{title}} without due consideration"/>
       <isSummary value="true"/>
@@ -457,6 +461,10 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="exs-3"/>
+      <condition value="exs-6"/>
+      <condition value="exs-7"/>
+      <condition value="exs-17"/>
+      <condition value="exs-18"/>
       <constraint>
         <key value="exs-19"/>
         <severity value="warning"/>
@@ -479,6 +487,11 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-6"/>
+      <condition value="exs-23"/>
+      <condition value="exs-17"/>
+      <condition value="exs-18"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.actor.type">
       <path value="ExampleScenario.actor.type"/>
@@ -510,6 +523,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-7"/>
     </element>
     <element id="ExampleScenario.actor.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -533,6 +547,11 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="exs-8"/>
+      <condition value="exs-9"/>
+      <condition value="exs-14"/>
+      <condition value="exs-15"/>
+      <condition value="exs-16"/>
       <constraint>
         <key value="exs-1"/>
         <severity value="error"/>
@@ -543,7 +562,7 @@
         <key value="exs-2"/>
         <severity value="error"/>
         <human value="instance.content is only allowed if there are no instance.versions"/>
-        <expression value="instance.content.exists() implies instance.version.empty()"/>
+        <expression value="content.exists() implies version.empty()"/>
       </constraint>
       <constraint>
         <key value="exs-10"/>
@@ -579,6 +598,12 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-8"/>
+      <condition value="exs-14"/>
+      <condition value="exs-15"/>
+      <condition value="exs-16"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.structureType">
       <path value="ExampleScenario.instance.structureType"/>
@@ -589,6 +614,7 @@
       <type>
         <code value="Coding"/>
       </type>
+      <condition value="exs-1"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="InstanceType"/>
@@ -635,6 +661,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-9"/>
     </element>
     <element id="ExampleScenario.instance.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -659,6 +686,7 @@
       <type>
         <code value="Reference"/>
       </type>
+      <condition value="exs-2"/>
     </element>
     <element id="ExampleScenario.instance.version">
       <path value="ExampleScenario.instance.version"/>
@@ -671,6 +699,12 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="exs-10"/>
+      <condition value="exs-11"/>
+      <condition value="exs-15"/>
+      <condition value="exs-16"/>
+      <condition value="exs-2"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.version.key">
       <path value="ExampleScenario.instance.version.key"/>
@@ -681,6 +715,9 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-10"/>
+      <condition value="exs-16"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.version.title">
       <path value="ExampleScenario.instance.version.title"/>
@@ -691,6 +728,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-11"/>
     </element>
     <element id="ExampleScenario.instance.version.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -753,6 +791,11 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-14"/>
+      <condition value="exs-15"/>
+      <condition value="exs-16"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.instance.containedInstance.versionReference">
       <path value="ExampleScenario.instance.containedInstance.versionReference"/>
@@ -764,6 +807,9 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-15"/>
+      <condition value="exs-16"/>
+      <condition value="exs-21"/>
     </element>
     <element id="ExampleScenario.process">
       <path value="ExampleScenario.process"/>
@@ -776,6 +822,11 @@
         <code value="BackboneElement"/>
       </type>
       <condition value="exs-4"/>
+      <condition value="exs-12"/>
+      <condition value="exs-22"/>
+      <condition value="exs-20"/>
+      <condition value="exs-21"/>
+      <condition value="exs-19"/>
       <constraint>
         <key value="exs-5"/>
         <severity value="error"/>
@@ -795,6 +846,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-12"/>
       <isSummary value="true"/>
     </element>
     <element id="ExampleScenario.process.description">
@@ -889,6 +941,7 @@
         <code value="canonical"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/ExampleScenario"/>
       </type>
+      <condition value="exs-22"/>
     </element>
     <element id="ExampleScenario.process.step.operation">
       <path value="ExampleScenario.process.step.operation"/>
@@ -899,11 +952,13 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="exs-19"/>
+      <condition value="exs-22"/>
       <constraint>
         <key value="exs-17"/>
         <severity value="error"/>
         <human value="If specified, initiator must be a key of an actor within the ExampleScenario"/>
-        <expression value="initiator.exists() implies initator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
+        <expression value="initiator.exists() implies initiator = 'OTHER' or %resource.actor.where(key=%context.initiator).exists()"/>
       </constraint>
       <constraint>
         <key value="exs-18"/>
@@ -946,6 +1001,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-17"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.process.step.operation.receiver">
       <path value="ExampleScenario.process.step.operation.receiver"/>
@@ -957,6 +1014,8 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-18"/>
+      <condition value="exs-19"/>
     </element>
     <element id="ExampleScenario.process.step.operation.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -1021,6 +1080,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="exs-13"/>
     </element>
     <element id="ExampleScenario.process.step.alternative.title">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">
@@ -1034,6 +1094,7 @@
       <type>
         <code value="string"/>
       </type>
+      <condition value="exs-13"/>
     </element>
     <element id="ExampleScenario.process.step.alternative.description">
       <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable">

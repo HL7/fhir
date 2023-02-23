@@ -264,6 +264,8 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="sdf-19"/>
+      <condition value="sdf-22"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
@@ -696,7 +698,7 @@
     </element>
     <element id="StructureDefinition.mapping.comment">
       <path value="StructureDefinition.mapping.comment"/>
-      <short value="Versions, Issues, Scope limitations etc."/>
+      <short value="Versions, Issues, Scope limitations etc"/>
       <definition value="Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage."/>
       <min value="0"/>
       <max value="1"/>
@@ -713,6 +715,13 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-29"/>
+      <condition value="sdf-8"/>
+      <condition value="sdf-3"/>
+      <condition value="sdf-8a"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -733,6 +742,7 @@
       <type>
         <code value="boolean"/>
       </type>
+      <condition value="sdf-4"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.context">
@@ -800,7 +810,11 @@
       <type>
         <code value="uri"/>
       </type>
+      <condition value="sdf-18"/>
       <condition value="sdf-11"/>
+      <condition value="sdf-5"/>
+      <condition value="sdf-8"/>
+      <condition value="sdf-8a"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -829,6 +843,7 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/StructureDefinition"/>
       </type>
       <condition value="sdf-4"/>
+      <condition value="sdf-27"/>
       <isSummary value="true"/>
     </element>
     <element id="StructureDefinition.derivation">
@@ -841,6 +856,11 @@
       <type>
         <code value="code"/>
       </type>
+      <condition value="sdf-1"/>
+      <condition value="sdf-21"/>
+      <condition value="sdf-5"/>
+      <condition value="sdf-27"/>
+      <condition value="sdf-29"/>
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -863,6 +883,14 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sdf-19"/>
+      <condition value="sdf-16"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-1"/>
       <condition value="sdf-6"/>
       <constraint>
         <key value="sdf-8"/>
@@ -907,7 +935,7 @@
         <key value="sdf-26"/>
         <severity value="error"/>
         <human value="The root element of a profile should not have mustSupport = true"/>
-        <expression value="snapshot.where(element[0].mustSupport='true').exists().not()"/>
+        <expression value="$this.where(element[0].mustSupport='true').exists().not()"/>
       </constraint>
     </element>
     <element id="StructureDefinition.snapshot.element">
@@ -919,7 +947,21 @@
       <type>
         <code value="ElementDefinition"/>
       </type>
+      <condition value="sdf-9"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-16"/>
+      <condition value="sdf-15"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-11"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-1"/>
+      <condition value="sdf-8"/>
       <condition value="sdf-3"/>
+      <condition value="sdf-8b"/>
+      <condition value="sdf-24"/>
+      <condition value="sdf-25"/>
+      <condition value="sdf-26"/>
       <constraint>
         <key value="sdf-10"/>
         <requirements value="binding is required"/>
@@ -952,7 +994,15 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-17"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-21"/>
       <condition value="sdf-6"/>
+      <condition value="sdf-29"/>
       <constraint>
         <key value="sdf-20"/>
         <requirements value="no slicing on root"/>
@@ -978,6 +1028,17 @@
       <type>
         <code value="ElementDefinition"/>
       </type>
+      <condition value="sdf-9"/>
+      <condition value="sdf-15a"/>
+      <condition value="sdf-19"/>
+      <condition value="sdf-17"/>
+      <condition value="sdf-23"/>
+      <condition value="sdf-22"/>
+      <condition value="sdf-14"/>
+      <condition value="sdf-21"/>
+      <condition value="sdf-29"/>
+      <condition value="sdf-20"/>
+      <condition value="sdf-8a"/>
       <mapping>
         <identity value="iso11179"/>
         <map value="--"/>
