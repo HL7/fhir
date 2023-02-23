@@ -195,13 +195,13 @@
 		</extension>
 	</extension>
 		
-	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexForClinicalUse">
+	<extension url="http://hl7.org/fhir/StructureDefinition/patient-sexParameterForClinicalUse">
 		<extension url="value">
 			<valueCodeableConcept>
 			  <coding>
-				<system value="http://terminology.hl7.org/CodeSystem/sex-for-clinical-use"/>
+				<system value="http://terminology.hl7.org/CodeSystem/sex-parameter-for-clinical-use"/>
 				<code value="specified"/>
-				<display value="Specified sex for clinical use"/>
+				<display value="Apply specified setting or reference range"/>
 			  </coding>
 			</valueCodeableConcept>
 		</extension>
