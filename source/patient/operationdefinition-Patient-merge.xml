@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="Patient-merge"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -42,10 +42,10 @@
     </extension>
     <extension url="content">
       <valueString value="$merge-provenance.txt"/>
-  </extension>
+    </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
-    <valueMarkdown value="The status of the response will be one of:&#xD;&#xD;* 200 OK - If the merge request doesn't expect any issues (although warning may be present) for a preview, or was completed without issues if not a preview&#xD;* 202 Accepted - The merge request has been accepted and does not expect any issues and will continue processing the merge in the background, and you can monitor the Task for completion&#xD;* 400 Bad Request - There are errors in the input parameters that need to corrected&#xD;* 422 Unprocessable Entity - Business rules prevent this merge from completing&#xD;&#xD;There must be exactly 1 source patient, which may  be identified by either the source-patient or source-patient-identifier parameters. Similarly, there must be exactly 1 target patient, identified by either the target-patient or target-patient-identifier parameters. In both cases, either a reference to the patient or a list of identifiers that can be used to identify the patient may be provided, but not both.&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter).&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each source patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged.&#xD;"/>
+    <valueMarkdown value="There must be exactly 1 source patient, which may  be identified by either the source-patient or source-patient-identifier parameters. Similarly, there must be exactly 1 target patient, identified by either the target-patient or target-patient-identifier parameters. In both cases, either a reference to the patient or a list of identifiers that can be used to identify the patient may be provided, but not both.&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter).&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each source patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged.&#xD;"/>
   </extension>
   <url value="http://hl7.org/fhir/OperationDefinition/Patient-merge"/>
   <version value="4.5.0"/>
@@ -66,8 +66,16 @@
     </telecom>
   </contact>
   <description value="The merge operation is used to request two patient resources be merged. One of the two patients is identified as the source and one as the target. The data from the source patient will be merged with the data of the target patient.&#xD;&#xD;The source Patient resource will be updated to add a new Patient.link reference to the target Patient resource with a link-type of replaced-by. The source Patient will also be updated to have a status of inactive, unless the source Patient resource was deleted.&#xD;&#xD;The target Patient resource will be updated to add a new Patient.link reference to the source Patient resource with a link-type of replaces unless the source Patient resource is deleted. The target Patient resource must be included in the result-patient parameter if used."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <affectsState value="true"/>
   <code value="merge"/>
+  <comment value="There must be at least 1 source patient/patient-identifier parameter and at least 1 target patient/patient-identifier parameter&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter)&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each source patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged."/>
   <resource value="Patient"/>
   <system value="false"/>
   <type value="true"/>
@@ -111,7 +119,7 @@
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="The details of the Patient resource that is expected to be updated to complete with and must have the same patient.id and provided identifiers included.&#xD;&#xD;This resource MUST have the link property included referencing the source patient resource.&#xD;&#xD;It will be used to perform an update on the target patient resource.&#xD;&#xD;In the absence of this parameter the servers should copy all identifiers from the source patient into the target patient, and include the link property (as shown in the example [below](#examples)).&#xD;&#xD;This is often used when properties from the source patient are desired to be included in the target resource.&#xD;&#xD;The receiving system may also apply other internal business rules onto the merge which may make the resource different from what is provided here."/>
+    <documentation value="The details of the Patient resource that is expected to be updated to complete with and must have the same patient.id and provided identifiers included.&#xD;&#xD;This resource MUST have the link property included referencing the source patient resource.&#xD;&#xD;It will be used to perform an update on the target patient resource.&#xD;&#xD;In the absence of this parameter the servers should copy all identifiers from the source patient into the target patient, and include the link property (as shown in the example below).&#xD;&#xD;This is often used when properties from the source patient are desired to be included in the target resource.&#xD;&#xD;The receiving system may also apply other internal business rules onto the merge which may make the resource different from what is provided here."/>
     <type value="Patient"/>
   </parameter>
   <parameter>
@@ -123,36 +131,11 @@
     <type value="boolean"/>
   </parameter>
   <parameter>
-    <name value="input"/>
+    <name value="return"/>
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="The Input parameters to the operation"/>
+    <documentation value="The status of the response will be one of:&#xD;&#xD;* 200 OK - If the merge request doesn't expect any issues (although warning may be present) for a preview, or was completed without issues if not a preview&#xD;* 202 Accepted - The merge request has been accepted and does not expect any issues and will continue processing the merge in the background, and you can monitor the Task for completion&#xD;* 400 Bad Request - There are errors in the input parameters that need to corrected&#xD;* 422 Unprocessable Entity - Business rules prevent this merge from completing&#xD;&#xD;The Parameters resource will include:&#xD;&#xD;* The Input parameters to the operation&#xD;* An OperationOutcome containing errors, warnings, and information messages&#xD;* The resulting merged Patient resource (or a patient reference if the patient is not committed)&#xD;* Optionally a Task resource to track any additional processing that was required."/>
     <type value="Parameters"/>
-  </parameter>
-  <parameter>
-    <name value="outcome"/>
-    <use value="out"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The operation's outcome containing errors, warnings, and information messages. Required when the input parameter preview = true."/>
-    <type value="OperationOutcome"/>
-  </parameter>
-  <parameter>
-    <name value="result"/>
-    <use value="out"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="The resulting merged Patient resource (or a patient reference if the patient is not committed)"/>
-    <type value="Patient"/>
-  </parameter>
-  <parameter>
-    <name value="tracking"/>
-    <use value="out"/>
-    <min value="0"/>
-    <max value="1"/>
-    <documentation value="Option Task resource to track any additional processing that was required."/>
-    <type value="Reference"/>
-    <targetProfile value="http://hl7.org/fhir/StructureDefinition/Task"/>
   </parameter>
 </OperationDefinition>
