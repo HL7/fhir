@@ -251,7 +251,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.authoredOn"/>
+        <map value="Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -667,7 +667,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.authoredOn"/>
+        <map value="Event.recorded"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -957,10 +957,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Event.context"/>
-      </mapping>
       <mapping>
         <identity value="rim"/>
         <map value="Includes many ActClass, ActCode, RoleClass, RoleCode, EntityClass, EntityCode, ParticipationType codes from HL7 concept domains and code systems. For example, RoleCode: HLD (held entity) Description: Entity that is currently in the possession of a holder (scoper), who holds, or uses it, usually based on some agreement with the owner. MANU (manufactured product) Description: Scoped by the manufacturer. OWN (owned entity) Description: An Entity (player) for which someone (scoper) is granted by law the right to call the material (player) his own. This entitles the scoper to make decisions about the disposition of that material. WRTE (warranted product) Description:&#xD;A role a product plays when a guarantee is given to the purchaser by the seller (scoping entity) stating that the product is reliable and free from known defects and that the seller will repair or replace defective parts within a given time limit and under certain conditions."/>
@@ -1764,7 +1760,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.reasonCode"/>
+        <map value="Event.reason"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -1882,7 +1878,7 @@
           <valueString value="ContractActionPerformerType"/>
         </extension>
         <strength value="example"/>
-        <description value="Codes for the types of action perfomer."/>
+        <description value="Codes for the types of action performer."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/participation-role-type"/>
       </binding>
     </element>
@@ -2089,7 +2085,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.requester"/>
+        <map value="Event.performer.actor"/>
       </mapping>
       <mapping>
         <identity value="w5"/>

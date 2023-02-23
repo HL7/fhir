@@ -163,7 +163,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.instantiatesUrl"/>
+        <map value="Event.instantiatesUri"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -522,7 +522,7 @@
       <isSummary value="true"/>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context, Event.context"/>
+        <map value="Request.encounter, Event.encounter"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -680,7 +680,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Event.performer.role, Request.performerType"/>
+        <map value="Event.performer.function, Request.performerType"/>
       </mapping>
       <mapping>
         <identity value="w5"/>
@@ -786,10 +786,6 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
       </type>
       <isSummary value="true"/>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Request.reasonCode, Event.reasonCode"/>
-      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.where[x]"/>
