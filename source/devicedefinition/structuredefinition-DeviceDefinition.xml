@@ -98,6 +98,7 @@
       <type>
         <code value="Identifier"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.identifier"/>
@@ -273,6 +274,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -294,6 +296,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.deviceName.name">
       <path value="DeviceDefinition.deviceName.name"/>
@@ -305,6 +308,7 @@
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.deviceName.type">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
@@ -318,6 +322,7 @@
       <type>
         <code value="code"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceNameType"/>
@@ -347,6 +352,7 @@
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -369,6 +375,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.classification.type">
       <path value="DeviceDefinition.classification.type"/>
@@ -379,6 +386,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceKind"/>
@@ -410,6 +418,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.conformsTo.category">
       <path value="DeviceDefinition.conformsTo.category"/>
@@ -420,6 +429,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceSpecificationCategory"/>
@@ -438,6 +448,7 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="DeviceSpecificationType"/>
@@ -455,6 +466,7 @@
       <type>
         <code value="string"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.conformsTo.source">
       <path value="DeviceDefinition.conformsTo.source"/>
@@ -482,6 +494,7 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.hasPart.reference">
       <path value="DeviceDefinition.hasPart.reference"/>
@@ -493,6 +506,7 @@
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
       </type>
+      <isSummary value="true"/>
     </element>
     <element id="DeviceDefinition.hasPart.count">
       <path value="DeviceDefinition.hasPart.count"/>
