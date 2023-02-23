@@ -57,7 +57,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -233,6 +233,39 @@
         <map value="Request.basedOn"/>
       </mapping>
     </element>
+
+
+    <element id="NutritionOrder.groupIdentifier">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#10296][#11119]#13196]."/>
+      </extension>
+      <path value="NutritionOrder.groupIdentifier"/>
+      <short value="Composite Request ID"/>
+      <definition value="A shared identifier common to all nutrition orders that were authorized more or less simultaneously by a single author, representing the composite or group identifier."/>
+      <alias value="grouperId"/>
+      <alias value="groupIdentifier"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Request.groupIdentifier"/>
+      </mapping>
+      <mapping>
+        <identity value="v2"/>
+        <map value="ORC-4"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier"/>
+      </mapping>
+    </element>
+
+
+
     <element id="NutritionOrder.status">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#3720],[#14414]."/>
@@ -1218,7 +1251,6 @@
       <type>
         <code value="BackboneElement"/>
       </type>
-      <condition value="nor-1"/>
     </element>
     <element id="NutritionOrder.enteralFormula.additive.type">
       <path value="NutritionOrder.enteralFormula.additive.type"/>
@@ -1417,7 +1449,7 @@
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/binding-definition">
-          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming a enteral formula."/>
+          <valueString value="A coded concept identifying the precondition that should be met or evaluated prior to       consuming an enteral formula."/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
           <valueString value="EnteralFormulaAsNeededReason"/>

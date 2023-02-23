@@ -71,11 +71,19 @@
     <type value="Resource"/>
   </parameter>
   <parameter>
+    <name value="onlySingleMatch"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="If there are multiple potential matches, the server should identify the single most appropriate match that should be used with future interactions with the server (for example, as part of a subsequent create interaction)."/>
+    <type value="boolean"/>
+  </parameter>
+  <parameter>
     <name value="onlyCertainMatches"/>
     <use value="in"/>
     <min value="0"/>
     <max value="1"/>
-    <documentation value="If there are multiple potential matches, then the match should not return the results with this flag set to true.  When false, the server may return multiple results with each result graded accordingly."/>
+    <documentation value="If there are multiple potential matches, the server should be certain that each of the records are for the same patients.  This could happen if the records are duplicates, are the same person for the purpose of data segregation, or other reasons.  When false, the server may return multiple results with each result graded accordingly."/>
     <type value="boolean"/>
   </parameter>
   <parameter>
@@ -91,7 +99,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)  If the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)"/>
+    <documentation value="The bundle type is &quot;searchset&quot;&#xD;&#xD;A bundle contain a set of Patient records that represent possible matches, optionally it may also contain an OperationOutcome with further information about the search results (such as warnings or information messages, such as a count of records that were close but eliminated)  If the operation was unsuccessful, then an OperationOutcome may be returned along with a BadRequest status Code (e.g. security issue, or insufficient properties in patient fragment - check against profile)"/>
     <type value="Bundle"/>
   </parameter>
 </OperationDefinition>

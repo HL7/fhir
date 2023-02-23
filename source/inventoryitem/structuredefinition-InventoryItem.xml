@@ -36,7 +36,7 @@
       <value value="http://www.hl7.org/Special/committees/orders/index.cfm"/>
     </telecom>
   </contact>
-  <description value=" functional description of an inventory item used in inventory and supply-related workflows."/>
+  <description value="functional description of an inventory item used in inventory and supply-related workflows."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
     <identity value="w5"/>
@@ -46,7 +46,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="workflow"/>
@@ -425,23 +425,46 @@
       <path value="InventoryItem.characteristics.value[x]"/>
       <short value="The value of the attribute"/>
       <definition value="The value of the attribute."/>
+      <comment value="The string value is used for characteristics that are descriptive and not codeable information. CodeableConcept.text is used when the characteristic is discrete and could otherwise be coded but for which there is no code available."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="string"/>
-        <code value="markdown"/>
+      </type>
+      <type>
         <code value="integer"/>
+      </type>
+      <type>
         <code value="decimal"/>
+      </type>
+      <type>
         <code value="boolean"/>
+      </type>
+      <type>
         <code value="url"/>
+      </type>
+      <type>
         <code value="dateTime"/>
-        <code value="SimpleQuantity"/>
+      </type>
+      <type>
         <code value="Quantity"/>
+      </type>
+      <type>
         <code value="Range"/>
+      </type>
+      <type>
         <code value="Ratio"/>
+      </type>
+      <type>
         <code value="Annotation"/>
+      </type>
+      <type>
         <code value="Address"/>
+      </type>
+      <type>
         <code value="Duration"/>
+      </type>
+      <type>
         <code value="CodeableConcept"/>
       </type>
     </element>

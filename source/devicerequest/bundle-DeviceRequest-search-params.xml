@@ -258,13 +258,33 @@
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="DeviceRequest.performer"/>
+          <valueString value="DeviceRequest.performer.reference"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
         <description value="Desired performer for service"/>
         <code value="performer"/>
         <type value="reference"/>
-        <expression value="DeviceRequest.performer"/>
+        <expression value="DeviceRequest.performer.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceRequest-performer-code"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceRequest.performer.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceRequest-performer"/>
+        <description value="Desired performer for service"/>
+        <code value="performer-code"/>
+        <type value="token"/>
+        <expression value="DeviceRequest.performer.concept"/>
+        <xpathUsage value="normal"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

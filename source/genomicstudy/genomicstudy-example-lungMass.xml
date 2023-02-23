@@ -12,13 +12,7 @@
         <system value="http://www.somesystemabc.net/identifiers/genomicstudies"/>
         <value value="urn:uuid:1111-1111-1111-1112"/>
     </identifier>
-    <status>
-        <coding>
-            <system value="http://hl7.org/fhir/genomicstudy-status"/>
-            <code value="registered"/>
-            <display value="Registered"/>
-        </coding>
-    </status>
+    <status value="registered"/>
     <type>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -97,9 +91,6 @@
             </coding>
         </genomeBuild>
         <title value="Simple variant analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
-            <reference value="Patient/genomicPatient"/>
-        </subject>
         <specimen>
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>
@@ -175,9 +166,6 @@
             </coding>
         </genomeBuild>
         <title value="CNV analysis"/><!-- 0..1 Name of the analysis event (human friendly) -->
-        <subject>
-            <reference value="Patient/genomicPatient"/>
-        </subject>
         <specimen>
             <reference value="Specimen/genomicSpecimen"/>
         </specimen>

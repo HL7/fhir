@@ -53,7 +53,7 @@
     </telecom>
   </editor>
   <reviewer>
-    <name value="Society for Creative Codesystem Review"/>
+    <name value="Society for Creative CodeSystem Review"/>
     <telecom>
       <system value="url"/>
       <value value="http://example.org/sccr"/>

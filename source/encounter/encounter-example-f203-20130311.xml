@@ -66,13 +66,17 @@
         <end value="2013-03-20"/>
     </actualPeriod>
     <reason>
-      <concept>
-        <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
-      </concept>
+        <value>
+            <concept>
+                <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
+            </concept>
+        </value>
     </reason>
     <diagnosis>
       <condition>
-          <reference value="Condition/stroke"/>
+        <reference>
+            <reference value="Condition/stroke"/>
+        </reference>
       </condition>
       <use>
         <coding>
@@ -81,11 +85,12 @@
           <display value="Admission diagnosis"/>
         </coding>
       </use>
-      <rank value="1"/>
     </diagnosis>
     <diagnosis>
       <condition>
-          <reference value="Condition/f201"/>
+        <reference>
+            <reference value="Condition/f201"/>
+        </reference>
       </condition>
       <use>
         <coding>

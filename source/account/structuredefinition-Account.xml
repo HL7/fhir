@@ -405,6 +405,201 @@
         <map value=".holder.guarantorRole.effectiveTime"/>
       </mapping>
     </element>
+
+    <element id="Account.diagnosis">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Account.diagnosis"/>
+      <short value="The list of diagnoses relevant to this account"/>
+      <definition value="When using an account for billing a specific Encounter the set of diagnoses that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="act-1"/>
+        <severity value="error"/>
+        <human value="The dateOfDiagnosis is not valid when using a reference to a diagnosis"/>
+        <expression value="condition.reference.empty().not() and dateOfDiagnosis.empty()"/>
+      </constraint>
+      <isSummary value="true"/>
+    </element>
+    <element id="Account.diagnosis.sequence">
+      <path value="Account.diagnosis.sequence"/>
+      <short value="Ranking of the diagnosis (for each type)"/>
+      <definition value="Ranking of the diagnosis (for each type)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Account.diagnosis.condition">
+      <path value="Account.diagnosis.condition"/>
+      <short value="The diagnosis relevant to the account"/>
+      <alias value="indication"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Condition"/>
+      </type>
+      <condition value="act-1"/>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="condition-code"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/condition-code"/>
+      </binding>
+    </element>
+    <element id="Account.diagnosis.dateOfDiagnosis">
+      <path value="Account.diagnosis.dateOfDiagnosis"/>
+      <short value="Date of the diagnosis (when coded diagnosis)"/>
+      <definition value="Ranking of the diagnosis (for each type)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <condition value="act-1"/>
+    </element>
+    <element id="Account.diagnosis.type">
+      <path value="Account.diagnosis.type"/>
+      <short value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)"/>
+      <definition value="Type that this diagnosis has relevant to the account (e.g. admission, billing, discharge …)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosisUse"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true"/>
+        </extension>
+        <strength value="preferred"/>
+        <description value="The type of diagnosis this condition represents."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
+      </binding>
+    </element>
+    <element id="Account.diagnosis.onAdmission">
+      <path value="Account.diagnosis.onAdmission"/>
+      <short value="Diagnosis present on Admission"/>
+      <definition value="Was the Diagnosis present on Admission in the related Encounter."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="boolean"/>
+      </type>
+    </element>
+    <element id="Account.diagnosis.packageCode">
+      <path value="Account.diagnosis.packageCode"/>
+      <short value="Package Code specific for billing"/>
+      <definition value="The package code can be used to group diagnoses that may be priced or delivered as a single product. Such as DRGs."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+
+    <element id="Account.procedure">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+        <valueCode value="trial-use"/>
+      </extension>
+      <path value="Account.procedure"/>
+      <short value="The list of procedures relevant to this account"/>
+      <definition value="When using an account for billing a specific Encounter the set of procedures that are relevant for billing are stored here on the account where they are able to be sequenced appropriately prior to processing to produce claim(s)."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <constraint>
+        <key value="act-2"/>
+        <severity value="error"/>
+        <human value="The dateOfService is not valid when using a reference to a procedure"/>
+        <expression value="code.reference.empty().not() and dateOfService.empty()"/>
+      </constraint>
+      <isSummary value="true"/>
+    </element>
+    <element id="Account.procedure.sequence">
+      <path value="Account.procedure.sequence"/>
+      <short value="Ranking of the procedure (for each type)"/>
+      <definition value="Ranking of the procedure (for each type)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="Account.procedure.code">
+      <path value="Account.procedure.code"/>
+      <short value="The procedure relevant to the account"/>
+      <alias value="indication"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Procedure"/>
+      </type>
+      <condition value="act-2"/>
+      <isSummary value="true"/>
+      <binding>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/procedure-code"/>
+      </binding>
+    </element>
+    <element id="Account.procedure.dateOfService">
+      <path value="Account.procedure.dateOfService"/>
+      <short value="Date of the procedure (when coded procedure)"/>
+      <definition value="Date of the procedure when using a coded procedure. If using a reference to a procedure, then the date on the procedure should be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <condition value="act-2"/>
+    </element>
+    <element id="Account.procedure.type">
+      <path value="Account.procedure.type"/>
+      <short value="How this procedure value should be used in charging the account"/>
+      <definition value="How this procedure value should be used in charging the account."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Account.procedure.packageCode">
+      <path value="Account.procedure.packageCode"/>
+      <short value="Package Code specific for billing"/>
+      <definition value="The package code can be used to group procedures that may be priced or delivered as a single product. Such as DRGs."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>
+    <element id="Account.procedure.device">
+      <path value="Account.procedure.device"/>
+      <short value="Any devices that were associated with the procedure"/>
+      <definition value="Any devices that were associated with the procedure relevant to the account."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+
     <element id="Account.relatedAccount">
       <path value="Account.relatedAccount"/>
       <short value="Other associated accounts related to this account"/>

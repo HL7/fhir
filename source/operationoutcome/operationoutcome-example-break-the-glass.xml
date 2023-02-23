@@ -2,7 +2,7 @@
   
 <OperationOutcome xmlns="http://hl7.org/fhir">
 <!-- :md: 
-This is an example of a operation outcome that would be returned
+This is an example of an operation outcome that would be returned
 as part of a set of search results (e.g. in the bundle with search.mode = outcome)
 to indicate that additional results may be available using the break-the-glass
 protocol. The correct use of this is discussed on the [security labels](security-labels.html#break-the-glass) page

@@ -73,7 +73,7 @@
         <description value="The organization that manufactures this ingredient"/>
         <code value="manufacturer"/>
         <type value="reference"/>
-        <expression value="Ingredient.manufacturer"/>
+        <expression value="Ingredient.manufacturer.manufacturer"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

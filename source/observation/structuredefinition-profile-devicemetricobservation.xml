@@ -48,7 +48,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -149,7 +149,7 @@
         <code value="CodeableConcept"/>
       </type>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
       <type>
         <code value="Range"/>

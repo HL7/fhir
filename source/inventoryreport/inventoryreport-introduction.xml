@@ -29,7 +29,7 @@ xxDispense: The InventoryReport resource can also be used to indicate consumptio
 InventoryReport does not overlap with Dispense: Dispense carries the 'clinical' meaning that a product has been assigned to a patient. The InventoryReport captures the logistic aspect.
 For example (see examples)
 <ul>
-<li>when a Medication is dispensed to a patient, the use of a InventoryReport is not needed</li>
+<li>when a Medication is dispensed to a patient, the use of an inventoryReport is not needed</li>
 <li>when a Medication is dropped and afterwards disposed of, and therefore not used by any patient, the InventoryReport can captures this and inform the inventory management system about the subtraction of that item. </li>
 <li>when there is a need to inform, for inventory reasons, the items that have been taken from stock, this can be done with an InventoryReport.</li>
 </ul>

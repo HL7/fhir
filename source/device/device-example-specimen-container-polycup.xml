@@ -4,7 +4,7 @@
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text--><id value="specimen-device-container-example-polycup"/>
+  </text--><id value="device-example-specimen-container-polycup"/>
 	<identifier>
     <system value="http://acme.com/containers/id"/>
     <value value="345675"/>
@@ -12,20 +12,34 @@
   <displayName value="100mL Sterile Polycup" />
   <property>
     <type>
-			<coding>
+    <coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="container-type"/>
+				<display value="Container Type"/>
+			</coding>
+		</type>
+    <valueCodeableConcept>
+    <coding>
 				<system value="http://acme.com/containers/types"/>
 				<code value="100mlcup"/>
 				<display value="100 mL Sterile Polycup"/>
 			</coding>
-		</type>
+    </valueCodeableConcept>
   </property>
   <property>
     <type>
 			<coding>
+				<system value="http://acme.com/containers/codes"/>
+				<code value="amount"/>
+				<display value="Amount"/>
+			</coding>
+		</type>
+    <valueCodeableConcept>
+    <coding>
 				<system value="http://acme.com/containers/capacities"/>
 				<code value="100mL"/>
 				<display value="100 mL"/>
 			</coding>
-		</type>
+    </valueCodeableConcept>
   </property>
 </Device>

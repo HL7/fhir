@@ -18,7 +18,7 @@
   </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceOperationStateMode"/>
-  <title value="F H I R Device Operation State Mode"/>
+  <title value="FHIR Device Operation State Mode"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2022-03-28T10:01:24+11:00"/>
@@ -50,7 +50,7 @@
   <concept>
     <code value="service"/>
     <display value="Service"/>
-    <definition value="The device operates in a mode that is intended for correcting an functional problem of the device only. Arbitrary values may be generated."/>
+    <definition value="The device operates in a mode that is intended for correcting a functional problem of the device only. Arbitrary values may be generated."/>
   </concept>
   <concept>
     <code value="maintenance"/>

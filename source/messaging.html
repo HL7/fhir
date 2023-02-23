@@ -12,14 +12,14 @@
 <table class="colstu"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Trial Use</a></td></tr></table>
 
 <p>
-FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
+FHIR Resources can be used in a traditional messaging context, much like <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 V2</a> (see <a href="comparison-v2.html">detailed comparison</a>).
 Applications asserting conformance to this framework claim to be conformant to "FHIR messaging"  (see <a href="conformance-rules.html">Conformance</a>).
 </p>
 
 <p>
 In FHIR messaging, a "message" is sent from a source application to a destination
 application when an event happens. Events mostly correspond to things that happen in the
-real world.
+real-world.
 </p>
 <p>
 Messages are <a href="bundle.html">Bundle</a> resources, with the following rules:
@@ -177,20 +177,6 @@ Note that asynchronous messaging can be harder to implement due to the amount of
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
-
-[%ballot-note id-feedback%]
-Since this page was first written, Bundle.identifier was added. 
-FHIR-I is considering rewriting this so that the decisions are 
-made against Bundle.identifier not Bundle.id. This would allow 
-intermediaries to use the Bundle.id as the primary internal id
-for bundle. There's an additional proposal to add MessageHeader.identifier
-and change to using that instead of MessageHeader.id. 
-</p>
-<p>
-Ballot input is solicited on two issues: should this section 
-change at all (e.g. change to Bundle.identifier), and should 
-it be based on MessageHeader.identifier (assuming this is added).
-[%end-note%]
 
 <h3>MessageHeader Identifiers &amp; Timestamps</h3>
 <p>
@@ -417,7 +403,7 @@ To receive messages, a receiver searches for all messages
 destined for itself, since its last check:
 </p>
 <pre>
- GET [base]/Bundle?message.destination-uri=[rcv]&amp;_lastUpdated=>2015-03-01T02:00:02+01:00
+ GET [base]/Bundle?message.destination-uri=[rcv]&amp;_lastUpdated=gt2015-03-01T02:00:02+01:00
 </pre>
 <p>
 The receiver works through the response, processing each message.
@@ -431,7 +417,7 @@ response messages destined for itself, since its last check:
 </p>
 <pre>
  GET [base]/Bundle?message.destination-uri=[snd]&amp;message.response-id:missing=false
-      &amp;_lastUpdated=>2015-03-03T06:03:522+01:00
+      &amp;_lastUpdated=gt2015-03-03T06:03:522+01:00
 </pre>
 <p>
 This lightweight protocol needs ongoing administration to

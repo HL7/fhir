@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?><ValueSet xmlns="http://hl7.org/fhir">
-  <id value="research-study-party-org-type"/>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="encounter-diagnosis-use"/>
   <meta>
-    <lastUpdated value="2022-05-12T12:40:00+00:00"/>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="brr"/>
+    <valueCode value="pa"/>
   </extension>
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
     <valueCode value="trial-use"/>
@@ -13,17 +14,17 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="0"/>
   </extension>
-  <url value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+  <url value="http://hl7.org/fhir/ValueSet/encounter-diagnosis-use"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.3077"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.3321"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ResearchStudyPartyOrgType"/>
-  <title value="Research Study Party Organization Type"/>
+  <name value="EncounterDiagnosisUse"/>
+  <title value="Encounter Diagnosis Use"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2022-05-12T12:40:00+00:00"/>
+  <date value="2020-12-28T16:55:11+11:00"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -35,16 +36,21 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="This is a ResearchStudy's party organization type."/>
+  <description value="What a specific Encounter/EpisodeOfCare `diagnosis.condition` is to be used for."/>
   <immutable value="true"/>
   <compose>
+  <!--
     <include>
-      <system value="http://hl7.org/fhir/research-study-classifiers"/>
-	  <filter>
-	    <property value="concept"/>
-	    <op value="descendent-of"/>
-	    <value value="research-study-party-organization-type"/>
-	  </filter>
+      <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
+    </include>
+    <exclude>
+      <system value="http://terminology.hl7.org/CodeSystem/diagnosis-role"/>
+      <concept>
+        <code value="billing"/>
+      </concept>
+    </exclude>-->
+    <include>
+      <system value="http://hl7.org/fhir/encounter-diagnosis-use"/>
     </include>
   </compose>
 </ValueSet>

@@ -38,8 +38,8 @@
   </subject>
   <performer>
 	<actor>
-		<reference value="Practitioner/f204"/>
-		<display value="Carla Espinosa"/>
+		<reference value="CareTeam/example"/>
+		<display value="Maternity CareTeam"/>
 	</actor>
 	<onBehalfOf>
 		<reference value="Organization/f001"/>

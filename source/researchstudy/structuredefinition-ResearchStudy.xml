@@ -56,7 +56,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <mapping>
     <identity value="rim"/>
@@ -702,7 +702,7 @@
         </extension>
         <strength value="example"/>
         <description value="A characterization or type of the entity."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-org-type"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/research-study-party-organization-type"/>
       </binding>
     </element>
     <element id="ResearchStudy.associatedParty.party">

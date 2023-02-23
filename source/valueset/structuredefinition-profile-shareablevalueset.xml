@@ -99,6 +99,10 @@
 			<max value="1"/>
 			<mustSupport value="true"/>
 		</element>
+		<element id="ValueSet.versionAlgorithm[x]">
+			<path value="ValueSet.versionAlgorithm[x]"/>
+			<mustSupport value="true"/>
+		</element>
 		<element id="ValueSet.name">
 			<path value="ValueSet.name"/>
 			<mustSupport value="true"/>

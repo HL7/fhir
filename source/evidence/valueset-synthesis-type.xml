@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Types of combining results from a body of evidence (eg. summary data meta-analysis)."/>
+  <description value="Types of combining results from a body of evidence (e.g. summary data meta-analysis)."/>
   <immutable value="true"/>
   <compose>
     <include>

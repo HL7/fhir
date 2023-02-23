@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ResearchStudy
+	xmlns="http://hl7.org/fhir">
+	<id value="example-ctgov-study-record" />
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------ap303-50-g"/>
+			<name value="NCT05503693_drug______ap303_50_g"/>
+			<title value="AP303 50 μg"/>
+			<status value="active"/>
+			<description value="AP303 tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------ap303-150-g"/>
+			<name value="NCT05503693_drug______ap303_150_g"/>
+			<title value="AP303 150 μg"/>
+			<status value="active"/>
+			<description value="AP303 tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------ap303-300-g"/>
+			<name value="NCT05503693_drug______ap303_300_g"/>
+			<title value="AP303 300 μg"/>
+			<status value="active"/>
+			<description value="AP303 tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------ap303-600-g"/>
+			<name value="NCT05503693_drug______ap303_600_g"/>
+			<title value="AP303 600 μg"/>
+			<status value="active"/>
+			<description value="AP303 tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------placebo-50-g"/>
+			<name value="NCT05503693_drug______placebo_50_g"/>
+			<title value="Placebo 50 μg"/>
+			<status value="active"/>
+			<description value="Placebo tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------placebo-150-g"/>
+			<name value="NCT05503693_drug______placebo_150_g"/>
+			<title value="Placebo 150 μg"/>
+			<status value="active"/>
+			<description value="Placebo tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------placebo-300-g"/>
+			<name value="NCT05503693_drug______placebo_300_g"/>
+			<title value="Placebo 300 μg"/>
+			<status value="active"/>
+			<description value="Placebo tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<EvidenceVariable>
+			<id value="NCT05503693-drug------placebo-600-g"/>
+			<name value="NCT05503693_drug______placebo_600_g"/>
+			<title value="Placebo 600 μg"/>
+			<status value="active"/>
+			<description value="Placebo tablet"/>
+			<useContext>
+				<code>
+					<system value="https://clinicaltrials.gov"/>
+					<code value="interventionType"/>
+					<display value="Intervention Type for CT.gov"/>
+				</code>
+				<valueCodeableConcept>
+					<text value="DRUG"/>
+				</valueCodeableConcept>
+			</useContext>
+		</EvidenceVariable>
+	</contained>
+	<contained>
+		<Practitioner>
+			<id value="NCT05503693-CentralContact-0"/>
+			<name>
+				<text value="Zhen LIU"/>
+			</name>
+			<telecom>
+				<system value="phone"/>
+				<value value="86 021-60836212"/>
+			</telecom>
+			<telecom>
+				<system value="email"/>
+				<value value="clinicaloperation@alebund.com"/>
+			</telecom>
+		</Practitioner>
+	</contained>
+	<contained>
+		<ResearchStudy>
+			<id value="NCT05503693-Location-0-ResearchStudy"/>
+			<partOf>
+				<reference value="#"/>
+				<type value="ResearchStudy"/>
+			</partOf>
+			<status value="active"/>
+			<site>
+				<reference value="#NCT05503693-Location-0"/>
+				<type value="Location"/>
+			</site>
+			<progressStatus>
+				<state>
+					<coding>
+						<system value="http://hl7.org/fhir/research-study-status"/>
+						<code value="recruiting"/>
+						<display value="Recruiting"/>
+					</coding>
+				</state>
+			</progressStatus>
+		</ResearchStudy>
+	</contained>
+	<contained>
+		<Location>
+			<id value="NCT05503693-Location-0"/>
+			<name value="Nucleus Network Pty Ltd"/>
+			<address>
+				<city value="Melbourne"/>
+				<state value="Victoria"/>
+				<postalCode value="3004"/>
+				<country value="Australia"/>
+			</address>
+			<position>
+				<longitude value="144.96332"/>
+				<latitude value="-37.814"/>
+			</position>
+		</Location>
+	</contained>
+	<url value="https://fevir.net/resources/ResearchStudy/112103"/>
+	<identifier>
+		<type>
+			<text value="FEvIR Object Identifier"/>
+		</type>
+		<system value="https://fevir.net"/>
+		<value value="112103"/>
+		<assigner>
+			<display value="Computable Publishing LLC"/>
+		</assigner>
+	</identifier>
+	<identifier>
+		<use value="official"/>
+		<system value="https://clinicaltrials.gov"/>
+		<value value="NCT05503693"/>
+	</identifier>
+	<identifier>
+		<value value="AP303-PK-01"/>
+		<assigner>
+			<display value="Alebund Pharmaceuticals"/>
+		</assigner>
+	</identifier>
+	<name value="NCT05503693_FHIR_Transform"/>
+	<title value="A Safety, Tolerability, and Pharmacokinetics Study of AP303 in Healthy Subjects"/>
+	<label>
+		<type>
+			<text value="Official Title"/>
+		</type>
+		<value value="A Single-center Randomized Double-blind Placebo-controlled Study to Investigate the Safety Tolerability and PK of SAD and MAD of AP303 Following Oral Administration and the Effect of Food on the PK of AP303 in Healthy Subjects"/>
+	</label>
+	<relatedArtifact>
+		<type value="transforms"/>
+		<document>
+			<url value="https://beta.clinicaltrials.gov/api/v2/studies/NCT05503693"/>
+		</document>
+	</relatedArtifact>
+	<relatedArtifact>
+		<type value="transformed-with"/>
+		<display value="Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"/>
+		<document>
+			<url value="https://fevir.net/resources/Project/29885"/>
+		</document>
+	</relatedArtifact>
+	<status value="active"/>
+	<primaryPurposeType>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type"/>
+			<code value="treatment"/>
+			<display value="Treatment"/>
+		</coding>
+	</primaryPurposeType>
+	<phase>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/research-study-phase"/>
+			<code value="phase-1"/>
+			<display value="Phase 1"/>
+		</coding>
+	</phase>
+	<studyDesign>
+		<text value="Design Masking: Quadruple"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Who Masked: Participant"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Who Masked: Care Provider"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Who Masked: Investigator"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Who Masked: Outcomes Assessor"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Allocation: Randomized"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="Design Intervention Model: Sequential Assignment"/>
+	</studyDesign>
+	<studyDesign>
+		<text value="CT.gov StudyType: INTERVENTIONAL"/>
+	</studyDesign>
+	<condition>
+		<text value="Healthy Subjects"/>
+	</condition>
+	<keyword>
+		<text value="Safety, Tolerability, Pharmacokinetics, AP303, Healthy Subjects"/>
+	</keyword>
+	<descriptionSummary value="This is a single-center, randomized, double-blind, placebo-controlled, first-in-human study in which the safety, tolerability, and pharmacokinetics of orally administered AP303 will be assessed in healthy adult subjects."/>
+	<description value="The study will consist of 2 parts: Part A is a single ascending doses (SAD) phase enrolling a total of 4 cohorts of healthy subjects; Part B is a multiple ascending doses (MAD) phase enrolling 3 cohorts of healthy subjects. One cohort of Part A will receive AP303 under both fasted and fed conditions to investigate the effect of food."/>
+	<site>
+		<reference value="#NCT05503693-Location-0-ResearchStudy"/>
+		<type value="ResearchStudy"/>
+	</site>
+	<classifier>
+		<text value="Has Results: False"/>
+	</classifier>
+	<classifier>
+		<text value="Oversight Classifier: oversightHasDmc Yes"/>
+	</classifier>
+	<classifier>
+		<text value="Oversight Classifier: isFdaRegulatedDrug No"/>
+	</classifier>
+	<classifier>
+		<text value="Oversight Classifier: isFdaRegulatedDevice No"/>
+	</classifier>
+	<associatedParty>
+		<name value="Alebund Pharmaceuticals"/>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/research-study-party-role"/>
+				<code value="sponsor"/>
+				<display value="Sponsor"/>
+			</coding>
+		</role>
+		<classifier>
+			<text value="INDUSTRY"/>
+		</classifier>
+	</associatedParty>
+	<associatedParty>
+		<name value="Alebund Pty Ltd"/>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/research-study-party-role"/>
+				<code value="lead-sponsor"/>
+				<display value="Lead Sponsor"/>
+			</coding>
+		</role>
+		<classifier>
+			<text value="INDUSTRY"/>
+		</classifier>
+	</associatedParty>
+	<associatedParty>
+		<name value="Zhen LIU"/>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/research-study-party-role"/>
+				<code value="recruitment-contact"/>
+				<display value="Recruitment Contact"/>
+			</coding>
+		</role>
+		<classifier>
+			<text value="Contact"/>
+		</classifier>
+		<party>
+			<reference value="#NCT05503693-CentralContact-0"/>
+			<type value="Practitioner"/>
+		</party>
+	</associatedParty>
+	<associatedParty>
+		<name value="Sam Francis, Doctor"/>
+		<role>
+			<text value="Principal Investigator"/>
+		</role>
+		<party>
+			<display value="Nucleus Network"/>
+		</party>
+	</associatedParty>
+	<progressStatus>
+		<state>
+			<coding>
+				<system value="http://hl7.org/fhir/research-study-status"/>
+				<code value="recruiting"/>
+				<display value="Recruiting"/>
+			</coding>
+		</state>
+	</progressStatus>
+	<progressStatus>
+		<state>
+			<coding>
+				<system value="http://hl7.org/fhir/research-study-status"/>
+				<code value="overall-study"/>
+				<display value="Overall Study"/>
+			</coding>
+		</state>
+		<actual value="false"/>
+		<period>
+			<start value="2022-12-06"/>
+			<end value="2023-06"/>
+		</period>
+	</progressStatus>
+	<recruitment>
+		<targetNumber value="62"/>
+		<eligibility>
+			<reference value="https://fevir.net/resources/EvidenceVariable/112075" />
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693 Eligibility Criteria"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</eligibility>
+	</recruitment>
+	<comparisonGroup>
+		<linkId value="ap303" />
+		<name value="AP303"/>
+		<type>
+			<text value="Experimental"/>
+		</type>
+		<description value="AP303"/>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------ap303-50-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: AP303 50 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------ap303-150-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: AP303 150 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------ap303-300-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: AP303 300 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------ap303-600-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: AP303 600 μg"/>
+		</intendedExposure>
+	</comparisonGroup>
+	<comparisonGroup>
+		<linkId value="placebo" />
+		<name value="Placebo"/>
+		<type>
+			<text value="Placebo Comparator"/>
+		</type>
+		<description value="Placebo"/>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------placebo-50-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: Placebo 50 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------placebo-150-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: Placebo 150 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------placebo-300-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: Placebo 300 μg"/>
+		</intendedExposure>
+		<intendedExposure>
+			<reference value="#NCT05503693-drug------placebo-600-g"/>
+			<type value="EvidenceVariable"/>
+			<display value="Drug: Placebo 600 μg"/>
+		</intendedExposure>
+	</comparisonGroup>
+	<outcomeMeasure>
+		<name value="Single Dose and Food Effect Safety Outcome Measures"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="Incidence and severity of adverse events (AEs), laboratory, ECG, and vital sign changes"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-0"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Multiple Dose Safety Outcome Measures"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="Incidence and severity of AEs, laboratory, ECG, and vital sign changes."/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-1"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Cmax after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-2"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Tmax after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-3"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="AUC0-last after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-4"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="AUC0-inf after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-5"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="t1/2 after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-6"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="CL/F after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-7"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Ae and CLR (if warranted) after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-8"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="V/F after single dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after single dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-9"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Cmax after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-10"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Tmax after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-11"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="AUC0-τ after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-12"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Cav after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-13"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="t1/2 after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-14"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Rac after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-15"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Ae and CLR (if warranted) after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-16"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="V/F after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-17"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Ctrough after multiple dose"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="primary"/>
+				<display value="Primary"/>
+			</coding>
+		</type>
+		<description value="PK characteristics after multiple dose"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-primaryOutcome-18"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose Cmax"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-0"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose Tmax"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-1"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose AUC0-last"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-2"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose AUC0-inf"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-3"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose t1/2"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-4"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose CL/F"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-5"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose Ae and CLR (if warranted)"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-6"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+	<outcomeMeasure>
+		<name value="Effect of Food on the single dose V/F"/>
+		<type>
+			<coding>
+				<system value="http://terminology.hl7.org/CodeSystem/research-study-objective-type"/>
+				<code value="secondary"/>
+				<display value="Secondary"/>
+			</coding>
+		</type>
+		<description value="Effect of food on the single dose PK"/>
+		<reference>
+			<type value="EvidenceVariable"/>
+			<identifier>
+				<type>
+					<text value="FEvIR Linking Identifier"/>
+				</type>
+				<system value="https://fevir.net/FLI"/>
+				<value value="NCT05503693-secondaryOutcome-7"/>
+				<assigner>
+					<display value="Computable Publishing LLC"/>
+				</assigner>
+			</identifier>
+		</reference>
+	</outcomeMeasure>
+</ResearchStudy>

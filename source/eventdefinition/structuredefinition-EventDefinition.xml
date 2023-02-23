@@ -114,7 +114,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="url.matches('([^|#])*')"/>
+        <expression value="exists() implies matches('([^|#])*')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -487,7 +487,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="EventDefinition.copyright">
@@ -587,7 +587,7 @@
       <path value="EventDefinition.effectivePeriod"/>
       <short value="When the event definition is expected to be used"/>
       <definition value="The period during which the event definition content was or is planned to be in active use."/>
-      <comment value="The effective period for a event definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
+      <comment value="The effective period for an event definition  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 might be published in 2015."/>
       <requirements value="Allows establishing a transition before a resource comes into effect and also allows for a sunsetting  process when new versions of the event definition are or are expected to be used instead."/>
       <min value="0"/>
       <max value="1"/>
@@ -609,7 +609,7 @@
         <valueString value="Does this apply?"/>
       </extension>
       <path value="EventDefinition.topic"/>
-      <short value="E.g. Education, Treatment, Assessment, etc."/>
+      <short value="E.g. Education, Treatment, Assessment, etc"/>
       <definition value="Descriptive topics related to the module. Topics provide a high-level categorization of the module that can be useful for filtering and searching."/>
       <requirements value="Repositories must be able to determine how to categorize the module so that it can be found by topical searches."/>
       <min value="0"/>
@@ -695,7 +695,7 @@
         <valueString value="Does this apply?"/>
       </extension>
       <path value="EventDefinition.relatedArtifact"/>
-      <short value="Additional documentation, citations, etc."/>
+      <short value="Additional documentation, citations, etc"/>
       <definition value="Related resources such as additional documentation, justification, or bibliographic references."/>
       <comment value="Each related resource is either an attachment, or a reference to another resource, but not both."/>
       <requirements value="Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content."/>

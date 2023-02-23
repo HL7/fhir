@@ -455,7 +455,12 @@
 
 	<processNote>
 		<number value="101"/>
-		<type value="print" />
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="print"/>
+			</coding>
+		</type>
 		<text value="Package codes are not permitted. Codes replaced by Insurer."/>
 		<language>
 			<coding>

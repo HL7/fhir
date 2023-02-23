@@ -71,7 +71,7 @@
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
-    <name value="HL7 v2 Mapping"/>
+    <name value="HL7 V2 Mapping"/>
   </mapping>
   <kind value="resource"/>
   <abstract value="false"/>
@@ -183,8 +183,8 @@
     </element>
     <element id="MedicationRequest.groupIdentifier">
       <path value="MedicationRequest.groupIdentifier"/>
-      <short value="Composite request this is part of"/>
-      <definition value="A shared identifier common to all requests that were authorized more or less simultaneously by a single author, representing the identifier of the requisition or prescription."/>
+      <short value="Composite request this is part of"/>      
+      <definition value="A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time."/>
       <requirements value="Requests are linked either by a &quot;basedOn&quot; relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation."/>
       <min value="0"/>
       <max value="1"/>
@@ -390,7 +390,7 @@
         <code value="boolean"/>
       </type>
       <isModifier value="true"/>
-      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc)"/>
+      <isModifierReason value="This element is labeled as a modifier because this element negates the request to occur (ie, this is a request for the medication not to be ordered or prescribed, etc.)"/>
       <isSummary value="true"/>
       <mapping>
         <identity value="rim"/>
@@ -508,7 +508,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.context"/>
+        <map value="Request.encounter"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>
@@ -742,7 +742,7 @@
       </binding>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reasonCode"/>
+        <map value="Request.reason"/>
       </mapping>
       <mapping>
         <identity value="script10.6"/>

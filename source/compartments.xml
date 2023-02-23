@@ -121,7 +121,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="159" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
+  <Table ss:ExpandedColumnCount="6" ss:StyleID="s65" x:FullColumns="1" x:FullRows="1">
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="158.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="198.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s65" ss:Width="98.0"/>
@@ -219,10 +219,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CarePlan</Data></Cell>
-    <Cell ss:StyleID="s67"><Data ss:Type="String">patient | performer</Data></Cell>
+    <Cell ss:StyleID="s67"><Data ss:Type="String">patient</Data></Cell>
     <Cell><Data ss:Type="String">encounter</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
-    <Cell><Data ss:Type="String">performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CareTeam</Data></Cell>
@@ -362,8 +360,8 @@
     <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
     <Cell><Data ss:Type="String">subject | performer</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">requester |  performer</Data></Cell>
-    <Cell><Data ss:Type="String">subject | requester |  performer</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="Default"><Data ss:Type="String">requester | performer</Data></Cell>
+    <Cell><Data ss:Type="String">subject | requester | performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUsage</Data></Cell>
@@ -865,7 +863,7 @@
    <Row>
     <Cell><Data ss:Type="String">InventoryItem</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Index="154">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ConditionDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
