@@ -172,7 +172,7 @@ sourceListMode
     ;
 
 targetListMode
-   : 'first' | 'share' | 'last' | 'collate'
+   : 'first' | 'share' | 'last' | 'single'
    ;
 
 inputMode
