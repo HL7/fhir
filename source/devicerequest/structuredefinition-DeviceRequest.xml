@@ -168,7 +168,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <element id="DeviceRequest.instantiatesUri">
+    <!-- <element id="DeviceRequest.instantiatesUri">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
@@ -194,7 +194,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="DeviceRequest.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="DeviceRequest.prnReason."/>

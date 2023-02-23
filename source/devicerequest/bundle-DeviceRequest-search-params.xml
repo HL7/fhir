@@ -173,7 +173,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <entry>
+  <!-- <entry>
     <resource>
       <SearchParameter>
         <id value="DeviceRequest-instantiates-uri"/>
@@ -191,7 +191,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry>
+  </entry> -->
   <entry>
     <resource>
       <SearchParameter>
