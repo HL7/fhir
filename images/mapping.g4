@@ -98,7 +98,7 @@ upperBound
     ;
 
 ruleContext
-	: identifier ('.' identifier)?
+	: identifier ('.' identifier)*
 	;
 
 sourceDefault

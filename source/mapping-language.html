@@ -407,11 +407,16 @@ Each [target] contains the following items:
 </pre>
 
 <ul>
- <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a target parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
-<p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p></li>
+ <li><b>context.element(.subElement)</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. 
+   <p>The context is an identifier which is either declared as a target for the map, a target parameter or 
+    any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
+  <p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p>
+  <p>The element may be further qualified by a subElement (recursively to any further depth). <code>src.c.p as p ...</code> is semantically 
+    equivalent to <code>src.c as t then { t.p as p ... }</code> though t is never made explicit in the case of subElements and cannot be referred to</p>
+</li>
 <li><b>transform(parameters)</b>: details how the content that is created is transformed from the source data using a specific transformation function. See below for the list of available functions. If no transform is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
  <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in the dependent rules</li>
- <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated. Values can be 'first', 'share', 'last' and 'collate'. TODO: What do these do?</li>
+ <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated. Values can be 'first', 'share', 'last' and 'single'. TODO: What do these do?</li>
 </ul>
 <p>
 Transform statements may just contain an invocation of a transform function. In this case, a variable must be defined, and the created value is available in the variable for use in subsequent transformations.
