@@ -720,7 +720,7 @@
       <short value="What the reason value should be used for/as"/>
       <definition value="What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
@@ -840,7 +840,7 @@
       <short value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)"/>
       <definition value="Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="CodeableConcept"/>
       </type>

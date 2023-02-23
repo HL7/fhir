@@ -167,7 +167,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <element id="NutritionOrder.instantiatesUri">
+    <!-- <element id="NutritionOrder.instantiatesUri">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
@@ -193,7 +193,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element>
+    </element> -->
     <element id="NutritionOrder.instantiates">
       <path value="NutritionOrder.instantiates"/>
       <short value="Instantiates protocol or definition"/>
