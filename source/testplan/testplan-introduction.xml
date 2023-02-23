@@ -4,38 +4,31 @@
 <a name="bnc"></a>
 <h2>Scope and Usage</h2>
 <p>
-Lists the current status or changes to an inventory.
-The current status of inventory is presented as the quantity of items, grouped in listings, where a listing can be the items in a location, or with a given status. This is a 'snapshot' of the current inventory.
-<br/>
-The changes to an inventory are represented as the additions (incoming) or substractions (consumptions or outgoing) of items to an inventory listing. This is often used when there is a need to determine the increment/decrement in stock, and there is a need to only transmit the difference, without the need to update the entire snapshot.
-<br/>
-The inventory status can be available as a response to a request, or can be done ad-hoc (e.g. report a consumption for consignment stock) or scheduled (e.g. recount the stock every 6 months).
-
-
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+The TestPlan is a canonical resource that defines how an system or specifications (which can be represented by FHIR artifacts or by narrative) are to be tested. It contains the business- and planning-language aspects of test planning, around the TestScript, which handles part of the test execution.
 </p>
+<p>A TestPlan describes the purpose, the dependencies, scope, test environment, test framework, test output, etc. It contains test cases which can describe narrative test enter/exit criteria, test data, etc. (enter criteria are a common name for preconditions, exit criteria are the criteria for the tests to finish - successfully or unsuccessfully e.g. "Unable to Test".
+</p>
+<p>
+The TestPlan supports traditional testing as well as agile testing (TDD, BDD). 
+It contains pointers to the data itself, or the information for the test data to be obtained, e.g. the instructions for synthetic data generation.
+</p>
+<p>
+TestPlans can depend or extend other test plans - TestPlan is a canonical resource to allow reuse - one example of this would be a national FHIR specification (as an IG or a Requirement) that decribes that a System has to be conformant to IHE profiles, WHO datasets, ISO IDMP models, OpenHIE specifications, and national terminologies, in one of the national languages. If any of these specifications  have a TestPlan resource, such TestPlans can be reused, combined, and extended downstream.
+</p>  
+  <br/>
+
 </div>
 
 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-The TestPlan resource is associated with consumable items - typically resources like Medication, Devices.
-Inventory management is related to SupplyRequest and SupplyDelivery, which may be associated with an increase or decrease of inventory.
+The TestPlan is related to, but not overlapping, the TestScript resource, as the TestPlan is intended to contain the planning and non-technical part of the testing, which is necessary to describe "what to test". The TestScript describes "how to test". The TestPlan is necessary to be maintained from a Business perspective, - test criteria can be expected to be defined or validated by business-oriented  authors, while testscripts can be defined by technical test teams.
 </p>
 
 <p>
-xxDispense: The TestPlan resource can also be used to indicate consumption of an item. When a Dispense event occurs, there is a depletion in stock. 
-TestPlan does not overlap with Dispense: Dispense carries the 'clinical' meaning that a product has been assigned to a patient. The TestPlan captures the logistic aspect.
-For example (see examples)
-<ul>
-<li>when a Medication is dispensed to a patient, the use of a TestPlan is not needed</li>
-<li>when a Medication is dropped and afterwards disposed of, and therefore not used by any patient, the TestPlan can captures this and inform the inventory management system about the subtraction of that item. </li>
-<li>when there is a need to inform, for inventory reasons, the items that have been taken from stock, this can be done with an TestPlan.</li>
-</ul>
-
-
-</p>
+A TestPlan resource can be associated with any canonical resource. This includes, but is not limited to, the ImplementationGuide resource - a TestPlan can be defined for an entire Implementation Guide, or for some of the artifacts in the Implementation Guide, like an AcrotDefinition, Requirements, etc.
+  </p>
 </div>
 
 
