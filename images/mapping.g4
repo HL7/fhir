@@ -77,7 +77,7 @@ ruleSources
     ;
 
 ruleSource
-    :  ruleContext sourceType? sourceDefault? sourceListMode? alias? whereClause? checkClause? log?
+    :  ruleContext sourceType? sourceCardinality? sourceDefault? sourceListMode? alias? whereClause? checkClause? log?
     ;
 
 ruleTargets
@@ -85,7 +85,11 @@ ruleTargets
     ;
 
 sourceType
-    : ':' identifier (INTEGER '..' upperBound)?
+    : ':' identifier
+    ;
+
+sourceCardinality
+    : INTEGER '..' upperBound
     ;
 
 upperBound
