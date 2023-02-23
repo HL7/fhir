@@ -192,7 +192,7 @@
       </SearchParameter>
     </resource>
   </entry>
-  <!-- <entry>
+  <entry>
     <resource>
       <SearchParameter>
         <id value="ServiceRequest-instantiates-uri"/>
@@ -210,7 +210,7 @@
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>
-  </entry> -->
+  </entry>
   <entry>
     <resource>
       <SearchParameter>
