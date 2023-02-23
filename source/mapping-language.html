@@ -642,7 +642,7 @@ of these maps.
 </p>
 
 <a name="simple"></a>
-<h3>Simple Form</h3>
+<h3>Simple Form: Identity transform</h3>
 <p>
 If no dependent rules are specified, and if the is only one source and target, and
 they both specify a variable, the rule can be written in an abbreviated form:
@@ -657,8 +657,32 @@ This is implicitly the same as
   src.element as vvs -&gt; tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
 </pre>
 <p>
-Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
+Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. 
+Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
 </p>
+<p>
+This simple form is sometimes known as the identity transform, though strictly, the types of the source and the target may be different
+(e.g. different FHIR versions), but have the same properties and value domains. The simple transform (copy all properties as is recursively
+following the types) is sufficiently common that there's an even shorter form defined:
+</p>
+<pre>
+  src -&gt; tgt: type, subtype, action, recorded;
+</pre>
+<p>
+This syntax is allowed as the first entry in the rules section, and is a purely syntactic short-cut for the longer form:
+</p>
+<pre>
+  src.type -&gt; tgt.type;
+  src.subtype -&gt; tgt.subtype;
+  src.action -&gt; tgt.action;
+  src.recorded -&gt; tgt.recorded;
+</pre>
+<p>
+The primary attraction of this shorter form is that it allows the reader to focus on the 
+parts of the transform that involve change, which is attractive in version to version 
+changes where there is changes on only a few elements.
+</p>
+
 <h3>Default mapping groups</h3>
 <p>
 It is not necessary to explicitly invoke groups for each mapping. Instead groups can be declared to be the "default" mapping for a given source and target type. Groups acting as defaults have either &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; in their declaration.</p>
