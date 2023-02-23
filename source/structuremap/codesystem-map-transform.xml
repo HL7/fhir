@@ -45,89 +45,166 @@
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/map-transform"/>
   <content value="complete"/>
+  <property>
+    <code value="fhirpath">
+      <extension url="http://hl7.org/fhir/StructureDefinition/rendered-value">
+        <valueString value="FHIRPath Equivalent"/>
+      </extension>
+    </code>
+    <description value="FHIRPath equivalent for transform function"/>
+    <type value="string"/>
+  </property>
   <concept>
     <code value="create"/>
     <display value="create"/>
     <definition value="create(type : string) - type is passed through to the application on the standard API, and must be known by it."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="copy"/>
     <display value="copy"/>
     <definition value="copy(source)."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="truncate"/>
     <display value="truncate"/>
     <definition value="truncate(source, length) - source must be stringy type."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="substring"/>
+    </property>
   </concept>
   <concept>
     <code value="escape"/>
     <display value="escape"/>
     <definition value="escape(source, fmt1, fmt2) - change source from one kind of escaping to another (plain, java, xml, json). note that this is for when the string itself is escaped."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="cast"/>
     <display value="cast"/>
-    <definition value="cast(source, type?) - case source from one type to another. Target type can be left as implicit if there is one and only one target type known. The default namespace for the type is 'FHIR' (see [FHIRPath type specifiers](http://hl7.org/fhirpath/N1/#is-type-specifier))"/>
+    <definition value="cast(source, type?) - cast (convert) source from one type to another. Target type can be left as implicit if there is one and only one target type known. The default namespace for the type is 'FHIR' (see [FHIRPath type specifiers](http://hl7.org/fhirpath/N1/#is-type-specifier))"/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="append"/>
     <display value="append"/>
     <definition value="append(source...) - source is element or string."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="&amp; (String concatenation)"/>
+    </property>
   </concept>
   <concept>
     <code value="translate"/>
     <display value="translate"/>
     <definition value="translate(source, uri_of_map) - use the translate operation."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="%terminologies.translate()"/>
+    </property>
   </concept>
   <concept>
     <code value="reference"/>
     <display value="reference"/>
     <definition value="reference(source : object) - return a string that references the provided tree properly."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="related to resolve() but returns the string pointer"/>
+    </property>
   </concept>
   <concept>
     <code value="dateOp"/>
     <display value="dateOp"/>
     <definition value="Perform a date operation. *Parameters to be documented*."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="uuid"/>
     <display value="uuid"/>
     <definition value="Generate a random UUID (in lowercase). No Parameters."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="pointer"/>
     <display value="pointer"/>
     <definition value="Return the appropriate string to put in a reference that refers to the resource provided as a parameter."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="evaluate"/>
     <display value="evaluate"/>
     <definition value="Execute the supplied FHIRPath expression and use the value returned by that."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="cc"/>
     <display value="cc"/>
     <definition value="Create a CodeableConcept. Parameters = (text) or (system. Code[, display])."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="c"/>
     <display value="c"/>
     <definition value="Create a Coding. Parameters = (system. Code[, display])."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="qty"/>
     <display value="qty"/>
     <definition value="Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text is the natural representation e.g. [comparator]value[space]unit."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="id"/>
     <display value="id"/>
     <definition value="Create an identifier. Parameters = (system, value[, type]) where type is a code from the identifier type value set."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
   <concept>
     <code value="cp"/>
     <display value="cp"/>
     <definition value="Create a contact details. Parameters = (value) or (system, value). If no system is provided, the system should be inferred from the content of the value."/>
+    <property>
+      <code value="fhirpath"/>
+      <valueString value="n/a"/>
+    </property>
   </concept>
 </CodeSystem>
