@@ -50,6 +50,11 @@
   <purpose value="Many implementations are not prepared to use REST and need a messaging based infrastructure."/>
   <fhirVersion value="5.0.0"/>
   <mapping>
+    <identity value="workflow"/>
+    <uri value="http://hl7.org/fhir/workflow"/>
+    <name value="Workflow Pattern"/>
+  </mapping>
+  <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
     <name value="HL7 V2 Mapping"/>
@@ -79,6 +84,10 @@
       <definition value="The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle."/>
       <min value="0"/>
       <max value="*"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
       <mapping>
         <identity value="v2"/>
         <map value="MSH / MSA / ERR"/>
@@ -118,6 +127,10 @@
         <strength value="example"/>
         <description value="One of the message events defined as part of this version of FHIR."/>
       </binding>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.code"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.what[x]"/>
@@ -255,7 +268,7 @@
         <valueString value="Is this in the 80%?"/>
       </extension>
       <path value="MessageHeader.sender"/>
-      <short value="Real-world sender of the message"/>
+      <short value="Real world sender of the message"/>
       <definition value="Identifies the sending system to allow the use of a trust relationship."/>
       <comment value="Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone. Proposing to remove and rely on Task to convey this information."/>
       <requirements value="Allows routing beyond just the application level."/>
@@ -269,6 +282,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject[x]"/>
@@ -302,6 +319,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.author"/>
@@ -459,6 +480,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
       </type>
       <isSummary value="true"/>
+      <mapping>
+        <identity value="workflow"/>
+        <map value="Event.performer.actor"/>
+      </mapping>
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.witness"/>
