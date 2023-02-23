@@ -3461,13 +3461,13 @@
     </element>
     <element id="ExplanationOfBenefit.processNote.type">
       <path value="ExplanationOfBenefit.processNote.type"/>
-      <short value="display | print | printoper"/>
+      <short value="Note purpose"/>
       <definition value="The business purpose of the note text."/>
       <requirements value="To convey the expectation for when the text is used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -3476,7 +3476,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The presentation types of notes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
       </binding>
