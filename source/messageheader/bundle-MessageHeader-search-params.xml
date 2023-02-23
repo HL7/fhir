@@ -165,7 +165,7 @@
           <valueString value="MessageHeader.sender"/>
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/MessageHeader-sender"/>
-        <description value="Real-world sender of the message"/>
+        <description value="Real world sender of the message"/>
         <code value="sender"/>
         <type value="reference"/>
         <expression value="MessageHeader.sender"/>
