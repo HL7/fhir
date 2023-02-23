@@ -1,16 +1,10 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
-</head>
-
-<body>
 	<a name="process"></a>
 	<h4>Merge Processing</h4>
 		<p>
 			The merge operation will have multiple stages, and some of these may take additional time for processing and thus be done asynchronously.
 		</p>
-		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+		<table  class="grid">
 			<tr>
 				<td><b>Stage</b></td>
 				<td><b>Description</b></td>
@@ -373,7 +367,7 @@
 		<p>
 			The FHIR Request Message should be a Bundle with:
 		</p>
-		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+		<table class="grid">
 			<tr>
 				<td><b>Resource</b></td>
 				<td><b>Cardinality</b></td>
@@ -403,7 +397,7 @@
 		<p>
 			The FHIR Response Message should be a bundle with:
 		</p>
-		<table border="1" cellpadding="1" cellspacing="2" frame="box">
+		<table class="grid">
 			<tr>
 				<td><b>Resource</b></td>
 				<td><b>Cardinality</b></td>
@@ -436,6 +430,44 @@
 			</tr>
 		</table>
 
+		<a name="error-codes"></a>
+		<h4>Reporting Errors/Outcomes</h4>
+		<p>
+			Any errors will be reported with an OperationOutcome resource and could include:
+		</p>
+			<table class="grid">
+			<thead>
+				<tr>
+					<th><div>Issue</div></th>
+					<th><div>Description</div></th>
+					<th><div>Http Status</div></th>
+				</tr>
+			</thead>
+			<tbody aria-live="polite" aria-relevant="all">
+				<tr>
+					<td>err: Same resource</td>
+					<td>The Source and Target matching resulted in the same FHIR Patient resource, likely already merged.</td>
+					<td>422 Unprocessable Entity</td>
+				</tr>
+				<tr>
+					<td>err: Missing Source Parameters</td>
+					<td>There are no source patient parameters, please include either a source-patient, source-patient-identifier parameter (or both)</td>
+					<td>Bad Request</td>
+				</tr>
+				<tr><td>err: Missing Target Parameters</td><td>There are no target patient parameters, please include either a target-patient, target-patient-identifier parameter (or both)</td><td>Bad Request</td></tr>
+				<tr><td>err: Target Patient Id mismatch</td><td><p>The target patient id does not match the patient id in the result-patient resource</p></td><td>Bad Request</td></tr>
+				<tr><td>err: Source Patient not found</td><td>The source patient was not found based on the provided parameters</td><td>422 Unprocessable Entity</td></tr>
+				<tr><td>err: Target Patient not found</td><td>The target patient was not found based on the provided parameters</td><td>422 Unprocessable Entity</td></tr>
+				<tr><td>err: Target/Source not duplicates</td><td><p>Attempt to merge 2 records that are known to not be duplicates of each other.</p><p><em>(Previous manual marking of the resources was done, and will need to be removed before retrying)</em></p></td><td>422 Unprocessable Entity</td></tr>
+				<tr><td>err: Target patient already merged</td><td>The Target patient resource was previously merged into another patient record, and is not a suitable target for merging.</td><td>422 Unprocessable Entity</td></tr>
+				<tr><td>err: Target patient inactive</td><td><p>The Target patient resource is marked as inactive</p><p><span style="color: rgb(255,0,0);">Note: Further feedback on this case?</span></p></td><td>422 Unprocessable Entity</td></tr>
+				<tr><td>info: Target Patient updated</td><td>Additional notes on what happened to the target patient resource on update, such as if fields weren't updated as requested due to internal business rules etc</td><td>-</td></tr>
+				<tr><td>info: Update summary</td><td>Other notes that are included reporting on what changed, such as how many resources were/may be effected</td><td>-</td></tr>
+				<tr><td>warn: Recommend reverse merge</td><td><p>The source resource is much larger than the target resource (in terms of resources that reference it) and recommend that the merge occur in the other direction</p><p>Note: This would likely be returned/evaluated during the preview stage/mode if implemented.</p></td><td>-</td></tr>
+				<tr><td><span style="color: rgb(255,0,0);">info: Patient merge in progress</span></td><td><p><span style="color: rgb(255,0,0);">Note: This is applicable to other search operations on resources referencing these patient resource(s), and not specifically the merge operation itself</span></p><p>The patient record referenced by these records is currently being merged to/from another patient resource. Data may be incomplete, or inconsistent.</p><p><em>(this MAY be returned during a clinical data search using the patient ID as a search parameter)</em></p></td><td>-</td></tr>
+			</tbody>
+		</table>
+			
 	<a name="safety"></a>
 	<h4>Safety Checklist</h4>
 		[%stu-note dstu%]
@@ -443,6 +475,3 @@
 				Seeking implementer feedback on safety checklist items to include.
 			</p>
 		[%end-note%]
-</body>
-
-</html>

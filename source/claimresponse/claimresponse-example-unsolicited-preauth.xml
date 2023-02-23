@@ -194,7 +194,12 @@
 
 	<processNote>
 		<number value="101"/>
-		<type value="print" />
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="print"/>
+			</coding>
+		</type>
 		<text value="Please submit a Pre-Authorization request if a more extensive examination or urgent services are required."/>
 		<language>
 			<coding>
