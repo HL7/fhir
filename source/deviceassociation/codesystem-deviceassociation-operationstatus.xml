@@ -16,10 +16,6 @@
     <valueInteger value="2"/>
   </extension>
   <url value="http://hl7.org/fhir/deviceassociation-operationstatus"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2106"/>
-  </identifier>
   <version value="5.0.0"/>
   <name value="FHIRDeviceAssociationOperationStatus"/>
   <title value="FHIR DeviceAssociation Operation Status"/>
