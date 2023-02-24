@@ -150,7 +150,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <!-- <element id="Task.instantiatesUri">
+    <element id="Task.instantiatesUri">
       <path value="Task.instantiatesUri"/>
       <short value="Formal definition of task"/>
       <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
@@ -169,7 +169,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element> -->
+    </element>
     <element id="Task.basedOn">
       <path value="Task.basedOn"/>
       <short value="Request fulfilled by this task"/>
