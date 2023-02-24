@@ -128,7 +128,7 @@
         </extension>
         <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-payload"/>
         <description value="The mime-type of notifications"/>
-        <code value="contentType"/>
+        <code value="content-type"/>
         <type value="token"/>
         <processingMode value="normal"/>
       </SearchParameter>
