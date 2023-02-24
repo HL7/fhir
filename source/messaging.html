@@ -47,7 +47,7 @@ The other resources in the bundle depend on the type of the request.
 The events supported in FHIR, along with the resources that are included in them, are defined below.
 </p>
 <p>
-The destination application processes the request and returns one or more response messages
+The destination application processes the request and returns zero or more response messages
 which are also a <a href="bundle.html">bundle</a> of resources identified
 by the <a href="bundle-definitions.html#Bundle.type">type</a> "message", with the first
 resource in each bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
@@ -67,15 +67,16 @@ The message bundle SHALL include only the MessageHeader resource, and any resour
 <p>
 This specification assumes that content will be delivered from one application to
 another by some delivery mechanism, and then one or more responses will be returned
-to the source application. The exact mechanism of transfer is irrelevant to
-this specification, but may include file transfer, HTTP based transfer, MLLP
-(HL7 minimal lower layer protocol), MQ series messaging or anything else.
-The only requirement for the transfer layer is that requests are sent to
-a known location and responses are returned to the source of the request.
-This specification considers the source and destination applications as logical
-entities, and the mapping from logical source and destination to implementation
-specific addresses is outside the scope of this specification, though this
-specification does provide a direct delivery mechanism below.
+to the source application. This specification provides a direct delivery mechanism below, 
+although the exact mechanism of transfer can be abstracted, and may include file transfer, 
+HTTP based transfer, MLLP (HL7 minimal lower layer protocol), MQ series messaging or anything 
+else. It is expected that these additional types of transfer mechanisms will define their own 
+implementation guides to define the exact message transfer protocol.  The only requirement for 
+the transfer layer is that requests are sent to a known location and responses are returned to 
+the source of the request. This specification considers the source and destination applications as 
+logical entities, and the mapping from logical source and destination to implementation specific 
+addresses is outside the scope of this specification.  
+
 </p>
 <p>
 The agreements around the content of the messages and the behavior of the two
@@ -177,23 +178,8 @@ This specification does not dictate any particular error handling protocols or r
 </p>
 
 
-<h3>MessageHeader Identifiers &amp; Timestamps</h3>
-<p>
-An incoming message contains two identifiers: the Bundle.id and
-the <a href="messageheader.html">MessageHeader</a>.id.
-Each time a new message is created, it SHALL be assigned an identifier
-(MessageHeader.id) that is unique within that message stream.
-Note that since message streams are often merged with other streams,
-it is recommended that the identifier should be globally unique.
-This can be achieved by using a UUID or an OID. Each time a message is sent,
-the Bundle.id should be changed to a new value.
-</p>
-<p>
-When a receiver receives and processes the message, it responds with a
-new message with a new identifier, wrapped in a bundle which also has a new id.
-The response message also quotes the request MessageHeader.id in
-MessageHeader.response.identifier so that the source system can relate the response to its request.
-</p>
+<h3>Message Identifiers &amp; Timestamps</h3>
+
 
 <p>
 A message has 2 important timestamps:
@@ -207,7 +193,21 @@ In addition, the message may have additional timestamps in additional resources
 in the message, either .meta.lastUpdated or others throughout the resources.
 The meaning of these will depend on the message event. 
 </p>
+<p>An incoming message contains exactly one Bundle.identifier which identifies the message. 
+	Each time a new message is created, it SHALL be assigned an identifier (Bundle.identifier) 
+	that is unique within that message stream. Note that since message streams are often merged 
+	with other streams, it is recommended that the identifier should be globally unique. 
+	This can be achieved by using a UUID or an OID. Each time a message is sent, the Bundle.identifier 
+	should be changed to a new value.</p>
 
+<p>When a receiver receives and processes the message, it responds with a new message with a new 
+	identifier, contained in the Bundle.identifier element of the wrapping bundle. The response 
+	message also quotes the request Bundle.identifier in MessageHeader.response.identifier 
+	so that the source system can relate the response to its request.</p>
+
+<p>Note that Bundle.id and MessageHeader.id also must be present, according to the rules of the 
+	underlying Resource.id definition, which allows the potential additional or complementary use 
+	of these resource using the FHIR RESTful API.</p>
 
 <a name="reliable"></a>
 <h3>Absence of Reliable Messaging</h3>
@@ -226,20 +226,18 @@ configured timeout period based on the value specified in the
 for the event associated with the message:
 </p>
 <table class="grid">
- <tr><td>Consequence</td><td>Resend the same message (with the same MessageHeader.id) with the same Bundle.id</td></tr>
- <tr><td>Currency</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
- <tr><td>Notification</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
+ <tr><td>Consequence</td><td>SHALL resend the same message content with the same Bundle.identifier</td></tr>
+ <tr><td>Currency</td><td>SHALL resend the same message content with a different Bundle.identifier</td></tr>
+ <tr><td>Notification</td><td>SHOULD resend the same message content with the same Bundle.identifier but MAY resend with a different Bundle.identifier</td></tr>
 </table>
 <p>
-When a receiver implements reliable messaging, it SHALL check the incoming Bundle.id
-and MessageHeader.id against a cache of previously received messages. The
+When a receiver implements reliable messaging, it SHALL check the incoming Bundle.identifier against a cache of previously received messages. The
 correct action to take depends on what is received:
 </p>
 <table class="grid">
- <tr><td>Both the Bundle.id and MessageHeader.id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
- <tr><td>Both the Bundle.id and MessageHeader.id have been received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
- <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The receiver may either reprocess the message, or reject the message</td></tr>
- <tr><td>The Bundle.id has already been received, but the MessageHeader.id is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
+ <tr><td>The Bundle.identifier has not been received</td><td>Process the message</td></tr>
+ <tr><td>The Bundle.identifier has already been received</td>
+ 	<td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
 </table>
 <p>
 The duration period for caching does generally not need to be very long. At a minimum, it
@@ -366,6 +364,9 @@ The REST API, however, provides a set of basic operations on all resources
 that would need special definitions in the messaging framework - definitions that
 are not provided.
 </p>
+<p>"Message identity is always driven by the Bundle (and Bundle.identifier).  
+	The MessageHeader within the Bundle does not have reliable identity."  </p>
+
 <p>
 There is no expectation that RESTful systems will need to offer messaging
 support, or vice versa, though systems may find it useful to support both
