@@ -110,32 +110,30 @@ the Patient.generalPractitioner field.</p>
 <h2>Patient Gender and Sex</h2>
 
 <p>
-Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient's gender and sex with a single value. However, there are many considerations around sex and gender documentation and interoperability.  Listed below are various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can be communicated.
+Many systems and organizations only provide for a single attribute that aspires to represent all aspects of a patient's gender and sex with a single value. However, there are many considerations around sex and gender documentation and interoperability. Listed below are various social and biological attributes that are relevant in the healthcare setting, as well as information on how each can be communicated. Each of these attributes may be useful to address different use cases, and it is up to the implementer to identify which attribute or combination of attributes are most appropriate.
 </p>
 <ul>
- <li><b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property represents an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms.  Systems should not infer any specific clinical meaning from Patient.gender without pre-coordination with exchange partners.</li>
-</ul>
-<p>
-In addition to this administrative gender, other kinds of gender or sex properties may be represented:
-</p>
-<ul>
-	<li><b>Gender Identity</b> - a gender the patient has indicated they consider themselves to be.  The gender identity can influence how the patient prefers to be addressed by care providers and other individuals.   The standard <a href="[%extensions-location%]StructureDefinition-individual-genderIdentity.html">genderIdentity</a> extension may be used to communicate this property.  This extension is appropriate when the gender identity is openly known.  When determining how to address the patient, the <a href="[%extensions-location%]StructureDefinition-individual-pronouns.html">pronouns</a> extension may also be applicable.
+	<li>
+		<b>Administrative Gender</b> - in order to interoperate with systems that use a single generic property, the basic <a href="patient-definitions.html#Patient.gender">Patient.gender</a> property represents an administrative gender: the gender that the patient is considered to have for administration and record keeping purposes. This property is often used as an input to patient matching algorithms. Systems should not infer any specific clinical meaning from Patient.gender without pre-coordination with exchange partners.
 	</li>
-	<li><b>Sex for Clinical Use (SFCU)</b> - a categorization of a patient's clinical sex derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, etc. This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practicies associated with the relevant reference population.  The standard <a href="[%extensions-location%]StructureDefinition-patient-sexForClinicalUse.html">sexForClinicalUse</a> extension may be used to communicate this property.
-	
-	<ul>
-	<li><b>Clinical Observations about sex characteristics</b> - a testable observation about a biological property of the patient.  This could include karyotypic/genetic/chromosomal sex, gonadal sex, ductal sex, hormone levels, or various other phenotypic attributes, etc.  Clinical observations about sex characteristics should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC and/or SNOMED.  These observations may serve as supporting information for the Sex for Clinical Use categorization.
+	<li>
+		<b>Gender Identity</b> - a gender the patient has indicated they consider themselves to be. The gender identity can influence how the patient prefers to be addressed by care providers and other individuals. The standard <a href="[%extensions-location%]StructureDefinition-individual-genderIdentity.html">genderIdentity</a> extension may be used to communicate this property. When determining how to address the patient, the <a href="[%extensions-location%]StructureDefinition-individual-pronouns.html">pronouns</a> extension may also be applicable.		
 	</li>
-	</ul>
-	</li>	
-	<li><b>Recorded Sex or Gender</b> - the recorded sex or gender concept includes the various sex and gender concepts that are often used in existing systems but are not known to represent a gender identity or sex for clinical use.  Examples of recorded sex or gender concepts include administrative gender, administrative sex, and sex assigned at birth.  Other examples include the sex or gender marker on a birth certificate, insurance card, driver's license, passport or other document.  These sex or gender concepts vary widely in their use and possible values. For the purposes of exchanging these concepts, implementers are encouraged to define the specific sex or gender concept that is relevant for their use case, and create a use-case specific property or extension to represent that specific concept.  For example, if the sex assigned at birth is an important concept in a specific jurisdiction, that jurisdiction can create a realm-specific extension for that concept.  In cases where a specific property or extension is not practical, or there is a need to represent a historical field that is not well defined, there is a standard <a href="[%extensions-location%]StructureDefinition-individual-recordedSexOrGender.html">recordedSexOrGender</a> extension that may be used.
-	<ul>
-	<li><b>Legal Sex or Gender</b> - a sex or gender value documented on a legal document, such as a passport, driver's license, birth certificate, or other document.  Regional and national entities often categorize citizens using a single legal sex value.  The legal sex of a patient can vary from region to region and country to country.  A single patient may have multiple legal sex values at the same time in different jurisdictions, or even on different legal documents within a single jurisdiction.  In cases where the Patient.gender administrative property is not sufficient to communicate legal sex, either realm specific extensions or the <a href="[%extensions-location%]StructureDefinition-individual-recordedSexOrGender.html">recordedSexOrGender</a> extension may be used.
+	<li>
+		<b>Sex Parameter for Clinical Use (SPCU)</b> - a parameter that provides guidance on how a recipient should apply settings or reference ranges that are derived from observable information such as an organ inventory, recent hormone lab tests, genetic testing, menstrual status, obstetric history, etc..  This property is intended for use in clinical decision making, and indicates that treatment or diagnostic tests should consider best practices associated with the relevant reference population. The standard <a href="[%extensions-location%]StructureDefinition-patient-sexParameterForClinicalUse.html">sexParameterForClinicalUse</a> extension may be used to communicate this property.
 	</li>
-	<li><b>Sex assigned at Birth</b> - the sex assigned at birth is a sex or gender value assigned to a patient at birth.  This value is often documented on the birth registration. Some jurisdictions allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some jurisdictions also allow birth registration information to be updated.  The sex assigned at birth may often be a poor approximation of the patient's current sex for clinical use, especially for adult patients.  See <a href="[%extensions-location%]StructureDefinition-patient-sexForClinicalUse.html">sexForClinicalUse</a> as a way to communicate a patient's current sex for clinical use.  Some jurisdictions may define a realm-specific extension for this property. It is also possible to use an observation, using the LOINC code <a href="http://loinc.org/76689-9">76689-9 (Sex assigned at birth)</a> or the <a href="[%extensions-location%]StructureDefinition-individual-recordedSexOrGender.html">recordedSexOrGender</a> extension.
+	<li>
+		<b>Clinical Observations about sex characteristics</b> - a testable observation about a biological property of the patient. This could include karyotypic sex, genetic sex, chromosomal sex, gonadal sex, ductal sex, hormone levels, or various other phenotypic attributes. Clinical observations about sex characteristics should be represented using <a href="observation.html">Observation</a>, qualified with the appropriate clinical codes from LOINC, SNOMED, or other relevant  clinical terminologies. These observations may serve as supporting information for the Sex Parameters for Clinical Use categorization.
 	</li>
-	</ul>
-	</li>	
+	<li>
+		<b>Recorded Sex or Gender (RSG)</b> - recorded sex or gender information includes the various sex and gender concepts that are often used in existing systems but are known NOT to represent a gender identity, sex parameter for clinical use, or attributes related to sexuality, such as sexual orientation, sexual activity, or sexual attraction. Examples of recorded sex or gender concepts include administrative gender, administrative sex, legal sex, and sex assigned at birth.  When exchanging these concepts, refer to the guidance in the <a href="http://hl7.org/xprod/ig/uv/gender-harmony/">Gender Harmony Implementation Guide.</a>
+	</li>
+	<li>
+		<b>Legal Sex</b> - a sex value documented on a legal document, such as a passport, driver's license, birth certificate, or other document.  Regional and national entities often categorize citizens using a single legal sex value. The legal sex of a patient can vary from region to region and country to country. A single patient may have multiple legal sex values at the same time in different jurisdictions, or even on different legal documents within a single jurisdiction. In cases where the Patient.gender administrative property is not sufficient to communicate legal sex, refer to the guidance in the <a href="http://hl7.org/xprod/ig/uv/gender-harmony/">Gender Harmony Implementation Guide</a>.	
+	</li>
+	<li>	
+		<b>Sex assigned at Birth</b> - the sex assigned at birth is a sex or gender value assigned to a patient at birth. This value is often documented on the birth registration. Some jurisdictions allow variations such as not yet determined, unknown, or undifferentiated, while others do not. Some jurisdictions also allow birth registration information to be updated. The sex assigned at birth may often be a poor approximation of the patient's current sex for clinical use, especially for adult patients. See <a href="[%extensions-location%]StructureDefinition-patient-sexParameterForClinicalUse.html">sexParameterForClinicalUse</a> as a way to communicate a patient's current sex for clinical use.  Refer to the guidance in the <a href="http://hl7.org/xprod/ig/uv/gender-harmony/">Gender Harmony Implementation Guide</a> for options to exchange this concept.
+	</li>		
 </ul>
 <p>
 For veterinary use, the animal extension also includes the genderStatus which indicates sterility information.
@@ -201,6 +199,32 @@ The Patient/RelatedPerson structure should also be created for ongoing usage, as
 	&lt;/partOf&gt;
 &lt;/Encounter&gt;
 </pre>
+	
+<a name="merge"></a>
+<h2>Merging records</h2>
+<p>
+This specification does not specify merge functionality: if multiple patient records are found to be 
+duplicates, they can be linked together, as described above. These links merely express the relationship
+between records, and in the case of a replacement link, indicate a "master" record.  This specification
+does not mandate that FHIR servers migrate information between such records on finding such a link. Note:
+</p>
+<ul>
+ <li>Health information administrators may call the process "merging", but it is often implemented as "linking" at the record level</li>
+ <li>Servers are allowed to implement merging/record migration even though it is not mandated. </li>
+</ul>
+<p>
+[%stu-note dstu%]
+ We are seeking input from the implementer community on what effect linking/merging/unlinking should have on 
+other functionality such as the GET operation, searching, reverse includes, etc.;<br/>
+How should an unlink behavior be done?<br/>
+How will the patient compartment interact with the merge?<br/>
+This functionality and related behaviors is subject to ongoing experimentation and implementation testing, 
+with a definition to be proposed in a future version of this specification.
+</p>
+<p>
+Feedback <a href="http://hl7.org/fhir-issues">here</a>.
+[%end-note%]
+</p>
 
 <a name="match"></a>
 <h2>Patient Matching using an MPI</h2>

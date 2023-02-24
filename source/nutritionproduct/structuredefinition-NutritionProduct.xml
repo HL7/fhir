@@ -188,7 +188,7 @@
     <element id="NutritionProduct.manufacturer">
       <path value="NutritionProduct.manufacturer"/>
       <short value="Manufacturer, representative or officially responsible for the product"/>
-      <definition value="The organisation (manufacturer, representative or legal authorisation holder) that is responsible for the device."/>
+      <definition value="The organisation (manufacturer, representative or legal authorization holder) that is responsible for the device."/>
       <min value="0"/>
       <max value="*"/>
       <type>

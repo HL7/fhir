@@ -25,21 +25,21 @@ This page, and the concept of <i>safety</i> in an API specification, needs furth
 Feedback is welcome <a href="http://hl7.org/fhir-issues">here</a>.
 [%end-note%]
 
-<h3>Implementer's Safety Check List</h3>
+<h3>Implementer's Safety CheckList</h3>
 <p>
 FHIR is as simple to implement as we know how to make it. However, due to the nature of
 healthcare, and healthcare processes, and cultural concerns, there are a number of features in
 FHIR that implementers are obliged to consider in order to implement safe systems.
 </p>
 <p>
-This section is a check list to help implementers be sure that they've considered all the parts
+This section is a checklist to help implementers be sure that they've considered all the parts
 of FHIR that impact on their system design with regard to safety. Note that for this list, 
 safety is interpreted loosely, and the list covers security and privacy issues as well. 
 </p>
 
 <p>
-This safety check list is also available as a <a href="codesystem-safety-entries.html">Code System</a> to facilitate
-formal references to these check list items. For instance, application registration processes may wish to 
+This safety checklist is also available as a <a href="codesystem-safety-entries.html">Code System</a> to facilitate
+formal references to these checklist items. For instance, application registration processes may wish to 
 require applications to assert that they pass some of these checks. As an example, the formal URL for the first check 
 item is <code>http://hl7.org/fhir/safety-entries#life-cycle</code>.
 </p>
@@ -73,7 +73,7 @@ Dates and timezone issues are well-known sources of confusion and safety issues 
 </p>
 
 <ol start="12">
- <li title="time-zone"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#time-zone"> </a>My system checks for time zones and adjusts times appropriately. (note: time zones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
+ <li title="time-zone"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#time-zone"> </a>My system checks for timezones and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see <a href="https://www.w3.org/TR/timezone/">W3C Timezone Advice</a>, and note that some fields should be timezone corrected, and others should not be)</li>
  <li title="date-rendering"><input type="checkbox"/><a name="http://hl7.org/fhir/safety-entries#date-rendering"> </a>My system renders dates safely for changes in culture and language (the date formats D-M-Y and M-D-Y are not differentiated for many dates, and this is a well-known source of confusion. Systems should use the month name, or otherwise be specific for each date when rendering, unless
    there is solid confidence that such confusion cannot arise, even in the future when information/narrative from resources will be shared much more widely)</li>
 </ol>
@@ -190,7 +190,7 @@ With regard to #38, Systems SHOULD check the narrative status. Specifically, if 
 <a name="other"> </a>
 <h3>Other Safety Checks</h3> 
 <p>
-Obviously, this list is only a small part of the overall safety check list for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
+Obviously, this list is only a small part of the overall safety checklist for an application, which will have checks regarding jurisdictionally mandated policies, internal integrity, etc.
 </p>
 <p>
 In addition, server developers should check these specific additional checks for client convenience:

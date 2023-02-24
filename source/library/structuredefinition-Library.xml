@@ -171,10 +171,6 @@
         <map value="FiveWs.version"/>
       </mapping>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.version"/>
-      </mapping>
-      <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
       </mapping>
@@ -204,10 +200,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.version"/>
-      </mapping>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.versionAlgorithm"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
@@ -575,10 +567,6 @@
         <map value="N/A (to add?)"/>
       </mapping>
       <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyright"/>
-      </mapping>
-      <mapping>
         <identity value="objimpl"/>
         <map value="no-gen-base"/>
       </mapping>
@@ -600,10 +588,6 @@
       <mapping>
         <identity value="rim"/>
         <map value="N/A (to add?)"/>
-      </mapping>
-      <mapping>
-        <identity value="workflow"/>
-        <map value="Definition.copyrightLabel"/>
       </mapping>
       <mapping>
         <identity value="objimpl"/>

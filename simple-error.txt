@@ -1,1 +1,1 @@
-﻿Error parsing structuredefinition-MessageHeader.xml: end tag name </mapping> must be the same as start tag <element> from line 78 (position: TEXT seen ...<map value="Event"/>\n      </mapping>... @89:17) 
+﻿Resource Examples failed instance validation
