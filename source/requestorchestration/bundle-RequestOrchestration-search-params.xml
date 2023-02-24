@@ -43,6 +43,23 @@
   <entry>
     <resource>
       <SearchParameter>
+        <id value="RequestOrchestration-basedOn"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="RequestOrchestration.basedOn"/>
+        </extension>
+        <description value="What this request fullfills."/>
+        <code value="based-on"/>
+        <type value="reference"/>
+        <expression value="RequestOrchestration.basedOn"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
         <id value="RequestOrchestration-code"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
