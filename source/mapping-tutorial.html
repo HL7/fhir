@@ -49,7 +49,8 @@ specify that an application invokes this with a copy of the left (source)
 instance, and also an empty copy of the right (target) instance:
 </p>
 <pre>
-map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
+/// url = "http://hl7.org/fhir/StructureMap/tutorial"
+/// name = "Tutorial"
 
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
@@ -579,15 +580,18 @@ The first task of the map is to ask the application host to find the structure
 identified by src.ptr, and create a variable for it
 </p>
 <pre>
-f2: [todo]
+  src.ptr as t then {
+    t.f2 -> tgt.f2
+  }
 </pre>
 
-<a name="step15"></a>
-<h3>Step #15: Grouping</h3>
 
-<pre>
-f2: [todo]
-</pre>
+<a name="further"></a>
+<h3>Further examples</h3>
+<p>
+This specification includes transforms that map between version R4B and this version (R5). These 
+map files exercise quite a bit of the mapping language grammar, and can be found at <a href="r4maps.html">Transforms between R4 and R5 </a>
+</p>
 
 [%file newfooter%]
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<OperationDefinition xmlns="http://hl7.org/fhir">
+<OperationDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/OperationDefinition.xsd">
   <id value="Patient-merge"/>
   <meta>
     <lastUpdated value="2021-01-05T10:01:24.148+11:00"/>
@@ -42,7 +42,7 @@
     </extension>
     <extension url="content">
       <valueString value="$merge-provenance.txt"/>
-  </extension>
+    </extension>
   </extension>
   <extension url="http://hl7.org/fhir/build/StructureDefinition/footer">
     <valueMarkdown value="There must be exactly 1 source patient, which may  be identified by either the source-patient or source-patient-identifier parameters. Similarly, there must be exactly 1 target patient, identified by either the target-patient or target-patient-identifier parameters. In both cases, either a reference to the patient or a list of identifiers that can be used to identify the patient may be provided, but not both.&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter).&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each source patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged.&#xD;"/>
@@ -66,6 +66,13 @@
     </telecom>
   </contact>
   <description value="The merge operation is used to request two patient resources be merged. One of the two patients is identified as the source and one as the target. The data from the source patient will be merged with the data of the target patient.&#xD;&#xD;The source Patient resource will be updated to add a new Patient.link reference to the target Patient resource with a link-type of replaced-by. The source Patient will also be updated to have a status of inactive, unless the source Patient resource was deleted.&#xD;&#xD;The target Patient resource will be updated to add a new Patient.link reference to the source Patient resource with a link-type of replaces unless the source Patient resource is deleted. The target Patient resource must be included in the result-patient parameter if used."/>
+  <jurisdiction>
+    <coding>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
+      <display value="World"/>
+    </coding>
+  </jurisdiction>
   <affectsState value="true"/>
   <code value="merge"/>
   <comment value="There must be at least 1 source patient/patient-identifier parameter and at least 1 target patient/patient-identifier parameter&#xD;&#xD;The result-patient.id must be the same as the target patient reference (if the patient reference is provided as an input parameter)&#xD;&#xD;If a client needs the server to create a new patient merged from the 2 patient resources, the client should create a new patient record and then call the merge operation to merge each source patient resource into the newly created patient resource.&#xD;&#xD;A server may decide to delete the source record, but this is not defined by the standard merge operation, and if this occurs then the target patient's link property will remain unchanged."/>

@@ -84,6 +84,10 @@
       <min value="0"/>
       <max value="*"/>
       <mapping>
+        <identity value="workflow"/>
+        <map value="Event"/>
+      </mapping>
+      <mapping>
         <identity value="w5"/>
         <map value="administrative.device"/>
       </mapping>
@@ -246,6 +250,7 @@
       <type>
         <code value="Reference"/>
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -267,6 +272,25 @@
       <mapping>
         <identity value="w5"/>
         <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
+    <element id="DeviceDispense.receiver">
+      <path value="DeviceDispense.receiver"/>
+      <short value="Who collected the device or where the medication was delivered"/>
+      <definition value="Identifies the person who picked up the device or the person or location where the device was delivered.  This may be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".participation[typeCode=RCV].role"/>
       </mapping>
     </element>
     <element id="DeviceDispense.encounter">

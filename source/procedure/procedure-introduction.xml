@@ -23,9 +23,9 @@ real-time procedure information awaits the identification of a specific implemen
 <a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Procedure resource should not be used to capture an event if a more specific resource already exists - i.e. 
-<a href="immunization.html">immunizations</a>, <a href="medicationadministration.html">drug administrations</a>
-and <a href="communication.html">communications</a>. The boundary between determining whether an action is a Procedure 
+The Procedure resource should not be used to capture an event if a more specific resource already exists - e.g. 
+<a href="immunization.html">immunizations</a>, <a href="medicationadministration.html">drug administrations</a>,
+<a href="communication.html">communications</a>, and <a href="nutritionintake.html">nutrition intake</a>. The boundary between determining whether an action is a Procedure 
 (training or counseling) as opposed to a Communication is based on whether
 there's a specific intent to change the mind-set of the patient.  Mere disclosure of information would be considered
 a Communication.  A process that involves verification of the patient's comprehension or to change the patient's

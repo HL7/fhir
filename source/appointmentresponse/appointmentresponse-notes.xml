@@ -2,14 +2,14 @@
 
  <a name="notes"></a>
    <h2>Notes:</h2>
-   <h3>Time zones and recurring appointments</h3>
-    <p>Recurring appointments need to have the time zone defined in which the values were entered.
+   <h3>Timezones and recurring appointments</h3>
+    <p>Recurring appointments need to have the timezone defined in which the values were entered.
     Knowing that the start time was at 9:00:00Z+10 does not mean that the same time in 2 weeks is actually the same. 
     </p>
   <p>
     For example, if this was a time in Brisbane Australia, this time would be the same (in respect to its offset from UTC),
-    however if this was for Melbourne Australia, during the daylight savings period Melbourne time zone becomes +11.
-    So, without the additional information as to which time zone it was created in, scheduling a 9am appointment every
+    however if this was for Melbourne Australia, during the daylight savings period Melbourne timezone becomes +11.
+    So, without the additional information as to which timezone it was created in, scheduling a 9am appointment every
     Wednesday would not be possible.
   </p>
 </div>

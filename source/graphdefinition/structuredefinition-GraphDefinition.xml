@@ -574,7 +574,7 @@
     </element>
     <element id="GraphDefinition.link.compartment.code">
       <path value="GraphDefinition.link.compartment.code"/>
-      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device"/>
+      <short value="Patient | Encounter | RelatedPerson | Practitioner | Device | EpisodeOfCare"/>
       <definition value="Identifies the compartment."/>
       <min value="1"/>
       <max value="1"/>

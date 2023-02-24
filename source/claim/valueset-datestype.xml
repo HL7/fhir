@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="datestype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/ValueSet/datestype"/>
+  <version value="5.0.0"/>
+  <name value="DatesTypeCodes"/>
+  <title value="Dates Type Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes sample Dates Type codes."/>
+  <copyright value="This is an example set."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/datestype"/>
+    </include>
+  </compose>
+</ValueSet>

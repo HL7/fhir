@@ -788,7 +788,7 @@ be necessary in some configurations:
 </p>
 <ul>
  <li>client is reproducing an existing data model on the server, and needs to keep original ids in order to retain ongoing integrity</li>
- <li>client is a server doing push based pub/sub (this is a special case of the first reason)</li>
+ <li>client is a server doing push-based pub/sub (this is a special case of the first reason)</li>
  <li>multiple clients doing push in the context of agreed data model shared across multiple servers where ids are shared across servers</li>
 </ul>
 <p>
@@ -1863,7 +1863,7 @@ There are no prefixes or modifiers allowed on any of the History interaction par
 Each of these parameters SHALL NOT appear more than once.
 </p>
 <p>
-The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with time zone.
+The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with timezone.
 Clients should be aware that due to timing imprecision, they may receive notifications of a resource update on the boundary instant more than once. Servers are
 not required to support a precision finer than by second.
 </p>
@@ -2211,15 +2211,15 @@ Note that <i>all</i> requests may include an optional <code>Accept</code> header
 <tr><td><code>update</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>PUT</code></td>            <td>R</td>              <td>Resource</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>patch</code></td>                      <td><code>/[type]/[id]</code></td>                   <td><code>PATCH</code></td>          <td>R (may be a patch type)</td>        <td>Patch</td> <td>O</td>         	<td>O: <code>If-Match</code></td></tr>
 <tr><td><code>delete</code></td>                     <td><code>/[type]/[id]</code></td>                   <td><code>DELETE</code></td>         <td>N/A</td>            <td>N/A</td>      <td>N/A</td>	         <td>N/A</td></tr>
-<tr><td><code>create</code></td>                     <td><code><code>/[type]</code></code></td>                        <td>POST</td>           <td>R</td>              <td>Resource</td> <td>O</td>         <td>O: <code>If-None-Exist</code></td></tr>
-<tr><td rowspan="2"><code>search-type</code></td>    <td><code>/[type]?</code></td>                      <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
-<tr>                                                 <td><code>/[type]/_search?</code></td>              <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
-<tr><td rowspan="2"><code>search-system</code></td>    <td><code>?</code></td>                             <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
-<tr>                                                <td><code>/_search</code></td>                      <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
+<tr><td><code>create</code></td>                     <td><code><code>/[type]</code></code></td>           <td>POST</td>           <td>R</td>              <td>Resource</td> <td>O</td>         <td>O: <code>If-None-Exist</code></td></tr>
+<tr><td rowspan="2"><code>search-type</code></td>    <td><code>/[type]?</code></td>                       <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
+<tr>                                                 <td><code>/[type]/_search?</code></td>               <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
+<tr><td rowspan="2"><code>search-system</code></td>  <td><code>?</code></td>                            <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
+<tr>                                                 <td><code>/_search</code></td>                        <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
 <tr><td rowspan="4"><code>search-compartment</code></td>  <td><code>/[compartment]/[id]/*?</code></td>              <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
-<tr>                                                      <td><code>/[compartment]/[id]/[type]?</code></td>         <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
-<tr>                                                      <td><code>/[compartment]/[id]/_search?</code></td>        <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
-<tr>                                                      <td><code>/[compartment]/[id]/[type]/_search?</code></td> <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
+<tr>                                                 <td><code>/[compartment]/[id]/[type]?</code></td>         <td><code>GET</code></td>   <td>N/A</td>                                            <td>N/A</td>        <td>N/A</td>  <td>N/A</td></tr>
+<tr>                                                 <td><code>/[compartment]/[id]/_search?</code></td>        <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
+<tr>                                                 <td><code>/[compartment]/[id]/[type]/_search?</code></td> <td><code>POST</code></td>  <td><code>application/x-www-form-urlencoded</code></td> <td>form data</td>  <td>N/A</td>  <td>N/A</td></tr>
 <tr><td><code>capabilities</code></td>               <td><code>/metadata</code></td>                      <td><code>GET<sup>&Dagger;</sup></code></td>            <td>N/A</td>           <td>N/A</td>	   <td>N/A</td>			   	<td>N/A</td></tr>
 <tr><td><code>transaction</code></td>                <td><code>/</code></td>                              <td><code>POST</code></td>           <td>R</td>              <td><code>Bundle</code></td>    <td>O</td>        <td>N/A</td></tr>
 <tr><td><code>batch</code></td>                      <td><code>/</code></td>                              <td><code>POST</code></td>           <td>R</td>              <td><code>Bundle</code></td>    <td>O</td>        <td>N/A</td></tr>
@@ -2244,12 +2244,12 @@ Notes:
 <table class="grid">
 <tr><th>Interaction</th><th colspan="6">Response</th></tr>
 <tr><th colspan="1"></th>   <th>Content-Type</th> <th>Body</th>               <th>Location</th> 	    <th>Versioning</th> 					<th>Status Codes</th></tr>
-<tr><td><code>read</code></td>               <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
-<tr><td><code>vread</code></td>              <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
-<tr><td><code>update</code></td>             <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
-<tr><td><code>patch</code></td>              <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>read</code></td>               <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
+<tr><td><code>vread</code></td>              <td>R</td>         <td>R: Resource</td>           <td>N/A</td>   <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>202</code>, <code>404</code>, <code>410</code><sup>&Dagger;</sup></td></tr>
+<tr><td><code>update</code></td>             <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
+<tr><td><code>patch</code></td>              <td>R if body</td> <td>O: Resource (Prefer)</td>  <td>N/A</td>   <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>200</code>, <code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code>, <code>422</code></td></tr>
 <tr><td><code>delete</code></td>             <td>R if body</td> <td>O: OperationOutcome</td>   <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>204</code>, <code>404</code>, <code>405</code>, <code>409</code>, <code>412</code></td></tr>
-<tr><td><code>create</code></td>             <td>R if body</td> <td>O : Resource (Prefer)</td> <td>R</td>	    <td>R: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
+<tr><td><code>create</code></td>             <td>R if body</td> <td>O : Resource (Prefer)</td> <td>R</td>	    <td>O: <code>ETag</code>, <code>Last-Modified</code></td>		<td><code>201</code>, <code>202</code>, <code>400</code>, <code>404</code>, <code>405</code>, <code>422</code></td></tr>
 <tr><td><code>search-type</code></td>        <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
 <tr><td><code>search-system</code></td>      <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>
 <tr><td><code>search-compartment</code></td> <td>R</td>         <td>R: Bundle</td>             <td>N/A</td>   <td>N/A</td>							<td><code>200</code>, <code>202</code>, <code>401</code>?</td></tr>

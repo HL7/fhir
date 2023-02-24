@@ -58,7 +58,12 @@
 	
 	<processNote>
 		<number value="1"/>
-		<type value="display" />
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="display"/>
+			</coding>
+		</type>
 		<text value="Invalid claim"/>
 		<language>
 			<coding>

@@ -53,10 +53,10 @@
 			A change of any of these would usually mean a different product - a different MedicinalProductDefinition instance - and a different approval being needed.
 		</p>
 
-		<a name="authorisations"></a>
-		<h3>Authorisations</h3>
+		<a name="authorizations"></a>
+		<h3>Authorizations</h3>
 		<p id="auth">
-			A key aspect of a regulated medicinal product is the authorisation (marketing authorisation). 
+			A key aspect of a regulated medicinal product is the authorization (marketing authorization). 
 				This is not directly carried on the product resource, but instead a <a href="regulatedauthorization.html">RegulatedAuthorization</a> resource is 
 				created which points back to this resource.
 		</p>

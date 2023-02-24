@@ -539,7 +539,7 @@
         <map value="Procedure.procedureCode"/>
       </mapping>
     </element>
-    <element id="ServiceRequest.orderDetail">
+    <!-- <element id="ServiceRequest.orderDetail">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#14002][#12966]."/>
       </extension>
@@ -575,7 +575,109 @@
         <identity value="quick"/>
         <map value="Procedure.procedureCode"/>
       </mapping>
+    </element> -->
+    <element id="ServiceRequest.orderDetail">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="[#14002][#12966]."/>
+      </extension>
+      <path value="ServiceRequest.orderDetail"/>
+      <short value="Additional order information"/>
+      <definition value="Additional details and instructions about the how the services are to be delivered.   For example, and order for a urinary catheter may have an order detail for an external or indwelling catheter, or an order for a bandage may require additional instructions specifying how the bandage should be applied."/>
+      <comment value="For information from the medical record intended to support the delivery of the requested services, use the `supportingInformation` element."/>
+      <alias value="detailed instructions"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <condition value="prr-1"/>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="v2"/>
+        <map value="NTE"/>
+      </mapping>
     </element>
+    <element id="ServiceRequest.orderDetail.parameterFocus">
+      <path value="ServiceRequest.orderDetail.parameterFocus"/>
+      <short value="The context of the order details by reference"/>
+      <definition value="Indicates the context of the order details by reference."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableReference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceDefinition"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Medication"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Substance"/>
+      </type>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter">
+      <path value="ServiceRequest.orderDetail.parameter"/>
+      <short value="The parameter details for the service being requested"/>
+      <definition value="The parameter details for the service being requested."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter.code">
+      <path value="ServiceRequest.orderDetail.parameter.code"/>
+      <short value="The detail of the order being requested"/>
+      <definition value="The detail of the order being requested."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+    </element>    
+    <element id="ServiceRequest.orderDetail.parameter.value[x]">
+      <path value="ServiceRequest.orderDetail.parameter.value[x]"/>
+      <short value="The value for the order detail"/>
+      <definition value="Indicates a value for the order detail."/>
+      <comment value="CodeableConcept values are indented to express concepts that would normally be coded - when a code is not available for a concept, CodeableConcept.text can be used. When the data is a text or not a single identifiable concept, string should be used."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+      <type>
+        <code value="Ratio"/>
+      </type>
+      <type>
+        <code value="Range"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <element id="ServiceRequest.quantity[x]">
       <path value="ServiceRequest.quantity[x]"/>
       <short value="Service amount"/>

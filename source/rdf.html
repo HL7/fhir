@@ -570,6 +570,19 @@ fhir:birthDate [
   )
   ...
 </pre>
+
+	  <p> The <a href="downloads.html">FHIR ontology</a> includes a
+	  <code class="rdf">fhir:modifierExtensionClass</code> property
+	  that relates each unmodified resource class to its corresponding
+	  modified resource class, so that SPARQL queries can easily
+	  find all modified classes without having to parse their URIs
+	  to look for the leading underscore:
+	  </p>
+
+<pre>
+fhir:MedicationRequest <b>fhir:modifierExtensionClass</b> fhir:_MedicationRequest .
+</pre>
+
           <p> BackboneElements and BackboneTypes are object types. Any
             RDF predicate that references a modified BackboneElement or
             BackboneType is prefixed with a '_'.  Note the underscore
@@ -591,6 +604,16 @@ fhir:birthDate [
       ]
     ) ;
   ]</pre>
+
+	  <p> The <a href="downloads.html">FHIR ontology</a> also includes a
+	  <code class="rdf">fhir:modifierExtensionProperty</code> property
+	  that relates each unmodified property to its corresponding modified property:
+	  </p>
+
+<pre>
+fhir:value <b>fhir:modifierExtensionProperty</b> fhir:_value .
+</pre>
+
 <p>See <a href="extensibility.html#modifierExtension">Modifier Extensions</a> for
 additional requirements around modifier extensions.
 </p>

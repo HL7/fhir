@@ -398,6 +398,46 @@
         <code value="Period"/>
       </type>
     </element>
+    <element id="ClaimResponse.event">
+      <path value="ClaimResponse.event"/>
+      <short value="Event information"/>
+      <definition value="Information code for an event with a corresponding date or period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ClaimResponse.event.type">
+      <path value="ClaimResponse.event.type"/>
+      <short value="Specific event"/>
+      <definition value="A coded event such as when a service is expected or a card printed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DatesType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
+      </binding>
+    </element>
+    <element id="ClaimResponse.event.when[x]">
+      <path value="ClaimResponse.event.when[x]"/>
+      <short value="Occurance date or period"/>
+      <definition value="A date or period in the past or future indicating when the event occurred or is expectd to occur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
     <element id="ClaimResponse.payeeType">
       <path value="ClaimResponse.payeeType"/>
       <short value="Party to be paid any benefits payable"/>
@@ -1854,13 +1894,13 @@
     </element>
     <element id="ClaimResponse.processNote.type">
       <path value="ClaimResponse.processNote.type"/>
-      <short value="display | print | printoper"/>
+      <short value="Note purpose"/>
       <definition value="The business purpose of the note text."/>
       <requirements value="To convey the expectation for when the text is used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="code"/>
+        <code value="CodeableConcept"/>
       </type>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
@@ -1869,7 +1909,7 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
           <valueBoolean value="true"/>
         </extension>
-        <strength value="required"/>
+        <strength value="extensible"/>
         <description value="The presentation types of notes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/note-type"/>
       </binding>

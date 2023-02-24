@@ -8,7 +8,7 @@
 // structureMap : mapId conceptMap* structure* imports* group+
 
 structureMap
-    : mapId structure* imports* group+ EOF
+    : mapId structure* imports* const* group+ EOF
     ;
 
 mapId
@@ -36,8 +36,11 @@ imports
 	: 'imports' url
 	;
 
+const 
+    : 'let' id '=' fhirPath ';' // which might just be a literal
+
 group
-	: 'group' identifier parameters extends? typeMode? rules
+	: 'group' id parameters extends? typeMode? rules
 	;
 
 rules
@@ -49,7 +52,7 @@ typeMode
     ;
 
 extends
-    : 'extends' identifier
+    : 'extends' id
     ;
 
 parameters
@@ -57,7 +60,7 @@ parameters
     ;
 
 parameter
-    : inputMode identifier type?
+    : inputMode id type?
 	;
 
 type
@@ -69,7 +72,7 @@ rule
  	;
 
 ruleName
-    : DELIMITEDIDENTIFIER
+    : id
     ;
 
 ruleSources
@@ -77,7 +80,7 @@ ruleSources
     ;
 
 ruleSource
-    :  ruleContext sourceType? sourceDefault? sourceListMode? alias? whereClause? checkClause? log?
+    :  ruleContext sourceType? sourceCardinality? sourceDefault? sourceListMode? alias? whereClause? checkClause? log?
     ;
 
 ruleTargets
@@ -85,7 +88,11 @@ ruleTargets
     ;
 
 sourceType
-    : ':' identifier (INTEGER '..' upperBound)?
+    : ':' identifier
+    ;
+
+sourceCardinality
+    : INTEGER '..' upperBound
     ;
 
 upperBound
@@ -94,7 +101,7 @@ upperBound
     ;
 
 ruleContext
-	: identifier ('.' identifier)?
+	: identifier ('.' identifier)*
 	;
 
 sourceDefault
@@ -142,7 +149,7 @@ paramList
 
 param
     : literal
-    | identifier
+    | id
     ;
 
 fhirPath
@@ -168,7 +175,7 @@ sourceListMode
     ;
 
 targetListMode
-   : 'first' | 'share' | 'last' | 'collate'
+   : 'first' | 'share' | 'last' | 'single'
    ;
 
 inputMode
@@ -235,6 +242,10 @@ fragment TIMEFORMAT
 
 fragment TIMEZONEOFFSETFORMAT
         : ('Z' | ('+' | '-') [0-9][0-9]':'[0-9][0-9])
+        ;
+
+id
+        : ([A-Za-z] )([A-Za-z0-9])*            
         ;
 
 IDENTIFIER

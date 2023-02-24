@@ -124,7 +124,7 @@ specification, and defines some additional FHIR specific properties.
         <li><b>IG</b> - a FHIR implementation guide package (has an ImplementationGuide resource in /package, along with conformance resources, and also contains example resources in /package/example)</li>
         <li><b>Core</b> - contains the conformance related resources for the main FHIR specification (effectively, this is a special type of "conformance" that marks it as the core specification, which could also be inferred from its name such as hl7.fhir.r4.core, but other branches / ballots etc. may vary, so this is simpler than inferring from the name)</li>
         <li><b>Examples</b>  - contains the example resources found in the main FHIR specification in /package</li>
-        <li><b>Group</b> - a package that only includes (e.g. depends on) other packages (won't contain FHIR resources directly). The versions listed in this package must include all the versions found in the included packages. Note that this is is used for the set of packages that represent a full core specification</li>
+        <li><b>Group</b> - a package that only includes (e.g. depends on) other packages (won't contain FHIR resources directly). The versions listed in this package must include all the versions found in the included packages. Note that this is used for the set of packages that represent a full core specification</li>
         <li><b>Tool</b> - A package that contains tool specific files to support specific tools (won't contain FHIR resources or specify a FHIR version)</li>
         <li><b>IG-Template</b> - an IG template for use by IG publishing tools (won't contain FHIR resources or specify a version)</li>
       </ul>
