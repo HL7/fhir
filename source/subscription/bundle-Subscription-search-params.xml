@@ -24,16 +24,16 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="Subscription-content"/>
+        <id value="Subscription-content-level"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
           <valueString value="Subscription.content"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-content"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/Subscription-content-level"/>
         <description value="Content level included in notifications"/>
-        <code value="content"/>
+        <code value="content-level"/>
         <type value="token"/>
         <expression value="Subscription.content"/>
         <processingMode value="normal"/>
