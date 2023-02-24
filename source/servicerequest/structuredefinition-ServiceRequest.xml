@@ -643,11 +643,23 @@
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
         <code value="Ratio"/>
+      </type>
+      <type>
         <code value="Range"/>
+      </type>
+      <type>
         <code value="boolean"/>
+      </type>
+      <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
         <code value="string"/>
+      </type>
+      <type>
         <code value="Period"/>
       </type>
     </element>    
