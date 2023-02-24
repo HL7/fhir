@@ -10,10 +10,6 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  
-  
-  
-  
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -5901,7 +5897,7 @@
    <Column ss:StyleID="s117" ss:Width="115.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="275.0"/>
    <Column ss:Index="4" ss:StyleID="s117" ss:Width="45.0"/>
-   <Column ss:StyleID="s117" ss:Width="146.0"/>
+   <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="407.0"/>
    <Column ss:StyleID="s117" ss:Width="173.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="98.0"/>
    <Column ss:AutoFitWidth="0" ss:StyleID="s117" ss:Width="89.0"/>
@@ -6004,7 +6000,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">The kind of dose or rate specified</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/recommendation-strength" ss:StyleID="s152"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/recommendation-strength</Data></Cell>
+    <Cell ss:HRef="http://terminology.hl7.org/ValueSet/dose-rate-type" ss:StyleID="s152"><Data ss:Type="String">http://terminology.hl7.org/ValueSet/dose-rate-type</Data></Cell>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
     <Cell ss:StyleID="s123"/>
