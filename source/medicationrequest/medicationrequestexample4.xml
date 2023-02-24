@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+ xmlns="http://hl7.org/fhir">
+    <id value="medrx004"/>
+    <contained>
+        <Medication>
+            <id value="med0312"/>
+                <code>
+                    <coding>
+                        <system value="http://snomed.info/sct"/>
+                        <code value="0944-2700"/>
+                        <display value="GAMMAGARD Liquid"/>
+                    </coding>
+                </code>
+        </Medication>
+    </contained>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="completed"/>
+    <intent value="order"/>
+   <medication>
+       <reference>
+       <reference value="#med0312"/>
+       <display value="Nystatin 100,000 u/ml oral suspension"/>
+       </reference>
+   </medication>
+    <subject>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </requester>
+    
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Administer in 100cc NS as follows: First treatment infuse over 90 minutes, if no reaction then second treatment infuse over 60 minutes, if no reaction then on third and following treatments give over 30 minutes."/>
+        <timing>
+			<event value="2023-01-18T00:00:00.000Z"></event>
+        </timing>
+        <route>
+            <coding>
+                <system value="http://flatiron.com/CodeSystem/Route"/>
+                <code value="IV"/>
+            </coding>
+        </route>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                    <code value="ordered"/>
+                    <display value="Ordered"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="5"/>
+                <unit value="mg/kg"/>
+            </doseQuantity>			
+        </doseAndRate>
+        <doseAndRate>
+            <type>
+                <coding>
+                    <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+                    <code value="calculated"/>
+                    <display value="Calculated"/>
+                </coding>
+            </type>
+            <doseQuantity>
+                <value value="340"/>
+                <unit value="mg"/>
+            </doseQuantity>
+        </doseAndRate>
+        
+    </dosageInstruction>
+ 
+</MedicationRequest>

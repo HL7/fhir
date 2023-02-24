@@ -232,7 +232,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Ratio"/>
+        <code value="Quantity"/>
       </type>
       <isSummary value="true"/>
       <mapping>
@@ -405,6 +405,17 @@
         <identity value="rim"/>
         <map value="participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime"/>
       </mapping>
+    </element>
+    <element id="Medication.definition">
+      <path value="Medication.definition"/>
+      <short value="Knowledge about this medication"/>
+      <definition value="A reference to a knowledge resource that provides more information about this medication."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationKnowledge"/>
+      </type>
     </element>
   </differential>
 </StructureDefinition>
