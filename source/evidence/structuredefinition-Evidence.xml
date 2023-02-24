@@ -647,7 +647,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="Evidence.statistic.note">
@@ -736,7 +736,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="Evidence.statistic.sampleSize.note">
@@ -797,7 +797,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="Evidence.statistic.attributeEstimate.note">
@@ -996,7 +996,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="string"/>
+        <code value="markdown"/>
       </type>
     </element>
     <element id="Evidence.certainty.note">
