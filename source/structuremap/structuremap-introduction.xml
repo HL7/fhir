@@ -59,7 +59,11 @@ It's possible to apply the mapping language to structures that do not even
 have (or cannot have) formally defined types, although the type-related 
 parts of the mapping language cannot be used in these cases.
 </p>
-
+<p>
+The Mapping Language and the <code>StructureMap</code> resource are built 
+on top of <a href="fhirpath.html">FHIRPath</a>, and a FHIRPath implementation is required in order to 
+execute a StructureMap.
+</p>
 </div>
 
 <div>

@@ -1175,7 +1175,7 @@
     </element>
     <element id="Questionnaire.item.maxLength">
       <path value="Questionnaire.item.maxLength"/>
-      <short value="No more than this many characters"/>
+      <short value="No more than these many characters"/>
       <definition value="The maximum number of characters that are permitted in the answer to be considered a &quot;valid&quot; QuestionnaireResponse."/>
       <comment value="For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data. The value may come from the ElementDefinition referred to by .definition."/>
       <min value="0"/>
