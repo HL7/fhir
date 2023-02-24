@@ -726,7 +726,7 @@ shared in FHIR</li>
   </p>
   <ul>
     <li>It uses less bandwidth and processing power because there is only an interaction between <i>data source</i> and <i>data consumer</i> when data is ready to flow, while polling requires regular interactions, even when there is nothing to send</li>
-    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more manageable than responding to regular polling queries from 100+ systems</li>
+    <li>Subscription scales better.  Pushing out an event to 100+ interested parties is much more managable than responding to regular polling queries from 100+ systems</li>
     <li>Subscription offers the potential of more immediate notification when an event occurs.  With polling, the average time to receive a notification is half the polling interval and the maximum time to receive a notification is the full polling interval.  (With shorter polling intervals negatively affecting bandwidth and processing load.)</li>
   </ul>
   <p>

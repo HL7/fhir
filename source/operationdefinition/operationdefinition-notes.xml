@@ -158,7 +158,7 @@ always have a single output parameter named "result" of type Bundle.
 <p>
 The order of parameters doesn't matter; a <code>_query</code> parameter anywhere in the query means the entire query will be handled 
 according to the named query OperationDefinition. Parameters may repeat if permitted by the OperationDefinition 
-(or for unlisted common search parameters, as specified in the this specification).
+(or for unlisted common search parameters, as specified in this specification).
 </p>
 <p>
 For named queries, all the standard search parameters are automatically in scope. Specifically, all common search parameters 

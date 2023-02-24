@@ -80,6 +80,22 @@
     <type value="StructureMap"/>
   </parameter>
   <parameter>
+    <name value="supportingMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="StructureMap resources that support the source map. If a source URL is provided, the map can be provided in this parameter (or it can be provided as sourceMap)."/>
+    <type value="StructureMap"/>
+  </parameter>
+  <parameter>
+    <name value="srcMap"/>
+    <use value="in"/>
+    <min value="0"/>
+    <max value="*"/>
+    <documentation value="The same as structureMap, but the resource is provided in the mapping language rather than as a structureMap."/>
+    <type value="string"/>
+  </parameter>
+  <parameter>
     <name value="content"/>
     <use value="in"/>
     <min value="1"/>

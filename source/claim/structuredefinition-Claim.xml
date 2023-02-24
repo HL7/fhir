@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/StructureDefinition.xsd">
   <id value="Claim"/>
   <meta>
@@ -614,6 +615,46 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup"/>
       </binding>
     </element>
+    <element id="Claim.event">
+      <path value="Claim.event"/>
+      <short value="Event information"/>
+      <definition value="Information code for an event with a corresponding date or period."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Claim.event.type">
+      <path value="Claim.event.type"/>
+      <short value="Specific event"/>
+      <definition value="A coded event such as when a service is expected or a card printed."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DatesType"/>
+        </extension>
+        <strength value="example"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/datestype"/>
+      </binding>
+    </element>
+    <element id="Claim.event.when[x]">
+      <path value="Claim.event.when[x]"/>
+      <short value="Occurance date or period"/>
+      <definition value="A date or period in the past or future indicating when the event occurred or is expectd to occur."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="Period"/>
+      </type>
+    </element>
     <element id="Claim.careTeam">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="CareTeam"/>
@@ -862,7 +903,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.reason"/>
+        <map value="Request.reasonReference"/>
       </mapping>
     </element>
     <element id="Claim.diagnosis.sequence">
@@ -1160,7 +1201,7 @@
       <path value="Claim.accident"/>
       <short value="Details of the event"/>
       <definition value="Details of an accident which resulted in injuries which required the products and services listed in the claim."/>
-      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc. before they are payable under normal health insurance."/>
+      <requirements value="When healthcare products and services are accident related, benefits may be payable under accident provisions of policies, such as automotive, etc before they are payable under normal health insurance."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1627,7 +1668,7 @@
       </type>
       <mapping>
         <identity value="workflow"/>
-        <map value="Request.encounter"/>
+        <map value="Request.context"/>
       </mapping>
     </element>
     <element id="Claim.item.detail">

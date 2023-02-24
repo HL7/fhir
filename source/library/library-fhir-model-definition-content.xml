@@ -5754,7 +5754,7 @@
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="MedicinalProduct.ManufacturingBusinessOperation" retrievable="false" baseType="FHIR.BackboneElement">
         <ns4:element name="operationType" elementType="FHIR.CodeableConcept"/>
-        <ns4:element name="authorisationReferenceNumber" elementType="FHIR.Identifier"/>
+        <ns4:element name="authorizationReferenceNumber" elementType="FHIR.Identifier"/>
         <ns4:element name="effectiveDate" elementType="FHIR.dateTime"/>
         <ns4:element name="confidentialityIndicator" elementType="FHIR.CodeableConcept"/>
         <ns4:element name="manufacturer">

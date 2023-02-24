@@ -13,7 +13,7 @@
   <status value="draft"/>
   <experimental value="false"/>
   <publisher value="FHIR Project"/>
-  <description value="The [check list items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification."/>
+  <description value="The [checklist items](http://hl7.org/fhir/safety.html) defined as part of the FHIR specification."/>
   <valueSet value="http://hl7.org/fhir/ValueSet/safety-entries"/>
   <hierarchyMeaning value="is-a"/>
   <caseSensitive value="true"/>
@@ -65,7 +65,7 @@
  </concept>
  <concept>
   <code value="time-zone"/>
-  <definition value="My system checks for time zones and adjusts times appropriately. (note: time zones are extremely difficult to get correct - see [W3C Timezone Advice](https://www.w3.org/TR/timezone/), and note that some fields should be timezone corrected, and others should not be)"/>
+  <definition value="My system checks for timezones and adjusts times appropriately. (note: timezones are extremely difficult to get correct - see [W3C Timezone Advice](https://www.w3.org/TR/timezone/), and note that some fields should be timezone corrected, and others should not be)"/>
  </concept>
  <concept>
   <code value="date-rendering"/>
