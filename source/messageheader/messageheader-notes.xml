@@ -4,6 +4,7 @@
 Notes:
 </h2>
 <ul>
+	<li>There is no persistent identifier on MessageHeader that identifies the specific triggering event for the message - any such identity must be determined from the payload of the message.</li>
  <li>The resources referenced by the enterer, author and responsible elements may 
   all be included in the message bundle or left out on the basis that the recipient (and any intermediaries) are able to locate/resolve the resources
   independently. The former would be suitable for loosely coupled systems, and the latter for tightly coupled systems. The messaging Capability 
@@ -18,7 +19,4 @@ Notes:
  <li>A receiver is not obligated to reject messages which do not explicitly identify it as receiver (e.g. a tracker will get messages that are destined for some other system)</li>
  <li>The value set MessageEvent is populated by the authors of the resources declaring the events</li>
 </ul>  
-
-
-
 </div>
