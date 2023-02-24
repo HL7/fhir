@@ -788,7 +788,7 @@ be necessary in some configurations:
 </p>
 <ul>
  <li>client is reproducing an existing data model on the server, and needs to keep original ids in order to retain ongoing integrity</li>
- <li>client is a server doing push based pub/sub (this is a special case of the first reason)</li>
+ <li>client is a server doing push-based pub/sub (this is a special case of the first reason)</li>
  <li>multiple clients doing push in the context of agreed data model shared across multiple servers where ids are shared across servers</li>
 </ul>
 <p>
@@ -1863,7 +1863,7 @@ There are no prefixes or modifiers allowed on any of the History interaction par
 Each of these parameters SHALL NOT appear more than once.
 </p>
 <p>
-The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with time zone.
+The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with timezone.
 Clients should be aware that due to timing imprecision, they may receive notifications of a resource update on the boundary instant more than once. Servers are
 not required to support a precision finer than by second.
 </p>

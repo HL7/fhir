@@ -348,11 +348,11 @@
       </binding>
       <mapping>
         <identity value="idmp"/>
-        <map value="Marketing Authorisation.Legal Status of Supply (moved here for practicality)"/>
+        <map value="Marketing Authorization.Legal Status of Supply (moved here for practicality)"/>
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].pertinentInformation.policy.code"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorization}'].pertinentInformation.policy.code"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.additionalMonitoringIndicator">
@@ -385,7 +385,7 @@
     <element id="MedicinalProductDefinition.specialMeasures">
       <path value="MedicinalProductDefinition.specialMeasures"/>
       <short value="Whether the Medicinal Product is subject to special measures for regulatory reasons"/>
-      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorisation studies."/>
+      <definition value="Whether the Medicinal Product is subject to special measures for regulatory reasons, such as a requirement to conduct post-authorization studies."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -397,7 +397,7 @@
           <valueString value="SpecialMeasures"/>
         </extension>
         <strength value="example"/>
-        <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorisation studies."/>
+        <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorization studies."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"/>
       </binding>
       <mapping>
@@ -479,7 +479,7 @@
       </mapping>
       <mapping>
         <identity value="rim"/>
-        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorisation}'].statusCode"/>
+        <map value="ManufacturedProduct[classCode='MANU'].subjectOf.approval[@code='{Approval_MarketingAuthorization}'].statusCode"/>
       </mapping>
     </element>
     <element id="MedicinalProductDefinition.packagedMedicinalProduct">

@@ -24,6 +24,11 @@ when the instances are strongly typed - specifically, when they have formal defi
 related features.
 </p>
 <p>
+Note that while the mapping language applies to directed acyclic graphs that allow for poly-hierarchies, 
+most of the contexts of use are strict mono-hierarchies (a.k.a trees), including the types defined as 
+part of the FHIR specification.
+</p>
+<p>
 The mapping language addresses two very different kinds of transformations:
 </p>
 <ul>
@@ -31,16 +36,23 @@ The mapping language addresses two very different kinds of transformations:
  <li>Differences in content and formats in string (and related) primitives contained within the structures</li>
 </ul>
 <p>
-A map has 6 parts:
+A map has 7 parts:
 </p>
 <ul>
  <li>Metadata</li>
  <li>Embedded <a href="conceptmap.html">ConceptMaps</a> to translate between different code systems</li>
  <li>References to the structures involved in the mapping</li>
  <li>Imports: additional Maps used by this map</li>
+ <li>Constants: constants used in the mapping rules</li>
  <li>A series of groups, each with a list of input variables</li>
  <li>A series of transformation rules in each group</li>
 </ul>
+<p>
+  The Mapping Language and the <code>StructureMap</code> resource are built 
+  on top of <a href="fhirpath.html">FHIRPath</a>, and a FHIRPath implementation is required in order to 
+  execute a StructureMap.
+  </p>
+  
 
 <a name="execution"></a>
 <h3>Executing Maps</h3>
@@ -92,14 +104,16 @@ at the end of the line as a comment.
 <p>
 All names defined by the map language - group, rule and variable names - must be valid
 <a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes and dots). 
-To avoid parsing ambiguities however, they cannot start with a character, cannot be one of the keywords used
-in the language (see section Reserved Keywords below) and cannot contain a dot or dash, 
-unless the names can be escaped. Escaping can be done by surrounding them by backticks. For example:
-
+To avoid parsing ambiguities however, they SHALL start with a character, cannot be one of the keywords used
+in the language (see section <a href="#reserved">Reserved Keywords</a> below) and cannot contain a dot or dash.
+These id values SHALL NOT be surrounded with backticks.
+The names of context elements (<code>source.context</code> and <code>target.context</code>) are not constrained
+to simple names in the same way since they come from the source and target data models, and these may be 
+surrounded with backticks.
+</p>
 <pre>
    src  document4  `not-found`  `section4.5`  `group` 
 </pre>
-</p>
 <p>
 The media type for the FHIR Mapping language is <code>text/fhir-mapping</code>.
 Note that in order to conform to <a href="https://tools.ietf.org/html/rfc6657#page-3">RFC 6657</a>, 
@@ -109,18 +123,40 @@ the <code>charset=utf-8</code> parameter SHALL be appended.
 <h3>Metadata</h3>
 
 <p>
-The first part of the mapping syntax establishes the name of the mapping. For example:
+The first part of a mapping file defines the metadata about the map
+using the metadata from the StructureMap resource. Metadata is defined using the  
+syntax <code>/// name{.property}* = {value} </code> where:
+</p>
+<ul>
+  <li>The name is the same as the element name in the StructureMap</li>
+  <li>The property allows for sub-elements to be populated. The property can repeat</li>
+  <li>Additional items with the same name represent repeats</li>
+  <li>The value is a literal representation of the primitive value in FHIRPath format. Extensions are not supported</li>
+  <li>The value for a complex element is empty</li>
+  <li>There is a special representation for markdown: the value is started and finished with <code>"""</code> and may cover multiple lines of markdown</li>
+</ul>
+<p>
+Examples:
 </p>
 <pre>
-  map "http://hl7.org/fhir/StructureMap/CodeSystem3to4" = "R3 to R4 Conversions for CodeSystem"
+/// url = 'http://hl7.org/fhir/StructureMap/CodeSystem3to4'
+/// name = 'CodeSystemR3R4'
+/// title = 'R3 to R4 Conversions for CodeSystem'
+/// experimental = true
+/// status = 'final'
+/// jurisdiction =
+/// jurisdiction.coding = 
+/// jurisdiction.coding.system = 'urn:iso:std:iso:3166'
+/// jurisdiction.coding.code = 'AQ'
+
+/// description = """
+You should use my *awesome* map.
+It does really cool things.
+"""  
 </pre>
 <p>
-The letters "map" are the first non-whitespace non-comment characters
-in the source. This is followed by the canonical URL that identifies
-the map uniquely, and then a human readable name for the map, quoted in strings.
-</p>
-<p>
-<i>todo: add additional metadata? Yes, maybe in comments like javadoc or C# xmldoc?</i>
+Values for <code>url</code> and <code>name</code> SHALL be provided.
+If no value is provided for <code>status</code>, then the status "draft" is assumed.
 </p>
 
 <a name="typing"></a>
@@ -188,6 +224,35 @@ How imported maps are actually used is discussed below.
 The url in the import statement may contain a "*" as a wildcard character (as shown above) to include any matching maps that are available to the mapping engine.
 </p>
 
+
+<a name="constants"></a>
+<h3>Constants</h3>
+<p>
+The map may define any number of constant values that may be re-used through out the rules that follow.
+Each constant has the following grammar:
+</p>
+<pre>
+  let [name] = [fhirpath expression];  
+</pre>
+<p>
+This defines a reusable variable that has the same value across all the maps. The value of the variable is a FHIRPath
+expression terminated by the separator <code>';'</code> (for syntactical simplicity, and so non-FHIRPath aware parsers
+can parse the syntax). Some rules that apply to the constant declarations:
+</p>
+<ul>
+  <li>The names must be unique within a single mapping source file</li>
+  <li>The names are available as source variables and can be referred to from the following elements of the mapping 
+    language: source context, and the FHIRPath expressions for where and check conditions, log statements and target expressions</li>
+  <li>In the FHIRPath expressions, the constants are referred to by name. This means that the constants cannot have the some 
+    name as a <a href="http://hl7.org/fhirpath/N1/#keywords">reserved word in FHIRPath</a> or the <a href="#reserved">mapping language</a></li>
+  <li>Constant expressions can be - and often are - simple literal values e.g. <code>let name = 'example';</code></li>
+  <li>Constants can refer to other constants in their expressions, though circular expressions will result in an error</li>
+  <li>Constants are only evaluated when a reference to them is encountered (lazy evaluation). Once evaluated, they are not 
+    re-evaluated again with the context of the script that contains them</li>
+  <li>If a name of a variable in a local context is the same as a constant expression, then the local variable hides the 
+    Constant declaration</li>
+</ul>
+
 <a name="groups"></a>
 <h3>Groups</h3>
 <p>
@@ -211,7 +276,7 @@ Each group has a name, which is how the mapping is invoked. The first group is s
 </p>
 <p>
 The inputs of a group are also referred to (below) as its input parameters, or just as parameters; or as input variables,
-and are a comma separated list where each items has the format:
+and are a comma-separated list where each items has the format:
 </p>
 <pre>
   [mode] [name]( : [type])
@@ -259,7 +324,7 @@ Each rule has three main parts:
 <ul>
  <li><b>Source Content</b>: The initial part of the rule before the '->'. Specifies one or more elements from the source that contribute to the mapping</li>
  <li><b>Target Transform</b>: Starts after the '->' and consists of zero or more specifications of how to use the source content to create the target content</li>
- <li><b>Dependent Rules</b>: Optional part starting with 'then'. Specifies a group or set of child rules to apply within the scope of the rule.</li>
+ <li><b>Dependent Rules</b>: Optional part starting with 'then'. Specifies one or more groups by name (separated by comma) or a set of child rules to apply within the scope of the rule</li>
 </ul>
 <p>
 Each rule may be assigned a name, though this is usually inferred by the parser and not specified directly. The name is used in trace logs (a record generated by the conversion engine recording the transform process).
@@ -267,6 +332,14 @@ Names must be unique within the context of the map. Typically, the name is trivi
 engine processing the map, so this is often left out. 
 </p>
 <p>The three main parts are described in more detail in the following sections.</p>
+<p>
+  Rules may be applied in any order. In other words, the order is implementation-defined. Mappings should take care to ensure that either:
+</p>
+<ul>
+  <li>they do not have any overlapping rules, or </li>
+  <li>if they do have overlapping rules, that the order in which those rules are applied is not important, or </li>
+  <li>they use <code>first</code> and <code>last</code> keywords to help manage order</li>
+</ul>
 
 <h4>Source Content</h4>
 <p>
@@ -279,7 +352,7 @@ The source content is formed by one or more source statements, which can be assi
 Each [source] contains the following items:
 </p>
 <pre>
-context.element { : type {min..max}} {default ([value])} { list-option } as variable where ([FHIRPath]) check ([FHIRPath])
+context.element {: type} {min..max} {default ([value])} { list-option } as variable where ([FHIRPath]) check ([FHIRPath])
 </pre>
 <p>
     For example:
@@ -295,15 +368,47 @@ context.element { : type {min..max}} {default ([value])} { list-option } as vari
  <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
  <li><b>min..max</b>: Specified cardinality (may use '*' for the upper bound). If a cardinality is specified and the cardinality of the element in the source is not within the specified cardinality, the mapping engine raises an error instead of completing the transformation.</li>
  <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once. Default values only apply to primitive types, and the value is a FHIRPath statement (usually a literal)</li>
- <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in the source. The list option can override this to specify different behaviour. Valid values are 'first', 'last', 'not_first', 'not_last' and 'only_one'</li>
+ <li><b>list-option</b>: by default, the rule will apply once for each occurrence of the element in the source. The list option can override this to specify different behavior. Valid values are 'first', 'last', 'not_first', 'not_last' and 'only_one'</li>
  <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where ([condition])</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check ([condition])</b>: a FHIRPath expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine raises an error. Note: it is usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
 </ul>
 <p>
-If there are multiple source statements, the rule applies for the permutation of the source
-elements from each source statement. E.g. if there are 2 source statements, each with 2 matching elements, the rule applies 4 times, one for each combination. Typically, if there is more than one source statement, only one of the elements would repeat.
+If there are multiple source statements, the rule applies for the permutation of the source elements from each source statement. 
+E.g. if there are 2 source statements, each with 2 matching elements, the rule applies 4 times, one for each combination. 
+Typically, if there is more than one source statement, only one of the elements would repeat. If any of the source data elements
+have no value, then the rule never applies; only existing permutations are executed: for multiple source statements, all of them need to match.
 </p>
+<div class="example">
+<p><b>Example</b></p>
+<p>Given this mapping statement:</p>
+<pre class="map">
+  for src.row as row, row.firstName as firstName 
+</pre>
+<p>applied to this source:</p>
+<pre class="json">
+  "row" : [{
+    "firstName" : "John"
+  },{
+    "firstName" : "Peter"
+  }]
+</pre>
+<p>
+Will result in the the rule firing 4 times: row #1 &amp; "John", row #2 &amp; "Peter", row #2 &amp; "John", and row #1 &amp; "Peter". 
+This somewhat contrived example shows how the iteration works; it's unlikely that this combination of source 
+statements would be useful. The same mapping statement with this data:
+</p>
+<pre class="json">
+  "row" : [{
+    "family" : "John"
+  },{
+    "family" : "Peter"
+  }]
+</pre>
+<p>
+Because there's no firstName values, the rule will never fire.   
+</p>
+</div>
 <p>
 Once the source content is evaluated, the engine performing the evaluation has a list of elements assigned to variables. For each time the rule is applied, each of the variables contains a single value. These variables are now mapped into the target structures in the target transformation.
 </p>
@@ -356,11 +461,16 @@ Each [target] contains the following items:
 </pre>
 
 <ul>
- <li><b>context.element</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. <p>The context is an identifier which is either declared as a target for the map, a target parameter or any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
-<p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p></li>
+ <li><b>context.element(.subElement)</b>: The first part of the target statement consists of two parts: the <b>context</b> and the <b>element</b>. 
+   <p>The context is an identifier which is either declared as a target for the map, a target parameter or 
+    any named variable within the group (including the variables from the source content) in which this rule is nested.</p>
+  <p>The element is the name of a child element that is valid in the context. The created value will be placed into the named element</p>
+  <p>The element may be further qualified by a subElement (recursively to any further depth). <code>src.c.p as p ...</code> is semantically 
+    equivalent to <code>src.c as t then { t.p as p ... }</code> though t is never made explicit in the case of subElements and cannot be referred to</p>
+</li>
 <li><b>transform(parameters)</b>: details how the content that is created is transformed from the source data using a specific transformation function. See below for the list of available functions. If no transform is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
  <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in the dependent rules</li>
- <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated. Values can be 'first', 'share', 'last' and 'collate'. TODO: What do these do?</li>
+ <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated. Values can be 'first', 'share', 'last' and 'single'. TODO: What do these do?</li>
 </ul>
 <p>
 Transform statements may just contain an invocation of a transform function. In this case, a variable must be defined, and the created value is available in the variable for use in subsequent transformations.
@@ -372,31 +482,150 @@ Each time the rule is applied, the engine determines the value from the transfor
 The following list specifies that transforms that can be specified. Each transform takes one or more parameters:
 </p>
 <table class="grid">
- <tr><td><b>Name</b></td><td><b>parameters</b></td><td><b>Documentation</b></td></tr>
- <tr><td>create</td> <td>type</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the type parameter must be a string which is a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
- <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable, e.g. src.a = tgt.b</td></tr>
- <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
- <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
- <tr><td>cast</td> <td>source, type?</td> <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known</td></tr>
- <tr><td>append</td> <td>source...</td> <td>source is element or string - just append them all together</td></tr>
- <tr><td>translate</td> <td>source, map_uri, output</td> <td>use the <a href="conceptmap-operation-translate.html">translate operation</a>. The source is some type of code or coded datatype, and the source and map_uri are passed to the translate operation. The output determines what value from the translate operation is used for the result of the operation (code, system, display, Coding, or CodeableConcept)</td></tr>
- <tr><td>reference</td> <td>source</td> <td>return a string that references the provided tree properly</td></tr>
- <tr><td>dateOp</td> <td>??</td> <td>Perform a date operation. Parameters to be documented</td></tr>
- <tr><td>uuid</td> <td>n/a</td> <td>Generate a random UUID (in lowercase). No Parameters</td></tr>
- <tr><td>pointer</td> <td>resource</td> <td>Return the appropriate string to put in a Reference that refers to the resource provided as a parameter</td></tr>
- <tr><td>evaluate</td> <td>resource</td> <td>Execute the supplied FHIRPath expression and use the value returned by that. The 2nd parameter - FHIRPath expression - is evaluated in the context of the first parameter, and the result used as the value. If the outcome of the evaluation of the FHIRPath expression is an empty collection, no element is created in the target. If the outcome has a single value, the target is created with that value. If the outcome has more than one value, and the element is repeating, a separate target instance will be created for each value. If there is more than one value and the element is non-repeating this is treated as an error.
-   In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter. In this case, there is no context for the FHIRPath expression, and it must start with a reference to one of the defined variables</td></tr>
- <tr><td>cc</td> <td>(text) or (system. Code[, display])</td> <td>Create a CodeableConcept from the parameters provided</td></tr>
- <tr><td>c</td> <td>system. Code[, display]</td> <td>Create a Coding from the parameters provided</td></tr>
- <tr><td>qty</td> <td>(text) or (value, unit, [system, code])</td> <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural representation e.g. [comparator]value[space]unit</td></tr>
- <tr><td>id</td> <td>system, value[, type]</td> <td>Create an identifier. where type is a code from the identifier type value set</td></tr>
- <tr><td>cp</td> <td>(value) or (system, value)</td> <td>Create a contact detail. If no system is provided, the system should be inferred from the content of the value</td></tr>
+ <tr>
+  <td><b>Name</b></td>
+  <td><b>Parameters</b></td>
+  <td><b>Documentation</b></td>
+  <td><b>FHIRPath </b>equivalent</td>
+ </tr>
+ <tr>
+  <td>create</td> 
+  <td>type</td> 
+  <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the type parameter must be a string which is a known type of a root element. Where they haven't, the application must know the name somehow</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>copy</td> 
+  <td>source</td> 
+  <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable, e.g. src.a = tgt.b</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>truncate</td> 
+  <td>source, length</td> 
+  <td>source must be some stringy type that has some meaningful length property</td>
+  <td><a href="http://hl7.org/fhirpath/N1/#substringstart-integer-length-integer-string">substring</a></td>
+ </tr>
+ <tr>
+  <td>escape</td> 
+  <td>source, format1, format2</td> 
+  <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>cast</td> 
+  <td>source, type?</td> 
+  <td>cast source from one type to another. target type can be left as implicit if there is one and only one target type known. . The default namespace for the type is 'FHIR' (see <a href="http://hl7.org/fhirpath/N1/#is-type-specifier">FHIRPath type specifiers</a>)</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>append</td> 
+  <td>source...</td> 
+  <td>source is element or string - just append them all together</td>
+  <td><a href="http://hl7.org/fhirpath/N1/#string-concatenation">&amp; (String concatenation)</a></td>
+ </tr>
+ <tr>
+  <td>translate</td> 
+  <td>source, map_uri, output</td> 
+  <td>use the <a href="conceptmap-operation-translate.html">translate operation</a>. The source is some type of code or coded datatype, and the source and map_uri are passed to the translate operation. The output determines what value from the translate operation is used for the result of the operation (code, system, display, Coding, or CodeableConcept)</td>
+  <td>%terminologies.translate()</td>
+ </tr>
+ <tr>
+  <td>reference</td> 
+  <td>source</td> 
+  <td>return a string that references the provided tree properly</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>dateOp</td> 
+  <td>??</td> 
+  <td>Perform a date operation. Parameters to be documented</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>uuid</td> 
+  <td>n/a</td> 
+  <td>Generate a random UUID (in lowercase). No Parameters</td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>pointer</td> 
+  <td>resource</td> 
+  <td>Return the appropriate string to put in a Reference that refers to the resource provided as a parameter</td>
+  <td>related to <a href="fhirpath.html#functions">resolve()</a></td>
+ </tr>
+ <tr>
+  <td>translate</td> 
+  <td>(varies))</td> 
+  <td>translate(source, uri_of_map) - use the <a href="fhirpath.html#txapi">translate operation</a></td>
+  <td>n/a</td>
+ </tr>
+ <tr>
+  <td>evaluate</td> 
+  <td>resource</td> 
+  <td>Execute the supplied FHIRPath expression and use the value returned by that. The 2nd parameter - FHIRPath expression - is evaluated in the context of the first parameter, and the result used as the value. If the outcome of the evaluation of the FHIRPath expression is an empty collection, no element is created in the target. If the outcome has a single value, the target is created with that value. If the outcome has more than one value, and the element is repeating, a separate target instance will be created for each value. If there is more than one value and the element is non-repeating this is treated as an error.
+   In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter. In this case, there is no context for the FHIRPath expression, and it must start with a reference to one of the defined variables</td>
+   <td>n/a</td>
+  </tr>
+ <tr>
+  <td>cc</td> 
+  <td>(text) or (system. Code[, display])</td> 
+  <td>Create a CodeableConcept from the parameters provided</td>
+  <td><a href="fhirpath.html#fn-factory-CodeableConcept">%factory.CodeableConcept()</a>"></td>
+ </tr>
+ <tr>
+  <td>c</td> 
+  <td>system. Code[, display]</td> 
+  <td>Create a Coding from the parameters provided</td>
+  <td><a href="fhirpath.html#fn-factory-Coding">%factory.Coding()</a>"></td>
+ </tr>
+ <tr>
+  <td>qty</td> 
+  <td>(text) or (value, unit, [system, code])</td> 
+  <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural representation e.g. [comparator]value[space]unit</td>
+  <td><a href="fhirpath.html#fn-factory-Quantity">%factory.Quantity()</a>"></td>
+ </tr>
+ <tr>
+  <td>id</td> 
+  <td>system, value[, type]</td> 
+  <td>Create an identifier. where type is a code from the identifier type value set</td>
+  <td><a href="fhirpath.html#fn-factory-Identifier">%factory.Identifier()</a>"></td>
+ </tr>
+ <tr>
+  <td>cp</td> 
+  <td>(value) or (system, value)</td> 
+  <td>Create a contact detail. If no system is provided, the system should be inferred from the content of the value</td>
+  <td><a href="fhirpath.html#fn-factory-ContactPoint">%factory.ContactPoint()</a>"></td>
+ </tr>
 </table>
 
 <p>
 TODO: explain how optional parameters work with transforms (append only?), document list mode
 </p>
 
+<a name="type-cast"> </a>
+<h4>Type Wrangling</h4>
+
+<p>
+The underlying type systems for source and target MAY define required implicit conversions,
+especially around how primitive values are handled and represented as strings (often required
+implicitly when executing the mapping rules).
+</p>
+<p>
+As an example, see the <a href="http://hl7.org/fhir/fhirpath.html#types">FHIRPath specification implicit type conversions</a>,
+which applies to source and/or target if they are resources (or content described by FHIR logical models).
+</p>
+<p>
+In some cases, the transform statements will cause the automatic creation of objects 
+in the target content. If the target model describes a choice of types for the automatically
+constructed object, then the engine raises an error. In such cases, an explicit create 
+should be used:
+</p>
+<pre class="map">
+  tgt.aa = create("x") as t_aa...
+</pre>
+
+<a name="dep-rules"> </a>
 <h4>Dependent Rules</h4>
 
 <p>
@@ -435,7 +664,7 @@ of these maps.
 </p>
 
 <a name="simple"></a>
-<h3>Simple Form</h3>
+<h3>Simple Form: Identity transform</h3>
 <p>
 If no dependent rules are specified, and if the is only one source and target, and
 they both specify a variable, the rule can be written in an abbreviated form:
@@ -450,8 +679,32 @@ This is implicitly the same as
   src.element as vvs -&gt; tgt.element = create('type') as vvt then defaultMappingGroup(vvs, vvt)
 </pre>
 <p>
-Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
+Where the name of the type given as a parameter to 'create' and the group invoked by the 'then' are determined by the context of src.element and tgt.element and the selected default mapping group, as documented in the next section. 
+Note that default mapping groups are only invoked when no dependent rules or explicit group invocations are specified.
 </p>
+<p>
+This simple form is sometimes known as the identity transform, though strictly, the types of the source and the target may be different
+(e.g. different FHIR versions), but have the same properties and value domains. The simple transform (copy all properties as is recursively
+following the types) is sufficiently common that there's an even shorter form defined:
+</p>
+<pre>
+  src -&gt; tgt: type, subtype, action, recorded;
+</pre>
+<p>
+This syntax is allowed as the first entry in the rules section, and is a purely syntactic short-cut for the longer form:
+</p>
+<pre>
+  src.type -&gt; tgt.type;
+  src.subtype -&gt; tgt.subtype;
+  src.action -&gt; tgt.action;
+  src.recorded -&gt; tgt.recorded;
+</pre>
+<p>
+The primary attraction of this shorter form is that it allows the reader to focus on the 
+parts of the transform that involve change, which is attractive in version to version 
+changes where there is changes on only a few elements.
+</p>
+
 <h3>Default mapping groups</h3>
 <p>
 It is not necessary to explicitly invoke groups for each mapping. Instead groups can be declared to be the "default" mapping for a given source and target type. Groups acting as defaults have either &lt;&lt;types&gt;&gt; or &lt;&lt;type+&gt;&gt; in their declaration.</p>
@@ -499,7 +752,7 @@ last
 not_last
 only_one
 share
-collate
+single
 source
 target
 queried

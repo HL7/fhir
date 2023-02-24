@@ -42,6 +42,7 @@
         <base value="VerificationResult"/>
         <type value="token"/>
         <expression value="VerificationResult.attestation.communicationMethod"/>
+        <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
         <modifier value="text"/>
@@ -66,6 +67,7 @@
         <base value="VerificationResult"/>
         <type value="reference"/>
         <expression value="VerificationResult.attestation.onBehalfOf"/>
+        <processingMode value="normal"/>
         <target value="Practitioner"/>
         <target value="Organization"/>
         <target value="PractitionerRole"/>
@@ -100,6 +102,7 @@
         <base value="VerificationResult"/>
         <type value="reference"/>
         <expression value="VerificationResult.attestation.who"/>
+        <processingMode value="normal"/>
         <target value="Practitioner"/>
         <target value="Organization"/>
         <target value="PractitionerRole"/>
@@ -134,6 +137,7 @@
         <base value="VerificationResult"/>
         <type value="date"/>
         <expression value="VerificationResult.primarySource.validationDate"/>
+        <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
         <comparator value="eq"/>
@@ -164,6 +168,7 @@
         <base value="VerificationResult"/>
         <type value="token"/>
         <expression value="VerificationResult.primarySource.type"/>
+        <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
         <modifier value="text"/>
@@ -188,6 +193,7 @@
         <base value="VerificationResult"/>
         <type value="reference"/>
         <expression value="VerificationResult.primarySource.who"/>
+        <processingMode value="normal"/>
         <target value="Practitioner"/>
         <target value="Organization"/>
         <target value="PractitionerRole"/>
@@ -222,6 +228,7 @@
         <base value="VerificationResult"/>
         <type value="date"/>
         <expression value="VerificationResult.statusDate"/>
+        <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
         <comparator value="eq"/>
@@ -252,6 +259,7 @@
         <base value="VerificationResult"/>
         <type value="token"/>
         <expression value="VerificationResult.status"/>
+        <processingMode value="normal"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>
       </SearchParameter>
@@ -275,6 +283,7 @@
         <base value="VerificationResult"/>
         <type value="reference"/>
         <expression value="VerificationResult.validator.organization"/>
+        <processingMode value="normal"/>
         <target value="Organization"/>
         <multipleOr value="true"/>
         <multipleAnd value="true"/>

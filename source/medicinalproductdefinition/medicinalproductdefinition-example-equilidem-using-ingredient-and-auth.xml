@@ -217,7 +217,7 @@
 			</table>
 		</div>
 	</text>
-	<!-- an authorisation can also be contained if required (commented out temporarily due to build issues) -->
+	<!-- an authorization can also be contained if required (commented out temporarily due to build issues) -->
 	<!--contained>
 		<RegulatedAuthorization>
 			<id value="authorization"/>
