@@ -520,4 +520,16 @@
       <display value="Text Dose"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Request with multiple dosages and timings."/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="medicationrequestexample4"/>
+    </extension>
+    <item>
+      <reference value="MedicationRequest/medrx004"/>
+      <display value="Text Dose"/>
+    </item>
+  </entry>
 </List>

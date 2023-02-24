@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="datestype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+    <valueCode value="fm"/>
+  </extension>
+  <url value="http://hl7.org/fhir/datestype"/>
+  <version value="5.0.0-snapshot3"/>
+  <name value="DatesEventTypeCodes"/>
+  <title value="Dates Event Type Codes"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7 International"/>
+  <description value="This value set includes sample Dates Event Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="card-issued"/>
+    <display value="Card Issued"/>
+    <definition value="The date when an insurance card was issued."/>
+  </concept>
+  <concept>
+    <code value="claim-received"/>
+    <display value="Claim Received"/>
+    <definition value="The date when an insurer nreceived a claim, pre-authorization or predetermination."/>
+  </concept>
+  <concept>
+    <code value="service-expected"/>
+    <display value="Service Expected"/>
+    <definition value="The date or period on or during which the services are expected to be performed."/>
+  </concept>
+</CodeSystem>

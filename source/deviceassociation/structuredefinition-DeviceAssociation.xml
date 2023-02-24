@@ -176,7 +176,7 @@
         <code value="Period"/>
       </type>
     </element>
-<element id="DeviceAssociation.operation">
+    <element id="DeviceAssociation.operation">
       <path value="DeviceAssociation.operation"/>
       <short value="The details about the device when it is in use to describe its operation"/>
       <definition value="The details about the device when it is in use to describe its operation."/>
@@ -184,6 +184,16 @@
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="DeviceAssociation.operation.status">
+      <path value="DeviceAssociation.operation.status"/>
+      <short value="Device operational condition"/>
+      <definition value="Device operational condition corresponding to the association."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
       </type>
     </element>
     <element id="DeviceAssociation.operation.operator">
