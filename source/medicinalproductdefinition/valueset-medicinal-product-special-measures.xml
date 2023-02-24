@@ -36,7 +36,7 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorisation studies."/>
+  <description value="Extra measures defined for a Medicinal Product, such as a requirement to conduct post-authorization studies."/>
   <immutable value="true"/>
   <compose>
     <include>
