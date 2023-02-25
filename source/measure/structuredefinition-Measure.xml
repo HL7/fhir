@@ -615,6 +615,9 @@
       <path value="Measure.usage"/>
       <short value="Describes the clinical usage of the measure"/>
       <definition value="A detailed description, from a clinical perspective, of how the measure is used."/>
+      <comment value="This metadata element was typically referred to as Guidance in HQMF"/>
+      <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
+      <alias value="guidance"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -1132,9 +1135,13 @@
       </mapping>
     </element>
     <element id="Measure.guidance">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"/>
+        <valueCode value="deprecated"/>
+      </extension>
       <path value="Measure.guidance"/>
-      <short value="Additional guidance for implementers"/>
+      <short value="Additional guidance for implementers (deprecated)"/>
       <definition value="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure."/>
+      <comment value="NOTE: This element is deprecated in favor of the usage element"/>
       <requirements value="Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the population criteria of the measure. This element provides detailed guidance, where the usage element provides a summary of the guidance."/>
       <min value="0"/>
       <max value="1"/>
