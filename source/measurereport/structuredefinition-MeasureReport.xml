@@ -451,6 +451,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.linkId">
+      <path value="MeasureReport.group.linkId"/>
+      <short value="Pointer to specific group from Measure"/>
+      <definition value="The group from the Measure that corresponds to this group in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.code">
       <path value="MeasureReport.group.code"/>
       <short value="Meaning of the group"/>
@@ -474,6 +488,42 @@
         <map value="code"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.subject">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Subject can be a Group when the measurereport type is summary."/>
+      </extension>
+      <path value="MeasureReport.group.subject"/>
+      <short value="What individual(s) the report is for"/>
+      <definition value="Optional subject identifying the individual or individuals the report is for."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/CareTeam"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Device"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/HealthcareService"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/PractitionerRole"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/RelatedPerson"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.population">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="0,240"/>
@@ -489,6 +539,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.linkId">
+      <path value="MeasureReport.group.population.linkId"/>
+      <short value="Pointer to specific population from Measure"/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.population.code">
@@ -531,7 +595,7 @@
     <element id="MeasureReport.group.population.subjectResults">
       <path value="MeasureReport.group.population.subjectResults"/>
       <short value="For subject-list reports, the subject results in this population"/>
-      <definition value="This element refers to a List of subject level MeasureReport resources, one for each subject in this population."/>
+      <definition value="This element refers to a List of individual level MeasureReport resources, one for each subject in this population."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -541,6 +605,46 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.subjectReport">
+      <path value="MeasureReport.group.population.subjectReport"/>
+      <short value="For subject-list reports, a subject result in this population"/>
+      <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
+      <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.subjects">
+      <path value="MeasureReport.group.population.subjects"/>
+      <short value="What individual(s) in the population"/>
+      <definition value="Optional Group identifying the individuals that make up the population."/>
+      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be an actual (as opposed to a definitional) group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.measureScore[x]">
@@ -589,6 +693,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.linkId">
+      <path value="MeasureReport.group.stratifier.linkId"/>
+      <short value="Pointer to specific stratifier from Measure"/>
+      <definition value="The stratifier from the Measure that corresponds to this stratifier in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.code">
@@ -683,6 +801,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.stratum.component.linkId">
+      <path value="MeasureReport.group.stratifier.stratum.component.linkId"/>
+      <short value="Pointer to specific stratifier component from Measure"/>
+      <definition value="The stratifier component from the Measure that corresponds to this stratifier component in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.stratifier.stratum.component.code">
       <path value="MeasureReport.group.stratifier.stratum.component.code"/>
       <short value="What stratifier component of the group"/>
@@ -758,6 +890,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.stratum.population.linkId">
+      <path value="MeasureReport.group.stratifier.stratum.population.linkId"/>
+      <short value="Pointer to specific population from Measure"/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.stratifier.stratum.population.code">
       <path value="MeasureReport.group.stratifier.stratum.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
@@ -797,7 +943,7 @@
     <element id="MeasureReport.group.stratifier.stratum.population.subjectResults">
       <path value="MeasureReport.group.stratifier.stratum.population.subjectResults"/>
       <short value="For subject-list reports, the subject results in this population"/>
-      <definition value="This element refers to a List of subject level MeasureReport resources, one for each subject in this population in this stratum."/>
+      <definition value="This element refers to a List of individual level MeasureReport resources, one for each subject in this population in this stratum."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -807,6 +953,46 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.stratum.population.subjectReport">
+      <path value="MeasureReport.group.stratifier.stratum.population.subjectReport"/>
+      <short value="For subject-list reports, a subject result in this population"/>
+      <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
+      <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MeasureReport"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="outboundRelationship[typeCode=SBJ]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.stratum.population.subjects">
+      <path value="MeasureReport.group.stratifier.stratum.population.subjects"/>
+      <short value="What individual(s) in the population"/>
+      <definition value="Optional Group identifying the individuals that make up the population."/>
+      <comment value="Note that this element can only be used for summary and subject-list reports where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be an actual (as opposed to a definitional) group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject[x]"/>
+      </mapping>
+      <mapping>
+        <identity value="rim"/>
+        <map value="participation[typeCode=SBJ]"/>
+      </mapping>
+      <mapping>
+        <identity value="w5"/>
+        <map value="FiveWs.subject"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.measureScore[x]">
@@ -836,6 +1022,22 @@
       <mapping>
         <identity value="rim"/>
         <map value="value"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.supplementalData">
+      <path value="MeasureReport.supplementalData"/>
+      <short value="Additional information collected for the report"/>
+      <definition value="A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource."/>
+      <comment value="For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetObservation"/>
       </mapping>
     </element>
     <element id="MeasureReport.evaluatedResource">
