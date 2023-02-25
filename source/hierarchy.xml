@@ -84,6 +84,7 @@ signatures.html
         <page title="Introduction" filename="overview.html"/>
         <page title="Developer Introduction" filename="overview-dev.html"/>
         <page title="Clinical Introduction" filename="overview-clinical.html"/>
+        <page title="Patient Introduction" filename="overview-patient.html"/>
         <page title="Architect's Introduction" filename="overview-arch.html"/>
         <page title="Summary" filename="summary.html"/>
         <page title="Glossary #1" filename="help.html"/>
