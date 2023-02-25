@@ -277,7 +277,6 @@
       <path value="ExplanationOfBenefit.created"/>
       <short value="Response creation date"/>
       <definition value="The date this resource was created."/>
-      <comment value="This field is independent of the date of creation of the resource as it may reflect the creation date of a source document prior to digitization. Typically for claims all services must be completed as of this date."/>
       <requirements value="Need to record a timestamp for use by both the recipient and the issuer."/>
       <min value="1"/>
       <max value="1"/>
@@ -1505,6 +1504,23 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
     </element>
+    <element id="ExplanationOfBenefit.item.request">
+      <path value="ExplanationOfBenefit.item.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
+    </element>
     <element id="ExplanationOfBenefit.item.modifier">
       <path value="ExplanationOfBenefit.item.modifier"/>
       <short value="Product or service billing modifiers"/>
@@ -1884,7 +1900,7 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-reason"/>
       </binding>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.amount">
+    <element id="ExplanationOfBenefit.item.adjudication.amount"> 
       <path value="ExplanationOfBenefit.item.adjudication.amount"/>
       <short value="Monetary amount"/>
       <definition value="Monetary amount associated with the category."/>
@@ -1893,11 +1909,11 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="Money"/>
+        <code value="Money"/> 
       </type>
     </element>
-    <element id="ExplanationOfBenefit.item.adjudication.value">
-      <path value="ExplanationOfBenefit.item.adjudication.value"/>
+    <element id="ExplanationOfBenefit.item.adjudication.quantity">
+      <path value="ExplanationOfBenefit.item.adjudication.quantity"/>
       <short value="Non-monitary value"/>
       <definition value="A non-monetary value associated with the category. Mutually exclusive to the amount element above."/>
       <comment value="For example: eligible percentage or co-payment percentage."/>
@@ -1905,7 +1921,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="decimal"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="ExplanationOfBenefit.item.detail">
@@ -2590,6 +2606,23 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
+    </element>
+    <element id="ExplanationOfBenefit.addItem.request">
+      <path value="ExplanationOfBenefit.addItem.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="ExplanationOfBenefit.addItem.modifier">
       <path value="ExplanationOfBenefit.addItem.modifier"/>
