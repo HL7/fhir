@@ -451,6 +451,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.linkId">
+      <path value="MeasureReport.group.linkId"/>
+      <short value="Pointer to specific group from Measure"/>
+      <definition value="The group from the Measure that corresponds to this group in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.code">
       <path value="MeasureReport.group.code"/>
       <short value="Meaning of the group"/>
@@ -489,6 +503,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.population.linkId">
+      <path value="MeasureReport.group.population.linkId"/>
+      <short value="Pointer to specific population from Measure"/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.population.code">
@@ -615,6 +643,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.linkId">
+      <path value="MeasureReport.group.stratifier.linkId"/>
+      <short value="Pointer to specific stratifier from Measure"/>
+      <definition value="The stratifier from the Measure that corresponds to this stratifier in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.stratifier.code">
       <path value="MeasureReport.group.stratifier.code"/>
       <short value="What stratifier of the group"/>
@@ -707,6 +749,20 @@
         <map value="outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="MeasureReport.group.stratifier.stratum.component.linkId">
+      <path value="MeasureReport.group.stratifier.stratum.component.linkId"/>
+      <short value="Pointer to specific stratifier component from Measure"/>
+      <definition value="The stratifier component from the Measure that corresponds to this stratifier component in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.group.stratifier.stratum.component.code">
       <path value="MeasureReport.group.stratifier.stratum.component.code"/>
       <short value="What stratifier component of the group"/>
@@ -780,6 +836,20 @@
       <mapping>
         <identity value="rim"/>
         <map value="outboundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="MeasureReport.group.stratifier.stratum.population.linkId">
+      <path value="MeasureReport.group.stratifier.stratum.population.linkId"/>
+      <short value="Pointer to specific population from Measure"/>
+      <definition value="The population from the Measure that corresponds to this population in the MeasureReport resource."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".outboundRelationship[typeCode=DEFN].target[classCode=OBS, moodCode=DEFN].id"/>
       </mapping>
     </element>
     <element id="MeasureReport.group.stratifier.stratum.population.code">

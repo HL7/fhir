@@ -1175,6 +1175,33 @@
         <map value=".outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="Measure.group.linkId">
+      <path value="Measure.group.linkId"/>
+      <short value="Unique id for group in measure"/>
+      <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[MeasureReport](measurereport.html#) does not require omitted groups to be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <constraint>
+        <key value="mea-15"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
     <element id="Measure.group.code">
       <path value="Measure.group.code"/>
       <short value="Meaning of the group"/>
@@ -1347,6 +1374,33 @@
         <map value=".outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="Measure.group.population.linkId">
+      <path value="Measure.group.population.linkId"/>
+      <short value="Unique id for population in measure"/>
+      <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent population in a MeasureReport resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[MeasureReport](measurereport.html#) does not require omitted populations to be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <constraint>
+        <key value="mea-16"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
     <element id="Measure.group.population.code">
       <path value="Measure.group.population.code"/>
       <short value="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation"/>
@@ -1469,6 +1523,33 @@
         <map value=".outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="Measure.group.stratifier.linkId">
+      <path value="Measure.group.stratifier.linkId"/>
+      <short value="Unique id for stratifier in measure"/>
+      <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifiers to be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <constraint>
+        <key value="mea-17"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
     <element id="Measure.group.stratifier.code">
       <path value="Measure.group.stratifier.code"/>
       <short value="Meaning of the stratifier"/>
@@ -1557,6 +1638,33 @@
         <map value=".outboundRelationship[typeCode=COMP]"/>
       </mapping>
     </element>
+    <element id="Measure.group.stratifier.component.linkId">
+      <path value="Measure.group.stratifier.component.linkId"/>
+      <short value="Unique id for stratifier component in measure"/>
+      <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[MeasureReport](measurereport.html#) does not require omitted stratifier components to be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <constraint>
+        <key value="mea-15"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
+      </mapping>
+    </element>
     <element id="Measure.group.stratifier.component.code">
       <path value="Measure.group.stratifier.component.code"/>
       <short value="Meaning of the stratifier component"/>
@@ -1639,6 +1747,33 @@
       <mapping>
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=COMP]"/>
+      </mapping>
+    </element>
+    <element id="Measure.supplementalData.linkId">
+      <path value="Measure.supplementalData.linkId"/>
+      <short value="Unique id for supplementalData in measure"/>
+      <definition value="An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource."/>
+      <comment value="This ''can'' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.&#xA;&#xA;LinkIds can have whitespaces and slashes by design. Tooling should not rely on linkIds being valid XHTML element IDs, and should not directly embed them as such"/>
+      <requirements value="[MeasureReport](measurereport.html#) does not require omitted supplementalData to be included."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <constraint>
+        <key value="mea-18"/>
+        <severity value="warning">
+          <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
+            <valueBoolean value="true"/>
+          </extension>
+        </severity>
+        <human value="Link ids should be 255 characters or less"/>
+        <expression value="$this.length() &lt;= 255"/>
+        <source value="http://hl7.org/fhir/StructureDefinition/Measure"/>
+      </constraint>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".id"/>
       </mapping>
     </element>
     <element id="Measure.supplementalData.code">
