@@ -833,6 +833,20 @@
         <description value="The error codes for adjudication processing."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
       </binding>
+	  <isSummary value="true"/>
+	</element>  
+    <element id="CoverageEligibilityResponse.error.expression">
+      <path value="CoverageEligibilityResponse.error.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

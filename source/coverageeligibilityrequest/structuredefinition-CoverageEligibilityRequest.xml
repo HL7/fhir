@@ -318,7 +318,7 @@
       <path value="CoverageEligibilityRequest.provider"/>
       <short value="Party responsible for the request"/>
       <definition value="The provider which is responsible for the request."/>
-      <comment value="This party is responsible for the eligibility request but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <requirements value="Needed to identify the requestor."/>
       <min value="0"/>
       <max value="1"/>
