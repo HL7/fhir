@@ -886,6 +886,22 @@
         <map value="value"/>
       </mapping>
     </element>
+    <element id="MeasureReport.supplementalData">
+      <path value="MeasureReport.supplementalData"/>
+      <short value="Additional information collected for the report"/>
+      <definition value="A reference to a Resource that represents additional information collected for the report. If the value of the supplemental data is not a Resource (i.e. evaluating the supplementalData expression for this case in the measure results in a value that is not a FHIR Resource), it is reported as a reference to a contained Observation resource."/>
+      <comment value="For individual measure reports, the supplementalData elements represent the direct result of evaluating the supplementalData expression for the subject of the report. For summary reports, supplementalData is reported as references to contained Observation resources that represent the number of times each value appeared as a supplementalData result for members of the population."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Resource"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value=".targetObservation"/>
+      </mapping>
+    </element>
     <element id="MeasureReport.evaluatedResource">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="Evaluated resources are only included in individual reports to capture data that was referenced as part of the calculation."/>
