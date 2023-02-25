@@ -1261,6 +1261,37 @@
         <map value=".typeCode"/>
       </mapping>
     </element>
+    <element id="Measure.group.subject[x]">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Subject is the entity that is the focus of the measure, typically patient, and the referent of population criteria expressions; population basis is the type of elements in the population, i.e. the result type of population criteria expressions. In the special case that the subject and population basis are the same, the result type of criteria expressions is a boolean. Population basis is scheduled to be added as a first-class element both at the root, and overridable per group."/>
+      </extension>
+      <path value="Measure.group.subject[x]"/>
+      <short value="E.g. Patient, Practitioner, RelatedPerson, Organization, Location, Device"/>
+      <definition value="The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything."/>
+      <comment value="The subject of the measure is critical in interpreting the criteria definitions, as the logic in the measures is evaluated with respect to a particular subject. This corresponds roughly to the notion of a Compartment in that it limits what content is available based on its relationship to the subject. In CQL, this corresponds to the context declaration."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <meaningWhenMissing value="Patient"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SubjectType"/>
+        </extension>
+        <strength value="extensible"/>
+        <description value="The possible types of subjects for a measure (E.g. Patient, Practitioner, Organization, Location, etc.)."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/participant-resource-types"/>
+      </binding>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?) { only applies for subject Patient? }"/>
+      </mapping>
+    </element>
     <element id="Measure.group.basis">
       <path value="Measure.group.basis"/>
       <short value="Population basis"/>
@@ -1333,6 +1364,22 @@
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
       </mapping>
     </element>
+    <element id="Measure.group.rateAggregation">
+      <path value="Measure.group.rateAggregation"/>
+      <short value="How is rate aggregation performed for this measure"/>
+      <definition value="Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result."/>
+      <comment value="The measure rate for an organization or clinician is based upon the entities’ aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC's aggregate reporting for TB at the state level)."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <isSummary value="true"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="Measure.group.improvementNotation">
       <path value="Measure.group.improvementNotation"/>
       <short value="increase | decrease"/>
@@ -1355,6 +1402,24 @@
       <mapping>
         <identity value="rim"/>
         <map value=".methodCode { the aspect of how the calculation is performed }"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.library">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
+        <valueString value="Library is not required to allow for measures that are strictly narrative, as well as for measures that have inline criteria expressions."/>
+      </extension>
+      <path value="Measure.group.library"/>
+      <short value="Logic used by the measure group"/>
+      <definition value="A reference to a Library resource containing the formal logic used by the measure group."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="canonical"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Library"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
       </mapping>
     </element>
     <element id="Measure.group.population">
