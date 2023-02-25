@@ -58,7 +58,6 @@ resources required.
  <li><a href="message-request-link.xml.html">Example Request Message</a> </li>
  <li><a href="message-response-link.xml.html">Example Response Message</a> </li>
 </ul>
-
 <a name="basic"></a>
 
 <h2>Basic Messaging Assumptions</h2>
@@ -239,7 +238,7 @@ correct action to take depends on what is received:
 <table class="grid">
  <tr><td>Both the Bundle.id and MessageHeader.id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
  <tr><td>Both the Bundle.id and MessageHeader.id have been received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
- <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The server may either reprocess the message, or reject the message</td></tr>
+ <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The receiver may either reprocess the message, or reject the message</td></tr>
  <tr><td>The Bundle.id has already been received, but the MessageHeader.id is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
 </table>
 <p>

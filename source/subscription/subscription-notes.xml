@@ -6,6 +6,12 @@
 		Applications are responsible for following <a href="security.html">FHIR security guidance</a>.  Some recommendations specific to subscriptions are provided on the <a href="subscriptions.html#safety">Subscriptions Framework</a> page.
 	</p>
 
+  <a name="multi-resource"/>
+  <h2>Multi-Resource Subscriptions</h2>
+  <p>
+    As indicated on the <a href="subscriptions.html#multi-resource-topics">Subscriptions Framework</a> and <a href="subscriptiontopic.html#resource-scope">SubscriptionTopic resource</a> pages, subscriptions can have more than a single resource in scope (e.g., a subscription that triggers on both <code>Condition</code> and <code>Observation</code> resources, a topic tied to all resources, etc.).  If there are filters that do not apply to every resource available in a topic, clients SHOULD ensure that the <code>filterBy.resourceType</code> element is filled appropriately.  More detail can be found in the <a href="subscriptions.html#resource-filters">Filters and Resource Types</a> section of the Subscriptions Framework page.
+  </p>
+
 	<a name="payloads"/>
 	<h2>Payload Types</h2>
 	<p>
@@ -66,6 +72,12 @@
       Notification bundles for <code>full-resource</code> subscriptions SHALL contain, in addition to the <code>SubscriptionStatus</code>, at least one <code>Bundle.entry</code> for each resource relevant to the notification. For example, a notification for a topic based on Encounter SHALL include an Encounter and MAY include additional resources deemed relevant (e.g., the relevant Patient). Each <code>Bundle.entry</code> for a <code>full-resource</code> notification SHALL contain a relevant resource in the <code>entry.resource</code> element.  If a server cannot include the resource contents due to an issue with a specific notification, the server SHALL populate the <code>entry.request</code> and/or <code>entry.response</code> elements.
     </p>
 
+  <a name="batching"/>
+  <h2>Batching Results</h2>
+  <p>
+    Subscriptions allow servers to batch multiple notifications into a single <code>subscription-notification</code> Bundle. For example, if a server has a high-frequency of updates (e.g., several per second), it could be beneficial to combine notifications to reduce traffic and overhead. Note that servers SHALL NOT delay sending notification longer than time span specified by <code>Subscription.heartbeat</code>.
+  </p>
+
 	<a name="channels"/>
 	<h2>Channels</h2>
 		
@@ -121,7 +133,7 @@
     </p>
     <ul>
       <li>The <code>content-type</code> of the POST SHALL match the MIME type on the Subscription <a href="subscription-definitions.html#Subscription.contentType">Subscription.contentType</a>.</li>
-      <li>Each <a href="subscription-definitions.html#Subscription.header">Subscription.header</a> value SHALL be conveyed as an HTTP request header.</li>
+      <li>Each <a href="subscription-definitions.html#Subscription.parameter">Subscription.parameter</a> indicates an HTTP request header and SHALL be sent as <code>{parameter.name}: {parameter.value}</code>.</li>
     </ul>
 
     <p>
@@ -262,6 +274,9 @@
 				<li>
 					Unlike HTTP/S requests, WebSockets can be long-lived.  Because of this, the case of revoking access of an active connection must be considered.
 				</li>
+        <li>
+          This specification does not describe the security details of Websocket tokens issued by the <code>$get-ws-binding-token</code> operation. Issued tokens MAY be single-use (e.g., re-establishing a connection require a new token) or reusable until their expiration (e.g., re-establishing a connection can reuse an existing token).  Additionally, servers are free to issue tokens as either single-client or shared.  Servers SHOULD document their policy on token issuance.
+        </li>
 			</ul>
 
 		<a name="email"/>
@@ -401,10 +416,10 @@
 		</p>
 		<ul>
       <li>A system for Subscription.channelType that reflects the publisher of the definition (e.g., "https://myorg.example.org" instead of "urn:uuid:be35238b-0ed6-4062-93cf-818b8023a103")</li>
-			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel0012')</li>
+			<li>A generally descriptive code for <code>Subscription.channelType</code> (e.g., 'secure-mq' instead of 'channel')</li>
 			<li>The type of data required in <code>Subscription.endpoint</code> (e.g., URI, etc.)</li>
-			<li>The meaning of the <code>Subscription.header</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as Auth headers included in a POST)</li>
-			<li>Any variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
+			<li>The meaning of <code>Subscription.parameter</code> field values (e.g., <a href="#rest-hook">REST-hook</a> defines as HTTP headers included in a POST). Note that channels can specify general behavior and/or specific parameters by <code>name</code>.</li>
+			<li>Any additions or variations on MIME types for <code>Subscription.contentType</code> (e.g., <a href="#email">email</a> defines this as the email body, with allowable attachments.)</li>
       <li>Whether <code>handshake</code> notifications are used, and guidance on usage if they are</li>
 			<li>Whether <code>heartbeat</code> notifications are used, and guidance on timings if they are</li>
 		</ul>
@@ -425,7 +440,7 @@
 	<a name="errors"/>
 	<h2>Managing Subscriptions and Errors</h2>
 	<p>
-		The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the Location header and saves the new Subscription's logical id for use in subsequent operations.
+		The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful transaction, the client parses the <code>Location</code> header and saves the new Subscription's logical id for use in subsequent operations.
 	</p>
 	<p>
 		When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
@@ -443,7 +458,7 @@
 		The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server SHOULD update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
 	</p>
 	<p>
-		Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents errors that a server has experienced, a server SHOULD NOT allow clients to add errors.
+		Errors a server wishes to make accessible to clients are communicated via <code>SubscriptionStatus.error</code>. Clients MAY receive these errors in notifications sent by the server or detect them by running the <code>$status</code> operation on a subscription. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error).
 	</p>
 
 </div>

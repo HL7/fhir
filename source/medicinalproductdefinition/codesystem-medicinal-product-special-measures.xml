@@ -37,13 +37,13 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorisation studies."/>
+  <description value="Extra measures defined for a Medicinal Product, such as requirement to conduct post-authorization studies."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/medicinal-product-special-measures"/>
   <content value="complete"/>
   <concept>
-    <code value="Post-authorisationStudies"/>
-    <display value="Requirement to conduct post-authorisation studies"/>
-    <definition value="Requirement to conduct post-authorisation studies"/>
+    <code value="Post-authorizationStudies"/>
+    <display value="Requirement to conduct post-authorization studies"/>
+    <definition value="Requirement to conduct post-authorization studies"/>
   </concept>
 </CodeSystem>

@@ -42,17 +42,17 @@
   <content value="complete"/>
   <concept>
     <code value="empty"/>
-    <display value="empty"/>
+    <display value="Empty"/>
     <definition value="No resource content is transacted in the notification payload."/>
   </concept>
   <concept>
     <code value="id-only"/>
-    <display value="id-only"/>
+    <display value="Id-only"/>
     <definition value="Only the resource id is transacted in the notification payload."/>
   </concept>
   <concept>
     <code value="full-resource"/>
-    <display value="full-resource"/>
+    <display value="Full-resource"/>
     <definition value="The entire resource is transacted in the notification payload."/>
   </concept>
 </CodeSystem>

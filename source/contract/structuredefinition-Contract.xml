@@ -1802,7 +1802,7 @@
     <element id="Contract.term.action.context">
       <path value="Contract.term.action.context"/>
       <short value="Episode associated with action"/>
-      <definition value="Encounter or Episode with primary association to specified term activity."/>
+      <definition value="Encounter or Episode with primary association to the specified term activity."/>
       <min value="0"/>
       <max value="1"/>
       <type>

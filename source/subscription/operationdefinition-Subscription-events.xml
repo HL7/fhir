@@ -81,6 +81,10 @@
     <max value="1"/>
     <documentation value="Requested content style of returned data. Codes from backport-content-value-set (e.g., empty, id-only, full-resource). This is a hint to the server what a client would prefer, and MAY be ignored."/>
     <type value="code"/>
+    <binding>
+      <strength value="required"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/subscription-payload-content"/>
+    </binding>
   </parameter>
   <parameter>
     <name value="return"/>

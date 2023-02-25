@@ -1,1 +1,1 @@
-﻿Cannot invoke "String.equals(Object)" because "this.nameReason" is null
+﻿Resource Examples failed instance validation
