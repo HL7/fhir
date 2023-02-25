@@ -14,7 +14,10 @@
 		<code value="rest-hook"/>
 	</channelType>
 	<endpoint value="https://example.org/Endpoints/P123" />
-	<header value="Authorization: Bearer secret-token-abc-123" />
+  <parameter>
+    <name value="Authorization"/>
+    <value value="Bearer secret-token-abc-123"/>
+  </parameter>
 	<heartbeatPeriod value="60" />
 	<timeout value="5" />
 	<contentType value="application/fhir+json" />
