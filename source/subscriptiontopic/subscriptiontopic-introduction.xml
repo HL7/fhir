@@ -30,7 +30,7 @@
     </ul>
   </p>
   <p>
-    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
+    Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be defined in a computable way whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressible in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
   </p>
 </div>
 

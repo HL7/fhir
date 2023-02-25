@@ -3,7 +3,7 @@
 	<url value="http://example.org/FHIR/R5/SubscriptionTopic/admission"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.24.1"/>
+    <value value="urn:uuid:915c2040-b0a8-4935-adf8-94d6e1a74052"/>
   </identifier>
   <title value="admission"/>
 	<status value="active"/>
@@ -37,7 +37,6 @@
     <description value="Matching based on the Patient (subject) of an Encounter or based on the Patient's group membership (in/not-in)."/>
     <resource value="Encounter"/>
     <filterParameter value="patient"/>
-    <modifier value="="/>
     <modifier value="in"/>
     <modifier value="not-in"/>
   </canFilterBy>
