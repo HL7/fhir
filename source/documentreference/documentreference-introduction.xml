@@ -30,10 +30,14 @@ DocumentReference contains metadata, inline content or direct references to docu
 <p>
 This resource captures data that might not be in FHIR format. The document can be any object (e.g. file), 
 and is not limited to the formal HL7 definitions of <a href="documents.html">Document</a>. This resource may be a report with 
-unstructured text or report that is not expressed in a DiagnosticReport. This resource may be an 
+unstructured text or a report that is not expressed in a DiagnosticReport. The DiagnosticReport is appropriate to reflect a 
+set of discrete results (Observations) and associated contextual details for a specific report, and within those results any 
+further structure within the Observation instances. The DocumentReference resource may be an 
 <a href="observation.html">Observation</a> whose value is audio, video or image data. This resource is the preferred 
-representation of such forms of information as it exposes the metadata relevant for interpreting the 
-information. 
+representation of such forms of information as it exposes the metadata relevant for interpreting the information.
+There is some overlap potential such as a scan of a CBC report that can either be referenced by way of a DocumentReference, 
+or included in a DiagnosticReport as a presentedForm together with the structured, discrete data.
+Specific implementation guides would further clarify when one approach is more appropriate than another.
 </p>
 <p>
 This resource is able to contain medical images in a DICOM format. These images may also be made 
@@ -70,4 +74,3 @@ discussed as <a href="provenance.html#overlap">part of the description of the Pr
 </div>
 
 </div>
-
