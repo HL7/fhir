@@ -1381,10 +1381,26 @@
       <short value="The criteria that defines this population"/>
       <definition value="An expression that specifies the criteria for the population, typically the name of an expression in a library."/>
       <comment value="In the case of a continuous-variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.population.groupDefinition">
+      <path value="Measure.group.population.groupDefinition"/>
+      <short value="A group resource that defines this population"/>
+      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be a definitional (as opposed to an actual) group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>
@@ -1499,6 +1515,22 @@
         <map value="N/A (to add?)"/>
       </mapping>
     </element>
+    <element id="Measure.group.stratifier.groupDefinition">
+      <path value="Measure.group.stratifier.groupDefinition"/>
+      <short value="A group resource that defines this population"/>
+      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
     <element id="Measure.group.stratifier.component">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
         <valueCode value="370,450"/>
@@ -1558,10 +1590,26 @@
       <path value="Measure.group.stratifier.component.criteria"/>
       <short value="Component of how the measure should be stratified"/>
       <definition value="An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element."/>
-      <min value="1"/>
+      <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Expression"/>
+      </type>
+      <mapping>
+        <identity value="rim"/>
+        <map value="N/A (to add?)"/>
+      </mapping>
+    </element>
+    <element id="Measure.group.stratifier.component.groupDefinition">
+      <path value="Measure.group.stratifier.component.groupDefinition"/>
+      <short value="A group resource that defines this population"/>
+      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/Group"/>
       </type>
       <mapping>
         <identity value="rim"/>
