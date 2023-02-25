@@ -320,8 +320,8 @@
     <element id="MedicationRequest.category">
       <path value="MedicationRequest.category"/>
       <short value="Grouping or category of medication request"/>
-      <definition value="Indicates the grouping or category of medication request (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)."/>
-      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests."/>
+      <definition value="An arbitrary categorization or grouping of the medication request.  It could be used for indicating where meds are intended to be administered, eg. in an inpatient setting or in a patient's home, or a legal category of the medication."/>
+      <comment value="The category can be used to include where the medication is expected to be consumed or other types of requests.  The examplar value set represents where the meds are intended to be administered and is just one example of request categorization."/>
       <min value="0"/>
       <max value="*"/>
       <type>

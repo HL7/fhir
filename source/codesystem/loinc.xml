@@ -94,7 +94,7 @@ they support
     <code value="child"/> 
     <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. child selects immediate children only. For example, the code '44022-2' has the parent 'LP52960-9'"/>
     <operator value="in"/>
-    <value value="A comma separated list of part codes"/>
+    <value value="A comma-separated list of part codes"/>
   </filter>
   <filter>
     <code value="ancestor"/> 
@@ -106,7 +106,7 @@ they support
     <code value="descendent"/> 
     <description value="Allows for the selection of a set of codes base on their appearance in the LOINC multi-axial hierarchy. ancestor includes children transitively, e.g. 'LP52960-9' eventually has an ancestor 'LP31755-9', so the code '44022-2' is in the set of codes that have ancestor=LP31755-9"/>
     <operator value="in"/>
-    <value value="A comma separated list of part codes"/>
+    <value value="A comma-separated list of part codes"/>
   </filter>
   <filter>
     <code value="copyright"/> 

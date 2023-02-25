@@ -312,6 +312,16 @@
         <valueSet value="http://hl7.org/fhir/ValueSet/certainty-rating"/>
       </binding>
     </element>
+    <element id="ArtifactAssessment.content.quantity">
+      <path value="ArtifactAssessment.content.quantity"/>
+      <short value="Quantitative rating"/>
+      <definition value="A quantitative rating of the artifact."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Quantity"/>
+      </type>
+    </element>
     <element id="ArtifactAssessment.content.author">
       <path value="ArtifactAssessment.content.author"/>
       <short value="Who authored the content"/>

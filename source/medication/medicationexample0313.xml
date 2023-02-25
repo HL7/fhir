@@ -16,17 +16,11 @@
       </coding>
     </doseForm>
   <totalVolume>
-    <numerator><value value="1"></value>
-      <unit value="ml"></unit>
-      <system value="http://unitsofmeasure.org"></system>
-      <code value="ml"></code>
-    </numerator>
-    <denominator>
-      <value value="1"/>
-      <system value="http://terminology.hl7.org/CodeSystem/medicationknowledge-package-type"/>
-      <code value="vial"/>
-    </denominator>
-    </totalVolume>
+    <value value="1"></value>
+    <unit value="ml"></unit>
+    <system value="http://unitsofmeasure.org"></system>
+    <code value="ml"></code>
+  </totalVolume>
     <ingredient>
       <item>
         <concept>

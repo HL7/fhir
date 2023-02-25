@@ -43,8 +43,8 @@
   <content value="complete"/>
   <concept>
     <code value="ProposedMAH"/>
-    <display value="Proposed Marketing Authorisation Holder/Person"/>
-    <definition value="Proposed Marketing Authorisation Holder/Person"/>
+    <display value="Proposed Marketing Authorization Holder/Person"/>
+    <definition value="Proposed Marketing Authorization Holder/Person"/>
   </concept>
   <concept>
     <code value="ProcedureContactDuring"/>
@@ -54,7 +54,7 @@
   <concept>
     <code value="ProcedureContactAfter"/>
     <display value="Person/Company authorised for Communication after procedure"/>
-    <definition value="Person/Company authorised for Communication between MAH and Authorities after Authorisation"/>
+    <definition value="Person/Company authorised for Communication between MAH and Authorities after Authorization"/>
   </concept>
   <concept>
     <code value="QPPV"/>

@@ -150,7 +150,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <!-- <element id="Task.instantiatesUri">
+    <element id="Task.instantiatesUri">
       <path value="Task.instantiatesUri"/>
       <short value="Formal definition of task"/>
       <definition value="The URL pointing to an *externally* maintained  protocol, guideline, orderset or other definition that is adhered to in whole or in part by this Task."/>
@@ -169,7 +169,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element> -->
+    </element>
     <element id="Task.basedOn">
       <path value="Task.basedOn"/>
       <short value="Request fulfilled by this task"/>
@@ -776,7 +776,7 @@
     <element id="Task.location">
       <path value="Task.location"/>
       <short value="Where task occurs"/>
-      <definition value="Principal physical location where the this task is performed."/>
+      <definition value="Principal physical location where this task is performed."/>
       <comment value="This should only be specified when the Task to be/being performed happens or is expected to happen primarily within the bounds of a single Location.  Other locations (e.g. source, destination, etc.) would either be reflected on the 'basedOn' Request or be conveyed as distinct Task.input values."/>
       <requirements value="Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting)."/>
       <min value="0"/>

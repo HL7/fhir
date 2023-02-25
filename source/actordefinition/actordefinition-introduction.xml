@@ -21,7 +21,7 @@ actors and in doing so, bring into scope the technical artifacts associated with
 
 <p>
 Once defined, Actors may be asociated with <a href="obligations.html">obligations</a> defined in profiles to describe
-expected application behaviour.
+expected application behavior.
 </p>
 <p>
 Actors may also be referenced from <a href="examplescenario.html">ExampleXcenario</a>.

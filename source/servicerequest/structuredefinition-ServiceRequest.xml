@@ -187,7 +187,7 @@
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
     </element>
-    <!-- <element id="ServiceRequest.instantiatesUri">
+    <element id="ServiceRequest.instantiatesUri">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
       </extension>
@@ -213,7 +213,7 @@
         <identity value="rim"/>
         <map value=".outboundRelationship[typeCode=DEFN].target"/>
       </mapping>
-    </element> -->
+    </element>
     <element id="ServiceRequest.basedOn">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/committee-notes">
         <valueString value="[#10296][#11119]#13196]."/>
@@ -639,15 +639,28 @@
       <path value="ServiceRequest.orderDetail.parameter.value[x]"/>
       <short value="The value for the order detail"/>
       <definition value="Indicates a value for the order detail."/>
+      <comment value="CodeableConcept values are indented to express concepts that would normally be coded - when a code is not available for a concept, CodeableConcept.text can be used. When the data is a text or not a single identifiable concept, string should be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
         <code value="Quantity"/>
+      </type>
+      <type>
         <code value="Ratio"/>
+      </type>
+      <type>
         <code value="Range"/>
+      </type>
+      <type>
         <code value="boolean"/>
+      </type>
+      <type>
         <code value="CodeableConcept"/>
+      </type>
+      <type>
         <code value="string"/>
+      </type>
+      <type>
         <code value="Period"/>
       </type>
     </element>    

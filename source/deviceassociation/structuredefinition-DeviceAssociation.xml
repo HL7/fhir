@@ -176,7 +176,7 @@
         <code value="Period"/>
       </type>
     </element>
-<element id="DeviceAssociation.operation">
+    <element id="DeviceAssociation.operation">
       <path value="DeviceAssociation.operation"/>
       <short value="The details about the device when it is in use to describe its operation"/>
       <definition value="The details about the device when it is in use to describe its operation."/>
@@ -185,6 +185,27 @@
       <type>
         <code value="BackboneElement"/>
       </type>
+    </element>
+    <element id="DeviceAssociation.operation.status">
+      <path value="DeviceAssociation.operation.status"/>
+      <short value="Device operational condition"/>
+      <definition value="Device operational condition corresponding to the association."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DeviceAssociationOperationStatus"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/definition">
+          <valueString value="A coded concept specifying the status of the association operation."/>
+        </extension>
+        <strength value="example"/>
+        <description value="Describes the the status of the association operation."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/deviceassociation-operationstatus"/>
+      </binding>
     </element>
     <element id="DeviceAssociation.operation.operator">
       <path value="DeviceAssociation.operation.operator"/>

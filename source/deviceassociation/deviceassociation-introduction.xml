@@ -28,8 +28,8 @@
 </li>
 </ul>
 <p>These are not exclusive, i.e. when associating a device with a patient, the it is possible to capture the patient's clinical information with a DeviceUsage resource, include the device in a Procedure for reporting, and keep the Device's traceability information with a DeviceAssociation resource.</p>
-</div>
 <p>To track changes in settings, Observation resource can be used, where Observation has the subject (e.g., patient), device, and time window that enable to relate to the proper DeviceAssociation or vice-versa. It is valid and common that a patient is associated with the same device (yielding multiple DeviceAssociation instances) over time.</p>
+</div>
 
 
 <!-- (optional):

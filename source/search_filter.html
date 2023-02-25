@@ -84,7 +84,7 @@ dateChar      = DIGIT / "T" / "-" / "." / "+" / ":" / "Z"
 <li>Logical expressions are evaluated left to right, with no precedence between "and" and "or". If there is ambiguity, use parentheses to be explicit.</li>
 <li>The compareOp is always evaluated against the set of values produced by evaluating the param path.</li>
 <li>The parameter names are those defined by the specification for search parameters, except for those defined below.</li>
-<li>The date format is a standard XML (i.e. XSD) dateTime (including time zone).</li>
+<li>The date format is a standard XML (i.e. XSD) dateTime (including timezone).</li>
 </ul>
 
 <a name="ops"></a>
@@ -185,7 +185,7 @@ For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see
 <td>eq</td>
 <td>Character sequence is the same (case insensitive)</td>
 <td>Number is the same incl same precision</td>
-<td>Date is the same including same precision and time zone if provided</td>
+<td>Date is the same including same precision and timezone if provided</td>
 <td>Token is the same, including namespace if specified (case insensitive)</td>
 <td>n/a</td>
 <td>Unit and value are the same</td>
