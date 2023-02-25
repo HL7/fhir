@@ -27,10 +27,10 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
 <ul>
   <li>The Bundle <a href="bundle-definitions.html#Bundle.type">type</a> SHALL be <code>message</code></li>
   <li>The first resource in the bundle SHALL be a <a href="messageheader.html">MessageHeader</a> resource</li>
-  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> and
+  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> or
      <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
      any resources, they SHALL be included in the Bundle entries</li>
-  <li>The bundle MAY also contain additional resource that these other resources refer to. It SHOULD include all resources needed
+  <li>The bundle MAY also contain additional resources that these other resources refer to. It SHOULD include all resources needed
      for the receiver to be able to process the message as expected by the MessageHeader.event 
      (this can be defined by a <a href="messagedefinition.html">MessageDefinition</a> resource)</li>
   <li>The bundle SHALL NOT include resources that do have references 
@@ -43,9 +43,11 @@ The MessageHeader resource has a code - the message event - that identifies the
 nature of the request message, and it also carries additional request metadata.
 The other resources in the bundle depend on the type of the request.
 </p>
+<!--
 <p>
 The events supported in FHIR, along with the resources that are included in them, are defined below.
 </p>
+-->
 <p>
 The destination application processes the request and returns zero or more response messages
 which are also a <a href="bundle.html">bundle</a> of resources identified
@@ -76,7 +78,6 @@ the transfer layer is that requests are sent to a known location and responses a
 the source of the request. This specification considers the source and destination applications as 
 logical entities, and the mapping from logical source and destination to implementation specific 
 addresses is outside the scope of this specification.  
-
 </p>
 <p>
 The agreements around the content of the messages and the behavior of the two
@@ -99,7 +100,7 @@ A key aspect of a message is the impact of its content:
 </p>
 [%codelist http://hl7.org/fhir/message-significance-category%]
 <p>
-Some Events defined by FHIR are assigned to one of these categories,
+Some Events defined by a FHIR IG are assigned to one of these categories,
 but others are not able to be categorized in advance, and the category
 must be determined by the content, context, or use case.
 </p>
@@ -122,8 +123,6 @@ must be determined by the content, context, or use case.
  <tr><td>Currency</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
  <tr><td>Notification</td><td>A message of notification MAY have one or more receivers specified.</td></tr>
 </table>
-
-<a name="synchronous"></a>
 <a name="patterns"></a>
 <h3>Message Exchange Patterns</h3>
 <p>
@@ -141,6 +140,7 @@ messages in a given stream are dependent on each other, and must be sent and
 processed in order. In addition, some transfer methods may require sequential
 delivery of messages.
 </p>
+<a name="synchronous"></a>
 <a name="sync"> </a>
 <h4>Synchronous</h4>
 <p>
@@ -159,7 +159,7 @@ This kind of messaging exchange is the most common because it's the simplest to 
 <a name="async"> </a>
 <h4>Asynchronous</h4>
 <p>
-However synchronous message exchange does not cater for multiple response
+The synchronous message exchange described above, however, does not cater for multiple response
 messages, which may arise when processing queries, and also imposes
 through-put limitations which may become relevant at high volumes.
 Additionally, it might not be practical or appropriate to wait for
@@ -173,7 +173,7 @@ given message.
 </p>
 <p>
 When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
-Note that asynchronous messaging can be harder to implement due to the amount of complexity opposed to synchronous messaging; more can go wrong.
+Note that asynchronous messaging can be harder to implement due to the amount of complexity compared to synchronous messaging; more can go wrong.
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
