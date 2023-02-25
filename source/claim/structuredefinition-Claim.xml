@@ -329,7 +329,7 @@
       <path value="Claim.provider"/>
       <short value="Party responsible for the claim"/>
       <definition value="The provider which is responsible for the claim, predetermination or preauthorization."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -568,8 +568,8 @@
     </element>
     <element id="Claim.encounter">
       <path value="Claim.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
@@ -1656,8 +1656,8 @@
     </element>
     <element id="Claim.item.encounter">
       <path value="Claim.item.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>

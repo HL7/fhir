@@ -342,7 +342,7 @@
       <path value="ExplanationOfBenefit.provider"/>
       <short value="Party responsible for the claim"/>
       <definition value="The provider which is responsible for the claim, predetermination or preauthorization."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -632,8 +632,8 @@
     </element>
     <element id="ExplanationOfBenefit.encounter">
       <path value="ExplanationOfBenefit.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="A billed item may include goods or services provided in multiple encounters."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
       <max value="*"/>
@@ -1733,8 +1733,8 @@
     </element>
     <element id="ExplanationOfBenefit.item.encounter">
       <path value="ExplanationOfBenefit.item.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="A billed item may include goods or services provided in multiple encounters."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
       <max value="*"/>
@@ -3765,6 +3765,89 @@
       <type>
         <code value="Money"/>
       </type>
+    </element>
+    <element id="ExplanationOfBenefit.error">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="Error"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="0,0"/>
+      </extension>
+      <path value="ClaimResponse.error"/>
+      <short value="Processing errors"/>
+      <definition value="Errors encountered during the processing of the adjudication."/>
+      <comment value="If the request contains errors then an error element should be provided and no adjudication related sections (item, addItem, or payment) should be present."/>
+      <requirements value="Need to communicate processing issues to the requestor."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.itemSequence">
+      <path value="ClaimResponse.error.itemSequence"/>
+      <short value="Item sequence number"/>
+      <definition value="The sequence number of the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim items."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.detailSequence">
+      <path value="ClaimResponse.error.detailSequence"/>
+      <short value="Detail sequence number"/>
+      <definition value="The sequence number of the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim details within the claim item."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.subDetailSequence">
+      <path value="ClaimResponse.error.subDetailSequence"/>
+      <short value="Subdetail sequence number"/>
+      <definition value="The sequence number of the sub-detail within the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure."/>
+      <requirements value="Provides references to the claim sub-details within the claim detail."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="positiveInt"/>
+      </type>
+    </element>
+    <element id="ExplanationOfBenefit.error.code">
+      <path value="ClaimResponse.error.code"/>
+      <short value="Error code detailing processing issues"/>
+      <definition value="An error code, from a specified code system, which details why the claim could not be adjudicated."/>
+      <requirements value="Required to convey processing errors."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdjudicationError"/>
+        </extension>
+        <strength value="example"/>
+        <description value="The adjudication error codes."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
+      </binding>
+    </element>
+    <element id="ExplanationOfBenefit.error.expression">
+      <path value="ExplanationOfBenefit.error.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>
