@@ -610,7 +610,7 @@
     <element id="MeasureReport.group.population.subjectReport">
       <path value="MeasureReport.group.population.subjectReport"/>
       <short value="For subject-list reports, a subject result in this population"/>
-      <definition value="A reference to an individual level MeasureReport resource for a member of the population"/>
+      <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
       <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
       <min value="0"/>
       <max value="*"/>
@@ -958,7 +958,7 @@
     <element id="MeasureReport.group.stratifier.stratum.population.subjectReport">
       <path value="MeasureReport.group.stratifier.stratum.population.subjectReport"/>
       <short value="For subject-list reports, a subject result in this population"/>
-      <definition value="A reference to an individual level MeasureReport resource for a member of the population"/>
+      <definition value="A reference to an individual level MeasureReport resource for a member of the population."/>
       <comment value="This element SHALL NOT be used in with subjectResults, either systems provide results as a List of MeasureReport, or as references to individual MeasureReports. Note that using this element introduces a constraint on the size of the subject-list MeasureReport; implementations would be free to return a TOO-COSTLY response if a request is made for a subject-list report with too many subjects."/>
       <min value="0"/>
       <max value="*"/>

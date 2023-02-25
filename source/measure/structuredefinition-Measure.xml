@@ -1135,7 +1135,7 @@
       </mapping>
     </element>
     <element id="Measure.guidance">
-      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status"/>
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
         <valueCode value="deprecated"/>
       </extension>
       <path value="Measure.guidance"/>
@@ -1187,7 +1187,7 @@
         <code value="string"/>
       </type>
       <constraint>
-        <key value="mea-15"/>
+        <key value="mea-2"/>
         <severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
@@ -1451,7 +1451,7 @@
         <code value="string"/>
       </type>
       <constraint>
-        <key value="mea-16"/>
+        <key value="mea-3"/>
         <severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
@@ -1520,7 +1520,7 @@
     <element id="Measure.group.population.groupDefinition">
       <path value="Measure.group.population.groupDefinition"/>
       <short value="A group resource that defines this population"/>
-      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <definition value="A Group resource that defines this population as a set of characteristics."/>
       <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group resource SHALL be a definitional (as opposed to an actual) group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1600,7 +1600,7 @@
         <code value="string"/>
       </type>
       <constraint>
-        <key value="mea-17"/>
+        <key value="mea-4"/>
         <severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
@@ -1671,7 +1671,7 @@
     <element id="Measure.group.stratifier.groupDefinition">
       <path value="Measure.group.stratifier.groupDefinition"/>
       <short value="A group resource that defines this population"/>
-      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <definition value="A Group resource that defines this population as a set of characteristics."/>
       <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1715,7 +1715,7 @@
         <code value="string"/>
       </type>
       <constraint>
-        <key value="mea-15"/>
+        <key value="mea-5"/>
         <severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
@@ -1783,7 +1783,7 @@
     <element id="Measure.group.stratifier.component.groupDefinition">
       <path value="Measure.group.stratifier.component.groupDefinition"/>
       <short value="A group resource that defines this population"/>
-      <definition value="A Group resource that defines this population as a set of characteristics"/>
+      <definition value="A Group resource that defines this population as a set of characteristics."/>
       <comment value="Note that this approach can only be used for measures where the basis is of the same type as the populations (e.g. a Patient-based measure, rather than an Encounter-based measure). In addition, the referenced Group SHALL be a definitional (as opposed to an actual) group."/>
       <min value="0"/>
       <max value="1"/>
@@ -1826,7 +1826,7 @@
         <code value="string"/>
       </type>
       <constraint>
-        <key value="mea-18"/>
+        <key value="mea-6"/>
         <severity value="warning">
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bestpractice">
             <valueBoolean value="true"/>
