@@ -304,7 +304,7 @@
       <path value="Coverage.subscriber"/>
       <short value="Subscriber to the policy"/>
       <definition value="The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due."/>
-      <comment value="May be self or a parent in the case of dependants."/>
+      <comment value="May be self or a parent in the case of dependants. A subscriber is only required on certain types of policies not all policies and that it is appropriate to have just a policyholder and a beneficiary when not other party can join that policy instance."/>
       <requirements value="This is the party who is entitled to the benfits under the policy."/>
       <min value="0"/>
       <max value="1"/>

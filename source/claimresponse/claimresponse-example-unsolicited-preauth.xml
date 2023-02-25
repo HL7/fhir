@@ -106,7 +106,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="100.00"/>
+			<quantity>
+				<value value="100.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>
@@ -153,7 +155,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="100.00"/>
+			<quantity>
+				<value value="100.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>

@@ -1428,8 +1428,25 @@
           <valueString value="ServiceProduct"/>
         </extension>
         <strength value="example"/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/> 
       </binding>
+    </element> 
+    <element id="Claim.item.request">
+      <path value="Claim.item.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="Claim.item.modifier">
       <path value="Claim.item.modifier"/>
