@@ -75,6 +75,17 @@
         <map value="administrative.entity"/>
       </mapping>
     </element>
+    <element id="InventoryItem.identifier">
+      <path value="InventoryItem.identifier"/>
+      <short value="Business identifier for the inventory item"/>
+      <definition value="Business identifier for the inventory item."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Identifier"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
     <element id="InventoryItem.status">
       <path value="InventoryItem.status"/>
       <short value="active | inactive | entered-in-error | unknown"/>
@@ -110,8 +121,8 @@
     </element>
     <element id="InventoryItem.code">
       <path value="InventoryItem.code"/>
-      <short value="Code deesignating the specific type of item"/>
-      <definition value="Code deesignating the specific type of item."/>
+      <short value="Code designating the specific type of item"/>
+      <definition value="Code designating the specific type of item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -176,8 +187,8 @@
     </element>
     <element id="InventoryItem.name.name">
       <path value="InventoryItem.name.name"/>
-      <short value="The name of the item"/>
-      <definition value="The name of the item."/>
+      <short value="The name or designation of the item"/>
+      <definition value="The name or designation that the item is given."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -218,8 +229,8 @@
     </element>
     <element id="InventoryItem.description">
       <path value="InventoryItem.description"/>
-      <short value="The description of the item"/>
-      <definition value="The description of the item."/>
+      <short value="Descriptive characteristics of the item"/>
+      <definition value="The descriptive characteristics of the inventory item."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -228,8 +239,8 @@
     </element>
     <element id="InventoryItem.description.language">
       <path value="InventoryItem.description.language"/>
-      <short value="The language of the item description"/>
-      <definition value="The language of the item description."/>
+      <short value="The language that is used in the item description"/>
+      <definition value="The language for the item description, when an item must be described in different languages and those languages may be authoritative and not translations of a 'main' language."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -341,8 +352,8 @@
     </element>
     <element id="InventoryItem.netContent">
       <path value="InventoryItem.netContent"/>
-      <short value="Net content of the item"/>
-      <definition value="Net content of the item."/>
+      <short value="Net content or amount present in the item"/>
+      <definition value="Net content or amount present in the item."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -363,8 +374,8 @@
     </element>
     <element id="InventoryItem.association.associationType">
       <path value="InventoryItem.association.associationType"/>
-      <short value="The type of association"/>
-      <definition value="The type of association e.g. 'packaged within' or 'used with' or 'to be mixed with."/>
+      <short value="The type of association between the device and the other item"/>
+      <definition value="This attribute defined the type of association when establishing associations or relations between items, e.g. 'packaged within' or 'used with' or 'to be mixed with."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -401,28 +412,28 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="InventoryItem.characteristics">
-      <path value="InventoryItem.characteristics"/>
-      <short value="The characteristics of the item"/>
-      <definition value="The characteristics of the item."/>
+    <element id="InventoryItem.characteristic">
+      <path value="InventoryItem.characteristic"/>
+      <short value="Characteristic of the item"/>
+      <definition value="The descriptive or identifying characteristics of the item."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="BackboneElement"/>
       </type>
     </element>
-    <element id="InventoryItem.characteristics.characteristicType">
-      <path value="InventoryItem.characteristics.characteristicType"/>
-      <short value="The type of characteristic"/>
-      <definition value="The type of characteristic."/>
+    <element id="InventoryItem.characteristic.characteristicType">
+      <path value="InventoryItem.characteristic.characteristicType"/>
+      <short value="The characteristic that is being defined"/>
+      <definition value="The type of characteristic that is being defined."/>
       <min value="1"/>
       <max value="1"/>
       <type>
         <code value="CodeableConcept"/>
       </type>
     </element>
-    <element id="InventoryItem.characteristics.value[x]">
-      <path value="InventoryItem.characteristics.value[x]"/>
+    <element id="InventoryItem.characteristic.value[x]">
+      <path value="InventoryItem.characteristic.value[x]"/>
       <short value="The value of the attribute"/>
       <definition value="The value of the attribute."/>
       <comment value="The string value is used for characteristics that are descriptive and not codeable information. CodeableConcept.text is used when the characteristic is discrete and could otherwise be coded but for which there is no code available."/>
@@ -490,8 +501,8 @@
     </element>
     <element id="InventoryItem.instance.lotNumber">
       <path value="InventoryItem.instance.lotNumber"/>
-      <short value="The lot number of the item"/>
-      <definition value="The lot number of the item."/>
+      <short value="The lot or batch number of the item"/>
+      <definition value="The lot or batch number of the item."/>
       <min value="0"/>
       <max value="1"/>
       <type>
