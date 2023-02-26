@@ -279,37 +279,34 @@ response portion of the returned message.
 
 <h4>Example: Currency</h4>
 <p>
-In this second example, a Clinical EHR needs to know what appointment slots are available
-for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are
-ever disappearing, and ordering a slot that has become unavailable is a waste of time for
-the humans and systems involved. The EHR sends a message where the Bundle.id is
-UUID 3 (4c7f5cb2-5964-4d42-b719-e0227461818c), with a MessageHeader.id is
-UUID 4 (63ed7d68-b2cc-421d-ba1c-a6c7785581f2).
+  In this second example, a Clinical EHR needs to know what appointment slots are available
+  for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are
+  ever disappearing, and ordering a slot that has become unavailable is a waste of time for
+  the humans and systems involved. The EHR sends a message where the Bundle.identifier is
+  UUID 2 (4c7f5cb2-5964-4d42-b719-e0227461818c)
 </p>
 <p>
-The EHR system never receives a response to the message; it does not know whether the request
-message got lost, or the imaging management systems was unable to process the request, or whether
-it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same MessageHeader.id (UUID 4), but creates a new Bundle.id (c7c17fe4-9560-49c7-b2ae-42636476fb86).
+  The EHR system never receives a response to the message; it does not know whether the request
+  message got lost, or the imaging management systems was unable to process the request, or whether
+  it successfully processed the message and the response was lost. In this case, the EHR system
+  resends the message with a different Bundle.identifier UUID 3 (c7c17fe4-9560-49c7-b2ae-42636476fb86).
 </p>
 <p>
-In this case, the imaging system successfully received the message, and processed it. When
-it receives the resent order after 1 minute (which is within its 15 minute cache time), it
-sees that although the message id is the same, the Bundle.id has changed, and it reprocesses
-the message again, and sends a new response.
+  In this case, the imaging system successfully received the first message, and processed it. When
+  it receives the resent order after 1 minute (which is within its 15 minute cache time), it
+  sees that a new message of currency with Bundle.identifier UUID3, and it processes
+  the new message, and sends a new response.
 </p>
 <p>
-When the EHR system finally receives the message, it knows the current slot availability
-on the imaging management system responded.
+  When the EHR system finally receives the message, it knows the current slot availability
+  on the imaging management system responded. If for some reason both responses arrive, the
+  EHR system knows that the response linked to the message with UUID 3 is the more current.
 </p>
 <p>
-Note that the existence of active intermediaries (or "middleware") creates the need
-for this protocol - the original sender matches the response to the request based on the
-MessageHeader.id, and so an active intermediary that choose the re-initiate a query that
-it previously relayed cannot change the MessageHeader.id. This protocol avoids the need for
-the MessageHeader.id to change, and only requires change to the Bundle.id which is never
-the basis for context linking outside the immediate message exchange protocol described
-here.
+  Note that the existence of active intermediaries (or "middleware") creates the need
+  for this protocol - the original sender matches the response to the request based on the
+  Bundle.identifier, and so an active intermediary that chooses the re-initiate a query that
+  it previously relayed cannot change the Bundle.identifier.
 </p>
 
 <a name="conf"></a>
