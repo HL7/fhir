@@ -2,4 +2,83 @@
 
 <Bundle xmlns="http://hl7.org/fhir">
   <id value="InventoryReport-search-params"/>
+
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryReport-identifier"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryReport.identifier"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryReport-identifier"/>
+        <description value="Search by identifier"/>
+        <code value="identifier"/>
+        <type value="token"/>
+        <expression value="InventoryReport.identifier"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryReport-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryReport.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryReport-status"/>
+        <description value="Search by status"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="InventoryReport.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryReport-item"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryReport.inventoryListing.item.item.concept"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryReport-item"/>
+        <description value="Search by items in inventory report"/>
+        <code value="item"/>
+        <type value="token"/>
+        <expression value="InventoryReport.inventoryListing.item.item.concept"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="InventoryReport-item-reference"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="InventoryReport.inventoryListing.item.item.reference"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/InventoryReport-item-reference"/>
+        <description value="Search by items in inventory report"/>
+        <code value="item-reference"/>
+        <type value="reference"/>
+        <expression value="InventoryReport.inventoryListing.item.item.reference"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
+
+
 </Bundle>
