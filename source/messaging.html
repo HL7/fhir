@@ -179,8 +179,6 @@ This specification does not dictate any particular error handling protocols or r
 
 
 <h3>Message Identifiers &amp; Timestamps</h3>
-
-
 <p>
 A message has 2 important timestamps:
 </p>
@@ -207,7 +205,7 @@ The meaning of these will depend on the message event.
 
 <p>Note that Bundle.id and MessageHeader.id also must be present, according to the rules of the 
 	underlying Resource.id definition, which allows the potential additional or complementary use 
-	of these resource using the FHIR RESTful API.</p>
+	of these resources using the FHIR RESTful API.</p>
 
 <a name="reliable"></a>
 <h3>Absence of Reliable Messaging</h3>
@@ -255,27 +253,26 @@ In the first example, a Clinical EHR issues an order for a particular imaging ex
 to be performed on a patient. This is considered to be a message of <b>Consequence</b>: multiple
 orders should not be created (in practice there are usually human review processes that
 catch multiple orders, but repeat orders create entropy in the system that is harmful).
-The EHR sends a message where the Bundle.id is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10),
-with a MessageHeader.id of UUID 2 (dad53a57-dcb4-4f18-b066-7239eb4b5229).
+The EHR sends a message where the Bundle.identifier is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
 message got lost, or the imaging management systems was unable to process the request, or whether
 it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same two identifiers.
+resends the message with same Bundle.identifier.
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. Because
 it receives the resent order after 1 minute (which is within its 15 minute cache time),
-and the two UUIDs 1 and 2 match a message it has already processed, it knows that it already
+and UUID 1 matches the Bundle.identifier of a message it has already processed, it knows that it already
 processed the order, and simply returns the previous response. In the case of additional resent
-queries, the application keeps sending the original response, though it may also alert system
+requests, the application keeps sending the original response, though it may also alert system
 administrators that the same original message keeps being resent, since lost messages should be
 a rare occurrence.
 </p>
 <p>
 When the EHR system finally receives the message, it knows how the imaging management system
-responded; it can be sure because the message id from the original request is echoed in the
+responded; it can be sure because the Bundle.identifier from the original request is echoed in the
 response portion of the returned message.
 </p>
 
