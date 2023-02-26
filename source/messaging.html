@@ -465,13 +465,18 @@ Here's an example:
 </p>
 <pre class="xml" fragment="Bundle">
 &lt;Bundle xmlns="http://hl7.org/fhir"&gt;
-  &lt;id value="urn:uuid:77831928-2a35-4c08-9496-8232323bf48c"/&gt;
+  &lt;id value="77831928-2a35-4c08-9496-8232323bf48c"/&gt;
+  &lt;identifier&gt; 
+    &lt;system value="urn:example-org:sender.identifiers"/&gt; 
+    &lt;value value="6daec3d0-e3ee-42d4-a51d-50cfacad94a9"/&gt; 
+  &lt;/identifier&gt; 
+  &lt;type value="message"/&gt;
   &lt;!-- normal bundle stuff --&gt;
   &lt;entry&gt;
     &lt;fullUrl value="urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f"/&gt;
     &lt;resource&gt;
       &lt;MessageHeader&gt;
-			  &lt;id value="cac8143e-6138-4f45-b086-bb8ebf976aae"/&gt;
+			  &lt;id value="6080d4a7-5e05-45dc-96d5-f75329564d1f"/&gt;
         &lt;!-- normal message header stuff --&gt;
         &lt;eventCoding&gt;
           &lt;system value="urn:ietf:rfc:3986"/&gt;
