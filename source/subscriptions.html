@@ -42,7 +42,7 @@
       <ul>
         <li>Define the <b>data</b> and <b>change</b> or <b>event</b> used to trigger notifications</li>
         <li>Define the filters allowed to clients</li>
-        <li>Always referenced by canonical URL</li>
+        <li>Are always referenced by canonical URL</li>
       </ul>
     </li>
     <li><a href="subscription.html">Subscription</a> resources
@@ -85,6 +85,7 @@
   </ul>
 </p>
 <p>
+  Note that topic-based subscription capabilities have been added to the core specification as of FHIR R5.  In order to facilitate adoption, a <a href="https://hl7.org/fhir/uv/subscriptions-backport/">Backport Implementation Guide</a> is available to provide the equivalent functionality in some earlier versions of FHIR.  When using earlier versions of FHIR supported by the IG, cross version extensions SHOULD NOT be used on <code>Subscription</code> resources to describe any elements described by that guide.
 </p>
 
 <a name="relationtofhircast"/>
@@ -102,7 +103,7 @@
     </li>
     <li>
       <p>FHIRcast is designed around short-lived sessions</p>
-      <p>Subscriptions are intented to be long-lived resources</p>
+      <p>Subscriptions are intended to be long-lived resources</p>
     </li>
   </ul>
 </p>
@@ -181,7 +182,7 @@
   </ul>
 </p>
 <p>
-  Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be computably defined whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressable in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
+  Subscription Topics are intended to be discoverable, reusable, and extensible.  Definitions should be defined in a computable way whenever possible, but the conceptual definition is the arbiter between any discrepancies.  For example, a query-based and a FHIRPath-based definition may differ slightly because of what is expressible in each language.  In such cases, the goal is correct implementation of the concept - not literal translations between computable definitions.
 </p>
 <p>
   More details about defining and deriving subscriptions topics can be found on the <a href="subscriptiontopic.html">SubscriptionTopic</a> resource page, specifically in the sections <a href="subscriptiontopic.html#defining">Defining Subscription Topics</a> and <a href="subscriptiontopic.html#deriving">Deriving from Existing Subscription Topics</a>.
@@ -193,6 +194,12 @@
   Example and Canonical Subscription Topics can be found at <a href="http://registry.fhir.org/">registry.fhir.org</a>.  It is strongly suggested that implementers reuse existing topics and submit new topics whenever possible for better compatibility.
 </p>
 
+<a name="multi-resource-topics"/>
+<h3>Multi-Resource Topics</h3>
+<p>
+  Subscription Topics can be defined across multiple resource types. For example, a single topic could be defined to trigger when a Patient has a new <a href="observation.html">Observation</a>, <a href="condition.html">Condition</a>, or <a href="procedure.html">Procedure</a>. Alternatively, a system could be interested in notifications based on any Resource being deleted. In either case, it is desireable to be able to trigger notifications across more than one resource type. If all of the resource have a logical grouping in the FHIR hierarchy, the lower-level resource type can be used. For example, for notifications across all resources, the value <a href="codesystem-fhir-types.html#fhir-types-Resource">Resource</a> can be used directly. If there is no lower-level grouping, each resource must be listed individually in the appropriate elements of the topic (e.g., multiple <a href="subscriptiontopic-definitions.html#SubscriptionTopic.resourceTrigger">SubscriptionTopic.resourceTrigger</a> elements, each with the correct <code>resource</code>).
+</p>
+
 <a name="overview-subscription"/>
 <h2>Subscriptions</h2>
 <p>
@@ -202,7 +209,7 @@
   When a FHIR Server accepts a request to create a <code>Subscription</code>, the server is indicating to the client that the server:
   <ul>
     <li>is capable of detecting when events covered by the requested <code>SubscriptionTopic</code> occur, and</li>
-    <li>is willing to make a <a href="https://tools.ietf.org/html/rfc5290">simple best effort</a> attempt at delivering a notification for each occurance of a matching event.</li>
+    <li>is willing to make a <a href="https://tools.ietf.org/html/rfc5290">simple best effort</a> attempt at delivering a notification for each occurrence of a matching event.</li>
   </ul>
 </p>
 <p>
@@ -229,13 +236,28 @@
   </li>
 </ul>
 
+<a name="resource-filters"/>
+<h3>Filters and Resource Types</h3>
+<p>
+  If allowed by a topic, notifications for a single subscription can be triggered on <a href="#multi-resource-topics">multiple resource types</a>. A topic can also define filters that apply to some or all triggering resource types. Note that if the <code>resourceType</code> is not specified, the server MAY either reject the request, determine at the time of creation which resources the parameter is applied to, or test each resource at runtime.
+</p>
+<p>
+  For example, if a topic is defined for both <a href="observation.html">Observation</a> and <a href="condition.html">Condition</a> resources, the <a href="searchparameter-registry.html#clinical-patient">patient</a> search parameter is defined across both types and the same value will apply to either.  However, if the <a href="searchparameter-registry.html#clinical-code">code</a> search parameter is used, receivers will likely want to specify the filters independently with different values for observations vs. conditions.  Filters only apply to the resources they are listed by.  For example, a filter for the <code>Condition.onset-age</code> parameter is not used when a topic triggers on an Observation.  Note that this is true even if links exist between resources.
+</p>
+<p>
+  The same behavior applies to lower-level resources, e.g., <code>Resource</code>. If a topic allows for filtering on common search parameters such as <a href="search.html#_language">_language</a>, <a href="search.html#_source">_source</a>, or <a href="search.html#_tag">_tag</a>, it is logical to apply each of those parameters to every resource. If a non-generic search parameter is allowed (e.g., <a href="searchparameter-registry.html#clinical-patient">patient</a>) and a <code>resourceType</code> is unspecified or too broad, the server could choose to reject the request, determine subsets at the time of creation, or test each possible notification individually.
+</p>
+<p>
+  When multiple filters are specified, all filters that apply to a resource must match in order for the resource to be considered a match.  For example, if a subscription allows for filters for both the <code>Patient.address-state</code> and <code>Patient.birthdate</code> search parameters, a subscription specifying both <code>address-state=WI</code> and <code>birthdate=ge2000</code> would only match resources that identify a person born in the year 2000 or later and currently living in Wisconsin.
+</p>
+
 <a name="overview-notification"/>
 <h2>Subscription Notifications</h2>
 <p>
   The <code>SubscriptionStatus</code> resource is used to encapsulate information about a subscription and meta-information about the notification itself (e.g., how many events are included, etc.).  There are currently two areas where the resource is used: in <a href="bundle.html#subscription-notification">subscription-notification Bundles</a> and as the return type for the <a href="subscription-operation-status.html">$status operation</a>.
 </p>
 <p>
-  Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications.  While the Subscriptions Framework is able to support such mechanisms, defining them is beyond the scope of the standard.
+  Unless otherwise specified by a server implementation and channel, the Subscriptions Framework does <b>not</b> involve <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> delivery of notifications; channels are assumed to be <a href="https://www.rfc-editor.org/rfc/rfc5290">simple best-effort</a> unless otherwise specified.  While the Subscriptions Framework is able to support such mechanisms, defining channels using them is beyond the scope of the standard at this time.
 </p>
 <p>
   Subscribers should be aware of some limitations regarding delivery. In particular:
@@ -248,6 +270,35 @@
   In order to mitigate the impact from the above issues, the Subscriptions Framework includes mechanisms to detect both scenarios.  More information can be found <a href="#errors-delivery">below</a>.
 </p>
 
+<a name="conformance"/>
+<h2>Conformance</h2>
+<p>
+  In order to claim conformance with this guide, a server:
+</p>
+<ul>
+  <li>SHALL support the <code>Subscription</code> resource
+    <ul>
+      <li><code>read</code> support is required</li>
+      <li><code>write</code> support is required</li>
+      <li><code>search</code> support is recommended</li>
+    </ul>
+  </li>
+  <li>SHALL support the <code>$status</code> operation on the <code>Subscription</code> resource.</li>
+  <li>SHALL support the <code>SubscriptionTopic</code>
+    <ul>
+      <li><code>read</code> support is required</li>
+      <li><code>search</code> support is required</li>
+    </ul>
+  </li>
+  <li>SHALL support at least one channel type, and SHOULD include one from the core-defined channel types</li>
+  <li>SHALL support at least one Payload Type</li>
+</ul>
+
+<a name="conformance-discovery"/>
+<h3>Discovery</h3>
+<p>
+  Some options of the Subscriptions Framework are not easily expressed in a <code>CapabilityStatement</code>.  In addition to the basic support in the CapabilityStatement (e.g., resources, interactions, and operations), a conformant server SHALL support at least one <code>Payload Type</code> and SHOULD support one <code>Channel Type</code> defined in the core specification.  While channel information is not currently discoverable via capabilities, server implementers are expected to document their support out-of-band so that developers can understand support.  Client developers (subscribers) are unlikely to implement more than a few channel types, so it is unlikely that a client is able to "try and error" too many times.  Note that a future publication of FHIR may include more functionality regarding capabilities; this guidance will evolve with any changes.
+</p>
 
 <a name="safety"/>
 <h2>Safety and Security</h2>
@@ -261,7 +312,13 @@
   When sending an event notification, applications can adopt various strategies to ensure that authorization is still in place. Some strategies may provide imperfect assurance (e.g., a server might rely on signed tokens with some pre-specified lifetime as evidence of authorization). In addition to these strategies, servers can mitigate the risk of disclosing sensitive information by limiting the payload types it supports (e.g., by prohibiting certain clients from requesting <code>full-resource</code> notification payloads and relying instead on <code>id-only</code> payloads).
 </p>
 <p>
-  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.).  Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in <code>Subscription.header</code> to verify that a message is from the desired source).
+  When implementing channels, implementers should be aware of security best-practices for those protocols.  For example, when implementing the <code>REST-hook</code> channel type, it is strongly recommended to use HTTPS instead of HTTP.  In general, use of protocols that transmit data unencrypted is strongly discouraged.
+</p>
+<p>
+  Implementors should note that security and privacy considerations can also prohibit notifications from being generated, in addition to considerations about sending notifications. For example, if a resource is deleted because it was "Entered in Error", a server may choose to not send a notification or could include special handling for those cases (e.g., sending a predefined notification message indicating that a patient should disregard a prior notification).  Similarly, if a patient has decided that a category of lab results are confidential, practitioners without appropriate consent for disclosure should not receive any indication of those results (e.g., a server cannot generate a notification event for them).
+</p>
+<p>
+  <code>Subscription</code> resources are not intended to be secure storage for secrets (e.g., OAuth Client ID or Tokens, etc.). Implementers MAY use their judgement on including limited-use secrets (e.g., a token supplied in a <code>Subscription.parameter</code> to verify that a message is from the desired source).  Server implementations SHOULD be aware that data contained in a Subscription can be sensitive (e.g., privileged endpoint URLs) and take appropriate steps to prevent unauthorized access.
 </p>
 <p>
   Each notification sent by the application could reveal information about the application and subscriber relationship, as well as sensitive administrative or clinical information. Applications are responsible for ensuring appropriate security is employed for each channel they support. The <code>Subscription</code> resource does not address these concerns directly; it is assumed that these are administered by another configuration processes. For instance, an application might maintain a whitelist of acceptable endpoints or trusted certificate authorities for <code>rest-hook</code> channels.
@@ -270,7 +327,7 @@
   Some topic and server implementation combinations may trigger internal notification workflows when notifications SHOULD NOT be sent.  For example, if a topic is designed around <code>Observation</code> resources being removed (e.g., deleted), an implementation may be triggered if an <code>Observation</code> is moved to a higher security level and is no longer available to a user.  These types of situations are implementation-specific, so this note is to raise awareness of potential pitfalls when implementing subscriptions.
 </p>
 <p>
-  Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.
+  Subscribers should ensure an appropriate process to validate incoming messages.  For example, if the <code>full-resource</code> content type is used, clients should provide a header or some other secret to the server so that messages can be verified prior to being used for health decisions.  Using content types of <code>empty</code> or <code>id-only</code> can mitigate this risk, as resources must be retrieved from a trusted location prior to use.  Additionally, subscriber implementations should be defensive about the processes spawned when receiving a notification.  For example, if data-receipt always directly triggers a query to a FHIR server, bad actors could generate fake notifications across several clients in order to overload a destination server (denial of service).
 </p>
 <p>
   Subscribers should be aware of, and protect against, the possibility of being used as part of an attack on a FHIR server.  For example, a malicious client may send a large volume of fake notifications with <code>empty</code> notifications, which would cause the subscriber to send many (potentially expensive) queries to a server.
@@ -281,7 +338,6 @@
 <p>
   Servers implementing Subscriptions are responsible for complying with their policies on information logging.  Servers are encouraged to track all sent notifications, for example with the use of <a href="auditevent.html">AuditEvent</a> or <a href="communication.html">Communication</a> resources.
 </p>
-
 
 <a name="scoping"/>
 <h2>Scoping Responsibilities</h2>
@@ -294,11 +350,11 @@
 </p>
 
 <p>
-  Therefore, clients SHOULD be aware of some limitations regarding delivery. In particular:
+  Clients SHOULD be aware of some limitations regarding delivery. In particular:
 </p>
 <ul>
-  <li>Some notifications might not be delivered.</li>
-  <li>Some notifications might be delivered multiple times.</li>
+  <li>some notifications might not be delivered, and</li>
+  <li>some notifications might be delivered multiple times.</li>
 </ul>
 
 <p>
@@ -308,10 +364,10 @@
 <a name="errors"/>
 <h2>Managing Subscriptions and Errors</h2>
 <p>
-  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses HTTP response's the Location header and saves the new Subscription's logical id for use in subsequent operations.
+  The subscription resource is authored by the client with an initial status of <code>requested</code>. A new subscription is created on the server using the RESTful create or update interaction. After a successful "create" interaction, the client parses the <code>Location</code> header of the HTTP response and saves the new Subscription's logical id for use in subsequent operations.
 </p>
 <p>
-  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and process it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
+  When the server receives a subscription, it SHOULD check that it is prepared to accept/process the subscription. If it is, it sets the subscription to <code>requested</code> and processes it like a normal <a href="http.html#create">create</a>. If it isn't, it SHOULD return an error with an <a href="operationoutcome.html">OperationOutcome</a> instead of processing the <code>create</code>.
 </p>
 <p>
   The criteria are subject to the same limitations as the client that created it, such as access to patient compartments etc. Note that the subscription MAY remain active after the client access tokens expire (e.g., if the client's authorization period outlasts the access token lifetime).
@@ -326,13 +382,35 @@
   The server may retry the notification a fixed number of times and/or refer errors to its own alert logs. If the notification fails, the server SHOULD set the status to <code>error</code> and mark the error in the resource. If the notification succeeds, the server SHOULD update the status to <code>active</code> and may remove any error codes. If a subscription fails consistently a server may choose set the subscription status to <code>off</code> and stop trying to send notifications.
 </p>
 <p>
-  Errors a server wishes to make accessible to clients are stored in <code>Subscription.error</code>. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error). Since <code>Subscription.error</code> represents server errors, a server SHOULD NOT allow clients to add errors.
+  Errors a server wishes to make accessible to clients are communicated via <code>SubscriptionStatus.error</code>. Clients MAY receive these errors in notifications sent by the server or detect them by running the <code>$status</code> operation on a subscription. Servers should provide a mechanism for clearing errors (e.g., when resetting a <code>Subscription.status</code> back to <code>requested</code> after an error).
+</p>
+
+
+<a name="guaranteed-vs-best-effort"/>
+<h3>Guaranteed vs. Best-Effort Delivery</h3>
+<p>
+  As mentioned in the <a href="#overview-notification">Notifications Overview</a>, channels for FHIR subscriptions can provide either <a href="https://www.rfc-editor.org/rfc/rfc2212">guaranteed</a> (reliable) or <a href="https://www.rfc-editor.org/rfc/rfc5290">simple best-effort</a> (unreliable) delivery.  While this is a classification of the delivery channel, it can impact the contents of notifications.  Note that channels are assumed to be best-effort unless otherwise specified.
+</p>
+
+<a name="best-effort-notification"/>
+<h4>Best-Effort (Unreliable) Notifications</h4>
+<p>
+  The channels defined by this specification (e.g., REST-Hook, Email, etc.) are all categorized as simple best-effort delivery channels; they do not guarantee that a subscribing application has successfully received a notification that has been sent.  The simplest case to illustrate is with the Email channel - once a server has sent a message, there is no determination for if a client has received the message.
+</p>
+<p>
+  The <a href="#errors-delivery">Detecting Delivery Errors</a> section of this document describes the mechanisms used to discover and mitigate issues cause by unreliable delivery mechanisms.
+</p>
+
+<a name="guaranteed-notification"/>
+<h4>Guaranteed (Reliable) Notifications</h4>
+<p>
+  Channels can be defined using guaranteed-delivery mechanisms (e.g., message queues).  When a channel is defined with this capability, a notification must be processed by the subscribing application before it is considered delivered.  In these cases, the server can choose to exclude some of the tracking information from notifications, see the <a href="subscriptionstatus.html#event-numbering">Event Numbering</a> section of the <code>SubscriptionStatus</code> resource for details.
 </p>
 
 <a name="errors-delivery"/>
 <h3>Detecting Delivery Errors</h3>
 <p>
-  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect the problem state.
+  There are several mechanisms available to subscribers in order to understand the current state of notification delivery.  Below are some example error scenarios with details about how a subscriber can detect some problem states.
 </p>
 
 <a name="errors-missing-event"/>

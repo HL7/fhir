@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+
+[%settitle FHIR Overview - Clinicians%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+<style type="css">
+.code { counter-reset: listing }
+code { counter-increment: listing; }
+.code i:before { content: counter(listing) ". "; color: gray; }
+.code i { float: left; clear: both; min-width: 2.5em; }
+.code code:before { content: counter(listing) ". "; color: gray; display: inline-block; min-width: 2.5em; }
+</style>
+
+</head>
+<body>
+    [%file newnavbar%]
+
+
+    <h2>FHIR Overview - Patients</h2>
+    <table class="colsi"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="versions.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="versions.html#std-process">Standards Status</a>:<!--!ns!--><a href="versions.html#std-process">Informative</a></td></tr></table>
+
+    <p>Welcome!  You have navigated to the Patient Introduction for the Fast Healthcare Interoperability Resources (FHIR) standard.  If you’ve recently been told about something called ‘fire’ related to your Personal Health Records, you’re in the right place.  The following document will give a brief overview of how you, as a patient, can access your own personal health records under various government laws.</p>
+
+    <p>Fast Healthcare Interoperability Resources (FHIR) is a data specification for sharing healthcare data.  Unlike prior standards that were based on FAX machines or PDF documents, the FHIR format is based on modern web standards.  Fundamentally, its “healthcare” and the “internet”.  For this to work, healthcare systems and technology vendors have had to come together and agree on how they’re going to send and share data with each other.  We call this an application programming interface (API); and the protocol we use is the HyperText Transfer Protocol (HTTP).  The FHIR specification, then, is an API specification of how to send healthcare data via hypertext (HTTP) on the web.</p>
+
+    <p>Many healthcare systems and technology vendors are already supporting the FHIR data standard, including the electronic medical record systems of the largest hospitals in the US, as well as major tech vendors such as Apple and Microsoft.</p>
+
+    <h3 id="how-does-fhir-help-me-as-a-patient">How does FHIR help me as a patient?</h3>
+    <p>Taking ownership of one’s healthrecords can be a lifechanging and empowering decision.  Rather than guessing about your health, one can participate in the process of measuring and understanding your health.  You may find FHIR useful when:</p>
+
+    <ul>
+    <li>Aggregating your health records from different health clinics</li>
+    <li>Collecting and tracking health data using apps, sensors, wearables, and other devices.</li>
+    <li>Researching and understanding your own health</li>
+    <li>Researching and understanding a diagnosis your healthcare provider made</li>
+    <li>Making sure the records your physician or nurse have about you is correct</li>
+    <li>Collaborating with your care plan or treatment plan</li>
+    <li>Sharing data you’ve collected with your care team</li>
+    <li>Sharing your records with friends, family, and caregivers</li>
+    <li>Sharing your records during a specialist consultation</li>
+    <li>Planing surgical procedures</li>
+    <li>Downloading your billing records from your payors</li>
+    <li>Moving from one city to another</li>
+    </ul>
+
+    <h3 id="how-do-i-use-fhir">How do I use FHIR?</h3>
+
+    <p>You may, in fact, already be using FHIR without knowing it.  FHIR is frequently used when hospital systems transfer records between one setting to another.  This may include the patient portal that you use to access your records; a health information exchange that you’ve signed up for; or a personal health record application on your smartphone, such as Apple Health or Android Common Health..</p>
+
+    <p>Oftentimes, there is interoperability going on, but it works somewhat behind the scenes.  A savvy patient, however, can access the FHIR endpoints directly.  To do so, the patient needs a FHIR application (either an app on a phone or online); the user credentials supplied by your healthcare organizations; and possibly a registration process to register the app with the healthcare system.</p>
+
+    <h3 id="where-can-i-find-fhir-applications">Where can I find FHIR applications?</h3>
+    <p>The following galleries have begun compiling lists of FHIR enabled applications into consumer oriented directories.  You may also want to download operating-system PHR platforms, such as Apple Health or CommonHealth, as well as ask your community health organization if their Patient Portal is FHIR enabled.</p>
+
+    <p><a href="https://myhealthapplication.com/health-apps/gallery">My Health Applications</a><br />
+    <a href="https://apps.smarthealthit.org/apps/featured">SMART App Gallery</a></p>
+
+    <h3 id="why-do-i-need-copies-of-my-records">Why do I need copies of my records?</h3>
+
+    <p>Patient surveys show that a major reason patients tend to be interested in having copies of their own healthrecords is to check for accuracy and errors.  When a medical record has an error, it can result in safety issues with dire consequences.  Amongst the most common errors are left/right errors and having contents in the record from another patient.  Getting copies of your records can help assure that your records are accurate.</p>
+
+    <p>Patients often request copies of their own records when they want to take a more active ownership of their own health.  This often happens after a health incident where a person re-evaluates their habits and seek to implement new careplans and new routines. And can be as simple as tracking personal fitness goals or as complex as doing a complete quantified self workup and measure metabolic biomarkers on a monthly or quarterly basis.</p>
+
+    <h3 id="how-do-i-get-a-copy-of-my-records">How do I get a copy of my records?</h3>
+    <p>Health records are available from many organizations, such as hospitals, clinics, insurance companies, laboratories, medical device vendors, and others.  In the vast majority of situations, your records will be password protected to your account, and subject to various privacy laws.  This privacy protection is precisely why they tend to have restricted access, and why patient access to them is even an issue of concern.</p>
+
+    <p>Typically, one will first want to check with one’s local hospital or clinic or laboratory, to see if they have a patient portal.  If so, sign up and look there for downloadable data.  Typically, these documents will be provided in PDF format, but you will also want to look for ‘Export’ or ‘Download’ buttons.</p>
+
+    <p>Second, consumer Health Information Exchanges such as provide users with browsable directories of participating providers they can download their data from.</p>
+
+    <h3 id="what-legal-rights-do-patients-have">What legal rights do patients have?</h3>
+
+    <p>Numerous laws cover patient privacy, patient data ownership, and patient right to access their own data.  Relevant laws and legal precendent include:</p>
+
+    <ul>
+    <li><a href="https://www.hipaaguide.net/hipaa-updates/">Health Insurance Portability and Accountability Act</a> (United States)</li>
+    <li><a href="https://www.cms.gov/Medicare/Quality-Initiatives-Patient-Assessment-Instruments/Value-Based-Programs/MACRA-MIPS-and-APMs/MACRA-MIPS-and-APMs">Medicare Access and CHIP Reauthorization </a> (United States)</li>
+    <li><a href="https://www.healthit.gov/curesrule/">21st Century Cures Act (United States)</a></li>
+    <li><a href="https://www.healthit.gov/topic/information-blocking">21st Century Cures Act (Information Blocking Rule</a></li>
+    <li><a href="https://www.congress.gov/bill/116th-congress/house-bill/748">Coronavirus Aid, Relief, and Economic Security Act)</a>] (United States)</li>
+    <li><a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">General Data Protection Regulation</a> (Europe)</li>
+    <li><a href="https://www2.deloitte.com/cn/en/pages/risk/articles/personal-information-protection-law.html">Personal Information Privacy Law</a> (China)</li>
+    <li><a href="https://www.oaic.gov.au/privacy/the-privacy-act">Privacy Act</a> (Australia)</li>
+    </ul>
+
+    <p>Note that, in the United States, the 21st Century Cures Act is of particular importance to patients; and the rule includes provisions requiring that patients can electronically access all of their electronic health information (EHI), structured and/or unstructured, at no cost, and with the application of their choice.  Patients have the recourse to <a href="https://inquiry.healthit.gov/support/plugins/servlet/desk/portal/6">report information blocking</a> by healthcare systems and other vendors.</p>
+
+    <h3 id="what-data-is-included">What data is included?</h3>
+
+    <p>FHIR provides out-of-the-box data schemas and implementation guidance for many common data types that are found in healthcare… allergies, immunizations, medications, patient demographics, clinical observations, vital signs, procedures, and much more!  Examples include…..</p>
+
+    <ul>
+    <li>
+        <p>US Common Data for Interoperability (USCDI)<br />
+    USCDI is a set of basic data that the US Government expects applications and technology vendors to support in order to obtain certification as an interoperability compliant product or service.</p>
+    </li>
+    <li>
+        <p>Argonaut
+    The Argonaut project (a pun on the JSON format, refering to Jason and the Argonauts from Homer’s Odyssey) is one of the oldest FHIR projects, and comprises a set of core data resources that EHR vendors have agreed to use to communicate clinical findings.</p>
+    </li>
+    <li>
+        <p>International Patient Summary<br />
+    International Patient Summary is an European Union led project, focusing on patient summaries as they are exchanged between different countries in the EU.  Particular attention is given to different languages and terminologies, and necessary documentation for crossing borders (such as vaccines).</p>
+    </li>
+    <li>
+        <p>Vaccine Card<br />
+    Public health data such as vaccine passports and vaccination status.</p>
+    </li>
+    <li>
+        <p>Continuity of Care Documents (CCD on FHIR)
+    Continuity of Care documents are the clinical documents that hospitals and clinics provide to you when you leave an over night stay at a hospital.  They include progress notes, treatment summary, diagnosis, and similar documents.  They may also include ambulance and transportation instructions.</p>
+    </li>
+    <li>
+        <p>Payor data such as financial claims and explanation of benefit documents, and clinical data they may have.</p>
+    </li>
+    </ul>
+
+    <h3 id="patient-implementators">Patient Implementators</h3>
+    <p>Patients that wish to build tools and utilities using their own health records will have additional interests and needs. Such patients may find the activities in the HL7 Implementation Division to be of interest.  Patients with software development experience will want to refer to the <a href="http://hl7.org/fhir/overview-dev.html">Developer introduction</a> and the <a href="https://hl7.org/FHIR/implsupport-module.html">Implementation Support Module</a>.  See the following links for more details….</p>
+
+    <ul>
+    <li><a href="https://github.com/smart-on-fhir/smart-examples">SMART on FHIR App Examples</a></li>
+    <li><a href="https://techcommunity.microsoft.com/t5/healthcare-and-life-sciences/creating-your-first-smart-on-fhir-application/ba-p/2802999">Creating Your First SMART on FHIR Application</a></li>
+    <li><a href="https://github.com/cerner/smart-on-fhir-tutorial">Smart on FHIR Tutorial</a></li>
+    <li><a href="https://www.hl7.org/fhir/safety.html">Clinical safety checklist</a></li>
+    <li><a href="https://synthetichealth.github.io/synthea/">Synthea</a></li>
+    </ul>
+
+    <h3 id="references">References</h3>
+
+    <p><a href="https://www.healthit.gov/topic/standards-technology/standards/fhir-fact-sheets">FHIR Fact Sheets</a><br />
+    <a href="https://www.healthit.gov/sites/default/files/2019-08/ONCFHIRFSWhatIsFHIR.pdf">What is FHIR?</a></p>
+
+
+
+    [%file newfooter%]
+
+</body>
+</html>
+

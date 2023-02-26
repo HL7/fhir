@@ -98,7 +98,9 @@
 					<code value="eligpercent"/>
 				</coding>
 			</category>
-			<value value="80.00"/>
+			<quantity>
+				<value value="80.00"/>
+			</quantity>
 		</adjudication>
 		<adjudication>
 			<category>

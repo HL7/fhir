@@ -1,212 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="body-site"/>
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
-  </meta>
-  <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
-    <valueCode value="oo"/>
-  </extension>
-  <url value="http://hl7.org/fhir/ValueSet/body-site"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.141"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.3.653"/>
-  </identifier>
-  <identifier>
-    <use value="old"/>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.78"/>
-  </identifier>
-  <version value="5.0.0"/>
-  <name value="SNOMEDCTBodyStructures"/>
-  <title value="SNOMED CT Body Structures"/>
-  <status value="draft"/>
-  <experimental value="true"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <description value="This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 442083009 (Anatomical or acquired body site (body structure))."/>
-  <copyright value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
-  <compose>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <concept>	
-				<code value ="53075003"/>
-				<display value ="Distal phalanx of hallux"/>
-			</concept>	
-			<concept>	
-				<code value ="76986006"/>
-				<display value ="Distal phalanx of second toe"/>
-			</concept>	
-			<concept>	
-				<code value ="65258003"/>
-				<display value ="Distal phalanx of third toe"/>
-			</concept>	
-			<concept>	
-				<code value ="54333003"/>
-				<display value ="Distal phalanx of fourth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="10770001"/>
-				<display value ="Distal phalanx of fifth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="363670009"/>
-				<display value ="Interphalangeal joint structure of great toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371216008"/>
-				<display value ="Distal interphalangeal joint of second toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371219001"/>
-				<display value ="Distal interphalangeal joint of third toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371205001"/>
-				<display value ="Distal interphalangeal joint of fourth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371203008"/>
-				<display value ="Distal interphalangeal joint of fifth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371292009"/>
-				<display value ="Proximal interphalangeal joint of second toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371255009"/>
-				<display value ="Proximal interphalangeal joint of third toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371288002"/>
-				<display value ="Proximal interphalangeal joint of fourth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="371284000"/>
-				<display value ="Proximal interphalangeal joint of fifth toe"/>
-			</concept>	
-			<concept>	
-				<code value ="67169006"/>
-				<display value ="Head of first metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="9677004"/>
-				<display value ="Head of second metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="46971007"/>
-				<display value ="Head of third metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="3134008"/>
-				<display value ="Head of fourth metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="71822005"/>
-				<display value ="Head of fifth metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="89221001"/>
-				<display value ="Base of first metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="90894004"/>
-				<display value ="Base of second metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="89995006"/>
-				<display value ="Base of third metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="15368009"/>
-				<display value ="Base of fourth metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="30980004"/>
-				<display value ="Base of fifth metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="38607000"/>
-				<display value ="Styloid process of fifth metatarsal bone"/>
-			</concept>	
-			<concept>	
-				<code value ="2979003"/>
-				<display value ="Medial cuneiform bone"/>
-			</concept>	
-			<concept>	
-				<code value ="19193007"/>
-				<display value ="Intermediate cuneiform bone"/>
-			</concept>	
-			<concept>	
-				<code value ="67411009"/>
-				<display value ="Lateral cuneiform bone"/>
-			</concept>	
-			<concept>	
-				<code value ="81012005"/>
-				<display value ="Bone structure of cuboid"/>
-			</concept>	
-			<concept>	
-				<code value ="75772009"/>
-				<display value ="Bone structure of navicular"/>
-			</concept>	
-			<concept>	
-				<code value ="67453005"/>
-				<display value ="Bone structure of talus"/>
-			</concept>	
-			<concept>	
-				<code value ="80144004"/>
-				<display value ="Bone structure of calcaneum"/>
-			</concept>	
-			<concept>	
-				<code value ="6417001"/>
-				<display value ="Medial malleolus"/>
-			</concept>	
-			<concept>	
-				<code value ="113225006"/>
-				<display value ="Lateral malleolus of fibula"/>
-			</concept>	
-			<concept>	
-				<code value ="22457002"/>
-				<display value ="Head of fibula"/>
-			</concept>	
-			<concept>	
-				<code value ="45879002"/>
-				<display value ="Tibial tuberosity"/>
-			</concept>	
-			<concept>	
-				<code value ="122474001"/>
-				<display value ="Medial condyle of femur"/>
-			</concept>	
-			<concept>	
-				<code value ="122475000"/>
-				<display value ="Lateral condyle of femur"/>
+	<id value="body-site"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
+	</meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+		<valueCode value="oo"/>
+	</extension>
+	<url value="http://hl7.org/fhir/ValueSet/body-site"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.3.141"/>
+	</identifier>
+	<identifier>
+		<use value="old"/>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.3.653"/>
+	</identifier>
+	<identifier>
+		<use value="old"/>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:2.16.840.1.113883.4.642.2.78"/>
+	</identifier>
+	<version value="5.0.0"/>
+	<name value="SNOMEDCTBodyStructures"/>
+	<title value="SNOMED CT Body Structures"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="FHIR Project team"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<description
+		value="This value set includes all codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 442083009 (Anatomical or acquired body site (body structure))."/>
+	<copyright
+		value="This resource includes content from SNOMED Clinical Terms® (SNOMED CT®) which is copyright of the International Health Terminology Standards Development Organisation (IHTSDO). Implementers of these specifications must have the appropriate SNOMED CT Affiliate license - for more information contact http://www.snomed.org/snomed-ct/get-snomed-ct or info@snomed.org"/>
+	<compose>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<concept>
+				<code value="53075003"/>
+				<display value="Distal phalanx of hallux"/>
 			</concept>
-			<concept>	
-				<code value ="69030007"/>
-				<display value ="Ischial tuberosity"/>
+			<concept>
+				<code value="76986006"/>
+				<display value="Distal phalanx of second toe"/>
 			</concept>
-			<concept>	
-				<code value ="29850006"/>
-				<display value ="Iliac crest"/>
+			<concept>
+				<code value="65258003"/>
+				<display value="Distal phalanx of third toe"/>
 			</concept>
-			<!--
-      <filter>
-        <property value="concept"/>
-        <op value="is-a"/>
-        <value value="442083009"/>
-      </filter>
-			-->
-    </include>
-  </compose>
+			<concept>
+				<code value="54333003"/>
+				<display value="Distal phalanx of fourth toe"/>
+			</concept>
+			<concept>
+				<code value="10770001"/>
+				<display value="Distal phalanx of fifth toe"/>
+			</concept>
+			<concept>
+				<code value="363670009"/>
+				<display value="Interphalangeal joint structure of great toe"/>
+			</concept>
+			<concept>
+				<code value="371216008"/>
+				<display value="Distal interphalangeal joint of second toe"/>
+			</concept>
+			<concept>
+				<code value="371219001"/>
+				<display value="Distal interphalangeal joint of third toe"/>
+			</concept>
+			<concept>
+				<code value="371205001"/>
+				<display value="Distal interphalangeal joint of fourth toe"/>
+			</concept>
+			<concept>
+				<code value="371203008"/>
+				<display value="Distal interphalangeal joint of fifth toe"/>
+			</concept>
+			<concept>
+				<code value="371292009"/>
+				<display value="Proximal interphalangeal joint of second toe"/>
+			</concept>
+			<concept>
+				<code value="371255009"/>
+				<display value="Proximal interphalangeal joint of third toe"/>
+			</concept>
+			<concept>
+				<code value="371288002"/>
+				<display value="Proximal interphalangeal joint of fourth toe"/>
+			</concept>
+			<concept>
+				<code value="371284000"/>
+				<display value="Proximal interphalangeal joint of fifth toe"/>
+			</concept>
+			<concept>
+				<code value="67169006"/>
+				<display value="Head of first metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="9677004"/>
+				<display value="Head of second metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="46971007"/>
+				<display value="Head of third metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="3134008"/>
+				<display value="Head of fourth metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="71822005"/>
+				<display value="Head of fifth metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="89221001"/>
+				<display value="Base of first metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="90894004"/>
+				<display value="Base of second metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="89995006"/>
+				<display value="Base of third metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="15368009"/>
+				<display value="Base of fourth metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="30980004"/>
+				<display value="Base of fifth metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="38607000"/>
+				<display value="Styloid process of fifth metatarsal bone"/>
+			</concept>
+			<concept>
+				<code value="2979003"/>
+				<display value="Medial cuneiform bone"/>
+			</concept>
+			<concept>
+				<code value="19193007"/>
+				<display value="Intermediate cuneiform bone"/>
+			</concept>
+			<concept>
+				<code value="67411009"/>
+				<display value="Lateral cuneiform bone"/>
+			</concept>
+			<concept>
+				<code value="81012005"/>
+				<display value="Bone structure of cuboid"/>
+			</concept>
+			<concept>
+				<code value="75772009"/>
+				<display value="Bone structure of navicular"/>
+			</concept>
+			<concept>
+				<code value="67453005"/>
+				<display value="Bone structure of talus"/>
+			</concept>
+			<concept>
+				<code value="80144004"/>
+				<display value="Bone structure of calcaneum"/>
+			</concept>
+			<concept>
+				<code value="6417001"/>
+				<display value="Medial malleolus"/>
+			</concept>
+			<concept>
+				<code value="113225006"/>
+				<display value="Lateral malleolus of fibula"/>
+			</concept>
+			<concept>
+				<code value="22457002"/>
+				<display value="Head of fibula"/>
+			</concept>
+			<concept>
+				<code value="45879002"/>
+				<display value="Tibial tuberosity"/>
+			</concept>
+			<concept>
+				<code value="122474001"/>
+				<display value="Medial condyle of femur"/>
+			</concept>
+			<concept>
+				<code value="122475000"/>
+				<display value="Lateral condyle of femur"/>
+			</concept>
+			<concept>
+				<code value="69030007"/>
+				<display value="Ischial tuberosity"/>
+			</concept>
+			<concept>
+				<code value="29850006"/>
+				<display value="Iliac crest"/>
+			</concept>
+		</include>
+		<include>
+			<system value="http://snomed.info/sct"/>
+			<filter>
+				<property value="concept"/>
+				<op value="is-a"/>
+				<value value="442083009"/>
+			</filter>
+		</include>
+	</compose>
 </ValueSet>

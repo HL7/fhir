@@ -93,6 +93,7 @@ search declarations</a>, and clients are encouraged to do this too.
       <li><a href="#sort">Sorting (_sort)</a></li>
       <li><a href="#total">Total number of matching resources (_total)</a></li>
       <li><a href="#count">Limiting Page Size (_count)</a></li>
+      <li><a href="#_maxresults">Limiting Total Result Size (_maxresults)</a></li>
       <li><a href="#summary">Summary (_summary)</a></li>
       <li><a href="#elements">Selecting Elements (_elements)</a></li>
       <li><a href="#score">Relevance (_score)</a></li>
@@ -603,11 +604,15 @@ GET [base]/[resource-type]/?param1=value&amp;...{&amp;_format=[mime-type]}
       </td>
     </tr>
     <tr>
-      <td>Compartment Search</td>
-      <td>This search is not available because the search is indistinguishable from a READ operation.</td>
+      <td>Compartment Search - All Contained Resource Types</td>
+      <td>
+<pre>
+  GET [base]/[compartment-type]/[compartment-id]/*?param1=value&amp;...{&amp;_format=[mime-type]}
+</pre>
+      </td>
     </tr>
     <tr>
-      <td>Compartment and Resource Type Search</td>
+      <td>Compartment Search - Specific Resource Type</td>
       <td>
 <pre>
 GET [base]/[compartment-type]/[compartment-id]/[resource-type]?param1=value&amp;...{&amp;_format=[mime-type]}
@@ -1175,7 +1180,7 @@ url:above=http://acme.org/fhir</span>
     to do a 'standard' string search against code values.  Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
     the server, i.e. the server decides if a search parameter matches on canonically equivalent characters or matches on
-		the actual used Unicode code points.
+		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
     <code>code-text</code> is only allowed on <a href="#reference">reference</a> and <a href="#token">token</a>
@@ -1209,7 +1214,7 @@ language:code-text=EN</span>
     as a case-insensitive and combining-character insensitive match anywhere in the target string. Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
     the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
-		the actual used Unicode code points.
+		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
     <code>contains</code> is allowed on <a href="#string">string</a> and <a href="search.html">uri</a> type search 
@@ -1243,7 +1248,7 @@ family:contains=son</span>
     exact value that should be matched, including casing and combining characters. Note that the handling of extended 
     <a href="http://unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries">grapheme clusters</a> is within the discretion of 
     the server, i.e. the server decides if a string search parameter matches on canonically equivalent characters or matches on
-		the actual used Unicode code points.
+		the actual used Unicode code points. Case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.
   </p>
   <p>
     <code>exact</code> is only allowed on <a href="#string">string</a> type search parameters. When using the 'exact' modifier,
@@ -1863,7 +1868,12 @@ a prefix to the parameter value may be used to control the nature of the matchin
 the following prefixes are used:
 </p>
 <table class="grid">
- <tr>
+  <tr>
+    <td><b>Prefix Code</b></td>
+    <td><b>Description</b></td>
+    <td><b>Formal Definition</b></td>
+   </tr>
+  <tr>
 	<td><code>eq</code></td>
 	<td>the value for the parameter in the resource is equal to the provided value</td>
 	<td>the range of the search value fully contains the range of the target value</td>
@@ -2296,7 +2306,7 @@ Content-Type: application/x-www-form-urlencoded
 value-quantity=5.40e-3|http://unitsofmeasure.org|g</span>
         </span>
       </td>
-      <td>Search for all the observations with a value of 0.0054(+/-0.000005) g where g is understood as a UCUM unit (<code>system</code>/<code>code</code>)
+      <td>Search for all the observations with a value of 0.0054(+/-0.00005) g where g is understood as a UCUM unit (<code>system</code>/<code>code</code>)
       </td>
     </tr>
     <tr>
@@ -2531,8 +2541,7 @@ search parameters</a> 'message' and 'composition' as an example of this.
 <p>
 For a simple string search, a string parameter serves as the input for a search against
 sequences of characters. This search is insensitive to casing and included combining characters, like accents or other diacritical marks.
-Punctuation and non-significant whitespace (e.g. repeated space characters, tab vs space) should also be ignored.
-By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have
+Punctuation and non-significant whitespace (e.g. repeated space characters, tab vs space) should also be ignored.  Note that case-insensitive comparisons do not take locale into account, and will result in unsatisfactory results for certain locales. Character case definitions and conversions are out of scope for the FHIR standard, and the results of such operations are implementation dependent.  By default, a field matches a string query if the value of the field equals or starts with the supplied parameter value, after both have
 been normalized by case and combining characters. Therefore, the default string search only operates on the base characters of the string parameter.
 The <code>:contains</code> modifier returns results that include the supplied parameter value anywhere within the field
 being searched. The <code>:exact</code> modifier returns results that match
@@ -3934,6 +3943,12 @@ named queries to meet their own uses using an <a href="operationdefinition.html"
     </td>
   </tr>
   <tr>
+    <td><code><a href="#_maxresults">_maxresults</a></code></td>
+    <td>
+      Limit the total number of <code>match</code> results a request can return.
+    </td>
+  </tr>
+  <tr>
     <td><code><a href="#_revinclude">_revinclude</a></code></td>
     <td>
       Include additional resources, based on following reverse links across references.
@@ -4015,6 +4030,7 @@ Notes:
     types, the search parameter MAY include the <a href="#modifiertexttoken">text modifier</a>
     to request sorting based on the text or display portions of the element values.
     For example, <code>_sort=code:text</code> or <code>_sort:-code:text</code>.</li>
+  <li>When sorting on search parameters of <code>date</code> type, if the source data is not a single instance (e.g. a <a href="datatypes.html#Period">Period</a>) the sort behavior is server-defined. If more prescribed search behavior is needed, custom search parameters that assert specific behavior can be defined. Note that most reference implementations search by the <code>start</code> of the period.</li>
 </ul>
 
 <a name="total"></a>
@@ -4056,7 +4072,7 @@ parameter: it is just an optimization hint, that might possibly save the server 
 <a name="_count"></a>
 <h4>Limiting Page Size (_count)</h4>
 <p>
-In order to keep the load on clients, servers and the network
+In order to keep the load on clients, servers, and the network
 minimized, the server may choose to return the results in
 a series of pages. The search result set contains the URLs
 that the client uses to request additional pages from the
@@ -4083,13 +4099,13 @@ handle ongoing updates to the resources while the search
 is proceeding.
 </p>
 <p>
-Note: The combination of <code>_sort</code> and <code>_count</code> can be used to return
+The combination of <code>_sort</code> and <code>_count</code> can be used to return
 only the latest resource that meets a particular criteria - set the
 criteria, and then sort by date in descending order, with <code>_count=1</code>.
 This way, the last matching resource will be returned.
 </p>
 <p>
-if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
+If <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
 server returns a bundle that reports the total number of resources that match in Bundle.total,
 but with no entries, and no prev/next/last links. Note that the <code>Bundle.total</code> only
 include the total number of matching resources. It does not count extra resources such as
@@ -4098,10 +4114,31 @@ In the same way, the _count parameter only applies to resources with <code>entry
 included resources or operation outcomes.
 </p>
 <p>
-The _count parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
+The <code>_count</code> parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
 number of matches, not how many are returned in a single Bundle response.
 </p>
 
+<a name="_maxresults"></a>
+<h4>Limiting Total Result Size (_maxresults) <span class="stu">TU</span></h4>
+<p>
+  In some scenarios, a client knows that it will only process a certain number of results for a search, regardless of how many records there are.  For example, if an application is providing an overview of patient activity and will only display the most recent observation on a summary screen, telling the server that additional records will never be retrieved allows the server to free any resources that might have been reserved for paging.
+</p>
+<p>
+The parameter <code>_maxresults</code> is defined as an instruction to the server regarding the limit on how many total resources should be returned from a query.  If supported, a server SHOULD NOT return more resources than requested.  As with other parameters, servers supporting <count>_maxresults</count> SHALL include this parameter in the <a href="search.html#selflink">Self Link</a> when returning results.
+</p>
+<p>
+The <code>_maxresults</code> parameter has no impact on the value of <code>Bundle.total</code> as the latter represents the total
+number of matches, not how many are returned in a response.
+</p>
+<p>
+The combination of <code>_sort</code> and <code>_maxresults</code> can be used to return
+only the latest resource that meets a particular criteria - set the
+criteria, and then sort by date in descending order, with <code>_maxresults=1</code>.
+This way, the last matching resource will be returned.
+</p>
+<p>
+  Note that <code>_maxresults</code> does not absolve a server from paging requirements.  For example, a client can request <code>_maxresults=10&amp;_count=5</code> to receive (at most) two pages of five results each.
+</p>
 
 <a name="summary"></a>
 <a name="_summary"></a>
@@ -4698,7 +4735,8 @@ pages.  This approach allows both sender and receiver to avoid caching results o
 <h3>Standard Parameters</h3>
 <p>
   Search parameters can be defined in either the core specification or externally (e.g., via Implementation Guides).
-  The parameters defined in the core specification fall into a few categories, as listed below.
+  The parameters defined in the core specification fall into a few categories, as listed below.  Note that all search
+  parameters defined in this specification are listed by the <a href="searchparameter-registry.html">search parameter registry</a>.
 </p>
 <p>
   Note that if a 'base' <a href="searchparameter.html">SearchParameter</a> defined by HL7 or an implementation guide 
@@ -5261,6 +5299,9 @@ which path contains the match.
 <p>
 Servers are not required to implement any of the standard search parameters. However, servers SHOULD
 support the <a href="#id"><code>_id</code></a> parameter <span class="stu">TU</span>.  Servers MAY also define their own parameters.
+</p>
+<p>
+  Note that all search parameters defined in this specification, both common and resource-specific, are listed in the <a href="searchparameter-registry.html">search parameter registry</a>.
 </p>
 
 

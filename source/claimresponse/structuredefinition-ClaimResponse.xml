@@ -284,7 +284,7 @@
       <path value="ClaimResponse.requestor"/>
       <short value="Party responsible for the claim"/>
       <definition value="The provider which is responsible for the claim, predetermination or preauthorization."/>
-      <comment value="This party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner."/>
+      <comment value="Typically this field would be 1..1 where this party is accountable for the data content within the claim but is not necessarily the facility, provider group or practitioner who provided the products and services listed within this claim resource. This field is the Billing Provider, for example, a facility, provider group, lab or practitioner.."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -462,8 +462,8 @@
     </element>
     <element id="ClaimResponse.encounter">
       <path value="ClaimResponse.encounter"/>
-      <short value="Encounters related to this billed item"/>
-      <definition value="The Encounters during which this Claim was created or to which the creation of this record is tightly associated."/>
+      <short value="Encounters associated with the listed treatments"/>
+      <definition value="Healthcare encounters related to this claim."/>
       <comment value="This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter."/>
       <requirements value="Used in some jurisdictions to link clinical events to claim items."/>
       <min value="0"/>
@@ -690,8 +690,8 @@
         <code value="Money"/>
       </type>
     </element>
-    <element id="ClaimResponse.item.adjudication.value">
-      <path value="ClaimResponse.item.adjudication.value"/>
+    <element id="ClaimResponse.item.adjudication.quantity">
+      <path value="ClaimResponse.item.adjudication.quantity"/>
       <short value="Non-monetary value"/>
       <definition value="A non-monetary value associated with the category. Mutually exclusive to the amount element above."/>
       <comment value="For example: eligible percentage or co-payment percentage."/>
@@ -699,7 +699,7 @@
       <min value="0"/>
       <max value="1"/>
       <type>
-        <code value="decimal"/>
+        <code value="Quantity"/>
       </type>
     </element>
     <element id="ClaimResponse.item.detail">
@@ -975,6 +975,23 @@
         <strength value="example"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/service-uscls"/>
       </binding>
+    </element>
+    <element id="ClaimResponse.addItem.request">
+      <path value="ClaimResponse.addItem.request"/>
+      <short value="Request or Referral for Service"/>
+      <definition value="Request or Referral for Goods or Service to be rendered."/>
+      <requirements value="May identify the service to be provided or provider authorization for the service."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DeviceRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/MedicationRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/NutritionOrder"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ServiceRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
+		<targetProfile value="http://hl7.org/fhir/StructureDefinition/VisionPrescription"/>
+      </type>
     </element>
     <element id="ClaimResponse.addItem.modifier">
       <path value="ClaimResponse.addItem.modifier"/>
@@ -2115,6 +2132,20 @@
         <description value="The adjudication error codes."/>
         <valueSet value="http://hl7.org/fhir/ValueSet/adjudication-error"/>
       </binding>
+	  <isSummary value="true"/>
+    </element>
+    <element id="ClaimResponse.error.expression">
+      <path value="ClaimResponse.error.expression"/>
+      <short value="FHIRPath of element(s) related to issue"/>
+      <definition value="A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised."/>
+      <comment value="The root of the FHIRPath is the resource or bundle that generated OperationOutcome.  Each FHIRPath SHALL resolve to a single node."/>
+      <requirements value="Allows systems to highlight or otherwise guide users to elements implicated in issues to allow them to be fixed more easily."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>
