@@ -335,8 +335,8 @@ See the operation definition for further details.
 <h2>Relationship between Messaging and REST</h2>
 
 <p>
-As well as this messaging framework documented here, FHIR also defines a
-<a href="http.html">RESTful API</a>. The messaging and RESTful frameworks
+The messaging framework documented here is in addition to the FHIR
+<a href="http.html">RESTful API</a> defined in this specification. The messaging and RESTful frameworks
 are related in that both share the same set of resources on which they operate.
 In fact, the basic <a href="messageheader.html">MessageHeader</a> resource
 that the messaging framework is implemented is itself a resource that can treated in a RESTful approach.
@@ -358,19 +358,22 @@ The REST API, however, provides a set of basic operations on all resources
 that would need special definitions in the messaging framework - definitions that
 are not provided.
 </p>
-<p>"Message identity is always driven by the Bundle (and Bundle.identifier).  
-	The MessageHeader within the Bundle does not have reliable identity."  </p>
-
 <p>
 There is no expectation that RESTful systems will need to offer messaging
 support, or vice versa, though systems may find it useful to support both
 sets of functionality in order to satisfy a wider range of implementers.
 </p>
+<p>In such systems, the RESTful representation of the message is the complete Bundle resource, as the message identity is always driven by the Bundle (and Bundle.identifier). The MessageHeader within the Bundle does not have reliable identity.</p>
 <p>
 As a resource that can be used with the RESTful framework, the MessageHeader
-resource has the normal resource end-point (/MessageHeader), which is
-used to manage a set of static message resources. This could be used to
-make an archive of past messages available. <b>Creating or updating MessageHeader resources
+resource has the normal resource end-point (/MessageHeader). A FHIR server, which is also a message sender, can use a MessageHeader instance to stage the creation of a message, for example:
+<ul>
+  <li>Create a new MessageHeader resource populating the appropriate elements</li>
+  <li>Point MessageHeader.focus to the relevant resource(s) for the event that is triggering the message</li>
+  <li>Using the information from a <a href="messagedefinition.html">MessageDefinition resource</a> (or any other pre-defined template for the message structure), walk the graph of relevant resources and build the Bundle for the message</li>
+  <li>Only when the Bundle is constructed and assigned a Bundle.identifier we have a new message instance ready to be sent</li>
+</ul>
+<b>Creating or updating MessageHeader resources
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing a set of message header resources.
 </p>
@@ -389,7 +392,7 @@ To send a message, a sender posts the message bundle to the
 /Bundle end-point, with a uri that identifies the receiver
 at <a href="messageheader-definitions.html#MessageHeader.destination.endpoint">MessageHeader.destination.endpoint</a>.
 The RESTful server accepts the bundle,
-stores it as a single bundle, and indexes it on the
+stores it as a single resource, and indexes it on the contents of the included
 <a href="messageheader.html">MessageHeader</a>.
 </p>
 <p>
@@ -419,9 +422,6 @@ ensure that multiple parties do not interfere with each other
 by re-using the same system identifier (and against malicious
 attack).
 </p>
-
-
-
 
 <a name="Events"></a>
 <a name="events"></a>
