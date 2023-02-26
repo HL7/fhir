@@ -64,7 +64,7 @@
     <scope value="type"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="At the Instance level, this parameter is ignored. At the Resource level, one or more parameters containing a FHIR id for a Subscription to get a token for. In the absense of any specified ids, the server may either return a token for all Subscriptions available to the caller with a channel-type of websocket or fail the request."/>
+    <documentation value="At the Instance level, this parameter is ignored. At the Resource level, one or more parameters containing a FHIR id for a Subscription to get a token for. In the absence of any specified ids, the server may either return a token for all Subscriptions available to the caller with a channel-type of websocket or fail the request."/>
     <type value="id"/>
   </parameter>
   <parameter>
@@ -72,7 +72,7 @@
     <use value="out"/>
     <min value="1"/>
     <max value="1"/>
-    <documentation value="An access token that a client may use to show authorization during a websocket connection."/>
+    <documentation value="An access token that a client may use to show authorization during a websocket connection. The security details of the token are implementation-dependent and beyond the scope of this operation definition."/>
     <type value="string"/>
   </parameter>
   <parameter>

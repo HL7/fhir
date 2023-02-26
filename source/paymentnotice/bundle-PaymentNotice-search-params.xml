@@ -62,18 +62,18 @@
   <entry>
     <resource>
       <SearchParameter>
-        <id value="PaymentNotice-provider"/>
+        <id value="PaymentNotice-reporter"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
           <valueCode value="trial-use"/>
         </extension>
         <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
-          <valueString value="PaymentNotice.provider"/>
+          <valueString value="PaymentNotice.reporter"/>
         </extension>
-        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-provider"/>
-        <description value="The reference to the provider"/>
-        <code value="provider"/>
+        <url value="http://hl7.org/fhir/build/SearchParameter/PaymentNotice-reporter"/>
+        <description value="The reference to the reporter"/>
+        <code value="reporter"/>
         <type value="reference"/>
-        <expression value="PaymentNotice.provider"/>
+        <expression value="PaymentNotice.reporter"/>
         <processingMode value="normal"/>
       </SearchParameter>
     </resource>

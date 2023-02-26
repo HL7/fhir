@@ -104,7 +104,7 @@
       <path value="SubscriptionTopic.url"/>
       <short value="Canonical identifier for this subscription topic definition, represented as a URI (globally unique)"/>
       <definition value="An absolute URI that is used to identify this subscription topic when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this subscription topic is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the subscription topic is stored on different servers."/>
-      <comment value="Can be a urn:uuid: or a urn:oid: but real http: addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
+      <comment value="Can be a `urn:uuid:` or a `urn:oid:` but real `http/s:` addresses are preferred.  Multiple instances may share the same URL if they have a distinct version.&#xA;&#xA;When this is a locally defined topic or derived from a topic defined in the FHIR spec or an IG, this uniquely identifies the topic and functionality. Ideally this URL resolves to documentation about the use cases.&#xA;&#xA;When this is a topic derived from another topic (e.g., it adds additional filters or functionality to a topic defined in an IG), then this URL should be different than the base and the `derivedFromCanonical` should be filled out with the unique uri as defined in the IG.&#xA;&#xA;When this is a direct implementation from another IG or registered topic (with no additional filters, etc., so not derived), then this url is the unique url for this topic as defined by the IG.&#xA;&#xA;The determination of when to create a new version of a resource (same url, new version) vs. defining a new artifact is up to the author.  Considerations for making this decision are found in [Technical and Business Versions](resource.html#versions). &#xA;&#xA;In some cases, the resource can no longer be found at the stated url, but the url itself cannot change. Implementations can use the [meta.source](resource.html#meta) element to indicate where the current master source of the resource can be found."/>
       <requirements value="Allows the subscription topic to be referenced by a single globally unique identifier."/>
       <min value="1"/>
       <max value="1"/>
@@ -597,14 +597,19 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.resourceTrigger.supportedInteraction">
       <path value="SubscriptionTopic.resourceTrigger.supportedInteraction"/>
       <short value="create | update | delete"/>
-      <definition value="The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE)."/>
+      <definition value="The FHIR RESTful interaction which can be used to trigger a notification for the SubscriptionTopic. Multiple values are considered OR joined (e.g., CREATE or UPDATE). If not present, all supported interactions are assumed."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -635,7 +640,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.previous"/>
       <short value="Rule applied to previous resource state"/>
       <definition value="The FHIR query based rules are applied to the previous resource state (e.g., state before an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -646,7 +651,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForCreate"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;create&quot; interactions, should the &quot;previous&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For `create` interactions, should the `previous` criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `create` interactions is unspecified (server discretion)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -666,7 +671,7 @@
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.current"/>
       <short value="Rule applied to current resource state"/>
       <definition value="The FHIR query based rules are applied to the current resource state (e.g., state after an update)."/>
-      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading &quot;/&quot;."/>
+      <comment value="The rules are search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading slash character (`/`)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -677,7 +682,7 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.resultForDelete"/>
       <short value="test-passes | test-fails"/>
-      <definition value="For &quot;delete&quot; interactions, should the &quot;current&quot; criteria count as an automatic pass or an automatic fail."/>
+      <definition value="For 'delete' interactions, should the 'current' query criteria count as an automatic pass or an automatic fail. If not present, the testing behavior during `delete` interactions is unspecified (server discretion)."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -696,7 +701,8 @@
     <element id="SubscriptionTopic.resourceTrigger.queryCriteria.requireBoth">
       <path value="SubscriptionTopic.resourceTrigger.queryCriteria.requireBoth"/>
       <short value="Both must be true flag"/>
-      <definition value="If set to true, both current and previous criteria must evaluate true to  trigger a notification for this topic.  Otherwise a notification for this topic will be triggered if either one evaluates to true."/>
+      <definition value="If set to `true`, both the `current` and `previous` query criteria must evaluate `true` to trigger a notification for this topic.  If set to `false` or not present, a notification for this topic will be triggered if either the `current` or `previous` tests evaluate to `true`."/>
+      <comment value="Please note the interaction between this element and the `resultForCreate`/`resultForDelete` elements during `create` and `delete` interactions.  For example, if `resultForCreate` is set to `test-passes`, setting `requireBoth` to `false` means that every `create` will trigger a notification while setting `requireBoth` to `true` will result in notifications if the `current` test passes.  Similarly, if `resultForCreate` is set to `test-fails`, setting `requireBoth` to `true` means that no `create` will be able to generate a notification while setting `requireBoth` to `false` will result in notifications if the `current` test passes."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -777,8 +783,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy">
@@ -819,8 +830,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
     </element>
     <element id="SubscriptionTopic.canFilterBy.filterParameter">
@@ -847,28 +863,43 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="SubscriptionTopic.canFilterBy.modifier">
-      <path value="SubscriptionTopic.canFilterBy.modifier"/>
-      <short value="= | eq | ne | gt | lt | ge | le | sa | eb | ap | above | below | in | not-in | of-type"/>
-      <definition value="Allowable operators to apply when determining matches (Search Modifiers).  If the filterParameter is a SearchParameter, this list of modifiers SHALL be a strict subset of the modifiers defined on that SearchParameter."/>
+    <element id="SubscriptionTopic.canFilterBy.comparator">
+      <path value="SubscriptionTopic.canFilterBy.comparator"/>
+      <short value="eq | ne | gt | lt | ge | le | sa | eb | ap"/>
+      <definition value="Comparators allowed for the filter parameter."/>
+      <comment value="If no comparators are listed, clients should not expect servers to support any comparators."/>
       <min value="0"/>
       <max value="*"/>
       <type>
         <code value="code"/>
       </type>
-      <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="SubscriptionTopicFilterBySearchModifier"/>
+          <valueString value="SearchComparator"/>
         </extension>
         <strength value="required"/>
-        <description value="Operator to apply to filter label."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-search-modifier"/>
+        <description value="Search Comparator Codes supported in this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-comparator"/>
       </binding>
-      <mapping>
-        <identity value="rim"/>
-        <map value="N/A (to add?)"/>
-      </mapping>
+    </element>
+    <element id="SubscriptionTopic.canFilterBy.modifier">
+      <path value="SubscriptionTopic.canFilterBy.modifier"/>
+      <short value="missing | exact | contains | not | text | in | not-in | below | above | type | identifier | of-type | code-text | text-advanced | iterate"/>
+      <definition value="Modifiers allowed for the filter parameter."/>
+      <comment value="If no modifiers are listed, clients should not expect servers to support any modifiers."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="SearchModifierCode"/>
+        </extension>
+        <strength value="required"/>
+        <description value="Search Modifier Codes supported in this filter."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/search-modifier-code"/>
+      </binding>
     </element>
     <element id="SubscriptionTopic.notificationShape">
       <path value="SubscriptionTopic.notificationShape"/>
@@ -888,8 +919,8 @@
     <element id="SubscriptionTopic.notificationShape.resource">
       <path value="SubscriptionTopic.notificationShape.resource"/>
       <short value="URL of the Resource that is the focus (main) resource in a notification shape"/>
-      <definition value="URL of the Resource that is the type used in this shape. This is the &quot;focus&quot; of the topic (or one of them if there are more than one) and the root resource for this shape definition. It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
-      <comment value="URL of the Resource that is the type used in this shape. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, &quot;Patient&quot; maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
+      <definition value="URL of the Resource that is the type used in this shape. This is the 'focus' resource of the topic (or one of them if there are more than one) and the root resource for this shape definition. It will be the same, a generality, or a specificity of SubscriptionTopic.resourceTrigger.resource or SubscriptionTopic.eventTrigger.resource when they are present."/>
+      <comment value="URL of the Resource that is the type used in this shape. Relative URLs are relative to the StructureDefinition root of the implemented FHIR version (e.g., http://hl7.org/fhir/StructureDefinition). For example, 'Patient' maps to http://hl7.org/fhir/StructureDefinition/Patient. For more information, see &lt;a href=&quot;elementdefinition-definitions.html#ElementDefinition.type.code&quot;&gt;ElementDefinition.type.code&lt;/a&gt;."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -901,8 +932,13 @@
           <valueString value="FHIRTypes"/>
         </extension>
         <strength value="extensible"/>
-        <description value="Either a resource or a data type, including logical model types."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/fhir-types"/>
+        <description value="A type of resource, or a Reference (from all versions)"/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/subscription-types"/>
+        <additionalBinding>
+          <purpose value="ui"/>
+          <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
+          <shortDoco value="This is the value set to use for just R5 resource types"/>
+        </additionalBinding>
       </binding>
       <mapping>
         <identity value="rim"/>
