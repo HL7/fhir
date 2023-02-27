@@ -545,7 +545,7 @@
         <code value="RelatedArtifact"/>
       </type>
     </element>
-    <element id="ConceptMap.property">
+      <element id="ConceptMap.property">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Property"/>
       </extension>
@@ -553,9 +553,9 @@
         <valueCode value="400,400"/>
       </extension>
       <path value="ConceptMap.property"/>
-      <short value="Definition of an additional mapping property to act as a data source or target"/>
-      <definition value="Some mappings involve data in additional fields, where codes in multiple fields are combined to a single field (or vice versa). A property defines the property found in the source or target data model where the data will come from or be placed into."/>
-      <comment value="Concept Map properties are not used to define additional properties of the codes (those are defined in the applicable code systems). For an example, see [Specimen Type v2 -> SNOMED CT Mapping(conceptmap-example-specimen-type.html)"/>
+      <short value="Additional information supplied about each mapping"/>
+      <definition value="A property defines a slot through which additional information can be provided about a map from soure -&gt; target."/>
+      <comment value="Multiple occurrences of ConceptMap.concept.property may occur for a ConceptMap.property where ConceptMap.group.element.target.property.code is the same and ConceptMap.group.element.target.property.value differs."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -568,8 +568,8 @@
         <valueBoolean value="true"/>
       </extension>
       <path value="ConceptMap.property.code"/>
-      <short value="Identifies this mapping property through this resource"/>
-      <definition value="A code that is used to identify this mapping property. The code is used internally in ConceptMap.group.element.target.dependsOn.property and ConceptMap.group.element.target.product.property."/>
+      <short value="Identifies the property on the mappings, and when referred to in the $translate operation"/>
+      <definition value="A code that is used to identify the property. The code is used internally (in ConceptMap.group.element.target.property.code) and also in the $translate operation."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -579,8 +579,8 @@
     </element>
     <element id="ConceptMap.property.uri">
       <path value="ConceptMap.property.uri"/>
-      <short value="Formal identifier for the data element referred to in this mapping property"/>
-      <definition value="Reference to the formal definition of the source/target data element. For elements defined by the FHIR specification, or using a FHIR logical model, the correct format is {canonical-url}#{element-id}."/>
+      <short value="Formal identifier for the property"/>
+      <definition value="Reference to the formal meaning of the property."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -590,8 +590,8 @@
     </element>
     <element id="ConceptMap.property.description">
       <path value="ConceptMap.property.description"/>
-      <short value="Why the mapping property is defined, and/or what the data element it refers to is"/>
-      <definition value="A description of the mapping property and/or the data element it refers to - why it is defined, and how the value might be used in mappings, and a discussion of issues associated with the use of the data element."/>
+      <short value="Why the property is defined, and/or what it conveys"/>
+      <definition value="A description of the property - why it is defined, and how its value might be used."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -601,8 +601,81 @@
     </element>
     <element id="ConceptMap.property.type">
       <path value="ConceptMap.property.type"/>
+      <short value="Coding | string | integer | boolean | dateTime | decimal"/>
+      <definition value="The type of the property value."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="PropertyType"/>
+        </extension>
+        <strength value="required"/>
+        <description value="The type of a property value."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-property-type"/>
+      </binding>
+    </element>
+    <element id="ConceptMap.mapAttribute">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="MapAttribute"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,400"/>
+      </extension>
+      <path value="ConceptMap.mapAttribute"/>
+      <short value="Definition of an additional map attribute to act as a data source or target"/>
+      <definition value="Some mappings involve data in additional fields, where codes in multiple fields are combined to a single field (or vice versa). A mapAttribute defines the data element found in the source or target data model where the data will come from or be placed into."/>
+      <comment value="Concept Map attributes are not used to define additional data elements where mapping data can be found. For an example, see [Specimen Type v2 -> SNOMED CT Mapping(conceptmap-example-specimen-type.html)"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ConceptMap.mapAttribute.code">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ConceptMap.mapAttribute.code"/>
+      <short value="Identifies this map attribute through this resource"/>
+      <definition value="A code that is used to identify this data attribute. The code is used internally in ConceptMap.group.element.target.dependsOn.mapAttribute and ConceptMap.group.element.target.product.mapAttribute."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ConceptMap.mapAttribute.uri">
+      <path value="ConceptMap.mapAttribute.uri"/>
+      <short value="Formal identifier for the data element referred to in this attribte"/>
+      <definition value="Reference to the formal definition of the source/target data element. For elements defined by the FHIR specification, or using a FHIR logical model, the correct format is {canonical-url}#{element-id}."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ConceptMap.mapAttribute.description">
+      <path value="ConceptMap.mapAttribute.description"/>
+      <short value="Why the mapping attribute is defined, and/or what the data element it refers to is"/>
+      <definition value="A description of the mapping attribute and/or the data element it refers to - why it is defined, and how the value might be used in mappings, and a discussion of issues associated with the use of the data element."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <isSummary value="true"/>
+    </element>
+    <element id="ConceptMap.mapAttribute.type">
+      <path value="ConceptMap.mapAttribute.type"/>
       <short value="code | Coding | string | boolean | Quantity"/>
-      <definition value="The type of the property value contained in this concept map for this data element."/>
+      <definition value="The type of the mapAttribute value contained in this concept map for this data element."/>
       <comment value="When the source or target is not content defined by FHIR, some additional application logic might be required to map from the FHIR Datatype to the externally defined content"/>
       <min value="1"/>
       <max value="1"/>
@@ -612,11 +685,11 @@
       <isSummary value="true"/>
       <binding>
         <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
-          <valueString value="ConceptMapPropertyType"/>
+          <valueString value="ConceptMapmapAttributeType"/>
         </extension>
         <strength value="required"/>
-        <description value="The type of a mapping property value."/>
-        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-property-type"/>
+        <description value="The type of a mapping attribute value."/>
+        <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-attribute-type"/>
       </binding>
     </element>
     <element id="ConceptMap.sourceScope[x]">
@@ -878,6 +951,60 @@
       </type>
       <condition value="cmd-1"/>
     </element>
+    <element id="ConceptMap.group.element.target.property">
+      <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
+        <valueString value="ConceptProperty"/>
+      </extension>
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
+        <valueCode value="400,260"/>
+      </extension>
+      <path value="ConceptMap.group.element.target.property"/>
+      <short value="Property value for the source -&gt; target mapping"/>
+      <definition value="A property value for this source -&gt; target mapping."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="ConceptMap.group.element.target.property.code">
+      <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
+        <valueBoolean value="true"/>
+      </extension>
+      <path value="ConceptMap.group.element.target.property.code"/>
+      <short value="Reference to ConceptMap.property.code"/>
+      <definition value="A reference to a mapping property defined in ConceptMap.property."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="ConceptMap.group.element.target.property.value[x]">
+      <path value="ConceptMap.group.element.target.property.value[x]"/>
+      <short value="Value of the property for this concept"/>
+      <definition value="The value of this property."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="Coding"/>
+      </type>
+      <type>
+        <code value="string"/>
+      </type>
+      <type>
+        <code value="integer"/>
+      </type>
+      <type>
+        <code value="boolean"/>
+      </type>
+      <type>
+        <code value="dateTime"/>
+      </type>
+      <type>
+        <code value="decimal"/>
+      </type>
+    </element>
     <element id="ConceptMap.group.element.target.dependsOn">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="OtherElement"/>
@@ -887,7 +1014,7 @@
       </extension>
       <path value="ConceptMap.group.element.target.dependsOn"/>
       <short value="Other properties required for this mapping"/>
-      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified property can be resolved, and it has the specified value."/>
+      <definition value="A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified data attribute can be resolved, and it has the specified value."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -901,13 +1028,13 @@
         <source value="http://hl7.org/fhir/StructureDefinition/ConceptMap"/>
       </constraint>
     </element>
-    <element id="ConceptMap.group.element.target.dependsOn.property">
+    <element id="ConceptMap.group.element.target.dependsOn.mapAttribute">
       <extension url="http://hl7.org/fhir/build/StructureDefinition/no-binding">
         <valueBoolean value="true"/>
       </extension>
-      <path value="ConceptMap.group.element.target.dependsOn.property"/>
-      <short value="A reference to a mapping property defined in ConceptMap.property"/>
-      <definition value="A reference to the mapping property that holds a value the map depends on."/>
+      <path value="ConceptMap.group.element.target.dependsOn.mapAttribute"/>
+      <short value="A reference to a mapping attribute defined in ConceptMap.mapAttribute"/>
+      <definition value="A reference to the mapping mapAttribute that holds a value the map depends on."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -917,7 +1044,8 @@
     <element id="ConceptMap.group.element.target.dependsOn.value[x]">
       <path value="ConceptMap.group.element.target.dependsOn.value[x]"/>
       <short value="Value of the referenced data element"/>
-      <definition value="Data element value that the mapping property depends on / produces."/>
+      <definition value="Data element value that the map depends on / produces."/>
+      <comment value="If the data type is a code, then the code system is the code system specified in .group.source or .group.target"/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -939,8 +1067,8 @@
     </element>
     <element id="ConceptMap.group.element.target.dependsOn.valueSet">
       <path value="ConceptMap.group.element.target.dependsOn.valueSet"/>
-      <short value="The mapping depends on a property with a value from this value set"/>
-      <definition value="This mapping applies if the property value is a code from this value set."/>
+      <short value="The mapping depends on a data element with a value from this value set"/>
+      <definition value="This mapping applies if the data element value is a code from this value set."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -951,8 +1079,8 @@
     </element>
     <element id="ConceptMap.group.element.target.product">
       <path value="ConceptMap.group.element.target.product"/>
-      <short value="Other properties that this mapping also produces"/>
-      <definition value="Product is the output of a ConceptMap that provides additional values relevant to the interpretation of the mapping target."/>
+      <short value="Other data elements that this mapping also produces"/>
+      <definition value="Product is the output of a ConceptMap that provides additional values that go in other attributes / data elemnts of the target data."/>
       <min value="0"/>
       <max value="*"/>
       <contentReference value="#ConceptMap.group.element.target.dependsOn"/>
