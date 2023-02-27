@@ -21,10 +21,10 @@
       <valueString value="Fuji apples with skin"/>
     </extension>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
-      <valueString value="nutritionproduct-example-apple"/>
+      <valueString value="nutritionproduct-example-apples"/>
     </extension>
     <item>
-      <reference value="NutritionProduct/example-apple"/>
+      <reference value="NutritionProduct/example-apples"/>
       <display value="Apples"/>
     </item>
   </entry>

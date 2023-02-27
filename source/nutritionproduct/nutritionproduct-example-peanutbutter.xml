@@ -1,4 +1,5 @@
 <NutritionProduct xmlns='http://hl7.org/fhir'>
+  <id value="example-peanutbutter"/>
   <ingredient>
     <item>
       <concept>
