@@ -59,4 +59,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="DeviceUsage-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="DeviceUsage.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/DeviceUsage-status"/>
+        <description value="The status of the device usage"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="DeviceUsage.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>
