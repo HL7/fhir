@@ -122,7 +122,13 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <element value="orderedItem.itemCodeableConcept"/>
+        <element value="item"/>
+        <variable value="b"/>
+        <transform value="create"/>
+      </target>
+      <target>
+        <context value="b"/>
+        <element value="concept"/>
         <transform value="copy"/>
       </target>
     </rule>
@@ -135,7 +141,7 @@ group main
       </source>
       <target>
         <context value="target"/>
-        <element value="occurrenceDateTime"/>
+        <element value="occurrence"/>
         <transform value="evaluate"/>
         <parameter>
           <valueString value="now()"/>
