@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <id value="conceptmap-property-type"/>
+  <id value="conceptmap-attribute-type"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
   </meta>
@@ -17,14 +17,14 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
     <valueInteger value="5"/>
   </extension>
-  <url value="http://hl7.org/fhir/conceptmap-property-type"/>
+  <url value="http://hl7.org/fhir/conceptmap-attribute-type"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.4.2118"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.4.2119"/>
   </identifier>
   <version value="5.0.0"/>
-  <name value="ConceptMapPropertyType"/>
-  <title value="ConceptMap Property Type"/>
+  <name value="ConceptMapAttributeType"/>
+  <title value="ConceptMap Attribute Type"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2021-01-05T10:01:24+11:00"/>
@@ -39,38 +39,33 @@
       <value value="fhir@lists.hl7.org"/>
     </telecom>
   </contact>
-  <description value="The type of a ConceptMap mapping property value."/>
+  <description value="The type of a ConceptMap map attribute value."/>
   <caseSensitive value="true"/>
-  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-property-type"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/conceptmap-attribute-type"/>
   <content value="complete"/>
   <concept>
+    <code value="code"/>
+    <display value="code"/>
+    <definition value="The attribute value is a code defined in the code system in context."/>
+  </concept>
+  <concept>
     <code value="Coding"/>
-    <display value="Coding (external reference)"/>
-    <definition value="The property  value is a code defined in an external code system. This may be used for translations, but is not the intent."/>
+    <display value="Coding"/>
+    <definition value="The attribute value is a code defined in a code system."/>
   </concept>
   <concept>
     <code value="string"/>
     <display value="string"/>
-    <definition value="The property value is a string."/>
-  </concept>
-  <concept>
-    <code value="integer"/>
-    <display value="integer"/>
-    <definition value="The property value is an integer (often used to assign ranking values to concepts for supporting score assessments)."/>
+    <definition value="The attribute value is a string."/>
   </concept>
   <concept>
     <code value="boolean"/>
     <display value="boolean"/>
-    <definition value="The property value is a boolean true | false."/>
+    <definition value="The attribute value is a boolean true | false."/>
   </concept>
   <concept>
-    <code value="dateTime"/>
-    <display value="dateTime"/>
-    <definition value="The property is a date or a date + time."/>
-  </concept>
-  <concept>
-    <code value="decimal"/>
-    <display value="decimal"/>
-    <definition value="The property value is a decimal number."/>
+    <code value="Quantity"/>
+    <display value="Quantity"/>
+    <definition value="The attribute is a Quantity (may represent an integer or a decimal with no units)."/>
   </concept>
 </CodeSystem>
