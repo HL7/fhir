@@ -107,8 +107,8 @@
     </element>
     <element id="InventoryReport.identifier">
       <path value="InventoryReport.identifier"/>
-      <short value="Identifiers for the report"/>
-      <definition value="Identifiers for the InventoryReport."/>
+      <short value="Business identifier for the report"/>
+      <definition value="Business identifier for the InventoryReport."/>
       <min value="0"/>
       <max value="*"/>
       <type>
@@ -271,7 +271,7 @@
     </element>
     <element id="InventoryReport.inventoryListing.itemStatus">
       <path value="InventoryReport.inventoryListing.itemStatus"/>
-      <short value="The status of the items"/>
+      <short value="The status of the items that are being reported"/>
       <definition value="The status of the items."/>
       <min value="0"/>
       <max value="1"/>
@@ -290,8 +290,8 @@
         <code value="dateTime"/>
       </type>
     </element>
-    <element id="InventoryReport.inventoryListing.items">
-      <path value="InventoryReport.inventoryListing.items"/>
+    <element id="InventoryReport.inventoryListing.item">
+      <path value="InventoryReport.inventoryListing.item"/>
       <short value="The item or items in this listing"/>
       <definition value="The item or items in this listing."/>
       <min value="0"/>
@@ -301,10 +301,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="InventoryReport.inventoryListing.items.category">
-      <path value="InventoryReport.inventoryListing.items.category"/>
-      <short value="The category of the item or items"/>
-      <definition value="The category of the item or items."/>
+    <element id="InventoryReport.inventoryListing.item.category">
+      <path value="InventoryReport.inventoryListing.item.category"/>
+      <short value="The inventory category or classification of the items being reported"/>
+      <definition value="The inventory category or classification of the items being reported. This is meant not for defining the product, but for inventory categories e.g. 'pending recount' or 'damaged'."/>
       <min value="0"/>
       <max value="1"/>
       <type>
@@ -312,10 +312,10 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="InventoryReport.inventoryListing.items.quantity">
-      <path value="InventoryReport.inventoryListing.items.quantity"/>
-      <short value="The quantity of the item or items"/>
-      <definition value="The quantity of the item or items."/>
+    <element id="InventoryReport.inventoryListing.item.quantity">
+      <path value="InventoryReport.inventoryListing.item.quantity"/>
+      <short value="The quantity of the item or items being reported"/>
+      <definition value="The quantity of the item or items being reported."/>
       <min value="1"/>
       <max value="1"/>
       <type>
@@ -323,8 +323,8 @@
       </type>
       <isSummary value="true"/>
     </element>
-    <element id="InventoryReport.inventoryListing.items.item">
-      <path value="InventoryReport.inventoryListing.items.item"/>
+    <element id="InventoryReport.inventoryListing.item.item">
+      <path value="InventoryReport.inventoryListing.item.item"/>
       <short value="The code or reference to the item type"/>
       <definition value="The code or reference to the item type."/>
       <min value="1"/>
@@ -346,7 +346,7 @@
       <short value="A note associated with the InventoryReport"/>
       <definition value="A note associated with the InventoryReport."/>
       <min value="0"/>
-      <max value="1"/>
+      <max value="*"/>
       <type>
         <code value="Annotation"/>
       </type>
