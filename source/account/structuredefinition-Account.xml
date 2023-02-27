@@ -512,6 +512,7 @@
           <valueString value="diagnosis-package-code"/>
         </extension>
         <strength value="example"/>
+        <description value="Local or Regional package codes, e.g. DRGs"/>
       </binding>
     </element>
 
@@ -587,6 +588,7 @@
           <valueString value="procedure-type"/>
         </extension>
         <strength value="example"/>
+        <description value="Usage for the specific procedure - e.g. billing"/>
       </binding>
     </element>
     <element id="Account.procedure.packageCode">
@@ -603,6 +605,7 @@
           <valueString value="procedure-package-code"/>
         </extension>
         <strength value="example"/>
+        <description value="Local or Regional package codes, e.g. DRGs"/>
       </binding>
     </element>
     <element id="Account.procedure.device">
