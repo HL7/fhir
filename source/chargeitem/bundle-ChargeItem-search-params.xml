@@ -326,4 +326,23 @@
       </SearchParameter>
     </resource>
   </entry>
+  <entry>
+    <resource>
+      <SearchParameter>
+        <id value="ChargeItem-status"/>
+        <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status">
+          <valueCode value="trial-use"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/build/StructureDefinition/path">
+          <valueString value="ChargeItem.status"/>
+        </extension>
+        <url value="http://hl7.org/fhir/build/SearchParameter/ChargeItem-status"/>
+        <description value="Is this charge item active"/>
+        <code value="status"/>
+        <type value="token"/>
+        <expression value="ChargeItem.status"/>
+        <processingMode value="normal"/>
+      </SearchParameter>
+    </resource>
+  </entry>
 </Bundle>

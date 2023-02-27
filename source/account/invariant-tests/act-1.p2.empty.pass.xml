@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../publish/account.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Account xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/account.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">HACC Funded Billing for Peter James Chalmers</div>
+	</text>
+	<identifier>
+		<system value="urn:oid:0.1.2.3.4.5.6.7"/>
+		<value value="654321"/>
+	</identifier>
+	<status value="active"/>
+	<type>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
+			<code value="PBILLACCT"/>
+			<display value="patient billing account"/>
+		</coding>
+		<text value="patient"/>
+	</type>
+	<name value="HACC Funded Billing for Peter James Chalmers"/>
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</subject>
+	<servicePeriod>
+		<start value="2016-01-01"/>
+		<end value="2016-06-30"/>
+	</servicePeriod>
+	<coverage>
+		<coverage>
+			<reference value="Coverage/7546D"/>
+		</coverage>
+		<priority value="1"/>
+	</coverage>
+	<owner>
+		<reference value="Organization/hl7"/>
+	</owner>
+	<description value="Hospital charges"/>
+	<diagnosis>
+		<sequence value="1"/>
+	</diagnosis>
+	<relatedAccount>
+		<relationship>
+			<coding>
+				<system value="http://hl7.org/fhir/account-relationship"/>
+				<code value="guarantor"/>
+			</coding>
+		</relationship>
+		<account>
+			<reference value="Account/ewg"/>
+		</account>
+	</relatedAccount>
+</Account>

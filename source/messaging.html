@@ -27,10 +27,10 @@ Messages are <a href="bundle.html">Bundle</a> resources, with the following rule
 <ul>
   <li>The Bundle <a href="bundle-definitions.html#Bundle.type">type</a> SHALL be <code>message</code></li>
   <li>The first resource in the bundle SHALL be a <a href="messageheader.html">MessageHeader</a> resource</li>
-  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> and
+  <li>If the <a href="messageheader-definitions.html#MessageHeader.focus">MessageHeader.focus</a> or
      <a href="messageheader-definitions.html#MessageHeader.response.details">MessageHeader.response.details</a> refer to
      any resources, they SHALL be included in the Bundle entries</li>
-  <li>The bundle MAY also contain additional resource that these other resources refer to. It SHOULD include all resources needed
+  <li>The bundle MAY also contain additional resources that these other resources refer to. It SHOULD include all resources needed
      for the receiver to be able to process the message as expected by the MessageHeader.event 
      (this can be defined by a <a href="messagedefinition.html">MessageDefinition</a> resource)</li>
   <li>The bundle SHALL NOT include resources that do have references 
@@ -43,11 +43,13 @@ The MessageHeader resource has a code - the message event - that identifies the
 nature of the request message, and it also carries additional request metadata.
 The other resources in the bundle depend on the type of the request.
 </p>
+<!--
 <p>
 The events supported in FHIR, along with the resources that are included in them, are defined below.
 </p>
+-->
 <p>
-The destination application processes the request and returns one or more response messages
+The destination application processes the request and returns zero or more response messages
 which are also a <a href="bundle.html">bundle</a> of resources identified
 by the <a href="bundle-definitions.html#Bundle.type">type</a> "message", with the first
 resource in each bundle being a <a href="messageheader.html">MessageHeader</a> resource with a response
@@ -67,15 +69,15 @@ The message bundle SHALL include only the MessageHeader resource, and any resour
 <p>
 This specification assumes that content will be delivered from one application to
 another by some delivery mechanism, and then one or more responses will be returned
-to the source application. The exact mechanism of transfer is irrelevant to
-this specification, but may include file transfer, HTTP based transfer, MLLP
-(HL7 minimal lower layer protocol), MQ series messaging or anything else.
-The only requirement for the transfer layer is that requests are sent to
-a known location and responses are returned to the source of the request.
-This specification considers the source and destination applications as logical
-entities, and the mapping from logical source and destination to implementation
-specific addresses is outside the scope of this specification, though this
-specification does provide a direct delivery mechanism below.
+to the source application. This specification provides a direct delivery mechanism below, 
+although the exact mechanism of transfer can be abstracted, and may include file transfer, 
+HTTP based transfer, MLLP (HL7 minimal lower layer protocol), MQ series messaging or anything 
+else. It is expected that these additional types of transfer mechanisms will define their own 
+implementation guides to define the exact message transfer protocol.  The only requirement for 
+the transfer layer is that requests are sent to a known location and responses are returned to 
+the source of the request. This specification considers the source and destination applications as 
+logical entities, and the mapping from logical source and destination to implementation specific 
+addresses is outside the scope of this specification.  
 </p>
 <p>
 The agreements around the content of the messages and the behavior of the two
@@ -98,7 +100,7 @@ A key aspect of a message is the impact of its content:
 </p>
 [%codelist http://hl7.org/fhir/message-significance-category%]
 <p>
-Some Events defined by FHIR are assigned to one of these categories,
+Some Events defined by a FHIR IG are assigned to one of these categories,
 but others are not able to be categorized in advance, and the category
 must be determined by the content, context, or use case.
 </p>
@@ -121,8 +123,6 @@ must be determined by the content, context, or use case.
  <tr><td>Currency</td><td>A message of currency MAY have one or more receivers specified.</td></tr>
  <tr><td>Notification</td><td>A message of notification MAY have one or more receivers specified.</td></tr>
 </table>
-
-<a name="synchronous"></a>
 <a name="patterns"></a>
 <h3>Message Exchange Patterns</h3>
 <p>
@@ -140,6 +140,7 @@ messages in a given stream are dependent on each other, and must be sent and
 processed in order. In addition, some transfer methods may require sequential
 delivery of messages.
 </p>
+<a name="synchronous"></a>
 <a name="sync"> </a>
 <h4>Synchronous</h4>
 <p>
@@ -158,7 +159,7 @@ This kind of messaging exchange is the most common because it's the simplest to 
 <a name="async"> </a>
 <h4>Asynchronous</h4>
 <p>
-However synchronous message exchange does not cater for multiple response
+The synchronous message exchange described above, however, does not cater for multiple response
 messages, which may arise when processing queries, and also imposes
 through-put limitations which may become relevant at high volumes.
 Additionally, it might not be practical or appropriate to wait for
@@ -172,29 +173,12 @@ given message.
 </p>
 <p>
 When a message is received, a receiver can determine from the content of the message header whether it's a new message to process, or a response to a message that has already been sent.
-Note that asynchronous messaging can be harder to implement due to the amount of complexity opposed to synchronous messaging; more can go wrong.
+Note that asynchronous messaging can be harder to implement due to the amount of complexity compared to synchronous messaging; more can go wrong.
 This specification does not dictate any particular error handling protocols or responsibilities; these are left to trading partner agreements between implementers.
 </p>
 
 
-<h3>MessageHeader Identifiers &amp; Timestamps</h3>
-<p>
-An incoming message contains two identifiers: the Bundle.id and
-the <a href="messageheader.html">MessageHeader</a>.id.
-Each time a new message is created, it SHALL be assigned an identifier
-(MessageHeader.id) that is unique within that message stream.
-Note that since message streams are often merged with other streams,
-it is recommended that the identifier should be globally unique.
-This can be achieved by using a UUID or an OID. Each time a message is sent,
-the Bundle.id should be changed to a new value.
-</p>
-<p>
-When a receiver receives and processes the message, it responds with a
-new message with a new identifier, wrapped in a bundle which also has a new id.
-The response message also quotes the request MessageHeader.id in
-MessageHeader.response.identifier so that the source system can relate the response to its request.
-</p>
-
+<h3>Message Identifiers &amp; Timestamps</h3>
 <p>
 A message has 2 important timestamps:
 </p>
@@ -207,7 +191,21 @@ In addition, the message may have additional timestamps in additional resources
 in the message, either .meta.lastUpdated or others throughout the resources.
 The meaning of these will depend on the message event. 
 </p>
+<p>An incoming message contains exactly one Bundle.identifier which identifies the message. 
+	Each time a new message is created, it SHALL be assigned an identifier (Bundle.identifier) 
+	that is unique within that message stream. Note that since message streams are often merged 
+	with other streams, it is recommended that the identifier should be globally unique. 
+	This can be achieved by using a UUID or an OID. Each time a message is sent, the Bundle.identifier 
+	should be changed to a new value.</p>
 
+<p>When a receiver receives and processes the message, it responds with a new message with a new 
+	identifier, contained in the Bundle.identifier element of the wrapping bundle. The response 
+	message also quotes the request Bundle.identifier in MessageHeader.response.identifier 
+	so that the source system can relate the response to its request.</p>
+
+<p>Note that Bundle.id and MessageHeader.id also must be present, according to the rules of the 
+	underlying Resource.id definition, which allows the potential additional or complementary use 
+	of these resources using the FHIR RESTful API.</p>
 
 <a name="reliable"></a>
 <h3>Absence of Reliable Messaging</h3>
@@ -226,20 +224,18 @@ configured timeout period based on the value specified in the
 for the event associated with the message:
 </p>
 <table class="grid">
- <tr><td>Consequence</td><td>Resend the same message (with the same MessageHeader.id) with the same Bundle.id</td></tr>
- <tr><td>Currency</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
- <tr><td>Notification</td><td>Resend the same message (with the same MessageHeader.id) with a different Bundle.id</td></tr>
+ <tr><td>Consequence</td><td>SHALL resend the same message content with the same Bundle.identifier</td></tr>
+ <tr><td>Currency</td><td>SHALL resend the same message content with a different Bundle.identifier</td></tr>
+ <tr><td>Notification</td><td>SHOULD resend the same message content with the same Bundle.identifier but MAY resend with a different Bundle.identifier</td></tr>
 </table>
 <p>
-When a receiver implements reliable messaging, it SHALL check the incoming Bundle.id
-and MessageHeader.id against a cache of previously received messages. The
+When a receiver implements reliable messaging, it SHALL check the incoming Bundle.identifier against a cache of previously received messages. The
 correct action to take depends on what is received:
 </p>
 <table class="grid">
- <tr><td>Both the Bundle.id and MessageHeader.id have not been received</td><td>This is the normal case, and the message should be processed</td></tr>
- <tr><td>Both the Bundle.id and MessageHeader.id have been received</td><td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
- <tr><td>The MessageHeader.id has already been received, but the Bundle.id is new</td><td>A previously seen message has been resubmitted for processing again. The receiver may either reprocess the message, or reject the message</td></tr>
- <tr><td>The Bundle.id has already been received, but the MessageHeader.id is new</td><td>This is an error - Bundle.id values should never be reused</td></tr>
+ <tr><td>The Bundle.identifier has not been received</td><td>Process the message</td></tr>
+ <tr><td>The Bundle.identifier has already been received</td>
+ 	<td>The original response has been lost (failed to return to the request issuer), and the original response SHALL be resent</td></tr>
 </table>
 <p>
 The duration period for caching does generally not need to be very long. At a minimum, it
@@ -257,64 +253,60 @@ In the first example, a Clinical EHR issues an order for a particular imaging ex
 to be performed on a patient. This is considered to be a message of <b>Consequence</b>: multiple
 orders should not be created (in practice there are usually human review processes that
 catch multiple orders, but repeat orders create entropy in the system that is harmful).
-The EHR sends a message where the Bundle.id is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10),
-with a MessageHeader.id of UUID 2 (dad53a57-dcb4-4f18-b066-7239eb4b5229).
+The EHR sends a message where the Bundle.identifier is UUID 1 (72edc4e0-6708-42ab-9734-f56721882c10).
 </p>
 <p>
 The EHR system never receives a response to the message; it does not know whether the request
 message got lost, or the imaging management systems was unable to process the request, or whether
 it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same two identifiers.
+resends the message with same Bundle.identifier.
 </p>
 <p>
 In this case, the imaging system successfully received the message, and processed it. Because
 it receives the resent order after 1 minute (which is within its 15 minute cache time),
-and the two UUIDs 1 and 2 match a message it has already processed, it knows that it already
+and UUID 1 matches the Bundle.identifier of a message it has already processed, it knows that it already
 processed the order, and simply returns the previous response. In the case of additional resent
-queries, the application keeps sending the original response, though it may also alert system
+requests, the application keeps sending the original response, though it may also alert system
 administrators that the same original message keeps being resent, since lost messages should be
 a rare occurrence.
 </p>
 <p>
 When the EHR system finally receives the message, it knows how the imaging management system
-responded; it can be sure because the message id from the original request is echoed in the
+responded; it can be sure because the Bundle.identifier from the original request is echoed in the
 response portion of the returned message.
 </p>
 
 
 <h4>Example: Currency</h4>
 <p>
-In this second example, a Clinical EHR needs to know what appointment slots are available
-for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are
-ever disappearing, and ordering a slot that has become unavailable is a waste of time for
-the humans and systems involved. The EHR sends a message where the Bundle.id is
-UUID 3 (4c7f5cb2-5964-4d42-b719-e0227461818c), with a MessageHeader.id is
-UUID 4 (63ed7d68-b2cc-421d-ba1c-a6c7785581f2).
+  In this second example, a Clinical EHR needs to know what appointment slots are available
+  for a particular imaging procedure. This is a message of <b>Currency</b>: available slots are
+  ever disappearing, and ordering a slot that has become unavailable is a waste of time for
+  the humans and systems involved. The EHR sends a message where the Bundle.identifier is
+  UUID 2 (4c7f5cb2-5964-4d42-b719-e0227461818c)
 </p>
 <p>
-The EHR system never receives a response to the message; it does not know whether the request
-message got lost, or the imaging management systems was unable to process the request, or whether
-it successfully processed the message and the response was lost. In this case, the EHR system
-resends the message with same MessageHeader.id (UUID 4), but creates a new Bundle.id (c7c17fe4-9560-49c7-b2ae-42636476fb86).
+  The EHR system never receives a response to the message; it does not know whether the request
+  message got lost, or the imaging management systems was unable to process the request, or whether
+  it successfully processed the message and the response was lost. In this case, the EHR system
+  resends the message with a different Bundle.identifier UUID 3 (c7c17fe4-9560-49c7-b2ae-42636476fb86).
 </p>
 <p>
-In this case, the imaging system successfully received the message, and processed it. When
-it receives the resent order after 1 minute (which is within its 15 minute cache time), it
-sees that although the message id is the same, the Bundle.id has changed, and it reprocesses
-the message again, and sends a new response.
+  In this case, the imaging system successfully received the first message, and processed it. When
+  it receives the resent order after 1 minute (which is within its 15 minute cache time), it
+  sees that a new message of currency with Bundle.identifier UUID3, and it processes
+  the new message, and sends a new response.
 </p>
 <p>
-When the EHR system finally receives the message, it knows the current slot availability
-on the imaging management system responded.
+  When the EHR system finally receives the message, it knows the current slot availability
+  on the imaging management system responded. If for some reason both responses arrive, the
+  EHR system knows that the response linked to the message with UUID 3 is the more current.
 </p>
 <p>
-Note that the existence of active intermediaries (or "middleware") creates the need
-for this protocol - the original sender matches the response to the request based on the
-MessageHeader.id, and so an active intermediary that choose the re-initiate a query that
-it previously relayed cannot change the MessageHeader.id. This protocol avoids the need for
-the MessageHeader.id to change, and only requires change to the Bundle.id which is never
-the basis for context linking outside the immediate message exchange protocol described
-here.
+  Note that the existence of active intermediaries (or "middleware") creates the need
+  for this protocol - the original sender matches the response to the request based on the
+  Bundle.identifier, and so an active intermediary that chooses the re-initiate a query that
+  it previously relayed cannot change the Bundle.identifier.
 </p>
 
 <a name="conf"></a>
@@ -343,8 +335,8 @@ See the operation definition for further details.
 <h2>Relationship between Messaging and REST</h2>
 
 <p>
-As well as this messaging framework documented here, FHIR also defines a
-<a href="http.html">RESTful API</a>. The messaging and RESTful frameworks
+The messaging framework documented here is in addition to the FHIR
+<a href="http.html">RESTful API</a> defined in this specification. The messaging and RESTful frameworks
 are related in that both share the same set of resources on which they operate.
 In fact, the basic <a href="messageheader.html">MessageHeader</a> resource
 that the messaging framework is implemented is itself a resource that can treated in a RESTful approach.
@@ -371,11 +363,17 @@ There is no expectation that RESTful systems will need to offer messaging
 support, or vice versa, though systems may find it useful to support both
 sets of functionality in order to satisfy a wider range of implementers.
 </p>
+<p>In such systems, the RESTful representation of the message is the complete Bundle resource, as the message identity is always driven by the Bundle (and Bundle.identifier). The MessageHeader within the Bundle does not have reliable identity.</p>
 <p>
 As a resource that can be used with the RESTful framework, the MessageHeader
-resource has the normal resource end-point (/MessageHeader), which is
-used to manage a set of static message resources. This could be used to
-make an archive of past messages available. <b>Creating or updating MessageHeader resources
+resource has the normal resource end-point (/MessageHeader). A FHIR server, which is also a message sender, can use a MessageHeader instance to stage the creation of a message, for example:
+<ul>
+  <li>Create a new MessageHeader resource populating the appropriate elements</li>
+  <li>Point MessageHeader.focus to the relevant resource(s) for the event that is triggering the message</li>
+  <li>Using the information from a <a href="messagedefinition.html">MessageDefinition resource</a> (or any other pre-defined template for the message structure), walk the graph of relevant resources and build the Bundle for the message</li>
+  <li>Only when the Bundle is constructed and assigned a Bundle.identifier we have a new message instance ready to be sent</li>
+</ul>
+<b>Creating or updating MessageHeader resources
 in this fashion does not represent the actual occurrence of any event, nor can it trigger
 any logic associated with the actual event.</b> It is just for managing a set of message header resources.
 </p>
@@ -394,7 +392,7 @@ To send a message, a sender posts the message bundle to the
 /Bundle end-point, with a uri that identifies the receiver
 at <a href="messageheader-definitions.html#MessageHeader.destination.endpoint">MessageHeader.destination.endpoint</a>.
 The RESTful server accepts the bundle,
-stores it as a single bundle, and indexes it on the
+stores it as a single resource, and indexes it on the contents of the included
 <a href="messageheader.html">MessageHeader</a>.
 </p>
 <p>
@@ -424,9 +422,6 @@ ensure that multiple parties do not interfere with each other
 by re-using the same system identifier (and against malicious
 attack).
 </p>
-
-
-
 
 <a name="Events"></a>
 <a name="events"></a>
@@ -470,13 +465,18 @@ Here's an example:
 </p>
 <pre class="xml" fragment="Bundle">
 &lt;Bundle xmlns="http://hl7.org/fhir"&gt;
-  &lt;id value="urn:uuid:77831928-2a35-4c08-9496-8232323bf48c"/&gt;
+  &lt;id value="77831928-2a35-4c08-9496-8232323bf48c"/&gt;
+  &lt;identifier&gt; 
+    &lt;system value="urn:example-org:sender.identifiers"/&gt; 
+    &lt;value value="6daec3d0-e3ee-42d4-a51d-50cfacad94a9"/&gt; 
+  &lt;/identifier&gt; 
+  &lt;type value="message"/&gt;
   &lt;!-- normal bundle stuff --&gt;
   &lt;entry&gt;
     &lt;fullUrl value="urn:uuid:6080d4a7-5e05-45dc-96d5-f75329564d1f"/&gt;
     &lt;resource&gt;
       &lt;MessageHeader&gt;
-			  &lt;id value="cac8143e-6138-4f45-b086-bb8ebf976aae"/&gt;
+        &lt;id value="6080d4a7-5e05-45dc-96d5-f75329564d1f"/&gt;
         &lt;!-- normal message header stuff --&gt;
         &lt;eventCoding&gt;
           &lt;system value="urn:ietf:rfc:3986"/&gt;
