@@ -35,6 +35,26 @@
       <code value="001"/>
     </coding>
   </jurisdiction>
+  <property>
+    <code value="segment-map"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="references"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="antlr"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="fhirpath"/>
+    <type value="string"/>
+  </property>
+  <property>
+    <code value="narrative"/>
+    <type value="string"/>
+  </property>
   <copyright value="Copyright (c) 2020, HL7 International, Inc., All Rights Reserved."/>
   <group>
     <element>
@@ -44,10 +64,10 @@
         <code value="Bundle"/>
         <display value="Bundle"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="MSH[Bundle]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -57,10 +77,10 @@
         <code value="MessageHeader[1]"/>
         <display value="MessageHeader[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="MSH[MessageHeader]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -70,14 +90,14 @@
         <code value="Provenance[1]"/>
         <display value="Provenance[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="MSH[Provenance]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Provenance.target=Bundle; Provenance.target=MessageHeader[MSH]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -87,10 +107,10 @@
         <code value="MessageHeader[1]"/>
         <display value="MessageHeader[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="SFT[MessageHeader]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -100,14 +120,14 @@
         <code value="Provenance[3]"/>
         <display value="Provenance[3]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="EVN[Provenance]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Provenance.target=Bundle; Provenance.target=MessageHeader[MSH]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -117,10 +137,10 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PID[Patient]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -130,10 +150,10 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PD1[Patient]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -143,18 +163,18 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="ARV[Patient]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Resource=Patient[1]"/>
-        </dependsOn>
-        <product>
-          <property value="antlr"/>
+        </property>
+        <property>
+          <code value="antlr"/>
           <valueString value="IF ARV-1 IN (&quot;PID&quot;, &quot;PD1&quot;) AND ARV-3 NOT VALUED"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -164,18 +184,18 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="ROL[Patient-PractitionerRole]"/>
-        </dependsOn>
-        <product>
-          <property value="antlr"/>
+        </property>
+        <property>
+          <code value="antlr"/>
           <valueString value="IF ROL-3.1 EQUALS &quot;PP&quot; AND ROL-3.3 EQUALS &quot;HL70443&quot;"/>
-        </product>
-        <product>
-          <property value="fhirpath"/>
+        </property>
+        <property>
+          <code value="fhirpath"/>
           <valueString value="(element(&quot;3.1&quot;)=&quot;PP&quot;)and(element(&quot;3.3&quot;)=&quot;HL70443&quot;)"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -185,26 +205,26 @@
         <code value="RelatedPerson[1]"/>
         <display value="RelatedPerson[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="ROL[RelatedPerson]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="RelatedPerson[1].patient.reference=Patient[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="antlr"/>
+        </property>
+        <property>
+          <code value="antlr"/>
           <valueString value="IF ROL-3.1 NOT EQUALS  &quot;PP&quot; OR ROL-3.3 NOT EQUALS &quot;HL70443&quot;"/>
-        </product>
-        <product>
-          <property value="fhirpath"/>
+        </property>
+        <property>
+          <code value="fhirpath"/>
           <valueString value="(element(&quot;3.1&quot;)!=&quot;PP&quot;)or(element(&quot;3.3&quot;)!=&quot;HL70443&quot;)"/>
-        </product>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="While most likely all other HL70443 values go to RelatedPerson, the implementation needs to determine whether that is fully accurate."/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -214,18 +234,18 @@
         <code value="RelatedPerson[2]"/>
         <display value="RelatedPerson[2]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="NK1[RelatedPerson]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
-          <valueString value="RelatedPerson[2].patient.reference=Patient[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <cpde value="references"/>
+          <code value="RelatedPerson[2].patient.reference=Patient[1].id"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -235,14 +255,14 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="NK1[Patient]"/>
-        </dependsOn>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="The FHIR location will depend on the nature of the data being exchanged and how the systems use next of kin data"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -252,14 +272,14 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PV1[Encounter]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Encounter[1].subject.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -269,10 +289,10 @@
         <code value="Patient[1]"/>
         <display value="Patient[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PV1[Patient]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -282,10 +302,10 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PV2[Encounter]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -295,18 +315,18 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="ARV[Encounter]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Resource=Encounter[1]"/>
-        </dependsOn>
-        <product>
-          <property value="antlr"/>
+        </property>
+        <property>
+          <code value="antlr"/>
           <valueString value="IF ARV-1 IN (&quot;PV1&quot;, &quot;PV2&quot;) AND ARV-3 NOT VALUED"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -316,10 +336,10 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="ROL[Encounter-PractitionerRole]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -329,14 +349,14 @@
         <code value="Observation"/>
         <display value="Observation"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="OBX[Observation]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Observation.subject.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -346,14 +366,14 @@
         <code value="Observation"/>
         <display value="Observation"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="OBX[Observation-Component]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Observation.subject.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -363,14 +383,14 @@
         <code value="AllergyIntolerance"/>
         <display value="AllergyIntolerance"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="AL1[AllergyIntolerance]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="AllergyIntolerance.patient.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -380,18 +400,18 @@
         <code value="Condition"/>
         <display value="Condition"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="DG1[Condition]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Condition.subject.reference=Patient[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="If in context of the patient"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -401,18 +421,18 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="DG1[Encounter]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Encounter[1].diagnosis.reference=Condition[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="antlr"/>
+        </property>
+        <property>
+          <code value="antlr"/>
           <valueString value="IF DG1-6 EQUALS &quot;admitting&quot;"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -422,18 +442,18 @@
         <code value="Encounter[1]"/>
         <display value="Encounter[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="DG1[Encounter]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Encounter[1].diagnosis.reference=Condition[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="If in context of an encounter"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -443,18 +463,18 @@
         <code value="EpisodeOfCare[1]"/>
         <display value="EpisodeOfCare[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="DG1[EpisodeOfCare]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="EpisodeOfCare.diagnosis.reference=Condition[1].id"/>
-        </dependsOn>
-        <product>
-          <property value="narrative"/>
+        </property>
+        <property>
+          <code value="narrative"/>
           <valueString value="If in context of an episode of care"/>
-        </product>
+        </property>
       </target>
     </element>
     <element>
@@ -464,14 +484,14 @@
         <code value="Procedure"/>
         <display value="Procedure"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="PR1[Procedure]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Procedure.subject.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -481,14 +501,14 @@
         <code value="Coverage[1]"/>
         <display value="Coverage[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="IN1[Coverage]"/>
-        </dependsOn>
-        <dependsOn>
-          <property value="references"/>
+        </property>
+        <property>
+          <code value="references"/>
           <valueString value="Coverage.subscriber.reference=Patient[1].id"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -498,10 +518,10 @@
         <code value="Coverage[1]"/>
         <display value="Coverage[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="IN2[Coverage]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
     <element>
@@ -511,10 +531,10 @@
         <code value="Coverage[1]"/>
         <display value="Coverage[1]"/>
         <relationship value="equivalent"/>
-        <dependsOn>
-          <property value="segment-map"/>
+        <property>
+          <code value="segment-map"/>
           <valueString value="IN3[Coverage]"/>
-        </dependsOn>
+        </property>
       </target>
     </element>
   </group>
