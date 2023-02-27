@@ -29,19 +29,23 @@
     <name value="Examples"/>
     <documentation value="test -&gt; testValue"/>
     <input>
-      <name value="test"/>
+      <name value="testSrc"/>
       <mode value="source"/>
+    </input>
+    <input>
+      <name value="testTgt"/>
+      <mode value="target"/>
     </input>
     <rule>
       <name value="rule1"/>
       <source>
-        <context value="Source"/>
+        <context value="testSrc"/>
         <type value="SourceClassA"/>
         <element value="test"/>
         <variable value="t"/>
       </source>
       <target>
-        <context value="Destination"/>
+        <context value="testTgt"/>
         <element value="testValue"/>
         <transform value="copy"/>
       </target>

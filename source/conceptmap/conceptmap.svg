@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1101"
+   version="1.1"
+   width="1374.8"
+   height="512.0"
+   sodipodi:docname="conceptmap.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview503"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.79938897"
+     inkscape:cx="687.40002"
+     inkscape:cy="270.83186"
+     inkscape:window-width="1312"
+     inkscape:window-height="1081"
+     inkscape:window-x="0"
+     inkscape:window-y="44"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1101" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.030113636"
+       y="-0.0828125"
+       width="1.0772727"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n1102">
+    <rect
+       id="ConceptMap"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="442.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1103"
+       x1="0.0"
+       y1="28.0"
+       x2="286.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1104"
+       x="143.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ConceptMap<tspan
+   class="diagram-class-title-link"
+   id="tspan24"> (<a
+   id="n1105"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n1106"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n1107"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1108"
+   xlink:href="conceptmap-definitions.html#ConceptMap.url"><title
+   id="title27">An absolute URI that is used to identify this concept map when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this concept map is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the concept map is stored on different servers</title>url</a> : <a
+   id="n1109"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1113"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1114"
+   xlink:href="conceptmap-definitions.html#ConceptMap.identifier"><title
+   id="title32">A formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1115"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1119"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1120"
+   xlink:href="conceptmap-definitions.html#ConceptMap.version"><title
+   id="title37">The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the concept map author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n1121"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1125"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1126"
+   xlink:href="conceptmap-definitions.html#ConceptMap.versionAlgorithm_x_"><title
+   id="title42">Indicates the mechanism used to compare versions to determine which ConceptMap is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1127"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1128"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1129"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n1130"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n1131">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1132"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1133"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n1143"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1144"
+   xlink:href="conceptmap-definitions.html#ConceptMap.name"><title
+   id="title53">A natural language name identifying the concept map. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1145"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1146"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1147">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1153"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1154"
+   xlink:href="conceptmap-definitions.html#ConceptMap.title"><title
+   id="title60">A short, descriptive, user-friendly title for the concept map</title>title</a> : <a
+   id="n1155"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1159"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1160"
+   xlink:href="conceptmap-definitions.html#ConceptMap.status"><title
+   id="title65">The status of this concept map. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1161"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1162"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1163">null (Strength=Required)</title>PublicationStatus</a>! » « <a
+   id="n1164"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1165">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1173"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1174"
+   xlink:href="conceptmap-definitions.html#ConceptMap.experimental"><title
+   id="title74">A Boolean value to indicate that this concept map is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1175"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1179"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1180"
+   xlink:href="conceptmap-definitions.html#ConceptMap.date"><title
+   id="title79">The date  (and optionally time) when the concept map was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes</title>date</a> : <a
+   id="n1181"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1185"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1186"
+   xlink:href="conceptmap-definitions.html#ConceptMap.publisher"><title
+   id="title84">The name of the organization or individual responsible for the release and ongoing maintenance of the concept map</title>publisher</a> : <a
+   id="n1187"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1191"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1192"
+   xlink:href="conceptmap-definitions.html#ConceptMap.contact"><title
+   id="title89">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1193"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1197"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1198"
+   xlink:href="conceptmap-definitions.html#ConceptMap.description"><title
+   id="title94">A free text natural language description of the concept map from a consumer's perspective</title>description</a> : <a
+   id="n1199"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1203"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1204"
+   xlink:href="conceptmap-definitions.html#ConceptMap.useContext"><title
+   id="title99">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate concept map instances</title>useContext</a> : <a
+   id="n1205"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1209"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1210"
+   xlink:href="conceptmap-definitions.html#ConceptMap.jurisdiction"><title
+   id="title104">A legal or geographic region in which the concept map is intended to be used</title>jurisdiction</a> : <a
+   id="n1211"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1212"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1213">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n1219"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1220"
+   xlink:href="conceptmap-definitions.html#ConceptMap.purpose"><title
+   id="title111">Explanation of why this concept map is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1221"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1225"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1226"
+   xlink:href="conceptmap-definitions.html#ConceptMap.copyright"><title
+   id="title116">A copyright statement relating to the concept map and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the concept map</title>copyright</a> : <a
+   id="n1227"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1231"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1232"
+   xlink:href="conceptmap-definitions.html#ConceptMap.copyrightLabel"><title
+   id="title121">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1233"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1237"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1238"
+   xlink:href="conceptmap-definitions.html#ConceptMap.approvalDate"><title
+   id="title126">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1239"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1243"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1244"
+   xlink:href="conceptmap-definitions.html#ConceptMap.lastReviewDate"><title
+   id="title131">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1245"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1249"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1250"
+   xlink:href="conceptmap-definitions.html#ConceptMap.effectivePeriod"><title
+   id="title136">The period during which the ConceptMap content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1251"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1255"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1256"
+   xlink:href="conceptmap-definitions.html#ConceptMap.topic"><title
+   id="title141">Descriptions related to the content of the ConceptMap. Topics provide a high-level categorization as well as keywords for the ConceptMap that can be useful for filtering and searching</title>topic</a> : <a
+   id="n1257"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1258"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n1259">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <text
+       id="n1265"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1266"
+   xlink:href="conceptmap-definitions.html#ConceptMap.author"><title
+   id="title148">An individiual or organization primarily involved in the creation and maintenance of the ConceptMap</title>author</a> : <a
+   id="n1267"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1271"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1272"
+   xlink:href="conceptmap-definitions.html#ConceptMap.editor"><title
+   id="title153">An individual or organization primarily responsible for internal coherence of the ConceptMap</title>editor</a> : <a
+   id="n1273"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1277"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1278"
+   xlink:href="conceptmap-definitions.html#ConceptMap.reviewer"><title
+   id="title158">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the ConceptMap</title>reviewer</a> : <a
+   id="n1279"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1283"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1284"
+   xlink:href="conceptmap-definitions.html#ConceptMap.endorser"><title
+   id="title163">An individual or organization asserted by the publisher to be responsible for officially endorsing the ConceptMap for use in some setting</title>endorser</a> : <a
+   id="n1285"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1289"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1290"
+   xlink:href="conceptmap-definitions.html#ConceptMap.relatedArtifact"><title
+   id="title168">Related artifacts such as additional documentation, justification, dependencies, bibliographic references, and predecessor and successor artifacts</title>relatedArtifact</a> : <a
+   id="n1291"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1295"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1296"
+   xlink:href="conceptmap-definitions.html#ConceptMap.sourceScope_x_"><title
+   id="title173">Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.  Limits the scope of the map to source codes (ConceptMap.group.element code or valueSet) that are members of this value set</title>sourceScope[x]</a> : <a
+   id="n1297"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1298"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n1299"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1300"
+   xlink:href="valueset.html#ValueSet">ValueSet</a>) »</text>
+    <text
+       id="n1307"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1308"
+   xlink:href="conceptmap-definitions.html#ConceptMap.targetScope_x_"><title
+   id="title181">Identifier for the target value set that provides important context about how the mapping choices are made.  Limits the scope of the map to target codes (ConceptMap.group.element.target code or valueSet) that are members of this value set</title>targetScope[x]</a> : <a
+   id="n1309"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1310"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n1311"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1312"
+   xlink:href="valueset.html#ValueSet">ValueSet</a>) »</text>
+  </g>
+  <g
+     id="n1319"
+     transform="translate(-56.292996,-381.54141)">
+    <rect
+       id="ConceptMap.property"
+       x="400"
+       y="400"
+       rx="4"
+       ry="4"
+       width="198"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1320"
+       x1="400"
+       y1="428"
+       x2="598"
+       y2="428"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1321"
+       x="499"
+       y="420"
+       fill="#000000"
+       class="diagram-class-title">Property</text>
+    <text
+       id="n1322"
+       x="406"
+       y="442"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1323"
+   xlink:href="conceptmap-definitions.html#ConceptMap.property.code"><title
+   id="title193">A code that is used to identify the property. The code is used internally (in ConceptMap.group.element.target.property.code) and also in the $translate operation</title>code</a> : <a
+   id="n1324"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1328"
+       x="406"
+       y="456"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1329"
+   xlink:href="conceptmap-definitions.html#ConceptMap.property.uri"><title
+   id="title198">Reference to the formal meaning of the property</title>uri</a> : <a
+   id="n1330"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1334"
+       x="406"
+       y="470"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1335"
+   xlink:href="conceptmap-definitions.html#ConceptMap.property.description"><title
+   id="title203">A description of the property - why it is defined, and how its value might be used</title>description</a> : <a
+   id="n1336"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1340"
+       x="406"
+       y="484"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1341"
+   xlink:href="conceptmap-definitions.html#ConceptMap.property.type"><title
+   id="title208">The type of the property value</title>type</a> : <a
+   id="n1342"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1343"
+   xlink:href="valueset-conceptmap-property-type.html"><title
+   id="n1344">null (Strength=Required)</title>ConceptMapPropertyType</a>! »</text>
+  </g>
+  <g
+     id="n1350"
+     transform="translate(-61.296813,22.517201)">
+    <rect
+       id="ConceptMap.mapAttribute"
+       x="400"
+       y="400"
+       rx="4"
+       ry="4"
+       width="198"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1351"
+       x1="400"
+       y1="428"
+       x2="598"
+       y2="428"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1352"
+       x="499"
+       y="420"
+       fill="#000000"
+       class="diagram-class-title">MapAttribute</text>
+    <text
+       id="n1353"
+       x="406"
+       y="442"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1354"
+   xlink:href="conceptmap-definitions.html#ConceptMap.mapAttribute.code"><title
+   id="title219">A code that is used to identify this data attribute. The code is used internally in ConceptMap.group.element.target.dependsOn.mapAttribute and ConceptMap.group.element.target.product.mapAttribute</title>code</a> : <a
+   id="n1355"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1359"
+       x="406"
+       y="456"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1360"
+   xlink:href="conceptmap-definitions.html#ConceptMap.mapAttribute.uri"><title
+   id="title224">Reference to the formal definition of the source/target data element. For elements defined by the FHIR specification, or using a FHIR logical model, the correct format is {canonical-url}#{element-id}</title>uri</a> : <a
+   id="n1361"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1365"
+       x="406"
+       y="470"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1366"
+   xlink:href="conceptmap-definitions.html#ConceptMap.mapAttribute.description"><title
+   id="title229">A description of the mapping attribute and/or the data element it refers to - why it is defined, and how the value might be used in mappings, and a discussion of issues associated with the use of the data element</title>description</a> : <a
+   id="n1367"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1371"
+       x="406"
+       y="484"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1372"
+   xlink:href="conceptmap-definitions.html#ConceptMap.mapAttribute.type"><title
+   id="title234">The type of the mapAttribute value contained in this concept map for this data element</title>type</a> : <a
+   id="n1373"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1374"
+   xlink:href="valueset-conceptmap-attribute-type.html"><title
+   id="n1375">null (Strength=Required)</title>ConceptMapPropertyType</a>! »</text>
+  </g>
+  <g
+     id="n1381"
+     transform="translate(-60.045862,151.3656)">
+    <rect
+       id="ConceptMap.group"
+       x="380"
+       y="0"
+       rx="4"
+       ry="4"
+       width="176"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1382"
+       x1="380"
+       y1="28"
+       x2="556"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1383"
+       x="468"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Group</text>
+    <text
+       id="n1384"
+       x="386"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1385"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.source"><title
+   id="title245">An absolute URI that identifies the source system where the concepts to be mapped are defined</title>source</a> : <a
+   id="n1386"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1387"
+   xlink:href="codesystem.html#CodeSystem">CodeSystem</a> »</text>
+    <text
+       id="n1392"
+       x="386"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1393"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.target"><title
+   id="title251">An absolute URI that identifies the target system that the concepts will be mapped to</title>target</a> : <a
+   id="n1394"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1395"
+   xlink:href="codesystem.html#CodeSystem">CodeSystem</a> »</text>
+  </g>
+  <g
+     id="n1400"
+     transform="translate(196.4,-50.03822)">
+    <rect
+       id="ConceptMap.group.element"
+       x="380"
+       y="180"
+       rx="4"
+       ry="4"
+       width="202.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1401"
+       x1="380"
+       y1="208"
+       x2="582.40002"
+       y2="208"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1402"
+       x="481.20001"
+       y="200"
+       fill="#000000"
+       class="diagram-class-title">SourceElement</text>
+    <text
+       id="n1403"
+       x="386"
+       y="222"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1404"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.code"><title
+   id="title261">Identity (code or path) or the element/item being mapped</title>code</a> : <a
+   id="n1405"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1406"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1407">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1413"
+       x="386"
+       y="236"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1414"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.display"><title
+   id="title268">The display for the code. The display is only provided to help editors when editing the concept map</title>display</a> : <a
+   id="n1415"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1419"
+       x="386"
+       y="250"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1420"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.valueSet"><title
+   id="title273">The set of codes being mapped</title>valueSet</a> : <a
+   id="n1421"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1422"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> » « <a
+   id="n1423"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1424">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1431"
+       x="386"
+       y="264"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1432"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.noMap"><title
+   id="title281">If noMap = true this indicates that no mapping to a target concept exists for this source concept</title>noMap</a> : <a
+   id="n1433"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n1434"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1435">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1441"
+     transform="translate(210.16052,237.68154)">
+    <rect
+       id="ConceptMap.group.element.target"
+       x="520"
+       y="20"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1442"
+       x1="520"
+       y1="48"
+       x2="779.59998"
+       y2="48"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1443"
+       x="649.79999"
+       y="40"
+       fill="#000000"
+       class="diagram-class-title">TargetElement</text>
+    <text
+       id="n1444"
+       x="526"
+       y="62"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1445"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.code"><title
+   id="title292">Identity (code or path) or the element/item that the map refers to</title>code</a> : <a
+   id="n1446"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1447"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1448">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1454"
+       x="526"
+       y="76"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1455"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.display"><title
+   id="title299">The display for the code. The display is only provided to help editors when editing the concept map</title>display</a> : <a
+   id="n1456"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1460"
+       x="526"
+       y="90"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1461"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.valueSet"><title
+   id="title304">The set of codes that the map refers to</title>valueSet</a> : <a
+   id="n1462"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1463"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> » « <a
+   id="n1464"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1465">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1472"
+       x="526"
+       y="104"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1473"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.relationship"><title
+   id="title312">The relationship between the source and target concepts. The relationship is read from source to target (e.g. source-is-narrower-than-target) (this element modifies the meaning of other elements)</title>relationship</a> : <a
+   id="n1474"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1475"
+   xlink:href="valueset-concept-map-relationship.html"><title
+   id="n1476">null (Strength=Required)</title>ConceptMapRelationship</a>! » « <a
+   id="n1477"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1478">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1486"
+       x="526"
+       y="118"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1487"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.comment"><title
+   id="title321">A description of status/issues in mapping that conveys additional information not represented in  the structured data</title>comment</a> : <a
+   id="n1488"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1489"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1490">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1496"
+     transform="translate(247.68918,-246.43823)">
+    <rect
+       id="ConceptMap.group.element.target.property"
+       x="400"
+       y="260"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1497"
+       x1="400"
+       y1="288"
+       x2="699.20001"
+       y2="288"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1498"
+       x="549.59998"
+       y="280"
+       fill="#000000"
+       class="diagram-class-title">ConceptProperty</text>
+    <text
+       id="n1499"
+       x="406"
+       y="302"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1500"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.property.code"><title
+   id="title332">A reference to a mapping property defined in ConceptMap.property</title>code</a> : <a
+   id="n1501"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1505"
+       x="406"
+       y="316"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1506"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.property.value_x_"><title
+   id="title337">The value of this property</title>value[x]</a> : <a
+   id="n1507"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n1508"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n1509"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1510"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n1511"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1512"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|</text>
+    <text
+       id="n1513"
+       x="426"
+       y="330"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1514"
+   xlink:href="datatypes.html#decimal">decimal</a> »</text>
+  </g>
+  <g
+     id="n1525"
+     transform="translate(65.049684,231.42677)">
+    <rect
+       id="ConceptMap.group.element.target.dependsOn"
+       x="580"
+       y="200"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1526"
+       x1="580"
+       y1="228"
+       x2="874.79999"
+       y2="228"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1527"
+       x="727.40002"
+       y="220"
+       fill="#000000"
+       class="diagram-class-title">OtherElement</text>
+    <text
+       id="n1528"
+       x="586"
+       y="242"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1529"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.mapAttribute"><title
+   id="title353">A reference to the mapping mapAttribute that holds a value the map depends on</title>mapAttribute</a> : <a
+   id="n1530"
+   xlink:href="datatypes.html#code">code</a> [1..1]</text>
+    <text
+       id="n1534"
+       x="586"
+       y="256"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1535"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.value_x_"><title
+   id="title358">Data element value that the map depends on / produces</title>value[x]</a> : <a
+   id="n1536"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1537"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n1538"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1539"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n1540"
+   xlink:href="datatypes.html#Quantity">Quantity</a> » « <a
+   id="n1541"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1542">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1552"
+       x="586"
+       y="270"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1553"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn.valueSet"><title
+   id="title369">This mapping applies if the data element value is a code from this value set</title>valueSet</a> : <a
+   id="n1554"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1555"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> » « <a
+   id="n1556"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1557">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1564"
+     transform="translate(221.41912,-42.532486)">
+    <rect
+       id="ConceptMap.group.unmapped"
+       x="150"
+       y="300"
+       rx="4"
+       ry="4"
+       width="259.60001"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1565"
+       x1="150"
+       y1="328"
+       x2="409.60001"
+       y2="328"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1566"
+       x="279.79999"
+       y="320"
+       fill="#000000"
+       class="diagram-class-title">Unmapped</text>
+    <text
+       id="n1567"
+       x="156"
+       y="342"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1568"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.mode"><title
+   id="title381">Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped source code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL)</title>mode</a> : <a
+   id="n1569"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1570"
+   xlink:href="valueset-conceptmap-unmapped-mode.html"><title
+   id="n1571">null (Strength=Required)</title>ConceptMapGroupUnmappedMode</a>! » « <a
+   id="n1572"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1573">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1581"
+       x="156"
+       y="356"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1582"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.code"><title
+   id="title390">The fixed code to use when the mode = 'fixed'  - all unmapped codes are mapped to a single fixed code</title>code</a> : <a
+   id="n1583"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1584"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1585">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1591"
+       x="156"
+       y="370"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1592"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.display"><title
+   id="title397">The display for the code. The display is only provided to help editors when editing the concept map</title>display</a> : <a
+   id="n1593"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1594"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1595">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1601"
+       x="156"
+       y="384"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1602"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.valueSet"><title
+   id="title404">The set of fixed codes to use when the mode = 'fixed'  - all unmapped codes are mapped to each of the fixed codes</title>valueSet</a> : <a
+   id="n1603"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1604"
+   xlink:href="valueset.html#ValueSet">ValueSet</a> » « <a
+   id="n1605"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1606">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1613"
+       x="156"
+       y="398"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1614"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.relationship"><title
+   id="title412">The default relationship value to apply between the source and target concepts when the source code is unmapped and the mode is 'fixed' or 'use-source-code' (this element modifies the meaning of other elements)</title>relationship</a> : <a
+   id="n1615"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1616"
+   xlink:href="valueset-concept-map-relationship.html"><title
+   id="n1617">null (Strength=Required)</title>ConceptMapRelationship</a>! » « <a
+   id="n1618"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1619">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1627"
+       x="156"
+       y="412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1628"
+   xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped.otherMap"><title
+   id="title421">The canonical reference to an additional ConceptMap resource instance to use for mapping if this ConceptMap resource contains no matching mapping for the source concept</title>otherMap</a> : <a
+   id="n1629"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1630"
+   xlink:href="conceptmap.html#ConceptMap">ConceptMap</a> » « <a
+   id="n1631"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1632">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <line
+     id="n1639"
+     x1="286.0"
+     y1="311.3792134831461"
+     x2="426.2177777777777"
+     y2="400.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1640"
+     points="286.0,311.3792134831461 292.0,315.3792134831461 298.0,311.3792134831461 292.0,307.3792134831461 286.0,311.3792134831461"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(32.29380654331622 286.0 311.3792134831461)" />
+  <rect
+     id="n1641"
+     x="338.5"
+     y="348.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1642"
+     x="356.0"
+     y="358.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1643"
+       xlink:href="conceptmap-definitions.html#ConceptMap.property"><title
+   id="title433">A property defines a slot through which additional information can be provided about a map from soure -&gt; target</title>property</a></text>
+  <text
+     id="n1644"
+     x="426.2177777777777"
+     y="396.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1645"
+     x1="286.0"
+     y1="311.3792134831461"
+     x2="426.2177777777777"
+     y2="400.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1646"
+     points="286.0,311.3792134831461 292.0,315.3792134831461 298.0,311.3792134831461 292.0,307.3792134831461 286.0,311.3792134831461"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(32.29380654331622 286.0 311.3792134831461)" />
+  <rect
+     id="n1647"
+     x="330.0"
+     y="348.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1648"
+     x="356.0"
+     y="358.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1649"
+       xlink:href="conceptmap-definitions.html#ConceptMap.mapAttribute"><title
+   id="title441">Some mappings involve data in additional fields, where codes in multiple fields are combined to a single field (or vice versa). A mapAttribute defines the data element found in the source or target data model where the data will come from or be placed into</title>mapAttribute</a></text>
+  <text
+     id="n1650"
+     x="426.2177777777777"
+     y="396.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1651"
+     x1="641.31323"
+     y1="89.72229"
+     x2="581.90265"
+     y2="223.72229"
+     style="stroke:#000080;stroke-width:1" />
+  <polygon
+     id="n1652"
+     points="626.3017699115044,126.0 632.3017699115044,130.0 638.3017699115044,126.0 632.3017699115044,122.0 626.3017699115044,126.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(113.9107185291104 626.3017699115044 126.0)" />
+  <rect
+     id="n1653"
+     x="667.31781"
+     y="129.707"
+     width="35"
+     height="18"
+     style="fill:#ffffff;stroke:#000000;stroke-width:0" />
+  <text
+     id="n1654"
+     x="596.0"
+     y="196.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1655"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.property"><title
+   id="title449">A property value for this source -&gt; target mapping</title>property</a></text>
+  <text
+     id="n1656"
+     x="566.8911504424779"
+     y="256.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1657"
+     x1="649.5759036144577"
+     y1="126.0"
+     x2="684.1686746987951"
+     y2="200.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1658"
+     points="649.5759036144577,126.0 655.5759036144577,130.0 661.5759036144577,126.0 655.5759036144577,122.0 649.5759036144577,126.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(64.94532742971371 649.5759036144577 126.0)" />
+  <rect
+     id="n1659"
+     x="646.5"
+     y="156.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1660"
+     x="666.0"
+     y="166.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1661"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.dependsOn"><title
+   id="title457">A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified data attribute can be resolved, and it has the specified value</title>dependsOn</a></text>
+  <text
+     id="n1662"
+     x="684.1686746987951"
+     y="196.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1663"
+     x1="699.5759036144577"
+     y1="126.0"
+     x2="734.1686746987951"
+     y2="200.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1664"
+     points="699.5759036144577,126.0 705.5759036144577,130.0 711.5759036144577,126.0 705.5759036144577,122.0 699.5759036144577,126.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(64.94532742971371 699.5759036144577 126.0)" />
+  <rect
+     id="n1665"
+     x="701.0"
+     y="170.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1666"
+     x="716.0"
+     y="180.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1667"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target.product"><title
+   id="title465">Product is the output of a ConceptMap that provides additional values that go in other attributes / data elemnts of the target data</title>product</a></text>
+  <text
+     id="n1668"
+     x="734.1686746987951"
+     y="196.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1669"
+     x1="531.8901960784312"
+     y1="180.0"
+     x2="591.3960784313724"
+     y2="126.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1670"
+     points="531.8901960784312,180.0 537.8901960784312,184.0 543.8901960784312,180.0 537.8901960784312,176.0 531.8901960784312,180.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-42.22290389307448 531.8901960784312 180.0)" />
+  <rect
+     id="n1671"
+     x="548.0"
+     y="146.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1672"
+     x="561.0"
+     y="156.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1673"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.element.target"><title
+   id="title473">A concept from the target value set that this concept maps to</title>target</a></text>
+  <text
+     id="n1674"
+     x="591.3960784313724"
+     y="140.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1675"
+     x1="470.17731958762886"
+     y1="64.0"
+     x2="478.07010309278354"
+     y2="180.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1676"
+     points="470.17731958762886,64.0 476.17731958762886,68.0 482.17731958762886,64.0 476.17731958762886,60.0 470.17731958762886,64.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(86.10752376484406 470.17731958762886 64.0)" />
+  <rect
+     id="n1677"
+     x="459.0"
+     y="115.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1678"
+     x="474.0"
+     y="125.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1679"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.element"><title
+   id="title481">Mappings for an individual concept in the source to one or more concepts in the target</title>element</a></text>
+  <text
+     id="n1680"
+     x="478.07010309278354"
+     y="176.0"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1681"
+     x1="449.63902439024395"
+     y1="64.0"
+     x2="314.2268292682927"
+     y2="300.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1682"
+     points="449.63902439024395,64.0 455.63902439024395,68.0 461.63902439024395,64.0 455.63902439024395,60.0 449.63902439024395,64.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(119.84636282601389 449.63902439024395 64.0)" />
+  <rect
+     id="n1683"
+     x="363.5"
+     y="175.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1684"
+     x="381.0"
+     y="185.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1685"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group.unmapped"><title
+   id="title489">What to do when there is no mapping to a target concept from the source concept.  This provides the &quot;default&quot; to be applied when there is no target concept mapping specified.  The 'unmapped' element is ignored if a code is specified to have relationship = not-related-to</title>unmapped</a></text>
+  <text
+     id="n1686"
+     x="314.2268292682927"
+     y="296.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1687"
+     x1="286.0"
+     y1="137.84000000000003"
+     x2="412.973544973545"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1688"
+     points="286.0,137.84000000000003 292.0,141.84000000000003 298.0,137.84000000000003 292.0,133.84000000000003 286.0,137.84000000000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-30.179647920477986 286.0 137.84000000000003)" />
+  <rect
+     id="n1689"
+     x="338.0"
+     y="93.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1690"
+     x="349.0"
+     y="103.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1691"
+       xlink:href="conceptmap-definitions.html#ConceptMap.group"><title
+   id="title497">A group of mappings that all have the same source and target system</title>group</a></text>
+  <text
+     id="n1692"
+     x="412.973544973545"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
