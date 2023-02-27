@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Bundle xmlns="http://hl7.org/fhir">
 	<id value="10bb101f-a121-4264-a920-67be9cb82c74"/>
+	<identifier>
+		<system value="urn:example-org:sender.identifiers"/>
+		<value value="efdd254b-0e09-4164-883e-35cf3871715f"/>
+	</identifier>
 	<type value="message"/>
 	<timestamp value="2015-07-14T11:15:33+10:00"/>
 	<entry>
@@ -32,16 +36,6 @@
 				<source>
 					<endpointUrl value="http://example.org/clients/ehr-lite"/>
 				</source>
-
-				<responsible>
-					<reference value="http://acme.com/ehr/fhir/Practitioner/2323-33-4"/>
-				</responsible>
-				<response>
-					<identifier>
-						<value value="efdd254b-0e09-4164-883e-35cf3871715f"/>
-					</identifier>
-					<code value="ok"/>
-				</response>	
 		<!--  this message is posted to http://acme.com/ehr/fhir, 
              with an event 'link' to link 2 patient records, and nominates
              2 patients on the server  -->

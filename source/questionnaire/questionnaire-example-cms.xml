@@ -80,7 +80,7 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="month / day / year"/>
       </extension>
-      <linkId value="M0030"/>
+      <linkId value="M0031"/>
       <text value="Resumption of Care Date"/>
       <type value="date"/>
       <required value="true"/>
