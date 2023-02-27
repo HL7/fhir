@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Subscription xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/Subscription.xsd">
-	<id value="admission"/>
+	<id value="example"/>
 	<identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:97e5aa1e-5916-4512-a36e-24eef784e3cc"/>
   </identifier>
-	<name value="AdmissionExample"/>
+	<name value="Example"/>
 	<status value="active"/>
-  <topic value="http://example.org/R5/SubscriptionTopic/admission" />
+  <topic value="http://example.org/R5/SubscriptionTopic/example" />
   <contact>
     <system value="phone" />
     <value value="(555) 555-1212" />
     <use value="work"/>
   </contact>
-	<reason value="subscription for beginning of a clinical encounter for patient 123"/>
+	<reason value="Example subscription for example topic"/>
 	<filterBy>
 		<resourceType value="http://hl7.org/fhir/StructureDefinition/Encounter"/>
 		<filterParameter value="patient"/>
