@@ -166,10 +166,10 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/BiologicallyDerivedProduct"/>
       </type>
     </element>
-    <element id="BiologicallyDerivedProductDispense.subject">
-      <path value="BiologicallyDerivedProductDispense.subject"/>
+    <element id="BiologicallyDerivedProductDispense.patient">
+      <path value="BiologicallyDerivedProductDispense.patient"/>
       <short value="The intended recipient of the dispensed product"/>
-      <definition value="A link to a resource representing the subject that the product is dispensed for."/>
+      <definition value="A link to a resource representing the patient that the product is dispensed for."/>
       <min value="1"/>
       <max value="1"/>
       <type>
