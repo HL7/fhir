@@ -507,6 +507,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="diagnosis-package-code"/>
+        </extension>
+        <strength value="example"/>
+      </binding>
     </element>
 
     <element id="Account.procedure">
@@ -576,6 +582,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="procedure-type"/>
+        </extension>
+        <strength value="example"/>
+      </binding>
     </element>
     <element id="Account.procedure.packageCode">
       <path value="Account.procedure.packageCode"/>
@@ -586,6 +598,12 @@
       <type>
         <code value="CodeableConcept"/>
       </type>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="procedure-package-code"/>
+        </extension>
+        <strength value="example"/>
+      </binding>
     </element>
     <element id="Account.procedure.device">
       <path value="Account.procedure.device"/>
