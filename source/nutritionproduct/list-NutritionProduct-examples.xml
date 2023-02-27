@@ -16,4 +16,40 @@
       <display value="General"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Fuji apples with skin"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionproduct-example-apples"/>
+    </extension>
+    <item>
+      <reference value="NutritionProduct/example-apples"/>
+      <display value="Apples"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="French Vanilla Nutritional Shake"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionproduct-example-shake"/>
+    </extension>
+    <item>
+      <reference value="NutritionProduct/example-shake"/>
+      <display value="Nutitional shake"/>
+    </item>
+  </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Skippy Peanut Butter"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="nutritionproduct-example-peanutbutter"/>
+    </extension>
+    <item>
+      <reference value="NutritionProduct/example-peanutbutter"/>
+      <display value="Peanut Butter"/>
+    </item>
+  </entry>
 </List>

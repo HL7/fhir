@@ -1,0 +1,400 @@
+<NutritionProduct xmlns='http://hl7.org/fhir'>
+  <id value="example-peanutbutter"/>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='peanuts'/>
+          <code value='C0030736'/>
+        </coding>
+        <text value='peanuts'/>
+      </concept>
+    </item>
+  </ingredient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Cholesterol'/>
+          <code value='1253'/>
+        </coding>
+        <text value='Cholesterol'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='0'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Protein'/>
+          <code value='1003'/>
+        </coding>
+        <text value='Protein'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='21.88'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <status value='active'/>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Vitamin A, IU'/>
+          <code value='1104'/>
+        </coding>
+        <text value='Vitamin A, IU'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='IU'/>
+        <value value='0'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <knownAllergen>
+    <concept>
+      <coding>
+        <system value='http://snomed.info/sct'/>
+        <display value='Peanut (substance)'/>
+        <code value='226355009'/>
+      </coding>
+      <text value='Peanut (substance)'/>
+    </concept>
+  </knownAllergen>
+  <instance>
+    <expiry value='2023-01-31'/>
+    <lotNumber value='10000004'/>
+    <useBy value='2023-01-28'/>
+  </instance>
+  <category>
+    <text value='Nut &amp; Seed Butters'/>
+  </category>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Vitamin C, total ascorbic acid'/>
+          <code value='1162'/>
+        </coding>
+        <text value='Vitamin C, total ascorbic acid'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='0'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='sugar'/>
+          <code value='C0007004'/>
+        </coding>
+        <text value='sugar'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='salt'/>
+          <code value='C0036140'/>
+        </coding>
+        <text value='salt'/>
+      </concept>
+    </item>
+  </ingredient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Sugars, total including NLEA'/>
+          <code value='2000'/>
+        </coding>
+        <text value='Sugars, total including NLEA'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='9.38'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Carbohydrate, by difference'/>
+          <code value='1005'/>
+        </coding>
+        <text value='Carbohydrate, by difference'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='18.75'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Fatty acids, total saturated'/>
+          <code value='1258'/>
+        </coding>
+        <text value='Fatty acids, total saturated'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='9.38'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Niacin'/>
+          <code value='1167'/>
+        </coding>
+        <text value='Niacin'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='12.5'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Fatty acids, total trans'/>
+          <code value='1257'/>
+        </coding>
+        <text value='Fatty acids, total trans'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='0'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='hydrogenated vegetable oil'/>
+          <code value='C0982446'/>
+        </coding>
+        <text value='hydrogenated vegetable oil'/>
+      </concept>
+    </item>
+  </ingredient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Sodium, Na'/>
+          <code value='1093'/>
+        </coding>
+        <text value='Sodium, Na'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='469'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='cottonseed'/>
+          <code value='C0010197'/>
+        </coding>
+        <text value='cottonseed'/>
+      </concept>
+    </item>
+  </ingredient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='rapeseed oil'/>
+          <code value='C0072982'/>
+        </coding>
+        <text value='rapeseed oil'/>
+      </concept>
+    </item>
+  </ingredient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Calcium, Ca'/>
+          <code value='1087'/>
+        </coding>
+        <text value='Calcium, Ca'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='0'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Total lipid (fat)'/>
+          <code value='1004'/>
+        </coding>
+        <text value='Total lipid (fat)'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='50'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Energy'/>
+          <code value='1008'/>
+        </coding>
+        <text value='Energy'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='kcal'/>
+        <value value='594'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Iron, Fe'/>
+          <code value='1089'/>
+        </coding>
+        <text value='Iron, Fe'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='mg'/>
+        <value value='1.12'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <ingredient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://uts.nlm.nih.gov/uts/'/>
+          <display value='soybean'/>
+          <code value='C0037733'/>
+        </coding>
+        <text value='soybean'/>
+      </concept>
+    </item>
+  </ingredient>
+  <nutrient>
+    <item>
+      <concept>
+        <coding>
+          <system value='https://fdc.nal.usda.gov/'/>
+          <display value='Fiber, total dietary'/>
+          <code value='1079'/>
+        </coding>
+        <text value='Fiber, total dietary'/>
+      </concept>
+    </item>
+    <amount>
+      <numerator>
+        <comparator value='ad'/>
+        <unit value='g'/>
+        <value value='6.2'/>
+      </numerator>
+    </amount>
+  </nutrient>
+  <ingredientSummary value='ROASTED PEANUTS, SUGAR, HYDROGENATED VEGETABLE OIL (COTTONSEED, SOYBEAN AND RAPESEED OIL) TO PREVENT SEPARATION, SALT.'/>
+  <code>
+    <coding>
+      <system value='https://fdc.nal.usda.gov/'/>
+      <display value='SKIPPY, PEANUT BUTTER'/>
+      <code value='1759570'/>
+    </coding>
+    <text value='SKIPPY, PEANUT BUTTER'/>
+  </code>
+</NutritionProduct>
