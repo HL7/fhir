@@ -54,6 +54,7 @@
         <code value="based-on"/>
         <type value="reference"/>
         <expression value="RequestOrchestration.basedOn"/>
+        <processingMode value="normal"/>
       </SearchParameter>
     </resource>
   </entry>

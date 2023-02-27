@@ -603,6 +603,12 @@
         <code value="CodeableConcept"/>
       </type>
       <isSummary value="false"/>
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="override-reason"/>
+        </extension>
+        <strength value="example"/>
+      </binding>
     </element>
     <element id="ChargeItem.enterer">
       <path value="ChargeItem.enterer"/>
