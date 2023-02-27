@@ -422,7 +422,7 @@
         <key value="act-1"/>
         <severity value="error"/>
         <human value="The dateOfDiagnosis is not valid when using a reference to a diagnosis"/>
-        <expression value="condition.reference.empty().not() and dateOfDiagnosis.empty()"/>
+        <expression value="condition.reference.empty().not() implies dateOfDiagnosis.empty()"/>
       </constraint>
       <isSummary value="true"/>
     </element>
@@ -531,7 +531,7 @@
         <key value="act-2"/>
         <severity value="error"/>
         <human value="The dateOfService is not valid when using a reference to a procedure"/>
-        <expression value="code.reference.empty().not() and dateOfService.empty()"/>
+        <expression value="code.reference.empty().not() implies dateOfService.empty()"/>
       </constraint>
       <isSummary value="true"/>
     </element>
