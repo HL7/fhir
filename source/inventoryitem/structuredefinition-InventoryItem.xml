@@ -165,8 +165,8 @@
     </element>
     <element id="InventoryItem.name.language">
       <path value="InventoryItem.name.language"/>
-      <short value="The language of the item name"/>
-      <definition value="The language of the item name."/>
+      <short value="The language used to express the item name"/>
+      <definition value="The language that the item name is expressed in."/>
       <min value="1"/>
       <max value="1"/>
       <type>
