@@ -33,11 +33,11 @@ group main
   <status value="draft"/>
   <description value="Transform from an ActivityDefinition to a SupplyRequest"/>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/activitydefinition"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/ActivityDefinition"/>
     <mode value="source"/>
   </structure>
   <structure>
-    <url value="http://hl7.org/fhir/StructureDefinition/supplyrequest"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/SupplyRequest"/>
     <mode value="target"/>
   </structure>
   <group>
