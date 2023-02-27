@@ -427,7 +427,7 @@
         <key value="ras-2"/>
         <severity value="error"/>
         <human value="Must be &lt;= 100"/>
-        <expression value="probability is decimal implies (probability as decimal) &lt;= 100"/>
+        <expression value="probability.empty() or ((probability is decimal) implies ((probability as decimal) &lt;= 100))"/>
         <source value="http://hl7.org/fhir/StructureDefinition/RiskAssessment"/>
       </constraint>
       <mapping>
