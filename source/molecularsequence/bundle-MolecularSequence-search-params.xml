@@ -54,8 +54,9 @@
         <description value="The subject that the sequence is about"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="MolecularSequence.subject"/>
+        <expression value="MolecularSequence.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
