@@ -307,12 +307,12 @@ provide additional information about the use of codes in the element. Additional
   <tr><td><b>purpose</b></td><td>
     The use of this additional binding:
     <ul>
-      <li><b>conformance</b>: A binding that the element content must conform to, with strength = required. Note that the root binding is 
-           a conformance binding with no scope limitation; additional conformance bindings are usually scoped 
-          by some kind of usage that indicates where a narrower binding would be appropriate. Irrespective of 
-          whether any additional conformance bindings are applicable by the context of use, the main binding still applies</li>
+      <li><b>required</b> | <b>extensible</b> | <b>preferred</b>: These bindings have the same 
+       meaning as they do on the main binding, but are usually accompanied by some additional usage
+       details that restrict their application to particular context where a tighter binding 
+       is possible than in the general case</li>
       <li><b>component</b>: the value set is a component of the main conformance binding. This is used to provide additional 
-          documentation about the use of the main value set. E.g. the main value set may allow for both SNOMED CT and LOINC, 
+          documentation about the use of the main value set, or parts of it. E.g. the main value set may allow for both SNOMED CT and LOINC, 
           but the author wishes to provide additional specific documentation about how they are used (differently)</li>
       <li><b>maximum</b>: If the main conformance binding has strength = extensible, then any codes used to extend 
           that value set SHALL come from this specified value set. Note that this additional binding replaces 
@@ -328,9 +328,6 @@ provide additional information about the use of codes in the element. Additional
       <li><b>current</b>: A value set that is required to be used with new records. This would be the main conformance 
           value set except that legacy records exist that don't meet this requirement, and never will. Again,
           this is an application obligation, not something that can be tested in the resource instances themselves</li>
-      <li><b>recommended</b>: This is the value set that is recommended for implementers. The documentation should 
-          explain why. This is similar to current, but with less force; implementations SHOULD use this value, 
-          but are not required to </li>
       <li><b>ui</b>: This value set is provided to help with user look up in a given context</li>
       <li><b>starter</b>: This value set is a good set of codes to start with when designing your system.
          These are typically the important or commonly used codes. This is useful thing to provide when the 
