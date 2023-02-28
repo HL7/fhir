@@ -64,4 +64,16 @@
       <display value="ariadne"/>
     </item>
   </entry>
+  <entry>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
+      <valueString value="Deceased Person (details also in patient)"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/build/StructureDefinition/title">
+      <valueString value="person-example-per4"/>
+    </extension>
+    <item>
+      <reference value="Person/per4"/>
+      <display value="Sandy Notsowell"/>
+    </item>
+  </entry>
 </List>
