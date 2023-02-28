@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Library xmlns="http://hl7.org/fhir">
+  <id value="example"/>
+  <url value="http://example.org/StructureDefinition/Library/example#fragment"/> <!-- This is should be an error to contain the # char -->
+  <identifier>
+    <use value="official"/>
+    <value value="ChlamydiaScreening_Common"/>
+  </identifier>
+  <version value="2.0.0"/>
+  <name value="ChlamydiaScreeningCommonLibrary"/>
+  <title value="Chlamydia Screening Common Library"/>
+  <status value="draft"/>
+  <type>
+    <coding>
+      <code value="logic-library"/>
+    </coding>
+  </type>
+  <date value="2015-07-22"/>
+  <description value="Common Logic for adherence to Chlamydia Screening guidelines"/>
+  <topic>
+    <text value="Chlamydia Screening"/>
+  </topic>
+  <relatedArtifact>
+    <type value="depends-on"/>
+    <resource value="http://hl7.org/fhir/Library/library-quick-model-definition"/>
+  </relatedArtifact>
+  <dataRequirement>
+    <type value="Condition"/>
+    <codeFilter>
+      <path value="code"/>
+      <valueSet value="urn:oid:2.16.840.1.113883.3.464.1003.111.12.1006"/>
+    </codeFilter>
+  </dataRequirement>
+  <content>
+    <contentType value="text/cql"/>
+    <data value="bGlicmFyeSBDaGxhbXlkaWFTY3JlZW5pbmdfQ29tbW9uIHZlcnNpb24gJzInCgp1c2luZyBRVUlDSwoKdmFsdWVzZXQgIkZlbWFsZSBBZG1pbmlzdHJhdGl2ZSBTZXgiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy41NjAuMTAwLjInCnZhbHVlc2V0ICJPdGhlciBGZW1hbGUgUmVwcm9kdWN0aXZlIENvbmRpdGlvbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTEuMTIuMTAwNicKdmFsdWVzZXQgIkdlbml0YWwgSGVycGVzIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEwLjEyLjEwNDknCnZhbHVlc2V0ICJHZW5vY29jY2FsIEluZmVjdGlvbnMgYW5kIFZlbmVyZWFsIERpc2Vhc2VzIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTEyLjEyLjEwMDEnCnZhbHVlc2V0ICJJbmZsYW1tYXRvcnkgRGlzZWFzZXMgb2YgRmVtYWxlIFJlcHJvZHVjdGl2ZSBPcmdhbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTIuMTIuMTAwNCcKdmFsdWVzZXQgIkNobGFteWRpYSI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMi4xMi4xMDAzJwp2YWx1ZXNldCAiSElWIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTIwLjEyLjEwMDMnCnZhbHVlc2V0ICJTeXBoaWxpcyI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMi4xMi4xMDAyJwp2YWx1ZXNldCAiQ29tcGxpY2F0aW9ucyBvZiBQcmVnbmFuY3ksIENoaWxkYmlydGggYW5kIHRoZSBQdWVycGVyaXVtIjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMTInCnZhbHVlc2V0ICJQcmVnbmFuY3kgVGVzdCI6ICcyLjE2Ljg0MC4xLjExMzg4My4zLjQ2NC4xMDAzLjExMS4xMi4xMDExJwp2YWx1ZXNldCAiUGFwIFRlc3QiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMDguMTIuMTAxNycKdmFsdWVzZXQgIkxhYiBUZXN0cyBEdXJpbmcgUHJlZ25hbmN5IjogJzIuMTYuODQwLjEuMTEzODgzLjMuNDY0LjEwMDMuMTExLjEyLjEwMDcnCnZhbHVlc2V0ICJMYWIgVGVzdHMgZm9yIFNleHVhbGx5IFRyYW5zbWl0dGVkIEluZmVjdGlvbnMiOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTAuMTIuMTA1MScKdmFsdWVzZXQgIkNobGFteWRpYSBTY3JlZW5pbmciOiAnMi4xNi44NDAuMS4xMTM4ODMuMy40NjQuMTAwMy4xMTAuMTIuMTA1MicKCmNvbnRleHQgUGF0aWVudAoKZGVmaW5lICJDb25kaXRpb25zIEluZGljYXRpbmcgU2V4dWFsIEFjdGl2aXR5IjoKCVsiQ29uZGl0aW9uIjogIk90aGVyIEZlbWFsZSBSZXByb2R1Y3RpdmUgQ29uZGl0aW9ucyJdCgl1bmlvbiBbIkNvbmRpdGlvbiI6ICJHZW5pdGFsIEhlcnBlcyJdCiAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJHZW5vY29jY2FsIEluZmVjdGlvbnMgYW5kIFZlbmVyZWFsIERpc2Vhc2VzIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkluZmxhbW1hdG9yeSBEaXNlYXNlcyBvZiBGZW1hbGUgUmVwcm9kdWN0aXZlIE9yZ2FucyJdCiAgICB1bmlvbiBbIkNvbmRpdGlvbiI6ICJDaGxhbXlkaWEiXQogICAgdW5pb24gWyJDb25kaXRpb24iOiAiSElWIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIlN5cGhpbGlzIl0KICAgIHVuaW9uIFsiQ29uZGl0aW9uIjogIkNvbXBsaWNhdGlvbnMgb2YgUHJlZ25hbmN5LCBDaGlsZGJpcnRoIGFuZCB0aGUgUHVlcnBlcml1bSJdCgpkZWZpbmUgIkxhYm9yYXRvcnkgVGVzdHMgSW5kaWNhdGluZyBTZXh1YWwgQWN0aXZpdHkiOgogICAgWyJEaWFnbm9zdGljT3JkZXIiOiAiUHJlZ25hbmN5IFRlc3QiXQogICAgdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiUGFwIFRlc3QiXQogICAgdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiTGFiIFRlc3RzIER1cmluZyBQcmVnbmFuY3kiXQoJdW5pb24gWyJEaWFnbm9zdGljT3JkZXIiOiAiTGFiIFRlc3RzIGZvciBTZXh1YWxseSBUcmFuc21pdHRlZCBJbmZlY3Rpb25zIl0KCmRlZmluZSAiVGVzdHMgUGVyZm9ybWVkIEZvciBDaGxhbXlkaWEiOgoJWyJEaWFnbm9zdGljUmVwb3J0IjogIkNobGFteWRpYSBTY3JlZW5pbmciXQoKZGVmaW5lICJSZXN1bHRzIFByZXNlbnQgRm9yIENobGFteWRpYSBTY3JlZW5pbmciOgogICAgWyJEaWFnbm9zdGljUmVwb3J0IjogIkNobGFteWRpYSBTY3JlZW5pbmciXSBSIHdoZXJlIFIuInJlc3VsdCIgaXMgbm90IG51bGwK"/>
+  </content>
+</Library>
