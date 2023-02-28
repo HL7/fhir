@@ -387,6 +387,16 @@
       </type>
       <isSummary value="true"/>
     </element>
+    <element id="Requirements.reference">
+      <path value="Requirements.reference"/>
+      <short value="External artifact (rule/document etc. that) created this set of requirements"/>
+      <definition value="A reference to another artifact that created this set of requirements. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
+    </element>
     <element id="Requirements.actor">
       <path value="Requirements.actor"/>
       <short value="Actor for these requirements"/>
