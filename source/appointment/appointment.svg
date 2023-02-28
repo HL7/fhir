@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1035"
+   version="1.1"
+   width="1165.2"
+   height="550.0"
+   sodipodi:docname="appointment.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview454"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.0693444"
+     inkscape:cx="582.59998"
+     inkscape:cy="275.4024"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1035" />
+  <defs
+     id="defs18">
+    <filter
+       id="shadow1"
+       x="-0.036501378"
+       y="-0.106"
+       width="1.0936639"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix11" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur13" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend15" />
+    </filter>
+  </defs>
+  <g
+     id="n1036">
+    <rect
+       id="Appointment"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="540.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1037"
+       x1="0.0"
+       y1="28.0"
+       x2="299.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1038"
+       x="149.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Appointment<tspan
+   class="diagram-class-title-link"
+   id="tspan23"> (<a
+   id="n1039"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n1040"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1041"
+   xlink:href="appointment-definitions.html#Appointment.identifier"><title
+   id="title26">This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)</title>identifier</a> : <a
+   id="n1042"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1046"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="appointment-definitions.html#Appointment.status"><title
+   id="title31">The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1048"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1049"
+   xlink:href="valueset-appointmentstatus.html"><title
+   id="n1050">null (Strength=Required)</title>AppointmentStatus</a>! » « <a
+   id="n1051"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1052">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1060"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1061"
+   xlink:href="appointment-definitions.html#Appointment.cancellationReason"><title
+   id="title40">The coded reason for the appointment being cancelled. This is often used in reporting/billing/futher processing to determine if further actions are required, or specific fees apply</title>cancellationReason</a> : <a
+   id="n1062"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1063"
+   xlink:href="valueset-appointment-cancellation-reason.html"><title
+     id="n1064">null (Strength=Example)</title></a></text>
+    <text
+       id="n1065"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1066"
+   xlink:href="valueset-appointment-cancellation-reason.html">AppointmentCancellationReason</a>?? » « <a
+   id="n1067"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1068">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1078"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1079"
+   xlink:href="appointment-definitions.html#Appointment.class"><title
+   id="title51">Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations</title>class</a> : <a
+   id="n1080"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1081"
+   xlink:href="http://terminology.hl7.org/ValueSet/EncounterClass"><title
+   id="title55">null (Strength=Preferred)</title>EncounterClass</a>? »</text>
+    <text
+       id="n1086"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1087"
+   xlink:href="appointment-definitions.html#Appointment.serviceCategory"><title
+   id="title59">A broad categorization of the service that is to be performed during this appointment</title>serviceCategory</a> : <a
+   id="n1088"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1089"
+   xlink:href="valueset-service-category.html"><title
+   id="n1090">null (Strength=Example)</title>ServiceCategory</a>?? »</text>
+    <text
+       id="n1096"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1097"
+   xlink:href="appointment-definitions.html#Appointment.serviceType"><title
+   id="title66">The specific service that is to be performed during this appointment</title>serviceType</a> : <a
+   id="n1098"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1099"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>; <a
+   id="n1100"
+   xlink:href="valueset-service-type.html"><title
+     id="n1101">null (Strength=Example)</title></a></text>
+    <text
+       id="n1102"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1103"
+   xlink:href="valueset-service-type.html">ServiceType</a>?? »</text>
+    <text
+       id="n1112"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1113"
+   xlink:href="appointment-definitions.html#Appointment.specialty"><title
+   id="title76">The specialty of a practitioner that would be required to perform the service requested in this appointment</title>specialty</a> : <a
+   id="n1114"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1115"
+   xlink:href="valueset-c80-practice-codes.html"><title
+   id="title80">null (Strength=Preferred)</title>PracticeSettingCodeValueSet</a>? »</text>
+    <text
+       id="n1120"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1121"
+   xlink:href="appointment-definitions.html#Appointment.appointmentType"><title
+   id="title84">The style of appointment or patient that has been booked in the slot (not service type)</title>appointmentType</a> : <a
+   id="n1122"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1123"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0276.html"><title
+     id="title88">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n1124"
+       x="26.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1125"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0276.html">Hl7VSAppointmentReasonCodes</a>? »</text>
+    <text
+       id="n1132"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1133"
+   xlink:href="appointment-definitions.html#Appointment.reason"><title
+   id="title94">The reason that this appointment is being scheduled. This is more clinical than administrative. This can be coded, or as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure</title>reason</a> : <a
+   id="n1134"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1135"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n1136"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n1137"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n1138"
+       x="26.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1139"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>; <a
+   id="n1140"
+   xlink:href="valueset-encounter-reason.html"><title
+   id="title103">null (Strength=Preferred)</title>EncounterReasonCodes</a>? »</text>
+    <text
+       id="n1150"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1151"
+   xlink:href="appointment-definitions.html#Appointment.priority"><title
+   id="title107">The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority)</title>priority</a> : <a
+   id="n1152"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1153"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActPriority.html"><title
+   id="n1154">null (Strength=Example)</title>ActPriority</a>?? »</text>
+    <text
+       id="n1160"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1161"
+   xlink:href="appointment-definitions.html#Appointment.description"><title
+   id="title114">The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the note field</title>description</a> : <a
+   id="n1162"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1166"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1167"
+   xlink:href="appointment-definitions.html#Appointment.replaces"><title
+   id="title119">Appointment replaced by this Appointment in cases where there is a cancellation, the details of the cancellation can be found in the cancellationReason property (on the referenced resource)</title>replaces</a> : <a
+   id="n1168"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1169"
+   xlink:href="appointment.html#Appointment">Appointment</a> »</text>
+    <text
+       id="n1174"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1175"
+   xlink:href="appointment-definitions.html#Appointment.virtualService"><title
+   id="title125">Connection details of a virtual service (e.g. conference call)</title>virtualService</a> : <a
+   id="n1176"
+   xlink:href="metadatatypes.html#VirtualServiceDetail">VirtualServiceDetail</a> [0..*]</text>
+    <text
+       id="n1180"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1181"
+   xlink:href="appointment-definitions.html#Appointment.supportingInformation"><title
+   id="title130">Additional information to support the appointment provided when making the appointment</title>supportingInformation</a> : <a
+   id="n1182"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1183"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n1188"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1189"
+   xlink:href="appointment-definitions.html#Appointment.previousAppointment"><title
+   id="title136">The previous appointment in a series of related appointments</title>previousAppointment</a> : <a
+   id="n1190"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1191"
+   xlink:href="appointment.html#Appointment">Appointment</a> »</text>
+    <text
+       id="n1196"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1197"
+   xlink:href="appointment-definitions.html#Appointment.originatingAppointment"><title
+   id="title142">The originating appointment in a recurring set of related appointments</title>originatingAppointment</a> : <a
+   id="n1198"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1199"
+   xlink:href="appointment.html#Appointment">Appointment</a> » « <a
+   id="n1200"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1201">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1208"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1209"
+   xlink:href="appointment-definitions.html#Appointment.start"><title
+   id="title150">Date/Time that the appointment is to take place</title>start</a> : <a
+   id="n1210"
+   xlink:href="datatypes.html#instant">instant</a> [0..1] « <a
+   id="n1211"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1212">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1218"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1219"
+   xlink:href="appointment-definitions.html#Appointment.end"><title
+   id="title157">Date/Time that the appointment is to conclude</title>end</a> : <a
+   id="n1220"
+   xlink:href="datatypes.html#instant">instant</a> [0..1] « <a
+   id="n1221"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1222">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1228"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1229"
+   xlink:href="appointment-definitions.html#Appointment.minutesDuration"><title
+   id="title164">Number of minutes that the appointment is to take. This can be less than the duration between the start and end times.  For example, where the actual time of appointment is only an estimate or if a 30 minute appointment is being requested, but any time would work.  Also, if there is, for example, a planned 15 minute break in the middle of a long appointment, the duration may be 15 minutes less than the difference between the start and end</title>minutesDuration</a> : <a
+   id="n1230"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n1234"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1235"
+   xlink:href="appointment-definitions.html#Appointment.requestedPeriod"><title
+   id="title169">A set of date ranges (potentially including times) that the appointment is preferred to be scheduled within.
+
+The duration (usually in minutes) could also be provided to indicate the length of the appointment to fill and populate the start/end times for the actual allocated time. However, in other situations the duration may be calculated by the scheduling system</title>requestedPeriod</a> : <a
+   id="n1236"
+   xlink:href="datatypes.html#Period">Period</a> [0..*]</text>
+    <text
+       id="n1240"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1241"
+   xlink:href="appointment-definitions.html#Appointment.slot"><title
+   id="title174">The slots from the participants' schedules that will be filled by the appointment</title>slot</a> : <a
+   id="n1242"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1243"
+   xlink:href="slot.html#Slot">Slot</a> »</text>
+    <text
+       id="n1248"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1249"
+   xlink:href="appointment-definitions.html#Appointment.account"><title
+   id="title180">The set of accounts that is expected to be used for billing the activities that result from this Appointment</title>account</a> : <a
+   id="n1250"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1251"
+   xlink:href="account.html#Account">Account</a> »</text>
+    <text
+       id="n1256"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1257"
+   xlink:href="appointment-definitions.html#Appointment.created"><title
+   id="title186">The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment</title>created</a> : <a
+   id="n1258"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1262"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1263"
+   xlink:href="appointment-definitions.html#Appointment.cancellationDate"><title
+   id="title191">The date/time describing when the appointment was cancelled</title>cancellationDate</a> : <a
+   id="n1264"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1] « <a
+   id="n1265"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1266">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1272"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1273"
+   xlink:href="appointment-definitions.html#Appointment.note"><title
+   id="title198">Additional notes/comments about the appointment</title>note</a> : <a
+   id="n1274"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n1278"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1279"
+   xlink:href="appointment-definitions.html#Appointment.patientInstruction"><title
+   id="title203">While Appointment.note contains information for internal use, Appointment.patientInstructions is used to capture patient facing information about the Appointment (e.g. please bring your referral or fast from 8pm night before)</title>patientInstruction</a> : <a
+   id="n1280"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1281"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|</text>
+    <text
+       id="n1282"
+       x="26.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1283"
+   xlink:href="binary.html#Binary">Binary</a>|<a
+   id="n1284"
+   xlink:href="communication.html#Communication">Communication</a> »</text>
+    <text
+       id="n1292"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1293"
+   xlink:href="appointment-definitions.html#Appointment.basedOn"><title
+   id="title212">The request this appointment is allocated to assess (e.g. incoming referral or procedure request)</title>basedOn</a> : <a
+   id="n1294"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1295"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n1296"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|</text>
+    <text
+       id="n1297"
+       x="26.0"
+       y="490.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1298"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n1299"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n1308"
+       x="6.0"
+       y="504.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1309"
+   xlink:href="appointment-definitions.html#Appointment.subject"><title
+   id="title222">The patient or group associated with the appointment, if they are to be present (usually) then they should also be included in the participant backbone element</title>subject</a> : <a
+   id="n1310"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1311"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1312"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n1318"
+       x="6.0"
+       y="518.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1319"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceId"><title
+   id="title229">The sequence number that identifies a specific appointment in a recurring pattern</title>recurrenceId</a> : <a
+   id="n1320"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n1324"
+       x="6.0"
+       y="532.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1325"
+   xlink:href="appointment-definitions.html#Appointment.occurrenceChanged"><title
+   id="title234">This appointment varies from the recurring pattern</title>occurrenceChanged</a> : <a
+   id="n1326"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n1330"
+     transform="translate(35.535796,237.52872)">
+    <rect
+       id="Appointment.participant"
+       x="419.20001"
+       y="203"
+       rx="4"
+       ry="4"
+       width="242"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1331"
+       x1="419.20001"
+       y1="231"
+       x2="661.20001"
+       y2="231"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1332"
+       x="540.20001"
+       y="223"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n1333"
+       x="425.20001"
+       y="245"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1334"
+   xlink:href="appointment-definitions.html#Appointment.participant.type"><title
+   id="title243">Role of participant in the appointment</title>type</a> : <a
+   id="n1335"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1336"
+   xlink:href="valueset-encounter-participant-type.html"><title
+   id="n1337">null (Strength=Extensible)</title>ParticipantType</a>+ » « <a
+   id="n1338"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1339">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1347"
+       x="425.20001"
+       y="259"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1348"
+   xlink:href="appointment-definitions.html#Appointment.participant.period"><title
+   id="title252">Participation period of the actor</title>period</a> : <a
+   id="n1349"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1353"
+       x="425.20001"
+       y="273"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1354"
+   xlink:href="appointment-definitions.html#Appointment.participant.actor"><title
+   id="title257">The individual, device, location, or service participating in the appointment</title>actor</a> : <a
+   id="n1355"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1356"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1357"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1358"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n1359"
+       x="445.20001"
+       y="287"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1360"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1361"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1362"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1363"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n1364"
+       x="445.20001"
+       y="301"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1365"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n1366"
+   xlink:href="location.html#Location">Location</a> » « <a
+   id="n1367"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1368">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1385"
+       x="425.20001"
+       y="315"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1386"
+   xlink:href="appointment-definitions.html#Appointment.participant.required"><title
+   id="title275">Whether this participant is required to be present at the meeting. If false, the participant is optional</title>required</a> : <a
+   id="n1387"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1391"
+       x="425.20001"
+       y="329"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1392"
+   xlink:href="appointment-definitions.html#Appointment.participant.status"><title
+   id="title280">Participation status of the actor</title>status</a> : <a
+   id="n1393"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1394"
+   xlink:href="valueset-participationstatus.html"><title
+   id="n1395">null (Strength=Required)</title>ParticipationStatus</a>! »</text>
+  </g>
+  <g
+     id="n1401"
+     transform="translate(15.897592,-100.99646)">
+    <rect
+       id="Appointment.recurrenceTemplate"
+       x="419.20001"
+       y="363"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1402"
+       x1="419.20001"
+       y1="391"
+       x2="722.79999"
+       y2="391"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1403"
+       x="571"
+       y="383"
+       fill="#000000"
+       class="diagram-class-title">RecurrenceTemplate</text>
+    <text
+       id="n1404"
+       x="425.20001"
+       y="405"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1405"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.timezone"><title
+   id="title291">The timezone of the recurring appointment occurrences</title>timezone</a> : <a
+   id="n1406"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1407"
+   xlink:href="valueset-timezones.html"><title
+   id="n1408">IANA Timezones (BCP 175). (Strength=Required)</title>IANATimezones</a>! »</text>
+    <text
+       id="n1414"
+       x="425.20001"
+       y="419"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1415"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.recurrenceType"><title
+   id="title298">How often the appointment series should recur</title>recurrenceType</a> : <a
+   id="n1416"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1417"
+   xlink:href="valueset-appointment-recurrrence-type.html"><title
+   id="title302">null (Strength=Preferred)</title>AppointmentRecurrenceType</a>? »</text>
+    <text
+       id="n1422"
+       x="425.20001"
+       y="433"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1423"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.lastOccurrenceDate"><title
+   id="title306">Recurring appointments will not occur after this date</title>lastOccurrenceDate</a> : <a
+   id="n1424"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1428"
+       x="425.20001"
+       y="447"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1429"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.occurrenceCount"><title
+   id="title311">How many appointments are planned in the recurrence</title>occurrenceCount</a> : <a
+   id="n1430"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n1434"
+       x="425.20001"
+       y="461"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1435"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.occurrenceDate"><title
+   id="title316">The list of specific dates that will have appointments generated</title>occurrenceDate</a> : <a
+   id="n1436"
+   xlink:href="datatypes.html#date">date</a> [0..*]</text>
+    <text
+       id="n1440"
+       x="425.20001"
+       y="475"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1441"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.excludingDate"><title
+   id="title321">Any dates, such as holidays, that should be excluded from the recurrence</title>excludingDate</a> : <a
+   id="n1442"
+   xlink:href="datatypes.html#date">date</a> [0..*]</text>
+    <text
+       id="n1446"
+       x="425.20001"
+       y="489"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1447"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.excludingRecurrenceId"><title
+   id="title326">Any dates, such as holidays, that should be excluded from the recurrence</title>excludingRecurrenceId</a> : <a
+   id="n1448"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n1452">
+    <rect
+       id="Appointment.recurrenceTemplate.weeklyTemplate"
+       x="320.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="145.20000000000002"
+       height="148.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1453"
+       x1="320.0"
+       y1="28.0"
+       x2="465.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1454"
+       x="392.6"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">WeeklyTemplate</text>
+    <text
+       id="n1455"
+       x="326.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1456"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.monday"><title
+   id="title335">Indicates that recurring appointments should occur on Mondays</title>monday</a> : <a
+   id="n1457"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1461"
+       x="326.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1462"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.tuesday"><title
+   id="title340">Indicates that recurring appointments should occur on Tuesdays</title>tuesday</a> : <a
+   id="n1463"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1467"
+       x="326.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1468"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.wednesday"><title
+   id="title345">Indicates that recurring appointments should occur on Wednesdays</title>wednesday</a> : <a
+   id="n1469"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1473"
+       x="326.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1474"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.thursday"><title
+   id="title350">Indicates that recurring appointments should occur on Thursdays</title>thursday</a> : <a
+   id="n1475"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1479"
+       x="326.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1480"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.friday"><title
+   id="title355">Indicates that recurring appointments should occur on Fridays</title>friday</a> : <a
+   id="n1481"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1485"
+       x="326.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1486"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.saturday"><title
+   id="title360">Indicates that recurring appointments should occur on Saturdays</title>saturday</a> : <a
+   id="n1487"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1491"
+       x="326.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1492"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.sunday"><title
+   id="title365">Indicates that recurring appointments should occur on Sundays</title>sunday</a> : <a
+   id="n1493"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1497"
+       x="326.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1498"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate.weekInterval"><title
+   id="title370">The interval defines if the recurrence is every nth week. The default is every week, so it is expected that this value will be 2 or more.
+
+e.g. For recurring every second week this interval would be 2, or every third week the interval would be 3</title>weekInterval</a> : <a
+   id="n1499"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n1503">
+    <rect
+       id="Appointment.recurrenceTemplate.monthlyTemplate"
+       x="480.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="202.4"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1504"
+       x1="480.0"
+       y1="28.0"
+       x2="682.4"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1505"
+       x="581.2"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">MonthlyTemplate</text>
+    <text
+       id="n1506"
+       x="486.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1507"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.dayOfMonth"><title
+   id="title379">Indicates that appointments in the series of recurring appointments should occur on a specific day of the month</title>dayOfMonth</a> : <a
+   id="n1508"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n1512"
+       x="486.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1513"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.nthWeekOfMonth"><title
+   id="title384">Indicates which week within a month the appointments in the series of recurring appointments should occur on</title>nthWeekOfMonth</a> : <a
+   id="n1514"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n1515"
+   xlink:href="valueset-week-of-month.html"><title
+   id="n1516">null (Strength=Required)</title>WeekOfMonth</a>! »</text>
+    <text
+       id="n1522"
+       x="486.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1523"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.dayOfWeek"><title
+   id="title391">Indicates which day of the week the recurring appointments should occur each nth week</title>dayOfWeek</a> : <a
+   id="n1524"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n1525"
+   xlink:href="valueset-days-of-week.html"><title
+   id="n1526">null (Strength=Required)</title>DaysOfWeek</a>! »</text>
+    <text
+       id="n1532"
+       x="486.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1533"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate.monthInterval"><title
+   id="title398">Indicates that recurring appointments should occur every nth month</title>monthInterval</a> : <a
+   id="n1534"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+  </g>
+  <g
+     id="n1538"
+     transform="translate(-87.90433,140.27287)">
+    <rect
+       id="Appointment.recurrenceTemplate.yearlyTemplate"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="145.2"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1539"
+       x1="720"
+       y1="28"
+       x2="865.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1540"
+       x="792.59998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">YearlyTemplate</text>
+    <text
+       id="n1541"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1542"
+   xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.yearlyTemplate.yearInterval"><title
+   id="title407">Appointment recurs every nth year</title>yearInterval</a> : <a
+   id="n1543"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+  </g>
+  <line
+     id="n1547"
+     x1="299.20000000000005"
+     y1="270.0"
+     x2="419.20000000000005"
+     y2="270.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1548"
+     points="299.20000000000005,270.0 305.20000000000005,274.0 311.20000000000005,270.0 305.20000000000005,266.0 299.20000000000005,270.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 299.20000000000005 270.0)" />
+  <rect
+     id="n1549"
+     x="335.0"
+     y="263.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1550"
+     x="359.0"
+     y="273.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1551"
+       xlink:href="appointment-definitions.html#Appointment.participant"><title
+   id="title416">List of participants involved in the appointment</title>participant</a></text>
+  <text
+     id="n1552"
+     x="399.20000000000005"
+     y="266.0"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n1553"
+     x1="537.4247191011236"
+     y1="363.0000000000001"
+     x2="429.68314606741575"
+     y2="148.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1554"
+     points="537.4247191011236,363.0000000000001 543.4247191011236,367.0000000000001 549.4247191011236,363.0000000000001 543.4247191011236,359.0000000000001 537.4247191011236,363.0000000000001"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-116.61652985101841 537.4247191011236 363.0000000000001)" />
+  <rect
+     id="n1555"
+     x="452.5"
+     y="248.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1556"
+     x="483.0"
+     y="258.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1557"
+       xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.weeklyTemplate"><title
+   id="title424">Information about weekly recurring appointments</title>weeklyTemplate</a></text>
+  <text
+     id="n1558"
+     x="429.68314606741575"
+     y="162.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1559"
+     x1="572.7796875"
+     y1="363.0"
+     x2="579.9781250000001"
+     y2="92.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1560"
+     points="572.7796875,363.0 578.7796875,367.0 584.7796875,363.0 578.7796875,359.0 572.7796875,363.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-88.47843864357068 572.7796875 363.0)" />
+  <rect
+     id="n1561"
+     x="543.0"
+     y="220.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1562"
+     x="576.0"
+     y="230.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1563"
+       xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.monthlyTemplate"><title
+   id="title432">Information about monthly recurring appointments</title>monthlyTemplate</a></text>
+  <text
+     id="n1564"
+     x="579.9781250000001"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1565"
+     x1="607.6597530864198"
+     y1="363.0"
+     x2="778.920987654321"
+     y2="50.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1566"
+     points="607.6597530864198,363.0 613.6597530864198,367.0 619.6597530864198,363.0 613.6597530864198,359.0 607.6597530864198,363.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-61.314263275335975 607.6597530864198 363.0)" />
+  <rect
+     id="n1567"
+     x="662.5"
+     y="199.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1568"
+     x="693.0"
+     y="209.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1569"
+       xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate.yearlyTemplate"><title
+   id="title440">Information about yearly recurring appointments</title>yearlyTemplate</a></text>
+  <text
+     id="n1570"
+     x="778.920987654321"
+     y="64.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n1571"
+     x1="299.20000000000005"
+     y1="326.8011390602753"
+     x2="419.20000000000005"
+     y2="372.3635500711913"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1572"
+     points="299.20000000000005,326.8011390602753 305.20000000000005,330.8011390602753 311.20000000000005,326.8011390602753 305.20000000000005,322.8011390602753 299.20000000000005,326.8011390602753"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(20.791106560809915 299.20000000000005 326.8011390602753)" />
+  <rect
+     id="n1573"
+     x="319.5"
+     y="342.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1574"
+     x="359.0"
+     y="352.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1575"
+       xlink:href="appointment-definitions.html#Appointment.recurrenceTemplate"><title
+   id="title448">The details of the recurrence pattern or template that is used to generate recurring appointments</title>recurrenceTemplate</a></text>
+  <text
+     id="n1576"
+     x="399.20000000000005"
+     y="368.3635500711913"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

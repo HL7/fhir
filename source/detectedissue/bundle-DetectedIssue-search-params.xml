@@ -149,8 +149,9 @@
         <description value="Associated patient"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="DetectedIssue.subject"/>
+        <expression value="DetectedIssue.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

@@ -78,9 +78,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="TestScript">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="200,150"/>
-      </extension>
       <path value="TestScript"/>
       <short value="Describes a set of tests"/>
       <definition value="A structured set of tests against a FHIR server or client implementation to determine compliance against the FHIR specification."/>
@@ -90,7 +87,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/TestScript"/>
       </constraint>
       <mapping>
@@ -125,7 +122,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="exists() implies matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -484,9 +481,6 @@
       </type>
     </element>
     <element id="TestScript.origin">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-70,140"/>
-      </extension>
       <path value="TestScript.origin"/>
       <short value="An abstract server representing a client or sender in a message exchange"/>
       <definition value="An abstract server used in operations within this test script in the origin element."/>
@@ -540,9 +534,6 @@
       </type>
     </element>
     <element id="TestScript.destination">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-120,220"/>
-      </extension>
       <path value="TestScript.destination"/>
       <short value="An abstract server representing a destination or receiver in a message exchange"/>
       <definition value="An abstract server used in operations within this test script in the destination element."/>
@@ -596,9 +587,6 @@
       </type>
     </element>
     <element id="TestScript.metadata">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="260,30"/>
-      </extension>
       <path value="TestScript.metadata"/>
       <short value="Required capability that is assumed to function correctly on the FHIR server being tested"/>
       <definition value="The required capability must exist and are assumed to function correctly on the FHIR server being tested."/>
@@ -616,9 +604,6 @@
       </constraint>
     </element>
     <element id="TestScript.metadata.link">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,0"/>
-      </extension>
       <path value="TestScript.metadata.link"/>
       <short value="Links to the FHIR specification"/>
       <definition value="A link to the FHIR specification that this test is covering."/>
@@ -649,9 +634,6 @@
       </type>
     </element>
     <element id="TestScript.metadata.capability">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-70,0"/>
-      </extension>
       <path value="TestScript.metadata.capability"/>
       <short value="Capabilities  that are assumed to function correctly on the FHIR server being tested"/>
       <definition value="Capabilities that must exist and are assumed to function correctly on the FHIR server being tested."/>
@@ -803,9 +785,6 @@
       </binding>
     </element>
     <element id="TestScript.fixture">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="550,150"/>
-      </extension>
       <path value="TestScript.fixture"/>
       <short value="Fixture in the test script - by reference (uri)"/>
       <definition value="Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute."/>
@@ -860,9 +839,6 @@
       </type>
     </element>
     <element id="TestScript.variable">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="580,250"/>
-      </extension>
       <path value="TestScript.variable"/>
       <short value="Placeholder for evaluated elements"/>
       <definition value="Variable is set based either on element value in response body or on header field value in the response headers."/>
@@ -970,9 +946,6 @@
       </type>
     </element>
     <element id="TestScript.setup">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,300"/>
-      </extension>
       <path value="TestScript.setup"/>
       <short value="A series of required setup operations before tests are executed"/>
       <definition value="A series of required setup operations before tests are executed."/>
@@ -985,9 +958,6 @@
     <element id="TestScript.setup.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="SetupAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="20,390"/>
       </extension>
       <path value="TestScript.setup.action"/>
       <short value="A setup operation or assert to perform"/>
@@ -1007,9 +977,6 @@
       </constraint>
     </element>
     <element id="TestScript.setup.action.operation">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-40,490"/>
-      </extension>
       <path value="TestScript.setup.action.operation"/>
       <short value="The setup operation to perform"/>
       <definition value="The operation to perform."/>
@@ -1221,9 +1188,6 @@
       <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.operation.requestHeader">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-30,780"/>
-      </extension>
       <path value="TestScript.setup.action.operation.requestHeader"/>
       <short value="Each operation can have one or more header elements"/>
       <definition value="Header elements would be used to set HTTP headers."/>
@@ -1320,9 +1284,6 @@
       <condition value="tst-9"/>
     </element>
     <element id="TestScript.setup.action.assert">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,490"/>
-      </extension>
       <path value="TestScript.setup.action.assert"/>
       <short value="The assertion to perform"/>
       <definition value="Evaluates the results of previous operations to determine if the server under test behaves appropriately."/>
@@ -1762,9 +1723,6 @@
       </type>
     </element>
     <element id="TestScript.test">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="540,410"/>
-      </extension>
       <path value="TestScript.test"/>
       <short value="A test in this script"/>
       <definition value="A test in this script."/>
@@ -1797,9 +1755,6 @@
     <element id="TestScript.test.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TestAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="360,420"/>
       </extension>
       <path value="TestScript.test.action"/>
       <short value="A test operation or assert to perform"/>
@@ -1864,9 +1819,6 @@
       </constraint>
     </element>
     <element id="TestScript.teardown">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="60,330"/>
-      </extension>
       <path value="TestScript.teardown"/>
       <short value="A series of required clean up steps"/>
       <definition value="A series of operations required to clean up after all the tests are executed (successfully or otherwise)."/>
@@ -1879,9 +1831,6 @@
     <element id="TestScript.teardown.action">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="TeardownAction"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="130,390"/>
       </extension>
       <path value="TestScript.teardown.action"/>
       <short value="One or more teardown operations to perform"/>

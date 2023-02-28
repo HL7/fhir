@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n382"
+   version="1.1"
+   width="894.8"
+   height="298.0"
+   sodipodi:docname="questionnaireresponse.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview93408"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.39249"
+     inkscape:cx="447.39999"
+     inkscape:cy="149.01364"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n382" />
+  <defs
+     id="defs93240">
+    <filter
+       id="shadow1"
+       x="-0.043019482"
+       y="-0.067948718"
+       width="1.1103896"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset93231" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix93233" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur93235" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend93237" />
+    </filter>
+  </defs>
+  <g
+     id="n383">
+    <rect
+       id="QuestionnaireResponse"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="204.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n384"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n385"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">QuestionnaireResponse<tspan
+   class="diagram-class-title-link"
+   id="tspan93245"> (<a
+   id="n386"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n387"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n388"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.identifier"><title
+   id="title93248">A business identifier assigned to a particular completed (or partially completed) questionnaire</title>identifier</a> : <a
+   id="n389"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n393"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n394"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.basedOn"><title
+   id="title93253">The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression</title>basedOn</a> : <a
+   id="n395"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n396"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n397"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n403"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n404"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.partOf"><title
+   id="title93260">A procedure or observation that this questionnaire was performed as part of the execution of.  For example, the surgery a checklist was executed as part of</title>partOf</a> : <a
+   id="n405"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n406"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n407"
+   xlink:href="procedure.html#Procedure">Procedure</a> »</text>
+    <text
+       id="n413"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n414"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire"><title
+   id="title93267">The Questionnaire that defines and organizes the questions for which answers are being provided</title>questionnaire</a> : <a
+   id="n415"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n416"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a> »</text>
+    <text
+       id="n421"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n422"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.status"><title
+   id="title93273">The position of the questionnaire response within its overall lifecycle (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n423"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n424"
+   xlink:href="valueset-questionnaire-answers-status.html"><title
+   id="n425">null (Strength=Required)</title>QuestionnaireResponseStatus</a>! »</text>
+    <text
+       id="n431"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n432"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.subject"><title
+   id="title93280">The subject of the questionnaire response.  This could be a patient, organization, practitioner, device, etc.  This is who/what the answers apply to, but is not necessarily the source of information</title>subject</a> : <a
+   id="n433"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n434"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n439"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n440"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.encounter"><title
+   id="title93286">The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated</title>encounter</a> : <a
+   id="n441"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n442"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n447"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n448"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.authored"><title
+   id="title93292">The date and/or time that this questionnaire response was last modified by the user - e.g. changing answers or revising status</title>authored</a> : <a
+   id="n449"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n453"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n454"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.author"><title
+   id="title93297">The individual or device that received the answers to the questions in the QuestionnaireResponse and recorded them in the system</title>author</a> : <a
+   id="n455"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n456"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n457"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n458"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n459"
+       x="26.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n460"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n461"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n462"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n473"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n474"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.source"><title
+   id="title93309">The individual or device that answered the questions about the subject</title>source</a> : <a
+   id="n475"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n476"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n477"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n478"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n479"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n480"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n481"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n482"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <g
+     id="n493"
+     transform="translate(61.041733,-2.8725521)">
+    <rect
+       id="QuestionnaireResponse.item"
+       x="390"
+       y="40"
+       rx="4"
+       ry="4"
+       width="123.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n494"
+       x1="390"
+       y1="68"
+       x2="513.20001"
+       y2="68"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n495"
+       x="451.60001"
+       y="60"
+       fill="#000000"
+       class="diagram-class-title">Item</text>
+    <text
+       id="n496"
+       x="396"
+       y="82"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n497"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.linkId"><title
+   id="title93325">The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource</title>linkId</a> : <a
+   id="n498"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n499"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n500">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n506"
+       x="396"
+       y="96"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n507"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.definition"><title
+   id="title93332">A reference to an [ElementDefinition](elementdefinition.html) that provides the details for the item</title>definition</a> : <a
+   id="n508"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n512"
+       x="396"
+       y="110"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n513"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.text"><title
+   id="title93337">Text that is displayed above the contents of the group or as the text of the question being answered</title>text</a> : <a
+   id="n514"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n518"
+     transform="translate(78.277045,16.517175)">
+    <rect
+       id="QuestionnaireResponse.item.answer"
+       x="300"
+       y="190"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n519"
+       x1="300"
+       y1="218"
+       x2="594.79999"
+       y2="218"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n520"
+       x="447.39999"
+       y="210"
+       fill="#000000"
+       class="diagram-class-title">Answer</text>
+    <text
+       id="n521"
+       x="306"
+       y="232"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n522"
+   xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_"><title
+   id="title93346">The answer (or one of the answers) provided by the respondent to the question</title>value[x]</a> : <a
+   id="n523"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n524"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n525"
+   xlink:href="datatypes.html#decimal">decimal</a>|<a
+   id="n526"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n527"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n528"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|</text>
+    <text
+       id="n529"
+       x="326"
+       y="246"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n530"
+   xlink:href="datatypes.html#time">time</a>|<a
+   id="n531"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n532"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n533"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n534"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n535"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a93362">SimpleQuantity</a>)|</text>
+    <text
+       id="n536"
+       x="326"
+       y="260"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n537"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n538"
+   xlink:href="resourcelist.html#Any">Any</a>); <a
+   id="n539"
+   xlink:href="valueset-questionnaire-answers.html"><title
+   id="n540">null (Strength=Example)</title>QuestionnaireAnswerCodes</a>?? » « <a
+   id="n541"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n542">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <line
+     id="n565"
+     x1="423.4920000000001"
+     y1="190.0"
+     x2="425.5080000000001"
+     y2="118.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n566"
+     points="423.4920000000001,190.0 429.4920000000001,194.0 435.4920000000001,190.0 429.4920000000001,186.0 423.4920000000001,190.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-88.39613722884506 423.4920000000001 190.0)" />
+  <rect
+     id="n567"
+     x="415.5"
+     y="147.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n568"
+     x="424.0"
+     y="157.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n569"
+       xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.item"><title
+   id="title93376">Nested groups and/or questions found within this particular answer</title>item</a></text>
+  <text
+     id="n570"
+     x="425.5080000000001"
+     y="132.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n571"
+     x1="475.5080000000001"
+     y1="118.0"
+     x2="473.4920000000001"
+     y2="190.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n572"
+     points="475.5080000000001,118.0 481.5080000000001,122.0 487.5080000000001,118.0 481.5080000000001,114.0 475.5080000000001,118.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(91.60386277115495 475.5080000000001 118.0)" />
+  <rect
+     id="n573"
+     x="461.0"
+     y="161.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n574"
+     x="474.0"
+     y="171.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n575"
+       xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer"><title
+   id="title93384">The respondent's answer(s) to the question</title>answer</a></text>
+  <text
+     id="n576"
+     x="473.4920000000001"
+     y="186.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n577"
+     x1="513.2"
+     y1="54.0"
+     x2="573.2"
+     y2="54.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n578"
+     x1="573.2"
+     y1="54.0"
+     x2="573.2"
+     y2="104.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n579"
+     x1="573.2"
+     y1="104.0"
+     x2="513.2"
+     y2="104.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n580"
+     points="513.2,54.0 519.2,58.0 525.2,54.0 519.2,50.0 513.2,54.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 513.2 54.0)" />
+  <rect
+     id="n581"
+     x="564.5"
+     y="72.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n582"
+     x="573.0"
+     y="82.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n583"
+       xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item.item"><title
+   id="title93394">Sub-questions, sub-groups or display items nested beneath a group</title>item</a></text>
+  <text
+     id="n584"
+     x="528.2"
+     y="100.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n585"
+     x1="303.6"
+     y1="90.3542361574383"
+     x2="390.0"
+     y2="83.72581721147432"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n586"
+     points="303.6,90.3542361574383 309.6,94.3542361574383 315.6,90.3542361574383 309.6,86.3542361574383 303.6,90.3542361574383"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.387013531973838 303.6 90.3542361574383)" />
+  <rect
+     id="n587"
+     x="337.5"
+     y="80.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n588"
+     x="346.0"
+     y="90.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n589"
+       xlink:href="questionnaireresponse-definitions.html#QuestionnaireResponse.item"><title
+   id="title93402">A group or question item from the original questionnaire for which answers are provided</title>item</a></text>
+  <text
+     id="n590"
+     x="370.0"
+     y="79.72581721147432"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

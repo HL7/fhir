@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n629"
+   version="1.1"
+   width="1366.0"
+   height="340.0"
+   sodipodi:docname="nutritionintake.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview85572"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.91215227"
+     inkscape:cx="683"
+     inkscape:cy="170.47592"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n629" />
+  <defs
+     id="defs85315">
+    <filter
+       id="shadow1"
+       x="-0.02458256"
+       y="-0.067948718"
+       width="1.0630798"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset85306" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix85308" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur85310" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend85312" />
+    </filter>
+  </defs>
+  <g
+     id="n630">
+    <rect
+       id="NutritionIntake"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="330.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n631"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n632"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">NutritionIntake<tspan
+   class="diagram-class-title-link"
+   id="tspan85320"> (<a
+   id="n633"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n634"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n635"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.identifier"><title
+   id="title85323">Identifiers associated with this Nutrition Intake that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n636"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n640"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n641"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.instantiatesCanonical"><title
+   id="title85328">Instantiates FHIR protocol or definition</title>instantiatesCanonical</a> : <a
+   id="n642"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n643"
+   xlink:href="definition.html#Definition">Definition</a> »</text>
+    <text
+       id="n648"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n649"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.instantiatesUri"><title
+   id="title85334">Instantiates external protocol or definition</title>instantiatesUri</a> : <a
+   id="n650"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n654"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n655"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.basedOn"><title
+   id="title85339">A plan, proposal or order that is fulfilled in whole or in part by this event</title>basedOn</a> : <a
+   id="n656"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n657"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n658"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n659"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n666"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n667"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.partOf"><title
+   id="title85347">A larger event of which this particular event is a component or step</title>partOf</a> : <a
+   id="n668"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n669"
+   xlink:href="nutritionintake.html#NutritionIntake">NutritionIntake</a>|<a
+   id="n670"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n671"
+   xlink:href="observation.html#Observation">Observation</a> »</text>
+    <text
+       id="n678"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n679"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.status"><title
+   id="title85355">A code representing the patient or other source's judgment about the state of the intake that this assertion is about.  Generally, this will be active or completed (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n680"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n681"
+   xlink:href="valueset-event-status.html"><title
+   id="n682">null (Strength=Required)</title>EventStatus</a>! »</text>
+    <text
+       id="n688"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n689"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.statusReason"><title
+   id="title85362">Captures the reason for the current state of the NutritionIntake</title>statusReason</a> : <a
+   id="n690"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n691"
+   xlink:href="valueset-clinicalimpression-status-reason.html"><title
+     id="n692">null (Strength=Example)</title></a></text>
+    <text
+       id="n693"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n694"
+   xlink:href="valueset-clinicalimpression-status-reason.html">ClinicalImpressionStatusReason</a>?? »</text>
+    <text
+       id="n702"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n703"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.code"><title
+   id="title85371">Overall type of nutrition intake</title>code</a> : <a
+   id="n704"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n705"
+   xlink:href="valueset-diet-type.html"><title
+   id="n706">null (Strength=Example)</title>DietCodes</a>?? »</text>
+    <text
+       id="n712"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n713"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.subject"><title
+   id="title85378">The person, animal or group who is/was consuming the food or fluid</title>subject</a> : <a
+   id="n714"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n715"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n716"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n722"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n723"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.encounter"><title
+   id="title85385">The encounter that establishes the context for this NutritionIntake</title>encounter</a> : <a
+   id="n724"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n725"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n730"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n731"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.occurrence_x_"><title
+   id="title85391">The interval of time during which it is being asserted that the patient is/was consuming the food or fluid</title>occurrence[x]</a> : <a
+   id="n732"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n733"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n734"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n740"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.recorded"><title
+   id="title85398">The date when the Nutrition Intake was asserted by the information source</title>recorded</a> : <a
+   id="n742"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n746"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n747"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.reported_x_"><title
+   id="title85403">The person or organization that provided the information about the consumption of this food or fluid. Note: Use derivedFrom when a NutritionIntake is derived from other resources</title>reported[x]</a> : <a
+   id="n748"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n749"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n750"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n751"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n752"
+       x="26.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n753"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n754"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n755"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n756"
+   xlink:href="organization.html#Organization">Organization</a>) »</text>
+    <text
+       id="n768"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n769"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.location"><title
+   id="title85416">Where the intake occurred</title>location</a> : <a
+   id="n770"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n771"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n776"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n777"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.derivedFrom"><title
+   id="title85422">Allows linking the NutritionIntake to the underlying NutritionOrder, or to other information, such as AllergyIntolerance, that supports or is used to derive the NutritionIntake</title>derivedFrom</a> : <a
+   id="n778"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n779"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n784"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n785"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.reason"><title
+   id="title85428">A reason, Condition or observation for why the food or fluid is /was consumed</title>reason</a> : <a
+   id="n786"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n787"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n788"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n789"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n790"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n791"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n792"
+   xlink:href="valueset-condition-code.html"><title
+     id="n793">null (Strength=Example)</title></a></text>
+    <text
+       id="n794"
+       x="26.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n795"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n808"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n809"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.note"><title
+   id="title85442">Provides extra information about the Nutrition Intake that is not conveyed by the other attributes</title>note</a> : <a
+   id="n810"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n814"
+     transform="translate(143.61637,16.444623)">
+    <rect
+       id="NutritionIntake.consumedItem"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n815"
+       x1="320"
+       y1="28"
+       x2="601.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n816"
+       x="460.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ConsumedItem</text>
+    <text
+       id="n817"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n818"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.type"><title
+   id="title85451">Indicates what a category of item that was consumed: e.g., food, fluid, enteral, etc</title>type</a> : <a
+   id="n819"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n820"
+   xlink:href="valueset-edible-substance-type.html"><title
+   id="n821">null (Strength=Example)</title>TypesOfEdibleSubstances</a>?? »</text>
+    <text
+       id="n827"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n828"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.nutritionProduct"><title
+   id="title85458">Identifies the food or fluid product that was consumed. This is potentially a link to a resource representing the details of the food product (TBD) or a simple attribute carrying a code that identifies the food from a known list of foods</title>nutritionProduct</a> : <a
+   id="n829"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n830"
+   xlink:href="nutritionproduct.html#NutritionProduct">NutritionProduct</a>; <a
+   id="n831"
+   xlink:href="valueset-food-type.html"><title
+     id="n832">null (Strength=Example)</title></a></text>
+    <text
+       id="n833"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n834"
+   xlink:href="valueset-food-type.html">FoodTypeCodes</a>?? »</text>
+    <text
+       id="n843"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n844"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.schedule"><title
+   id="title85468">Scheduled frequency of consumption</title>schedule</a> : <a
+   id="n845"
+   xlink:href="datatypes.html#Timing">Timing</a> [0..1]</text>
+    <text
+       id="n849"
+       x="326"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n850"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.amount"><title
+   id="title85473">Quantity of the specified food</title>amount</a> : <a
+   id="n851"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a85477">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n855"
+       x="326"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n856"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.rate"><title
+   id="title85480">Rate at which enteral feeding was administered</title>rate</a> : <a
+   id="n857"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a85484">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n861"
+       x="326"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n862"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.notConsumed"><title
+   id="title85487">Indicator when a patient is in a setting where it is helpful to know if food was not consumed, such as it was refused, held (as in tube feedings), or otherwise not provided. If a consumption is being recorded from an app, such as MyFitnessPal, this indicator will likely not be used</title>notConsumed</a> : <a
+   id="n863"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n867"
+       x="326"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n868"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem.notConsumedReason"><title
+   id="title85492">Document the reason the food or fluid was not consumed, such as refused, held, etc</title>notConsumedReason</a> : <a
+   id="n869"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n870"
+   xlink:href="valueset-not-consumed-reason.html"><title
+     id="n871">null (Strength=Example)</title></a></text>
+    <text
+       id="n872"
+       x="346"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n873"
+   xlink:href="valueset-not-consumed-reason.html">ReasonsFoodItemNotConsumed</a>?? »</text>
+  </g>
+  <g
+     id="n881"
+     transform="translate(-175.40931,209.39486)">
+    <rect
+       id="NutritionIntake.ingredientLabel"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="215.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n882"
+       x1="640"
+       y1="28"
+       x2="855.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n883"
+       x="747.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">IngredientLabel</text>
+    <text
+       id="n884"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n885"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.ingredientLabel.nutrient"><title
+   id="title85505">Total nutrient consumed. This could be a macronutrient (protein, fat, carbohydrate), or a vitamin and mineral</title>nutrient</a> : <a
+   id="n886"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n887"
+   xlink:href="substance.html#Substance">Substance</a>; <a
+   id="n888"
+   xlink:href="valueset-nutrient-code.html"><title
+     id="n889">null (Strength=Example)</title></a></text>
+    <text
+       id="n890"
+       x="666"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n891"
+   xlink:href="valueset-nutrient-code.html">NutrientModifierCodes</a>?? »</text>
+    <text
+       id="n900"
+       x="646"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n901"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.ingredientLabel.amount"><title
+   id="title85515">Total amount of nutrient consumed</title>amount</a> : <a
+   id="n902"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a85519">SimpleQuantity</a>) [1..1]</text>
+  </g>
+  <g
+     id="n906"
+     transform="translate(-422.07865,323.41091)">
+    <rect
+       id="NutritionIntake.performer"
+       x="880"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n907"
+       x1="880"
+       y1="28"
+       x2="1166"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n908"
+       x="1023"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
+    <text
+       id="n909"
+       x="886"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n910"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.performer.function"><title
+   id="title85526">Type of performer</title>function</a> : <a
+   id="n911"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n912"
+   xlink:href="valueset-performer-role.html"><title
+   id="n913">null (Strength=Example)</title>ProcedurePerformerRoleCodes</a>?? »</text>
+    <text
+       id="n919"
+       x="886"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n920"
+   xlink:href="nutritionintake-definitions.html#NutritionIntake.performer.actor"><title
+   id="title85533">Who performed the intake</title>actor</a> : <a
+   id="n921"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n922"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n923"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n924"
+       x="906"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n925"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n926"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n927"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n928"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n929"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <line
+     id="n941"
+     x1="303.6"
+     y1="123.73398058252425"
+     x2="320.0"
+     y2="119.2757281553398"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n942"
+     points="303.6,123.73398058252425 309.6,127.73398058252425 315.6,123.73398058252425 309.6,119.73398058252425 303.6,123.73398058252425"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-15.208039190635287 303.6 123.73398058252425)" />
+  <rect
+     id="n943"
+     x="285.0"
+     y="114.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n944"
+     x="311.0"
+     y="124.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n945"
+       xlink:href="nutritionintake-definitions.html#NutritionIntake.consumedItem"><title
+   id="title85550">What food or fluid product or item was consumed</title>consumedItem</a></text>
+  <text
+     id="n946"
+     x="300.0"
+     y="115.2757281553398"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n947"
+     x1="303.6"
+     y1="132.90805369127514"
+     x2="640.0"
+     y2="61.78993288590601"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n948"
+     points="303.6,132.90805369127514 309.6,136.90805369127514 315.6,132.90805369127514 309.6,128.90805369127514 303.6,132.90805369127514"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-11.937098829162673 303.6 132.90805369127514)" />
+  <rect
+     id="n949"
+     x="438.0"
+     y="90.0"
+     width="66.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n950"
+     x="471.0"
+     y="100.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n951"
+       xlink:href="nutritionintake-definitions.html#NutritionIntake.ingredientLabel"><title
+   id="title85558">Total nutrient amounts for the whole meal, product, serving, etc</title>ingredientLabel</a></text>
+  <text
+     id="n952"
+     x="620.0"
+     y="57.78993288590601"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n953"
+     x1="303.6"
+     y1="143.04545454545453"
+     x2="880.0"
+     y2="59.68181818181817"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n954"
+     points="303.6,143.04545454545453 309.6,147.04545454545453 315.6,143.04545454545453 309.6,139.04545454545453 303.6,143.04545454545453"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.2295165623949 303.6 143.04545454545453)" />
+  <rect
+     id="n955"
+     x="571.5"
+     y="94.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n956"
+     x="591.0"
+     y="104.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n957"
+       xlink:href="nutritionintake-definitions.html#NutritionIntake.performer"><title
+   id="title85566">Who performed the intake and how they were involved</title>performer</a></text>
+  <text
+     id="n958"
+     x="860.0"
+     y="55.68181818181817"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

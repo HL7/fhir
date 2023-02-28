@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n748"
+   version="1.1"
+   width="1062.4"
+   height="466.0"
+   sodipodi:docname="paymentreconciliation.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview125926"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1728162"
+     inkscape:cx="531.20001"
+     inkscape:cy="233.19936"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n748" />
+  <defs
+     id="defs125627">
+    <filter
+       id="shadow1"
+       x="-0.038856307"
+       y="-0.0828125"
+       width="1.0997067"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset125618" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix125620" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur125622" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend125624" />
+    </filter>
+  </defs>
+  <g
+     id="n749"
+     transform="translate(-246.41541,6.821188)">
+    <rect
+       id="PaymentReconciliation"
+       x="256.39999"
+       y="0"
+       rx="4"
+       ry="4"
+       width="300.95999"
+       height="456"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n750"
+       x1="256.39999"
+       y1="28"
+       x2="557.35999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n751"
+       x="406.88"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">PaymentReconciliation<tspan
+   class="diagram-class-title-link"
+   id="tspan125632">(<a
+   id="n752"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n753"
+       x="262.39999"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n754"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.identifier"><title
+   id="title125635">A unique identifier assigned to this payment reconciliation</title>identifier</a> : <a
+   id="n755"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n759"
+       x="262.39999"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n760"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.type"><title
+   id="title125640">Code to indicate the nature of the payment such as payment, adjustment</title>type</a> : <a
+   id="n761"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n762"
+   xlink:href="valueset-payment-type.html"><title
+   id="n763">null (Strength=Extensible)</title>PaymentTypeCodes</a>+ »</text>
+    <text
+       id="n769"
+       x="262.39999"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n770"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.status"><title
+   id="title125647">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n771"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n772"
+   xlink:href="valueset-fm-status.html"><title
+   id="n773">null (Strength=Required)</title>FinancialResourceStatusCodes</a>! »</text>
+    <text
+       id="n779"
+       x="262.39999"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n780"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.kind"><title
+   id="title125654">The workflow or activity which gave rise to or during which the payment ocurred such as a kiosk, deposit on account, periodic payment etc</title>kind</a> : <a
+   id="n781"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n782"
+   xlink:href="valueset-payment-kind.html"><title
+   id="n783">null (Strength=Extensible)</title>PaymentKind</a>+ »</text>
+    <text
+       id="n789"
+       x="262.39999"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n790"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.period"><title
+   id="title125661">The period of time for which payments have been gathered into this bulk payment for settlement</title>period</a> : <a
+   id="n791"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n795"
+       x="262.39999"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n796"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.created"><title
+   id="title125666">The date when the resource was created</title>created</a> : <a
+   id="n797"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+    <text
+       id="n801"
+       x="262.39999"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n802"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.enterer"><title
+   id="title125671">Payment enterer if not the actual payment issuer</title>enterer</a> : <a
+   id="n803"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n804"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n805"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n806"
+       x="282.39999"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n807"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n815"
+       x="262.39999"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n816"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.issuerType"><title
+   id="title125680">The type of the source such as patient or insurance</title>issuerType</a> : <a
+   id="n817"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n818"
+   xlink:href="valueset-payment-issuertype.html"><title
+   id="n819">null (Strength=Extensible)</title>PaymentIssuerType</a>+ »</text>
+    <text
+       id="n825"
+       x="262.39999"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n826"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.paymentIssuer"><title
+   id="title125687">The party who generated the payment</title>paymentIssuer</a> : <a
+   id="n827"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n828"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n829"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n830"
+   xlink:href="person.html#Person">Person</a>|</text>
+    <text
+       id="n831"
+       x="282.39999"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n832"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n841"
+       x="262.39999"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n842"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.request"><title
+   id="title125697">Original request resource reference</title>request</a> : <a
+   id="n843"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n844"
+   xlink:href="task.html#Task">Task</a> »</text>
+    <text
+       id="n849"
+       x="262.39999"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n850"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.requestor"><title
+   id="title125703">The practitioner who is responsible for the services rendered to the patient</title>requestor</a> : <a
+   id="n851"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n852"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n853"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n854"
+       x="282.39999"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n855"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n863"
+       x="262.39999"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.outcome"><title
+   id="title125712">The outcome of a request for a reconciliation</title>outcome</a> : <a
+   id="n865"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n866"
+   xlink:href="valueset-payment-outcome.html"><title
+   id="n867">null (Strength=Required)</title>PaymentOutcome</a>! »</text>
+    <text
+       id="n873"
+       x="262.39999"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n874"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.disposition"><title
+   id="title125719">A human readable description of the status of the request for the reconciliation</title>disposition</a> : <a
+   id="n875"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n879"
+       x="262.39999"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n880"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.date"><title
+   id="title125724">The date of payment as indicated on the financial instrument</title>date</a> : <a
+   id="n881"
+   xlink:href="datatypes.html#date">date</a> [1..1]</text>
+    <text
+       id="n885"
+       x="262.39999"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n886"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.location"><title
+   id="title125729">The location of the site or device for electronic transfers or physical location for cash payments</title>location</a> : <a
+   id="n887"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n888"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n893"
+       x="262.39999"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n894"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.method"><title
+   id="title125735">The means of payment such as check, card cash, or electronic funds transfer</title>method</a> : <a
+   id="n895"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n896"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v2-0570.html"><title
+   id="n897">null (Strength=Extensible)</title>Hl7VSPaymentMethodCode</a>+ »</text>
+    <text
+       id="n903"
+       x="262.39999"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n904"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.cardBrand"><title
+   id="title125742">The card brand such as debit, Visa, Amex etc. used if a card is the method of payment</title>cardBrand</a> : <a
+   id="n905"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n909"
+       x="262.39999"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n910"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.accountNumber"><title
+   id="title125747">A portion of the account number, often the last 4 digits, used for verification not charging purposes</title>accountNumber</a> : <a
+   id="n911"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n915"
+       x="262.39999"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n916"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.expirationDate"><title
+   id="title125752">The year and month (YYYY-MM) when the instrument, typically card, expires</title>expirationDate</a> : <a
+   id="n917"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n921"
+       x="262.39999"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n922"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.processor"><title
+   id="title125757">The name of the card processor, etf processor, bank for checks</title>processor</a> : <a
+   id="n923"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n927"
+       x="262.39999"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n928"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.referenceNumber"><title
+   id="title125762">The check number, eft reference, car processor reference</title>referenceNumber</a> : <a
+   id="n929"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n933"
+       x="262.39999"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n934"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.authorization"><title
+   id="title125767">An alphanumeric issued by the processor to confirm the successful issuance of payment</title>authorization</a> : <a
+   id="n935"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n939"
+       x="262.39999"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n940"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.tenderedAmount"><title
+   id="title125772">The amount offered by the issuer, typically applies to cash when the issuer provides an amount in bank note denominations equal to or excess of the amount actually being paid</title>tenderedAmount</a> : <a
+   id="n941"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n945"
+       x="262.39999"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n946"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.returnedAmount"><title
+   id="title125777">The amount returned by the receiver which is excess to the amount payable, often referred to as 'change'</title>returnedAmount</a> : <a
+   id="n947"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n951"
+       x="262.39999"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n952"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.amount"><title
+   id="title125782">Total payment amount as indicated on the financial instrument</title>amount</a> : <a
+   id="n953"
+   xlink:href="datatypes.html#Money">Money</a> [1..1]</text>
+    <text
+       id="n957"
+       x="262.39999"
+       y="434"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n958"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.paymentIdentifier"><title
+   id="title125787">Issuer's unique identifier for the payment instrument</title>paymentIdentifier</a> : <a
+   id="n959"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n963"
+       x="262.39999"
+       y="448"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n964"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.formCode"><title
+   id="title125792">A code for the form to be used for printing the content</title>formCode</a> : <a
+   id="n965"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n966"
+   xlink:href="valueset-forms.html"><title
+   id="n967">null (Strength=Example)</title>FormCodes</a>?? »</text>
+  </g>
+  <g
+     id="n973"
+     transform="translate(-104.87576,15.347673)">
+    <rect
+       id="PaymentReconciliation.allocation"
+       x="576.40002"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="260"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n974"
+       x1="576.40002"
+       y1="28"
+       x2="862.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n975"
+       x="719.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Allocation</text>
+    <text
+       id="n976"
+       x="582.40002"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n977"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.identifier"><title
+   id="title125803">Unique identifier for the current payment item for the referenced payable</title>identifier</a> : <a
+   id="n978"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n982"
+       x="582.40002"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n983"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.predecessor"><title
+   id="title125808">Unique identifier for the prior payment item for the referenced payable</title>predecessor</a> : <a
+   id="n984"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n988"
+       x="582.40002"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.target"><title
+   id="title125813">Specific resource to which the payment/adjustment/advance applies</title>target</a> : <a
+   id="n990"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n991"
+   xlink:href="claim.html#Claim">Claim</a>|<a
+   id="n992"
+   xlink:href="account.html#Account">Account</a>|<a
+   id="n993"
+   xlink:href="invoice.html#Invoice">Invoice</a>|<a
+   id="n994"
+   xlink:href="chargeitem.html#ChargeItem">ChargeItem</a>|</text>
+    <text
+       id="n995"
+       x="602.40002"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n996"
+   xlink:href="encounter.html#Encounter">Encounter</a>|<a
+   id="n997"
+   xlink:href="contract.html#Contract">Contract</a> »</text>
+    <text
+       id="n1008"
+       x="582.40002"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1009"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.targetItem_x_"><title
+   id="title125825"> Identifies the claim line item, encounter or other sub-element being paid. Note payment may be partial, that is not match the then outstanding balance or amount incurred</title>targetItem[x]</a> : <a
+   id="n1010"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1011"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1012"
+   xlink:href="datatypes.html#Identifier">Identifier</a>|<a
+   id="n1013"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> »</text>
+    <text
+       id="n1020"
+       x="582.40002"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1021"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.encounter"><title
+   id="title125833">The Encounter to which this payment applies, may be completed by the receiver, used for search</title>encounter</a> : <a
+   id="n1022"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1023"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n1028"
+       x="582.40002"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1029"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.account"><title
+   id="title125839">The Account to which this payment applies, may be completed by the receiver, used for search</title>account</a> : <a
+   id="n1030"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1031"
+   xlink:href="account.html#Account">Account</a> »</text>
+    <text
+       id="n1036"
+       x="582.40002"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1037"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.type"><title
+   id="title125845">Code to indicate the nature of the payment</title>type</a> : <a
+   id="n1038"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1039"
+   xlink:href="valueset-payment-type.html"><title
+   id="n1040">null (Strength=Extensible)</title>PaymentTypeCodes</a>+ »</text>
+    <text
+       id="n1046"
+       x="582.40002"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.submitter"><title
+   id="title125852">The party which submitted the claim or financial transaction</title>submitter</a> : <a
+   id="n1048"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1049"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1050"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1051"
+       x="602.40002"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1052"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1060"
+       x="582.40002"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1061"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.response"><title
+   id="title125861">A resource, such as a ClaimResponse, which contains a commitment to payment</title>response</a> : <a
+   id="n1062"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1063"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
+    <text
+       id="n1068"
+       x="582.40002"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1069"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.date"><title
+   id="title125867">The date from the response resource containing a commitment to pay</title>date</a> : <a
+   id="n1070"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1074"
+       x="582.40002"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1075"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.responsible"><title
+   id="title125872">A reference to the individual who is responsible for inquiries regarding the response and its payment</title>responsible</a> : <a
+   id="n1076"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1077"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n1082"
+       x="582.40002"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1083"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.payee"><title
+   id="title125878">The party which is receiving the payment</title>payee</a> : <a
+   id="n1084"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1085"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1086"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1087"
+       x="602.40002"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1088"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1096"
+       x="582.40002"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1097"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation.amount"><title
+   id="title125887">The monetary amount allocated from the total payment to the payable</title>amount</a> : <a
+   id="n1098"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+  </g>
+  <g
+     id="n1102"
+     transform="translate(561.04271,138.9817)">
+    <rect
+       id="PaymentReconciliation.processNote"
+       x="0"
+       y="196"
+       rx="4"
+       ry="4"
+       width="136.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1103"
+       x1="0"
+       y1="224"
+       x2="136.39999"
+       y2="224"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1104"
+       x="68.199997"
+       y="216"
+       fill="#000000"
+       class="diagram-class-title">Notes</text>
+    <text
+       id="n1105"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1106"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.processNote.type"><title
+   id="title125896">The business purpose of the note text</title>type</a> : <a
+   id="n1107"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1108"
+   xlink:href="valueset-note-type.html"><title
+   id="n1109">null (Strength=Required)</title>NoteType</a>! »</text>
+    <text
+       id="n1115"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1116"
+   xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.processNote.text"><title
+   id="title125903">The explanation or description associated with the processing</title>text</a> : <a
+   id="n1117"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <line
+     id="n1121"
+     x1="557.36"
+     y1="180.81249200051192"
+     x2="576.4"
+     y2="174.84193011647253"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1122"
+     points="557.36,180.81249200051192 563.36,184.81249200051192 569.36,180.81249200051192 563.36,176.81249200051192 557.36,180.81249200051192"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-17.410377837823965 557.36 180.81249200051192)" />
+  <rect
+     id="n1123"
+     x="544.0"
+     y="170.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1124"
+     x="566.0"
+     y="180.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1125"
+       xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.allocation"><title
+   id="title125912">Distribution of the payment amount for a previously acknowledged payable</title>allocation</a></text>
+  <text
+     id="n1126"
+     x="556.4"
+     y="170.84193011647253"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1127"
+     x1="256.4"
+     y1="227.99999999999997"
+     x2="136.4"
+     y2="227.99999999999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1128"
+     points="256.4,227.99999999999997 262.4,231.99999999999997 268.4,227.99999999999997 262.4,223.99999999999997 256.4,227.99999999999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(180.0 256.4 227.99999999999997)" />
+  <rect
+     id="n1129"
+     x="172.0"
+     y="220.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1130"
+     x="196.0"
+     y="230.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1131"
+       xlink:href="paymentreconciliation-definitions.html#PaymentReconciliation.processNote"><title
+   id="title125920">A note that describes or explains the processing in a human readable form</title>processNote</a></text>
+  <text
+     id="n1132"
+     x="151.4"
+     y="223.99999999999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

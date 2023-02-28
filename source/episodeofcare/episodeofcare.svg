@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n337"
+   version="1.1"
+   width="1077.6"
+   height="340.0"
+   sodipodi:docname="episodeofcare.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview32026"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.1562732"
+     inkscape:cx="538.79999"
+     inkscape:cy="170.80738"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n337" />
+  <defs
+     id="defs31870">
+    <filter
+       id="shadow1"
+       x="-0.027376032"
+       y="-0.0828125"
+       width="1.0702479"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset31861" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix31863" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur31865" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend31867" />
+    </filter>
+  </defs>
+  <g
+     id="n338">
+    <rect
+       id="EpisodeOfCare"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="281.6"
+       height="176.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n339"
+       x1="0.0"
+       y1="28.0"
+       x2="281.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n340"
+       x="140.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">EpisodeOfCare<tspan
+   class="diagram-class-title-link"
+   id="tspan31875"> (<a
+   id="n341"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n342"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n343"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.identifier"><title
+   id="title31878">The EpisodeOfCare may be known by different identifiers for different contexts of use, such as when an external agency is tracking the Episode for funding purposes</title>identifier</a> : <a
+   id="n344"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n348"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n349"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.status"><title
+   id="title31883">planned | waitlist | active | onhold | finished | cancelled (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n350"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n351"
+   xlink:href="valueset-episode-of-care-status.html"><title
+   id="n352">null (Strength=Required)</title>EpisodeOfCareStatus</a>! »</text>
+    <text
+       id="n358"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n359"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.type"><title
+   id="title31890">A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care</title>type</a> : <a
+   id="n360"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n361"
+   xlink:href="valueset-episodeofcare-type.html"><title
+   id="n362">null (Strength=Example)</title>EpisodeOfCareType</a>?? »</text>
+    <text
+       id="n368"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n369"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.patient"><title
+   id="title31897">The patient who is the focus of this episode of care</title>patient</a> : <a
+   id="n370"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n371"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n376"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n377"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.managingOrganization"><title
+   id="title31903">The organization that has assumed the specific responsibilities for care coordination, care delivery, or other services for the specified duration</title>managingOrganization</a> : <a
+   id="n378"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n379"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n384"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n385"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.period"><title
+   id="title31909">The interval during which the managing organization assumes the defined responsibility</title>period</a> : <a
+   id="n386"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n390"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n391"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.referralRequest"><title
+   id="title31914">Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals</title>referralRequest</a> : <a
+   id="n392"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n393"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n398"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n399"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.careManager"><title
+   id="title31920">The practitioner that is the care manager/care coordinator for this patient</title>careManager</a> : <a
+   id="n400"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n401"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n402"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n408"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n409"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.careTeam"><title
+   id="title31927">The list of practitioners that may be facilitating this episode of care for specific purposes</title>careTeam</a> : <a
+   id="n410"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n411"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n416"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n417"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.account"><title
+   id="title31933">The set of accounts that may be used for billing for this EpisodeOfCare</title>account</a> : <a
+   id="n418"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n419"
+   xlink:href="account.html#Account">Account</a> »</text>
+  </g>
+  <g
+     id="n424">
+    <rect
+       id="EpisodeOfCare.statusHistory"
+       x="44.0"
+       y="256.0"
+       rx="4"
+       ry="4"
+       width="193.60000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n425"
+       x1="44.0"
+       y1="284.0"
+       x2="237.60000000000002"
+       y2="284.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n426"
+       x="140.8"
+       y="276.0"
+       fill="black"
+       class="diagram-class-title">StatusHistory</text>
+    <text
+       id="n427"
+       x="50.0"
+       y="298.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n428"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.statusHistory.status"><title
+   id="title31943">planned | waitlist | active | onhold | finished | cancelled</title>status</a> : <a
+   id="n429"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n430"
+   xlink:href="valueset-episode-of-care-status.html"><title
+   id="n431">null (Strength=Required)</title>EpisodeOfCareStatus</a>! »</text>
+    <text
+       id="n437"
+       x="50.0"
+       y="312.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n438"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.statusHistory.period"><title
+   id="title31950">The period during this EpisodeOfCare that the specific status applied</title>period</a> : <a
+   id="n439"
+   xlink:href="datatypes.html#Period">Period</a> [1..1]</text>
+  </g>
+  <g
+     id="n443"
+     transform="translate(76.971427,31.999357)">
+    <rect
+       id="EpisodeOfCare.reason"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n444"
+       x1="320"
+       y1="28"
+       x2="614.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n445"
+       x="467.39999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Reason</text>
+    <text
+       id="n446"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n447"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.reason.use"><title
+   id="title31959">What the reason value should be used as e.g. Chief Complaint, Health Concern, Health Maintenance (including screening)</title>use</a> : <a
+   id="n448"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n449"
+   xlink:href="valueset-encounter-reason-use.html"><title
+   id="n450">null (Strength=Example)</title>EncounterReasonUse</a>?? »</text>
+    <text
+       id="n456"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n457"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.reason.value"><title
+   id="title31966">The medical reason that is expected to be addressed during the episode of care, expressed as a text, code or a reference to another resource</title>value</a> : <a
+   id="n458"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n459"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n460"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n461"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n462"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n463"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>; <a
+   id="n464"
+   xlink:href="valueset-encounter-reason.html"><title
+   id="n465">null (Strength=Example)</title>EncounterReasonCodes</a>?? »</text>
+  </g>
+  <g
+     id="n476"
+     transform="translate(-227.45489,164.32102)">
+    <rect
+       id="EpisodeOfCare.diagnosis"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="237.60001"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n477"
+       x1="640"
+       y1="28"
+       x2="877.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n478"
+       x="758.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Diagnosis</text>
+    <text
+       id="n479"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n480"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.diagnosis.condition"><title
+   id="title31982">The medical condition that was addressed during the episode of care, expressed as a text, code or a reference to another resource</title>condition</a> : <a
+   id="n481"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n482"
+   xlink:href="condition.html#Condition">Condition</a>; <a
+   id="n483"
+   xlink:href="valueset-condition-code.html"><title
+     id="n484">null (Strength=Example)</title></a></text>
+    <text
+       id="n485"
+       x="666"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n486"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n495"
+       x="646"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n496"
+   xlink:href="episodeofcare-definitions.html#EpisodeOfCare.diagnosis.use"><title
+   id="title31992">Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …)</title>use</a> : <a
+   id="n497"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n498"
+   xlink:href="valueset-encounter-diagnosis-use.html"><title
+   id="title31996">null (Strength=Preferred)</title>EncounterDiagnosisUse</a>? »</text>
+  </g>
+  <line
+     id="n503"
+     x1="140.8"
+     y1="176.0"
+     x2="140.8"
+     y2="256.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n504"
+     points="140.8,176.0 146.8,180.0 152.8,176.0 146.8,172.0 140.8,176.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.0 140.8 176.0)" />
+  <rect
+     id="n505"
+     x="111.5"
+     y="209.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n506"
+     x="140.0"
+     y="219.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n507"
+       xlink:href="episodeofcare-definitions.html#EpisodeOfCare.statusHistory"><title
+   id="title32004">The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource)</title>statusHistory</a></text>
+  <text
+     id="n508"
+     x="140.8"
+     y="252.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n509"
+     x1="281.6"
+     y1="66.87568891610533"
+     x2="320.0"
+     y2="61.11451316595224"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n510"
+     points="281.6,66.87568891610533 287.6,70.87568891610533 293.6,66.87568891610533 287.6,62.87568891610533 281.6,66.87568891610533"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.532481309289237 281.6 66.87568891610533)" />
+  <rect
+     id="n511"
+     x="287.0"
+     y="56.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n512"
+     x="300.0"
+     y="66.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n513"
+       xlink:href="episodeofcare-definitions.html#EpisodeOfCare.reason"><title
+   id="title32012">The list of medical reasons that are expected to be addressed during the episode of care</title>reason</a></text>
+  <text
+     id="n514"
+     x="300.0"
+     y="57.11451316595224"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n515"
+     x1="281.6"
+     y1="76.83624595469256"
+     x2="640.0"
+     y2="48.41941747572815"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n516"
+     points="281.6,76.83624595469256 287.6,80.83624595469256 293.6,76.83624595469256 287.6,72.83624595469256 281.6,76.83624595469256"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.533385276527513 281.6 76.83624595469256)" />
+  <rect
+     id="n517"
+     x="440.5"
+     y="55.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n518"
+     x="460.0"
+     y="65.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n519"
+       xlink:href="episodeofcare-definitions.html#EpisodeOfCare.diagnosis"><title
+   id="title32020">The list of medical conditions that were addressed during the episode of care</title>diagnosis</a></text>
+  <text
+     id="n520"
+     x="620.0"
+     y="44.41941747572815"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

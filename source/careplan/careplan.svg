@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n575"
+   version="1.1"
+   width="853.6"
+   height="424.0"
+   sodipodi:docname="careplan.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview143628"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4597001"
+     inkscape:cx="426.79999"
+     inkscape:cy="212.02985"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n575" />
+  <defs
+     id="defs143416">
+    <filter
+       id="shadow1"
+       x="-0.01745718"
+       y="-0.039552239"
+       width="1.0447958"
+       height="1.1014925">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset143407" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix143409" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur143411" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend143413" />
+    </filter>
+  </defs>
+  <g
+     id="n576">
+    <rect
+       id="CarePlan"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="414.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n577"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n578"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">CarePlan<tspan
+   class="diagram-class-title-link"
+   id="tspan143421"> (<a
+   id="n579"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n580"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n581"
+   xlink:href="careplan-definitions.html#CarePlan.identifier"><title
+   id="title143424">Business identifiers assigned to this care plan by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n582"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n586"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n587"
+   xlink:href="careplan-definitions.html#CarePlan.instantiatesCanonical"><title
+   id="title143429">The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan</title>instantiatesCanonical</a> : <a
+   id="n588"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n589"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|</text>
+    <text
+       id="n590"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a>|<a
+   id="n592"
+   xlink:href="measure.html#Measure">Measure</a>|<a
+   id="n593"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n594"
+   xlink:href="operationdefinition.html#OperationDefinition">OperationDefinition</a> »</text>
+    <text
+       id="n604"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n605"
+   xlink:href="careplan-definitions.html#CarePlan.instantiatesUri"><title
+   id="title143440">The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan</title>instantiatesUri</a> : <a
+   id="n606"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n610"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n611"
+   xlink:href="careplan-definitions.html#CarePlan.basedOn"><title
+   id="title143445">A higher-level request resource (i.e. a plan, proposal or order) that is fulfilled in whole or in part by this care plan</title>basedOn</a> : <a
+   id="n612"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n613"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n614"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|</text>
+    <text
+       id="n615"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n616"
+   xlink:href="requestorchestration.html#RequestOrchestration">RequestOrchestration</a>|<a
+   id="n617"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a> »</text>
+    <text
+       id="n626"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n627"
+   xlink:href="careplan-definitions.html#CarePlan.replaces"><title
+   id="title143455">Completed or terminated care plan whose function is taken by this new care plan</title>replaces</a> : <a
+   id="n628"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n629"
+   xlink:href="careplan.html#CarePlan">CarePlan</a> »</text>
+    <text
+       id="n634"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n635"
+   xlink:href="careplan-definitions.html#CarePlan.partOf"><title
+   id="title143461">A larger care plan of which this particular care plan is a component or step</title>partOf</a> : <a
+   id="n636"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n637"
+   xlink:href="careplan.html#CarePlan">CarePlan</a> »</text>
+    <text
+       id="n642"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n643"
+   xlink:href="careplan-definitions.html#CarePlan.status"><title
+   id="title143467">Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n644"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n645"
+   xlink:href="valueset-request-status.html"><title
+   id="n646">null (Strength=Required)</title>RequestStatus</a>! »</text>
+    <text
+       id="n652"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n653"
+   xlink:href="careplan-definitions.html#CarePlan.intent"><title
+   id="title143474">Indicates the level of authority/intentionality associated with the care plan and where the care plan fits into the workflow chain (this element modifies the meaning of other elements)</title>intent</a> : <a
+   id="n654"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n655"
+   xlink:href="valueset-care-plan-intent.html"><title
+   id="n656">null (Strength=Required)</title>CarePlanIntent</a>! »</text>
+    <text
+       id="n662"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n663"
+   xlink:href="careplan-definitions.html#CarePlan.category"><title
+   id="title143481">Identifies what &quot;kind&quot; of plan this is to support differentiation between multiple co-existing plans; e.g. &quot;Home health&quot;, &quot;psychiatric&quot;, &quot;asthma&quot;, &quot;disease management&quot;, &quot;wellness plan&quot;, etc</title>category</a> : <a
+   id="n664"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n665"
+   xlink:href="valueset-care-plan-category.html"><title
+   id="n666">null (Strength=Example)</title>CarePlanCategory</a>?? »</text>
+    <text
+       id="n672"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n673"
+   xlink:href="careplan-definitions.html#CarePlan.title"><title
+   id="title143488">Human-friendly name for the care plan</title>title</a> : <a
+   id="n674"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n678"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n679"
+   xlink:href="careplan-definitions.html#CarePlan.description"><title
+   id="title143493">A description of the scope and nature of the plan</title>description</a> : <a
+   id="n680"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n684"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n685"
+   xlink:href="careplan-definitions.html#CarePlan.subject"><title
+   id="title143498">Identifies the patient or group whose intended care is described by the plan</title>subject</a> : <a
+   id="n686"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n687"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n688"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n694"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n695"
+   xlink:href="careplan-definitions.html#CarePlan.encounter"><title
+   id="title143505">The Encounter during which this CarePlan was created or to which the creation of this record is tightly associated</title>encounter</a> : <a
+   id="n696"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n697"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n702"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n703"
+   xlink:href="careplan-definitions.html#CarePlan.period"><title
+   id="title143511">Indicates when the plan did (or is intended to) come into effect and end</title>period</a> : <a
+   id="n704"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n708"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n709"
+   xlink:href="careplan-definitions.html#CarePlan.created"><title
+   id="title143516">Represents when this particular CarePlan record was created in the system, which is often a system-generated date</title>created</a> : <a
+   id="n710"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n714"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="careplan-definitions.html#CarePlan.custodian"><title
+   id="title143521">When populated, the custodian is responsible for the care plan. The care plan is attributed to the custodian</title>custodian</a> : <a
+   id="n716"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n717"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n718"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n719"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n720"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n721"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n722"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n723"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n724"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n736"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n737"
+   xlink:href="careplan-definitions.html#CarePlan.contributor"><title
+   id="title143534">Identifies the individual(s), organization or device who provided the contents of the care plan</title>contributor</a> : <a
+   id="n738"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n739"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n740"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n741"
+       x="26.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n742"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n743"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n744"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n745"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n746"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n758"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n759"
+   xlink:href="careplan-definitions.html#CarePlan.careTeam"><title
+   id="title143547">Identifies all people and organizations who are expected to be involved in the care envisioned by this plan</title>careTeam</a> : <a
+   id="n760"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n761"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+    <text
+       id="n766"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n767"
+   xlink:href="careplan-definitions.html#CarePlan.addresses"><title
+   id="title143553">Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan</title>addresses</a> : <a
+   id="n768"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n769"
+   xlink:href="condition.html#Condition">Condition</a>; <a
+   id="n770"
+   xlink:href="valueset-clinical-findings.html"><title
+     id="n771">null (Strength=Example)</title></a></text>
+    <text
+       id="n772"
+       x="26.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n773"
+   xlink:href="valueset-clinical-findings.html">SNOMEDCTClinicalFindings</a>?? »</text>
+    <text
+       id="n782"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n783"
+   xlink:href="careplan-definitions.html#CarePlan.supportingInfo"><title
+   id="title143563">Identifies portions of the patient's record that specifically influenced the formation of the plan.  These might include comorbidities, recent procedures, limitations, recent assessments, etc</title>supportingInfo</a> : <a
+   id="n784"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n785"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n790"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n791"
+   xlink:href="careplan-definitions.html#CarePlan.goal"><title
+   id="title143569">Describes the intended objective(s) of carrying out the care plan</title>goal</a> : <a
+   id="n792"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n793"
+   xlink:href="goal.html#Goal">Goal</a> »</text>
+    <text
+       id="n798"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n799"
+   xlink:href="careplan-definitions.html#CarePlan.note"><title
+   id="title143575">General notes about the care plan not covered elsewhere</title>note</a> : <a
+   id="n800"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n804"
+     transform="translate(123.99807,136.32937)">
+    <rect
+       id="CarePlan.activity"
+       x="350"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n805"
+       x1="350"
+       y1="28"
+       x2="653.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n806"
+       x="501.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Activity</text>
+    <text
+       id="n807"
+       x="356"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n808"
+   xlink:href="careplan-definitions.html#CarePlan.activity.performedActivity"><title
+   id="title143584">Identifies the activity that was performed. For example, an activity could be patient education, exercise, or a medication administration. The reference to an &quot;event&quot; resource, such as Procedure or Encounter or Observation, represents the activity that was performed. The requested activity can be conveyed using the CarePlan.activity.plannedActivityReference (a reference to a “request” resource)</title>performedActivity</a> : <a
+   id="n809"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n810"
+   xlink:href="resourcelist.html#Any">Any</a>; <a
+   id="n811"
+   xlink:href="valueset-care-plan-activity-performed.html"><title
+     id="n812">null (Strength=Example)</title></a></text>
+    <text
+       id="n813"
+       x="376"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n814"
+   xlink:href="valueset-care-plan-activity-performed.html">CarePlanActivityPerformed</a>?? »</text>
+    <text
+       id="n823"
+       x="356"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n824"
+   xlink:href="careplan-definitions.html#CarePlan.activity.progress"><title
+   id="title143594">Notes about the adherence/status/progress of the activity</title>progress</a> : <a
+   id="n825"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n829"
+       x="356"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n830"
+   xlink:href="careplan-definitions.html#CarePlan.activity.plannedActivityReference"><title
+   id="title143599">The details of the proposed activity represented in a specific resource</title>plannedActivityReference</a> : <a
+   id="n831"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n832"
+   xlink:href="appointment.html#Appointment">Appointment</a>|</text>
+    <text
+       id="n833"
+       x="376"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n834"
+   xlink:href="communicationrequest.html#CommunicationRequest">CommunicationRequest</a>|<a
+   id="n835"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n836"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n837"
+       x="376"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n838"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n839"
+   xlink:href="task.html#Task">Task</a>|<a
+   id="n840"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n841"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a>|</text>
+    <text
+       id="n842"
+       x="376"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n843"
+   xlink:href="requestorchestration.html#RequestOrchestration">RequestOrchestration</a>|<a
+   id="n844"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a>|<a
+   id="n845"
+   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a> »</text>
+  </g>
+  <line
+     id="n863"
+     x1="303.6"
+     y1="146.28000000000003"
+     x2="350.0"
+     y2="127.72000000000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n864"
+     points="303.6,146.28000000000003 309.6,150.28000000000003 315.6,146.28000000000003 309.6,142.28000000000003 303.6,146.28000000000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.801409486351826 303.6 146.28000000000003)" />
+  <rect
+     id="n865"
+     x="308.5"
+     y="130.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n866"
+     x="326.0"
+     y="140.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n867"
+       xlink:href="careplan-definitions.html#CarePlan.activity"><title
+   id="title143622">Identifies an action that has occurred or is a planned action to occur as part of the plan. For example, a medication to be used, lab tests to perform, self-monitoring that has occurred, education etc</title>activity</a></text>
+  <text
+     id="n868"
+     x="330.0"
+     y="123.72000000000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

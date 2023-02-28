@@ -70,9 +70,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="RegulatedAuthorization">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="280,0"/>
-      </extension>
       <path value="RegulatedAuthorization"/>
       <short value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity e.g. Market Authorization for a Medicinal Product"/>
       <definition value="Regulatory approval, clearance or licencing related to a regulated product, treatment, facility or activity that is cited in a guidance, regulation, rule or legislative act. An example is Market Authorization relating to a Medicinal Product."/>
@@ -361,9 +358,6 @@
       </mapping>
     </element>
     <element id="RegulatedAuthorization.case">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="650,0"/>
-      </extension>
       <path value="RegulatedAuthorization.case"/>
       <short value="The case or regulatory procedure for granting or amending a regulated authorization. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)"/>
       <definition value="The case or regulatory procedure for granting or amending a regulated authorization. An authorization is granted in response to submissions/applications by those seeking authorization. A case is the administrative process that deals with the application(s) that relate to this and assesses them. Note: This area is subject to ongoing review and the workgroup is seeking implementer feedback on its use (see link at bottom of page)."/>

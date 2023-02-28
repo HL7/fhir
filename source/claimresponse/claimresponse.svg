@@ -1,2432 +1,2776 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n1406"
+   id="n1931"
    version="1.1"
-   width="1130.8"
-   height="886.49153"
+   width="1308.245781"
+   height="937.0066400000001"
    sodipodi:docname="claimresponse.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata697">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview65205"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview695"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.4207168"
-     inkscape:cx="565.40002"
-     inkscape:cy="443.24576"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n1406" />
+     inkscape:zoom="0.8527154"
+     inkscape:cx="654.38012"
+     inkscape:cy="468.50333"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1931" />
   <defs
-     id="defs11">
+     id="defs64276">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.036501378"
+       y="-0.0828125"
+       width="1.0936639"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset64267" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix64269" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur64271" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend64273" />
     </filter>
   </defs>
   <g
-     id="n1407">
+     id="n1932">
     <rect
        id="ClaimResponse"
        x="310.0"
        y="0.0"
        rx="4"
        ry="4"
-       width="281.6"
-       height="316.0"
+       width="308.0"
+       height="386.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n1408"
+       id="n1933"
        x1="310.0"
        y1="28.0"
-       x2="591.6"
+       x2="618.0"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n1409"
-       x="450.8"
+       id="n1934"
+       x="464.0"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">ClaimResponse<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan64281"> (<a
+   id="n1935"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n1410">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n1411"
+       id="n1936"
        x="316.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.identifier"
-   id="n1412"><title
-   id="title19">A unique identifier assigned to this claim response</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n1413">Identifier</a>
- [0..*]</text>
+   id="n1937"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.identifier"><title
+   id="title64284">A unique identifier assigned to this claim response</title>identifier</a> : <a
+   id="n1938"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1417"
+       id="n1942"
        x="316.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.status"
-   id="n1418"><title
-   id="title24">The status of the resource instance (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1419">code</a>
- [1..1] « <a
-   xlink:href="valueset-fm-status.html"
-   id="n1420"><title
-   id="n1421">A code specifying the state of the resource instance. (Strength=Required)</title>
-FinancialResourceStatusCodes</a>
-! »</text>
+   id="n1943"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.traceNumber"><title
+   id="title64289">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n1944"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1427"
+       id="n1948"
        x="316.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.type"
-   id="n1428"><title
-   id="title31">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1429">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-claim-type.html"
-   id="n1430"><title
-   id="n1431">The type or discipline-style of the claim. (Strength=Extensible)</title>
-ClaimTypeCodes</a>
-+ »</text>
+   id="n1949"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.status"><title
+   id="title64294">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1950"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1951"
+   xlink:href="valueset-fm-status.html"><title
+   id="n1952">null (Strength=Required)</title>FinancialResourceStatusCodes</a>! »</text>
     <text
-       id="n1437"
+       id="n1958"
        x="316.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.subType"
-   id="n1438"><title
-   id="title38">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>
-subType</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1439">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-claim-subtype.html"
-   id="n1440"><title
-   id="n1441">A more granular claim typecode. (Strength=Example)</title>
-ExampleClaimSubTypeCodes</a>
-?? »</text>
+   id="n1959"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.type"><title
+   id="title64301">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>type</a> : <a
+   id="n1960"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1961"
+   xlink:href="valueset-claim-type.html"><title
+   id="n1962">null (Strength=Extensible)</title>ClaimTypeCodes</a>+ »</text>
     <text
-       id="n1447"
+       id="n1968"
        x="316.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.use"
-   id="n1448"><title
-   id="title45">A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future</title>
-use</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1449">code</a>
- [1..1] « <a
-   xlink:href="valueset-claim-use.html"
-   id="n1450"><title
-   id="n1451">Claim, preauthorization, predetermination. (Strength=Required)</title>
-Use</a>
-! »</text>
+   id="n1969"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.subType"><title
+   id="title64308">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>subType</a> : <a
+   id="n1970"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1971"
+   xlink:href="valueset-claim-subtype.html"><title
+   id="n1972">null (Strength=Example)</title>ExampleClaimSubTypeCodes</a>?? »</text>
     <text
-       id="n1457"
+       id="n1978"
        x="316.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.patient"
-   id="n1458"><title
-   id="title52">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought</title>
-patient</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1459">Reference</a>
- [1..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n1460">Patient</a>
- »</text>
+   id="n1979"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.use"><title
+   id="title64315">A code to indicate whether the nature of the request is: Claim - A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any; Preauthorization - A request to an Insurer to adjudicate the supplied proposed future charges for health care goods and services under the identified policy and to approve the services and provide the expected benefit amounts and potentially to reserve funds to pay the benefits when Claims for the indicated services are later submitted; or, Pre-determination - A request to an Insurer to adjudicate the supplied 'what if' charges for health care goods and services under the identified policy and report back what the Benefit payable would be had the services actually been provided</title>use</a> : <a
+   id="n1980"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1981"
+   xlink:href="valueset-claim-use.html"><title
+   id="n1982">null (Strength=Required)</title>Use</a>! »</text>
     <text
-       id="n1465"
+       id="n1988"
        x="316.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.created"
-   id="n1466"><title
-   id="title58">The date this resource was created</title>
-created</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n1467">dateTime</a>
- [1..1]</text>
+   id="n1989"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.patient"><title
+   id="title64322">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought</title>patient</a> : <a
+   id="n1990"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1991"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
     <text
-       id="n1471"
+       id="n1996"
        x="316.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurer"
-   id="n1472"><title
-   id="title63">The party responsible for authorization, adjudication and reimbursement</title>
-insurer</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1473">Reference</a>
- [1..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n1474">Organization</a>
- »</text>
+   id="n1997"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.created"><title
+   id="title64328">The date this resource was created</title>created</a> : <a
+   id="n1998"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
     <text
-       id="n1479"
+       id="n2002"
        x="316.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.requestor"
-   id="n1480"><title
-   id="title69">The provider which is responsible for the claim, predetermination or preauthorization</title>
-requestor</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1481">Reference</a>
- [0..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n1482">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n1483">PractitionerRole</a>
-|</text>
+   id="n2003"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurer"><title
+   id="title64333">The party responsible for authorization, adjudication and reimbursement</title>insurer</a> : <a
+   id="n2004"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2005"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n1484"
-       x="336.0"
+       id="n2010"
+       x="316.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="organization.html#Organization"
-   id="n1485">Organization</a>
- »</text>
+   id="n2011"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.requestor"><title
+   id="title64339">The provider which is responsible for the claim, predetermination or preauthorization</title>requestor</a> : <a
+   id="n2012"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2013"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2014"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n1493"
-       x="316.0"
+       id="n2015"
+       x="336.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.request"
-   id="n1494"><title
-   id="title78">Original request resource reference</title>
-request</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1495">Reference</a>
- [0..1] « <a
-   xlink:href="claim.html#Claim"
-   id="n1496">Claim</a>
- »</text>
+   id="n2016"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n1501"
+       id="n2024"
        x="316.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.outcome"
-   id="n1502"><title
-   id="title84">The outcome of the claim, predetermination, or preauthorization processing</title>
-outcome</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1503">code</a>
- [1..1] « <a
-   xlink:href="valueset-remittance-outcome.html"
-   id="n1504"><title
-   id="n1505">The result of the claim processing. (Strength=Required)</title>
-ClaimProcessingCodes</a>
-! »</text>
+   id="n2025"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.request"><title
+   id="title64348">Original request resource reference</title>request</a> : <a
+   id="n2026"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2027"
+   xlink:href="claim.html#Claim">Claim</a> »</text>
     <text
-       id="n1511"
+       id="n2032"
        x="316.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.disposition"
-   id="n1512"><title
-   id="title91">A human readable description of the status of the adjudication</title>
-disposition</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1513">string</a>
- [0..1]</text>
+   id="n2033"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.outcome"><title
+   id="title64354">The outcome of the claim, predetermination, or preauthorization processing</title>outcome</a> : <a
+   id="n2034"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n2035"
+   xlink:href="valueset-claim-outcome.html"><title
+   id="n2036">null (Strength=Required)</title>ClaimProcessingCodes</a>! »</text>
     <text
-       id="n1517"
+       id="n2042"
        x="316.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.preAuthRef"
-   id="n1518"><title
-   id="title96">Reference from the Insurer which is used in later communications which refers to this adjudication</title>
-preAuthRef</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1519">string</a>
- [0..1]</text>
+   id="n2043"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.decision"><title
+   id="title64361">The result of the claim, predetermination, or preauthorization adjudication</title>decision</a> : <a
+   id="n2044"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2045"
+   xlink:href="valueset-claim-decision.html"><title
+   id="n2046">null (Strength=Example)</title>ClaimAdjudicationDecisionsCod...</a>?? »</text>
     <text
-       id="n1523"
+       id="n2052"
        x="316.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.preAuthPeriod"
-   id="n1524"><title
-   id="title101">The time frame during which this authorization is effective</title>
-preAuthPeriod</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n1525">Period</a>
- [0..1]</text>
+   id="n2053"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.disposition"><title
+   id="title64368">A human readable description of the status of the adjudication</title>disposition</a> : <a
+   id="n2054"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1529"
+       id="n2058"
        x="316.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payeeType"
-   id="n1530"><title
-   id="title106">Type of Party to be reimbursed: subscriber, provider, other</title>
-payeeType</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1531">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-payeetype.html"
-   id="n1532"><title
-   id="n1533">A code for the party to be reimbursed. (Strength=Example)</title>
-Claim Payee Type </a>
-?? »</text>
+   id="n2059"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.preAuthRef"><title
+   id="title64373">Reference from the Insurer which is used in later communications which refers to this adjudication</title>preAuthRef</a> : <a
+   id="n2060"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n1539"
+       id="n2064"
        x="316.0"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.fundsReserve"
-   id="n1540"><title
-   id="title113">A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom</title>
-fundsReserve</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1541">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-fundsreserve.html"
-   id="n1542"><title
-   id="n1543">For whom funds are to be reserved: (Patient, Provider, None). (Strength=Example)</title>
-Funds Reservation </a>
-?? »</text>
+   id="n2065"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.preAuthPeriod"><title
+   id="title64378">The time frame during which this authorization is effective</title>preAuthPeriod</a> : <a
+   id="n2066"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n1549"
+       id="n2070"
        x="316.0"
        y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.formCode"
-   id="n1550"><title
-   id="title120">A code for the form to be used for printing the content</title>
-formCode</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1551">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-forms.html"
-   id="n1552"><title
-   id="n1553">The forms codes. (Strength=Example)</title>
-Form </a>
-?? »</text>
+   id="n2071"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payeeType"><title
+   id="title64383">Type of Party to be reimbursed: subscriber, provider, other</title>payeeType</a> : <a
+   id="n2072"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2073"
+   xlink:href="valueset-payeetype.html"><title
+   id="n2074">null (Strength=Example)</title>ClaimPayeeTypeCodes</a>?? »</text>
     <text
-       id="n1559"
+       id="n2080"
        x="316.0"
        y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.form"
-   id="n1560"><title
-   id="title127">The actual form, by reference or inclusion, for printing the content or an EOB</title>
-form</a>
- : <a
-   xlink:href="datatypes.html#Attachment"
-   id="n1561">Attachment</a>
- [0..1]</text>
+   id="n2081"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.encounter"><title
+   id="title64390">Healthcare encounters related to this claim</title>encounter</a> : <a
+   id="n2082"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2083"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
     <text
-       id="n1565"
+       id="n2088"
        x="316.0"
        y="308.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.communicationRequest"
-   id="n1566"><title
-   id="title132">Request for additional supporting or authorizing information</title>
-communicationRequest</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1567">Reference</a>
- [0..*] « <a
-   xlink:href="communicationrequest.html#CommunicationRequest"
-   id="n1568">CommunicationRequest</a>
- »</text>
+   id="n2089"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.diagnosisRelatedGroup"><title
+   id="title64396">A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system</title>diagnosisRelatedGroup</a> : <a
+   id="n2090"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2091"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html"><title
+     id="n2092">null (Strength=Example)</title></a></text>
+    <text
+       id="n2093"
+       x="336.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2094"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html">ExampleDiagnosisRelatedGroupC...</a>?? »</text>
+    <text
+       id="n2102"
+       x="316.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2103"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.fundsReserve"><title
+   id="title64405">A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom</title>fundsReserve</a> : <a
+   id="n2104"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2105"
+   xlink:href="valueset-fundsreserve.html"><title
+   id="n2106">null (Strength=Example)</title>FundsReservationCodes</a>?? »</text>
+    <text
+       id="n2112"
+       x="316.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2113"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.formCode"><title
+   id="title64412">A code for the form to be used for printing the content</title>formCode</a> : <a
+   id="n2114"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2115"
+   xlink:href="valueset-forms.html"><title
+   id="n2116">null (Strength=Example)</title>FormCodes</a>?? »</text>
+    <text
+       id="n2122"
+       x="316.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2123"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.form"><title
+   id="title64419">The actual form, by reference or inclusion, for printing the content or an EOB</title>form</a> : <a
+   id="n2124"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..1]</text>
+    <text
+       id="n2128"
+       x="316.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2129"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.communicationRequest"><title
+   id="title64424">Request for additional supporting or authorizing information</title>communicationRequest</a> : <a
+   id="n2130"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2131"
+   xlink:href="communicationrequest.html#CommunicationRequest">CommunicationRequest</a> »</text>
   </g>
   <g
-     id="n1573">
+     id="n2136"
+     transform="translate(750.5435,7.0363455)">
+    <rect
+       id="ClaimResponse.event"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2137"
+       x1="0"
+       y1="28"
+       x2="211.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2138"
+       x="105.6"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Event</text>
+    <text
+       id="n2139"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2140"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.event.type"><title
+   id="title64434">A coded event such as when a service is expected or a card printed</title>type</a> : <a
+   id="n2141"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2142"
+   xlink:href="valueset-datestype.html"><title
+   id="n2143">null (Strength=Example)</title>DatesTypeCodes</a>?? »</text>
+    <text
+       id="n2149"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2150"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.event.when_x_"><title
+   id="title64441">A date or period in the past or future indicating when the event occurred or is expectd to occur</title>when[x]</a> : <a
+   id="n2151"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n2152"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n2153"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+  </g>
+  <g
+     id="n2159"
+     transform="translate(3.5181727,31.663554)">
     <rect
        id="ClaimResponse.item"
-       x="0.0"
-       y="390.0"
+       x="30.511347"
+       y="348.37238"
        rx="4"
        ry="4"
-       width="145.20000000000002"
-       height="64.0"
+       width="145.2"
+       height="78"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1574"
-       x1="0.0"
-       y1="418.0"
-       x2="145.20000000000002"
-       y2="418.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2160"
+       x1="30.511347"
+       y1="376.37238"
+       x2="175.71135"
+       y2="376.37238"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1575"
-       x="72.60000000000001"
-       y="410.0"
-       fill="black"
+       id="n2161"
+       x="103.11135"
+       y="368.37238"
+       fill="#000000"
        class="diagram-class-title">Item</text>
     <text
-       id="n1576"
-       x="6.0"
-       y="432.0"
-       fill="black"
+       id="n2162"
+       x="36.511349"
+       y="390.37238"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.itemSequence"
-   id="n1577"><title
-   id="title142">A number to uniquely reference the claim item entries</title>
-itemSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1578">positiveInt</a>
- [1..1]</text>
+   id="n2163"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.itemSequence"><title
+   id="title64452">A number to uniquely reference the claim item entries</title>itemSequence</a> : <a
+   id="n2164"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
     <text
-       id="n1582"
-       x="6.0"
-       y="446.0"
-       fill="black"
+       id="n2168"
+       x="36.511349"
+       y="404.37238"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.noteNumber"
-   id="n1583"><title
-   id="title147">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1584">positiveInt</a>
- [0..*]</text>
+   id="n2169"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.traceNumber"><title
+   id="title64457">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2170"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2174"
+       x="36.511349"
+       y="418.37238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2175"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.noteNumber"><title
+   id="title64462">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2176"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1588">
+     id="n2180"
+     transform="translate(-19.936312,2.3454484)">
+    <rect
+       id="ClaimResponse.item.reviewOutcome"
+       x="289.34778"
+       y="566.06934"
+       rx="4"
+       ry="4"
+       width="308"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2181"
+       x1="289.34778"
+       y1="594.06934"
+       x2="597.34778"
+       y2="594.06934"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2182"
+       x="443.34778"
+       y="586.06934"
+       fill="#000000"
+       class="diagram-class-title">ReviewOutcome</text>
+    <text
+       id="n2183"
+       x="295.34778"
+       y="608.06934"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2184"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.reviewOutcome.decision"><title
+   id="title64471">The result of the claim, predetermination, or preauthorization adjudication</title>decision</a> : <a
+   id="n2185"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2186"
+   xlink:href="valueset-claim-decision.html"><title
+   id="n2187">null (Strength=Example)</title>ClaimAdjudicationDecisionsCod...</a>?? »</text>
+    <text
+       id="n2193"
+       x="295.34778"
+       y="622.06934"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2194"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.reviewOutcome.reason"><title
+   id="title64478">The reasons for the result of the claim, predetermination, or preauthorization adjudication</title>reason</a> : <a
+   id="n2195"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2196"
+   xlink:href="valueset-claim-decision-reason.html"><title
+   id="n2197">null (Strength=Example)</title>ClaimAdjudicationDecisionReas...</a>?? »</text>
+    <text
+       id="n2203"
+       x="295.34778"
+       y="636.06934"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2204"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.reviewOutcome.preAuthRef"><title
+   id="title64485">Reference from the Insurer which is used in later communications which refers to this adjudication</title>preAuthRef</a> : <a
+   id="n2205"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2209"
+       x="295.34778"
+       y="650.06934"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2210"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.reviewOutcome.preAuthPeriod"><title
+   id="title64490">The time frame during which this authorization is effective</title>preAuthPeriod</a> : <a
+   id="n2211"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n2215"
+     transform="translate(8.2090695,10.554518)">
     <rect
        id="ClaimResponse.item.adjudication"
-       x="300.0"
-       y="390.0"
+       x="348.32129"
+       y="421.84286"
        rx="4"
        ry="4"
-       width="264.0"
-       height="92.0"
+       width="264"
+       height="92"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1589"
-       x1="300.0"
-       y1="418.0"
-       x2="564.0"
-       y2="418.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2216"
+       x1="348.32129"
+       y1="449.84286"
+       x2="612.32129"
+       y2="449.84286"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1590"
-       x="432.0"
-       y="410.0"
-       fill="black"
+       id="n2217"
+       x="480.32129"
+       y="441.84286"
+       fill="#000000"
        class="diagram-class-title">Adjudication</text>
     <text
-       id="n1591"
-       x="306.0"
-       y="432.0"
-       fill="black"
+       id="n2218"
+       x="354.32129"
+       y="463.84286"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.category"
-   id="n1592"><title
-   id="title156">A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item</title>
-category</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1593">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-adjudication.html"
-   id="n1594"><title
-   id="n1595">The adjudication codes. (Strength=Example)</title>
-AdjudicationValueCodes</a>
-?? »</text>
+   id="n2219"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.category"><title
+   id="title64499">A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item</title>category</a> : <a
+   id="n2220"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2221"
+   xlink:href="valueset-adjudication.html"><title
+   id="n2222">null (Strength=Example)</title>AdjudicationValueCodes</a>?? »</text>
     <text
-       id="n1601"
-       x="306.0"
-       y="446.0"
-       fill="black"
+       id="n2228"
+       x="354.32129"
+       y="477.84286"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.reason"
-   id="n1602"><title
-   id="title163">A code supporting the understanding of the adjudication result and explaining variance from expected amount</title>
-reason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1603">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-adjudication-reason.html"
-   id="n1604"><title
-   id="n1605">The adjudication reason codes. (Strength=Example)</title>
-AdjudicationReasonCodes</a>
-?? »</text>
+   id="n2229"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.reason"><title
+   id="title64506">A code supporting the understanding of the adjudication result and explaining variance from expected amount</title>reason</a> : <a
+   id="n2230"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2231"
+   xlink:href="valueset-adjudication-reason.html"><title
+   id="n2232">null (Strength=Example)</title>AdjudicationReasonCodes</a>?? »</text>
     <text
-       id="n1611"
-       x="306.0"
-       y="460.0"
-       fill="black"
+       id="n2238"
+       x="354.32129"
+       y="491.84286"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.amount"
-   id="n1612"><title
-   id="title170">Monetary amount associated with the category</title>
-amount</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1613">Money</a>
- [0..1]</text>
+   id="n2239"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.amount"><title
+   id="title64513">Monetary amount associated with the category</title>amount</a> : <a
+   id="n2240"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1617"
-       x="306.0"
-       y="474.0"
-       fill="black"
+       id="n2244"
+       x="354.32129"
+       y="505.84286"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.value"
-   id="n1618"><title
-   id="title175">A non-monetary value associated with the category. Mutually exclusive to the amount element above</title>
-value</a>
- : <a
-   xlink:href="datatypes.html#decimal"
-   id="n1619">decimal</a>
- [0..1]</text>
+   id="n2245"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication.quantity"><title
+   id="title64518">A non-monetary value associated with the category. Mutually exclusive to the amount element above</title>quantity</a> : <a
+   id="n2246"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
   </g>
   <g
-     id="n1623">
+     id="n2250"
+     transform="translate(-9.3817938,7.0363453)">
     <rect
        id="ClaimResponse.item.detail"
-       x="0.0"
-       y="500.0"
+       x="31.72039"
+       y="490.21097"
        rx="4"
        ry="4"
-       width="154.0"
-       height="64.0"
+       width="154"
+       height="78"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1624"
-       x1="0.0"
-       y1="528.0"
-       x2="154.0"
-       y2="528.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2251"
+       x1="31.72039"
+       y1="518.21094"
+       x2="185.72038"
+       y2="518.21094"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1625"
-       x="77.0"
-       y="520.0"
-       fill="black"
+       id="n2252"
+       x="108.72039"
+       y="510.21097"
+       fill="#000000"
        class="diagram-class-title">ItemDetail</text>
     <text
-       id="n1626"
-       x="6.0"
-       y="542.0"
-       fill="black"
+       id="n2253"
+       x="37.72039"
+       y="532.21094"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.detailSequence"
-   id="n1627"><title
-   id="title184">A number to uniquely reference the claim detail entry</title>
-detailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1628">positiveInt</a>
- [1..1]</text>
+   id="n2254"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.detailSequence"><title
+   id="title64527">A number to uniquely reference the claim detail entry</title>detailSequence</a> : <a
+   id="n2255"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
     <text
-       id="n1632"
-       x="6.0"
-       y="556.0"
-       fill="black"
+       id="n2259"
+       x="37.72039"
+       y="546.21094"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.noteNumber"
-   id="n1633"><title
-   id="title189">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1634">positiveInt</a>
- [0..*]</text>
+   id="n2260"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.traceNumber"><title
+   id="title64532">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2261"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2265"
+       x="37.72039"
+       y="560.21094"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2266"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.noteNumber"><title
+   id="title64537">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2267"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1638">
+     id="n2271"
+     transform="translate(-5.8636211,11.727242)">
     <rect
        id="ClaimResponse.item.detail.subDetail"
-       x="0.0"
-       y="610.0"
+       x="28.496761"
+       y="607.81104"
        rx="4"
        ry="4"
-       width="167.20000000000002"
-       height="64.0"
+       width="167.2"
+       height="78"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1639"
-       x1="0.0"
-       y1="638.0"
-       x2="167.20000000000002"
-       y2="638.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2272"
+       x1="28.496761"
+       y1="635.81104"
+       x2="195.69676"
+       y2="635.81104"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1640"
-       x="83.60000000000001"
-       y="630.0"
-       fill="black"
+       id="n2273"
+       x="112.09676"
+       y="627.81104"
+       fill="#000000"
        class="diagram-class-title">SubDetail</text>
     <text
-       id="n1641"
-       x="6.0"
-       y="652.0"
-       fill="black"
+       id="n2274"
+       x="34.496761"
+       y="649.81104"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.subDetailSequence"
-   id="n1642"><title
-   id="title198">A number to uniquely reference the claim sub-detail entry</title>
-subDetailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1643">positiveInt</a>
- [1..1]</text>
+   id="n2275"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.subDetailSequence"><title
+   id="title64546">A number to uniquely reference the claim sub-detail entry</title>subDetailSequence</a> : <a
+   id="n2276"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
     <text
-       id="n1647"
-       x="6.0"
-       y="666.0"
-       fill="black"
+       id="n2280"
+       x="34.496761"
+       y="663.81104"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.noteNumber"
-   id="n1648"><title
-   id="title203">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1649">positiveInt</a>
- [0..*]</text>
+   id="n2281"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.traceNumber"><title
+   id="title64551">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2282"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2286"
+       x="34.496761"
+       y="677.81104"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2287"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.noteNumber"><title
+   id="title64556">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2288"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1653"
-     transform="translate(59.125085,-21.819972)">
+     id="n2292"
+     transform="translate(21.109036,31.663554)">
     <rect
        id="ClaimResponse.addItem"
-       x="620"
-       y="390"
+       x="712.51562"
+       y="352.06042"
        rx="4"
        ry="4"
-       width="290.39999"
-       height="288"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="308"
+       height="344"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1654"
-       x1="620"
-       y1="418"
-       x2="910.40002"
-       y2="418"
+       id="n2293"
+       x1="712.51562"
+       y1="380.06042"
+       x2="1020.5156"
+       y2="380.06042"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1655"
-       x="765.20001"
-       y="410"
-       class="diagram-class-title"
-       style="fill:#000000">AddedItem</text>
+       id="n2294"
+       x="866.51562"
+       y="372.06042"
+       fill="#000000"
+       class="diagram-class-title">AddedItem</text>
     <text
-       id="n1656"
-       x="626"
-       y="432"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.itemSequence"
-   id="n1657"><title
-   id="title212">Claim items which this service line is intended to replace</title>
-itemSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1658">positiveInt</a>
- [0..*]</text>
+       id="n2295"
+       x="718.51562"
+       y="394.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2296"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.itemSequence"><title
+   id="title64565">Claim items which this service line is intended to replace</title>itemSequence</a> : <a
+   id="n2297"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
     <text
-       id="n1662"
-       x="626"
-       y="446"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detailSequence"
-   id="n1663"><title
-   id="title217">The sequence number of the details within the claim item which this line is intended to replace</title>
-detailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1664">positiveInt</a>
- [0..*]</text>
+       id="n2301"
+       x="718.51562"
+       y="408.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2302"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detailSequence"><title
+   id="title64570">The sequence number of the details within the claim item which this line is intended to replace</title>detailSequence</a> : <a
+   id="n2303"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
     <text
-       id="n1668"
-       x="626"
-       y="460"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.subdetailSequence"
-   id="n1669"><title
-   id="title222">The sequence number of the sub-details within the details within the claim item which this line is intended to replace</title>
-subdetailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1670">positiveInt</a>
- [0..*]</text>
+       id="n2307"
+       x="718.51562"
+       y="422.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2308"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.subdetailSequence"><title
+   id="title64575">The sequence number of the sub-details within the details within the claim item which this line is intended to replace</title>subdetailSequence</a> : <a
+   id="n2309"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
     <text
-       id="n1674"
-       x="626"
-       y="474"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.provider"
-   id="n1675"><title
-   id="title227">The providers who are authorized for the services rendered to the patient</title>
-provider</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1676">Reference</a>
- [0..*] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n1677">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n1678">PractitionerRole</a>
-|</text>
+       id="n2313"
+       x="718.51562"
+       y="436.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2314"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.traceNumber"><title
+   id="title64580">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2315"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1679"
-       x="646"
-       y="488"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="organization.html#Organization"
-   id="n1680">Organization</a>
- »</text>
+       id="n2319"
+       x="718.51562"
+       y="450.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2320"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.provider"><title
+   id="title64585">The providers who are authorized for the services rendered to the patient</title>provider</a> : <a
+   id="n2321"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2322"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2323"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n1688"
-       x="626"
-       y="502"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.productOrService"
-   id="n1689"><title
-   id="title236">When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item</title>
-productOrService</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1690">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-service-uscls.html"
-   id="n1691"><title
-   id="n1692">Allowable service and product codes. (Strength=Example)</title>
-USCLSCodes</a>
-?? »</text>
+       id="n2324"
+       x="738.51562"
+       y="464.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2325"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n1698"
-       x="626"
-       y="516"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.modifier"
-   id="n1699"><title
-   id="title243">Item typification or modifiers codes to convey additional context for the product or service</title>
-modifier</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1700">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-claim-modifiers.html"
-   id="n1701"><title
-   id="n1702">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen. (Strength=Example)</title>
-ModifierTypeCodes</a>
-?? »</text>
+       id="n2333"
+       x="718.51562"
+       y="478.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2334"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.revenue"><title
+   id="title64594">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n2335"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2336"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n2337">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
     <text
-       id="n1708"
-       x="626"
-       y="530"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.programCode"
-   id="n1709"><title
-   id="title250">Identifies the program under which this may be recovered</title>
-programCode</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1710">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-ex-program-code.html"
-   id="n1711"><title
-   id="n1712">Program specific reason codes. (Strength=Example)</title>
-ExampleProgramReasonCodes</a>
-?? »</text>
+       id="n2343"
+       x="718.51562"
+       y="492.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2344"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.productOrService"><title
+   id="title64601">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n2345"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2346"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2347">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
     <text
-       id="n1718"
-       x="626"
-       y="544"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.serviced_x_"
-   id="n1719"><title
-   id="title257">The date or dates when the service or product was supplied, performed or completed</title>
-serviced[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1720">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#date"
-   id="n1721">date</a>
-|<a
-   xlink:href="datatypes.html#Period"
-   id="n1722">Period</a>
- »</text>
+       id="n2353"
+       x="718.51562"
+       y="506.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2354"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.productOrServiceEnd"><title
+   id="title64608">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n2355"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2356"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2357">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
     <text
-       id="n1728"
-       x="626"
-       y="558"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.location_x_"
-   id="n1729"><title
-   id="title264">Where the product or service was provided</title>
-location[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1730">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1731">CodeableConcept</a>
-|<a
-   xlink:href="datatypes.html#Address"
-   id="n1732">Address</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n1733">Reference</a>
-(</text>
+       id="n2363"
+       x="718.51562"
+       y="520.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2364"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.request"><title
+   id="title64615">Request or Referral for Goods or Service to be rendered</title>request</a> : <a
+   id="n2365"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2366"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n2367"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
     <text
-       id="n1734"
-       x="646"
-       y="572"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="location.html#Location"
-   id="n1735">Location</a>
-); <a
-   xlink:href="valueset-service-place.html"
-   id="n1736"><title
-   id="n1737">Place of service: pharmacy, school, prison, etc. (Strength=Example)</title>
-ExampleServicePlaceCodes</a>
-?? »</text>
+       id="n2368"
+       x="738.51562"
+       y="534.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2369"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n2370"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n2371"
+   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   id="n2372"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
     <text
-       id="n1748"
-       x="626"
-       y="586"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.quantity"
-   id="n1749"><title
-   id="title276">The number of repetitions of a service or product</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n1750">Quantity</a>
-(<a
+       id="n2383"
+       x="718.51562"
+       y="548.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2384"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.modifier"><title
+   id="title64627">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n2385"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2386"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n2387">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n2393"
+       x="718.51562"
+       y="562.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2394"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.programCode"><title
+   id="title64634">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n2395"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2396"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n2397">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n2403"
+       x="718.51562"
+       y="576.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2404"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.serviced_x_"><title
+   id="title64641">The date or dates when the service or product was supplied, performed or completed</title>serviced[x]</a> : <a
+   id="n2405"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2406"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n2407"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n2413"
+       x="718.51562"
+       y="590.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2414"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.location_x_"><title
+   id="title64648">Where the product or service was provided</title>location[x]</a> : <a
+   id="n2415"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2416"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2417"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n2418"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n2419"
+       x="738.51562"
+       y="604.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2420"
+   xlink:href="location.html#Location">Location</a>); <a
+   id="n2421"
+   xlink:href="valueset-service-place.html"><title
+   id="n2422">null (Strength=Example)</title>ExampleServicePlaceCodes</a>?? »</text>
+    <text
+       id="n2433"
+       x="718.51562"
+       y="618.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2434"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.quantity"><title
+   id="title64660">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n2435"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a280">SimpleQuantity</a>
-) [0..1]</text>
+   id="a64664">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n1754"
-       x="626"
-       y="600"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.unitPrice"
-   id="n1755"><title
-   id="title283">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>
-unitPrice</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1756">Money</a>
- [0..1]</text>
+       id="n2439"
+       x="718.51562"
+       y="632.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2440"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.unitPrice"><title
+   id="title64667">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n2441"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1760"
-       x="626"
-       y="614"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.factor"
-   id="n1761"><title
-   id="title288">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>
-factor</a>
- : <a
-   xlink:href="datatypes.html#decimal"
-   id="n1762">decimal</a>
- [0..1]</text>
+       id="n2445"
+       x="718.51562"
+       y="646.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2446"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.factor"><title
+   id="title64672">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n2447"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
     <text
-       id="n1766"
-       x="626"
-       y="628"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.net"
-   id="n1767"><title
-   id="title293">The quantity times the unit price for an additional service or product or charge</title>
-net</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1768">Money</a>
- [0..1]</text>
+       id="n2451"
+       x="718.51562"
+       y="660.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2452"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.tax"><title
+   id="title64677">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n2453"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1772"
-       x="626"
-       y="642"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite"
-   id="n1773"><title
-   id="title298">Physical service site on the patient (limb, tooth, etc.)</title>
-bodySite</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1774">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-tooth.html"
-   id="n1775"><title
-   id="n1776">The code for the teeth, quadrant, sextant and arch. (Strength=Example)</title>
-OralSiteCodes</a>
-?? »</text>
+       id="n2457"
+       x="718.51562"
+       y="674.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2458"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.net"><title
+   id="title64682">The total amount claimed for the group (if a grouper) or the addItem. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n2459"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1782"
-       x="626"
-       y="656"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.subSite"
-   id="n1783"><title
-   id="title305">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>
-subSite</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1784">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-surface.html"
-   id="n1785"><title
-   id="n1786">The code for the tooth surface and surface combinations. (Strength=Example)</title>
-SurfaceCodes</a>
-?? »</text>
-    <text
-       id="n1792"
-       x="626"
-       y="670"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.noteNumber"
-   id="n1793"><title
-   id="title312">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1794">positiveInt</a>
- [0..*]</text>
+       id="n2463"
+       x="718.51562"
+       y="688.06042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2464"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.noteNumber"><title
+   id="title64687">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2465"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1798"
-     transform="translate(21.207642,17.834778)">
+     id="n2469"
+     transform="translate(8.2090695,10.554518)">
+    <rect
+       id="ClaimResponse.addItem.bodySite"
+       x="726.64575"
+       y="794.18457"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2470"
+       x1="726.64575"
+       y1="822.18457"
+       x2="1008.2458"
+       y2="822.18457"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2471"
+       x="867.4458"
+       y="814.18457"
+       fill="#000000"
+       class="diagram-class-title">BodySite</text>
+    <text
+       id="n2472"
+       x="732.64575"
+       y="836.18457"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2473"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite.site"><title
+   id="title64696">Physical service site on the patient (limb, tooth, etc.)</title>site</a> : <a
+   id="n2474"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..*] « <a
+   id="n2475"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n2476"
+   xlink:href="valueset-tooth.html"><title
+   id="n2477">null (Strength=Example)</title>OralSiteCodes</a>?? »</text>
+    <text
+       id="n2484"
+       x="732.64575"
+       y="850.18457"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2485"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite.subSite"><title
+   id="title64704">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="n2486"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2487"
+   xlink:href="valueset-surface.html"><title
+   id="n2488">null (Strength=Example)</title>SurfaceCodes</a>?? »</text>
+  </g>
+  <g
+     id="n2494"
+     transform="translate(12.899966,28.145381)">
     <rect
        id="ClaimResponse.addItem.detail"
-       x="320.29236"
-       y="564.16522"
+       x="382.60739"
+       y="700.48602"
        rx="4"
        ry="4"
-       width="246.39999"
-       height="134"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="272.79999"
+       height="190"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1799"
-       x1="320.29236"
-       y1="592.16522"
-       x2="566.69238"
-       y2="592.16522"
+       id="n2495"
+       x1="382.60739"
+       y1="728.48602"
+       x2="655.40741"
+       y2="728.48602"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1800"
-       x="443.49237"
-       y="584.16522"
-       class="diagram-class-title"
-       style="fill:#000000">AddedItemDetail</text>
+       id="n2496"
+       x="519.00739"
+       y="720.48602"
+       fill="#000000"
+       class="diagram-class-title">AddedItemDetail</text>
     <text
-       id="n1801"
-       x="326.29236"
-       y="606.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.productOrService"
-   id="n1802"><title
-   id="title321">When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item</title>
-productOrService</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1803">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-service-uscls.html"
-   id="n1804"><title
-   id="n1805">Allowable service and product codes. (Strength=Example)</title>
-USCLSCodes</a>
-?? »</text>
+       id="n2497"
+       x="388.60739"
+       y="742.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2498"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.traceNumber"><title
+   id="title64715">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2499"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1811"
-       x="326.29236"
-       y="620.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.modifier"
-   id="n1812"><title
-   id="title328">Item typification or modifiers codes to convey additional context for the product or service</title>
-modifier</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1813">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-claim-modifiers.html"
-   id="n1814"><title
-   id="n1815">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen. (Strength=Example)</title>
-ModifierTypeCodes</a>
-?? »</text>
+       id="n2503"
+       x="388.60739"
+       y="756.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2504"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.revenue"><title
+   id="title64720">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n2505"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2506"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n2507">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
     <text
-       id="n1821"
-       x="326.29236"
-       y="634.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.quantity"
-   id="n1822"><title
-   id="title335">The number of repetitions of a service or product</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n1823">Quantity</a>
-(<a
+       id="n2513"
+       x="388.60739"
+       y="770.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2514"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.productOrService"><title
+   id="title64727">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n2515"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2516"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2517">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2523"
+       x="388.60739"
+       y="784.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2524"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.productOrServiceEnd"><title
+   id="title64734">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n2525"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2526"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2527">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2533"
+       x="388.60739"
+       y="798.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2534"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.modifier"><title
+   id="title64741">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n2535"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2536"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n2537">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n2543"
+       x="388.60739"
+       y="812.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2544"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.quantity"><title
+   id="title64748">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n2545"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a339">SimpleQuantity</a>
-) [0..1]</text>
+   id="a64752">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n1827"
-       x="326.29236"
-       y="648.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.unitPrice"
-   id="n1828"><title
-   id="title342">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>
-unitPrice</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1829">Money</a>
- [0..1]</text>
+       id="n2549"
+       x="388.60739"
+       y="826.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2550"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.unitPrice"><title
+   id="title64755">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n2551"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1833"
-       x="326.29236"
-       y="662.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.factor"
-   id="n1834"><title
-   id="title347">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>
-factor</a>
- : <a
-   xlink:href="datatypes.html#decimal"
-   id="n1835">decimal</a>
- [0..1]</text>
+       id="n2555"
+       x="388.60739"
+       y="840.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2556"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.factor"><title
+   id="title64760">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n2557"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
     <text
-       id="n1839"
-       x="326.29236"
-       y="676.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.net"
-   id="n1840"><title
-   id="title352">The quantity times the unit price for an additional service or product or charge</title>
-net</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1841">Money</a>
- [0..1]</text>
+       id="n2561"
+       x="388.60739"
+       y="854.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2562"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.tax"><title
+   id="title64765">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n2563"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1845"
-       x="326.29236"
-       y="690.16522"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.noteNumber"
-   id="n1846"><title
-   id="title357">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1847">positiveInt</a>
- [0..*]</text>
+       id="n2567"
+       x="388.60739"
+       y="868.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2568"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.net"><title
+   id="title64770">The total amount claimed for the group (if a grouper) or the addItem.detail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n2569"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2573"
+       x="388.60739"
+       y="882.48602"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2574"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.noteNumber"><title
+   id="title64775">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2575"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1851"
-     transform="translate(-48.567034,-22.523842)">
+     id="n2579"
+     transform="translate(16.418139,29.318106)">
     <rect
        id="ClaimResponse.addItem.detail.subDetail"
-       x="79.1483"
-       y="712.49152"
+       x="8.0706263"
+       y="707.00665"
        rx="4"
        ry="4"
-       width="246.39999"
-       height="134"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="272.79999"
+       height="190"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1852"
-       x1="79.1483"
-       y1="740.49152"
-       x2="325.54831"
-       y2="740.49152"
+       id="n2580"
+       x1="8.0706263"
+       y1="735.00665"
+       x2="280.87064"
+       y2="735.00665"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1853"
-       x="202.3483"
-       y="732.49152"
-       class="diagram-class-title"
-       style="fill:#000000">AddedItemSubDetail</text>
+       id="n2581"
+       x="144.47063"
+       y="727.00665"
+       fill="#000000"
+       class="diagram-class-title">AddedItemSubDetail</text>
     <text
-       id="n1854"
-       x="85.1483"
-       y="754.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.productOrService"
-   id="n1855"><title
-   id="title366">When the value is a group code then this item collects a set of related claim details, otherwise this contains the product, service, drug or other billing code for the item</title>
-productOrService</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1856">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-service-uscls.html"
-   id="n1857"><title
-   id="n1858">Allowable service and product codes. (Strength=Example)</title>
-USCLSCodes</a>
-?? »</text>
+       id="n2582"
+       x="14.070626"
+       y="749.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2583"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.traceNumber"><title
+   id="title64784">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2584"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n1864"
-       x="85.1483"
-       y="768.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.modifier"
-   id="n1865"><title
-   id="title373">Item typification or modifiers codes to convey additional context for the product or service</title>
-modifier</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1866">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-claim-modifiers.html"
-   id="n1867"><title
-   id="n1868">Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen. (Strength=Example)</title>
-ModifierTypeCodes</a>
-?? »</text>
+       id="n2588"
+       x="14.070626"
+       y="763.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2589"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.revenue"><title
+   id="title64789">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n2590"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2591"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n2592">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
     <text
-       id="n1874"
-       x="85.1483"
-       y="782.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.quantity"
-   id="n1875"><title
-   id="title380">The number of repetitions of a service or product</title>
-quantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n1876">Quantity</a>
-(<a
+       id="n2598"
+       x="14.070626"
+       y="777.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2599"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.productOrService"><title
+   id="title64796">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n2600"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2601"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2602">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2608"
+       x="14.070626"
+       y="791.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2609"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.productOrServiceEnd"><title
+   id="title64803">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n2610"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2611"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2612">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2618"
+       x="14.070626"
+       y="805.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2619"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.modifier"><title
+   id="title64810">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n2620"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2621"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n2622">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n2628"
+       x="14.070626"
+       y="819.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2629"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.quantity"><title
+   id="title64817">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n2630"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
    xlink:href="datatypes.html#SimpleQuantity"
-   id="a384">SimpleQuantity</a>
-) [0..1]</text>
+   id="a64821">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n1880"
-       x="85.1483"
-       y="796.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.unitPrice"
-   id="n1881"><title
-   id="title387">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>
-unitPrice</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1882">Money</a>
- [0..1]</text>
+       id="n2634"
+       x="14.070626"
+       y="833.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2635"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.unitPrice"><title
+   id="title64824">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n2636"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1886"
-       x="85.1483"
-       y="810.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.factor"
-   id="n1887"><title
-   id="title392">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>
-factor</a>
- : <a
-   xlink:href="datatypes.html#decimal"
-   id="n1888">decimal</a>
- [0..1]</text>
+       id="n2640"
+       x="14.070626"
+       y="847.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2641"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.factor"><title
+   id="title64829">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n2642"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
     <text
-       id="n1892"
-       x="85.1483"
-       y="824.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.net"
-   id="n1893"><title
-   id="title397">The quantity times the unit price for an additional service or product or charge</title>
-net</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1894">Money</a>
- [0..1]</text>
+       id="n2646"
+       x="14.070626"
+       y="861.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2647"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.tax"><title
+   id="title64834">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n2648"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1898"
-       x="85.1483"
-       y="838.49152"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.noteNumber"
-   id="n1899"><title
-   id="title402">The numbers associated with notes below which apply to the adjudication of this item</title>
-noteNumber</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1900">positiveInt</a>
- [0..*]</text>
+       id="n2652"
+       x="14.070626"
+       y="875.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2653"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.net"><title
+   id="title64839">The total amount claimed for the addItem.detail.subDetail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n2654"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2658"
+       x="14.070626"
+       y="889.00665"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2659"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.noteNumber"><title
+   id="title64844">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n2660"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
   </g>
   <g
-     id="n1904">
+     id="n2664"
+     transform="translate(4.6908968,32.836278)">
     <rect
        id="ClaimResponse.total"
-       x="0.0"
-       y="230.0"
+       x="0"
+       y="230"
        rx="4"
        ry="4"
-       width="264.0"
-       height="64.0"
+       width="264"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1905"
-       x1="0.0"
-       y1="258.0"
-       x2="264.0"
-       y2="258.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2665"
+       x1="0"
+       y1="258"
+       x2="264"
+       y2="258"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1906"
-       x="132.0"
-       y="250.0"
-       fill="black"
+       id="n2666"
+       x="132"
+       y="250"
+       fill="#000000"
        class="diagram-class-title">Total</text>
     <text
-       id="n1907"
-       x="6.0"
-       y="272.0"
-       fill="black"
+       id="n2667"
+       x="6"
+       y="272"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.total.category"
-   id="n1908"><title
-   id="title411">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item</title>
-category</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1909">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-adjudication.html"
-   id="n1910"><title
-   id="n1911">The adjudication codes. (Strength=Example)</title>
-AdjudicationValueCodes</a>
-?? »</text>
+   id="n2668"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.total.category"><title
+   id="title64853">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item</title>category</a> : <a
+   id="n2669"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2670"
+   xlink:href="valueset-adjudication.html"><title
+   id="n2671">null (Strength=Example)</title>AdjudicationValueCodes</a>?? »</text>
     <text
-       id="n1917"
-       x="6.0"
-       y="286.0"
-       fill="black"
+       id="n2677"
+       x="6"
+       y="286"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.total.amount"
-   id="n1918"><title
-   id="title418">Monetary total amount associated with the category</title>
-amount</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1919">Money</a>
- [1..1]</text>
+   id="n2678"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.total.amount"><title
+   id="title64860">Monetary total amount associated with the category</title>amount</a> : <a
+   id="n2679"
+   xlink:href="datatypes.html#Money">Money</a> [1..1]</text>
   </g>
   <g
-     id="n1923">
+     id="n2683"
+     transform="translate(28.145381,53.945314)">
     <rect
        id="ClaimResponse.payment"
-       x="680.0"
-       y="170.0"
+       x="716.27124"
+       y="165.16383"
        rx="4"
        ry="4"
        width="250.8"
-       height="134.0"
+       height="134"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1924"
-       x1="680.0"
-       y1="198.0"
-       x2="930.8"
-       y2="198.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2684"
+       x1="716.27124"
+       y1="193.16383"
+       x2="967.07123"
+       y2="193.16383"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1925"
-       x="805.4"
-       y="190.0"
-       fill="black"
+       id="n2685"
+       x="841.6712"
+       y="185.16383"
+       fill="#000000"
        class="diagram-class-title">Payment</text>
     <text
-       id="n1926"
-       x="686.0"
-       y="212.0"
-       fill="black"
+       id="n2686"
+       x="722.27124"
+       y="207.16383"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.type"
-   id="n1927"><title
-   id="title427">Whether this represents partial or complete payment of the benefits payable</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1928">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-ex-paymenttype.html"
-   id="n1929"><title
-   id="n1930">The type (partial, complete) of the payment. (Strength=Example)</title>
-ExamplePaymentTypeCodes</a>
-?? »</text>
+   id="n2687"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.type"><title
+   id="title64869">Whether this represents partial or complete payment of the benefits payable</title>type</a> : <a
+   id="n2688"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2689"
+   xlink:href="valueset-ex-paymenttype.html"><title
+   id="n2690">null (Strength=Example)</title>ExamplePaymentTypeCodes</a>?? »</text>
     <text
-       id="n1936"
-       x="686.0"
-       y="226.0"
-       fill="black"
+       id="n2696"
+       x="722.27124"
+       y="221.16383"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.adjustment"
-   id="n1937"><title
-   id="title434">Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication</title>
-adjustment</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1938">Money</a>
- [0..1]</text>
+   id="n2697"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.adjustment"><title
+   id="title64876">Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication</title>adjustment</a> : <a
+   id="n2698"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
     <text
-       id="n1942"
-       x="686.0"
-       y="240.0"
-       fill="black"
+       id="n2702"
+       x="722.27124"
+       y="235.16383"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.adjustmentReason"
-   id="n1943"><title
-   id="title439">Reason for the payment adjustment</title>
-adjustmentReason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1944">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-payment-adjustment-reason.html"
-   id="n1945">
-  <title
-     id="n1946">Payment Adjustment reason codes. (Strength=Example)</title>
-</a>
-</text>
+   id="n2703"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.adjustmentReason"><title
+   id="title64881">Reason for the payment adjustment</title>adjustmentReason</a> : <a
+   id="n2704"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2705"
+   xlink:href="valueset-payment-adjustment-reason.html"><title
+     id="n2706">null (Strength=Example)</title></a></text>
     <text
-       id="n1947"
-       x="706.0"
-       y="254.0"
-       fill="black"
+       id="n2707"
+       x="742.27124"
+       y="249.16383"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="valueset-payment-adjustment-reason.html"
-   id="n1948">PaymentAdjustmentReasonCodes</a>
-?? »</text>
+   id="n2708"
+   xlink:href="valueset-payment-adjustment-reason.html">PaymentAdjustmentReasonCodes</a>?? »</text>
     <text
-       id="n1956"
-       x="686.0"
-       y="268.0"
-       fill="black"
+       id="n2716"
+       x="722.27124"
+       y="263.16385"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.date"
-   id="n1957"><title
-   id="title448">Estimated date the payment will be issued or the actual issue date of payment</title>
-date</a>
- : <a
-   xlink:href="datatypes.html#date"
-   id="n1958">date</a>
- [0..1]</text>
+   id="n2717"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.date"><title
+   id="title64890">Estimated date the payment will be issued or the actual issue date of payment</title>date</a> : <a
+   id="n2718"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n1962"
-       x="686.0"
-       y="282.0"
-       fill="black"
+       id="n2722"
+       x="722.27124"
+       y="277.16385"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.amount"
-   id="n1963"><title
-   id="title453">Benefits payable less any payment adjustment</title>
-amount</a>
- : <a
-   xlink:href="datatypes.html#Money"
-   id="n1964">Money</a>
- [1..1]</text>
+   id="n2723"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.amount"><title
+   id="title64895">Benefits payable less any payment adjustment</title>amount</a> : <a
+   id="n2724"
+   xlink:href="datatypes.html#Money">Money</a> [1..1]</text>
     <text
-       id="n1968"
-       x="686.0"
-       y="296.0"
-       fill="black"
+       id="n2728"
+       x="722.27124"
+       y="291.16385"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.identifier"
-   id="n1969"><title
-   id="title458">Issuer's unique identifier for the payment instrument</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n1970">Identifier</a>
- [0..1]</text>
+   id="n2729"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.payment.identifier"><title
+   id="title64900">Issuer's unique identifier for the payment instrument</title>identifier</a> : <a
+   id="n2730"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
   </g>
   <g
-     id="n1974">
+     id="n2734"
+     transform="translate(14.072691,31.663554)">
     <rect
        id="ClaimResponse.processNote"
-       x="0.0"
-       y="110.0"
+       x="0"
+       y="114.6056"
        rx="4"
        ry="4"
-       width="233.20000000000002"
-       height="92.0"
+       width="220"
+       height="92"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n1975"
-       x1="0.0"
-       y1="138.0"
-       x2="233.20000000000002"
-       y2="138.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2735"
+       x1="0"
+       y1="142.60559"
+       x2="220"
+       y2="142.60559"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n1976"
-       x="116.60000000000001"
-       y="130.0"
-       fill="black"
+       id="n2736"
+       x="110"
+       y="134.60559"
+       fill="#000000"
        class="diagram-class-title">Note</text>
     <text
-       id="n1977"
-       x="6.0"
-       y="152.0"
-       fill="black"
+       id="n2737"
+       x="6"
+       y="156.60559"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.number"
-   id="n1978"><title
-   id="title467">A number to uniquely identify a note entry</title>
-number</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1979">positiveInt</a>
- [0..1]</text>
+   id="n2738"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.number"><title
+   id="title64909">A number to uniquely identify a note entry</title>number</a> : <a
+   id="n2739"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n1983"
-       x="6.0"
-       y="166.0"
-       fill="black"
+       id="n2743"
+       x="6"
+       y="170.60559"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.type"
-   id="n1984"><title
-   id="title472">The business purpose of the note text</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n1985">code</a>
- [0..1] « <a
-   xlink:href="valueset-note-type.html"
-   id="n1986"><title
-   id="n1987">The presentation types of notes. (Strength=Required)</title>
-NoteType</a>
-! »</text>
+   id="n2744"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.type"><title
+   id="title64914">The business purpose of the note text</title>type</a> : <a
+   id="n2745"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2746"
+   xlink:href="valueset-note-type.html"><title
+   id="n2747">null (Strength=Extensible)</title>NoteType</a>+ »</text>
     <text
-       id="n1993"
-       x="6.0"
-       y="180.0"
-       fill="black"
+       id="n2753"
+       x="6"
+       y="184.60559"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.text"
-   id="n1994"><title
-   id="title479">The explanation or description associated with the processing</title>
-text</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1995">string</a>
- [1..1]</text>
+   id="n2754"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.text"><title
+   id="title64921">The explanation or description associated with the processing</title>text</a> : <a
+   id="n2755"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
     <text
-       id="n1999"
-       x="6.0"
-       y="194.0"
-       fill="black"
+       id="n2759"
+       x="6"
+       y="198.60559"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.language"
-   id="n2000"><title
-   id="title484">A code to define the language used in the text of the note</title>
-language</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n2001">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-languages.html"
-   id="n2002"><title
-   id="title488">A human language. (Strength=Preferred)</title>
-CommonLanguages</a>
-? »</text>
+   id="n2760"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.processNote.language"><title
+   id="title64926">A code to define the language used in the text of the note</title>language</a> : <a
+   id="n2761"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2762"
+   xlink:href="valueset-all-languages.html"><title
+   id="n2763">null (Strength=Required)</title>AllLanguages</a>! »</text>
   </g>
   <g
-     id="n2007">
+     id="n2769"
+     transform="translate(8.2090695,72.708902)">
     <rect
        id="ClaimResponse.insurance"
-       x="680.0"
-       y="0.0"
+       x="744.07916"
+       y="18.135612"
        rx="4"
        ry="4"
-       width="220.00000000000003"
-       height="106.0"
+       width="220"
+       height="106"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n2008"
-       x1="680.0"
-       y1="28.0"
-       x2="900.0"
-       y2="28.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2770"
+       x1="744.07916"
+       y1="46.135612"
+       x2="964.07916"
+       y2="46.135612"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n2009"
-       x="790.0"
-       y="20.0"
-       fill="black"
+       id="n2771"
+       x="854.07916"
+       y="38.135612"
+       fill="#000000"
        class="diagram-class-title">Insurance</text>
     <text
-       id="n2010"
-       x="686.0"
-       y="42.0"
-       fill="black"
+       id="n2772"
+       x="750.07916"
+       y="60.135612"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.sequence"
-   id="n2011"><title
-   id="title496">A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order</title>
-sequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n2012">positiveInt</a>
- [1..1]</text>
+   id="n2773"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.sequence"><title
+   id="title64937">A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order</title>sequence</a> : <a
+   id="n2774"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
     <text
-       id="n2016"
-       x="686.0"
-       y="56.0"
-       fill="black"
+       id="n2778"
+       x="750.07916"
+       y="74.135612"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.focal"
-   id="n2017"><title
-   id="title501">A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true</title>
-focal</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n2018">boolean</a>
- [1..1]</text>
+   id="n2779"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.focal"><title
+   id="title64942">A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true</title>focal</a> : <a
+   id="n2780"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
     <text
-       id="n2022"
-       x="686.0"
-       y="70.0"
-       fill="black"
+       id="n2784"
+       x="750.07916"
+       y="88.135612"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.coverage"
-   id="n2023"><title
-   id="title506">Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system</title>
-coverage</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n2024">Reference</a>
- [1..1] « <a
-   xlink:href="coverage.html#Coverage"
-   id="n2025">Coverage</a>
- »</text>
+   id="n2785"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.coverage"><title
+   id="title64947">Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system</title>coverage</a> : <a
+   id="n2786"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n2787"
+   xlink:href="coverage.html#Coverage">Coverage</a> »</text>
     <text
-       id="n2030"
-       x="686.0"
-       y="84.0"
-       fill="black"
+       id="n2792"
+       x="750.07916"
+       y="102.13561"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.businessArrangement"
-   id="n2031"><title
-   id="title512">A business agreement number established between the provider and the insurer for special business processing purposes</title>
-businessArrangement</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n2032">string</a>
- [0..1]</text>
+   id="n2793"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.businessArrangement"><title
+   id="title64953">A business agreement number established between the provider and the insurer for special business processing purposes</title>businessArrangement</a> : <a
+   id="n2794"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n2036"
-       x="686.0"
-       y="98.0"
-       fill="black"
+       id="n2798"
+       x="750.07916"
+       y="116.13561"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.claimResponse"
-   id="n2037"><title
-   id="title517">The result of the adjudication of the line items for the Coverage specified in this insurance</title>
-claimResponse</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n2038">Reference</a>
- [0..1] « <a
-   xlink:href="claimresponse.html#ClaimResponse"
-   id="n2039">ClaimResponse</a>
- »</text>
+   id="n2799"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.insurance.claimResponse"><title
+   id="title64958">The result of the adjudication of the line items for the Coverage specified in this insurance</title>claimResponse</a> : <a
+   id="n2800"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2801"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
   </g>
   <g
-     id="n2044">
+     id="n2806"
+     transform="translate(12.899994,17.59086)">
     <rect
        id="ClaimResponse.error"
-       x="0.0"
-       y="0.0"
+       x="0"
+       y="0"
        rx="4"
        ry="4"
-       width="233.20000000000002"
-       height="92.0"
+       width="246.39999"
+       height="106"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n2045"
-       x1="0.0"
-       y1="28.0"
-       x2="233.20000000000002"
-       y2="28.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n2807"
+       x1="0"
+       y1="28"
+       x2="246.39999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n2046"
-       x="116.60000000000001"
-       y="20.0"
-       fill="black"
+       id="n2808"
+       x="123.2"
+       y="20"
+       fill="#000000"
        class="diagram-class-title">Error</text>
     <text
-       id="n2047"
-       x="6.0"
-       y="42.0"
-       fill="black"
+       id="n2809"
+       x="6"
+       y="42"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.error.itemSequence"
-   id="n2048"><title
-   id="title527">The sequence number of the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>
-itemSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n2049">positiveInt</a>
- [0..1]</text>
+   id="n2810"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.error.itemSequence"><title
+   id="title64968">The sequence number of the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>itemSequence</a> : <a
+   id="n2811"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n2053"
-       x="6.0"
-       y="56.0"
-       fill="black"
+       id="n2815"
+       x="6"
+       y="56"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.error.detailSequence"
-   id="n2054"><title
-   id="title532">The sequence number of the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>
-detailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n2055">positiveInt</a>
- [0..1]</text>
+   id="n2816"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.error.detailSequence"><title
+   id="title64973">The sequence number of the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>detailSequence</a> : <a
+   id="n2817"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n2059"
-       x="6.0"
-       y="70.0"
-       fill="black"
+       id="n2821"
+       x="6"
+       y="70"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.error.subDetailSequence"
-   id="n2060"><title
-   id="title537">The sequence number of the sub-detail within the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>
-subDetailSequence</a>
- : <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n2061">positiveInt</a>
- [0..1]</text>
+   id="n2822"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.error.subDetailSequence"><title
+   id="title64978">The sequence number of the sub-detail within the detail within the line item submitted which contains the error. This value is omitted when the error occurs outside of the item structure</title>subDetailSequence</a> : <a
+   id="n2823"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
     <text
-       id="n2065"
-       x="6.0"
-       y="84.0"
-       fill="black"
+       id="n2827"
+       x="6"
+       y="84"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="claimresponse-definitions.html#ClaimResponse.error.code"
-   id="n2066"><title
-   id="title542">An error code, from a specified code system, which details why the claim could not be adjudicated</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n2067">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-adjudication-error.html"
-   id="n2068"><title
-   id="n2069">The adjudication error codes. (Strength=Example)</title>
-Adjudication Error </a>
-?? »</text>
+   id="n2828"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.error.code"><title
+   id="title64983">An error code, from a specified code system, which details why the claim could not be adjudicated</title>code</a> : <a
+   id="n2829"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2830"
+   xlink:href="valueset-adjudication-error.html"><title
+   id="n2831">null (Strength=Example)</title>AdjudicationErrorCodes</a>?? »</text>
+    <text
+       id="n2837"
+       x="6"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2838"
+   xlink:href="claimresponse-definitions.html#ClaimResponse.error.expression"><title
+   id="title64990">A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised</title>expression</a> : <a
+   id="n2839"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
   </g>
   <line
-     id="n2075"
-     x1="145.20000000000002"
-     y1="424.8280467445743"
-     x2="300.0"
-     y2="430.85809682804677"
+     id="n2843"
+     x1="310.0"
+     y1="123.82031250000001"
+     x2="176.83478260869566"
+     y2="64.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2076"
-     points="145.20000000000002,424.8280467445743 151.20000000000002,428.8280467445743 157.20000000000002,424.8280467445743 151.20000000000002,420.8280467445743 145.20000000000002,424.8280467445743"
+     id="n2844"
+     points="310.0,123.82031250000001 316.0,127.82031250000001 322.0,123.82031250000001 316.0,119.82031250000001 310.0,123.82031250000001"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(2.230761155924431 145.20000000000002 424.8280467445743)" />
+     transform="rotate(-155.80948995187327 310.0 123.82031250000001)" />
   <rect
-     id="n2077"
-     x="196.0"
-     y="420.0"
-     width="52.0"
+     id="n2845"
+     x="232.0"
+     y="86.0"
+     width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2078"
-     x="222.0"
-     y="430.0"
+     id="n2846"
+     x="243.0"
+     y="96.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication"
-       id="n2079"><title
-   id="title553">If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item</title>
-adjudication</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2847"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.event"><title
+   id="title64999">Information code for an event with a corresponding date or period</title>event</a></text>
   <text
-     id="n2080"
-     x="280.0"
-     y="426.85809682804677"
-     fill="black"
-     class="diagram-class-linkage">[1..*]</text>
-  <line
-     id="n2081"
-     x1="154.0"
-     y1="511.1774647887324"
-     x2="300.0"
-     y2="471.6957746478873"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2082"
-     points="154.0,511.1774647887324 160.0,515.1774647887323 166.0,511.1774647887324 160.0,507.1774647887324 154.0,511.1774647887324"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-15.132137252138685 154.0 511.1774647887324)" />
-  <rect
-     id="n2083"
-     x="201.0"
-     y="484.0"
-     width="52.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2084"
-     x="227.0"
-     y="494.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.adjudication"
-       id="n2085"><title
-   id="title561">The adjudication results</title>
-adjudication</a>
-  </text>
-  <text
-     id="n2086"
-     x="280.0"
-     y="467.6957746478873"
-     fill="black"
-     class="diagram-class-linkage">[1..*]</text>
-  <line
-     id="n2087"
-     x1="137.72038834951465"
-     y1="610.0"
-     x2="354.20194174757285"
-     y2="482.0"
-     style="stroke:navy;stroke-width:1" />
-  <polygon
-     id="n2088"
-     points="137.72038834951465,610.0 143.72038834951465,614.0 149.72038834951465,610.0 143.72038834951465,606.0 137.72038834951465,610.0"
-     style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-30.594737969940137 137.72038834951465 610.0)" />
-  <rect
-     id="n2089"
-     x="219.0"
-     y="539.0"
-     width="52.0"
-     height="18.0"
-     style="fill:white;stroke:black;stroke-width:0" />
-  <text
-     id="n2090"
-     x="245.0"
-     y="549.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.adjudication"
-       id="n2091"><title
-   id="title569">The adjudication results</title>
-adjudication</a>
-  </text>
-  <text
-     id="n2092"
-     x="354.20194174757285"
-     y="496.0"
+     id="n2848"
+     x="176.83478260869566"
+     y="78.0"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2093"
-     x1="78.92"
-     y1="564.0"
-     x2="81.67999999999999"
-     y2="610.0"
+     id="n2849"
+     x1="162.16520094161234"
+     y1="426.37239"
+     x2="373.69450184835495"
+     y2="566.0693317000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2094"
-     points="78.92,564.0 84.92,568.0 90.92,564.0 84.92,560.0 78.92,564.0"
+     id="n2850"
+     points="162.16520094161234,426.37239 168.16520094161234,430.37239 174.16520094161234,426.37239 168.16520094161234,422.37239 162.16520094161234,426.37239"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(86.5663696375495 78.92 564.0)" />
+     transform="rotate(33.441336714194804 162.16520094161234 426.37239)" />
   <rect
-     id="n2095"
-     x="60.5"
-     y="580.0"
+     id="n2851"
+     x="238.5"
+     y="489.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2852"
+     x="267.0"
+     y="499.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2853"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.reviewOutcome"><title
+   id="title65007">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n2854"
+     x="373.69450184835495"
+     y="562.0693317000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2855"
+     x1="175.71134740000002"
+     y1="402.8602024983119"
+     x2="348.321289"
+     y2="439.68321091216"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2856"
+     points="175.71134740000002,402.8602024983119 181.71134740000002,406.8602024983119 187.71134740000002,402.8602024983119 181.71134740000002,398.8602024983119 175.71134740000002,402.8602024983119"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(12.042433608236724 175.71134740000002 402.8602024983119)" />
+  <rect
+     id="n2857"
+     x="236.0"
+     y="414.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2858"
+     x="262.0"
+     y="424.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2859"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.adjudication"><title
+   id="title65015">If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item</title>adjudication</a></text>
+  <text
+     id="n2860"
+     x="328.321289"
+     y="435.68321091216"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2861"
+     x1="185.72039"
+     y1="548.2772223844302"
+     x2="289.347765"
+     y2="573.9367969311395"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2862"
+     points="185.72039,548.2772223844302 191.72039,552.2772223844302 197.72039,548.2772223844302 191.72039,544.2772223844302 185.72039,548.2772223844302"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(13.907497867867685 185.72039 548.2772223844302)" />
+  <rect
+     id="n2863"
+     x="208.5"
+     y="554.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2864"
+     x="237.0"
+     y="564.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2865"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.reviewOutcome"><title
+   id="title65023">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n2866"
+     x="269.347765"
+     y="569.9367969311395"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2867"
+     x1="185.72039"
+     y1="516.4947786997915"
+     x2="348.321289"
+     y2="489.6420293717861"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2868"
+     points="185.72039,516.4947786997915 191.72039,520.4947786997915 197.72039,516.4947786997915 191.72039,512.4947786997915 185.72039,516.4947786997915"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-9.377480793715796 185.72039 516.4947786997915)" />
+  <rect
+     id="n2869"
+     x="241.0"
+     y="496.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2870"
+     x="267.0"
+     y="506.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2871"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.adjudication"><title
+   id="title65031">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n2872"
+     x="328.321289"
+     y="485.6420293717861"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2873"
+     x1="195.69676090000002"
+     y1="638.0430572220878"
+     x2="289.347765"
+     y2="628.220906554049"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2874"
+     points="195.69676090000002,638.0430572220878 201.69676090000002,642.0430572220878 207.69676090000002,638.0430572220878 201.69676090000002,634.0430572220878 195.69676090000002,638.0430572220878"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.987312532984195 195.69676090000002 638.0430572220878)" />
+  <rect
+     id="n2875"
+     x="213.5"
+     y="626.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2876"
+     x="242.0"
+     y="636.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2877"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.reviewOutcome"><title
+   id="title65039">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n2878"
+     x="269.347765"
+     y="624.220906554049"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2879"
+     x1="192.3387133783133"
+     y1="607.811055"
+     x2="385.67693479481005"
+     y2="513.8428699999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2880"
+     points="192.3387133783133,607.811055 198.3387133783133,611.811055 204.3387133783133,607.811055 198.3387133783133,603.811055 192.3387133783133,607.811055"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-25.921144557327956 192.3387133783133 607.811055)" />
+  <rect
+     id="n2881"
+     x="263.0"
+     y="553.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2882"
+     x="289.0"
+     y="563.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2883"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail.adjudication"><title
+   id="title65047">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n2884"
+     x="385.67693479481005"
+     y="527.8428699999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2885"
+     x1="109.84010388714809"
+     y1="568.210955"
+     x2="110.97704701285198"
+     y2="607.8110550000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2886"
+     points="109.84010388714809,568.210955 115.84010388714809,572.210955 121.84010388714809,568.210955 115.84010388714809,564.210955 109.84010388714809,568.210955"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(88.35545484353877 109.84010388714809 568.210955)" />
+  <rect
+     id="n2887"
+     x="90.5"
+     y="581.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2096"
-     x="80.0"
-     y="590.0"
+     id="n2888"
+     x="110.0"
+     y="591.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail"
-       id="n2097"><title
-   id="title577">A sub-detail adjudication of a simple product or service</title>
-subDetail</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2889"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail.subDetail"><title
+   id="title65055">A sub-detail adjudication of a simple product or service</title>subDetail</a></text>
   <text
-     id="n2098"
-     x="81.67999999999999"
-     y="606.0"
+     id="n2890"
+     x="110.97704701285198"
+     y="603.8110550000001"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2099"
-     x1="73.88"
-     y1="454.0"
-     x2="75.72"
-     y2="500.0"
+     id="n2891"
+     x1="104.65361244900134"
+     y1="426.37239"
+     x2="107.17812495099872"
+     y2="490.210955"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2100"
-     points="73.88,454.0 79.88,458.0 85.88,454.0 79.88,450.0 73.88,454.0"
+     id="n2892"
+     points="104.65361244900134,426.37239 110.65361244900134,430.37239 116.65361244900134,426.37239 110.65361244900134,422.37239 104.65361244900134,426.37239"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(87.70938995736147 73.88 454.0)" />
+     transform="rotate(87.73540362335022 104.65361244900134 426.37239)" />
   <rect
-     id="n2101"
-     x="61.0"
-     y="470.0"
+     id="n2893"
+     x="92.0"
+     y="451.0"
      width="26.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2102"
-     x="74.0"
-     y="480.0"
+     id="n2894"
+     x="105.0"
+     y="461.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail"
-       id="n2103"><title
-   id="title585">A claim detail. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>
-detail</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2895"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item.detail"><title
+   id="title65063">A claim detail. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>detail</a></text>
   <text
-     id="n2104"
-     x="75.72"
-     y="496.0"
+     id="n2896"
+     x="107.17812495099872"
+     y="486.210955"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2105"
+     id="n2897"
      x1="310.0"
-     y1="256.2845055526177"
-     x2="118.44242424242431"
-     y2="390.0"
+     y1="275.9434448668503"
+     x2="175.5221329616737"
+     y2="348.37239"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2106"
-     points="310.0,256.2845055526177 316.0,260.2845055526177 322.0,256.2845055526177 316.0,252.2845055526177 310.0,256.2845055526177"
+     id="n2898"
+     points="310.0,275.9434448668503 316.0,279.9434448668503 322.0,275.9434448668503 316.0,271.9434448668503 310.0,275.9434448668503"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(145.08328859793053 310.0 256.2845055526177)" />
+     transform="rotate(151.69336994467972 310.0 275.9434448668503)" />
   <rect
-     id="n2107"
-     x="205.5"
-     y="316.0"
+     id="n2899"
+     x="233.5"
+     y="305.0"
      width="17.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2108"
-     x="214.0"
-     y="326.0"
+     id="n2900"
+     x="242.0"
+     y="315.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.item"
-       id="n2109"><title
-   id="title593">A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details</title>
-item</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2901"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.item"><title
+   id="title65071">A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details</title>item</a></text>
   <text
-     id="n2110"
-     x="118.44242424242431"
-     y="386.0"
+     id="n2902"
+     x="175.5221329616737"
+     y="344.37239"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2111"
-     x1="620.0"
-     y1="491.2941176470588"
-     x2="564.0"
-     y2="474.82352941176464"
+     id="n2903"
+     x1="867.0451655080733"
+     y1="696.0604370000074"
+     x2="867.3472620217537"
+     y2="794.1845609999727"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2112"
-     points="620.0,491.2941176470588 626.0,495.2941176470588 632.0,491.2941176470588 626.0,487.2941176470588 620.0,491.2941176470588"
+     id="n2904"
+     points="867.0451655080733,696.0604370000074 873.0451655080733,700.0604370000074 879.0451655080733,696.0604370000074 873.0451655080733,692.0604370000074 867.0451655080733,696.0604370000074"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-163.6104596659652 620.0 491.2941176470588)" />
+     transform="rotate(89.82360300559253 867.0451655080733 696.0604370000074)" />
   <rect
-     id="n2113"
-     x="566.0"
-     y="476.0"
-     width="52.0"
+     id="n2905"
+     x="849.5"
+     y="738.0"
+     width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2114"
-     x="592.0"
-     y="486.0"
+     id="n2906"
+     x="867.0"
+     y="748.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.adjudication"
-       id="n2115"><title
-   id="title601">The adjudication results</title>
-adjudication</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2907"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.bodySite"><title
+   id="title65079">Physical location where the service is performed or applies</title>bodySite</a></text>
   <text
-     id="n2116"
-     x="579.0"
-     y="470.82352941176464"
+     id="n2908"
+     x="867.3472620217537"
+     y="790.1845609999727"
      fill="black"
-     class="diagram-class-linkage">[1..*]</text>
+     class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2117"
-     x1="439.5470529417636"
-     y1="564.16525"
-     x2="434.708725144461"
-     y2="482.0"
+     id="n2909"
+     x1="712.515626"
+     y1="556.0887903625916"
+     x2="597.347765"
+     y2="580.0409783374085"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2118"
-     points="439.5470529417636,564.16525 445.5470529417636,568.16525 451.5470529417636,564.16525 445.5470529417636,560.16525 439.5470529417636,564.16525"
+     id="n2910"
+     points="712.515626,556.0887903625916 718.515626,560.0887903625916 724.515626,556.0887903625916 718.515626,552.0887903625916 712.515626,556.0887903625916"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-93.36998930936143 439.5470529417636 564.16525)" />
+     transform="rotate(168.2513169041678 712.515626 556.0887903625916)" />
   <rect
-     id="n2119"
-     x="411.0"
-     y="516.0"
-     width="52.0"
+     id="n2911"
+     x="625.5"
+     y="561.0"
+     width="57.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2120"
-     x="437.0"
-     y="526.0"
+     id="n2912"
+     x="654.0"
+     y="571.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.adjudication"
-       id="n2121"><title
-   id="title609">The adjudication results</title>
-adjudication</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2913"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.reviewOutcome"><title
+   id="title65087">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
   <text
-     id="n2122"
-     x="434.708725144461"
-     y="496.0"
+     id="n2914"
+     x="612.347765"
+     y="576.0409783374085"
      fill="black"
-     class="diagram-class-linkage">[1..*]</text>
+     class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n2123"
-     x1="247.14318591756535"
-     y1="712.49153"
-     x2="401.2453022058506"
-     y2="482.0"
+     id="n2915"
+     x1="712.515626"
+     y1="501.64295313617015"
+     x2="612.321289"
+     y2="487.05785616899715"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2124"
-     points="247.14318591756535,712.49153 253.14318591756535,716.49153 259.14318591756535,712.49153 253.14318591756535,708.49153 247.14318591756535,712.49153"
+     id="n2916"
+     points="712.515626,501.64295313617015 718.515626,505.64295313617015 724.515626,501.64295313617015 718.515626,497.64295313617015 712.515626,501.64295313617015"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-56.23408929215329 247.14318591756535 712.49153)" />
+     transform="rotate(-171.71773716793223 712.515626 501.64295313617015)" />
   <rect
-     id="n2125"
-     x="298.0"
-     y="590.0"
+     id="n2917"
+     x="636.0"
+     y="487.0"
      width="52.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2126"
-     x="324.0"
+     id="n2918"
+     x="662.0"
+     y="497.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2919"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.adjudication"><title
+   id="title65095">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n2920"
+     x="627.321289"
+     y="483.05785616899715"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2921"
+     x1="479.81975641972747"
+     y1="700.4859950000001"
+     x2="462.32282629150046"
+     y2="658.0693316999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2922"
+     points="479.81975641972747,700.4859950000001 485.81975641972747,704.4859950000001 491.81975641972747,700.4859950000001 485.81975641972747,696.4859950000001 479.81975641972747,700.4859950000001"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-112.41621272040139 479.81975641972747 700.4859950000001)" />
+  <rect
+     id="n2923"
+     x="442.5"
+     y="672.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2924"
+     x="471.0"
+     y="682.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2925"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.reviewOutcome"><title
+   id="title65103">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n2926"
+     x="462.32282629150046"
+     y="672.0693316999999"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2927"
+     x1="507.7903646969302"
+     y1="700.485995"
+     x2="485.7526873362233"
+     y2="513.8428699999995"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2928"
+     points="507.7903646969302,700.485995 513.7903646969303,704.485995 519.7903646969303,700.485995 513.7903646969303,696.485995 507.7903646969302,700.485995"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-96.73395662973186 507.7903646969302 700.485995)" />
+  <rect
+     id="n2929"
+     x="470.0"
      y="600.0"
-     fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.adjudication"
-       id="n2127"><title
-   id="title617">The adjudication results</title>
-adjudication</a>
-  </text>
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2128"
-     x="401.2453022058506"
-     y="496.0"
+     id="n2930"
+     x="496.0"
+     y="610.0"
      fill="black"
-     class="diagram-class-linkage">[1..*]</text>
+     class="diagram-class-linkage"><a
+       id="n2931"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.adjudication"><title
+   id="title65111">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n2932"
+     x="485.7526873362233"
+     y="527.8428699999995"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2129"
-     x1="334.56593639699986"
-     y1="698.1652500000001"
-     x2="311.2747336030002"
-     y2="712.49153"
+     id="n2933"
+     x1="280.870626"
+     y1="715.3240354394686"
+     x2="370.96415318064703"
+     y2="658.0693317"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2130"
-     points="334.56593639699986,698.1652500000001 340.56593639699986,702.1652500000001 346.56593639699986,698.1652500000001 340.56593639699986,694.1652500000001 334.56593639699986,698.1652500000001"
+     id="n2934"
+     points="280.870626,715.3240354394686 286.870626,719.3240354394686 292.870626,715.3240354394686 286.870626,711.3240354394686 280.870626,715.3240354394686"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(148.40457505890066 334.56593639699986 698.1652500000001)" />
+     transform="rotate(-32.436079510643914 280.870626 715.3240354394686)" />
   <rect
-     id="n2131"
-     x="302.5"
-     y="698.0"
+     id="n2935"
+     x="296.5"
+     y="679.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2936"
+     x="325.0"
+     y="689.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2937"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.reviewOutcome"><title
+   id="title65119">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n2938"
+     x="370.96415318064703"
+     y="672.0693317"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n2939"
+     x1="239.95019574809075"
+     y1="707.0066400000001"
+     x2="434.0890762798718"
+     y2="513.8428699999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2940"
+     points="239.95019574809075,707.0066400000001 245.95019574809075,711.0066400000001 251.95019574809075,707.0066400000001 245.95019574809075,703.0066400000001 239.95019574809075,707.0066400000001"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-44.855746920645586 239.95019574809075 707.0066400000001)" />
+  <rect
+     id="n2941"
+     x="311.0"
+     y="603.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n2942"
+     x="337.0"
+     y="613.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n2943"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail.adjudication"><title
+   id="title65127">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n2944"
+     x="434.0890762798718"
+     y="527.8428699999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n2945"
+     x1="382.60738299999997"
+     y1="797.860704454752"
+     x2="280.870626"
+     y2="799.6319305452482"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n2946"
+     points="382.60738299999997,797.860704454752 388.60738299999997,801.860704454752 394.60738299999997,797.860704454752 388.60738299999997,793.860704454752 382.60738299999997,797.860704454752"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(179.00258735374993 382.60738299999997 797.860704454752)" />
+  <rect
+     id="n2947"
+     x="311.5"
+     y="791.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2132"
-     x="322.0"
-     y="708.0"
+     id="n2948"
+     x="331.0"
+     y="801.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail"
-       id="n2133"><title
-   id="title625">The third-tier service adjudications for payor added services</title>
-subDetail</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2949"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail.subDetail"><title
+   id="title65135">The third-tier service adjudications for payor added services</title>subDetail</a></text>
   <text
-     id="n2134"
-     x="311.2747336030002"
-     y="708.49153"
+     id="n2950"
+     x="295.870626"
+     y="795.6319305452482"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2135"
-     x1="620.0"
-     y1="577.854708388483"
-     x2="566.69237"
-     y2="593.9551943976508"
+     id="n2951"
+     x1="712.515626"
+     y1="644.3440181063049"
+     x2="640.6366183905743"
+     y2="700.485995"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2136"
-     points="620.0,577.854708388483 626.0,581.854708388483 632.0,577.854708388483 626.0,573.854708388483 620.0,577.854708388483"
+     id="n2952"
+     points="712.515626,644.3440181063049 718.515626,648.3440181063049 724.515626,644.3440181063049 718.515626,640.3440181063049 712.515626,644.3440181063049"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(163.19412587281423 620.0 577.854708388483)" />
+     transform="rotate(142.00794949566338 712.515626 644.3440181063049)" />
   <rect
-     id="n2137"
-     x="580.0"
-     y="578.0"
+     id="n2953"
+     x="663.0"
+     y="665.0"
      width="26.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2138"
-     x="593.0"
-     y="588.0"
+     id="n2954"
+     x="676.0"
+     y="675.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail"
-       id="n2139"><title
-   id="title633">The second-tier service adjudications for payor added services</title>
-detail</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2955"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem.detail"><title
+   id="title65143">The second-tier service adjudications for payor added services</title>detail</a></text>
   <text
-     id="n2140"
-     x="581.69237"
-     y="589.9551943976508"
+     id="n2956"
+     x="640.6366183905743"
+     y="696.485995"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2141"
-     x1="582.9148936170213"
-     y1="316.0"
-     x2="644.7914893617022"
-     y2="390.0000000000001"
+     id="n2957"
+     x1="618.0"
+     y1="319.6616846770564"
+     x2="712.515626"
+     y2="397.39875232294344"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2142"
-     points="582.9148936170213,316.0 588.9148936170213,320.0 594.9148936170213,316.0 588.9148936170213,312.0 582.9148936170213,316.0"
+     id="n2958"
+     points="618.0,319.6616846770564 624.0,323.6616846770564 630.0,319.6616846770564 624.0,315.6616846770564 618.0,319.6616846770564"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(50.098636680142945 582.9148936170213 316.0)" />
+     transform="rotate(39.436560995928936 618.0 319.6616846770564)" />
   <rect
-     id="n2143"
-     x="598.0"
-     y="346.0"
+     id="n2959"
+     x="650.0"
+     y="351.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2144"
-     x="613.0"
-     y="356.0"
+     id="n2960"
+     x="665.0"
+     y="361.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem"
-       id="n2145"><title
-   id="title641">The first-tier service adjudications for payor added product or service lines</title>
-addItem</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2961"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.addItem"><title
+   id="title65151">The first-tier service adjudications for payor added product or service lines</title>addItem</a></text>
   <text
-     id="n2146"
-     x="644.7914893617022"
-     y="386.0000000000001"
+     id="n2962"
+     x="692.515626"
+     y="393.39875232294344"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2147"
-     x1="440.11510791366914"
-     y1="316.0"
-     x2="435.11079136690654"
-     y2="390.0"
+     id="n2963"
+     x1="475.46112604994994"
+     y1="386.0"
+     x2="477.5896216513073"
+     y2="421.8428700000004"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2148"
-     points="440.11510791366914,316.0 446.11510791366914,320.0 452.11510791366914,316.0 446.11510791366914,312.0 440.11510791366914,316.0"
+     id="n2964"
+     points="475.46112604994994,386.0 481.46112604994994,390.0 487.46112604994994,386.0 481.46112604994994,382.0 475.46112604994994,386.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(93.86878812888294 440.11510791366914 316.0)" />
+     transform="rotate(86.6015343688018 475.46112604994994 386.0)" />
   <rect
-     id="n2149"
-     x="411.0"
-     y="346.0"
+     id="n2965"
+     x="450.0"
+     y="396.0"
      width="52.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2150"
-     x="437.0"
-     y="356.0"
+     id="n2966"
+     x="476.0"
+     y="406.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.adjudication"
-       id="n2151"><title
-   id="title649">The adjudication results which are presented at the header level rather than at the line-item or add-item levels</title>
-adjudication</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2967"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.adjudication"><title
+   id="title65159">The adjudication results which are presented at the header level rather than at the line-item or add-item levels</title>adjudication</a></text>
   <text
-     id="n2152"
-     x="435.11079136690654"
-     y="386.0"
+     id="n2968"
+     x="477.5896216513073"
+     y="417.8428700000004"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2153"
+     id="n2969"
      x1="310.0"
-     y1="203.93224592220832"
-     x2="230.0923076923078"
-     y2="230.0"
+     y1="225.00602409638557"
+     x2="264.0"
+     y2="234.566265060241"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2154"
-     points="310.0,203.93224592220832 316.0,207.93224592220832 322.0,203.93224592220832 316.0,199.93224592220832 310.0,203.93224592220832"
+     id="n2970"
+     points="310.0,225.00602409638557 316.0,229.00602409638557 322.0,225.00602409638557 316.0,221.00602409638557 310.0,225.00602409638557"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(161.93246532290752 310.0 203.93224592220832)" />
+     transform="rotate(168.25928030897117 310.0 225.00602409638557)" />
   <rect
-     id="n2155"
-     x="259.0"
-     y="209.0"
+     id="n2971"
+     x="276.0"
+     y="222.0"
      width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2156"
-     x="270.0"
-     y="219.0"
+     id="n2972"
+     x="287.0"
+     y="232.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.total"
-       id="n2157"><title
-   id="title657">Categorized monetary totals for the adjudication</title>
-total</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2973"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.total"><title
+   id="title65167">Categorized monetary totals for the adjudication</title>total</a></text>
   <text
-     id="n2158"
-     x="230.0923076923078"
-     y="226.0"
+     id="n2974"
+     x="279.0"
+     y="230.566265060241"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2159"
-     x1="591.6"
-     y1="189.36830231246472"
-     x2="680.0"
-     y2="209.06260575296108"
+     id="n2975"
+     x1="618.0"
+     y1="208.9695270715951"
+     x2="716.271225"
+     y2="219.16007894170104"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2160"
-     points="591.6,189.36830231246472 597.6,193.36830231246472 603.6,189.36830231246472 597.6,185.36830231246472 591.6,189.36830231246472"
+     id="n2976"
+     points="618.0,208.9695270715951 624.0,212.9695270715951 630.0,208.9695270715951 624.0,204.9695270715951 618.0,208.9695270715951"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(12.559599013025363 591.6 189.36830231246472)" />
+     transform="rotate(5.920310302434484 618.0 208.9695270715951)" />
   <rect
-     id="n2161"
-     x="620.0"
-     y="192.0"
+     id="n2977"
+     x="652.0"
+     y="207.0"
      width="30.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2162"
-     x="635.0"
-     y="202.0"
+     id="n2978"
+     x="667.0"
+     y="217.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.payment"
-       id="n2163"><title
-   id="title665">Payment details for the adjudication of the claim</title>
-payment</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2979"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.payment"><title
+   id="title65175">Payment details for the adjudication of the claim</title>payment</a></text>
   <text
-     id="n2164"
-     x="660.0"
-     y="205.06260575296108"
+     id="n2980"
+     x="696.271225"
+     y="215.16007894170104"
      fill="black"
      class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n2165"
+     id="n2981"
      x1="310.0"
-     y1="157.15739078396172"
-     x2="233.20000000000002"
-     y2="156.69778575703174"
+     y1="178.907518859322"
+     x2="220.00000000000003"
+     y2="170.6716532576271"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2166"
-     points="310.0,157.15739078396172 316.0,161.15739078396172 322.0,157.15739078396172 316.0,153.15739078396172 310.0,157.15739078396172"
+     id="n2982"
+     points="310.0,178.907518859322 316.0,182.907518859322 322.0,178.907518859322 316.0,174.907518859322 310.0,178.907518859322"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-179.6571209123891 310.0 157.15739078396172)" />
+     transform="rotate(-174.77144731779077 310.0 178.907518859322)" />
   <rect
-     id="n2167"
-     x="247.0"
-     y="149.0"
+     id="n2983"
+     x="241.0"
+     y="167.0"
      width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2168"
-     x="271.0"
-     y="159.0"
+     id="n2984"
+     x="265.0"
+     y="177.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.processNote"
-       id="n2169"><title
-   id="title673">A note that describes or explains adjudication results in a human readable form</title>
-processNote</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2985"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.processNote"><title
+   id="title65183">A note that describes or explains adjudication results in a human readable form</title>processNote</a></text>
   <text
-     id="n2170"
-     x="248.20000000000002"
-     y="152.69778575703174"
+     id="n2986"
+     x="235.00000000000003"
+     y="166.6716532576271"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2171"
-     x1="591.6"
-     y1="114.41509433962264"
-     x2="680.0"
-     y2="87.05070754716982"
+     id="n2987"
+     x1="618.0"
+     y1="144.8889561812125"
+     x2="744.079164"
+     y2="105.50064329913394"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2172"
-     points="591.6,114.41509433962264 597.6,118.41509433962264 603.6,114.41509433962264 597.6,110.41509433962264 591.6,114.41509433962264"
+     id="n2988"
+     points="618.0,144.8889561812125 624.0,148.8889561812125 630.0,144.8889561812125 624.0,140.8889561812125 618.0,144.8889561812125"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-17.200009269811577 591.6 114.41509433962264)" />
+     transform="rotate(-17.349294067483836 618.0 144.8889561812125)" />
   <rect
-     id="n2173"
-     x="615.5"
-     y="93.0"
+     id="n2989"
+     x="661.5"
+     y="118.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2174"
-     x="635.0"
-     y="103.0"
+     id="n2990"
+     x="681.0"
+     y="128.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.insurance"
-       id="n2175"><title
-   id="title681">Financial instruments for reimbursement for the health care products and services specified on the claim</title>
-insurance</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2991"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.insurance"><title
+   id="title65191">Financial instruments for reimbursement for the health care products and services specified on the claim</title>insurance</a></text>
   <text
-     id="n2176"
-     x="660.0"
-     y="83.05070754716982"
+     id="n2992"
+     x="724.079164"
+     y="101.50064329913394"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n2177"
+     id="n2993"
      x1="310.0"
-     y1="110.81388390185518"
-     x2="233.20000000000002"
-     y2="85.07600239377618"
+     y1="129.73708920187795"
+     x2="246.40000000000003"
+     y2="103.61032863849766"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n2178"
-     points="310.0,110.81388390185518 316.0,114.81388390185518 322.0,110.81388390185518 316.0,106.81388390185518 310.0,110.81388390185518"
+     id="n2994"
+     points="310.0,129.73708920187795 316.0,133.73708920187795 322.0,129.73708920187795 316.0,125.73708920187795 310.0,129.73708920187795"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-161.4725226345808 310.0 110.81388390185518)" />
+     transform="rotate(-157.66723359870946 310.0 129.73708920187795)" />
   <rect
-     id="n2179"
-     x="260.0"
-     y="90.0"
+     id="n2995"
+     x="267.0"
+     y="109.0"
      width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n2180"
-     x="271.0"
-     y="100.0"
+     id="n2996"
+     x="278.0"
+     y="119.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="claimresponse-definitions.html#ClaimResponse.error"
-       id="n2181"><title
-   id="title689">Errors encountered during the processing of the adjudication</title>
-error</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n2997"
+       xlink:href="claimresponse-definitions.html#ClaimResponse.error"><title
+   id="title65199">Errors encountered during the processing of the adjudication</title>error</a></text>
   <text
-     id="n2182"
-     x="248.20000000000002"
-     y="81.07600239377618"
+     id="n2998"
+     x="261.40000000000003"
+     y="99.61032863849766"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

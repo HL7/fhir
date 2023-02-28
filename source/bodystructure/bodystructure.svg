@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n323"
+   version="1.1"
+   width="838.1155699999999"
+   height="300.90851"
+   sodipodi:docname="bodystructure.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9455"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.4866685"
+     inkscape:cx="419.05777"
+     inkscape:cy="151.00878"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n323" />
+  <defs
+     id="defs9298">
+    <filter
+       id="shadow1"
+       x="-0.025628626"
+       y="-0.0828125"
+       width="1.065764"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset9289" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix9291" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur9293" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend9295" />
+    </filter>
+  </defs>
+  <g
+     id="n324">
+    <rect
+       id="BodyStructure"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="237.6"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n325"
+       x1="0.0"
+       y1="28.0"
+       x2="237.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n326"
+       x="118.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">BodyStructure<tspan
+   class="diagram-class-title-link"
+   id="tspan9303"> (<a
+   id="n327"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n328"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n329"
+   xlink:href="bodystructure-definitions.html#BodyStructure.identifier"><title
+   id="title9306">Identifier for this instance of the anatomical structure</title>identifier</a> : <a
+   id="n330"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n334"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n335"
+   xlink:href="bodystructure-definitions.html#BodyStructure.active"><title
+   id="title9311">Whether this body site is in active use (this element modifies the meaning of other elements)</title>active</a> : <a
+   id="n336"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n340"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n341"
+   xlink:href="bodystructure-definitions.html#BodyStructure.morphology"><title
+   id="title9316">The kind of structure being represented by the body structure at `BodyStructure.location`.  This can define both normal and abnormal morphologies</title>morphology</a> : <a
+   id="n342"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n343"
+   xlink:href="valueset-bodystructure-code.html"><title
+     id="n344">null (Strength=Example)</title></a></text>
+    <text
+       id="n345"
+       x="26.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n346"
+   xlink:href="valueset-bodystructure-code.html">SNOMEDCTMorphologicAbnormalit...</a>?? »</text>
+    <text
+       id="n354"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n355"
+   xlink:href="bodystructure-definitions.html#BodyStructure.description"><title
+   id="title9325">A summary, characterization or explanation of the body structure</title>description</a> : <a
+   id="n356"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n360"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n361"
+   xlink:href="bodystructure-definitions.html#BodyStructure.image"><title
+   id="title9330">Image or images used to identify a location</title>image</a> : <a
+   id="n362"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text>
+    <text
+       id="n366"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n367"
+   xlink:href="bodystructure-definitions.html#BodyStructure.patient"><title
+   id="title9335">The person to which the body site belongs</title>patient</a> : <a
+   id="n368"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n369"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+  </g>
+  <g
+     id="n374"
+     transform="translate(86.771191,2.0179347)">
+    <rect
+       id="BodyStructure.includedStructure"
+       x="293.39841"
+       y="5.8041735"
+       rx="4"
+       ry="4"
+       width="308"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n375"
+       x1="293.39841"
+       y1="33.804173"
+       x2="601.39838"
+       y2="33.804173"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n376"
+       x="447.39841"
+       y="25.804174"
+       fill="#000000"
+       class="diagram-class-title">IncludedStructure</text>
+    <text
+       id="n377"
+       x="299.39841"
+       y="47.804173"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n378"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.structure"><title
+   id="title9345">Code that represents the included structure</title>structure</a> : <a
+   id="n379"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n380"
+   xlink:href="valueset-body-site.html"><title
+   id="n381">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n387"
+       x="299.39841"
+       y="61.804173"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n388"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.laterality"><title
+   id="title9352">Code that represents the included structure laterality</title>laterality</a> : <a
+   id="n389"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n390"
+   xlink:href="valueset-bodystructure-relative-location.html"><title
+   id="n391">null (Strength=Example)</title>BodystructureLocationQualifier</a>?? »</text>
+    <text
+       id="n397"
+       x="299.39841"
+       y="75.804176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n398"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.spatialReference"><title
+   id="title9359">XY or XYZ-coordinate orientation for structure</title>spatialReference</a> : <a
+   id="n399"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n400"
+   xlink:href="imagingselection.html#ImagingSelection">ImagingSelection</a> »</text>
+    <text
+       id="n405"
+       x="299.39841"
+       y="89.804176"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n406"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.qualifier"><title
+   id="title9365">Code that represents the included structure qualifier</title>qualifier</a> : <a
+   id="n407"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n408"
+   xlink:href="valueset-bodystructure-relative-location.html"><title
+   id="n409">null (Strength=Example)</title>BodystructureLocationQualifier</a>?? »</text>
+  </g>
+  <g
+     id="n415"
+     transform="translate(92.152351,-6.726449)">
+    <rect
+       id="BodyStructure.includedStructure.bodyLandmarkOrientation"
+       x="331.31558"
+       y="150.90851"
+       rx="4"
+       ry="4"
+       width="206.8"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n416"
+       x1="331.31558"
+       y1="178.90851"
+       x2="538.11554"
+       y2="178.90851"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n417"
+       x="434.71558"
+       y="170.90851"
+       fill="#000000"
+       class="diagram-class-title">BodyLandmarkOrientation</text>
+    <text
+       id="n418"
+       x="337.31558"
+       y="192.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n419"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.landmarkDescription"><title
+   id="title9376">A description of a landmark on the body used as a reference to locate something else</title>landmarkDescription</a> : <a
+   id="n420"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n421"
+   xlink:href="valueset-body-site.html"><title
+     id="n422">null (Strength=Example)</title></a></text>
+    <text
+       id="n423"
+       x="357.31558"
+       y="206.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n424"
+   xlink:href="valueset-body-site.html">SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n432"
+       x="337.31558"
+       y="220.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n433"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.clockFacePosition"><title
+   id="title9385">An description of the direction away from a landmark something is located based on a radial clock dial</title>clockFacePosition</a> : <a
+   id="n434"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n435"
+   xlink:href="valueset-bodystructure-bodylandmarkorientation-clockface-position.html"><title
+     id="n436">null (Strength=Example)</title></a></text>
+    <text
+       id="n437"
+       x="357.31558"
+       y="234.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n438"
+   xlink:href="valueset-bodystructure-bodylandmarkorientation-clockface-position.html">BodystructureBodyLandmarkCloc...</a>?? »</text>
+    <text
+       id="n446"
+       x="337.31558"
+       y="248.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n447"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.surfaceOrientation"><title
+   id="title9394">The surface area a body location is in relation to a landmark</title>surfaceOrientation</a> : <a
+   id="n448"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n449"
+   xlink:href="valueset-bodystructure-relative-location.html"><title
+     id="title9398">null (Strength=Preferred)</title></a></text>
+    <text
+       id="n450"
+       x="357.31558"
+       y="262.90851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n451"
+   xlink:href="valueset-bodystructure-relative-location.html">BodystructureLocationQualifier</a>? »</text>
+  </g>
+  <g
+     id="n458">
+    <rect
+       id="BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark"
+       x="14.114910000000009"
+       y="175.28604"
+       rx="4"
+       ry="4"
+       width="246.40000000000003"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n459"
+       x1="14.114910000000009"
+       y1="203.28604"
+       x2="260.51491000000004"
+       y2="203.28604"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n460"
+       x="137.31491000000003"
+       y="195.28604"
+       fill="black"
+       class="diagram-class-title">DistanceFromLandmark</text>
+    <text
+       id="n461"
+       x="20.11491000000001"
+       y="217.28604"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n462"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.device"><title
+   id="title9408">An instrument, tool, analyzer, etc. used in the measurement</title>device</a> : <a
+   id="n463"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n464"
+   xlink:href="device.html#Device">Device</a>; <a
+   id="n465"
+   xlink:href="valueset-device-type.html"><title
+   id="n466">null (Strength=Example)</title>DeviceType</a>?? »</text>
+    <text
+       id="n473"
+       x="20.11491000000001"
+       y="231.28604"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n474"
+   xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark.value"><title
+   id="title9416">The measured distance (e.g., in cm) from a body landmark</title>value</a> : <a
+   id="n475"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..*]</text>
+  </g>
+  <line
+     id="n479"
+     x1="331.31557"
+     y1="209.64905281520427"
+     x2="260.51491000000004"
+     y2="208.78666983720348"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n480"
+     points="331.31557,209.64905281520427 337.31557,213.64905281520427 343.31557,209.64905281520427 337.31557,205.64905281520427 331.31557,209.64905281520427"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-179.3021468783376 331.31557 209.64905281520427)" />
+  <rect
+     id="n481"
+     x="251.0"
+     y="202.0"
+     width="88.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n482"
+     x="295.0"
+     y="212.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n483"
+       xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation.distanceFromLandmark"><title
+   id="title9425">The distance in centimeters a certain observation is made from a body landmark</title>distanceFromLandmark</a></text>
+  <text
+     id="n484"
+     x="275.51491000000004"
+     y="204.78666983720348"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n485"
+     x1="443.731556938074"
+     y1="97.8041734999997"
+     x2="439.4984035590336"
+     y2="150.9085100000002"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n486"
+     points="443.731556938074,97.8041734999997 449.731556938074,101.8041734999997 455.731556938074,97.8041734999997 449.731556938074,93.8041734999997 443.731556938074,97.8041734999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(94.5576323926533 443.731556938074 97.8041734999997)" />
+  <rect
+     id="n487"
+     x="390.5"
+     y="117.0"
+     width="101.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n488"
+     x="441.0"
+     y="127.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n489"
+       xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure.bodyLandmarkOrientation"><title
+   id="title9433">Body locations in relation to a specific body landmark (tatoo, scar, other body structure)</title>bodyLandmarkOrientation</a></text>
+  <text
+     id="n490"
+     x="439.4984035590336"
+     y="146.9085100000002"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n491"
+     x1="237.6"
+     y1="86.50616859310537"
+     x2="293.398396"
+     y2="83.92580680523379"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n492"
+     points="237.6,86.50616859310537 243.6,90.50616859310537 249.6,86.50616859310537 243.6,82.50616859310537 237.6,86.50616859310537"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.6477210025812776 237.6 86.50616859310537)" />
+  <rect
+     id="n493"
+     x="228.0"
+     y="78.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n494"
+     x="265.0"
+     y="88.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n495"
+       xlink:href="bodystructure-definitions.html#BodyStructure.includedStructure"><title
+   id="title9441">The anatomical location(s) or region(s) of the specimen, lesion, or body structure</title>includedStructure</a></text>
+  <text
+     id="n496"
+     x="273.398396"
+     y="79.92580680523379"
+     fill="black"
+     class="diagram-class-linkage">[1..*]</text>
+  <line
+     id="n497"
+     x1="237.6"
+     y1="36.50616859310537"
+     x2="293.398396"
+     y2="33.92580680523379"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n498"
+     points="237.6,36.50616859310537 243.6,40.50616859310537 249.6,36.50616859310537 243.6,32.50616859310537 237.6,36.50616859310537"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-2.6477210025812776 237.6 36.50616859310537)" />
+  <rect
+     id="n499"
+     x="228.0"
+     y="42.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n500"
+     x="265.0"
+     y="52.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n501"
+       xlink:href="bodystructure-definitions.html#BodyStructure.excludedStructure"><title
+   id="title9449">The anatomical location(s) or region(s) not occupied or represented by the specimen, lesion, or body structure</title>excludedStructure</a></text>
+  <text
+     id="n502"
+     x="273.398396"
+     y="29.92580680523379"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

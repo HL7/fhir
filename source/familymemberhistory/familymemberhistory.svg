@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n661"
+   version="1.1"
+   width="905.73771"
+   height="353.84495"
+   sodipodi:docname="familymemberhistory.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview57435"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.3756742"
+     inkscape:cx="452.86887"
+     inkscape:cy="177.00412"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n661" />
+  <defs
+     id="defs57176">
+    <filter
+       id="shadow1"
+       x="-0.018821022"
+       y="-0.067948718"
+       width="1.0482955"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset57167" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix57169" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur57171" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend57173" />
+    </filter>
+  </defs>
+  <g
+     id="n662"
+     transform="translate(5.0884142,3.6345816)">
+    <rect
+       id="FamilyMemberHistory"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="316"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n663"
+       x1="0"
+       y1="28"
+       x2="303.60001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n664"
+       x="151.8"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">FamilyMemberHistory<tspan
+   class="diagram-class-title-link"
+   id="tspan57181">(<a
+   id="n665"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n666"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n667"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.identifier"><title
+   id="title57184">Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n668"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n672"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n673"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.instantiatesCanonical"><title
+   id="title57189">The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory</title>instantiatesCanonical</a> : <a
+   id="n674"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n675"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|</text>
+    <text
+       id="n676"
+       x="26"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a>|<a
+   id="n678"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|<a
+   id="n679"
+   xlink:href="measure.html#Measure">Measure</a>|<a
+   id="n680"
+   xlink:href="operationdefinition.html#OperationDefinition">OperationDefinition</a> »</text>
+    <text
+       id="n690"
+       x="6"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n691"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.instantiatesUri"><title
+   id="title57200">The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory</title>instantiatesUri</a> : <a
+   id="n692"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n696"
+       x="6"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n697"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.status"><title
+   id="title57205">A code specifying the status of the record of the family history of a specific family member (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n698"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n699"
+   xlink:href="valueset-history-status.html"><title
+   id="n700">null (Strength=Required)</title>FamilyHistoryStatus</a>! »</text>
+    <text
+       id="n706"
+       x="6"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n707"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason"><title
+   id="title57212">Describes why the family member's history is not available</title>dataAbsentReason</a> : <a
+   id="n708"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n709"
+   xlink:href="valueset-history-absent-reason.html"><title
+     id="n710">null (Strength=Example)</title></a></text>
+    <text
+       id="n711"
+       x="26"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n712"
+   xlink:href="valueset-history-absent-reason.html">FamilyHistoryAbsentReason</a>?? »</text>
+    <text
+       id="n720"
+       x="6"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n721"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.patient"><title
+   id="title57221">The person who this history concerns</title>patient</a> : <a
+   id="n722"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n723"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n728"
+       x="6"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n729"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.date"><title
+   id="title57227">The date (and possibly time) when the family member history was recorded or last updated</title>date</a> : <a
+   id="n730"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n734"
+       x="6"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n735"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.name"><title
+   id="title57232">This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;</title>name</a> : <a
+   id="n736"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n740"
+       x="6"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.relationship"><title
+   id="title57237">The type of relationship this person has to the patient (father, mother, brother etc.)</title>relationship</a> : <a
+   id="n742"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n743"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-FamilyMember.html"><title
+   id="n744">null (Strength=Example)</title>FamilyMember</a>?? »</text>
+    <text
+       id="n750"
+       x="6"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n751"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.sex"><title
+   id="title57244">The birth sex of the family member</title>sex</a> : <a
+   id="n752"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n753"
+   xlink:href="valueset-administrative-gender.html"><title
+   id="n754">null (Strength=Extensible)</title>AdministrativeGender</a>+ »</text>
+    <text
+       id="n760"
+       x="6"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n761"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.born_x_"><title
+   id="title57251">The actual or approximate date of birth of the relative</title>born[x]</a> : <a
+   id="n762"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n763"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n764"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n765"
+   xlink:href="datatypes.html#string">string</a> » « <a
+   id="n766"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n767">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n776"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n777"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.age_x_"><title
+   id="title57261">The age of the relative at the time the family member history is recorded</title>age[x]</a> : <a
+   id="n778"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n779"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n780"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n781"
+   xlink:href="datatypes.html#string">string</a> » « <a
+   id="n782"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n783">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n792"
+       x="6"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n793"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.estimatedAge"><title
+   id="title57271">If true, indicates that the age value specified is an estimated value</title>estimatedAge</a> : <a
+   id="n794"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1] « <a
+   id="n795"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n796">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n802"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n803"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_"><title
+   id="title57278">Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record</title>deceased[x]</a> : <a
+   id="n804"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n805"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n806"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n807"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n808"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n809"
+   xlink:href="datatypes.html#string">string</a> » « <a
+   id="n810"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n811">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n822"
+       x="6"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n823"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.reason"><title
+   id="title57290">Describes why the family member history occurred in coded or textual form, or Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event</title>reason</a> : <a
+   id="n824"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n825"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n826"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n827"
+       x="26"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n828"
+   xlink:href="allergyintolerance.html#AllergyIntolerance">AllergyIntolerance</a>|<a
+   id="n829"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>|<a
+   id="n830"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|</text>
+    <text
+       id="n831"
+       x="26"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n832"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n833"
+   xlink:href="valueset-clinical-findings.html"><title
+   id="n834">null (Strength=Example)</title>SNOMEDCTClinicalFindings</a>?? »</text>
+    <text
+       id="n848"
+       x="6"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n849"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.note"><title
+   id="title57305">This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible</title>note</a> : <a
+   id="n850"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n854"
+     transform="translate(0.72691632,4.3614979)">
+    <rect
+       id="FamilyMemberHistory.participant"
+       x="417.496"
+       y="-0.97495991"
+       rx="4"
+       ry="4"
+       width="286"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n855"
+       x1="417.496"
+       y1="27.02504"
+       x2="703.49597"
+       y2="27.02504"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n856"
+       x="560.49597"
+       y="19.02504"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n857"
+       x="423.496"
+       y="41.02504"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n858"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.participant.function"><title
+   id="title57314">Distinguishes the type of involvement of the actor in the activities related to the family member history</title>function</a> : <a
+   id="n859"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n860"
+   xlink:href="valueset-participation-role-type.html"><title
+   id="n861">null (Strength=Extensible)</title>ParticipationRoleType</a>+ »</text>
+    <text
+       id="n867"
+       x="423.496"
+       y="55.02504"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n868"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.participant.actor"><title
+   id="title57321">Indicates who or what participated in the activities related to the family member history</title>actor</a> : <a
+   id="n869"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n870"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n871"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n872"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n873"
+       x="443.496"
+       y="69.02504"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n874"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n875"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n876"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n877"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+  </g>
+  <g
+     id="n889"
+     transform="translate(7.2691632,32.711234)">
+    <rect
+       id="FamilyMemberHistory.condition"
+       x="410.92554"
+       y="227.84496"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n890"
+       x1="410.92554"
+       y1="255.84496"
+       x2="692.52551"
+       y2="255.84496"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n891"
+       x="551.72552"
+       y="247.84496"
+       fill="#000000"
+       class="diagram-class-title">Condition</text>
+    <text
+       id="n892"
+       x="416.92554"
+       y="269.84494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n893"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition.code"><title
+   id="title57338">The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system</title>code</a> : <a
+   id="n894"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n895"
+   xlink:href="valueset-condition-code.html"><title
+   id="n896">null (Strength=Example)</title>ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n902"
+       x="416.92554"
+       y="283.84494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n903"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition.outcome"><title
+   id="title57345">Indicates what happened following the condition.  If the condition resulted in death, deceased date is captured on the relation</title>outcome</a> : <a
+   id="n904"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n905"
+   xlink:href="valueset-condition-outcome.html"><title
+   id="n906">null (Strength=Example)</title>ConditionOutcomeCodes</a>?? »</text>
+    <text
+       id="n912"
+       x="416.92554"
+       y="297.84494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n913"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition.contributedToDeath"><title
+   id="title57352">This condition contributed to the cause of death of the related person. If contributedToDeath is not populated, then it is unknown</title>contributedToDeath</a> : <a
+   id="n914"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n918"
+       x="416.92554"
+       y="311.84494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n919"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_"><title
+   id="title57357">Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence</title>onset[x]</a> : <a
+   id="n920"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n921"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n922"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n923"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n924"
+   xlink:href="datatypes.html#string">string</a> »</text>
+    <text
+       id="n932"
+       x="416.92554"
+       y="325.84494"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n933"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition.note"><title
+   id="title57366">An area where general notes can be placed about this specific condition</title>note</a> : <a
+   id="n934"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n938"
+     transform="translate(5.8153305,15.265243)">
+    <rect
+       id="FamilyMemberHistory.procedure"
+       x="410.93771"
+       y="100.42087"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n939"
+       x1="410.93771"
+       y1="128.42087"
+       x2="705.73773"
+       y2="128.42087"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n940"
+       x="558.33771"
+       y="120.42087"
+       fill="#000000"
+       class="diagram-class-title">Procedure</text>
+    <text
+       id="n941"
+       x="416.93771"
+       y="142.42087"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n942"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure.code"><title
+   id="title57375">The actual procedure specified. Could be a coded procedure or a less specific string depending on how much is known about the procedure and the capabilities of the creating system</title>code</a> : <a
+   id="n943"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n944"
+   xlink:href="valueset-procedure-code.html"><title
+   id="n945">null (Strength=Example)</title>ProcedureCodesSNOMEDCT</a>?? »</text>
+    <text
+       id="n951"
+       x="416.93771"
+       y="156.42087"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n952"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure.outcome"><title
+   id="title57382">Indicates what happened following the procedure. If the procedure resulted in death, deceased date is captured on the relation</title>outcome</a> : <a
+   id="n953"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n954"
+   xlink:href="valueset-clinical-findings.html"><title
+   id="n955">null (Strength=Example)</title>SNOMEDCTClinicalFindings</a>?? »</text>
+    <text
+       id="n961"
+       x="416.93771"
+       y="170.42087"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n962"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure.contributedToDeath"><title
+   id="title57389">This procedure contributed to the cause of death of the related person. If contributedToDeath is not populated, then it is unknown</title>contributedToDeath</a> : <a
+   id="n963"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n967"
+       x="416.93771"
+       y="184.42087"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n968"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure.performed_x_"><title
+   id="title57394">Estimated or actual date, date-time, period, or age when the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured</title>performed[x]</a> : <a
+   id="n969"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n970"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n971"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n972"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n973"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n974"
+   xlink:href="datatypes.html#dateTime">dateTime</a> »</text>
+    <text
+       id="n983"
+       x="416.93771"
+       y="198.42087"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n984"
+   xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure.note"><title
+   id="title57404">An area where general notes can be placed about this specific procedure</title>note</a> : <a
+   id="n985"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <line
+     id="n989"
+     x1="303.6"
+     y1="113.43827353349369"
+     x2="427.64207096592116"
+     y2="77.02504008999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n990"
+     points="303.6,113.43827353349369 309.6,117.43827353349369 315.6,113.43827353349369 309.6,109.43827353349369 303.6,113.43827353349369"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-16.35989209861543 303.6 113.43827353349369)" />
+  <rect
+     id="n991"
+     x="341.0"
+     y="88.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n992"
+     x="365.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n993"
+       xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.participant"><title
+   id="title57413">Indicates who or what participated in the activities related to the family member history and how they were involved</title>participant</a></text>
+  <text
+     id="n994"
+     x="427.64207096592116"
+     y="91.02504008999999"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n995"
+     x1="303.6"
+     y1="204.62833943952427"
+     x2="410.925531"
+     y2="237.5954757372528"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n996"
+     points="303.6,204.62833943952427 309.6,208.62833943952427 315.6,204.62833943952427 309.6,200.62833943952427 303.6,204.62833943952427"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(17.075364170834316 303.6 204.62833943952427)" />
+  <rect
+     id="n997"
+     x="337.5"
+     y="214.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n998"
+     x="357.0"
+     y="224.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n999"
+       xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.condition"><title
+   id="title57421">The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition</title>condition</a></text>
+  <text
+     id="n1000"
+     x="390.925531"
+     y="233.5954757372528"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1001"
+     x1="303.6"
+     y1="156.29016615949354"
+     x2="410.93771"
+     y2="155.08114343933235"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1002"
+     points="303.6,156.29016615949354 309.6,160.29016615949354 315.6,156.29016615949354 309.6,152.29016615949354 303.6,156.29016615949354"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.6453367588991171 303.6 156.29016615949354)" />
+  <rect
+     id="n1003"
+     x="337.5"
+     y="148.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1004"
+     x="357.0"
+     y="158.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1005"
+       xlink:href="familymemberhistory-definitions.html#FamilyMemberHistory.procedure"><title
+   id="title57429">The significant Procedures (or procedure) that the family member had. This is a repeating section to allow a system to represent more than one procedure per resource, though there is nothing stopping multiple resources - one per procedure</title>procedure</a></text>
+  <text
+     id="n1006"
+     x="390.93771"
+     y="151.08114343933235"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

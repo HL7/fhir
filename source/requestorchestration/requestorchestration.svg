@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1269"
+   version="1.1"
+   width="1286.83821"
+   height="574.64044"
+   sodipodi:docname="requestorchestration.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview112103"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.96826465"
+     inkscape:cx="643.41913"
+     inkscape:cy="287.62797"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1269" />
+  <defs
+     id="defs111587">
+    <filter
+       id="shadow1"
+       x="-0.040151515"
+       y="-0.0828125"
+       width="1.1030303"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset111578" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix111580" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur111582" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend111584" />
+    </filter>
+  </defs>
+  <g
+     id="n1270">
+    <rect
+       id="RequestOrchestration"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="316.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1271"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1272"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">RequestOrchestration<tspan
+   class="diagram-class-title-link"
+   id="tspan111592"> (<a
+   id="n1273"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n1274"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1275"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.identifier"><title
+   id="title111595">Allows a service to provide a unique, business identifier for the request</title>identifier</a> : <a
+   id="n1276"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1280"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1281"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.instantiatesCanonical"><title
+   id="title111600">A canonical URL referencing a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request</title>instantiatesCanonical</a> : <a
+   id="n1282"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] «  »</text>
+    <text
+       id="n1286"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1287"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.instantiatesUri"><title
+   id="title111605">A URL referencing an externally defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request</title>instantiatesUri</a> : <a
+   id="n1288"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n1292"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1293"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.basedOn"><title
+   id="title111610">A plan, proposal or order that is fulfilled in whole or in part by this request</title>basedOn</a> : <a
+   id="n1294"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1295"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n1300"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1301"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.replaces"><title
+   id="title111616">Completed or terminated request(s) whose function is taken by this new request</title>replaces</a> : <a
+   id="n1302"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1303"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n1308"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1309"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.groupIdentifier"><title
+   id="title111622">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="n1310"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n1314"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1315"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.status"><title
+   id="title111627">The current state of the request. For request orchestrations, the status reflects the status of all the requests in the orchestration (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1316"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1317"
+   xlink:href="valueset-request-status.html"><title
+   id="n1318">null (Strength=Required)</title>RequestStatus</a>! »</text>
+    <text
+       id="n1324"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1325"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.intent"><title
+   id="title111634">Indicates the level of authority/intentionality associated with the request and where the request fits into the workflow chain (this element modifies the meaning of other elements)</title>intent</a> : <a
+   id="n1326"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1327"
+   xlink:href="valueset-request-intent.html"><title
+   id="n1328">null (Strength=Required)</title>RequestIntent</a>! »</text>
+    <text
+       id="n1334"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1335"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.priority"><title
+   id="title111641">Indicates how quickly the request should be addressed with respect to other requests</title>priority</a> : <a
+   id="n1336"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1337"
+   xlink:href="valueset-request-priority.html"><title
+   id="n1338">null (Strength=Required)</title>RequestPriority</a>! »</text>
+    <text
+       id="n1344"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1345"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.code"><title
+   id="title111648">A code that identifies what the overall request orchestration is</title>code</a> : <a
+   id="n1346"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1347"
+   xlink:href="valueset-action-code.html"><title
+   id="n1348">null (Strength=Example)</title>ActionCode</a>?? »</text>
+    <text
+       id="n1354"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1355"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.subject"><title
+   id="title111655">The subject for which the request orchestration was created</title>subject</a> : <a
+   id="n1356"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1357"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1358"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1359"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1360"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|</text>
+    <text
+       id="n1361"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1362"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1363"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1364"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1365"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1366"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n1367"
+       x="26.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1368"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n1384"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1385"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.encounter"><title
+   id="title111672">Describes the context of the request orchestration, if any</title>encounter</a> : <a
+   id="n1386"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1387"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n1392"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1393"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.authoredOn"><title
+   id="title111678">Indicates when the request orchestration was created</title>authoredOn</a> : <a
+   id="n1394"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1398"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1399"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.author"><title
+   id="title111683">Provides a reference to the author of the request orchestration</title>author</a> : <a
+   id="n1400"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1401"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1402"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1403"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n1410"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1411"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.reason"><title
+   id="title111691">Describes the reason for the request orchestration in coded or textual form</title>reason</a> : <a
+   id="n1412"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n1413"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n1414"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n1415"
+       x="26.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1416"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n1417"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n1418"
+   xlink:href="valueset-action-reason-code.html"><title
+   id="n1419">null (Strength=Example)</title>ActionReasonCode</a>?? »</text>
+    <text
+       id="n1430"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1431"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.goal"><title
+   id="title111703">Goals that are intended to be achieved by following the requests in this RequestOrchestration</title>goal</a> : <a
+   id="n1432"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1433"
+   xlink:href="goal.html#Goal">Goal</a> »</text>
+    <text
+       id="n1438"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1439"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.note"><title
+   id="title111709">Provides a mechanism to communicate additional information about the response</title>note</a> : <a
+   id="n1440"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n1444"
+     transform="translate(24.786612,10.327755)">
+    <rect
+       id="RequestOrchestration.action"
+       x="350"
+       y="0"
+       rx="4"
+       ry="4"
+       width="299.20001"
+       height="358"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1445"
+       x1="350"
+       y1="28"
+       x2="649.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1446"
+       x="499.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Action</text>
+    <text
+       id="n1447"
+       x="356"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1448"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.linkId"><title
+   id="title111718">The linkId of the action from the PlanDefinition that corresponds to this action in the RequestOrchestration resource</title>linkId</a> : <a
+   id="n1449"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1453"
+       x="356"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1454"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.prefix"><title
+   id="title111723">A user-visible prefix for the action. For example a section or item numbering such as 1. or A</title>prefix</a> : <a
+   id="n1455"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1459"
+       x="356"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1460"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.title"><title
+   id="title111728">The title of the action displayed to a user</title>title</a> : <a
+   id="n1461"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1465"
+       x="356"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1466"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.description"><title
+   id="title111733">A short description of the action used to provide a summary to display to the user</title>description</a> : <a
+   id="n1467"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1471"
+       x="356"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1472"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.textEquivalent"><title
+   id="title111738">A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that might not be capable of interpreting it dynamically</title>textEquivalent</a> : <a
+   id="n1473"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1477"
+       x="356"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1478"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.priority"><title
+   id="title111743">Indicates how quickly the action should be addressed with respect to other actions</title>priority</a> : <a
+   id="n1479"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1480"
+   xlink:href="valueset-request-priority.html"><title
+   id="n1481">null (Strength=Required)</title>RequestPriority</a>! »</text>
+    <text
+       id="n1487"
+       x="356"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1488"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.code"><title
+   id="title111750">A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a section of a documentation template</title>code</a> : <a
+   id="n1489"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1490"
+   xlink:href="valueset-action-code.html"><title
+   id="n1491">null (Strength=Example)</title>ActionCode</a>?? »</text>
+    <text
+       id="n1497"
+       x="356"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1498"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.documentation"><title
+   id="title111757">Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources</title>documentation</a> : <a
+   id="n1499"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1503"
+       x="356"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1504"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.goal"><title
+   id="title111762">Goals that are intended to be achieved by following the requests in this action</title>goal</a> : <a
+   id="n1505"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n1506"
+   xlink:href="goal.html#Goal">Goal</a> »</text>
+    <text
+       id="n1511"
+       x="356"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1512"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.timing_x_"><title
+   id="title111768">An optional value describing when the action should be performed</title>timing[x]</a> : <a
+   id="n1513"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1514"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n1515"
+   xlink:href="datatypes.html#Age">Age</a>|<a
+   id="n1516"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n1517"
+   xlink:href="datatypes.html#Duration">Duration</a>|<a
+   id="n1518"
+   xlink:href="datatypes.html#Range">Range</a>|</text>
+    <text
+       id="n1519"
+       x="376"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1520"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n1531"
+       x="356"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1532"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.location"><title
+   id="title111780">Identifies the facility where the action will occur; e.g. home, hospital, specific clinic, etc</title>location</a> : <a
+   id="n1533"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n1534"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n1539"
+       x="356"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1540"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.type"><title
+   id="title111786">The type of action to perform (create, update, remove)</title>type</a> : <a
+   id="n1541"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1542"
+   xlink:href="valueset-action-type.html"><title
+   id="n1543">null (Strength=Extensible)</title>ActionType</a>+ »</text>
+    <text
+       id="n1549"
+       x="356"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1550"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.groupingBehavior"><title
+   id="title111793">Defines the grouping behavior for the action and its children</title>groupingBehavior</a> : <a
+   id="n1551"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1552"
+   xlink:href="valueset-action-grouping-behavior.html"><title
+   id="n1553">null (Strength=Required)</title>ActionGroupingBehavior</a>! »</text>
+    <text
+       id="n1559"
+       x="356"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1560"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.selectionBehavior"><title
+   id="title111800">Defines the selection behavior for the action and its children</title>selectionBehavior</a> : <a
+   id="n1561"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1562"
+   xlink:href="valueset-action-selection-behavior.html"><title
+   id="n1563">null (Strength=Required)</title>ActionSelectionBehavior</a>! »</text>
+    <text
+       id="n1569"
+       x="356"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1570"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.requiredBehavior"><title
+   id="title111807">Defines expectations around whether an action is required</title>requiredBehavior</a> : <a
+   id="n1571"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1572"
+   xlink:href="valueset-action-required-behavior.html"><title
+   id="n1573">null (Strength=Required)</title>ActionRequiredBehavior</a>! »</text>
+    <text
+       id="n1579"
+       x="356"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1580"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.precheckBehavior"><title
+   id="title111814">Defines whether the action should usually be preselected</title>precheckBehavior</a> : <a
+   id="n1581"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1582"
+   xlink:href="valueset-action-precheck-behavior.html"><title
+   id="n1583">null (Strength=Required)</title>ActionPrecheckBehavior</a>! »</text>
+    <text
+       id="n1589"
+       x="356"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1590"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.cardinalityBehavior"><title
+   id="title111821">Defines whether the action can be selected multiple times</title>cardinalityBehavior</a> : <a
+   id="n1591"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1592"
+   xlink:href="valueset-action-cardinality-behavior.html"><title
+   id="n1593">null (Strength=Required)</title>ActionCardinalityBehavior</a>! »</text>
+    <text
+       id="n1599"
+       x="356"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1600"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.resource"><title
+   id="title111828">The resource that is the target of the action (e.g. CommunicationRequest)</title>resource</a> : <a
+   id="n1601"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1602"
+   xlink:href="resourcelist.html#Any">Any</a> » « <a
+   id="n1603"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1604">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1611"
+       x="356"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1612"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.definition_x_"><title
+   id="title111836">A reference to an ActivityDefinition that describes the action to be taken in detail, a PlanDefinition that describes a series of actions to be taken, a Questionnaire that should be filled out, a SpecimenDefinition describing a specimen to be collected, or an ObservationDefinition that specifies what observation should be captured</title>definition[x]</a> : <a
+   id="n1613"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [0..1] « <a
+   id="n1614"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1615"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|</text>
+    <text
+       id="n1616"
+       x="376"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1617"
+   xlink:href="observationdefinition.html#ObservationDefinition">ObservationDefinition</a>|<a
+   id="n1618"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a>|<a
+   id="n1619"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a>|</text>
+    <text
+       id="n1620"
+       x="376"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1621"
+   xlink:href="specimendefinition.html#SpecimenDefinition">SpecimenDefinition</a>)|<a
+   id="n1622"
+   xlink:href="datatypes.html#uri">uri</a> »</text>
+    <text
+       id="n1635"
+       x="356"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1636"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.transform"><title
+   id="title111850">A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input</title>transform</a> : <a
+   id="n1637"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1638"
+   xlink:href="structuremap.html#StructureMap">StructureMap</a> »</text>
+  </g>
+  <g
+     id="n1643"
+     transform="translate(29.950489,39.245469)">
+    <rect
+       id="RequestOrchestration.action.condition"
+       x="390.26517"
+       y="403.95569"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1644"
+       x1="390.26517"
+       y1="431.95569"
+       x2="575.06519"
+       y2="431.95569"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1645"
+       x="482.66516"
+       y="423.95569"
+       fill="#000000"
+       class="diagram-class-title">Condition</text>
+    <text
+       id="n1646"
+       x="396.26517"
+       y="445.95569"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1647"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.condition.kind"><title
+   id="title111860">The kind of condition</title>kind</a> : <a
+   id="n1648"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1649"
+   xlink:href="valueset-action-condition-kind.html"><title
+   id="n1650">null (Strength=Required)</title>ActionConditionKind</a>! »</text>
+    <text
+       id="n1656"
+       x="396.26517"
+       y="459.95569"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1657"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.condition.expression"><title
+   id="title111867">An expression that returns true or false, indicating whether or not the condition is satisfied</title>expression</a> : <a
+   id="n1658"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+  </g>
+  <g
+     id="n1662"
+     transform="translate(75.39261,9.2949794)">
+    <rect
+       id="RequestOrchestration.action.input"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1663"
+       x1="720"
+       y1="28"
+       x2="904.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1664"
+       x="812.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Input</text>
+    <text
+       id="n1665"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1666"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.input.title"><title
+   id="title111876">A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers</title>title</a> : <a
+   id="n1667"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1671"
+       x="726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1672"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.input.requirement"><title
+   id="title111881">Defines the data that is to be provided as input to the action</title>requirement</a> : <a
+   id="n1673"
+   xlink:href="metadatatypes.html#DataRequirement">DataRequirement</a> [0..1] « <a
+   id="n1674"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1675">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1681"
+       x="726"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1682"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.input.relatedData"><title
+   id="title111888">Points to an existing input or output element that provides data to this input</title>relatedData</a> : <a
+   id="n1683"
+   xlink:href="datatypes.html#id">id</a> [0..1] « <a
+   id="n1684"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1685">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1691"
+     transform="translate(47.507672,8.2622039)">
+    <rect
+       id="RequestOrchestration.action.output"
+       x="758.79584"
+       y="202.65169"
+       rx="4"
+       ry="4"
+       width="184.8"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1692"
+       x1="758.79584"
+       y1="230.65169"
+       x2="943.59583"
+       y2="230.65169"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1693"
+       x="851.1958"
+       y="222.65169"
+       fill="#000000"
+       class="diagram-class-title">Output</text>
+    <text
+       id="n1694"
+       x="764.79584"
+       y="244.65169"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1695"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.output.title"><title
+   id="title111899">A human-readable label for the data requirement used to label data flows in BPMN or similar diagrams. Also provides a human readable label when rendering the data requirement that conveys its purpose to human readers</title>title</a> : <a
+   id="n1696"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1700"
+       x="764.79584"
+       y="258.65167"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1701"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.output.requirement"><title
+   id="title111904">Defines the data that results as output from the action</title>requirement</a> : <a
+   id="n1702"
+   xlink:href="metadatatypes.html#DataRequirement">DataRequirement</a> [0..1] « <a
+   id="n1703"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1704">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1710"
+       x="764.79584"
+       y="272.65167"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1711"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.output.relatedData"><title
+   id="title111911">Points to an existing input or output element that is results as output from the action</title>relatedData</a> : <a
+   id="n1712"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1713"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1714">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n1720"
+     transform="translate(7.2294284,44.409346)">
+    <rect
+       id="RequestOrchestration.action.relatedAction"
+       x="20"
+       y="370"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1721"
+       x1="20"
+       y1="398"
+       x2="266.39999"
+       y2="398"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1722"
+       x="143.2"
+       y="390"
+       fill="#000000"
+       class="diagram-class-title">RelatedAction</text>
+    <text
+       id="n1723"
+       x="26"
+       y="412"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1724"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.relatedAction.targetId"><title
+   id="title111922">The element id of the target related action</title>targetId</a> : <a
+   id="n1725"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n1729"
+       x="26"
+       y="426"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1730"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.relatedAction.relationship"><title
+   id="title111927">The relationship of this action to the related action</title>relationship</a> : <a
+   id="n1731"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1732"
+   xlink:href="valueset-action-relationship-type.html"><title
+   id="n1733">null (Strength=Required)</title>ActionRelationshipType</a>! »</text>
+    <text
+       id="n1739"
+       x="26"
+       y="440"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1740"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.relatedAction.endRelationship"><title
+   id="title111934">The relationship of the end of this action to the related action</title>endRelationship</a> : <a
+   id="n1741"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1742"
+   xlink:href="valueset-action-relationship-type.html"><title
+   id="n1743">null (Strength=Required)</title>ActionRelationshipType</a>! »</text>
+    <text
+       id="n1749"
+       x="26"
+       y="454"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1750"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.relatedAction.offset_x_"><title
+   id="title111941">A duration or range of durations to apply to the relationship. For example, 30-60 minutes before</title>offset[x]</a> : <a
+   id="n1751"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1752"
+   xlink:href="datatypes.html#Duration">Duration</a>|<a
+   id="n1753"
+   xlink:href="datatypes.html#Range">Range</a> »</text>
+  </g>
+  <g
+     id="n1759"
+     transform="translate(71.261509)">
+    <rect
+       id="RequestOrchestration.action.participant"
+       x="683.23822"
+       y="354.64044"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="190"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1760"
+       x1="683.23822"
+       y1="382.64044"
+       x2="986.8382"
+       y2="382.64044"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1761"
+       x="835.03821"
+       y="374.64044"
+       fill="#000000"
+       class="diagram-class-title">Participant</text>
+    <text
+       id="n1762"
+       x="689.23822"
+       y="396.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1763"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.type"><title
+   id="title111952">The type of participant in the action</title>type</a> : <a
+   id="n1764"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1765"
+   xlink:href="valueset-action-participant-type.html"><title
+   id="n1766">null (Strength=Required)</title>ActionParticipantType</a>! »</text>
+    <text
+       id="n1772"
+       x="689.23822"
+       y="410.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1773"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.typeCanonical"><title
+   id="title111959">The type of participant in the action</title>typeCanonical</a> : <a
+   id="n1774"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n1775"
+   xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a> »</text>
+    <text
+       id="n1780"
+       x="689.23822"
+       y="424.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1781"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.typeReference"><title
+   id="title111965">The type of participant in the action</title>typeReference</a> : <a
+   id="n1782"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1783"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1784"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1785"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|</text>
+    <text
+       id="n1786"
+       x="709.23822"
+       y="438.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1787"
+   xlink:href="endpoint.html#Endpoint">Endpoint</a>|<a
+   id="n1788"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1789"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n1790"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1791"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1792"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n1793"
+       x="709.23822"
+       y="452.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1794"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1795"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1796"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n1814"
+       x="689.23822"
+       y="466.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1815"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.role"><title
+   id="title111984">The role the participant should play in performing the described action</title>role</a> : <a
+   id="n1816"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1817"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-action-participant-role.html"><title
+   id="n1818">null (Strength=Example)</title>ActionParticipantRole</a>?? »</text>
+    <text
+       id="n1824"
+       x="689.23822"
+       y="480.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1825"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.function"><title
+   id="title111991">Indicates how the actor will be involved in the action - author, reviewer, witness, etc</title>function</a> : <a
+   id="n1826"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1827"
+   xlink:href="valueset-action-participant-function.html"><title
+   id="n1828">null (Strength=Example)</title>ActionParticipantFunction</a>?? »</text>
+    <text
+       id="n1834"
+       x="689.23822"
+       y="494.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1835"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant.actor_x_"><title
+   id="title111998">A reference to the actual participant</title>actor[x]</a> : <a
+   id="n1836"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1837"
+   xlink:href="datatypes.html#canonical">canonical</a>(<a
+   id="n1838"
+   xlink:href="capabilitystatement.html#CapabilityStatement">CapabilityStatement</a>)|</text>
+    <text
+       id="n1839"
+       x="709.23822"
+       y="508.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1840"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1841"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1842"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1843"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>|<a
+   id="n1844"
+   xlink:href="endpoint.html#Endpoint">Endpoint</a>|<a
+   id="n1845"
+   xlink:href="group.html#Group">Group</a>|</text>
+    <text
+       id="n1846"
+       x="709.23822"
+       y="522.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1847"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n1848"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n1849"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1850"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1851"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n1852"
+       x="709.23822"
+       y="536.64044"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1853"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n1854"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>) »</text>
+  </g>
+  <g
+     id="n1876"
+     transform="translate(61.966529,-9.2949794)">
+    <rect
+       id="RequestOrchestration.action.dynamicValue"
+       x="754.34253"
+       y="123.03852"
+       rx="4"
+       ry="4"
+       width="132"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1877"
+       x1="754.34253"
+       y1="151.03851"
+       x2="886.34253"
+       y2="151.03851"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1878"
+       x="820.34253"
+       y="143.03851"
+       fill="#000000"
+       class="diagram-class-title">DynamicValue</text>
+    <text
+       id="n1879"
+       x="760.34253"
+       y="165.03851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1880"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.dynamicValue.path"><title
+   id="title112025">The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression. The specified path SHALL be a FHIRPath resolvable on the specified target type of the ActivityDefinition, and SHALL consist only of identifiers, constant indexers, and a restricted subset of functions. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements (see the [Simple FHIRPath Profile](fhirpath.html#simple) for full details)</title>path</a> : <a
+   id="n1881"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1885"
+       x="760.34253"
+       y="179.03851"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1886"
+   xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.dynamicValue.expression"><title
+   id="title112030">An expression specifying the value of the customized element</title>expression</a> : <a
+   id="n1887"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+  </g>
+  <line
+     id="n1891"
+     x1="487.80288881160715"
+     y1="358.0"
+     x2="484.77414877110937"
+     y2="403.9556970000003"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1892"
+     points="487.80288881160715,358.0 493.80288881160715,362.0 499.80288881160715,358.0 493.80288881160715,354.0 487.80288881160715,358.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(93.77066248901976 487.80288881160715 358.0)" />
+  <rect
+     id="n1893"
+     x="466.5"
+     y="373.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1894"
+     x="486.0"
+     y="383.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1895"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.condition"><title
+   id="title112039">An expression that describes applicability criteria, or start/stop conditions for the action</title>condition</a></text>
+  <text
+     id="n1896"
+     x="484.77414877110937"
+     y="399.9556970000003"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1897"
+     x1="649.2"
+     y1="112.04347826086962"
+     x2="725.2628571428573"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1898"
+     points="649.2,112.04347826086962 655.2,116.04347826086962 661.2,112.04347826086962 655.2,108.04347826086962 649.2,112.04347826086962"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-24.11187322358124 649.2 112.04347826086962)" />
+  <rect
+     id="n1899"
+     x="676.0"
+     y="88.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1900"
+     x="687.0"
+     y="98.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1901"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.input"><title
+   id="title112047">Defines input data requirements for the action</title>input</a></text>
+  <text
+     id="n1902"
+     x="725.2628571428573"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1903"
+     x1="649.2"
+     y1="205.65757249737572"
+     x2="758.79583"
+     y2="225.18670875162087"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1904"
+     points="649.2,205.65757249737572 655.2,209.65757249737572 661.2,205.65757249737572 655.2,201.65757249737572 649.2,205.65757249737572"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(10.103620723069698 649.2 205.65757249737572)" />
+  <rect
+     id="n1905"
+     x="690.0"
+     y="208.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1906"
+     x="703.0"
+     y="218.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1907"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.output"><title
+   id="title112055">Defines the outputs of the action, if any</title>output</a></text>
+  <text
+     id="n1908"
+     x="738.79583"
+     y="221.18670875162087"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1909"
+     x1="350.0"
+     y1="278.4814814814814"
+     x2="212.37468354430376"
+     y2="370.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1910"
+     points="350.0,278.4814814814814 356.0,282.4814814814814 362.0,278.4814814814814 356.0,274.4814814814814 350.0,278.4814814814814"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(146.37676266865006 350.0 278.4814814814814)" />
+  <rect
+     id="n1911"
+     x="252.5"
+     y="317.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1912"
+     x="281.0"
+     y="327.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1913"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.relatedAction"><title
+   id="title112063">A relationship to another action such as &quot;before&quot; or &quot;30-60 minutes after start of&quot;</title>relatedAction</a></text>
+  <text
+     id="n1914"
+     x="212.37468354430376"
+     y="366.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1915"
+     x1="649.2"
+     y1="299.70124576445835"
+     x2="717.2929463949009"
+     y2="354.64044"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1916"
+     points="649.2,299.70124576445835 655.2,303.70124576445835 661.2,299.70124576445835 655.2,295.70124576445835 649.2,299.70124576445835"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(38.897509341005424 649.2 299.70124576445835)" />
+  <rect
+     id="n1917"
+     x="659.0"
+     y="320.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1918"
+     x="683.0"
+     y="330.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1919"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.participant"><title
+   id="title112071">The participant that should perform or be responsible for this action</title>participant</a></text>
+  <text
+     id="n1920"
+     x="717.2929463949009"
+     y="350.64044"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1921"
+     x1="649.2"
+     y1="167.82394130947944"
+     x2="754.3425361"
+     y2="159.96913412817082"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1922"
+     points="649.2,167.82394130947944 655.2,171.82394130947944 661.2,167.82394130947944 655.2,163.82394130947944 649.2,167.82394130947944"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-4.272417875761288 649.2 167.82394130947944)" />
+  <rect
+     id="n1923"
+     x="675.0"
+     y="156.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1924"
+     x="701.0"
+     y="166.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1925"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.dynamicValue"><title
+   id="title112079">Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result</title>dynamicValue</a></text>
+  <text
+     id="n1926"
+     x="734.3425361"
+     y="155.96913412817082"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1927"
+     x1="649.2"
+     y1="154.0"
+     x2="709.2"
+     y2="154.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1928"
+     x1="709.2"
+     y1="154.0"
+     x2="709.2"
+     y2="204.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n1929"
+     x1="709.2"
+     y1="204.0"
+     x2="649.2"
+     y2="204.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1930"
+     points="649.2,154.0 655.2,158.0 661.2,154.0 655.2,150.0 649.2,154.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 649.2 154.0)" />
+  <rect
+     id="n1931"
+     x="696.0"
+     y="172.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1932"
+     x="709.0"
+     y="182.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1933"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action.action"><title
+   id="title112089">Sub actions</title>action</a></text>
+  <text
+     id="n1934"
+     x="664.2"
+     y="200.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1935"
+     x1="303.6"
+     y1="167.16561242093158"
+     x2="350.0"
+     y2="169.96722254169066"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1936"
+     points="303.6,167.16561242093158 309.6,171.16561242093158 315.6,167.16561242093158 309.6,163.16561242093158 303.6,167.16561242093158"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(3.4552972464682337 303.6 167.16561242093158)" />
+  <rect
+     id="n1937"
+     x="313.0"
+     y="161.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1938"
+     x="326.0"
+     y="171.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1939"
+       xlink:href="requestorchestration-definitions.html#RequestOrchestration.action"><title
+   id="title112097">The actions, if any, produced by the evaluation of the artifact</title>action</a></text>
+  <text
+     id="n1940"
+     x="330.0"
+     y="165.96722254169066"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

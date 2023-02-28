@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n400"
+   version="1.1"
+   width="852.4"
+   height="284.0"
+   sodipodi:docname="subscription.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview106488"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.461755"
+     inkscape:cx="426.20001"
+     inkscape:cy="142.63676"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n400" />
+  <defs
+     id="defs106316">
+    <filter
+       id="shadow1"
+       x="-0.057359306"
+       y="-0.0828125"
+       width="1.1471861"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset106307" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix106309" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur106311" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend106313" />
+    </filter>
+  </defs>
+  <g
+     id="n401">
+    <rect
+       id="Subscription"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="277.20000000000005"
+       height="274.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n402"
+       x1="0.0"
+       y1="28.0"
+       x2="277.20000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n403"
+       x="138.60000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Subscription<tspan
+   class="diagram-class-title-link"
+   id="tspan106321"> (<a
+   id="n404"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n405"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n406"
+   xlink:href="subscription-definitions.html#Subscription.identifier"><title
+   id="title106324">A formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n407"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n411"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n412"
+   xlink:href="subscription-definitions.html#Subscription.name"><title
+   id="title106329">A natural language name identifying the subscription</title>name</a> : <a
+   id="n413"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n417"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n418"
+   xlink:href="subscription-definitions.html#Subscription.status"><title
+   id="title106334">The status of the subscription, which marks the server state for managing the subscription (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n419"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n420"
+   xlink:href="valueset-subscription-status.html"><title
+   id="n421">null (Strength=Required)</title>SubscriptionStatusCodes</a>! »</text>
+    <text
+       id="n427"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n428"
+   xlink:href="subscription-definitions.html#Subscription.topic"><title
+   id="title106341">The reference to the subscription topic to be notified about</title>topic</a> : <a
+   id="n429"
+   xlink:href="datatypes.html#canonical">canonical</a> [1..1] « <a
+   id="n430"
+   xlink:href="subscriptiontopic.html#SubscriptionTopic">SubscriptionTopic</a> »</text>
+    <text
+       id="n435"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n436"
+   xlink:href="subscription-definitions.html#Subscription.contact"><title
+   id="title106347">Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting</title>contact</a> : <a
+   id="n437"
+   xlink:href="datatypes.html#ContactPoint">ContactPoint</a> [0..*]</text>
+    <text
+       id="n441"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n442"
+   xlink:href="subscription-definitions.html#Subscription.end"><title
+   id="title106352">The time for the server to turn the subscription off</title>end</a> : <a
+   id="n443"
+   xlink:href="datatypes.html#instant">instant</a> [0..1]</text>
+    <text
+       id="n447"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n448"
+   xlink:href="subscription-definitions.html#Subscription.managingEntity"><title
+   id="title106357">Entity with authorization to make subsequent revisions to the Subscription and also determines what data the subscription is authorized to disclose</title>managingEntity</a> : <a
+   id="n449"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n450"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n451"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|</text>
+    <text
+       id="n452"
+       x="26.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n453"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n454"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n455"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n456"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n457"
+       x="26.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n458"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n471"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n472"
+   xlink:href="subscription-definitions.html#Subscription.reason"><title
+   id="title106371">A description of why this subscription is defined</title>reason</a> : <a
+   id="n473"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n477"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n478"
+   xlink:href="subscription-definitions.html#Subscription.channelType"><title
+   id="title106376">The type of channel to send notifications on</title>channelType</a> : <a
+   id="n479"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n480"
+   xlink:href="valueset-subscription-channel-type.html"><title
+   id="n481">null (Strength=Extensible)</title>SubscriptionChannelType</a>+ »</text>
+    <text
+       id="n487"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n488"
+   xlink:href="subscription-definitions.html#Subscription.endpoint"><title
+   id="title106383">The url that describes the actual end-point to send notifications to</title>endpoint</a> : <a
+   id="n489"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
+    <text
+       id="n493"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n494"
+   xlink:href="subscription-definitions.html#Subscription.heartbeatPeriod"><title
+   id="title106388">If present, a 'heartbeat' notification (keep-alive) is sent via this channel with an interval period equal to this elements integer value in seconds.  If not present, a heartbeat notification is not sent</title>heartbeatPeriod</a> : <a
+   id="n495"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n499"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n500"
+   xlink:href="subscription-definitions.html#Subscription.timeout"><title
+   id="title106393">If present, the maximum amount of time a server will allow before failing a notification attempt</title>timeout</a> : <a
+   id="n501"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..1]</text>
+    <text
+       id="n505"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n506"
+   xlink:href="subscription-definitions.html#Subscription.contentType"><title
+   id="title106398">The MIME type to send the payload in - e.g., `application/fhir+xml` or `application/fhir+json`. Note that:
+
+* clients may request notifications in a specific FHIR version by using the [FHIR Version Parameter](http.html#version-parameter) - e.g., `application/fhir+json; fhirVersion=4.0`.
+
+* additional MIME types can be allowed by channels - e.g., `text/plain` and `text/html` are defined by the Email channel</title>contentType</a> : <a
+   id="n507"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n508"
+   xlink:href="valueset-mimetypes.html"><title
+   id="n509">null (Strength=Required)</title>MimeTypes</a>! »</text>
+    <text
+       id="n515"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n516"
+   xlink:href="subscription-definitions.html#Subscription.content"><title
+   id="title106405">How much of the resource content to deliver in the notification payload. The choices are an empty payload, only the resource id, or the full resource content</title>content</a> : <a
+   id="n517"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n518"
+   xlink:href="valueset-subscription-payload-content.html"><title
+   id="n519">null (Strength=Required)</title>SubscriptionPayloadContent</a>! »</text>
+    <text
+       id="n525"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n526"
+   xlink:href="subscription-definitions.html#Subscription.maxCount"><title
+   id="title106412">If present, the maximum number of events that will be included in a notification bundle. Note that this is not a strict limit on the number of entries in a bundle, as dependent resources can be included</title>maxCount</a> : <a
+   id="n527"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+  </g>
+  <g
+     id="n531"
+     transform="translate(91.670629,41.04655)">
+    <rect
+       id="Subscription.filterBy"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="224.39999"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n532"
+       x1="320"
+       y1="28"
+       x2="544.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n533"
+       x="432.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">FilterBy</text>
+    <text
+       id="n534"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n535"
+   xlink:href="subscription-definitions.html#Subscription.filterBy.resourceType"><title
+   id="title106421">A resource listed in the `SubscriptionTopic` this `Subscription` references (`SubscriptionTopic.canFilterBy.resource`). This element can be used to differentiate filters for topics that include more than one resource type</title>resourceType</a> : <a
+   id="n536"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n537"
+   xlink:href="valueset-subscription-types.html"><title
+   id="n538">null (Strength=Extensible)</title>SubscriptionTypes</a>+ »</text>
+    <text
+       id="n544"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n545"
+   xlink:href="subscription-definitions.html#Subscription.filterBy.filterParameter"><title
+   id="title106428">The filter as defined in the `SubscriptionTopic.canFilterBy.filterParameter` element</title>filterParameter</a> : <a
+   id="n546"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n550"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n551"
+   xlink:href="subscription-definitions.html#Subscription.filterBy.comparator"><title
+   id="title106433">Comparator applied to this filter parameter</title>comparator</a> : <a
+   id="n552"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n553"
+   xlink:href="valueset-search-comparator.html"><title
+   id="n554">null (Strength=Required)</title>SearchComparator</a>! » « <a
+   id="n555"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n556">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n564"
+       x="326"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n565"
+   xlink:href="subscription-definitions.html#Subscription.filterBy.modifier"><title
+   id="title106442">Modifier applied to this filter parameter</title>modifier</a> : <a
+   id="n566"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n567"
+   xlink:href="valueset-search-modifier-code.html"><title
+   id="n568">null (Strength=Required)</title>SearchModifierCode</a>! » « <a
+   id="n569"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n570">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n578"
+       x="326"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n579"
+   xlink:href="subscription-definitions.html#Subscription.filterBy.value"><title
+   id="title106451">The literal value or resource path as is legal in search - for example, `Patient/123` or `le1950`</title>value</a> : <a
+   id="n580"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n584"
+     transform="translate(-96.459393,188.13002)">
+    <rect
+       id="Subscription.parameter"
+       x="560"
+       y="0"
+       rx="4"
+       ry="4"
+       width="92.400002"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n585"
+       x1="560"
+       y1="28"
+       x2="652.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n586"
+       x="606.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
+    <text
+       id="n587"
+       x="566"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n588"
+   xlink:href="subscription-definitions.html#Subscription.parameter.name"><title
+   id="title106460">Parameter name for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the name would be Authorization</title>name</a> : <a
+   id="n589"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n593"
+       x="566"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n594"
+   xlink:href="subscription-definitions.html#Subscription.parameter.value"><title
+   id="title106465">Parameter value for information passed to the channel for notifications, for example in the case of a REST hook wanting to pass through an authorization header, the value would be `Bearer 0193...`</title>value</a> : <a
+   id="n595"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <line
+     id="n599"
+     x1="277.20000000000005"
+     y1="97.34604904632154"
+     x2="320.0"
+     y2="85.10081743869213"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n600"
+     points="277.20000000000005,97.34604904632154 283.20000000000005,101.34604904632154 289.20000000000005,97.34604904632154 283.20000000000005,93.34604904632154 277.20000000000005,97.34604904632154"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-15.966013308997722 277.20000000000005 97.34604904632154)" />
+  <rect
+     id="n601"
+     x="280.5"
+     y="84.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n602"
+     x="298.0"
+     y="94.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n603"
+       xlink:href="subscription-definitions.html#Subscription.filterBy"><title
+   id="title106474">The filter properties to be applied to narrow the subscription topic stream.  When multiple filters are applied, evaluates to true if all the conditions applicable to that resource are met; otherwise it returns false (i.e., logical AND)</title>filterBy</a></text>
+  <text
+     id="n604"
+     x="300.0"
+     y="81.10081743869213"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n605"
+     x1="277.20000000000005"
+     y1="105.87724550898204"
+     x2="560.0"
+     y2="42.374251497006014"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n606"
+     points="277.20000000000005,105.87724550898204 283.20000000000005,109.87724550898204 289.20000000000005,105.87724550898204 283.20000000000005,101.87724550898204 277.20000000000005,105.87724550898204"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.655889394482026 277.20000000000005 105.87724550898204)" />
+  <rect
+     id="n607"
+     x="398.5"
+     y="67.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n608"
+     x="418.0"
+     y="77.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n609"
+       xlink:href="subscription-definitions.html#Subscription.parameter"><title
+   id="title106482">Channel-dependent information to send as part of the notification (e.g., HTTP Headers)</title>parameter</a></text>
+  <text
+     id="n610"
+     x="540.0"
+     y="38.374251497006014"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

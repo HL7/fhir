@@ -81,9 +81,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="OperationDefinition">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="OperationDefinition"/>
       <short value="Definition of an operation or a named query"/>
       <definition value="A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction)."/>
@@ -93,7 +90,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/OperationDefinition"/>
       </constraint>
       <constraint>
@@ -145,7 +142,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="exists() implies matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -576,11 +573,11 @@
         <strength value="required"/>
         <description value="A type of resource, or a Reference (from all versions)"/>
         <valueSet value="http://hl7.org/fhir/ValueSet/version-independent-all-resource-types"/>
-        <additionalBinding>
+        <additional>
           <purpose value="ui"/>
           <valueSet value="http://hl7.org/fhir/ValueSet/all-resource-types"/>
           <shortDoco value="This is the value set to use for just R5 resource types"/>
-        </additionalBinding>
+        </additional>
       </binding>
       <mapping>
         <identity value="workflow"/>
@@ -646,9 +643,6 @@
       </type>
     </element>
     <element id="OperationDefinition.parameter">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,0"/>
-      </extension>
       <path value="OperationDefinition.parameter"/>
       <short value="Parameters for the operation/query"/>
       <definition value="The parameters for the operation/query."/>
@@ -864,9 +858,6 @@
       </binding>
     </element>
     <element id="OperationDefinition.parameter.binding">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="400,230"/>
-      </extension>
       <path value="OperationDefinition.parameter.binding"/>
       <short value="ValueSet details if this is coded"/>
       <definition value="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)."/>

@@ -130,8 +130,9 @@
         <description value="Subject impacted by event"/>
         <code value="patient"/>
         <type value="reference"/>
-        <expression value="AdverseEvent.subject"/>
+        <expression value="AdverseEvent.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

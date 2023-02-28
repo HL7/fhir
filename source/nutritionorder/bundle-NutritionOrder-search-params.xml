@@ -151,6 +151,7 @@
         <type value="reference"/>
         <expression value="NutritionOrder.subject.where(resolve() is Patient)"/>
         <processingMode value="normal"/>
+        <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>

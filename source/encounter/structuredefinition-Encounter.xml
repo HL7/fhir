@@ -75,9 +75,6 @@
   <derivation value="specialization"/>
   <differential>
     <element id="Encounter">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="0,0"/>
-      </extension>
       <path value="Encounter"/>
       <short value="An interaction during which services are provided to the patient"/>
       <definition value="An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.  Encounter is primarily used to record information about the actual activities that occurred, where Appointment is used to record planned activities."/>
@@ -457,9 +454,6 @@
       </mapping>
     </element>
     <element id="Encounter.participant">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,0"/>
-      </extension>
       <path value="Encounter.participant"/>
       <short value="List of participants involved in the encounter"/>
       <definition value="The list of people responsible for providing the service."/>
@@ -779,9 +773,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Diagnosis"/>
       </extension>
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="-300,100"/>
-      </extension>
       <path value="Encounter.diagnosis"/>
       <short value="The list of diagnosis relevant to this encounter"/>
       <definition value="The list of diagnosis relevant to this encounter."/>
@@ -962,9 +953,6 @@
       </mapping>
     </element>
     <element id="Encounter.admission">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,200"/>
-      </extension>
       <path value="Encounter.admission"/>
       <short value="Details about the admission to a healthcare service"/>
       <definition value="Details about the stay during which a healthcare service is provided.&#xD;&#xD;This does not describe the event of admitting the patient, but rather any information that is relevant from the time of admittance until the time of discharge."/>
@@ -1115,9 +1103,6 @@
       </mapping>
     </element>
     <element id="Encounter.location">
-      <extension url="http://hl7.org/fhir/build/StructureDefinition/svg">
-        <valueCode value="370,100"/>
-      </extension>
       <path value="Encounter.location"/>
       <short value="List of locations where the patient has been"/>
       <definition value="List of locations where  the patient has been during this encounter."/>

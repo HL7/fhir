@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n563"
+   version="1.1"
+   width="1292.4"
+   height="304.0"
+   sodipodi:docname="coverageeligibilityrequest.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19328"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.96409778"
+     inkscape:cx="646.20001"
+     inkscape:cy="152.99278"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n563" />
+  <defs
+     id="defs19070">
+    <filter
+       id="shadow1"
+       x="-0.031698565"
+       y="-0.0828125"
+       width="1.0813397"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset19061" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix19063" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur19065" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend19067" />
+    </filter>
+  </defs>
+  <g
+     id="n564">
+    <rect
+       id="CoverageEligibilityRequest"
+       x="300.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="340.56000000000006"
+       height="204.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n565"
+       x1="300.0"
+       y1="28.0"
+       x2="640.5600000000001"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n566"
+       x="470.28000000000003"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">CoverageEligibilityRequest<tspan
+   class="diagram-class-title-link"
+   id="tspan19075"> (<a
+   id="n567"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n568"
+       x="306.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n569"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.identifier"><title
+   id="title19078">A unique identifier assigned to this coverage eligiblity request</title>identifier</a> : <a
+   id="n570"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n574"
+       x="306.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n575"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.status"><title
+   id="title19083">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n576"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n577"
+   xlink:href="valueset-fm-status.html"><title
+   id="n578">null (Strength=Required)</title>FinancialResourceStatusCodes</a>! »</text>
+    <text
+       id="n584"
+       x="306.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n585"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.priority"><title
+   id="title19090">When the requestor expects the processor to complete processing</title>priority</a> : <a
+   id="n586"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n587"
+   xlink:href="valueset-process-priority.html"><title
+   id="n588">null (Strength=Example)</title>ProcessPriorityCodes</a>?? »</text>
+    <text
+       id="n594"
+       x="306.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n595"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.purpose"><title
+   id="title19097">Code to specify whether requesting: prior authorization requirements for some service categories or billing codes; benefits for coverages specified or discovered; discovery and return of coverages for the patient; and/or validation that the specified coverage is in-force at the date/period specified or 'now' if not specified</title>purpose</a> : <a
+   id="n596"
+   xlink:href="datatypes.html#code">code</a> [1..*] « <a
+   id="n597"
+   xlink:href="valueset-eligibilityrequest-purpose.html"><title
+   id="n598">null (Strength=Required)</title>EligibilityRequestPurpose</a>! »</text>
+    <text
+       id="n604"
+       x="306.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n605"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.patient"><title
+   id="title19104">The party who is the beneficiary of the supplied coverage and for whom eligibility is sought</title>patient</a> : <a
+   id="n606"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n607"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n612"
+       x="306.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.serviced_x_"><title
+   id="title19110">The date or dates when the enclosed suite of services were performed or completed</title>serviced[x]</a> : <a
+   id="n614"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n615"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n616"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n622"
+       x="306.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n623"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.created"><title
+   id="title19117">The date when this resource was created</title>created</a> : <a
+   id="n624"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+    <text
+       id="n628"
+       x="306.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n629"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.enterer"><title
+   id="title19122">Person who created the request</title>enterer</a> : <a
+   id="n630"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n631"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n632"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n638"
+       x="306.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n639"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.provider"><title
+   id="title19129">The provider which is responsible for the request</title>provider</a> : <a
+   id="n640"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n641"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n642"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n643"
+       x="326.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n644"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n652"
+       x="306.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n653"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.insurer"><title
+   id="title19138">The Insurer who issued the coverage in question and is the recipient of the request</title>insurer</a> : <a
+   id="n654"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n655"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n660"
+       x="306.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n661"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.facility"><title
+   id="title19144">Facility where the services are intended to be provided</title>facility</a> : <a
+   id="n662"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n663"
+   xlink:href="location.html#Location">Location</a> »</text>
+  </g>
+  <g
+     id="n668"
+     transform="translate(7.2606743,18.670305)">
+    <rect
+       id="CoverageEligibilityRequest.event"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="211.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n669"
+       x1="0"
+       y1="28"
+       x2="211.2"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n670"
+       x="105.6"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Event</text>
+    <text
+       id="n671"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n672"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.event.type"><title
+   id="title19154">A coded event such as when a service is expected or a card printed</title>type</a> : <a
+   id="n673"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n674"
+   xlink:href="valueset-datestype.html"><title
+   id="n675">null (Strength=Example)</title>DatesTypeCodes</a>?? »</text>
+    <text
+       id="n681"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n682"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.event.when_x_"><title
+   id="title19161">A date or period in the past or future indicating when the event occurred or is expectd to occur</title>when[x]</a> : <a
+   id="n683"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n684"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n685"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+  </g>
+  <g
+     id="n691"
+     transform="translate(-369.25715,239.60225)">
+    <rect
+       id="CoverageEligibilityRequest.supportingInfo"
+       x="720"
+       y="0"
+       rx="4"
+       ry="4"
+       width="167.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n692"
+       x1="720"
+       y1="28"
+       x2="887.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n693"
+       x="803.59998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">SupportingInformation</text>
+    <text
+       id="n694"
+       x="726"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n695"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.supportingInfo.sequence"><title
+   id="title19172">A number to uniquely identify supporting information entries</title>sequence</a> : <a
+   id="n696"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n700"
+       x="726"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.supportingInfo.information"><title
+   id="title19177">Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data</title>information</a> : <a
+   id="n702"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n703"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n708"
+       x="726"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n709"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.supportingInfo.appliesToAll"><title
+   id="title19183">The supporting materials are applicable for all detail items, product/servce categories and specific billing codes</title>appliesToAll</a> : <a
+   id="n710"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n714"
+     transform="translate(16.595827,134.84109)">
+    <rect
+       id="CoverageEligibilityRequest.insurance"
+       x="0"
+       y="0"
+       rx="4"
+       ry="4"
+       width="176"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n715"
+       x1="0"
+       y1="28"
+       x2="176"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n716"
+       x="88"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Insurance</text>
+    <text
+       id="n717"
+       x="6"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n718"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.insurance.focal"><title
+   id="title19192">A flag to indicate that this Coverage is to be used for evaluation of this request when set to true</title>focal</a> : <a
+   id="n719"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n723"
+       x="6"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n724"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.insurance.coverage"><title
+   id="title19197">Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system</title>coverage</a> : <a
+   id="n725"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n726"
+   xlink:href="coverage.html#Coverage">Coverage</a> »</text>
+    <text
+       id="n731"
+       x="6"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n732"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.insurance.businessArrangement"><title
+   id="title19203">A business agreement number established between the provider and the insurer for special business processing purposes</title>businessArrangement</a> : <a
+   id="n733"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n737"
+     transform="translate(32.15441,17.633066)">
+    <rect
+       id="CoverageEligibilityRequest.item"
+       x="680"
+       y="0"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n738"
+       x1="680"
+       y1="28"
+       x2="948.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n739"
+       x="814.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Details</text>
+    <text
+       id="n740"
+       x="686"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.supportingInfoSequence"><title
+   id="title19212">Exceptions, special conditions and supporting information applicable for this service or product line</title>supportingInfoSequence</a> : <a
+   id="n742"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n746"
+       x="686"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n747"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.category"><title
+   id="title19217">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n748"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n749"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n750">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n756"
+       x="686"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n757"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.productOrService"><title
+   id="title19224">This contains the product, service, drug or other billing code for the item</title>productOrService</a> : <a
+   id="n758"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n759"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n760">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n766"
+       x="686"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n767"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.modifier"><title
+   id="title19231">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n768"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n769"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n770">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n776"
+       x="686"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n777"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.provider"><title
+   id="title19238">The practitioner who is responsible for the product or service to be rendered to the patient</title>provider</a> : <a
+   id="n778"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n779"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n780"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n786"
+       x="686"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n787"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.quantity"><title
+   id="title19245">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n788"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a19249">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n792"
+       x="686"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n793"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.unitPrice"><title
+   id="title19252">The amount charged to the patient by the provider for a single unit</title>unitPrice</a> : <a
+   id="n794"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n798"
+       x="686"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n799"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.facility"><title
+   id="title19257">Facility where the services will be provided</title>facility</a> : <a
+   id="n800"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n801"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n802"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n808"
+       x="686"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n809"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.detail"><title
+   id="title19264">The plan/proposal/order describing the proposed service in detail</title>detail</a> : <a
+   id="n810"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n811"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n816"
+     transform="translate(7.2606743,40.452328)">
+    <rect
+       id="CoverageEligibilityRequest.item.diagnosis"
+       x="680"
+       y="210"
+       rx="4"
+       ry="4"
+       width="312.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n817"
+       x1="680"
+       y1="238"
+       x2="992.40002"
+       y2="238"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n818"
+       x="836.20001"
+       y="230"
+       fill="#000000"
+       class="diagram-class-title">Diagnosis</text>
+    <text
+       id="n819"
+       x="686"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n820"
+   xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.diagnosis.diagnosis_x_"><title
+   id="title19274">The nature of illness or problem in a coded form or as a reference to an external defined Condition</title>diagnosis[x]</a> : <a
+   id="n821"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n822"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n823"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n824"
+   xlink:href="condition.html#Condition">Condition</a>); <a
+   id="n825"
+   xlink:href="valueset-icd-10.html"><title
+     id="n826">null (Strength=Example)</title></a></text>
+    <text
+       id="n827"
+       x="706"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n828"
+   xlink:href="valueset-icd-10.html">ICD10Codes</a>?? »</text>
+  </g>
+  <line
+     id="n839"
+     x1="300.0"
+     y1="69.31490621915103"
+     x2="211.20000000000002"
+     y2="52.26982560052649"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n840"
+     points="300.0,69.31490621915103 306.0,73.31490621915103 312.0,69.31490621915103 306.0,65.31490621915103 300.0,69.31490621915103"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-169.13428702010557 300.0 69.31490621915103)" />
+  <rect
+     id="n841"
+     x="244.0"
+     y="53.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n842"
+     x="255.0"
+     y="63.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n843"
+       xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.event"><title
+   id="title19290">Information code for an event with a corresponding date or period</title>event</a></text>
+  <text
+     id="n844"
+     x="226.20000000000002"
+     y="48.26982560052649"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n845"
+     x1="640.5600000000001"
+     y1="69.81579263170526"
+     x2="720.0"
+     y2="54.801032041281644"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n846"
+     points="640.5600000000001,69.81579263170526 646.5600000000001,73.81579263170526 652.5600000000001,69.81579263170526 646.5600000000001,65.81579263170526 640.5600000000001,69.81579263170526"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-10.703075727318913 640.5600000000001 69.81579263170526)" />
+  <rect
+     id="n847"
+     x="649.5"
+     y="55.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n848"
+     x="680.0"
+     y="65.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n849"
+       xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.supportingInfo"><title
+   id="title19298">Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues</title>supportingInfo</a></text>
+  <text
+     id="n850"
+     x="700.0"
+     y="50.801032041281644"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n851"
+     x1="300.0"
+     y1="73.93774196923721"
+     x2="176.0"
+     y2="53.502458930626766"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n852"
+     points="300.0,73.93774196923721 306.0,77.93774196923721 312.0,73.93774196923721 306.0,69.93774196923721 300.0,73.93774196923721"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-170.64173335603456 300.0 73.93774196923721)" />
+  <rect
+     id="n853"
+     x="218.5"
+     y="56.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n854"
+     x="238.0"
+     y="66.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n855"
+       xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.insurance"><title
+   id="title19306">Financial instruments for reimbursement for the health care products and services</title>insurance</a></text>
+  <text
+     id="n856"
+     x="191.0"
+     y="49.502458930626766"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n857"
+     x1="825.2683229813666"
+     y1="162.0"
+     x2="831.8273291925467"
+     y2="210.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n858"
+     points="825.2683229813666,162.0 831.2683229813666,166.0 837.2683229813666,162.0 831.2683229813666,158.0 825.2683229813666,162.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(82.21895377701654 825.2683229813666 162.0)" />
+  <rect
+     id="n859"
+     x="808.5"
+     y="179.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n860"
+     x="828.0"
+     y="189.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n861"
+       xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item.diagnosis"><title
+   id="title19314">Patient diagnosis for which care is sought</title>diagnosis</a></text>
+  <text
+     id="n862"
+     x="831.8273291925467"
+     y="206.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n863"
+     x1="640.5600000000001"
+     y1="91.602581995813"
+     x2="680.0"
+     y2="89.19434752267972"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n864"
+     points="640.5600000000001,91.602581995813 646.5600000000001,95.602581995813 652.5600000000001,91.602581995813 646.5600000000001,87.602581995813 640.5600000000001,91.602581995813"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.494182806348407 640.5600000000001 91.602581995813)" />
+  <rect
+     id="n865"
+     x="651.5"
+     y="83.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n866"
+     x="660.0"
+     y="93.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n867"
+       xlink:href="coverageeligibilityrequest-definitions.html#CoverageEligibilityRequest.item"><title
+   id="title19322">Service categories or billable services for which benefit details and/or an authorization prior to service delivery may be required by the payor</title>item</a></text>
+  <text
+     id="n868"
+     x="660.0"
+     y="85.19434752267972"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

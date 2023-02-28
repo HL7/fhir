@@ -73,4 +73,9 @@
     <display value="decimal"/>
     <definition value="The property value is a decimal number."/>
   </concept>
+  <concept>
+    <code value="code"/>
+    <display value="code"/>
+    <definition value="The property value is a code as defined in the CodeSystem in ConceptMap.property.system."/>
+  </concept>
 </CodeSystem>

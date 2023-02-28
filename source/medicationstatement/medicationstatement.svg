@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n379"
+   version="1.1"
+   width="810.4000000000001"
+   height="326.0"
+   sodipodi:docname="medicationstatement.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview84440"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5375123"
+     inkscape:cx="405.20001"
+     inkscape:cy="163.57593"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n379" />
+  <defs
+     id="defs84291">
+    <filter
+       id="shadow1"
+       x="-0.018250689"
+       y="-0.0828125"
+       width="1.046832"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset84282" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix84284" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur84286" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend84288" />
+    </filter>
+  </defs>
+  <g
+     id="n380">
+    <rect
+       id="MedicationStatement"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="316.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n381"
+       x1="0.0"
+       y1="28.0"
+       x2="308.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n382"
+       x="154.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">MedicationStatement<tspan
+   class="diagram-class-title-link"
+   id="tspan84296"> (<a
+   id="n383"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n384"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n385"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.identifier"><title
+   id="title84299">Identifiers associated with this Medication Statement that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server</title>identifier</a> : <a
+   id="n386"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n390"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n391"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.partOf"><title
+   id="title84304">A larger event of which this particular MedicationStatement is a component or step</title>partOf</a> : <a
+   id="n392"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n393"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n394"
+   xlink:href="medicationstatement.html#MedicationStatement">MedicationStatement</a> »</text>
+    <text
+       id="n400"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n401"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.status"><title
+   id="title84311">A code representing the status of recording the medication statement (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n402"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n403"
+   xlink:href="valueset-medication-statement-status.html"><title
+   id="n404">null (Strength=Required)</title>MedicationStatementStatusCodes</a>! »</text>
+    <text
+       id="n410"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n411"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.category"><title
+   id="title84318">Type of medication statement (for example, drug classification like ATC, where meds would be administered, legal category of the medication.)</title>category</a> : <a
+   id="n412"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n413"
+   xlink:href="valueset-medicationrequest-admin-location.html"><title
+   id="n414">null (Strength=Example)</title>MedicationRequestAdministrati...</a>?? »</text>
+    <text
+       id="n420"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n421"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.medication"><title
+   id="title84325">Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications</title>medication</a> : <a
+   id="n422"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n423"
+   xlink:href="medication.html#Medication">Medication</a>; <a
+   id="n424"
+   xlink:href="valueset-medication-codes.html"><title
+     id="n425">null (Strength=Example)</title></a></text>
+    <text
+       id="n426"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n427"
+   xlink:href="valueset-medication-codes.html">SNOMEDCTMedicationCodes</a>?? »</text>
+    <text
+       id="n436"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n437"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.subject"><title
+   id="title84335">The person, animal or group who is/was taking the medication</title>subject</a> : <a
+   id="n438"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n439"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n440"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n446"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n447"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.encounter"><title
+   id="title84342">The encounter that establishes the context for this MedicationStatement</title>encounter</a> : <a
+   id="n448"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n449"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n454"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n455"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.effective_x_"><title
+   id="title84348">The interval of time during which it is being asserted that the patient is/was/will be taking the medication (or was not taking, when the MedicationStatement.adherence element is Not Taking)</title>effective[x]</a> : <a
+   id="n456"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n457"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n458"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n459"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n466"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n467"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.dateAsserted"><title
+   id="title84356">The date when the Medication Statement was asserted by the information source</title>dateAsserted</a> : <a
+   id="n468"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n472"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n473"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.informationSource"><title
+   id="title84361">The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g. Claim or MedicationRequest</title>informationSource</a> : <a
+   id="n474"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n475"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n476"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n477"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n478"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n479"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n480"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n490"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n491"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.derivedFrom"><title
+   id="title84372">Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement</title>derivedFrom</a> : <a
+   id="n492"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n493"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n498"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n499"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.reason"><title
+   id="title84378">A concept, Condition or observation that supports why the medication is being/was taken</title>reason</a> : <a
+   id="n500"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n501"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n502"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n503"
+       x="26.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n504"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>; <a
+   id="n505"
+   xlink:href="valueset-condition-code.html"><title
+   id="n506">null (Strength=Example)</title>ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n516"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n517"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.note"><title
+   id="title84389">Provides extra information about the Medication Statement that is not conveyed by the other attributes</title>note</a> : <a
+   id="n518"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n522"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n523"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.relatedClinicalInformation"><title
+   id="title84394">Link to information that is relevant to a medication statement, for example, illicit drug use, gestational age, etc</title>relatedClinicalInformation</a> : <a
+   id="n524"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n525"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n526"
+       x="26.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n527"
+   xlink:href="condition.html#Condition">Condition</a> »</text>
+    <text
+       id="n534"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n535"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.renderedDosageInstruction"><title
+   id="title84402">The full representation of the dose of the medication included in all dosage instructions.  To be used when multiple dosage instructions are included to represent complex dosing such as increasing or tapering doses</title>renderedDosageInstruction</a> : <a
+   id="n536"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n540"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n541"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.dosage"><title
+   id="title84407">Indicates how the medication is/was or should be taken by the patient</title>dosage</a> : <a
+   id="n542"
+   xlink:href="dosage.html#Dosage">Dosage</a> [0..*]</text>
+  </g>
+  <g
+     id="n546"
+     transform="translate(145.03949,128.12906)">
+    <rect
+       id="MedicationStatement.adherence"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n547"
+       x1="320"
+       y1="28"
+       x2="610.40002"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n548"
+       x="465.20001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Adherence</text>
+    <text
+       id="n549"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n550"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.adherence.code"><title
+   id="title84416">Type of the adherence for the medication</title>code</a> : <a
+   id="n551"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n552"
+   xlink:href="valueset-medication-statement-adherence.html"><title
+   id="n553">null (Strength=Example)</title>MedicationStatementAdherenceC...</a>?? »</text>
+    <text
+       id="n559"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n560"
+   xlink:href="medicationstatement-definitions.html#MedicationStatement.adherence.reason"><title
+   id="title84423">Captures the reason for the current use or adherence of a medication</title>reason</a> : <a
+   id="n561"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n562"
+   xlink:href="valueset-reason-medication-status-codes.html"><title
+   id="n563">null (Strength=Example)</title>SNOMEDCTDrugTherapyStatusCodes</a>?? »</text>
+  </g>
+  <line
+     id="n569"
+     x1="308.0"
+     y1="95.64781491002572"
+     x2="386.1650793650794"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n570"
+     points="308.0,95.64781491002572 314.0,99.64781491002572 320.0,95.64781491002572 314.0,91.64781491002572 308.0,95.64781491002572"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-22.042253158683145 308.0 95.64781491002572)" />
+  <rect
+     id="n571"
+     x="327.5"
+     y="72.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n572"
+     x="347.0"
+     y="82.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n573"
+       xlink:href="medicationstatement-definitions.html#MedicationStatement.adherence"><title
+   id="title84434">Indicates whether the medication is or is not being consumed or administered</title>adherence</a></text>
+  <text
+     id="n574"
+     x="386.1650793650794"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

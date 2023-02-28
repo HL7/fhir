@@ -16,6 +16,7 @@
       <display value="General"/>
     </item>
   </entry>
+  <!--
   <entry>
     <extension url="http://hl7.org/fhir/build/StructureDefinition/description">
       <valueString value="Fuji apples with skin"/>
@@ -52,4 +53,5 @@
       <display value="Peanut Butter"/>
     </item>
   </entry>
+  -->
 </List>

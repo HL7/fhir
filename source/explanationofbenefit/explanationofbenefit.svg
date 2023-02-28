@@ -1,0 +1,4662 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n3752"
+   version="1.1"
+   width="1792.2768"
+   height="1751.83122"
+   sodipodi:docname="explanationofbenefit.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview75888"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.45609418"
+     inkscape:cx="896.74462"
+     inkscape:cy="878.10812"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n3752" />
+  <defs
+     id="defs74224">
+    <filter
+       id="shadow1"
+       x="-0.030113636"
+       y="-0.0828125"
+       width="1.0772727"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset74215" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix74217" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur74219" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend74221" />
+    </filter>
+  </defs>
+  <g
+     id="n3753">
+    <rect
+       id="ExplanationOfBenefit"
+       x="394.12766"
+       y="170.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="568.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n3754"
+       x1="394.12766"
+       y1="198.0"
+       x2="702.12766"
+       y2="198.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n3755"
+       x="548.12766"
+       y="190.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ExplanationOfBenefit<tspan
+   class="diagram-class-title-link"
+   id="tspan74229"> (<a
+   id="n3756"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n3757"
+       x="400.12766"
+       y="212.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3758"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.identifier"><title
+   id="title74232">A unique identifier assigned to this explanation of benefit</title>identifier</a> : <a
+   id="n3759"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n3763"
+       x="400.12766"
+       y="226.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3764"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.traceNumber"><title
+   id="title74237">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n3765"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n3769"
+       x="400.12766"
+       y="240.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3770"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.status"><title
+   id="title74242">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n3771"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n3772"
+   xlink:href="valueset-explanationofbenefit-status.html"><title
+   id="n3773">null (Strength=Required)</title>ExplanationOfBenefitStatus</a>! »</text>
+    <text
+       id="n3779"
+       x="400.12766"
+       y="254.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3780"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.type"><title
+   id="title74249">The category of claim, e.g. oral, pharmacy, vision, institutional, professional</title>type</a> : <a
+   id="n3781"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n3782"
+   xlink:href="valueset-claim-type.html"><title
+   id="n3783">null (Strength=Extensible)</title>ClaimTypeCodes</a>+ »</text>
+    <text
+       id="n3789"
+       x="400.12766"
+       y="268.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3790"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.subType"><title
+   id="title74256">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>subType</a> : <a
+   id="n3791"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3792"
+   xlink:href="valueset-claim-subtype.html"><title
+   id="n3793">null (Strength=Example)</title>ExampleClaimSubTypeCodes</a>?? »</text>
+    <text
+       id="n3799"
+       x="400.12766"
+       y="282.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3800"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.use"><title
+   id="title74263">A code to indicate whether the nature of the request is: Claim - A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any; Preauthorization - A request to an Insurer to adjudicate the supplied proposed future charges for health care goods and services under the identified policy and to approve the services and provide the expected benefit amounts and potentially to reserve funds to pay the benefits when Claims for the indicated services are later submitted; or, Pre-determination - A request to an Insurer to adjudicate the supplied 'what if' charges for health care goods and services under the identified policy and report back what the Benefit payable would be had the services actually been provided</title>use</a> : <a
+   id="n3801"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n3802"
+   xlink:href="valueset-claim-use.html"><title
+   id="n3803">null (Strength=Required)</title>Use</a>! »</text>
+    <text
+       id="n3809"
+       x="400.12766"
+       y="296.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3810"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.patient"><title
+   id="title74270">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for forecast reimbursement is sought</title>patient</a> : <a
+   id="n3811"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n3812"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n3817"
+       x="400.12766"
+       y="310.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3818"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.billablePeriod"><title
+   id="title74276">The period for which charges are being submitted</title>billablePeriod</a> : <a
+   id="n3819"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n3823"
+       x="400.12766"
+       y="324.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3824"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.created"><title
+   id="title74281">The date this resource was created</title>created</a> : <a
+   id="n3825"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+    <text
+       id="n3829"
+       x="400.12766"
+       y="338.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3830"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.enterer"><title
+   id="title74286">Individual who created the claim, predetermination or preauthorization</title>enterer</a> : <a
+   id="n3831"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3832"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n3833"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3834"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n3835"
+       x="420.12766"
+       y="352.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3836"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n3845"
+       x="400.12766"
+       y="366.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3846"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.insurer"><title
+   id="title74296">The party responsible for authorization, adjudication and reimbursement</title>insurer</a> : <a
+   id="n3847"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3848"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n3853"
+       x="400.12766"
+       y="380.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3854"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.provider"><title
+   id="title74302">The provider which is responsible for the claim, predetermination or preauthorization</title>provider</a> : <a
+   id="n3855"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3856"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n3857"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n3858"
+       x="420.12766"
+       y="394.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3859"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n3867"
+       x="400.12766"
+       y="408.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3868"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.priority"><title
+   id="title74311">The provider-required urgency of processing the request. Typical values include: stat, normal deferred</title>priority</a> : <a
+   id="n3869"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3870"
+   xlink:href="valueset-process-priority.html"><title
+   id="n3871">null (Strength=Example)</title>ProcessPriorityCodes</a>?? »</text>
+    <text
+       id="n3877"
+       x="400.12766"
+       y="422.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3878"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.fundsReserveRequested"><title
+   id="title74318">A code to indicate whether and for whom funds are to be reserved for future claims</title>fundsReserveRequested</a> : <a
+   id="n3879"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3880"
+   xlink:href="valueset-fundsreserve.html"><title
+     id="n3881">null (Strength=Example)</title></a></text>
+    <text
+       id="n3882"
+       x="420.12766"
+       y="436.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3883"
+   xlink:href="valueset-fundsreserve.html">FundsReservationCodes</a>?? »</text>
+    <text
+       id="n3891"
+       x="400.12766"
+       y="450.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3892"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.fundsReserve"><title
+   id="title74327">A code, used only on a response to a preauthorization, to indicate whether the benefits payable have been reserved and for whom</title>fundsReserve</a> : <a
+   id="n3893"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3894"
+   xlink:href="valueset-fundsreserve.html"><title
+   id="n3895">null (Strength=Example)</title>FundsReservationCodes</a>?? »</text>
+    <text
+       id="n3901"
+       x="400.12766"
+       y="464.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3902"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.prescription"><title
+   id="title74334">Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments</title>prescription</a> : <a
+   id="n3903"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3904"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n3905"
+       x="420.12766"
+       y="478.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3906"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n3913"
+       x="400.12766"
+       y="492.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3914"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.originalPrescription"><title
+   id="title74342">Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products</title>originalPrescription</a> : <a
+   id="n3915"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3916"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a> »</text>
+    <text
+       id="n3921"
+       x="400.12766"
+       y="506.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3922"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.referral"><title
+   id="title74348">The referral information received by the claim author, it is not to be used when the author generates a referral for a patient. A copy of that referral may be provided as supporting information. Some insurers require proof of referral to pay for services or to pay specialist rates for services</title>referral</a> : <a
+   id="n3923"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3924"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n3929"
+       x="400.12766"
+       y="520.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3930"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.encounter"><title
+   id="title74354">Healthcare encounters related to this claim</title>encounter</a> : <a
+   id="n3931"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n3932"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n3937"
+       x="400.12766"
+       y="534.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3938"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.facility"><title
+   id="title74360">Facility where the services were provided</title>facility</a> : <a
+   id="n3939"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3940"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n3941"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n3947"
+       x="400.12766"
+       y="548.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3948"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.claim"><title
+   id="title74367">The business identifier for the instance of the adjudication request: claim predetermination or preauthorization</title>claim</a> : <a
+   id="n3949"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3950"
+   xlink:href="claim.html#Claim">Claim</a> »</text>
+    <text
+       id="n3955"
+       x="400.12766"
+       y="562.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3956"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.claimResponse"><title
+   id="title74373">The business identifier for the instance of the adjudication response: claim, predetermination or preauthorization response</title>claimResponse</a> : <a
+   id="n3957"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3958"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
+    <text
+       id="n3963"
+       x="400.12766"
+       y="576.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3964"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.outcome"><title
+   id="title74379">The outcome of the claim, predetermination, or preauthorization processing</title>outcome</a> : <a
+   id="n3965"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n3966"
+   xlink:href="valueset-claim-outcome.html"><title
+   id="n3967">null (Strength=Required)</title>ClaimProcessingCodes</a>! »</text>
+    <text
+       id="n3973"
+       x="400.12766"
+       y="590.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3974"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.decision"><title
+   id="title74386">The result of the claim, predetermination, or preauthorization adjudication</title>decision</a> : <a
+   id="n3975"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3976"
+   xlink:href="valueset-claim-decision.html"><title
+   id="n3977">null (Strength=Example)</title>ClaimAdjudicationDecisionsCod...</a>?? »</text>
+    <text
+       id="n3983"
+       x="400.12766"
+       y="604.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3984"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.disposition"><title
+   id="title74393">A human readable description of the status of the adjudication</title>disposition</a> : <a
+   id="n3985"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n3989"
+       x="400.12766"
+       y="618.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3990"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.preAuthRef"><title
+   id="title74398">Reference from the Insurer which is used in later communications which refers to this adjudication</title>preAuthRef</a> : <a
+   id="n3991"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3995"
+       x="400.12766"
+       y="632.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3996"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.preAuthRefPeriod"><title
+   id="title74403">The timeframe during which the supplied preauthorization reference may be quoted on claims to obtain the adjudication as provided</title>preAuthRefPeriod</a> : <a
+   id="n3997"
+   xlink:href="datatypes.html#Period">Period</a> [0..*]</text>
+    <text
+       id="n4001"
+       x="400.12766"
+       y="646.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4002"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosisRelatedGroup"><title
+   id="title74408">A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system</title>diagnosisRelatedGroup</a> : <a
+   id="n4003"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4004"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html"><title
+     id="n4005">null (Strength=Example)</title></a></text>
+    <text
+       id="n4006"
+       x="420.12766"
+       y="660.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4007"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html">ExampleDiagnosisRelatedGroupC...</a>?? »</text>
+    <text
+       id="n4015"
+       x="400.12766"
+       y="674.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4016"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.precedence"><title
+   id="title74417">This indicates the relative order of a series of EOBs related to different coverages for the same suite of services</title>precedence</a> : <a
+   id="n4017"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n4021"
+       x="400.12766"
+       y="688.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4022"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.patientPaid"><title
+   id="title74422">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n4023"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4027"
+       x="400.12766"
+       y="702.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4028"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.formCode"><title
+   id="title74427">A code for the form to be used for printing the content</title>formCode</a> : <a
+   id="n4029"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4030"
+   xlink:href="valueset-forms.html"><title
+   id="n4031">null (Strength=Example)</title>FormCodes</a>?? »</text>
+    <text
+       id="n4037"
+       x="400.12766"
+       y="716.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4038"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.form"><title
+   id="title74434">The actual form, by reference or inclusion, for printing the content or an EOB</title>form</a> : <a
+   id="n4039"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..1]</text>
+    <text
+       id="n4043"
+       x="400.12766"
+       y="730.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4044"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitPeriod"><title
+   id="title74439">The term of the benefits documented in this response</title>benefitPeriod</a> : <a
+   id="n4045"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n4049">
+    <rect
+       id="ExplanationOfBenefit.related"
+       x="28.105131"
+       y="284.20275300000003"
+       rx="4"
+       ry="4"
+       width="176.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4050"
+       x1="28.105131"
+       y1="312.20275300000003"
+       x2="204.105131"
+       y2="312.20275300000003"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4051"
+       x="116.105131"
+       y="304.20275300000003"
+       fill="black"
+       class="diagram-class-title">RelatedClaim</text>
+    <text
+       id="n4052"
+       x="34.105131"
+       y="326.20275300000003"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4053"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.related.claim"><title
+   id="title74448">Reference to a related claim</title>claim</a> : <a
+   id="n4054"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n4055"
+   xlink:href="claim.html#Claim">Claim</a> »</text>
+    <text
+       id="n4060"
+       x="34.105131"
+       y="340.20275300000003"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4061"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.related.relationship"><title
+   id="title74454">A code to convey how the claims are related</title>relationship</a> : <a
+   id="n4062"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4063"
+   xlink:href="valueset-related-claim-relationship.html"><title
+     id="n4064">null (Strength=Example)</title></a></text>
+    <text
+       id="n4065"
+       x="54.105131"
+       y="354.20275300000003"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4066"
+   xlink:href="valueset-related-claim-relationship.html">ExampleRelatedClaimRelationsh...</a>?? »</text>
+    <text
+       id="n4074"
+       x="34.105131"
+       y="368.20275300000003"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4075"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.related.reference"><title
+   id="title74463">An alternate organizational reference to the case or file to which this particular claim pertains</title>reference</a> : <a
+   id="n4076"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+  </g>
+  <g
+     id="n4080">
+    <rect
+       id="ExplanationOfBenefit.event"
+       x="84.315394"
+       y="6.0225282"
+       rx="4"
+       ry="4"
+       width="211.20000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4081"
+       x1="84.315394"
+       y1="34.022528199999996"
+       x2="295.515394"
+       y2="34.022528199999996"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4082"
+       x="189.915394"
+       y="26.0225282"
+       fill="black"
+       class="diagram-class-title">Event</text>
+    <text
+       id="n4083"
+       x="90.315394"
+       y="48.022528199999996"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4084"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.event.type"><title
+   id="title74472">A coded event such as when a service is expected or a card printed</title>type</a> : <a
+   id="n4085"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n4086"
+   xlink:href="valueset-datestype.html"><title
+   id="n4087">null (Strength=Example)</title>DatesTypeCodes</a>?? »</text>
+    <text
+       id="n4093"
+       x="90.315394"
+       y="62.022528199999996"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4094"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.event.when_x_"><title
+   id="title74479">A date or period in the past or future indicating when the event occurred or is expectd to occur</title>when[x]</a> : <a
+   id="n4095"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n4096"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n4097"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+  </g>
+  <g
+     id="n4103">
+    <rect
+       id="ExplanationOfBenefit.payee"
+       x="13.864831000000002"
+       y="76.285356"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4104"
+       x1="13.864831000000002"
+       y1="104.285356"
+       x2="264.664831"
+       y2="104.285356"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4105"
+       x="139.26483100000002"
+       y="96.285356"
+       fill="black"
+       class="diagram-class-title">Payee</text>
+    <text
+       id="n4106"
+       x="19.864831000000002"
+       y="118.285356"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4107"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payee.type"><title
+   id="title74490">Type of Party to be reimbursed: Subscriber, provider, other</title>type</a> : <a
+   id="n4108"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4109"
+   xlink:href="valueset-payeetype.html"><title
+   id="n4110">null (Strength=Example)</title>ClaimPayeeTypeCodes</a>?? »</text>
+    <text
+       id="n4116"
+       x="19.864831000000002"
+       y="132.28535599999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4117"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payee.party"><title
+   id="title74497">Reference to the individual or organization to whom any payment will be made</title>party</a> : <a
+   id="n4118"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n4119"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n4120"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n4121"
+       x="39.864831"
+       y="146.28535599999998"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4122"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n4123"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n4124"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <g
+     id="n4134">
+    <rect
+       id="ExplanationOfBenefit.careTeam"
+       x="24.090112"
+       y="540.300376"
+       rx="4"
+       ry="4"
+       width="264.0"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4135"
+       x1="24.090112"
+       y1="568.300376"
+       x2="288.090112"
+       y2="568.300376"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4136"
+       x="156.090112"
+       y="560.300376"
+       fill="black"
+       class="diagram-class-title">CareTeam</text>
+    <text
+       id="n4137"
+       x="30.090112"
+       y="582.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4138"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam.sequence"><title
+   id="title74512">A number to uniquely identify care team entries</title>sequence</a> : <a
+   id="n4139"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4143"
+       x="30.090112"
+       y="596.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4144"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam.provider"><title
+   id="title74517">Member of the team who provided the product or service</title>provider</a> : <a
+   id="n4145"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n4146"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n4147"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n4148"
+       x="50.090112000000005"
+       y="610.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4149"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n4157"
+       x="30.090112"
+       y="624.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4158"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam.responsible"><title
+   id="title74526">The party who is billing and/or responsible for the claimed products or services</title>responsible</a> : <a
+   id="n4159"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n4163"
+       x="30.090112"
+       y="638.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4164"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam.role"><title
+   id="title74531">The lead, assisting or supervising practitioner and their discipline if a multidisciplinary team</title>role</a> : <a
+   id="n4165"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4166"
+   xlink:href="valueset-claim-careteamrole.html"><title
+   id="n4167">null (Strength=Example)</title>ClaimCareTeamRoleCodes</a>?? »</text>
+    <text
+       id="n4173"
+       x="30.090112"
+       y="652.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4174"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam.specialty"><title
+   id="title74538">The specialization of the practitioner or provider which is applicable for this service</title>specialty</a> : <a
+   id="n4175"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4176"
+   xlink:href="valueset-provider-qualification.html"><title
+     id="n4177">null (Strength=Example)</title></a></text>
+    <text
+       id="n4178"
+       x="50.090112000000005"
+       y="666.300376"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4179"
+   xlink:href="valueset-provider-qualification.html">ExampleProviderQualificationC...</a>?? »</text>
+  </g>
+  <g
+     id="n4187">
+    <rect
+       id="ExplanationOfBenefit.supportingInfo"
+       x="690.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4188"
+       x1="690.0"
+       y1="28.0"
+       x2="984.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4189"
+       x="837.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">SupportingInformation</text>
+    <text
+       id="n4190"
+       x="696.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4191"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.sequence"><title
+   id="title74551">A number to uniquely identify supporting information entries</title>sequence</a> : <a
+   id="n4192"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4196"
+       x="696.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4197"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.category"><title
+   id="title74556">The general class of the information supplied: information; exception; accident, employment; onset, etc</title>category</a> : <a
+   id="n4198"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n4199"
+   xlink:href="valueset-claim-informationcategory.html"><title
+   id="n4200">null (Strength=Example)</title>ClaimInformationCategoryCodes</a>?? »</text>
+    <text
+       id="n4206"
+       x="696.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4207"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.code"><title
+   id="title74563">System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought</title>code</a> : <a
+   id="n4208"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4209"
+   xlink:href="valueset-claim-exception.html"><title
+   id="n4210">null (Strength=Example)</title>ExceptionCodes</a>?? »</text>
+    <text
+       id="n4216"
+       x="696.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4217"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.timing_x_"><title
+   id="title74570">The date when or period to which this information refers</title>timing[x]</a> : <a
+   id="n4218"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n4219"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n4220"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n4226"
+       x="696.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4227"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.value_x_"><title
+   id="title74577">Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data</title>value[x]</a> : <a
+   id="n4228"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n4229"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n4230"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n4231"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n4232"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|</text>
+    <text
+       id="n4233"
+       x="716.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4234"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n4235"
+   xlink:href="resourcelist.html#Any">Any</a>)|<a
+   id="n4236"
+   xlink:href="datatypes.html#Identifier">Identifier</a> »</text>
+    <text
+       id="n4248"
+       x="696.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4249"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo.reason"><title
+   id="title74590">Provides the reason in the situation where a reason code is required in addition to the content</title>reason</a> : <a
+   id="n4250"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n4251"
+   xlink:href="valueset-missing-tooth-reason.html"><title
+   id="n4252">null (Strength=Example)</title>MissingToothReasonCodes</a>?? »</text>
+  </g>
+  <g
+     id="n4258">
+    <rect
+       id="ExplanationOfBenefit.diagnosis"
+       x="350.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="312.40000000000003"
+       height="120.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4259"
+       x1="350.0"
+       y1="28.0"
+       x2="662.4000000000001"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4260"
+       x="506.20000000000005"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Diagnosis</text>
+    <text
+       id="n4261"
+       x="356.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4262"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosis.sequence"><title
+   id="title74601">A number to uniquely identify diagnosis entries</title>sequence</a> : <a
+   id="n4263"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4267"
+       x="356.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4268"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosis.diagnosis_x_"><title
+   id="title74606">The nature of illness or problem in a coded form or as a reference to an external defined Condition</title>diagnosis[x]</a> : <a
+   id="n4269"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n4270"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n4271"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n4272"
+   xlink:href="condition.html#Condition">Condition</a>); <a
+   id="n4273"
+   xlink:href="valueset-icd-10.html"><title
+     id="n4274">null (Strength=Example)</title></a></text>
+    <text
+       id="n4275"
+       x="376.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4276"
+   xlink:href="valueset-icd-10.html">ICD10Codes</a>?? »</text>
+    <text
+       id="n4287"
+       x="356.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4288"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosis.type"><title
+   id="title74618">When the condition was observed or the relative ranking</title>type</a> : <a
+   id="n4289"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4290"
+   xlink:href="valueset-ex-diagnosistype.html"><title
+   id="n4291">null (Strength=Example)</title>ExampleDiagnosisTypeCodes</a>?? »</text>
+    <text
+       id="n4297"
+       x="356.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4298"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosis.onAdmission"><title
+   id="title74625">Indication of whether the diagnosis was present on admission to a facility</title>onAdmission</a> : <a
+   id="n4299"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4300"
+   xlink:href="valueset-ex-diagnosis-on-admission.html"><title
+     id="n4301">null (Strength=Example)</title></a></text>
+    <text
+       id="n4302"
+       x="376.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4303"
+   xlink:href="valueset-ex-diagnosis-on-admission.html">ExampleDiagnosisOnAdmissionCo...</a>?? »</text>
+  </g>
+  <g
+     id="n4311">
+    <rect
+       id="ExplanationOfBenefit.procedure"
+       x="22.082604"
+       y="398.21777199999997"
+       rx="4"
+       ry="4"
+       width="312.40000000000003"
+       height="120.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4312"
+       x1="22.082604"
+       y1="426.21777199999997"
+       x2="334.48260400000004"
+       y2="426.21777199999997"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4313"
+       x="178.28260400000002"
+       y="418.21777199999997"
+       fill="black"
+       class="diagram-class-title">Procedure</text>
+    <text
+       id="n4314"
+       x="28.082604"
+       y="440.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4315"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure.sequence"><title
+   id="title74638">A number to uniquely identify procedure entries</title>sequence</a> : <a
+   id="n4316"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4320"
+       x="28.082604"
+       y="454.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4321"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure.type"><title
+   id="title74643">When the condition was observed or the relative ranking</title>type</a> : <a
+   id="n4322"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4323"
+   xlink:href="valueset-ex-procedure-type.html"><title
+   id="n4324">null (Strength=Example)</title>ExampleProcedureTypeCodes</a>?? »</text>
+    <text
+       id="n4330"
+       x="28.082604"
+       y="468.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4331"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure.date"><title
+   id="title74650">Date and optionally time the procedure was performed</title>date</a> : <a
+   id="n4332"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n4336"
+       x="28.082604"
+       y="482.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4337"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure.procedure_x_"><title
+   id="title74655">The code or reference to a Procedure resource which identifies the clinical intervention performed</title>procedure[x]</a> : <a
+   id="n4338"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n4339"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n4340"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n4341"
+   xlink:href="procedure.html#Procedure">Procedure</a>); <a
+   id="n4342"
+   xlink:href="valueset-icd-10-procedures.html"><title
+     id="n4343">null (Strength=Example)</title></a></text>
+    <text
+       id="n4344"
+       x="48.082604"
+       y="496.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4345"
+   xlink:href="valueset-icd-10-procedures.html">ICD10ProcedureCodes</a>?? »</text>
+    <text
+       id="n4356"
+       x="28.082604"
+       y="510.21777199999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4357"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure.udi"><title
+   id="title74667">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n4358"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4359"
+   xlink:href="device.html#Device">Device</a> »</text>
+  </g>
+  <g
+     id="n4364">
+    <rect
+       id="ExplanationOfBenefit.insurance"
+       x="800.0"
+       y="140.0"
+       rx="4"
+       ry="4"
+       width="176.0"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4365"
+       x1="800.0"
+       y1="168.0"
+       x2="976.0"
+       y2="168.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4366"
+       x="888.0"
+       y="160.0"
+       fill="black"
+       class="diagram-class-title">Insurance</text>
+    <text
+       id="n4367"
+       x="806.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4368"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.insurance.focal"><title
+   id="title74677">A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true</title>focal</a> : <a
+   id="n4369"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n4373"
+       x="806.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4374"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.insurance.coverage"><title
+   id="title74682">Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system</title>coverage</a> : <a
+   id="n4375"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n4376"
+   xlink:href="coverage.html#Coverage">Coverage</a> »</text>
+    <text
+       id="n4381"
+       x="806.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4382"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.insurance.preAuthRef"><title
+   id="title74688">Reference numbers previously provided by the insurer to the provider to be quoted on subsequent claims containing services or products related to the prior authorization</title>preAuthRef</a> : <a
+   id="n4383"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+  </g>
+  <g
+     id="n4387">
+    <rect
+       id="ExplanationOfBenefit.accident"
+       x="760.0"
+       y="220.0"
+       rx="4"
+       ry="4"
+       width="268.40000000000003"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4388"
+       x1="760.0"
+       y1="248.0"
+       x2="1028.4"
+       y2="248.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4389"
+       x="894.2"
+       y="240.0"
+       fill="black"
+       class="diagram-class-title">Accident</text>
+    <text
+       id="n4390"
+       x="766.0"
+       y="262.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4391"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.accident.date"><title
+   id="title74697">Date of an accident event  related to the products and services contained in the claim</title>date</a> : <a
+   id="n4392"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n4396"
+       x="766.0"
+       y="276.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4397"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.accident.type"><title
+   id="title74702">The type or context of the accident event for the purposes of selection of potential insurance coverages and determination of coordination between insurers</title>type</a> : <a
+   id="n4398"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4399"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActIncidentCode.html"><title
+   id="n4400">null (Strength=Extensible)</title>ActIncidentCode</a>+ »</text>
+    <text
+       id="n4406"
+       x="766.0"
+       y="290.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4407"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.accident.location_x_"><title
+   id="title74709">The physical location of the accident event</title>location[x]</a> : <a
+   id="n4408"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n4409"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n4410"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n4411"
+   xlink:href="location.html#Location">Location</a>) »</text>
+  </g>
+  <g
+     id="n4418"
+     transform="translate(2.1925296,109.62648)">
+    <rect
+       id="ExplanationOfBenefit.item"
+       x="18.067583"
+       y="702.30786"
+       rx="4"
+       ry="4"
+       width="308"
+       height="400"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4419"
+       x1="18.067583"
+       y1="730.30786"
+       x2="326.0676"
+       y2="730.30786"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4420"
+       x="172.06758"
+       y="722.30786"
+       fill="#000000"
+       class="diagram-class-title">Item</text>
+    <text
+       id="n4421"
+       x="24.067583"
+       y="744.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4422"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.sequence"><title
+   id="title74721">A number to uniquely identify item entries</title>sequence</a> : <a
+   id="n4423"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4427"
+       x="24.067583"
+       y="758.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4428"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.careTeamSequence"><title
+   id="title74726">Care team members related to this service or product</title>careTeamSequence</a> : <a
+   id="n4429"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4433"
+       x="24.067583"
+       y="772.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4434"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.diagnosisSequence"><title
+   id="title74731">Diagnoses applicable for this service or product</title>diagnosisSequence</a> : <a
+   id="n4435"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4439"
+       x="24.067583"
+       y="786.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4440"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.procedureSequence"><title
+   id="title74736">Procedures applicable for this service or product</title>procedureSequence</a> : <a
+   id="n4441"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4445"
+       x="24.067583"
+       y="800.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4446"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.informationSequence"><title
+   id="title74741">Exceptions, special conditions and supporting information applicable for this service or product</title>informationSequence</a> : <a
+   id="n4447"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4451"
+       x="24.067583"
+       y="814.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4452"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.traceNumber"><title
+   id="title74746">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n4453"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n4457"
+       x="24.067583"
+       y="828.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4458"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.revenue"><title
+   id="title74751">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n4459"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4460"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n4461">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n4467"
+       x="24.067583"
+       y="842.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4468"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.category"><title
+   id="title74758">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n4469"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4470"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n4471">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n4477"
+       x="24.067583"
+       y="856.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4478"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.productOrService"><title
+   id="title74765">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n4479"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4480"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4481">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4487"
+       x="24.067583"
+       y="870.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4488"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.productOrServiceEnd"><title
+   id="title74772">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n4489"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4490"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4491">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4497"
+       x="24.067583"
+       y="884.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4498"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.request"><title
+   id="title74779">Request or Referral for Goods or Service to be rendered</title>request</a> : <a
+   id="n4499"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4500"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n4501"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n4502"
+       x="44.067585"
+       y="898.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4503"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n4504"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n4505"
+   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   id="n4506"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n4517"
+       x="24.067583"
+       y="912.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4518"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.modifier"><title
+   id="title74791">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n4519"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4520"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n4521">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n4527"
+       x="24.067583"
+       y="926.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4528"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.programCode"><title
+   id="title74798">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n4529"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4530"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n4531">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n4537"
+       x="24.067583"
+       y="940.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4538"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.serviced_x_"><title
+   id="title74805">The date or dates when the service or product was supplied, performed or completed</title>serviced[x]</a> : <a
+   id="n4539"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n4540"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n4541"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n4547"
+       x="24.067583"
+       y="954.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4548"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.location_x_"><title
+   id="title74812">Where the product or service was provided</title>location[x]</a> : <a
+   id="n4549"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n4550"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n4551"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n4552"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n4553"
+       x="44.067585"
+       y="968.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4554"
+   xlink:href="location.html#Location">Location</a>); <a
+   id="n4555"
+   xlink:href="valueset-service-place.html"><title
+   id="n4556">null (Strength=Example)</title>ExampleServicePlaceCodes</a>?? »</text>
+    <text
+       id="n4567"
+       x="24.067583"
+       y="982.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4568"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.patientPaid"><title
+   id="title74824">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n4569"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4573"
+       x="24.067583"
+       y="996.30786"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4574"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.quantity"><title
+   id="title74829">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n4575"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a74833">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n4579"
+       x="24.067583"
+       y="1010.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4580"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.unitPrice"><title
+   id="title74836">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n4581"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4585"
+       x="24.067583"
+       y="1024.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4586"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.factor"><title
+   id="title74841">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n4587"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n4591"
+       x="24.067583"
+       y="1038.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4592"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.tax"><title
+   id="title74846">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n4593"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4597"
+       x="24.067583"
+       y="1052.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4598"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.net"><title
+   id="title74851">The total amount claimed for the group (if a grouper) or the line item. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n4599"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4603"
+       x="24.067583"
+       y="1066.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4604"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.udi"><title
+   id="title74856">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n4605"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4606"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n4611"
+       x="24.067583"
+       y="1080.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4612"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.encounter"><title
+   id="title74862">Healthcare encounters related to this claim</title>encounter</a> : <a
+   id="n4613"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4614"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n4619"
+       x="24.067583"
+       y="1094.3079"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4620"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.noteNumber"><title
+   id="title74868">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n4621"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n4625"
+     transform="translate(-1181.7735,186.36502)">
+    <rect
+       id="ExplanationOfBenefit.item.bodySite"
+       x="1210.6768"
+       y="512.12042"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4626"
+       x1="1210.6768"
+       y1="540.12042"
+       x2="1492.2769"
+       y2="540.12042"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4627"
+       x="1351.4768"
+       y="532.12042"
+       fill="#000000"
+       class="diagram-class-title">ItemBodySite</text>
+    <text
+       id="n4628"
+       x="1216.6768"
+       y="554.12042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4629"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.bodySite.site"><title
+   id="title74877">Physical service site on the patient (limb, tooth, etc.)</title>site</a> : <a
+   id="n4630"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..*] « <a
+   id="n4631"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n4632"
+   xlink:href="valueset-tooth.html"><title
+   id="n4633">null (Strength=Example)</title>OralSiteCodes</a>?? »</text>
+    <text
+       id="n4640"
+       x="1216.6768"
+       y="568.12042"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4641"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.bodySite.subSite"><title
+   id="title74885">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="n4642"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4643"
+   xlink:href="valueset-surface.html"><title
+   id="n4644">null (Strength=Example)</title>SurfaceCodes</a>?? »</text>
+  </g>
+  <g
+     id="n4650">
+    <rect
+       id="ExplanationOfBenefit.item.reviewOutcome"
+       x="427.74731629999997"
+       y="1052.76403"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n4651"
+       x1="427.74731629999997"
+       y1="1080.76403"
+       x2="735.7473163"
+       y2="1080.76403"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n4652"
+       x="581.7473163"
+       y="1072.76403"
+       fill="black"
+       class="diagram-class-title">ReviewOutcome</text>
+    <text
+       id="n4653"
+       x="433.74731629999997"
+       y="1094.76403"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4654"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.reviewOutcome.decision"><title
+   id="title74896">The result of the claim, predetermination, or preauthorization adjudication</title>decision</a> : <a
+   id="n4655"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4656"
+   xlink:href="valueset-claim-decision.html"><title
+   id="n4657">null (Strength=Example)</title>ClaimAdjudicationDecisionsCod...</a>?? »</text>
+    <text
+       id="n4663"
+       x="433.74731629999997"
+       y="1108.76403"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4664"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.reviewOutcome.reason"><title
+   id="title74903">The reasons for the result of the claim, predetermination, or preauthorization adjudication</title>reason</a> : <a
+   id="n4665"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4666"
+   xlink:href="valueset-claim-decision-reason.html"><title
+   id="n4667">null (Strength=Example)</title>ClaimAdjudicationDecisionReas...</a>?? »</text>
+    <text
+       id="n4673"
+       x="433.74731629999997"
+       y="1122.76403"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4674"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.reviewOutcome.preAuthRef"><title
+   id="title74910">Reference from the Insurer which is used in later communications which refers to this adjudication</title>preAuthRef</a> : <a
+   id="n4675"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n4679"
+       x="433.74731629999997"
+       y="1136.76403"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n4680"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.reviewOutcome.preAuthPeriod"><title
+   id="title74915">The time frame during which this authorization is effective</title>preAuthPeriod</a> : <a
+   id="n4681"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <g
+     id="n4685"
+     transform="translate(19.732767,10.962648)">
+    <rect
+       id="ExplanationOfBenefit.item.adjudication"
+       x="400.33917"
+       y="810.08807"
+       rx="4"
+       ry="4"
+       width="264"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4686"
+       x1="400.33917"
+       y1="838.08807"
+       x2="664.33917"
+       y2="838.08807"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4687"
+       x="532.33917"
+       y="830.08807"
+       fill="#000000"
+       class="diagram-class-title">Adjudication</text>
+    <text
+       id="n4688"
+       x="406.33917"
+       y="852.08807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4689"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.adjudication.category"><title
+   id="title74924">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in-aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item</title>category</a> : <a
+   id="n4690"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n4691"
+   xlink:href="valueset-adjudication.html"><title
+   id="n4692">null (Strength=Example)</title>AdjudicationValueCodes</a>?? »</text>
+    <text
+       id="n4698"
+       x="406.33917"
+       y="866.08807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4699"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.adjudication.reason"><title
+   id="title74931">A code supporting the understanding of the adjudication result and explaining variance from expected amount</title>reason</a> : <a
+   id="n4700"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4701"
+   xlink:href="valueset-adjudication-reason.html"><title
+   id="n4702">null (Strength=Example)</title>AdjudicationReasonCodes</a>?? »</text>
+    <text
+       id="n4708"
+       x="406.33917"
+       y="880.08807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4709"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.adjudication.amount"><title
+   id="title74938">Monetary amount associated with the category</title>amount</a> : <a
+   id="n4710"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4714"
+       x="406.33917"
+       y="894.08807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4715"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.adjudication.quantity"><title
+   id="title74943">A non-monetary value associated with the category. Mutually exclusive to the amount element above</title>quantity</a> : <a
+   id="n4716"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+  </g>
+  <g
+     id="n4720"
+     transform="translate(4.3850593,127.16672)">
+    <rect
+       id="ExplanationOfBenefit.item.detail"
+       x="24.090113"
+       y="1148.3304"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="260"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4721"
+       x1="24.090113"
+       y1="1176.3304"
+       x2="314.49011"
+       y2="1176.3304"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4722"
+       x="169.29012"
+       y="1168.3304"
+       fill="#000000"
+       class="diagram-class-title">Detail</text>
+    <text
+       id="n4723"
+       x="30.090113"
+       y="1190.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4724"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.sequence"><title
+   id="title74952">A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>sequence</a> : <a
+   id="n4725"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4729"
+       x="30.090113"
+       y="1204.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4730"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.traceNumber"><title
+   id="title74957">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n4731"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n4735"
+       x="30.090113"
+       y="1218.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4736"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.revenue"><title
+   id="title74962">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n4737"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4738"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n4739">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n4745"
+       x="30.090113"
+       y="1232.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4746"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.category"><title
+   id="title74969">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n4747"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4748"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n4749">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n4755"
+       x="30.090113"
+       y="1246.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4756"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.productOrService"><title
+   id="title74976">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n4757"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4758"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4759">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4765"
+       x="30.090113"
+       y="1260.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4766"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.productOrServiceEnd"><title
+   id="title74983">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n4767"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4768"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4769">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4775"
+       x="30.090113"
+       y="1274.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4776"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.modifier"><title
+   id="title74990">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n4777"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4778"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n4779">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n4785"
+       x="30.090113"
+       y="1288.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4786"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.programCode"><title
+   id="title74997">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n4787"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4788"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n4789">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n4795"
+       x="30.090113"
+       y="1302.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4796"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.patientPaid"><title
+   id="title75004">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n4797"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4801"
+       x="30.090113"
+       y="1316.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4802"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.quantity"><title
+   id="title75009">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n4803"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75013">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n4807"
+       x="30.090113"
+       y="1330.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4808"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.unitPrice"><title
+   id="title75016">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n4809"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4813"
+       x="30.090113"
+       y="1344.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4814"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.factor"><title
+   id="title75021">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n4815"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n4819"
+       x="30.090113"
+       y="1358.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4820"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.tax"><title
+   id="title75026">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n4821"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4825"
+       x="30.090113"
+       y="1372.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4826"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.net"><title
+   id="title75031">The total amount claimed for the group (if a grouper) or the line item.detail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n4827"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4831"
+       x="30.090113"
+       y="1386.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4832"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.udi"><title
+   id="title75036">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n4833"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4834"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n4839"
+       x="30.090113"
+       y="1400.3304"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4840"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.noteNumber"><title
+   id="title75042">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n4841"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n4845"
+     transform="translate(-41.658063,118.3966)">
+    <rect
+       id="ExplanationOfBenefit.item.detail.subDetail"
+       x="73.036713"
+       y="1451.8312"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="260"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4846"
+       x1="73.036713"
+       y1="1479.8312"
+       x2="363.43671"
+       y2="1479.8312"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4847"
+       x="218.23671"
+       y="1471.8312"
+       fill="#000000"
+       class="diagram-class-title">SubDetail</text>
+    <text
+       id="n4848"
+       x="79.036713"
+       y="1493.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4849"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.sequence"><title
+   id="title75051">A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>sequence</a> : <a
+   id="n4850"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n4854"
+       x="79.036713"
+       y="1507.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4855"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.traceNumber"><title
+   id="title75056">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n4856"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n4860"
+       x="79.036713"
+       y="1521.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4861"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.revenue"><title
+   id="title75061">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n4862"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4863"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n4864">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n4870"
+       x="79.036713"
+       y="1535.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4871"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.category"><title
+   id="title75068">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n4872"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4873"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n4874">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n4880"
+       x="79.036713"
+       y="1549.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4881"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.productOrService"><title
+   id="title75075">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n4882"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4883"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4884">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4890"
+       x="79.036713"
+       y="1563.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4891"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.productOrServiceEnd"><title
+   id="title75082">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n4892"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n4893"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n4894">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n4900"
+       x="79.036713"
+       y="1577.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4901"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.modifier"><title
+   id="title75089">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n4902"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4903"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n4904">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n4910"
+       x="79.036713"
+       y="1591.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4911"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.programCode"><title
+   id="title75096">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n4912"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n4913"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n4914">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n4920"
+       x="79.036713"
+       y="1605.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4921"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.patientPaid"><title
+   id="title75103">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n4922"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4926"
+       x="79.036713"
+       y="1619.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4927"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.quantity"><title
+   id="title75108">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n4928"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75112">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n4932"
+       x="79.036713"
+       y="1633.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4933"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.unitPrice"><title
+   id="title75115">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n4934"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4938"
+       x="79.036713"
+       y="1647.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4939"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.factor"><title
+   id="title75120">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n4940"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n4944"
+       x="79.036713"
+       y="1661.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4945"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.tax"><title
+   id="title75125">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n4946"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4950"
+       x="79.036713"
+       y="1675.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4951"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.net"><title
+   id="title75130">The total amount claimed for the line item.detail.subDetail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n4952"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n4956"
+       x="79.036713"
+       y="1689.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4957"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.udi"><title
+   id="title75135">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n4958"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n4959"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n4964"
+       x="79.036713"
+       y="1703.8312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4965"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.noteNumber"><title
+   id="title75141">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n4966"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n4970"
+     transform="translate(13.155178,107.43395)">
+    <rect
+       id="ExplanationOfBenefit.addItem"
+       x="780.15021"
+       y="850"
+       rx="4"
+       ry="4"
+       width="308"
+       height="358"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n4971"
+       x1="780.15021"
+       y1="878"
+       x2="1088.1501"
+       y2="878"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n4972"
+       x="934.15021"
+       y="870"
+       fill="#000000"
+       class="diagram-class-title">AddedItem</text>
+    <text
+       id="n4973"
+       x="786.15021"
+       y="892"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4974"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.itemSequence"><title
+   id="title75150">Claim items which this service line is intended to replace</title>itemSequence</a> : <a
+   id="n4975"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4979"
+       x="786.15021"
+       y="906"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4980"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detailSequence"><title
+   id="title75155">The sequence number of the details within the claim item which this line is intended to replace</title>detailSequence</a> : <a
+   id="n4981"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4985"
+       x="786.15021"
+       y="920"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4986"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.subDetailSequence"><title
+   id="title75160">The sequence number of the sub-details woithin the details within the claim item which this line is intended to replace</title>subDetailSequence</a> : <a
+   id="n4987"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n4991"
+       x="786.15021"
+       y="934"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4992"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.traceNumber"><title
+   id="title75165">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n4993"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n4997"
+       x="786.15021"
+       y="948"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n4998"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.provider"><title
+   id="title75170">The providers who are authorized for the services rendered to the patient</title>provider</a> : <a
+   id="n4999"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n5000"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n5001"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n5002"
+       x="806.15021"
+       y="962"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5003"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n5011"
+       x="786.15021"
+       y="976"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5012"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.revenue"><title
+   id="title75179">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n5013"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5014"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n5015">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n5021"
+       x="786.15021"
+       y="990"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5022"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.productOrService"><title
+   id="title75186">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n5023"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5024"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5025">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5031"
+       x="786.15021"
+       y="1004"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5032"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.productOrServiceEnd"><title
+   id="title75193">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n5033"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5034"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5035">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5041"
+       x="786.15021"
+       y="1018"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5042"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.request"><title
+   id="title75200">Request or Referral for Goods or Service to be rendered</title>request</a> : <a
+   id="n5043"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n5044"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n5045"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n5046"
+       x="806.15021"
+       y="1032"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5047"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n5048"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n5049"
+   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   id="n5050"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n5061"
+       x="786.15021"
+       y="1046"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5062"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.modifier"><title
+   id="title75212">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n5063"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n5064"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n5065">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n5071"
+       x="786.15021"
+       y="1060"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5072"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.programCode"><title
+   id="title75219">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n5073"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n5074"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n5075">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n5081"
+       x="786.15021"
+       y="1074"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5082"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.serviced_x_"><title
+   id="title75226">The date or dates when the service or product was supplied, performed or completed</title>serviced[x]</a> : <a
+   id="n5083"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n5084"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n5085"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n5091"
+       x="786.15021"
+       y="1088"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5092"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.location_x_"><title
+   id="title75233">Where the product or service was provided</title>location[x]</a> : <a
+   id="n5093"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n5094"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n5095"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n5096"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n5097"
+       x="806.15021"
+       y="1102"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5098"
+   xlink:href="location.html#Location">Location</a>); <a
+   id="n5099"
+   xlink:href="valueset-service-place.html"><title
+   id="n5100">null (Strength=Example)</title>ExampleServicePlaceCodes</a>?? »</text>
+    <text
+       id="n5111"
+       x="786.15021"
+       y="1116"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5112"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.patientPaid"><title
+   id="title75245">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n5113"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5117"
+       x="786.15021"
+       y="1130"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5118"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.quantity"><title
+   id="title75250">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n5119"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75254">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n5123"
+       x="786.15021"
+       y="1144"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5124"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.unitPrice"><title
+   id="title75257">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n5125"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5129"
+       x="786.15021"
+       y="1158"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5130"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.factor"><title
+   id="title75262">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n5131"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n5135"
+       x="786.15021"
+       y="1172"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5136"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.tax"><title
+   id="title75267">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n5137"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5141"
+       x="786.15021"
+       y="1186"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5142"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.net"><title
+   id="title75272">The total amount claimed for the group (if a grouper) or the addItem. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n5143"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5147"
+       x="786.15021"
+       y="1200"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5148"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.noteNumber"><title
+   id="title75277">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n5149"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n5153"
+     transform="translate(-372.73004,-15.347707)">
+    <rect
+       id="ExplanationOfBenefit.addItem.bodySite"
+       x="1179.6445"
+       y="865.3667"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n5154"
+       x1="1179.6445"
+       y1="893.3667"
+       x2="1461.2445"
+       y2="893.3667"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n5155"
+       x="1320.4446"
+       y="885.3667"
+       fill="#000000"
+       class="diagram-class-title">AddedItemBodySite</text>
+    <text
+       id="n5156"
+       x="1185.6445"
+       y="907.3667"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5157"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.bodySite.site"><title
+   id="title75286">Physical service site on the patient (limb, tooth, etc.)</title>site</a> : <a
+   id="n5158"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..*] « <a
+   id="n5159"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n5160"
+   xlink:href="valueset-tooth.html"><title
+   id="n5161">null (Strength=Example)</title>OralSiteCodes</a>?? »</text>
+    <text
+       id="n5168"
+       x="1185.6445"
+       y="921.3667"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n5169"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.bodySite.subSite"><title
+   id="title75294">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="n5170"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n5171"
+   xlink:href="valueset-surface.html"><title
+   id="n5172">null (Strength=Example)</title>SurfaceCodes</a>?? »</text>
+  </g>
+  <g
+     id="n5178">
+    <rect
+       id="ExplanationOfBenefit.addItem.detail"
+       x="805.933748"
+       y="1383.63785"
+       rx="4"
+       ry="4"
+       width="272.8"
+       height="204.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5179"
+       x1="805.933748"
+       y1="1411.63785"
+       x2="1078.733748"
+       y2="1411.63785"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5180"
+       x="942.333748"
+       y="1403.63785"
+       fill="black"
+       class="diagram-class-title">AddedItemDetail</text>
+    <text
+       id="n5181"
+       x="811.933748"
+       y="1425.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5182"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.traceNumber"><title
+   id="title75305">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n5183"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n5187"
+       x="811.933748"
+       y="1439.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5188"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.revenue"><title
+   id="title75310">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n5189"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5190"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n5191">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n5197"
+       x="811.933748"
+       y="1453.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5198"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.productOrService"><title
+   id="title75317">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n5199"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5200"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5201">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5207"
+       x="811.933748"
+       y="1467.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5208"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.productOrServiceEnd"><title
+   id="title75324">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n5209"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5210"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5211">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5217"
+       x="811.933748"
+       y="1481.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5218"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.modifier"><title
+   id="title75331">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n5219"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n5220"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n5221">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n5227"
+       x="811.933748"
+       y="1495.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5228"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.patientPaid"><title
+   id="title75338">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n5229"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5233"
+       x="811.933748"
+       y="1509.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5234"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.quantity"><title
+   id="title75343">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n5235"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75347">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n5239"
+       x="811.933748"
+       y="1523.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5240"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.unitPrice"><title
+   id="title75350">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n5241"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5245"
+       x="811.933748"
+       y="1537.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5246"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.factor"><title
+   id="title75355">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n5247"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n5251"
+       x="811.933748"
+       y="1551.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5252"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.tax"><title
+   id="title75360">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n5253"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5257"
+       x="811.933748"
+       y="1565.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5258"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.net"><title
+   id="title75365">The total amount claimed for the group (if a grouper) or the addItem.detail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n5259"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5263"
+       x="811.933748"
+       y="1579.63785"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5264"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.noteNumber"><title
+   id="title75370">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n5265"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n5269">
+    <rect
+       id="ExplanationOfBenefit.addItem.detail.subDetail"
+       x="462.461217"
+       y="1410.4390420000002"
+       rx="4"
+       ry="4"
+       width="272.8"
+       height="204.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5270"
+       x1="462.461217"
+       y1="1438.4390420000002"
+       x2="735.261217"
+       y2="1438.4390420000002"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5271"
+       x="598.861217"
+       y="1430.4390420000002"
+       fill="black"
+       class="diagram-class-title">AddedItemDetailSubDetail</text>
+    <text
+       id="n5272"
+       x="468.461217"
+       y="1452.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5273"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.traceNumber"><title
+   id="title75379">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n5274"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n5278"
+       x="468.461217"
+       y="1466.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5279"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.revenue"><title
+   id="title75384">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n5280"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5281"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n5282">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n5288"
+       x="468.461217"
+       y="1480.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5289"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.productOrService"><title
+   id="title75391">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n5290"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5291"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5292">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5298"
+       x="468.461217"
+       y="1494.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5299"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.productOrServiceEnd"><title
+   id="title75398">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n5300"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5301"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n5302">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n5308"
+       x="468.461217"
+       y="1508.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5309"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.modifier"><title
+   id="title75405">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n5310"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n5311"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n5312">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n5318"
+       x="468.461217"
+       y="1522.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5319"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.patientPaid"><title
+   id="title75412">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n5320"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5324"
+       x="468.461217"
+       y="1536.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5325"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.quantity"><title
+   id="title75417">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n5326"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a75421">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n5330"
+       x="468.461217"
+       y="1550.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5331"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.unitPrice"><title
+   id="title75424">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n5332"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5336"
+       x="468.461217"
+       y="1564.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5337"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.factor"><title
+   id="title75429">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n5338"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n5342"
+       x="468.461217"
+       y="1578.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5343"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.tax"><title
+   id="title75434">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n5344"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5348"
+       x="468.461217"
+       y="1592.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5349"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.net"><title
+   id="title75439">The total amount claimed for the addItem.detail.subDetail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n5350"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5354"
+       x="468.461217"
+       y="1606.4390420000002"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5355"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.noteNumber"><title
+   id="title75444">The numbers associated with notes below which apply to the adjudication of this item</title>noteNumber</a> : <a
+   id="n5356"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n5360">
+    <rect
+       id="ExplanationOfBenefit.total"
+       x="780.0"
+       y="600.0"
+       rx="4"
+       ry="4"
+       width="264.0"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5361"
+       x1="780.0"
+       y1="628.0"
+       x2="1044.0"
+       y2="628.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5362"
+       x="912.0"
+       y="620.0"
+       fill="black"
+       class="diagram-class-title">Total</text>
+    <text
+       id="n5363"
+       x="786.0"
+       y="642.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5364"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.total.category"><title
+   id="title75453">A code to indicate the information type of this adjudication record. Information types may include: the value submitted, maximum values or percentages allowed or payable under the plan, amounts that the patient is responsible for in aggregate or pertaining to this item, amounts paid by other coverages, and the benefit payable for this item</title>category</a> : <a
+   id="n5365"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n5366"
+   xlink:href="valueset-adjudication.html"><title
+   id="n5367">null (Strength=Example)</title>AdjudicationValueCodes</a>?? »</text>
+    <text
+       id="n5373"
+       x="786.0"
+       y="656.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5374"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.total.amount"><title
+   id="title75460">Monetary total amount associated with the category</title>amount</a> : <a
+   id="n5375"
+   xlink:href="datatypes.html#Money">Money</a> [1..1]</text>
+  </g>
+  <g
+     id="n5379">
+    <rect
+       id="ExplanationOfBenefit.payment"
+       x="780.0"
+       y="680.0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5380"
+       x1="780.0"
+       y1="708.0"
+       x2="1030.8"
+       y2="708.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5381"
+       x="905.4"
+       y="700.0"
+       fill="black"
+       class="diagram-class-title">Payment</text>
+    <text
+       id="n5382"
+       x="786.0"
+       y="722.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5383"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.type"><title
+   id="title75469">Whether this represents partial or complete payment of the benefits payable</title>type</a> : <a
+   id="n5384"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5385"
+   xlink:href="valueset-ex-paymenttype.html"><title
+   id="n5386">null (Strength=Example)</title>ExamplePaymentTypeCodes</a>?? »</text>
+    <text
+       id="n5392"
+       x="786.0"
+       y="736.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5393"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.adjustment"><title
+   id="title75476">Total amount of all adjustments to this payment included in this transaction which are not related to this claim's adjudication</title>adjustment</a> : <a
+   id="n5394"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5398"
+       x="786.0"
+       y="750.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5399"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.adjustmentReason"><title
+   id="title75481">Reason for the payment adjustment</title>adjustmentReason</a> : <a
+   id="n5400"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5401"
+   xlink:href="valueset-payment-adjustment-reason.html"><title
+     id="n5402">null (Strength=Example)</title></a></text>
+    <text
+       id="n5403"
+       x="806.0"
+       y="764.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5404"
+   xlink:href="valueset-payment-adjustment-reason.html">PaymentAdjustmentReasonCodes</a>?? »</text>
+    <text
+       id="n5412"
+       x="786.0"
+       y="778.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5413"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.date"><title
+   id="title75490">Estimated date the payment will be issued or the actual issue date of payment</title>date</a> : <a
+   id="n5414"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n5418"
+       x="786.0"
+       y="792.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5419"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.amount"><title
+   id="title75495">Benefits payable less any payment adjustment</title>amount</a> : <a
+   id="n5420"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n5424"
+       x="786.0"
+       y="806.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5425"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment.identifier"><title
+   id="title75500">Issuer's unique identifier for the payment instrument</title>identifier</a> : <a
+   id="n5426"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+  </g>
+  <g
+     id="n5430">
+    <rect
+       id="ExplanationOfBenefit.processNote"
+       x="26.097622"
+       y="168.217772"
+       rx="4"
+       ry="4"
+       width="220.00000000000003"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5431"
+       x1="26.097622"
+       y1="196.217772"
+       x2="246.09762200000003"
+       y2="196.217772"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5432"
+       x="136.097622"
+       y="188.217772"
+       fill="black"
+       class="diagram-class-title">Note</text>
+    <text
+       id="n5433"
+       x="32.097622"
+       y="210.217772"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5434"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.processNote.number"><title
+   id="title75509">A number to uniquely identify a note entry</title>number</a> : <a
+   id="n5435"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n5439"
+       x="32.097622"
+       y="224.217772"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5440"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.processNote.type"><title
+   id="title75514">The business purpose of the note text</title>type</a> : <a
+   id="n5441"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5442"
+   xlink:href="valueset-note-type.html"><title
+   id="n5443">null (Strength=Extensible)</title>NoteType</a>+ »</text>
+    <text
+       id="n5449"
+       x="32.097622"
+       y="238.217772"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5450"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.processNote.text"><title
+   id="title75521">The explanation or description associated with the processing</title>text</a> : <a
+   id="n5451"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n5455"
+       x="32.097622"
+       y="252.217772"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5456"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.processNote.language"><title
+   id="title75526">A code to define the language used in the text of the note</title>language</a> : <a
+   id="n5457"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5458"
+   xlink:href="valueset-all-languages.html"><title
+   id="n5459">null (Strength=Required)</title>AllLanguages</a>! »</text>
+  </g>
+  <g
+     id="n5465">
+    <rect
+       id="ExplanationOfBenefit.benefitBalance"
+       x="770.0"
+       y="310.0"
+       rx="4"
+       ry="4"
+       width="255.20000000000002"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5466"
+       x1="770.0"
+       y1="338.0"
+       x2="1025.2"
+       y2="338.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5467"
+       x="897.6"
+       y="330.0"
+       fill="black"
+       class="diagram-class-title">BenefitBalance</text>
+    <text
+       id="n5468"
+       x="776.0"
+       y="352.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5469"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.category"><title
+   id="title75537">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n5470"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n5471"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n5472">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n5478"
+       x="776.0"
+       y="366.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5479"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.excluded"><title
+   id="title75544">True if the indicated class of service is excluded from the plan, missing or False indicates the product or service is included in the coverage</title>excluded</a> : <a
+   id="n5480"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n5484"
+       x="776.0"
+       y="380.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5485"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.name"><title
+   id="title75549">A short name or tag for the benefit</title>name</a> : <a
+   id="n5486"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n5490"
+       x="776.0"
+       y="394.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5491"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.description"><title
+   id="title75554">A richer description of the benefit or services covered</title>description</a> : <a
+   id="n5492"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n5496"
+       x="776.0"
+       y="408.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5497"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.network"><title
+   id="title75559">Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers</title>network</a> : <a
+   id="n5498"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5499"
+   xlink:href="valueset-benefit-network.html"><title
+   id="n5500">null (Strength=Example)</title>NetworkTypeCodes</a>?? »</text>
+    <text
+       id="n5506"
+       x="776.0"
+       y="422.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5507"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.unit"><title
+   id="title75566">Indicates if the benefits apply to an individual or to the family</title>unit</a> : <a
+   id="n5508"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5509"
+   xlink:href="valueset-benefit-unit.html"><title
+   id="n5510">null (Strength=Example)</title>UnitTypeCodes</a>?? »</text>
+    <text
+       id="n5516"
+       x="776.0"
+       y="436.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5517"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.term"><title
+   id="title75573">The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'</title>term</a> : <a
+   id="n5518"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n5519"
+   xlink:href="valueset-benefit-term.html"><title
+   id="n5520">null (Strength=Example)</title>BenefitTermCodes</a>?? »</text>
+  </g>
+  <g
+     id="n5526">
+    <rect
+       id="ExplanationOfBenefit.benefitBalance.financial"
+       x="790.0"
+       y="500.0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n5527"
+       x1="790.0"
+       y1="528.0"
+       x2="1040.8"
+       y2="528.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n5528"
+       x="915.4"
+       y="520.0"
+       fill="black"
+       class="diagram-class-title">Benefit</text>
+    <text
+       id="n5529"
+       x="796.0"
+       y="542.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5530"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.financial.type"><title
+   id="title75584">Classification of benefit being provided</title>type</a> : <a
+   id="n5531"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n5532"
+   xlink:href="valueset-benefit-type.html"><title
+   id="n5533">null (Strength=Example)</title>BenefitTypeCodes</a>?? »</text>
+    <text
+       id="n5539"
+       x="796.0"
+       y="556.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5540"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.financial.allowed_x_"><title
+   id="title75591">The quantity of the benefit which is permitted under the coverage</title>allowed[x]</a> : <a
+   id="n5541"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n5542"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a>|<a
+   id="n5543"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n5544"
+   xlink:href="datatypes.html#Money">Money</a> »</text>
+    <text
+       id="n5551"
+       x="796.0"
+       y="570.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n5552"
+   xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.financial.used_x_"><title
+   id="title75599">The quantity of the benefit which have been consumed to date</title>used[x]</a> : <a
+   id="n5553"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n5554"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a>|<a
+   id="n5555"
+   xlink:href="datatypes.html#Money">Money</a> »</text>
+  </g>
+  <line
+     id="n5561"
+     x1="394.12766"
+     y1="409.87087534039233"
+     x2="204.105131"
+     y2="355.41939566263306"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5562"
+     points="394.12766,409.87087534039233 400.12766,413.87087534039233 406.12766,409.87087534039233 400.12766,405.87087534039233 394.12766,409.87087534039233"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-164.01019877474403 394.12766 409.87087534039233)" />
+  <rect
+     id="n5563"
+     x="284.0"
+     y="375.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5564"
+     x="299.0"
+     y="385.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5565"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.related"><title
+   id="title75610">Other claims which are related to this claim such as prior submissions or claims for related services or for the same event</title>related</a></text>
+  <text
+     id="n5566"
+     x="219.105131"
+     y="351.41939566263306"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5567"
+     x1="394.12766"
+     y1="275.16600480342015"
+     x2="217.47167598421103"
+     y2="70.02252820000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5568"
+     points="394.12766,275.16600480342015 400.12766,279.16600480342015 406.12766,275.16600480342015 400.12766,271.16600480342015 394.12766,275.16600480342015"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-130.73285355109164 394.12766 275.16600480342015)" />
+  <rect
+     id="n5569"
+     x="294.0"
+     y="165.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5570"
+     x="305.0"
+     y="175.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5571"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.event"><title
+   id="title75618">Information code for an event with a corresponding date or period</title>event</a></text>
+  <text
+     id="n5572"
+     x="217.47167598421103"
+     y="84.02252820000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5573"
+     x1="394.12766"
+     y1="326.4216253564102"
+     x2="186.3417750101326"
+     y2="154.28535599999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5574"
+     points="394.12766,326.4216253564102 400.12766,330.4216253564102 406.12766,326.4216253564102 400.12766,322.4216253564102 394.12766,326.4216253564102"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-140.36059594949856 394.12766 326.4216253564102)" />
+  <rect
+     id="n5575"
+     x="279.0"
+     y="233.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5576"
+     x="290.0"
+     y="243.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5577"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payee"><title
+   id="title75626">The party to be reimbursed for cost of the products and services according to the terms of the policy</title>payee</a></text>
+  <text
+     id="n5578"
+     x="186.3417750101326"
+     y="168.28535599999998"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5579"
+     x1="394.12766"
+     y1="514.2193795580009"
+     x2="288.090112"
+     y2="555.683764950285"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5580"
+     points="394.12766,514.2193795580009 400.12766,518.2193795580009 406.12766,514.2193795580009 400.12766,510.2193795580009 394.12766,514.2193795580009"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(158.64276558436526 394.12766 514.2193795580009)" />
+  <rect
+     id="n5581"
+     x="323.5"
+     y="527.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5582"
+     x="341.0"
+     y="537.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5583"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.careTeam"><title
+   id="title75634">The members of the team who provided the products and services</title>careTeam</a></text>
+  <text
+     id="n5584"
+     x="303.090112"
+     y="551.683764950285"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5585"
+     x1="702.12766"
+     y1="247.9726971476083"
+     x2="787.3192589664083"
+     y2="134.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5586"
+     points="702.12766,247.9726971476083 708.12766,251.9726971476083 714.12766,247.9726971476083 708.12766,243.9726971476083 702.12766,247.9726971476083"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-53.222850674756685 702.12766 247.9726971476083)" />
+  <rect
+     id="n5587"
+     x="713.5"
+     y="183.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5588"
+     x="744.0"
+     y="193.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5589"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.supportingInfo"><title
+   id="title75642">Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues</title>supportingInfo</a></text>
+  <text
+     id="n5590"
+     x="787.3192589664083"
+     y="148.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5591"
+     x1="517.9056918781727"
+     y1="170.0"
+     x2="512.5849228426397"
+     y2="120.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5592"
+     points="517.9056918781727,170.0 523.9056918781727,174.0 529.9056918781727,170.0 523.9056918781727,166.0 517.9056918781727,170.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-96.07429212258519 517.9056918781727 170.0)" />
+  <rect
+     id="n5593"
+     x="495.5"
+     y="138.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5594"
+     x="515.0"
+     y="148.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5595"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.diagnosis"><title
+   id="title75650">Information about diagnoses relevant to the claim items</title>diagnosis</a></text>
+  <text
+     id="n5596"
+     x="512.5849228426397"
+     y="134.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5597"
+     x1="394.12766"
+     y1="455.7562405592897"
+     x2="334.48260400000004"
+     y2="456.4364422898632"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5598"
+     points="394.12766,455.7562405592897 400.12766,459.7562405592897 406.12766,455.7562405592897 400.12766,451.7562405592897 394.12766,455.7562405592897"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(179.34661811731573 394.12766 455.7562405592897)" />
+  <rect
+     id="n5599"
+     x="344.5"
+     y="449.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5600"
+     x="364.0"
+     y="459.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5601"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.procedure"><title
+   id="title75658">Procedures performed on the patient relevant to the billing items with the claim</title>procedure</a></text>
+  <text
+     id="n5602"
+     x="349.48260400000004"
+     y="452.4364422898632"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5603"
+     x1="702.12766"
+     y1="329.39439072917787"
+     x2="839.799922690909"
+     y2="218.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5604"
+     points="702.12766,329.39439072917787 708.12766,333.39439072917787 714.12766,329.39439072917787 708.12766,325.39439072917787 702.12766,329.39439072917787"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-38.97726816480718 702.12766 329.39439072917787)" />
+  <rect
+     id="n5605"
+     x="750.5"
+     y="266.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5606"
+     x="770.0"
+     y="276.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5607"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.insurance"><title
+   id="title75666">Financial instruments for reimbursement for the health care products and services specified on the claim</title>insurance</a></text>
+  <text
+     id="n5608"
+     x="839.799922690909"
+     y="232.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5609"
+     x1="702.12766"
+     y1="367.226234723064"
+     x2="824.9855320000001"
+     y2="297.99999999999994"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5610"
+     points="702.12766,367.226234723064 708.12766,371.226234723064 714.12766,367.226234723064 708.12766,363.226234723064 702.12766,367.226234723064"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-29.399781109313885 702.12766 367.226234723064)" />
+  <rect
+     id="n5611"
+     x="745.5"
+     y="325.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5612"
+     x="763.0"
+     y="335.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5613"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.accident"><title
+   id="title75674">Details of a accident which resulted in injuries which required the products and services listed in the claim</title>accident</a></text>
+  <text
+     id="n5614"
+     x="824.9855320000001"
+     y="311.99999999999994"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5615"
+     x1="326.067584"
+     y1="855.5379709958686"
+     x2="1246.1099182143148"
+     y2="576.1204329999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5616"
+     points="326.067584,855.5379709958686 332.067584,859.5379709958686 338.067584,855.5379709958686 332.067584,851.5379709958686 326.067584,855.5379709958686"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-16.89357472612375 326.067584 855.5379709958686)" />
+  <rect
+     id="n5617"
+     x="768.5"
+     y="708.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5618"
+     x="786.0"
+     y="718.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5619"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.bodySite"><title
+   id="title75682">Physical location where the service is performed or applies</title>bodySite</a></text>
+  <text
+     id="n5620"
+     x="1246.1099182143148"
+     y="590.1204329999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5621"
+     x1="326.067584"
+     y1="976.1564158027037"
+     x2="485.82123729748287"
+     y2="1052.76403"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5622"
+     points="326.067584,976.1564158027037 332.067584,980.1564158027037 338.067584,976.1564158027037 332.067584,972.1564158027037 326.067584,976.1564158027037"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(25.619390930407555 326.067584 976.1564158027037)" />
+  <rect
+     id="n5623"
+     x="376.5"
+     y="1007.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5624"
+     x="405.0"
+     y="1017.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5625"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.reviewOutcome"><title
+   id="title75690">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5626"
+     x="485.82123729748287"
+     y="1048.76403"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5627"
+     x1="326.067584"
+     y1="882.5509727246883"
+     x2="400.339186"
+     y2="873.0225472359814"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5628"
+     points="326.067584,882.5509727246883 332.067584,886.5509727246883 338.067584,882.5509727246883 332.067584,878.5509727246883 326.067584,882.5509727246883"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-7.310635982003284 326.067584 882.5509727246883)" />
+  <rect
+     id="n5629"
+     x="337.0"
+     y="870.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5630"
+     x="363.0"
+     y="880.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5631"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.adjudication"><title
+   id="title75698">If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item</title>adjudication</a></text>
+  <text
+     id="n5632"
+     x="380.339186"
+     y="869.0225472359814"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5633"
+     x1="314.490113"
+     y1="1215.116487766075"
+     x2="476.0870527538997"
+     y2="1144.7640299999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5634"
+     points="314.490113,1215.116487766075 320.490113,1219.116487766075 326.490113,1215.116487766075 320.490113,1211.116487766075 314.490113,1215.116487766075"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-23.526267381856822 314.490113 1215.116487766075)" />
+  <rect
+     id="n5635"
+     x="366.5"
+     y="1172.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5636"
+     x="395.0"
+     y="1182.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5637"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.reviewOutcome"><title
+   id="title75706">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5638"
+     x="476.0870527538997"
+     y="1158.7640299999998"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5639"
+     x1="281.06568015638123"
+     y1="1148.3304129999997"
+     x2="492.787831467742"
+     y2="902.0880509999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5640"
+     points="281.06568015638123,1148.3304129999997 287.06568015638123,1152.3304129999997 293.06568015638123,1148.3304129999997 287.06568015638123,1144.3304129999997 281.06568015638123,1148.3304129999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-49.31065972450885 281.06568015638123 1148.3304129999997)" />
+  <rect
+     id="n5641"
+     x="360.0"
+     y="1018.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5642"
+     x="386.0"
+     y="1028.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5643"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.adjudication"><title
+   id="title75714">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n5644"
+     x="492.787831467742"
+     y="916.0880509999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5645"
+     x1="316.0623951163913"
+     y1="1451.83122"
+     x2="547.1320738742"
+     y2="1144.7640299999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5646"
+     points="316.0623951163913,1451.83122 322.0623951163913,1455.83122 328.0623951163913,1451.83122 322.0623951163913,1447.83122 316.0623951163913,1451.83122"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-53.038346273049925 316.0623951163913 1451.83122)" />
+  <rect
+     id="n5647"
+     x="402.5"
+     y="1291.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5648"
+     x="431.0"
+     y="1301.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5649"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.reviewOutcome"><title
+   id="title75722">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5650"
+     x="547.1320738742"
+     y="1158.7640299999998"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5651"
+     x1="274.50085911526355"
+     y1="1451.83122"
+     x2="512.4303332361375"
+     y2="902.0880509999995"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5652"
+     points="274.50085911526355,1451.83122 280.50085911526355,1455.83122 286.50085911526355,1451.83122 280.50085911526355,1447.83122 274.50085911526355,1451.83122"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-66.59698366742755 274.50085911526355 1451.83122)" />
+  <rect
+     id="n5653"
+     x="367.0"
+     y="1169.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5654"
+     x="393.0"
+     y="1179.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5655"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail.adjudication"><title
+   id="title75730">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n5656"
+     x="512.4303332361375"
+     y="916.0880509999995"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5657"
+     x1="190.25565069624747"
+     y1="1408.3304129999997"
+     x2="197.27117230375276"
+     y2="1451.83122"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5658"
+     points="190.25565069624747,1408.3304129999997 196.25565069624747,1412.3304129999997 202.25565069624747,1408.3304129999997 196.25565069624747,1404.3304129999997 190.25565069624747,1408.3304129999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(80.83859981399256 190.25565069624747 1408.3304129999997)" />
+  <rect
+     id="n5659"
+     x="173.5"
+     y="1423.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5660"
+     x="193.0"
+     y="1433.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5661"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail.subDetail"><title
+   id="title75738">Third-tier of goods and services</title>subDetail</a></text>
+  <text
+     id="n5662"
+     x="197.27117230375276"
+     y="1447.83122"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5663"
+     x1="170.5902943201647"
+     y1="1102.3078849999984"
+     x2="170.25035129189303"
+     y2="1148.3304129999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5664"
+     points="170.5902943201647,1102.3078849999984 176.5902943201647,1106.3078849999984 182.5902943201647,1102.3078849999984 176.5902943201647,1098.3078849999984 170.5902943201647,1102.3078849999984"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.4232046223482 170.5902943201647 1102.3078849999984)" />
+  <rect
+     id="n5665"
+     x="157.0"
+     y="1118.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5666"
+     x="170.0"
+     y="1128.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5667"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item.detail"><title
+   id="title75746">Second-tier of goods and services</title>detail</a></text>
+  <text
+     id="n5668"
+     x="170.25035129189303"
+     y="1144.3304129999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5669"
+     x1="394.12766"
+     y1="637.5861307702337"
+     x2="326.067584"
+     y2="718.7217542297662"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5670"
+     points="394.12766,637.5861307702337 400.12766,641.5861307702337 406.12766,637.5861307702337 400.12766,633.5861307702337 394.12766,637.5861307702337"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(129.9913811809037 394.12766 637.5861307702337)" />
+  <rect
+     id="n5671"
+     x="351.5"
+     y="671.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5672"
+     x="360.0"
+     y="681.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5673"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.item"><title
+   id="title75754">A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details</title>item</a></text>
+  <text
+     id="n5674"
+     x="341.067584"
+     y="714.7217542297662"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5675"
+     x1="1088.150188"
+     y1="976.5231115715042"
+     x2="1226.5365531120772"
+     y2="929.3667100000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5676"
+     points="1088.150188,976.5231115715042 1094.150188,980.5231115715042 1100.150188,976.5231115715042 1094.150188,972.5231115715042 1088.150188,976.5231115715042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-18.817006273603727 1088.150188 976.5231115715042)" />
+  <rect
+     id="n5677"
+     x="1139.5"
+     y="945.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5678"
+     x="1157.0"
+     y="955.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5679"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.bodySite"><title
+   id="title75762">Physical location where the service is performed or applies</title>bodySite</a></text>
+  <text
+     id="n5680"
+     x="1226.5365531120772"
+     y="943.3667100000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5681"
+     x1="780.150188"
+     y1="1059.4868702351157"
+     x2="735.7473163"
+     y2="1068.2771597648843"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5682"
+     points="780.150188,1059.4868702351157 786.150188,1063.4868702351157 792.150188,1059.4868702351157 786.150188,1055.4868702351157 780.150188,1059.4868702351157"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(168.80213052012508 780.150188 1059.4868702351157)" />
+  <rect
+     id="n5683"
+     x="728.5"
+     y="1056.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5684"
+     x="757.0"
+     y="1066.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5685"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.reviewOutcome"><title
+   id="title75770">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5686"
+     x="750.7473163"
+     y="1064.2771597648843"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5687"
+     x1="780.150188"
+     y1="962.7289421806324"
+     x2="639.2335111110999"
+     y2="902.0880509999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5688"
+     points="780.150188,962.7289421806324 786.150188,966.7289421806324 792.150188,962.7289421806324 786.150188,958.7289421806324 780.150188,962.7289421806324"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-156.71626531208167 780.150188 962.7289421806324)" />
+  <rect
+     id="n5689"
+     x="683.0"
+     y="925.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5690"
+     x="709.0"
+     y="935.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5691"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.adjudication"><title
+   id="title75778">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n5692"
+     x="639.2335111110999"
+     y="916.0880509999998"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5693"
+     x1="847.2644666684279"
+     y1="1383.6378500000003"
+     x2="624.6216980769831"
+     y2="1144.7640299999998"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5694"
+     points="847.2644666684279,1383.6378500000003 853.2644666684279,1387.6378500000003 859.2644666684279,1383.6378500000003 853.2644666684279,1379.6378500000003 847.2644666684279,1383.6378500000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-132.98579804681634 847.2644666684279 1383.6378500000003)" />
+  <rect
+     id="n5695"
+     x="706.5"
+     y="1257.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5696"
+     x="735.0"
+     y="1267.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5697"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.reviewOutcome"><title
+   id="title75786">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5698"
+     x="624.6216980769831"
+     y="1158.7640299999998"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5699"
+     x1="875.9062066197511"
+     y1="1383.6378500000003"
+     x2="562.2967046616808"
+     y2="902.0880509999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5700"
+     points="875.9062066197511,1383.6378500000003 881.9062066197511,1387.6378500000003 887.9062066197511,1383.6378500000003 881.9062066197511,1379.6378500000003 875.9062066197511,1383.6378500000003"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-123.0742029086711 875.9062066197511 1383.6378500000003)" />
+  <rect
+     id="n5701"
+     x="693.0"
+     y="1135.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5702"
+     x="719.0"
+     y="1145.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5703"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.adjudication"><title
+   id="title75794">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n5704"
+     x="562.2967046616808"
+     y="916.0880509999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5705"
+     x1="594.6414362040548"
+     y1="1410.439042"
+     x2="583.6503546981713"
+     y2="1144.7640299999985"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5706"
+     points="594.6414362040548,1410.439042 600.6414362040548,1414.439042 606.6414362040548,1410.439042 600.6414362040548,1406.439042 594.6414362040548,1410.439042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-92.36899840929244 594.6414362040548 1410.439042)" />
+  <rect
+     id="n5707"
+     x="560.5"
+     y="1270.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5708"
+     x="589.0"
+     y="1280.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5709"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.reviewOutcome"><title
+   id="title75802">The high-level results of the adjudication if adjudication has been performed</title>reviewOutcome</a></text>
+  <text
+     id="n5710"
+     x="583.6503546981713"
+     y="1158.7640299999985"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5711"
+     x1="588.5233836531465"
+     y1="1410.439042"
+     x2="537.001346136816"
+     y2="902.0880509999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5712"
+     points="588.5233836531465,1410.439042 594.5233836531465,1414.439042 600.5233836531465,1410.439042 594.5233836531465,1406.439042 588.5233836531465,1410.439042"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-95.78724046699057 588.5233836531465 1410.439042)" />
+  <rect
+     id="n5713"
+     x="536.0"
+     y="1149.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5714"
+     x="562.0"
+     y="1159.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5715"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail.adjudication"><title
+   id="title75810">The adjudication results</title>adjudication</a></text>
+  <text
+     id="n5716"
+     x="537.001346136816"
+     y="916.0880509999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5717"
+     x1="805.933748"
+     y1="1496.2811540748753"
+     x2="735.261217"
+     y2="1501.795737925125"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5718"
+     points="805.933748,1496.2811540748753 811.933748,1500.2811540748753 817.933748,1496.2811540748753 811.933748,1492.2811540748753 805.933748,1496.2811540748753"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(175.53824601561845 805.933748 1496.2811540748753)" />
+  <rect
+     id="n5719"
+     x="750.5"
+     y="1492.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5720"
+     x="770.0"
+     y="1502.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5721"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail.subDetail"><title
+   id="title75818">The third-tier service adjudications for payor added services</title>subDetail</a></text>
+  <text
+     id="n5722"
+     x="750.261217"
+     y="1497.795737925125"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5723"
+     x1="937.3581070106555"
+     y1="1208.0"
+     x2="940.5057718039836"
+     y2="1383.6378499999992"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5724"
+     points="937.3581070106555,1208.0 943.3581070106555,1212.0 949.3581070106555,1208.0 943.3581070106555,1204.0 937.3581070106555,1208.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(88.97329303451593 937.3581070106555 1208.0)" />
+  <rect
+     id="n5725"
+     x="925.0"
+     y="1288.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5726"
+     x="938.0"
+     y="1298.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5727"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem.detail"><title
+   id="title75826">The second-tier service adjudications for payor added services</title>detail</a></text>
+  <text
+     id="n5728"
+     x="940.5057718039836"
+     y="1379.6378499999992"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5729"
+     x1="702.12766"
+     y1="683.3907572150814"
+     x2="813.9796966747826"
+     y2="850.0000000000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5730"
+     points="702.12766,683.3907572150814 708.12766,687.3907572150814 714.12766,683.3907572150814 708.12766,679.3907572150814 702.12766,683.3907572150814"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(56.124818911642954 702.12766 683.3907572150814)" />
+  <rect
+     id="n5731"
+     x="743.0"
+     y="759.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5732"
+     x="758.0"
+     y="769.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5733"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.addItem"><title
+   id="title75834">The first-tier service adjudications for payor added product or service lines</title>addItem</a></text>
+  <text
+     id="n5734"
+     x="813.9796966747826"
+     y="846.0000000000001"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5735"
+     x1="536.9760562533867"
+     y1="738.0000000000018"
+     x2="534.1454316772682"
+     y2="810.0880510000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5736"
+     points="536.9760562533867,738.0000000000018 542.9760562533867,742.0000000000018 548.9760562533867,738.0000000000018 542.9760562533867,734.0000000000018 536.9760562533867,738.0000000000018"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(92.24863293290163 536.9760562533867 738.0000000000018)" />
+  <rect
+     id="n5737"
+     x="509.0"
+     y="767.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5738"
+     x="535.0"
+     y="777.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5739"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.adjudication"><title
+   id="title75842">The adjudication results which are presented at the header level rather than at the line-item or add-item levels</title>adjudication</a></text>
+  <text
+     id="n5740"
+     x="534.1454316772682"
+     y="806.0880510000006"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5741"
+     x1="702.12766"
+     y1="529.3341130573431"
+     x2="846.5847478651687"
+     y2="600.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5742"
+     points="702.12766,529.3341130573431 708.12766,533.3341130573431 714.12766,529.3341130573431 708.12766,525.3341130573431 702.12766,529.3341130573431"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(26.067073646124136 702.12766 529.3341130573431)" />
+  <rect
+     id="n5743"
+     x="763.0"
+     y="557.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5744"
+     x="774.0"
+     y="567.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5745"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.total"><title
+   id="title75850">Categorized monetary totals for the adjudication</title>total</a></text>
+  <text
+     id="n5746"
+     x="846.5847478651687"
+     y="596.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5747"
+     x1="702.12766"
+     y1="580.2958112010574"
+     x2="823.702912013652"
+     y2="680.0000000000001"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5748"
+     points="702.12766,580.2958112010574 708.12766,584.2958112010574 714.12766,580.2958112010574 708.12766,576.2958112010574 702.12766,580.2958112010574"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(39.355269888518414 702.12766 580.2958112010574)" />
+  <rect
+     id="n5749"
+     x="747.0"
+     y="623.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5750"
+     x="762.0"
+     y="633.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5751"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.payment"><title
+   id="title75858">Payment details for the adjudication of the claim</title>payment</a></text>
+  <text
+     id="n5752"
+     x="823.702912013652"
+     y="676.0000000000001"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n5753"
+     x1="394.12766"
+     y1="364.3791964021807"
+     x2="215.14176929185015"
+     y2="260.21777199999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5754"
+     points="394.12766,364.3791964021807 400.12766,368.3791964021807 406.12766,364.3791964021807 400.12766,360.3791964021807 394.12766,364.3791964021807"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-149.80259484767765 394.12766 364.3791964021807)" />
+  <rect
+     id="n5755"
+     x="280.0"
+     y="305.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5756"
+     x="304.0"
+     y="315.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5757"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.processNote"><title
+   id="title75866">A note that describes or explains adjudication results in a human readable form</title>processNote</a></text>
+  <text
+     id="n5758"
+     x="215.14176929185015"
+     y="274.21777199999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5759"
+     x1="904.9617283950619"
+     y1="444.0"
+     x2="911.114814814815"
+     y2="500.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5760"
+     points="904.9617283950619,444.0 910.9617283950619,448.0 916.9617283950619,444.0 910.9617283950619,440.0 904.9617283950619,444.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(83.72969059043866 904.9617283950619 444.0)" />
+  <rect
+     id="n5761"
+     x="888.5"
+     y="465.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5762"
+     x="908.0"
+     y="475.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5763"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance.financial"><title
+   id="title75874">Benefits Used to date</title>financial</a></text>
+  <text
+     id="n5764"
+     x="911.114814814815"
+     y="496.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n5765"
+     x1="702.12766"
+     y1="420.0688453913119"
+     x2="770.0"
+     y2="405.1143852471987"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n5766"
+     points="702.12766,420.0688453913119 708.12766,424.0688453913119 714.12766,420.0688453913119 708.12766,416.0688453913119 702.12766,420.0688453913119"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-12.425570732103756 702.12766 420.0688453913119)" />
+  <rect
+     id="n5767"
+     x="705.5"
+     y="405.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n5768"
+     x="736.0"
+     y="415.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n5769"
+       xlink:href="explanationofbenefit-definitions.html#ExplanationOfBenefit.benefitBalance"><title
+   id="title75882">Balance by Benefit Category</title>benefitBalance</a></text>
+  <text
+     id="n5770"
+     x="750.0"
+     y="401.1143852471987"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

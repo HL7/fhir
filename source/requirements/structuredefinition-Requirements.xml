@@ -80,7 +80,7 @@
         <key value="cnl-0"/>
         <severity value="warning"/>
         <human value="Name should be usable as an identifier for the module by machine processing applications such as code generation"/>
-        <expression value="name.exists() implies name.matches('[A-Z]([A-Za-z0-9_]){1,254}')"/>
+        <expression value="name.exists() implies name.matches('^[A-Z]([A-Za-z0-9_]){1,254}$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </constraint>
       <mapping>
@@ -103,7 +103,7 @@
         <key value="cnl-1"/>
         <severity value="warning"/>
         <human value="URL should not contain | or # - these characters make processing canonical references problematic"/>
-        <expression value="exists() implies matches('([^|#])*')"/>
+        <expression value="exists() implies matches('^[^|# ]+$')"/>
         <source value="http://hl7.org/fhir/StructureDefinition/CanonicalResource"/>
       </constraint>
       <isSummary value="true"/>
@@ -386,6 +386,16 @@
         <targetProfile value="http://hl7.org/fhir/StructureDefinition/Requirements"/>
       </type>
       <isSummary value="true"/>
+    </element>
+    <element id="Requirements.reference">
+      <path value="Requirements.reference"/>
+      <short value="External artifact (rule/document etc. that) created this set of requirements"/>
+      <definition value="A reference to another artifact that created this set of requirements. This could be a Profile, etc., or external regulation, or business requirements expressed elsewhere."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="url"/>
+      </type>
     </element>
     <element id="Requirements.actor">
       <path value="Requirements.actor"/>

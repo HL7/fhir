@@ -178,13 +178,13 @@
     <use value="in"/>
     <min value="0"/>
     <max value="*"/>
-    <documentation value="Another element that may help produce the correct mapping"/>
+    <documentation value="Data from another attribute that may help produce the correct mapping"/>
     <part>
-      <name value="element"/>
+      <name value="attribute"/>
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation value="The element for this dependency"/>
+      <documentation value="The attribute for this dependency"/>
       <type value="uri"/>
     </part>
     <part>
@@ -198,28 +198,16 @@
         <valueUri value="string"/>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="integer"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
         <valueUri value="boolean"/>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="dateTime"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="decimal"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="uri"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-        <valueUri value="id"/>
+        <valueUri value="Quantity"/>
       </extension>
       <name value="value"/>
       <use value="in"/>
       <min value="0"/>
       <max value="1"/>
-      <documentation value="The value for this dependency"/>
+      <documentation value="The data value for this dependency"/>
       <type value="Element"/>
     </part>
   </parameter>
@@ -262,23 +250,20 @@
       <type value="Coding"/>
     </part>
     <part>
-      <name value="product"/>
+      <name value="property"/>
       <use value="out"/>
       <min value="0"/>
       <max value="*"/>
-      <documentation value="An element that is the product of this mapping"/>
+      <documentation value="A property of this mapping (may be used to supply for example, mapping priority, provenance, presentation hints, flag as experimental, and additional documentation)"/>
       <part>
-        <name value="property"/>
+        <name value="uri"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The element for this product"/>
+        <documentation value="The uri that identifies the property"/>
         <type value="uri"/>
       </part>
       <part>
-        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="code"/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
           <valueUri value="Coding"/>
         </extension>
@@ -298,10 +283,45 @@
           <valueUri value="decimal"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="uri"/>
+          <valueUri value="code"/>
+        </extension>
+        <name value="value"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The value of the property"/>
+        <type value="Element"/>
+      </part>
+    </part>    
+    <part>
+      <name value="product"/>
+      <use value="out"/>
+      <min value="0"/>
+      <max value="*"/>
+      <documentation value="A data value to go in an attribute that is the product of this mapping"/>
+      <part>
+        <name value="attribute"/>
+        <use value="out"/>
+        <min value="1"/>
+        <max value="1"/>
+        <documentation value="The attribute for this product"/>
+        <type value="uri"/>
+      </part>
+      <part>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="code"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
-          <valueUri value="id"/>
+          <valueUri value="Coding"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="string"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="boolean"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/operationdefinition-allowed-type">
+          <valueUri value="Quantity"/>
         </extension>
         <name value="value"/>
         <use value="out"/>
@@ -316,13 +336,13 @@
       <use value="out"/>
       <min value="0"/>
       <max value="*"/>
-      <documentation value="An element that this mapping depends on"/>
+      <documentation value="An data value in an additional attribute that this mapping depends on"/>
       <part>
-        <name value="property"/>
+        <name value="attribute"/>
         <use value="out"/>
         <min value="1"/>
         <max value="1"/>
-        <documentation value="The element for this product"/>
+        <documentation value="The attribute for this product"/>
         <type value="uri"/>
       </part>
       <part>

@@ -1,0 +1,2770 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n2299"
+   version="1.1"
+   width="1434.8"
+   height="1183.0"
+   sodipodi:docname="contract.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17743"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.67540152"
+     inkscape:cx="718.09136"
+     inkscape:cy="591.5"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n2299" />
+  <defs
+     id="defs16775">
+    <filter
+       id="shadow1"
+       x="-0.023164335"
+       y="-0.0828125"
+       width="1.0594406"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset16766" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix16768" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur16770" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend16772" />
+    </filter>
+  </defs>
+  <g
+     id="n2300"
+     transform="translate(16.286608,-54.782228)">
+    <rect
+       id="Contract"
+       x="0"
+       y="70"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="484"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2301"
+       x1="0"
+       y1="98"
+       x2="303.60001"
+       y2="98"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2302"
+       x="151.8"
+       y="90"
+       fill="#000000"
+       class="diagram-class-title  diagram-class-resource">Contract<tspan
+   class="diagram-class-title-link"
+   id="tspan16780">(<a
+   id="n2303"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n2304"
+       x="6"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2305"
+   xlink:href="contract-definitions.html#Contract.identifier"><title
+   id="title16783">Unique identifier for this Contract or a derivative that references a Source Contract</title>identifier</a> : <a
+   id="n2306"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2310"
+       x="6"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2311"
+   xlink:href="contract-definitions.html#Contract.url"><title
+   id="title16788">Canonical identifier for this contract, represented as a URI (globally unique)</title>url</a> : <a
+   id="n2312"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n2316"
+       x="6"
+       y="140"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2317"
+   xlink:href="contract-definitions.html#Contract.version"><title
+   id="title16793">An edition identifier used for business purposes to label business significant variants</title>version</a> : <a
+   id="n2318"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2322"
+       x="6"
+       y="154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2323"
+   xlink:href="contract-definitions.html#Contract.status"><title
+   id="title16798">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n2324"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n2325"
+   xlink:href="valueset-contract-status.html"><title
+   id="n2326">null (Strength=Required)</title>ContractResourceStatusCodes</a>! »</text>
+    <text
+       id="n2332"
+       x="6"
+       y="168"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2333"
+   xlink:href="contract-definitions.html#Contract.legalState"><title
+   id="title16805">Legal states of the formation of a legal instrument, which is a formally executed written document that can be formally attributed to its author, records and formally expresses a legally enforceable act, process, or contractual duty, obligation, or right, and therefore evidences that act, process, or agreement</title>legalState</a> : <a
+   id="n2334"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2335"
+   xlink:href="valueset-contract-legalstate.html"><title
+     id="n2336">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n2337"
+       x="26"
+       y="182"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2338"
+   xlink:href="valueset-contract-legalstate.html">ContractResourceLegalStateCod...</a>+ »</text>
+    <text
+       id="n2346"
+       x="6"
+       y="196"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2347"
+   xlink:href="contract-definitions.html#Contract.instantiatesCanonical"><title
+   id="title16814">The URL pointing to a FHIR-defined Contract Definition that is adhered to in whole or part by this Contract</title>instantiatesCanonical</a> : <a
+   id="n2348"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2349"
+   xlink:href="contract.html#Contract">Contract</a> »</text>
+    <text
+       id="n2354"
+       x="6"
+       y="210"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2355"
+   xlink:href="contract-definitions.html#Contract.instantiatesUri"><title
+   id="title16820">The URL pointing to an externally maintained definition that is adhered to in whole or in part by this Contract</title>instantiatesUri</a> : <a
+   id="n2356"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n2360"
+       x="6"
+       y="224"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2361"
+   xlink:href="contract-definitions.html#Contract.contentDerivative"><title
+   id="title16825">The minimal content derived from the basal information source at a specific stage in its lifecycle</title>contentDerivative</a> : <a
+   id="n2362"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2363"
+   xlink:href="valueset-contract-content-derivative.html"><title
+     id="n2364">null (Strength=Example)</title></a></text>
+    <text
+       id="n2365"
+       x="26"
+       y="238"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2366"
+   xlink:href="valueset-contract-content-derivative.html">ContractContentDerivationCodes</a>?? »</text>
+    <text
+       id="n2374"
+       x="6"
+       y="252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2375"
+   xlink:href="contract-definitions.html#Contract.issued"><title
+   id="title16834">When this  Contract was issued</title>issued</a> : <a
+   id="n2376"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2380"
+       x="6"
+       y="266"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2381"
+   xlink:href="contract-definitions.html#Contract.applies"><title
+   id="title16839">Relevant time or time-period when this Contract is applicable</title>applies</a> : <a
+   id="n2382"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n2386"
+       x="6"
+       y="280"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2387"
+   xlink:href="contract-definitions.html#Contract.expirationType"><title
+   id="title16844">Event resulting in discontinuation or termination of this Contract instance by one or more parties to the contract</title>expirationType</a> : <a
+   id="n2388"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2389"
+   xlink:href="valueset-contract-expiration-type.html"><title
+     id="n2390">null (Strength=Example)</title></a></text>
+    <text
+       id="n2391"
+       x="26"
+       y="294"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2392"
+   xlink:href="valueset-contract-expiration-type.html">ContractResourceExpirationTyp...</a>?? »</text>
+    <text
+       id="n2400"
+       x="6"
+       y="308"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2401"
+   xlink:href="contract-definitions.html#Contract.subject"><title
+   id="title16853">The target entity impacted by or of interest to parties to the agreement</title>subject</a> : <a
+   id="n2402"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2403"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n2408"
+       x="6"
+       y="322"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2409"
+   xlink:href="contract-definitions.html#Contract.authority"><title
+   id="title16859">A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies</title>authority</a> : <a
+   id="n2410"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2411"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2416"
+       x="6"
+       y="336"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2417"
+   xlink:href="contract-definitions.html#Contract.domain"><title
+   id="title16865">Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources</title>domain</a> : <a
+   id="n2418"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2419"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n2424"
+       x="6"
+       y="350"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2425"
+   xlink:href="contract-definitions.html#Contract.site"><title
+   id="title16871">Sites in which the contract is complied with,  exercised, or in force</title>site</a> : <a
+   id="n2426"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2427"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n2432"
+       x="6"
+       y="364"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2433"
+   xlink:href="contract-definitions.html#Contract.name"><title
+   id="title16877">A natural language name identifying this Contract definition, derivative, or instance in any legal state. Provides additional information about its content. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n2434"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2438"
+       x="6"
+       y="378"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2439"
+   xlink:href="contract-definitions.html#Contract.title"><title
+   id="title16882">A short, descriptive, user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content</title>title</a> : <a
+   id="n2440"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2444"
+       x="6"
+       y="392"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2445"
+   xlink:href="contract-definitions.html#Contract.subtitle"><title
+   id="title16887">An explanatory or alternate user-friendly title for this Contract definition, derivative, or instance in any legal state.t giving additional information about its content</title>subtitle</a> : <a
+   id="n2446"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2450"
+       x="6"
+       y="406"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2451"
+   xlink:href="contract-definitions.html#Contract.alias"><title
+   id="title16892">Alternative representation of the title for this Contract definition, derivative, or instance in any legal state., e.g., a domain specific contract number related to legislation</title>alias</a> : <a
+   id="n2452"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n2456"
+       x="6"
+       y="420"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2457"
+   xlink:href="contract-definitions.html#Contract.author"><title
+   id="title16897">The individual or organization that authored the Contract definition, derivative, or instance in any legal state</title>author</a> : <a
+   id="n2458"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2459"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n2460"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2461"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n2462"
+       x="26"
+       y="434"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2463"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2472"
+       x="6"
+       y="448"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2473"
+   xlink:href="contract-definitions.html#Contract.scope"><title
+   id="title16907">A selector of legal concerns for this Contract definition, derivative, or instance in any legal state</title>scope</a> : <a
+   id="n2474"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2475"
+   xlink:href="valueset-contract-scope.html"><title
+   id="n2476">null (Strength=Example)</title>ContractResourceScopeCodes</a>?? »</text>
+    <text
+       id="n2482"
+       x="6"
+       y="462"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2483"
+   xlink:href="contract-definitions.html#Contract.topic_x_"><title
+   id="title16914">Narrows the range of legal concerns to focus on the achievement of specific contractual objectives</title>topic[x]</a> : <a
+   id="n2484"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2485"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2486"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2487"
+   xlink:href="resourcelist.html#Any">Any</a>) »</text>
+    <text
+       id="n2494"
+       x="6"
+       y="476"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2495"
+   xlink:href="contract-definitions.html#Contract.type"><title
+   id="title16922">A high-level category for the legal instrument, whether constructed as a Contract definition, derivative, or instance in any legal state.  Provides additional information about its content within the context of the Contract's scope to distinguish the kinds of systems that would be interested in the contract</title>type</a> : <a
+   id="n2496"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2497"
+   xlink:href="valueset-contract-type.html"><title
+   id="n2498">null (Strength=Example)</title>ContractTypeCodes</a>?? »</text>
+    <text
+       id="n2504"
+       x="6"
+       y="490"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2505"
+   xlink:href="contract-definitions.html#Contract.subType"><title
+   id="title16929">Sub-category for the Contract that distinguishes the kinds of systems that would be interested in the Contract within the context of the Contract's scope</title>subType</a> : <a
+   id="n2506"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2507"
+   xlink:href="valueset-contract-subtype.html"><title
+   id="n2508">null (Strength=Example)</title>ContractSubtypeCodes</a>?? »</text>
+    <text
+       id="n2514"
+       x="6"
+       y="504"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2515"
+   xlink:href="contract-definitions.html#Contract.supportingInfo"><title
+   id="title16936">Information that may be needed by/relevant to the performer in their execution of this term action</title>supportingInfo</a> : <a
+   id="n2516"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2517"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n2522"
+       x="6"
+       y="518"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2523"
+   xlink:href="contract-definitions.html#Contract.relevantHistory"><title
+   id="title16942">Links to Provenance records for past versions of this Contract definition, derivative, or instance, which identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the Contract.  The Provence.entity indicates the target that was changed in the update (see [Provenance.entity](provenance-definitions.html#Provenance.entity))</title>relevantHistory</a> : <a
+   id="n2524"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2525"
+   xlink:href="provenance.html#Provenance">Provenance</a> »</text>
+    <text
+       id="n2530"
+       x="6"
+       y="532"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2531"
+   xlink:href="contract-definitions.html#Contract.legallyBinding_x_"><title
+   id="title16948">Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the &quot;source of truth&quot; and which would be the basis for legal action related to enforcement of this Contract</title>legallyBinding[x]</a> : <a
+   id="n2532"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2533"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n2534"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n2535"
+       x="26"
+       y="546"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2536"
+   xlink:href="composition.html#Composition">Composition</a>|<a
+   id="n2537"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n2538"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>|<a
+   id="n2539"
+   xlink:href="contract.html#Contract">Contract</a>) »</text>
+  </g>
+  <g
+     id="n2550"
+     transform="translate(93.277847,5.922403)">
+    <rect
+       id="Contract.contentDefinition"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2551"
+       x1="320"
+       y1="28"
+       x2="623.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2552"
+       x="471.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">ContentDefinition</text>
+    <text
+       id="n2553"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2554"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.type"><title
+   id="title16964">Precusory content structure and use, i.e., a boilerplate, template, application for a contract such as an insurance policy or benefits under a program, e.g., workers compensation</title>type</a> : <a
+   id="n2555"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2556"
+   xlink:href="valueset-contract-definition-type.html"><title
+   id="n2557">null (Strength=Example)</title>ContractResourceDefinitionTyp...</a>?? »</text>
+    <text
+       id="n2563"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2564"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.subType"><title
+   id="title16971">Detailed Precusory content type</title>subType</a> : <a
+   id="n2565"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2566"
+   xlink:href="valueset-contract-definition-subtype.html"><title
+   id="n2567">null (Strength=Example)</title>ContractResourceDefinitionSub...</a>?? »</text>
+    <text
+       id="n2573"
+       x="326"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2574"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.publisher"><title
+   id="title16978">The  individual or organization that published the Contract precursor content</title>publisher</a> : <a
+   id="n2575"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2576"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2577"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n2578"
+       x="346"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2579"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2587"
+       x="326"
+       y="98"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2588"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.publicationDate"><title
+   id="title16987">The date (and optionally time) when the contract was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the contract changes</title>publicationDate</a> : <a
+   id="n2589"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2593"
+       x="326"
+       y="112"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2594"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.publicationStatus"><title
+   id="title16992">amended | appended | cancelled | disputed | entered-in-error | executable +</title>publicationStatus</a> : <a
+   id="n2595"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n2596"
+   xlink:href="valueset-contract-publicationstatus.html"><title
+   id="n2597">null (Strength=Required)</title>ContractResourcePublicationSt...</a>! »</text>
+    <text
+       id="n2603"
+       x="326"
+       y="126"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2604"
+   xlink:href="contract-definitions.html#Contract.contentDefinition.copyright"><title
+   id="title16999">A copyright statement relating to Contract precursor content. Copyright statements are generally legal restrictions on the use and publishing of the Contract precursor content</title>copyright</a> : <a
+   id="n2605"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n2609">
+    <rect
+       id="Contract.term"
+       x="20.0"
+       y="560.0"
+       rx="4"
+       ry="4"
+       width="268.40000000000003"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2610"
+       x1="20.0"
+       y1="588.0"
+       x2="288.40000000000003"
+       y2="588.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2611"
+       x="154.20000000000002"
+       y="580.0"
+       fill="black"
+       class="diagram-class-title">Term</text>
+    <text
+       id="n2612"
+       x="26.0"
+       y="602.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2613"
+   xlink:href="contract-definitions.html#Contract.term.identifier"><title
+   id="title17008">Unique identifier for this particular Contract Provision</title>identifier</a> : <a
+   id="n2614"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n2618"
+       x="26.0"
+       y="616.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2619"
+   xlink:href="contract-definitions.html#Contract.term.issued"><title
+   id="title17013">When this Contract Provision was issued</title>issued</a> : <a
+   id="n2620"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2624"
+       x="26.0"
+       y="630.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2625"
+   xlink:href="contract-definitions.html#Contract.term.applies"><title
+   id="title17018">Relevant time or time-period when this Contract Provision is applicable</title>applies</a> : <a
+   id="n2626"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n2630"
+       x="26.0"
+       y="644.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2631"
+   xlink:href="contract-definitions.html#Contract.term.topic_x_"><title
+   id="title17023">The entity that the term applies to</title>topic[x]</a> : <a
+   id="n2632"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2633"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2634"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2635"
+   xlink:href="resourcelist.html#Any">Any</a>) »</text>
+    <text
+       id="n2642"
+       x="26.0"
+       y="658.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2643"
+   xlink:href="contract-definitions.html#Contract.term.type"><title
+   id="title17031">A legal clause or condition contained within a contract that requires one or both parties to perform a particular requirement by some specified time or prevents one or both parties from performing a particular requirement by some specified time</title>type</a> : <a
+   id="n2644"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2645"
+   xlink:href="valueset-contract-term-type.html"><title
+   id="n2646">null (Strength=Example)</title>ContractTermTypeCodes</a>?? »</text>
+    <text
+       id="n2652"
+       x="26.0"
+       y="672.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2653"
+   xlink:href="contract-definitions.html#Contract.term.subType"><title
+   id="title17038">A specialized legal clause or condition based on overarching contract type</title>subType</a> : <a
+   id="n2654"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2655"
+   xlink:href="valueset-contract-term-subtype.html"><title
+   id="n2656">null (Strength=Example)</title>ContractTermSubtypeCodes</a>?? »</text>
+    <text
+       id="n2662"
+       x="26.0"
+       y="686.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2663"
+   xlink:href="contract-definitions.html#Contract.term.text"><title
+   id="title17045">Statement of a provision in a policy or a contract</title>text</a> : <a
+   id="n2664"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2668">
+    <rect
+       id="Contract.term.securityLabel"
+       x="390.0"
+       y="445.0"
+       rx="4"
+       ry="4"
+       width="268.40000000000003"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2669"
+       x1="390.0"
+       y1="473.0"
+       x2="658.4000000000001"
+       y2="473.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2670"
+       x="524.2"
+       y="465.0"
+       fill="black"
+       class="diagram-class-title">SecurityLabel</text>
+    <text
+       id="n2671"
+       x="396.0"
+       y="487.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2672"
+   xlink:href="contract-definitions.html#Contract.term.securityLabel.number"><title
+   id="title17054">Number used to link this term or term element to the applicable Security Label</title>number</a> : <a
+   id="n2673"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..*]</text>
+    <text
+       id="n2677"
+       x="396.0"
+       y="501.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2678"
+   xlink:href="contract-definitions.html#Contract.term.securityLabel.classification"><title
+   id="title17059">Security label privacy tag that species the level of confidentiality protection required for this term and/or term elements</title>classification</a> : <a
+   id="n2679"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n2680"
+   xlink:href="valueset-contract-security-classification.html"><title
+   id="n2681">null (Strength=Example)</title>ContractResourceScopeCodes</a>?? »</text>
+    <text
+       id="n2687"
+       x="396.0"
+       y="515.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2688"
+   xlink:href="contract-definitions.html#Contract.term.securityLabel.category"><title
+   id="title17066">Security label privacy tag that species the applicable privacy and security policies governing this term and/or term elements</title>category</a> : <a
+   id="n2689"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n2690"
+   xlink:href="valueset-contract-security-category.html"><title
+   id="n2691">null (Strength=Example)</title>ContractResourceScopeCodes</a>?? »</text>
+    <text
+       id="n2697"
+       x="396.0"
+       y="529.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2698"
+   xlink:href="contract-definitions.html#Contract.term.securityLabel.control"><title
+   id="title17073">Security label privacy tag that species the manner in which term and/or term elements are to be protected</title>control</a> : <a
+   id="n2699"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n2700"
+   xlink:href="valueset-contract-security-control.html"><title
+   id="n2701">null (Strength=Example)</title>ContractResourceSecurityContr...</a>?? »</text>
+  </g>
+  <g
+     id="n2707"
+     transform="translate(32.573217,7.4030038)">
+    <rect
+       id="Contract.term.offer"
+       x="390"
+       y="545"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="162"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2708"
+       x1="390"
+       y1="573"
+       x2="640.79999"
+       y2="573"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2709"
+       x="515.40002"
+       y="565"
+       fill="#000000"
+       class="diagram-class-title">ContractOffer</text>
+    <text
+       id="n2710"
+       x="396"
+       y="587"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2711"
+   xlink:href="contract-definitions.html#Contract.term.offer.identifier"><title
+   id="title17084">Unique identifier for this particular Contract Provision</title>identifier</a> : <a
+   id="n2712"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2716"
+       x="396"
+       y="601"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2717"
+   xlink:href="contract-definitions.html#Contract.term.offer.topic"><title
+   id="title17089">The owner of an asset has the residual control rights over the asset: the right to decide all usages of the asset in any way not inconsistent with a prior contract, custom, or law (Hart, 1995, p. 30)</title>topic</a> : <a
+   id="n2718"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2719"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n2724"
+       x="396"
+       y="615"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2725"
+   xlink:href="contract-definitions.html#Contract.term.offer.type"><title
+   id="title17095">Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit</title>type</a> : <a
+   id="n2726"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2727"
+   xlink:href="valueset-contract-term-type.html"><title
+   id="n2728">null (Strength=Example)</title>ContractTermTypeCodes</a>?? »</text>
+    <text
+       id="n2734"
+       x="396"
+       y="629"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2735"
+   xlink:href="contract-definitions.html#Contract.term.offer.decision"><title
+   id="title17102">Type of choice made by accepting party with respect to an offer made by an offeror/ grantee</title>decision</a> : <a
+   id="n2736"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2737"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActConsentDirective.html"><title
+   id="n2738">null (Strength=Extensible)</title>ActConsentDirective</a>+ »</text>
+    <text
+       id="n2744"
+       x="396"
+       y="643"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2745"
+   xlink:href="contract-definitions.html#Contract.term.offer.decisionMode"><title
+   id="title17109">How the decision about a Contract was conveyed</title>decisionMode</a> : <a
+   id="n2746"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2747"
+   xlink:href="valueset-contract-decision-mode.html"><title
+     id="n2748">null (Strength=Example)</title></a></text>
+    <text
+       id="n2749"
+       x="416"
+       y="657"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2750"
+   xlink:href="valueset-contract-decision-mode.html">ContractResourceDecisionModeC...</a>?? »</text>
+    <text
+       id="n2758"
+       x="396"
+       y="671"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2759"
+   xlink:href="contract-definitions.html#Contract.term.offer.text"><title
+   id="title17118">Human readable form of this Contract Offer</title>text</a> : <a
+   id="n2760"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2764"
+       x="396"
+       y="685"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2765"
+   xlink:href="contract-definitions.html#Contract.term.offer.linkId"><title
+   id="title17123">The id of the clause or question text of the offer in the referenced questionnaire/response</title>linkId</a> : <a
+   id="n2766"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n2770"
+       x="396"
+       y="699"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2771"
+   xlink:href="contract-definitions.html#Contract.term.offer.securityLabelNumber"><title
+   id="title17128">Security labels that protects the offer</title>securityLabelNumber</a> : <a
+   id="n2772"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n2776"
+     transform="translate(32.573217,-1.4806008)">
+    <rect
+       id="Contract.term.offer.party"
+       x="740"
+       y="530"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2777"
+       x1="740"
+       y1="558"
+       x2="1030.4"
+       y2="558"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2778"
+       x="885.20001"
+       y="550"
+       fill="#000000"
+       class="diagram-class-title">ContractParty</text>
+    <text
+       id="n2779"
+       x="746"
+       y="572"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2780"
+   xlink:href="contract-definitions.html#Contract.term.offer.party.reference"><title
+   id="title17137">Participant in the offer</title>reference</a> : <a
+   id="n2781"
+   xlink:href="references.html#Reference">Reference</a> [1..*] « <a
+   id="n2782"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n2783"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n2784"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n2785"
+       x="766"
+       y="586"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2786"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n2787"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n2788"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n2789"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2801"
+       x="746"
+       y="600"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2802"
+   xlink:href="contract-definitions.html#Contract.term.offer.party.role"><title
+   id="title17150">How the party participates in the offer</title>role</a> : <a
+   id="n2803"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2804"
+   xlink:href="valueset-contract-party-role.html"><title
+   id="n2805">null (Strength=Example)</title>ContractResourcePartyRoleCodes</a>?? »</text>
+  </g>
+  <g
+     id="n2811"
+     transform="translate(23.689612,-7.4030038)">
+    <rect
+       id="Contract.term.offer.answer"
+       x="740"
+       y="660"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2812"
+       x1="740"
+       y1="688"
+       x2="1034.8"
+       y2="688"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2813"
+       x="887.40002"
+       y="680"
+       fill="#000000"
+       class="diagram-class-title">Answer</text>
+    <text
+       id="n2814"
+       x="746"
+       y="702"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2815"
+   xlink:href="contract-definitions.html#Contract.term.offer.answer.value_x_"><title
+   id="title17161">Response to an offer clause or question text,  which enables selection of values to be agreed to, e.g., the period of participation, the date of occupancy of a rental, warrently duration, or whether biospecimen may be used for further research</title>value[x]</a> : <a
+   id="n2816"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n2817"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n2818"
+   xlink:href="datatypes.html#decimal">decimal</a>|<a
+   id="n2819"
+   xlink:href="datatypes.html#integer">integer</a>|<a
+   id="n2820"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n2821"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|</text>
+    <text
+       id="n2822"
+       x="766"
+       y="716"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2823"
+   xlink:href="datatypes.html#time">time</a>|<a
+   id="n2824"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n2825"
+   xlink:href="datatypes.html#uri">uri</a>|<a
+   id="n2826"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n2827"
+   xlink:href="datatypes.html#Coding">Coding</a>|<a
+   id="n2828"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n2829"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2830"
+   xlink:href="resourcelist.html#Any">Any</a>) »</text>
+  </g>
+  <g
+     id="n2848">
+    <rect
+       id="Contract.term.asset"
+       x="390.0"
+       y="730.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="218.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2849"
+       x1="390.0"
+       y1="758.0"
+       x2="693.6"
+       y2="758.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2850"
+       x="541.8"
+       y="750.0"
+       fill="black"
+       class="diagram-class-title">ContractAsset</text>
+    <text
+       id="n2851"
+       x="396.0"
+       y="772.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2852"
+   xlink:href="contract-definitions.html#Contract.term.asset.scope"><title
+   id="title17184">Differentiates the kind of the asset </title>scope</a> : <a
+   id="n2853"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2854"
+   xlink:href="valueset-contract-assetscope.html"><title
+   id="n2855">null (Strength=Example)</title>ContractResourceAssetScopeCod...</a>?? »</text>
+    <text
+       id="n2861"
+       x="396.0"
+       y="786.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2862"
+   xlink:href="contract-definitions.html#Contract.term.asset.type"><title
+   id="title17191">Target entity type about which the term may be concerned</title>type</a> : <a
+   id="n2863"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2864"
+   xlink:href="valueset-contract-assettype.html"><title
+   id="n2865">null (Strength=Example)</title>ContractResourceAssetTypeCodes</a>?? »</text>
+    <text
+       id="n2871"
+       x="396.0"
+       y="800.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2872"
+   xlink:href="contract-definitions.html#Contract.term.asset.typeReference"><title
+   id="title17198">Associated entities</title>typeReference</a> : <a
+   id="n2873"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2874"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n2879"
+       x="396.0"
+       y="814.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2880"
+   xlink:href="contract-definitions.html#Contract.term.asset.subtype"><title
+   id="title17204">May be a subtype or part of an offered asset</title>subtype</a> : <a
+   id="n2881"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2882"
+   xlink:href="valueset-contract-assetsubtype.html"><title
+   id="n2883">null (Strength=Example)</title>ContractResourceAssetSubTypeC...</a>?? »</text>
+    <text
+       id="n2889"
+       x="396.0"
+       y="828.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2890"
+   xlink:href="contract-definitions.html#Contract.term.asset.relationship"><title
+   id="title17211">Specifies the applicability of the term to an asset resource instance, and instances it refers to orinstances that refer to it, and/or are owned by the offeree</title>relationship</a> : <a
+   id="n2891"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..1] « <a
+   id="n2892"
+   xlink:href="valueset-consent-content-class.html"><title
+   id="n2893">null (Strength=Extensible)</title>ConsentContentClass</a>+ »</text>
+    <text
+       id="n2899"
+       x="396.0"
+       y="842.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2900"
+   xlink:href="contract-definitions.html#Contract.term.asset.condition"><title
+   id="title17218">Description of the quality and completeness of the asset that imay be a factor in its valuation</title>condition</a> : <a
+   id="n2901"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2905"
+       x="396.0"
+       y="856.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2906"
+   xlink:href="contract-definitions.html#Contract.term.asset.periodType"><title
+   id="title17223">Type of Asset availability for use or ownership</title>periodType</a> : <a
+   id="n2907"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2908"
+   xlink:href="valueset-asset-availability.html"><title
+     id="n2909">null (Strength=Example)</title></a></text>
+    <text
+       id="n2910"
+       x="416.0"
+       y="870.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2911"
+   xlink:href="valueset-asset-availability.html">ContractResourceAssetAvailiab...</a>?? »</text>
+    <text
+       id="n2919"
+       x="396.0"
+       y="884.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2920"
+   xlink:href="contract-definitions.html#Contract.term.asset.period"><title
+   id="title17232">Asset relevant contractual time period</title>period</a> : <a
+   id="n2921"
+   xlink:href="datatypes.html#Period">Period</a> [0..*]</text>
+    <text
+       id="n2925"
+       x="396.0"
+       y="898.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2926"
+   xlink:href="contract-definitions.html#Contract.term.asset.usePeriod"><title
+   id="title17237">Time period of asset use</title>usePeriod</a> : <a
+   id="n2927"
+   xlink:href="datatypes.html#Period">Period</a> [0..*]</text>
+    <text
+       id="n2931"
+       x="396.0"
+       y="912.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2932"
+   xlink:href="contract-definitions.html#Contract.term.asset.text"><title
+   id="title17242">Clause or question text (Prose Object) concerning the asset in a linked form, such as a QuestionnaireResponse used in the formation of the contract</title>text</a> : <a
+   id="n2933"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2937"
+       x="396.0"
+       y="926.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2938"
+   xlink:href="contract-definitions.html#Contract.term.asset.linkId"><title
+   id="title17247">Id [identifier??] of the clause or question text about the asset in the referenced form or QuestionnaireResponse</title>linkId</a> : <a
+   id="n2939"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n2943"
+       x="396.0"
+       y="940.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2944"
+   xlink:href="contract-definitions.html#Contract.term.asset.securityLabelNumber"><title
+   id="title17252">Security labels that protects the asset</title>securityLabelNumber</a> : <a
+   id="n2945"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n2949"
+     transform="translate(28.131414,10.364205)">
+    <rect
+       id="Contract.term.asset.context"
+       x="395"
+       y="975"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2950"
+       x1="395"
+       y1="1003"
+       x2="685.40002"
+       y2="1003"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2951"
+       x="540.20001"
+       y="995"
+       fill="#000000"
+       class="diagram-class-title">AssetContext</text>
+    <text
+       id="n2952"
+       x="401"
+       y="1017"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2953"
+   xlink:href="contract-definitions.html#Contract.term.asset.context.reference"><title
+   id="title17261">Asset context reference may include the creator, custodian, or owning Person or Organization (e.g., bank, repository),  location held, e.g., building,  jurisdiction</title>reference</a> : <a
+   id="n2954"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2955"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n2960"
+       x="401"
+       y="1031"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2961"
+   xlink:href="contract-definitions.html#Contract.term.asset.context.code"><title
+   id="title17267">Coded representation of the context generally or of the Referenced entity, such as the asset holder type or location</title>code</a> : <a
+   id="n2962"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2963"
+   xlink:href="valueset-contract-assetcontext.html"><title
+   id="n2964">null (Strength=Example)</title>ContractResourceAssetContextC...</a>?? »</text>
+    <text
+       id="n2970"
+       x="401"
+       y="1045"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2971"
+   xlink:href="contract-definitions.html#Contract.term.asset.context.text"><title
+   id="title17274">Context description</title>text</a> : <a
+   id="n2972"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n2976"
+     transform="translate(31.092616,-1.4806008)">
+    <rect
+       id="Contract.term.asset.valuedItem"
+       x="740"
+       y="760"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="260"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2977"
+       x1="740"
+       y1="788"
+       x2="1034.8"
+       y2="788"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2978"
+       x="887.40002"
+       y="780"
+       fill="#000000"
+       class="diagram-class-title">ValuedItem</text>
+    <text
+       id="n2979"
+       x="746"
+       y="802"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2980"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.entity_x_"><title
+   id="title17283">Specific type of Contract Valued Item that may be priced</title>entity[x]</a> : <a
+   id="n2981"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2982"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2983"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2984"
+   xlink:href="resourcelist.html#Any">Any</a>) »</text>
+    <text
+       id="n2991"
+       x="746"
+       y="816"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2992"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.identifier"><title
+   id="title17291">Identifies a Contract Valued Item instance</title>identifier</a> : <a
+   id="n2993"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n2997"
+       x="746"
+       y="830"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2998"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.effectiveTime"><title
+   id="title17296">Indicates the time during which this Contract ValuedItem information is effective</title>effectiveTime</a> : <a
+   id="n2999"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n3003"
+       x="746"
+       y="844"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3004"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.quantity"><title
+   id="title17301">Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances</title>quantity</a> : <a
+   id="n3005"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a17305">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n3009"
+       x="746"
+       y="858"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3010"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.unitPrice"><title
+   id="title17308">A Contract Valued Item unit valuation measure</title>unitPrice</a> : <a
+   id="n3011"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3015"
+       x="746"
+       y="872"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3016"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.factor"><title
+   id="title17313">A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n3017"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n3021"
+       x="746"
+       y="886"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3022"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.points"><title
+   id="title17318">An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point</title>points</a> : <a
+   id="n3023"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n3027"
+       x="746"
+       y="900"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3028"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.net"><title
+   id="title17323">Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied</title>net</a> : <a
+   id="n3029"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3033"
+       x="746"
+       y="914"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3034"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.payment"><title
+   id="title17328">Terms of valuation</title>payment</a> : <a
+   id="n3035"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n3039"
+       x="746"
+       y="928"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3040"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.paymentDate"><title
+   id="title17333">When payment is due</title>paymentDate</a> : <a
+   id="n3041"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n3045"
+       x="746"
+       y="942"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3046"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.responsible"><title
+   id="title17338">Who will make payment</title>responsible</a> : <a
+   id="n3047"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3048"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n3049"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3050"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3051"
+       x="766"
+       y="956"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3052"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3053"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n3063"
+       x="746"
+       y="970"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3064"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.recipient"><title
+   id="title17349">Who will receive payment</title>recipient</a> : <a
+   id="n3065"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3066"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n3067"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3068"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3069"
+       x="766"
+       y="984"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3070"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3071"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n3081"
+       x="746"
+       y="998"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3082"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.linkId"><title
+   id="title17360">Id  of the clause or question text related to the context of this valuedItem in the referenced form or QuestionnaireResponse</title>linkId</a> : <a
+   id="n3083"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3087"
+       x="746"
+       y="1012"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3088"
+   xlink:href="contract-definitions.html#Contract.term.asset.valuedItem.securityLabelNumber"><title
+   id="title17365">A set of security labels that define which terms are controlled by this condition</title>securityLabelNumber</a> : <a
+   id="n3089"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n3093">
+    <rect
+       id="Contract.term.action"
+       x="10.0"
+       y="740.0"
+       rx="4"
+       ry="4"
+       width="299.20000000000005"
+       height="358.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n3094"
+       x1="10.0"
+       y1="768.0"
+       x2="309.20000000000005"
+       y2="768.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n3095"
+       x="159.60000000000002"
+       y="760.0"
+       fill="black"
+       class="diagram-class-title">Action</text>
+    <text
+       id="n3096"
+       x="16.0"
+       y="782.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3097"
+   xlink:href="contract-definitions.html#Contract.term.action.doNotPerform"><title
+   id="title17374">True if the term prohibits the  action (this element modifies the meaning of other elements)</title>doNotPerform</a> : <a
+   id="n3098"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n3102"
+       x="16.0"
+       y="796.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3103"
+   xlink:href="contract-definitions.html#Contract.term.action.type"><title
+   id="title17379">Activity or service obligation to be done or not done, performed or not performed, effectuated or not by this Contract term</title>type</a> : <a
+   id="n3104"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n3105"
+   xlink:href="valueset-contract-action.html"><title
+   id="n3106">null (Strength=Example)</title>ContractActionCodes</a>?? »</text>
+    <text
+       id="n3112"
+       x="16.0"
+       y="810.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3113"
+   xlink:href="contract-definitions.html#Contract.term.action.intent"><title
+   id="title17386">Reason or purpose for the action stipulated by this Contract Provision</title>intent</a> : <a
+   id="n3114"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n3115"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-PurposeOfUse.html"><title
+   id="n3116">null (Strength=Example)</title>PurposeOfUse</a>?? »</text>
+    <text
+       id="n3122"
+       x="16.0"
+       y="824.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3123"
+   xlink:href="contract-definitions.html#Contract.term.action.linkId"><title
+   id="title17393">Id [identifier??] of the clause or question text related to this action in the referenced form or QuestionnaireResponse</title>linkId</a> : <a
+   id="n3124"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3128"
+       x="16.0"
+       y="838.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3129"
+   xlink:href="contract-definitions.html#Contract.term.action.status"><title
+   id="title17398">Current state of the term action</title>status</a> : <a
+   id="n3130"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n3131"
+   xlink:href="valueset-contract-actionstatus.html"><title
+   id="n3132">null (Strength=Example)</title>ContractResourceActionStatusC...</a>?? »</text>
+    <text
+       id="n3138"
+       x="16.0"
+       y="852.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3139"
+   xlink:href="contract-definitions.html#Contract.term.action.context"><title
+   id="title17405">Encounter or Episode with primary association to the specified term activity</title>context</a> : <a
+   id="n3140"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3141"
+   xlink:href="encounter.html#Encounter">Encounter</a>|<a
+   id="n3142"
+   xlink:href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a> »</text>
+    <text
+       id="n3148"
+       x="16.0"
+       y="866.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3149"
+   xlink:href="contract-definitions.html#Contract.term.action.contextLinkId"><title
+   id="title17412">Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse</title>contextLinkId</a> : <a
+   id="n3150"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3154"
+       x="16.0"
+       y="880.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3155"
+   xlink:href="contract-definitions.html#Contract.term.action.occurrence_x_"><title
+   id="title17417">When action happens</title>occurrence[x]</a> : <a
+   id="n3156"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n3157"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n3158"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n3159"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n3166"
+       x="16.0"
+       y="894.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3167"
+   xlink:href="contract-definitions.html#Contract.term.action.requester"><title
+   id="title17425">Who or what initiated the action and has responsibility for its activation</title>requester</a> : <a
+   id="n3168"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n3169"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3170"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n3171"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3172"
+       x="36.0"
+       y="908.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3173"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3174"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n3175"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n3176"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n3188"
+       x="16.0"
+       y="922.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3189"
+   xlink:href="contract-definitions.html#Contract.term.action.requesterLinkId"><title
+   id="title17438">Id [identifier??] of the clause or question text related to the requester of this action in the referenced form or QuestionnaireResponse</title>requesterLinkId</a> : <a
+   id="n3190"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3194"
+       x="16.0"
+       y="936.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3195"
+   xlink:href="contract-definitions.html#Contract.term.action.performerType"><title
+   id="title17443">The type of individual that is desired or required to perform or not perform the action</title>performerType</a> : <a
+   id="n3196"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3197"
+   xlink:href="valueset-participation-role-type.html"><title
+   id="n3198">null (Strength=Example)</title>ParticipationRoleType</a>?? »</text>
+    <text
+       id="n3204"
+       x="16.0"
+       y="950.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3205"
+   xlink:href="contract-definitions.html#Contract.term.action.performerRole"><title
+   id="title17450">The type of role or competency of an individual desired or required to perform or not perform the action</title>performerRole</a> : <a
+   id="n3206"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3207"
+   xlink:href="valueset-security-role-type.html"><title
+   id="n3208">null (Strength=Example)</title>SecurityRoleType</a>?? »</text>
+    <text
+       id="n3214"
+       x="16.0"
+       y="964.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3215"
+   xlink:href="contract-definitions.html#Contract.term.action.performer"><title
+   id="title17457">Indicates who or what is being asked to perform (or not perform) the ction</title>performer</a> : <a
+   id="n3216"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n3217"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n3218"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3219"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3220"
+       x="36.0"
+       y="978.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3221"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3222"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n3223"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n3224"
+   xlink:href="substance.html#Substance">Substance</a>|<a
+   id="n3225"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
+    <text
+       id="n3226"
+       x="36.0"
+       y="992.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3227"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n3242"
+       x="16.0"
+       y="1006.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3243"
+   xlink:href="contract-definitions.html#Contract.term.action.performerLinkId"><title
+   id="title17473">Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse</title>performerLinkId</a> : <a
+   id="n3244"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3248"
+       x="16.0"
+       y="1020.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3249"
+   xlink:href="contract-definitions.html#Contract.term.action.reason"><title
+   id="title17478">Rationale for the action to be performed or not performed. Describes why the action is permitted or prohibited. Either a coded concept, or another resource whose existence justifies permitting or not permitting this action</title>reason</a> : <a
+   id="n3250"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n3251"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n3252"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n3253"
+       x="36.0"
+       y="1034.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3254"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n3255"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n3256"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a>|</text>
+    <text
+       id="n3257"
+       x="36.0"
+       y="1048.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3258"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>; <a
+   id="n3259"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-PurposeOfUse.html"><title
+   id="n3260">null (Strength=Example)</title>PurposeOfUse</a>?? »</text>
+    <text
+       id="n3274"
+       x="16.0"
+       y="1062.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3275"
+   xlink:href="contract-definitions.html#Contract.term.action.reasonLinkId"><title
+   id="title17493">Id [identifier??] of the clause or question text related to the reason type or reference of this  action in the referenced form or QuestionnaireResponse</title>reasonLinkId</a> : <a
+   id="n3276"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n3280"
+       x="16.0"
+       y="1076.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3281"
+   xlink:href="contract-definitions.html#Contract.term.action.note"><title
+   id="title17498">Comments made about the term action made by the requester, performer, subject or other participants</title>note</a> : <a
+   id="n3282"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n3286"
+       x="16.0"
+       y="1090.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3287"
+   xlink:href="contract-definitions.html#Contract.term.action.securityLabelNumber"><title
+   id="title17503">Security labels that protects the action</title>securityLabelNumber</a> : <a
+   id="n3288"
+   xlink:href="datatypes.html#unsignedInt">unsignedInt</a> [0..*]</text>
+  </g>
+  <g
+     id="n3292"
+     transform="translate(-19.24781,17.767209)">
+    <rect
+       id="Contract.term.action.subject"
+       x="390"
+       y="1065"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n3293"
+       x1="390"
+       y1="1093"
+       x2="680.40002"
+       y2="1093"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n3294"
+       x="535.20001"
+       y="1085"
+       fill="#000000"
+       class="diagram-class-title">ActionSubject</text>
+    <text
+       id="n3295"
+       x="396"
+       y="1107"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3296"
+   xlink:href="contract-definitions.html#Contract.term.action.subject.reference"><title
+   id="title17512">The entity the action is performed or not performed on or for</title>reference</a> : <a
+   id="n3297"
+   xlink:href="references.html#Reference">Reference</a> [1..*] « <a
+   id="n3298"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3299"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n3300"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3301"
+       x="416"
+       y="1121"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3302"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3303"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n3304"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n3305"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n3317"
+       x="396"
+       y="1135"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3318"
+   xlink:href="contract-definitions.html#Contract.term.action.subject.role"><title
+   id="title17525">Role type of agent assigned roles in this Contract</title>role</a> : <a
+   id="n3319"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3320"
+   xlink:href="valueset-contract-actorrole.html"><title
+   id="n3321">null (Strength=Example)</title>ContractActorRoleCodes</a>?? »</text>
+  </g>
+  <g
+     id="n3327"
+     transform="translate(10.364205,39.97622)">
+    <rect
+       id="Contract.signer"
+       x="390"
+       y="130"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n3328"
+       x1="390"
+       y1="158"
+       x2="658.40002"
+       y2="158"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n3329"
+       x="524.20001"
+       y="150"
+       fill="#000000"
+       class="diagram-class-title">Signatory</text>
+    <text
+       id="n3330"
+       x="396"
+       y="172"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3331"
+   xlink:href="contract-definitions.html#Contract.signer.type"><title
+   id="title17536">Role of this Contract signer, e.g. notary, grantee</title>type</a> : <a
+   id="n3332"
+   xlink:href="datatypes.html#Coding">Coding</a> [1..1] « <a
+   id="n3333"
+   xlink:href="valueset-contract-signer-type.html"><title
+   id="title17540">null (Strength=Preferred)</title>ContractSignerTypeCodes</a>? »</text>
+    <text
+       id="n3338"
+       x="396"
+       y="186"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3339"
+   xlink:href="contract-definitions.html#Contract.signer.party"><title
+   id="title17544">Party which is a signator to this Contract</title>party</a> : <a
+   id="n3340"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n3341"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n3342"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n3343"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n3344"
+       x="416"
+       y="200"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3345"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n3346"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n3356"
+       x="396"
+       y="214"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3357"
+   xlink:href="contract-definitions.html#Contract.signer.signature"><title
+   id="title17555">Legally binding Contract DSIG signature contents in Base64</title>signature</a> : <a
+   id="n3358"
+   xlink:href="datatypes.html#Signature">Signature</a> [1..*]</text>
+  </g>
+  <g
+     id="n3362"
+     transform="translate(20.728411,-2.9612015)">
+    <rect
+       id="Contract.friendly"
+       x="740"
+       y="230"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n3363"
+       x1="740"
+       y1="258"
+       x2="1021.6"
+       y2="258"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n3364"
+       x="880.79999"
+       y="250"
+       fill="#000000"
+       class="diagram-class-title">FriendlyLanguage</text>
+    <text
+       id="n3365"
+       x="746"
+       y="272"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3366"
+   xlink:href="contract-definitions.html#Contract.friendly.content_x_"><title
+   id="title17564">Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability</title>content[x]</a> : <a
+   id="n3367"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n3368"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n3369"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n3370"
+   xlink:href="composition.html#Composition">Composition</a>|</text>
+    <text
+       id="n3371"
+       x="766"
+       y="286"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3372"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n3373"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>) »</text>
+  </g>
+  <g
+     id="n3383">
+    <rect
+       id="Contract.legal"
+       x="390.0"
+       y="295.0"
+       rx="4"
+       ry="4"
+       width="281.6"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n3384"
+       x1="390.0"
+       y1="323.0"
+       x2="671.6"
+       y2="323.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n3385"
+       x="530.8"
+       y="315.0"
+       fill="black"
+       class="diagram-class-title">LegalLanguage</text>
+    <text
+       id="n3386"
+       x="396.0"
+       y="337.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3387"
+   xlink:href="contract-definitions.html#Contract.legal.content_x_"><title
+   id="title17579">Contract legal text in human renderable form</title>content[x]</a> : <a
+   id="n3388"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n3389"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n3390"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n3391"
+   xlink:href="composition.html#Composition">Composition</a>|</text>
+    <text
+       id="n3392"
+       x="416.0"
+       y="351.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3393"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n3394"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>) »</text>
+  </g>
+  <g
+     id="n3404">
+    <rect
+       id="Contract.rule"
+       x="390.0"
+       y="370.0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n3405"
+       x1="390.0"
+       y1="398.0"
+       x2="618.8"
+       y2="398.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n3406"
+       x="504.4"
+       y="390.0"
+       fill="black"
+       class="diagram-class-title">ComputableLanguage</text>
+    <text
+       id="n3407"
+       x="396.0"
+       y="412.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3408"
+   xlink:href="contract-definitions.html#Contract.rule.content_x_"><title
+   id="title17594">Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal)</title>content[x]</a> : <a
+   id="n3409"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n3410"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|<a
+   id="n3411"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n3412"
+       x="416.0"
+       y="426.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n3413"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>) »</text>
+  </g>
+  <line
+     id="n3421"
+     x1="303.6"
+     y1="195.778125"
+     x2="384.2897959183673"
+     y2="134.00000000000006"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3422"
+     points="303.6,195.778125 309.6,199.778125 315.6,195.778125 309.6,191.778125 303.6,195.778125"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-37.43857157233303 303.6 195.778125)" />
+  <rect
+     id="n3423"
+     x="306.0"
+     y="157.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3424"
+     x="343.0"
+     y="167.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3425"
+       xlink:href="contract-definitions.html#Contract.contentDefinition"><title
+   id="title17607">Precusory content developed with a focus and intent of supporting the formation a Contract instance, which may be associated with and transformable into a Contract</title>contentDefinition</a></text>
+  <text
+     id="n3426"
+     x="384.2897959183673"
+     y="148.00000000000006"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n3427"
+     x1="288.40000000000003"
+     y1="577.6724324324324"
+     x2="399.05294117647065"
+     y2="537.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3428"
+     points="288.40000000000003,577.6724324324324 294.40000000000003,581.6724324324324 300.40000000000003,577.6724324324324 294.40000000000003,573.6724324324324 288.40000000000003,577.6724324324324"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.181790699981676 288.40000000000003 577.6724324324324)" />
+  <rect
+     id="n3429"
+     x="314.5"
+     y="550.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3430"
+     x="343.0"
+     y="560.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3431"
+       xlink:href="contract-definitions.html#Contract.term.securityLabel"><title
+   id="title17615">Security labels that protect the handling of information about the term and its elements, which may be specifically identified.</title>securityLabel</a></text>
+  <text
+     id="n3432"
+     x="399.05294117647065"
+     y="551.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3433"
+     x1="640.8"
+     y1="606.6711736073555"
+     x2="740.0"
+     y2="591.3807463493781"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3434"
+     points="640.8,606.6711736073555 646.8,610.6711736073555 652.8,606.6711736073555 646.8,602.6711736073555 640.8,606.6711736073555"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.762461301274854 640.8 606.6711736073555)" />
+  <rect
+     id="n3435"
+     x="679.0"
+     y="592.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3436"
+     x="690.0"
+     y="602.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3437"
+       xlink:href="contract-definitions.html#Contract.term.offer.party"><title
+   id="title17623">Offer Recipient</title>party</a></text>
+  <text
+     id="n3438"
+     x="720.0"
+     y="587.3807463493781"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3439"
+     x1="640.8"
+     y1="648.2483870967742"
+     x2="740.0"
+     y2="665.8483870967743"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3440"
+     points="640.8,648.2483870967742 646.8,652.2483870967742 652.8,648.2483870967742 646.8,644.2483870967742 640.8,648.2483870967742"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(10.060689795323041 640.8 648.2483870967742)" />
+  <rect
+     id="n3441"
+     x="677.0"
+     y="650.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3442"
+     x="690.0"
+     y="660.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3443"
+       xlink:href="contract-definitions.html#Contract.term.offer.answer"><title
+   id="title17631">Response to offer text</title>answer</a></text>
+  <text
+     id="n3444"
+     x="720.0"
+     y="661.8483870967743"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3445"
+     x1="288.40000000000003"
+     y1="626.6284606866002"
+     x2="390.0"
+     y2="626.3471760797343"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3446"
+     points="288.40000000000003,626.6284606866002 294.40000000000003,630.6284606866002 300.40000000000003,626.6284606866002 294.40000000000003,622.6284606866002 288.40000000000003,626.6284606866002"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.1586257838471815 288.40000000000003 626.6284606866002)" />
+  <rect
+     id="n3447"
+     x="328.0"
+     y="619.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3448"
+     x="339.0"
+     y="629.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3449"
+       xlink:href="contract-definitions.html#Contract.term.offer"><title
+   id="title17639">The matter of concern in the context of this provision of the agrement</title>offer</a></text>
+  <text
+     id="n3450"
+     x="370.0"
+     y="622.3471760797343"
+     fill="black"
+     class="diagram-class-linkage">[1..1]</text>
+  <line
+     id="n3451"
+     x1="540.8034285714285"
+     y1="948.0"
+     x2="540.5565714285714"
+     y2="975.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3452"
+     points="540.8034285714285,948.0 546.8034285714285,952.0 552.8034285714285,948.0 546.8034285714285,944.0 540.8034285714285,948.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.523832531261 540.8034285714285 948.0)" />
+  <rect
+     id="n3453"
+     x="525.0"
+     y="954.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3454"
+     x="540.0"
+     y="964.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3455"
+       xlink:href="contract-definitions.html#Contract.term.asset.context"><title
+   id="title17647">Circumstance of the asset</title>context</a></text>
+  <text
+     id="n3456"
+     x="540.5565714285714"
+     y="971.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3457"
+     x1="693.6"
+     y1="774.4322916666667"
+     x2="812.1673469387755"
+     y2="724.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3458"
+     points="693.6,774.4322916666667 699.6,778.4322916666667 705.6,774.4322916666667 699.6,770.4322916666667 693.6,774.4322916666667"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-23.0423406107296 693.6 774.4322916666667)" />
+  <rect
+     id="n3459"
+     x="739.0"
+     y="742.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3460"
+     x="752.0"
+     y="752.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3461"
+       xlink:href="contract-definitions.html#Contract.term.asset.answer"><title
+   id="title17655">Response to assets</title>answer</a></text>
+  <text
+     id="n3462"
+     x="812.1673469387755"
+     y="738.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3463"
+     x1="693.6"
+     y1="861.4010416666666"
+     x2="740.0"
+     y2="868.2482638888889"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3464"
+     points="693.6,861.4010416666666 699.6,865.4010416666666 705.6,861.4010416666666 699.6,857.4010416666666 693.6,861.4010416666666"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(8.394521125653307 693.6 861.4010416666666)" />
+  <rect
+     id="n3465"
+     x="694.0"
+     y="857.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3466"
+     x="716.0"
+     y="867.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3467"
+       xlink:href="contract-definitions.html#Contract.term.asset.valuedItem"><title
+   id="title17663">Contract Valued Item List</title>valuedItem</a></text>
+  <text
+     id="n3468"
+     x="720.0"
+     y="864.2482638888889"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3469"
+     x1="276.6962264150942"
+     y1="694.0"
+     x2="390.0"
+     y2="755.9721362229103"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3470"
+     points="276.6962264150942,694.0 282.6962264150942,698.0 288.6962264150942,694.0 282.6962264150942,690.0 276.6962264150942,694.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(28.676702318161727 276.6962264150942 694.0)" />
+  <rect
+     id="n3471"
+     x="322.0"
+     y="717.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3472"
+     x="333.0"
+     y="727.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3473"
+       xlink:href="contract-definitions.html#Contract.term.asset"><title
+   id="title17671">Contract Term Asset List</title>asset</a></text>
+  <text
+     id="n3474"
+     x="370.0"
+     y="751.9721362229103"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3475"
+     x1="309.20000000000005"
+     y1="992.6847710330139"
+     x2="456.0194594594595"
+     y2="1065.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3476"
+     points="309.20000000000005,992.6847710330139 315.20000000000005,996.6847710330139 321.20000000000005,992.6847710330139 315.20000000000005,988.6847710330139 309.20000000000005,992.6847710330139"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(26.222333233666085 309.20000000000005 992.6847710330139)" />
+  <rect
+     id="n3477"
+     x="367.0"
+     y="1021.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3478"
+     x="382.0"
+     y="1031.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3479"
+       xlink:href="contract-definitions.html#Contract.term.action.subject"><title
+   id="title17679">Entity of the action</title>subject</a></text>
+  <text
+     id="n3480"
+     x="456.0194594594595"
+     y="1061.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3481"
+     x1="155.43904109589045"
+     y1="694.0"
+     x2="156.28972602739728"
+     y2="740.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3482"
+     points="155.43904109589045,694.0 161.43904109589045,698.0 167.43904109589045,694.0 161.43904109589045,690.0 155.43904109589045,694.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(88.94054128194219 155.43904109589045 694.0)" />
+  <rect
+     id="n3483"
+     x="142.0"
+     y="710.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3484"
+     x="155.0"
+     y="720.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3485"
+       xlink:href="contract-definitions.html#Contract.term.action"><title
+   id="title17687">An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place</title>action</a></text>
+  <text
+     id="n3486"
+     x="156.28972602739728"
+     y="736.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3487"
+     x1="288.40000000000003"
+     y1="602.0"
+     x2="348.40000000000003"
+     y2="602.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n3488"
+     x1="348.40000000000003"
+     y1="602.0"
+     x2="348.40000000000003"
+     y2="652.0"
+     style="stroke:navy;stroke-width:1" />
+  <line
+     id="n3489"
+     x1="348.40000000000003"
+     y1="652.0"
+     x2="288.40000000000003"
+     y2="652.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3490"
+     points="288.40000000000003,602.0 294.40000000000003,606.0 300.40000000000003,602.0 294.40000000000003,598.0 288.40000000000003,602.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(0.0 288.40000000000003 602.0)" />
+  <rect
+     id="n3491"
+     x="337.0"
+     y="620.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3492"
+     x="348.0"
+     y="630.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3493"
+       xlink:href="contract-definitions.html#Contract.term.group"><title
+   id="title17697">Nested group of Contract Provisions</title>group</a></text>
+  <text
+     id="n3494"
+     x="303.40000000000003"
+     y="648.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3495"
+     x1="153.64380952380952"
+     y1="554.0"
+     x2="153.68952380952382"
+     y2="560.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3496"
+     points="153.64380952380952,554.0 159.64380952380952,558.0 165.64380952380952,554.0 159.64380952380952,550.0 153.64380952380952,554.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(89.5634691742435 153.64380952380952 554.0)" />
+  <rect
+     id="n3497"
+     x="144.5"
+     y="550.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3498"
+     x="153.0"
+     y="560.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3499"
+       xlink:href="contract-definitions.html#Contract.term"><title
+   id="title17705">One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups</title>term</a></text>
+  <text
+     id="n3500"
+     x="153.68952380952382"
+     y="556.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3501"
+     x1="303.6"
+     y1="256.5628356605801"
+     x2="398.24117647058847"
+     y2="222.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3502"
+     points="303.6,256.5628356605801 309.6,260.5628356605801 315.6,256.5628356605801 309.6,252.5628356605801 303.6,256.5628356605801"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.062128320964717 303.6 256.5628356605801)" />
+  <rect
+     id="n3503"
+     x="337.0"
+     y="232.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3504"
+     x="350.0"
+     y="242.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3505"
+       xlink:href="contract-definitions.html#Contract.signer"><title
+   id="title17713">Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness</title>signer</a></text>
+  <text
+     id="n3506"
+     x="398.24117647058847"
+     y="236.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3507"
+     x1="303.6"
+     y1="301.5884773662551"
+     x2="740.0"
+     y2="271.65706447187927"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3508"
+     points="303.6,301.5884773662551 309.6,305.5884773662551 315.6,301.5884773662551 309.6,297.5884773662551 303.6,301.5884773662551"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.9236069147665047 303.6 301.5884773662551)" />
+  <rect
+     id="n3509"
+     x="503.5"
+     y="279.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3510"
+     x="521.0"
+     y="289.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3511"
+       xlink:href="contract-definitions.html#Contract.friendly"><title
+   id="title17721">The &quot;patient friendly language&quot; versionof the Contract in whole or in parts. &quot;Patient friendly language&quot; means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement</title>friendly</a></text>
+  <text
+     id="n3512"
+     x="720.0"
+     y="267.65706447187927"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3513"
+     x1="303.6"
+     y1="318.0079155672823"
+     x2="390.0"
+     y2="321.42744063324534"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3514"
+     points="303.6,318.0079155672823 309.6,322.0079155672823 315.6,318.0079155672823 309.6,314.0079155672823 303.6,318.0079155672823"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(2.266460084316065 303.6 318.0079155672823)" />
+  <rect
+     id="n3515"
+     x="335.0"
+     y="312.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3516"
+     x="346.0"
+     y="322.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3517"
+       xlink:href="contract-definitions.html#Contract.legal"><title
+   id="title17729">List of Legal expressions or representations of this Contract</title>legal</a></text>
+  <text
+     id="n3518"
+     x="370.0"
+     y="317.42744063324534"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3519"
+     x1="303.6"
+     y1="350.7464549064095"
+     x2="390.0"
+     y2="372.7997731140102"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3520"
+     points="303.6,350.7464549064095 309.6,354.7464549064095 315.6,350.7464549064095 309.6,346.7464549064095 303.6,350.7464549064095"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(14.31882499993967 303.6 350.7464549064095)" />
+  <rect
+     id="n3521"
+     x="337.5"
+     y="354.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3522"
+     x="346.0"
+     y="364.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3523"
+       xlink:href="contract-definitions.html#Contract.rule"><title
+   id="title17737">List of Computable Policy Rule Language Representations of this Contract</title>rule</a></text>
+  <text
+     id="n3524"
+     x="370.0"
+     y="368.7997731140102"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n579"
+   version="1.1"
+   width="806.0"
+   height="466.0"
+   sodipodi:docname="chargeitem.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview144292"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5459057"
+     inkscape:cx="403"
+     inkscape:cy="233.19663"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n579" />
+  <defs
+     id="defs144073">
+    <filter
+       id="shadow1"
+       x="-0.018531469"
+       y="-0.057608696"
+       width="1.0475524"
+       height="1.1478261">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset144064" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix144066" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur144068" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend144070" />
+    </filter>
+  </defs>
+  <g
+     id="n580">
+    <rect
+       id="ChargeItem"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="456.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n581"
+       x1="0.0"
+       y1="28.0"
+       x2="294.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n582"
+       x="147.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ChargeItem<tspan
+   class="diagram-class-title-link"
+   id="tspan144078"> (<a
+   id="n583"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n584"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n585"
+   xlink:href="chargeitem-definitions.html#ChargeItem.identifier"><title
+   id="title144081">Identifiers assigned to this event performer or other systems</title>identifier</a> : <a
+   id="n586"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n590"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="chargeitem-definitions.html#ChargeItem.definitionUri"><title
+   id="title144086">References the (external) source of pricing information, rules of application for the code this ChargeItem uses</title>definitionUri</a> : <a
+   id="n592"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n596"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="chargeitem-definitions.html#ChargeItem.definitionCanonical"><title
+   id="title144091">References the source of pricing information, rules of application for the code this ChargeItem uses</title>definitionCanonical</a> : <a
+   id="n598"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n599"
+   xlink:href="chargeitemdefinition.html#ChargeItemDefinition">ChargeItemDefinition</a> »</text>
+    <text
+       id="n604"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n605"
+   xlink:href="chargeitem-definitions.html#ChargeItem.status"><title
+   id="title144097">The current state of the ChargeItem (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n606"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n607"
+   xlink:href="valueset-chargeitem-status.html"><title
+   id="n608">null (Strength=Required)</title>ChargeItemStatus</a>! »</text>
+    <text
+       id="n614"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n615"
+   xlink:href="chargeitem-definitions.html#ChargeItem.partOf"><title
+   id="title144104">ChargeItems can be grouped to larger ChargeItems covering the whole set</title>partOf</a> : <a
+   id="n616"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n617"
+   xlink:href="chargeitem.html#ChargeItem">ChargeItem</a> »</text>
+    <text
+       id="n622"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n623"
+   xlink:href="chargeitem-definitions.html#ChargeItem.code"><title
+   id="title144110">A code that identifies the charge, like a billing code</title>code</a> : <a
+   id="n624"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n625"
+   xlink:href="valueset-chargeitem-billingcodes.html"><title
+   id="n626">null (Strength=Example)</title>ChargeItemCode</a>?? »</text>
+    <text
+       id="n632"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n633"
+   xlink:href="chargeitem-definitions.html#ChargeItem.subject"><title
+   id="title144117">The individual or set of individuals the action is being or was performed on</title>subject</a> : <a
+   id="n634"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n635"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n636"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n642"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n643"
+   xlink:href="chargeitem-definitions.html#ChargeItem.encounter"><title
+   id="title144124">This ChargeItem has the details of how the associated Encounter should be billed or otherwise be handled by finance systems</title>encounter</a> : <a
+   id="n644"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n645"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n650"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n651"
+   xlink:href="chargeitem-definitions.html#ChargeItem.occurrence_x_"><title
+   id="title144130">Date/time(s) or duration when the charged service was applied</title>occurrence[x]</a> : <a
+   id="n652"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n653"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n654"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n655"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n662"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n663"
+   xlink:href="chargeitem-definitions.html#ChargeItem.performingOrganization"><title
+   id="title144138">The organization performing the service</title>performingOrganization</a> : <a
+   id="n664"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n665"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n670"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="chargeitem-definitions.html#ChargeItem.requestingOrganization"><title
+   id="title144144">The organization requesting the service</title>requestingOrganization</a> : <a
+   id="n672"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n673"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n678"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n679"
+   xlink:href="chargeitem-definitions.html#ChargeItem.costCenter"><title
+   id="title144150">The financial cost center permits the tracking of charge attribution</title>costCenter</a> : <a
+   id="n680"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n681"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n686"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n687"
+   xlink:href="chargeitem-definitions.html#ChargeItem.quantity"><title
+   id="title144156">Quantity of which the charge item has been serviced</title>quantity</a> : <a
+   id="n688"
+   xlink:href="datatypes.html#Quantity">Quantity</a> [0..1]</text>
+    <text
+       id="n692"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n693"
+   xlink:href="chargeitem-definitions.html#ChargeItem.bodysite"><title
+   id="title144161">The anatomical location where the related service has been applied</title>bodysite</a> : <a
+   id="n694"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n695"
+   xlink:href="valueset-body-site.html"><title
+   id="n696">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n702"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n703"
+   xlink:href="chargeitem-definitions.html#ChargeItem.unitPriceComponent"><title
+   id="title144168">The unit price of the chargable item</title>unitPriceComponent</a> : <a
+   id="n704"
+   xlink:href="metadatatypes.html#MonetaryComponent">MonetaryComponent</a> [0..1]</text>
+    <text
+       id="n708"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n709"
+   xlink:href="chargeitem-definitions.html#ChargeItem.totalPriceComponent"><title
+   id="title144173">The total price for the chargable item, accounting for the quantity</title>totalPriceComponent</a> : <a
+   id="n710"
+   xlink:href="metadatatypes.html#MonetaryComponent">MonetaryComponent</a> [0..1]</text>
+    <text
+       id="n714"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="chargeitem-definitions.html#ChargeItem.overrideReason"><title
+   id="title144178">If the list price or the rule-based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action</title>overrideReason</a> : <a
+   id="n716"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <title
+   id="title144182">null (Strength=Example)</title>override-reason?? »</text>
+    <text
+       id="n720"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n721"
+   xlink:href="chargeitem-definitions.html#ChargeItem.enterer"><title
+   id="title144185">The device, practitioner, etc. who entered the charge item</title>enterer</a> : <a
+   id="n722"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n723"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n724"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n725"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n726"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n727"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n728"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n729"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n740"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="chargeitem-definitions.html#ChargeItem.enteredDate"><title
+   id="title144197">Date the charge item was entered</title>enteredDate</a> : <a
+   id="n742"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n746"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n747"
+   xlink:href="chargeitem-definitions.html#ChargeItem.reason"><title
+   id="title144202">Describes why the event occurred in coded or textual form</title>reason</a> : <a
+   id="n748"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n749"
+   xlink:href="valueset-icd-10.html"><title
+   id="n750">null (Strength=Example)</title>ICD10Codes</a>?? »</text>
+    <text
+       id="n756"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n757"
+   xlink:href="chargeitem-definitions.html#ChargeItem.service"><title
+   id="title144209">Indicated the rendered service that caused this charge</title>service</a> : <a
+   id="n758"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n759"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n760"
+   xlink:href="imagingstudy.html#ImagingStudy">ImagingStudy</a>|</text>
+    <text
+       id="n761"
+       x="26.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n762"
+   xlink:href="immunization.html#Immunization">Immunization</a>|<a
+   id="n763"
+   xlink:href="medicationadministration.html#MedicationAdministration">MedicationAdministration</a>|<a
+   id="n764"
+   xlink:href="medicationdispense.html#MedicationDispense">MedicationDispense</a>|</text>
+    <text
+       id="n765"
+       x="26.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n767"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n768"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n769"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|</text>
+    <text
+       id="n770"
+       x="26.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n771"
+   xlink:href="supplydelivery.html#SupplyDelivery">SupplyDelivery</a> »</text>
+    <text
+       id="n788"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n789"
+   xlink:href="chargeitem-definitions.html#ChargeItem.product"><title
+   id="title144227">Identifies the device, food, drug or other product being charged either by type code or reference to an instance</title>product</a> : <a
+   id="n790"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n791"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n792"
+   xlink:href="medication.html#Medication">Medication</a>|<a
+   id="n793"
+   xlink:href="substance.html#Substance">Substance</a>; <a
+   id="n794"
+   xlink:href="valueset-device-type.html"><title
+     id="n795">null (Strength=Example)</title></a></text>
+    <text
+       id="n796"
+       x="26.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n797"
+   xlink:href="valueset-device-type.html">DeviceType</a>?? »</text>
+    <text
+       id="n808"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n809"
+   xlink:href="chargeitem-definitions.html#ChargeItem.account"><title
+   id="title144239">Account into which this ChargeItems belongs</title>account</a> : <a
+   id="n810"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n811"
+   xlink:href="account.html#Account">Account</a> »</text>
+    <text
+       id="n816"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n817"
+   xlink:href="chargeitem-definitions.html#ChargeItem.note"><title
+   id="title144245">Comments made about the event by the performer, subject or other participants</title>note</a> : <a
+   id="n818"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n822"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n823"
+   xlink:href="chargeitem-definitions.html#ChargeItem.supportingInformation"><title
+   id="title144250">Further information supporting this charge</title>supportingInformation</a> : <a
+   id="n824"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n825"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+  </g>
+  <g
+     id="n830"
+     transform="translate(167.53933,196.00161)">
+    <rect
+       id="ChargeItem.performer"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="286"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n831"
+       x1="320"
+       y1="28"
+       x2="606"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n832"
+       x="463"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
+    <text
+       id="n833"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n834"
+   xlink:href="chargeitem-definitions.html#ChargeItem.performer.function"><title
+   id="title144260">Describes the type of performance or participation(e.g. primary surgeon, anesthesiologiest, etc.)</title>function</a> : <a
+   id="n835"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n836"
+   xlink:href="valueset-performer-role.html"><title
+   id="n837">null (Strength=Example)</title>ProcedurePerformerRoleCodes</a>?? »</text>
+    <text
+       id="n843"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n844"
+   xlink:href="chargeitem-definitions.html#ChargeItem.performer.actor"><title
+   id="title144267">The device, practitioner, etc. who performed or participated in the service</title>actor</a> : <a
+   id="n845"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n846"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n847"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n848"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n849"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n850"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n851"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n852"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n853"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n854"
+       x="346"
+       y="84"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n855"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <line
+     id="n869"
+     x1="294.8"
+     y1="142.99746514575412"
+     x2="383.23296703296705"
+     y2="91.99999999999997"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n870"
+     points="294.8,142.99746514575412 300.8,146.99746514575412 306.8,142.99746514575412 300.8,138.99746514575412 294.8,142.99746514575412"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-29.971160606115838 294.8 142.99746514575412)" />
+  <rect
+     id="n871"
+     x="319.5"
+     y="110.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n872"
+     x="339.0"
+     y="120.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n873"
+       xlink:href="chargeitem-definitions.html#ChargeItem.performer"><title
+   id="title144286">Indicates who or what performed or participated in the charged service</title>performer</a></text>
+  <text
+     id="n874"
+     x="383.23296703296705"
+     y="105.99999999999997"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

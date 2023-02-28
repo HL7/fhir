@@ -1,0 +1,1478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n1313"
+   version="1.1"
+   width="1357.37072"
+   height="737.29162"
+   sodipodi:docname="measure.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview109674"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.91795114"
+     inkscape:cx="678.68536"
+     inkscape:cy="369.84539"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n1313" />
+  <defs
+     id="defs109124">
+    <filter
+       id="shadow1"
+       x="-0.020768025"
+       y="-0.0828125"
+       width="1.0532915"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset109115" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix109117" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur109119" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend109121" />
+    </filter>
+  </defs>
+  <g
+     id="n1314">
+    <rect
+       id="Measure"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="666.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n1315"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n1316"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Measure<tspan
+   class="diagram-class-title-link"
+   id="tspan109130"> (<a
+   id="n1317"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n1318"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n1319"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1320"
+   xlink:href="measure-definitions.html#Measure.url"><title
+   id="title109133">An absolute URI that is used to identify this measure when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this measure is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the measure is stored on different servers</title>url</a> : <a
+   id="n1321"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n1325"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1326"
+   xlink:href="measure-definitions.html#Measure.identifier"><title
+   id="title109138">A formal identifier that is used to identify this measure when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n1327"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n1331"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1332"
+   xlink:href="measure-definitions.html#Measure.version"><title
+   id="title109143">The identifier that is used to identify this version of the measure when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the measure author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts</title>version</a> : <a
+   id="n1333"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1337"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1338"
+   xlink:href="measure-definitions.html#Measure.versionAlgorithm_x_"><title
+   id="title109148">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n1339"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1340"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n1341"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n1342"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n1343">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1344"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1345"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n1355"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1356"
+   xlink:href="measure-definitions.html#Measure.name"><title
+   id="title109159">A natural language name identifying the measure. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n1357"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n1358"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1359">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1365"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1366"
+   xlink:href="measure-definitions.html#Measure.title"><title
+   id="title109166">A short, descriptive, user-friendly title for the measure</title>title</a> : <a
+   id="n1367"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1371"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1372"
+   xlink:href="measure-definitions.html#Measure.subtitle"><title
+   id="title109171">An explanatory or alternate title for the measure giving additional information about its content</title>subtitle</a> : <a
+   id="n1373"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1377"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1378"
+   xlink:href="measure-definitions.html#Measure.status"><title
+   id="title109176">The status of this measure. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n1379"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1380"
+   xlink:href="valueset-publication-status.html"><title
+   id="n1381">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n1387"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1388"
+   xlink:href="measure-definitions.html#Measure.experimental"><title
+   id="title109183">A Boolean value to indicate that this measure is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n1389"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n1393"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1394"
+   xlink:href="measure-definitions.html#Measure.subject_x_"><title
+   id="title109188">The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything</title>subject[x]</a> : <a
+   id="n1395"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1396"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1397"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1398"
+   xlink:href="group.html#Group">Group</a>); <a
+   id="n1399"
+   xlink:href="valueset-participant-resource-types.html"><title
+     id="n1400">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1401"
+       x="26.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1402"
+   xlink:href="valueset-participant-resource-types.html">ParticipantResourceTypes</a>+ »</text>
+    <text
+       id="n1413"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1414"
+   xlink:href="measure-definitions.html#Measure.basis"><title
+   id="title109200">The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters</title>basis</a> : <a
+   id="n1415"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1416"
+   xlink:href="valueset-fhir-types.html"><title
+   id="n1417">null (Strength=Required)</title>FHIRTypes</a>! »</text>
+    <text
+       id="n1423"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1424"
+   xlink:href="measure-definitions.html#Measure.date"><title
+   id="title109207">The date  (and optionally time) when the measure was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the measure changes</title>date</a> : <a
+   id="n1425"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1429"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1430"
+   xlink:href="measure-definitions.html#Measure.publisher"><title
+   id="title109212">The name of the organization or individual responsible for the release and ongoing maintenance of the measure</title>publisher</a> : <a
+   id="n1431"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1435"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1436"
+   xlink:href="measure-definitions.html#Measure.contact"><title
+   id="title109217">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n1437"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1441"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1442"
+   xlink:href="measure-definitions.html#Measure.description"><title
+   id="title109222">A free text natural language description of the measure from a consumer's perspective</title>description</a> : <a
+   id="n1443"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1447"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1448"
+   xlink:href="measure-definitions.html#Measure.useContext"><title
+   id="title109227">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate measure instances</title>useContext</a> : <a
+   id="n1449"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n1453"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1454"
+   xlink:href="measure-definitions.html#Measure.jurisdiction"><title
+   id="title109232">A legal or geographic region in which the measure is intended to be used</title>jurisdiction</a> : <a
+   id="n1455"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1456"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n1457">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n1463"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1464"
+   xlink:href="measure-definitions.html#Measure.purpose"><title
+   id="title109239">Explanation of why this measure is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n1465"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1469"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1470"
+   xlink:href="measure-definitions.html#Measure.usage"><title
+   id="title109244">A detailed description, from a clinical perspective, of how the measure is used</title>usage</a> : <a
+   id="n1471"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1475"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1476"
+   xlink:href="measure-definitions.html#Measure.copyright"><title
+   id="title109249">A copyright statement relating to the measure and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the measure</title>copyright</a> : <a
+   id="n1477"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1481"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1482"
+   xlink:href="measure-definitions.html#Measure.copyrightLabel"><title
+   id="title109254">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n1483"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1487"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1488"
+   xlink:href="measure-definitions.html#Measure.approvalDate"><title
+   id="title109259">The date on which the resource content was approved by the publisher. Approval happens once when the content is officially approved for usage</title>approvalDate</a> : <a
+   id="n1489"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1493"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1494"
+   xlink:href="measure-definitions.html#Measure.lastReviewDate"><title
+   id="title109264">The date on which the resource content was last reviewed. Review happens periodically after approval but does not change the original approval date</title>lastReviewDate</a> : <a
+   id="n1495"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
+    <text
+       id="n1499"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1500"
+   xlink:href="measure-definitions.html#Measure.effectivePeriod"><title
+   id="title109269">The period during which the measure content was or is planned to be in active use</title>effectivePeriod</a> : <a
+   id="n1501"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1505"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1506"
+   xlink:href="measure-definitions.html#Measure.topic"><title
+   id="title109274">Descriptive topics related to the content of the measure. Topics provide a high-level categorization grouping types of measures that can be useful for filtering and searching</title>topic</a> : <a
+   id="n1507"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1508"
+   xlink:href="valueset-definition-topic.html"><title
+   id="n1509">null (Strength=Example)</title>DefinitionTopic</a>?? »</text>
+    <text
+       id="n1515"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1516"
+   xlink:href="measure-definitions.html#Measure.author"><title
+   id="title109281">An individiual or organization primarily involved in the creation and maintenance of the content</title>author</a> : <a
+   id="n1517"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1521"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1522"
+   xlink:href="measure-definitions.html#Measure.editor"><title
+   id="title109286">An individual or organization primarily responsible for internal coherence of the content</title>editor</a> : <a
+   id="n1523"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1527"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1528"
+   xlink:href="measure-definitions.html#Measure.reviewer"><title
+   id="title109291">An individual or organization asserted by the publisher to be primarily responsible for review of some aspect of the content</title>reviewer</a> : <a
+   id="n1529"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1533"
+       x="6.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1534"
+   xlink:href="measure-definitions.html#Measure.endorser"><title
+   id="title109296">An individual or organization asserted by the publisher to be responsible for officially endorsing the content for use in some setting</title>endorser</a> : <a
+   id="n1535"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n1539"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1540"
+   xlink:href="measure-definitions.html#Measure.relatedArtifact"><title
+   id="title109301">Related artifacts such as additional documentation, justification, or bibliographic references</title>relatedArtifact</a> : <a
+   id="n1541"
+   xlink:href="metadatatypes.html#RelatedArtifact">RelatedArtifact</a> [0..*]</text>
+    <text
+       id="n1545"
+       x="6.0"
+       y="490.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1546"
+   xlink:href="measure-definitions.html#Measure.library"><title
+   id="title109306">A reference to a Library resource containing the formal logic used by the measure</title>library</a> : <a
+   id="n1547"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1548"
+   xlink:href="library.html#Library">Library</a> »</text>
+    <text
+       id="n1553"
+       x="6.0"
+       y="504.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1554"
+   xlink:href="measure-definitions.html#Measure.disclaimer"><title
+   id="title109312">Notices and disclaimers regarding the use of the measure or related to intellectual property (such as code systems) referenced by the measure</title>disclaimer</a> : <a
+   id="n1555"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1559"
+       x="6.0"
+       y="518.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1560"
+   xlink:href="measure-definitions.html#Measure.scoring"><title
+   id="title109317">Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented</title>scoring</a> : <a
+   id="n1561"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1562"
+   xlink:href="valueset-measure-scoring.html"><title
+   id="n1563">null (Strength=Extensible)</title>MeasureScoring</a>+ »</text>
+    <text
+       id="n1569"
+       x="6.0"
+       y="532.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1570"
+   xlink:href="measure-definitions.html#Measure.scoringUnit"><title
+   id="title109324">Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit</title>scoringUnit</a> : <a
+   id="n1571"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1572"
+   xlink:href="valueset-measure-scoring-unit.html"><title
+   id="n1573">null (Strength=Example)</title>MeasureScoringUnit</a>?? »</text>
+    <text
+       id="n1579"
+       x="6.0"
+       y="546.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1580"
+   xlink:href="measure-definitions.html#Measure.compositeScoring"><title
+   id="title109331">If this is a composite measure, the scoring method used to combine the component measures to determine the composite score</title>compositeScoring</a> : <a
+   id="n1581"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1582"
+   xlink:href="valueset-composite-measure-scoring.html"><title
+   id="n1583">null (Strength=Extensible)</title>CompositeMeasureScoring</a>+ »</text>
+    <text
+       id="n1589"
+       x="6.0"
+       y="560.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1590"
+   xlink:href="measure-definitions.html#Measure.type"><title
+   id="title109338">Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization</title>type</a> : <a
+   id="n1591"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1592"
+   xlink:href="valueset-measure-type.html"><title
+   id="n1593">null (Strength=Extensible)</title>MeasureType</a>+ »</text>
+    <text
+       id="n1599"
+       x="6.0"
+       y="574.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1600"
+   xlink:href="measure-definitions.html#Measure.riskAdjustment"><title
+   id="title109345">A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results</title>riskAdjustment</a> : <a
+   id="n1601"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1605"
+       x="6.0"
+       y="588.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1606"
+   xlink:href="measure-definitions.html#Measure.rateAggregation"><title
+   id="title109350">Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result</title>rateAggregation</a> : <a
+   id="n1607"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1611"
+       x="6.0"
+       y="602.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1612"
+   xlink:href="measure-definitions.html#Measure.rationale"><title
+   id="title109355">Provides a succinct statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence</title>rationale</a> : <a
+   id="n1613"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1617"
+       x="6.0"
+       y="616.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1618"
+   xlink:href="measure-definitions.html#Measure.clinicalRecommendationStatement"><title
+   id="title109360">Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure</title>clinicalRecommendationStatement</a> : <a
+   id="n1619"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1623"
+       x="6.0"
+       y="630.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1624"
+   xlink:href="measure-definitions.html#Measure.improvementNotation"><title
+   id="title109365">Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)</title>improvementNotation</a> : <a
+   id="n1625"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1626"
+   xlink:href="valueset-measure-improvement-notation.html"><title
+     id="n1627">null (Strength=Required)</title></a></text>
+    <text
+       id="n1628"
+       x="26.0"
+       y="644.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1629"
+   xlink:href="valueset-measure-improvement-notation.html">MeasureImprovementNotation</a>! »</text>
+    <rect
+       id="n1637"
+       x="1.0"
+       y="648.0"
+       width="301.6"
+       height="14.0"
+       style="fill:#ffcccc;stroke:black;stroke-width:0" />
+    <text
+       id="n1638"
+       x="6.0"
+       y="658.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n1639"
+   xlink:href="measure-definitions.html#Measure.guidance"><title
+   id="title109375">Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure</title>guidance</a> : <a
+   id="n1640"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1645"
+     transform="translate(-11.983209,31.592096)">
+    <rect
+       id="Measure.term"
+       x="425.7572"
+       y="11.844806"
+       rx="4"
+       ry="4"
+       width="255.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1646"
+       x1="425.7572"
+       y1="39.844807"
+       x2="680.95721"
+       y2="39.844807"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1647"
+       x="553.35718"
+       y="31.844807"
+       fill="#000000"
+       class="diagram-class-title">Term</text>
+    <text
+       id="n1648"
+       x="431.7572"
+       y="53.844807"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1649"
+   xlink:href="measure-definitions.html#Measure.term.code"><title
+   id="title109384">A codeable representation of the defined term</title>code</a> : <a
+   id="n1650"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1651"
+   xlink:href="valueset-measure-definition-example.html"><title
+   id="n1652">null (Strength=Example)</title>MeasureDefinitionExample</a>?? »</text>
+    <text
+       id="n1658"
+       x="431.7572"
+       y="67.844803"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1659"
+   xlink:href="measure-definitions.html#Measure.term.definition"><title
+   id="title109391">Provides a definition for the term as used within the measure</title>definition</a> : <a
+   id="n1660"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+  </g>
+  <g
+     id="n1664"
+     transform="translate(-4.3575307,139.44097)">
+    <rect
+       id="Measure.group"
+       x="408.0726"
+       y="220.4706"
+       rx="4"
+       ry="4"
+       width="286"
+       height="218"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1665"
+       x1="408.0726"
+       y1="248.4706"
+       x2="694.07257"
+       y2="248.4706"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1666"
+       x="551.07257"
+       y="240.4706"
+       fill="#000000"
+       class="diagram-class-title">Group</text>
+    <text
+       id="n1667"
+       x="414.0726"
+       y="262.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1668"
+   xlink:href="measure-definitions.html#Measure.group.linkId"><title
+   id="title109400">An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource</title>linkId</a> : <a
+   id="n1669"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1673"
+       x="414.0726"
+       y="276.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1674"
+   xlink:href="measure-definitions.html#Measure.group.code"><title
+   id="title109405">Indicates a meaning for the group. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing groups to be correlated across measures</title>code</a> : <a
+   id="n1675"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1676"
+   xlink:href="valueset-measure-group-example.html"><title
+   id="n1677">null (Strength=Example)</title>MeasureGroupExample</a>?? »</text>
+    <text
+       id="n1683"
+       x="414.0726"
+       y="290.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1684"
+   xlink:href="measure-definitions.html#Measure.group.description"><title
+   id="title109412">The human readable description of this population group</title>description</a> : <a
+   id="n1685"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1689"
+       x="414.0726"
+       y="304.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1690"
+   xlink:href="measure-definitions.html#Measure.group.type"><title
+   id="title109417">Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization</title>type</a> : <a
+   id="n1691"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1692"
+   xlink:href="valueset-measure-type.html"><title
+   id="n1693">null (Strength=Extensible)</title>MeasureType</a>+ »</text>
+    <text
+       id="n1699"
+       x="414.0726"
+       y="318.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1700"
+   xlink:href="measure-definitions.html#Measure.group.subject_x_"><title
+   id="title109424">The intended subjects for the measure. If this element is not provided, a Patient subject is assumed, but the subject of the measure can be anything</title>subject[x]</a> : <a
+   id="n1701"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n1702"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n1703"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n1704"
+   xlink:href="group.html#Group">Group</a>); <a
+   id="n1705"
+   xlink:href="valueset-participant-resource-types.html"><title
+     id="n1706">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n1707"
+       x="434.0726"
+       y="332.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1708"
+   xlink:href="valueset-participant-resource-types.html">ParticipantResourceTypes</a>+ »</text>
+    <text
+       id="n1719"
+       x="414.0726"
+       y="346.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1720"
+   xlink:href="measure-definitions.html#Measure.group.basis"><title
+   id="title109436">The population basis specifies the type of elements in the population. For a subject-based measure, this is boolean (because the subject and the population basis are the same, and the population criteria define yes/no values for each individual in the population). For measures that have a population basis that is different than the subject, this element specifies the type of the population basis. For example, an encounter-based measure has a subject of Patient and a population basis of Encounter, and the population criteria all return lists of Encounters</title>basis</a> : <a
+   id="n1721"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n1722"
+   xlink:href="valueset-fhir-types.html"><title
+   id="n1723">null (Strength=Required)</title>FHIRTypes</a>! »</text>
+    <text
+       id="n1729"
+       x="414.0726"
+       y="360.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1730"
+   xlink:href="measure-definitions.html#Measure.group.scoring"><title
+   id="title109443">Indicates how the calculation is performed for the measure, including proportion, ratio, continuous-variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented</title>scoring</a> : <a
+   id="n1731"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1732"
+   xlink:href="valueset-measure-scoring.html"><title
+   id="n1733">null (Strength=Extensible)</title>MeasureScoring</a>+ »</text>
+    <text
+       id="n1739"
+       x="414.0726"
+       y="374.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1740"
+   xlink:href="measure-definitions.html#Measure.group.scoringUnit"><title
+   id="title109450">Defines the expected units of measure for the measure score. This element SHOULD be specified as a UCUM unit</title>scoringUnit</a> : <a
+   id="n1741"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1742"
+   xlink:href="valueset-measure-scoring-unit.html"><title
+   id="n1743">null (Strength=Example)</title>MeasureScoringUnit</a>?? »</text>
+    <text
+       id="n1749"
+       x="414.0726"
+       y="388.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1750"
+   xlink:href="measure-definitions.html#Measure.group.rateAggregation"><title
+   id="title109457">Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result</title>rateAggregation</a> : <a
+   id="n1751"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1755"
+       x="414.0726"
+       y="402.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1756"
+   xlink:href="measure-definitions.html#Measure.group.improvementNotation"><title
+   id="title109462">Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is within a range)</title>improvementNotation</a> : <a
+   id="n1757"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1758"
+   xlink:href="valueset-measure-improvement-notation.html"><title
+     id="n1759">null (Strength=Required)</title></a></text>
+    <text
+       id="n1760"
+       x="434.0726"
+       y="416.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1761"
+   xlink:href="valueset-measure-improvement-notation.html">MeasureImprovementNotation</a>! »</text>
+    <text
+       id="n1769"
+       x="414.0726"
+       y="430.47058"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1770"
+   xlink:href="measure-definitions.html#Measure.group.library"><title
+   id="title109471">A reference to a Library resource containing the formal logic used by the measure group</title>library</a> : <a
+   id="n1771"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n1772"
+   xlink:href="library.html#Library">Library</a> »</text>
+  </g>
+  <g
+     id="n1777"
+     transform="translate(-2.9805382e-7,-83.88246)">
+    <rect
+       id="Measure.group.population"
+       x="762.57074"
+       y="243.06633"
+       rx="4"
+       ry="4"
+       width="294.79999"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1778"
+       x1="762.57074"
+       y1="271.06635"
+       x2="1057.3707"
+       y2="271.06635"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1779"
+       x="909.9707"
+       y="263.06635"
+       fill="#000000"
+       class="diagram-class-title">Population</text>
+    <text
+       id="n1780"
+       x="768.57074"
+       y="285.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1781"
+   xlink:href="measure-definitions.html#Measure.group.population.linkId"><title
+   id="title109481">An identifier that is unique within the Measure allowing linkage to the equivalent population in a MeasureReport resource</title>linkId</a> : <a
+   id="n1782"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1786"
+       x="768.57074"
+       y="299.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1787"
+   xlink:href="measure-definitions.html#Measure.group.population.code"><title
+   id="title109486">The type of population criteria</title>code</a> : <a
+   id="n1788"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1789"
+   xlink:href="valueset-measure-population.html"><title
+   id="n1790">null (Strength=Extensible)</title>MeasurePopulationType</a>+ »</text>
+    <text
+       id="n1796"
+       x="768.57074"
+       y="313.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1797"
+   xlink:href="measure-definitions.html#Measure.group.population.description"><title
+   id="title109493">The human readable description of this population criteria</title>description</a> : <a
+   id="n1798"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1802"
+       x="768.57074"
+       y="327.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1803"
+   xlink:href="measure-definitions.html#Measure.group.population.criteria"><title
+   id="title109498">An expression that specifies the criteria for the population, typically the name of an expression in a library</title>criteria</a> : <a
+   id="n1804"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+    <text
+       id="n1808"
+       x="768.57074"
+       y="341.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1809"
+   xlink:href="measure-definitions.html#Measure.group.population.groupDefinition"><title
+   id="title109503">A Group resource that defines this population as a set of characteristics</title>groupDefinition</a> : <a
+   id="n1810"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1811"
+   xlink:href="group.html#Group">Group</a> »</text>
+    <text
+       id="n1816"
+       x="768.57074"
+       y="355.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1817"
+   xlink:href="measure-definitions.html#Measure.group.population.inputPopulationId"><title
+   id="title109509">The id of a population element in this measure that provides the input for this population criteria. In most cases, the scoring structure of the measure implies specific relationships (e.g. the Numerator uses the Denominator as the source in a proportion scoring). In some cases, however, multiple possible choices exist and must be resolved explicitly. For example in a ratio measure with multiple initial populations, the denominator must specify which population should be used as the starting point</title>inputPopulationId</a> : <a
+   id="n1818"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1822"
+       x="768.57074"
+       y="369.06635"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1823"
+   xlink:href="measure-definitions.html#Measure.group.population.aggregateMethod"><title
+   id="title109514">Specifies which method should be used to aggregate measure observation values. For most scoring types, this is implied by scoring (e.g. a proportion measure counts members of the populations). For continuous variables, however, this information must be specified to ensure correct calculation</title>aggregateMethod</a> : <a
+   id="n1824"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1825"
+   xlink:href="valueset-measure-aggregate-method.html"><title
+   id="n1826">null (Strength=Extensible)</title>MeasureAggregateMethod</a>+ »</text>
+  </g>
+  <g
+     id="n1832"
+     transform="translate(363.85379,-101.31259)">
+    <rect
+       id="Measure.group.stratifier"
+       x="408.0726"
+       y="465.22903"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1833"
+       x1="408.0726"
+       y1="493.22903"
+       x2="689.67261"
+       y2="493.22903"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1834"
+       x="548.87262"
+       y="485.22903"
+       fill="#000000"
+       class="diagram-class-title">Stratifier</text>
+    <text
+       id="n1835"
+       x="414.0726"
+       y="507.22903"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1836"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.linkId"><title
+   id="title109525">An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource</title>linkId</a> : <a
+   id="n1837"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1841"
+       x="414.0726"
+       y="521.22906"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1842"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.code"><title
+   id="title109530">Indicates a meaning for the stratifier. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures</title>code</a> : <a
+   id="n1843"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1844"
+   xlink:href="valueset-measure-stratifier-example.html"><title
+   id="n1845">null (Strength=Example)</title>MeasureStratifierExample</a>?? » « <a
+   id="n1846"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1847">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1855"
+       x="414.0726"
+       y="535.22906"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1856"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.description"><title
+   id="title109539">The human readable description of this stratifier criteria</title>description</a> : <a
+   id="n1857"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1] « <a
+   id="n1858"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1859">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1865"
+       x="414.0726"
+       y="549.22906"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1866"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.criteria"><title
+   id="title109546">An expression that specifies the criteria for the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element</title>criteria</a> : <a
+   id="n1867"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1] « <a
+   id="n1868"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n1869">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n1875"
+       x="414.0726"
+       y="563.22906"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1876"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.groupDefinition"><title
+   id="title109553">A Group resource that defines this population as a set of characteristics</title>groupDefinition</a> : <a
+   id="n1877"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1878"
+   xlink:href="group.html#Group">Group</a> »</text>
+  </g>
+  <g
+     id="n1883"
+     transform="translate(362.7644,-57.73728)">
+    <rect
+       id="Measure.group.stratifier.component"
+       x="412.30289"
+       y="591.29163"
+       rx="4"
+       ry="4"
+       width="255.2"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1884"
+       x1="412.30289"
+       y1="619.29163"
+       x2="667.50287"
+       y2="619.29163"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1885"
+       x="539.90289"
+       y="611.29163"
+       fill="#000000"
+       class="diagram-class-title">Component</text>
+    <text
+       id="n1886"
+       x="418.30289"
+       y="633.29163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1887"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.component.linkId"><title
+   id="title109563">An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource</title>linkId</a> : <a
+   id="n1888"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1892"
+       x="418.30289"
+       y="647.29163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1893"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.component.code"><title
+   id="title109568">Indicates a meaning for the stratifier component. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing stratifiers to be correlated across measures</title>code</a> : <a
+   id="n1894"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1895"
+   xlink:href="valueset-measure-stratifier-example.html"><title
+   id="n1896">null (Strength=Example)</title>MeasureStratifierExample</a>?? »</text>
+    <text
+       id="n1902"
+       x="418.30289"
+       y="661.29163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1903"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.component.description"><title
+   id="title109575">The human readable description of this stratifier criteria component</title>description</a> : <a
+   id="n1904"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1908"
+       x="418.30289"
+       y="675.29163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1909"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.component.criteria"><title
+   id="title109580">An expression that specifies the criteria for this component of the stratifier. This is typically the name of an expression defined within a referenced library, but it may also be a path to a stratifier element</title>criteria</a> : <a
+   id="n1910"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
+    <text
+       id="n1914"
+       x="418.30289"
+       y="689.29163"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1915"
+   xlink:href="measure-definitions.html#Measure.group.stratifier.component.groupDefinition"><title
+   id="title109585">A Group resource that defines this population as a set of characteristics</title>groupDefinition</a> : <a
+   id="n1916"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1917"
+   xlink:href="group.html#Group">Group</a> »</text>
+  </g>
+  <g
+     id="n1922"
+     transform="translate(1.0893826,113.29579)">
+    <rect
+       id="Measure.supplementalData"
+       x="407.22653"
+       y="96.450562"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="106"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1923"
+       x1="407.22653"
+       y1="124.45056"
+       x2="688.82654"
+       y2="124.45056"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1924"
+       x="548.02655"
+       y="116.45056"
+       fill="#000000"
+       class="diagram-class-title">SupplementalData</text>
+    <text
+       id="n1925"
+       x="413.22653"
+       y="138.45056"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1926"
+   xlink:href="measure-definitions.html#Measure.supplementalData.linkId"><title
+   id="title109595">An identifier that is unique within the Measure allowing linkage to the equivalent item in a MeasureReport resource</title>linkId</a> : <a
+   id="n1927"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1931"
+       x="413.22653"
+       y="152.45056"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1932"
+   xlink:href="measure-definitions.html#Measure.supplementalData.code"><title
+   id="title109600">Indicates a meaning for the supplemental data. This can be as simple as a unique identifier, or it can establish meaning in a broader context by drawing from a terminology, allowing supplemental data to be correlated across measures</title>code</a> : <a
+   id="n1933"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1934"
+   xlink:href="valueset-measure-supplemental-data-example.html"><title
+   id="n1935">null (Strength=Example)</title>MeasureSupplementalDataExample</a>?? »</text>
+    <text
+       id="n1941"
+       x="413.22653"
+       y="166.45056"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1942"
+   xlink:href="measure-definitions.html#Measure.supplementalData.usage"><title
+   id="title109607">An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation</title>usage</a> : <a
+   id="n1943"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1944"
+   xlink:href="valueset-measure-data-usage.html"><title
+   id="n1945">null (Strength=Extensible)</title>MeasureDataUsage</a>+ »</text>
+    <text
+       id="n1951"
+       x="413.22653"
+       y="180.45056"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1952"
+   xlink:href="measure-definitions.html#Measure.supplementalData.description"><title
+   id="title109614">The human readable description of this supplemental data</title>description</a> : <a
+   id="n1953"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n1957"
+       x="413.22653"
+       y="194.45056"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1958"
+   xlink:href="measure-definitions.html#Measure.supplementalData.criteria"><title
+   id="title109619">The criteria for the supplemental data. This is typically the name of a valid expression defined within a referenced library, but it may also be a path to a specific data element. The criteria defines the data to be returned for this element</title>criteria</a> : <a
+   id="n1959"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [1..1]</text>
+  </g>
+  <line
+     id="n1963"
+     x1="303.6"
+     y1="223.6911432563032"
+     x2="508.91798304441596"
+     y2="75.844806"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1964"
+     points="303.6,223.6911432563032 309.6,227.6911432563032 315.6,223.6911432563032 309.6,219.6911432563032 303.6,223.6911432563032"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-35.757083044265 303.6 223.6911432563032)" />
+  <rect
+     id="n1965"
+     x="397.5"
+     y="142.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1966"
+     x="406.0"
+     y="152.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1967"
+       xlink:href="measure-definitions.html#Measure.term"><title
+   id="title109628">Provides a description of an individual term used within the measure</title>term</a></text>
+  <text
+     id="n1968"
+     x="508.91798304441596"
+     y="89.844806"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1969"
+     x1="694.07259"
+     y1="321.73912322724715"
+     x2="762.5707199999999"
+     y2="318.03569002729904"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1970"
+     points="694.07259,321.73912322724715 700.07259,325.73912322724715 706.07259,321.73912322724715 700.07259,317.73912322724715 694.07259,321.73912322724715"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-3.094751611998274 694.07259 321.73912322724715)" />
+  <rect
+     id="n1971"
+     x="706.0"
+     y="312.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1972"
+     x="728.0"
+     y="322.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1973"
+       xlink:href="measure-definitions.html#Measure.group.population"><title
+   id="title109636">A population criteria for the measure</title>population</a></text>
+  <text
+     id="n1974"
+     x="742.5707199999999"
+     y="314.03569002729904"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1975"
+     x1="545.1014900046405"
+     y1="571.2290360000006"
+     x2="543.6739799953597"
+     y2="591.29162"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1976"
+     points="545.1014900046405,571.2290360000006 551.1014900046405,575.2290360000006 557.1014900046405,571.2290360000006 551.1014900046405,567.2290360000006 545.1014900046405,571.2290360000006"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(94.06989893067764 545.1014900046405 571.2290360000006)" />
+  <rect
+     id="n1977"
+     x="524.5"
+     y="574.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1978"
+     x="544.0"
+     y="584.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1979"
+       xlink:href="measure-definitions.html#Measure.group.stratifier.component"><title
+   id="title109644">A component of the stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path</title>component</a></text>
+  <text
+     id="n1980"
+     x="543.6739799953597"
+     y="587.29162"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1981"
+     x1="549.8021838549441"
+     y1="438.47058899999683"
+     x2="549.4903114191555"
+     y2="465.22903600000427"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1982"
+     points="549.8021838549441,438.47058899999683 555.8021838549441,442.47058899999683 561.8021838549441,438.47058899999683 555.8021838549441,434.47058899999683 549.8021838549441,438.47058899999683"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(90.6677579333188 549.8021838549441 438.47058899999683)" />
+  <rect
+     id="n1983"
+     x="527.0"
+     y="444.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1984"
+     x="549.0"
+     y="454.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1985"
+       xlink:href="measure-definitions.html#Measure.group.stratifier"><title
+   id="title109652">The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library or a valid FHIR Resource Path</title>stratifier</a></text>
+  <text
+     id="n1986"
+     x="549.4903114191555"
+     y="461.22903600000427"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1987"
+     x1="303.6"
+     y1="331.6581483347004"
+     x2="408.07259"
+     y2="330.73465216296347"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1988"
+     points="303.6,331.6581483347004 309.6,335.6581483347004 315.6,331.6581483347004 309.6,327.6581483347004 303.6,331.6581483347004"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-0.5064587269664336 303.6 331.6581483347004)" />
+  <rect
+     id="n1989"
+     x="344.0"
+     y="324.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1990"
+     x="355.0"
+     y="334.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1991"
+       xlink:href="measure-definitions.html#Measure.group"><title
+   id="title109660">A group of population criteria for the measure</title>group</a></text>
+  <text
+     id="n1992"
+     x="388.07259"
+     y="326.73465216296347"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1993"
+     x1="303.6"
+     y1="262.67961003641415"
+     x2="433.6159056720546"
+     y2="202.45056399999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1994"
+     points="303.6,262.67961003641415 309.6,266.67961003641415 315.6,262.67961003641415 309.6,258.67961003641415 303.6,262.67961003641415"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-24.855632514154443 303.6 262.67961003641415)" />
+  <rect
+     id="n1995"
+     x="333.0"
+     y="225.0"
+     width="70.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1996"
+     x="368.0"
+     y="235.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1997"
+       xlink:href="measure-definitions.html#Measure.supplementalData"><title
+   id="title109668">The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path</title>supplementalData</a></text>
+  <text
+     id="n1998"
+     x="433.6159056720546"
+     y="216.45056399999999"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
