@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n635"
+   version="1.1"
+   width="776.0"
+   height="410.0"
+   sodipodi:docname="structuredefinition.svg"
+   inkscape:version="1.1.2 (b8e25be8, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1639"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="1.4162371"
+     inkscape:cx="388"
+     inkscape:cy="205.12102"
+     inkscape:window-width="1312"
+     inkscape:window-height="949"
+     inkscape:window-x="3168"
+     inkscape:window-y="1105"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n635" />
+  <defs
+     id="defs1366">
+    <filter
+       id="shadow1"
+       x="-0.046328671"
+       y="-0.106"
+       width="1.1188811"
+       height="1.272">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset1357" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix1359" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur1361" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend1363" />
+    </filter>
+  </defs>
+  <g
+     id="n636">
+    <rect
+       id="StructureDefinition"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.88000000000005"
+       height="400.0"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:black;stroke-width:1" />
+    <line
+       id="n637"
+       x1="0.0"
+       y1="28.0"
+       x2="308.88000000000005"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n638"
+       x="154.44000000000003"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">StructureDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan1372"> (<a
+   id="n639"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n640"
+   xlink:href="canonicalresource.html#CanonicalResource"
+   class="diagram-class-reference"
+   style="font-style: italic">CanonicalResource</a></tspan></text>
+    <text
+       id="n641"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n642"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.url"><title
+   id="title1375">An absolute URI that is used to identify this structure definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this structure definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the structure definition is stored on different servers</title>url</a> : <a
+   id="n643"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n644"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n645">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n651"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n652"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.identifier"><title
+   id="title1382">A formal identifier that is used to identify this structure definition when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n653"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n657"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n658"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.version"><title
+   id="title1387">The identifier that is used to identify this version of the structure definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the structure definition author and is not expected to be globally unique. There is no expectation that versions can be placed in a lexicographical sequence, so authors are encouraged to populate the StructureDefinition.versionAlgorithm[x] element to enable comparisons. If there is no managed version available, authors can consider using ISO date/time syntax (e.g., '2023-01-01')</title>version</a> : <a
+   id="n659"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n663"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n664"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.versionAlgorithm_x_"><title
+   id="title1392">Indicates the mechanism used to compare versions to determine which is more current</title>versionAlgorithm[x]</a> : <a
+   id="n665"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n666"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n667"
+   xlink:href="datatypes.html#Coding">Coding</a>; <a
+   id="n668"
+   xlink:href="valueset-version-algorithm.html"><title
+     id="n669">null (Strength=Extensible)</title></a></text>
+    <text
+       id="n670"
+       x="26.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="valueset-version-algorithm.html">VersionAlgorithm</a>+ »</text>
+    <text
+       id="n681"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n682"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.name"><title
+   id="title1403">A natural language name identifying the structure definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n683"
+   xlink:href="datatypes.html#string">string</a> [1..1] « <a
+   id="n684"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n685">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n691"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n692"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.title"><title
+   id="title1410">A short, descriptive, user-friendly title for the structure definition</title>title</a> : <a
+   id="n693"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n697"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n698"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.status"><title
+   id="title1415">The status of this structure definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n699"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n700"
+   xlink:href="valueset-publication-status.html"><title
+   id="n701">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n707"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n708"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.experimental"><title
+   id="title1422">A Boolean value to indicate that this structure definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n709"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n713"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n714"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.date"><title
+   id="title1427">The date  (and optionally time) when the structure definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes</title>date</a> : <a
+   id="n715"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n719"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n720"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.publisher"><title
+   id="title1432">The name of the organization or individual responsible for the release and ongoing maintenance of the structure definition</title>publisher</a> : <a
+   id="n721"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n725"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n726"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.contact"><title
+   id="title1437">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n727"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n731"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n732"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.description"><title
+   id="title1442">A free text natural language description of the structure definition from a consumer's perspective</title>description</a> : <a
+   id="n733"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <rect
+       id="n737"
+       x="1.0"
+       y="214.0"
+       width="306.88000000000005"
+       height="14.0"
+       style="fill:#fff9ec;stroke:black;stroke-width:0" />
+    <text
+       id="n738"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n739"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.useContext"><title
+   id="title1448">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate structure definition instances</title>useContext</a> : <a
+   id="n740"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n745"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n746"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.jurisdiction"><title
+   id="title1453">A legal or geographic region in which the structure definition is intended to be used</title>jurisdiction</a> : <a
+   id="n747"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n748"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n749">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n755"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n756"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.purpose"><title
+   id="title1460">Explanation of why this structure definition is needed and why it has been designed as it has</title>purpose</a> : <a
+   id="n757"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n761"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n762"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.copyright"><title
+   id="title1465">A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the structure definition.  The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element</title>copyright</a> : <a
+   id="n763"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n767"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n768"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.copyrightLabel"><title
+   id="title1470">A short string (&lt;50 characters), suitable for inclusion in a page footer that identifies the copyright holder, effective period, and optionally whether rights are resctricted. (e.g. 'All rights reserved', 'Some rights reserved')</title>copyrightLabel</a> : <a
+   id="n769"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <rect
+       id="n773"
+       x="1.0"
+       y="284.0"
+       width="306.88000000000005"
+       height="14.0"
+       style="fill:#ffcccc;stroke:black;stroke-width:0" />
+    <text
+       id="n774"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n775"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.keyword"><title
+   id="title1476">(DEPRECATED) A set of key words or terms from external terminologies that may be used to assist with indexing and searching of templates nby describing the use of this structure definition, or the content it describes</title>keyword</a> : <a
+   id="n776"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n777"
+   xlink:href="valueset-definition-use.html"><title
+   id="n778">null (Strength=Extensible)</title>DefinitionUseCodes</a>+ »</text>
+    <text
+       id="n785"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n786"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.fhirVersion"><title
+   id="title1483">The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.6.0. for this version</title>fhirVersion</a> : <a
+   id="n787"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n788"
+   xlink:href="valueset-FHIR-version.html"><title
+   id="n789">null (Strength=Required)</title>FHIRVersion</a>! »</text>
+    <text
+       id="n795"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n796"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.kind"><title
+   id="title1490">Defines the kind of structure that this definition is describing</title>kind</a> : <a
+   id="n797"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n798"
+   xlink:href="valueset-structure-definition-kind.html"><title
+   id="n799">null (Strength=Required)</title>StructureDefinitionKind</a>! » « <a
+   id="n800"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n801">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n809"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n810"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.abstract"><title
+   id="title1499">Whether structure this definition describes is abstract or not  - that is, whether the structure is not intended to be instantiated. For Resources and Data types, abstract types will never be exchanged  between systems</title>abstract</a> : <a
+   id="n811"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1] « <a
+   id="n812"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n813">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n819"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n820"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.contextInvariant"><title
+   id="title1506">A set of rules as FHIRPath Invariants about when the extension can be used (e.g. co-occurrence variants for the extension). All the rules must be true</title>contextInvariant</a> : <a
+   id="n821"
+   xlink:href="datatypes.html#string">string</a> [0..*] « <a
+   id="n822"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n823">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n829"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n830"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.type"><title
+   id="title1513">The type this structure describes. If the derivation kind is 'specialization' then this is the master definition for a type, and there is always one of these (a data type, an extension, a resource, including abstract ones). Otherwise the structure definition is a constraint on the stated type (and in this case, the type cannot be an abstract type).  References are URLs that are relative to http://hl7.org/fhir/StructureDefinition e.g. &quot;string&quot; is a reference to http://hl7.org/fhir/StructureDefinition/string. Absolute URLs are only allowed in logical models, where they are required</title>type</a> : <a
+   id="n831"
+   xlink:href="datatypes.html#uri">uri</a> [1..1] « <a
+   id="n832"
+   xlink:href="valueset-fhir-types.html"><title
+   id="n833">null (Strength=Extensible)</title>FHIRTypes</a>+ » « <a
+   id="n834"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n835">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n843"
+       x="6.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n844"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.baseDefinition"><title
+   id="title1522">An absolute URI that is the base structure from which this type is derived, either by specialization or constraint</title>baseDefinition</a> : <a
+   id="n845"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..1] « <a
+   id="n846"
+   xlink:href="structuredefinition.html#StructureDefinition">StructureDefinition</a> » « <a
+   id="n847"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n848">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n855"
+       x="6.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n856"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.derivation"><title
+   id="title1530">How the type relates to the baseDefinition</title>derivation</a> : <a
+   id="n857"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n858"
+   xlink:href="valueset-type-derivation-rule.html"><title
+   id="n859">null (Strength=Required)</title>TypeDerivationRule</a>! » « <a
+   id="n860"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n861">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n869"
+     transform="translate(7.767061,5.6487716)">
+    <rect
+       id="StructureDefinition.mapping"
+       x="410"
+       y="80"
+       rx="4"
+       ry="4"
+       width="114.4"
+       height="92"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n870"
+       x1="410"
+       y1="108"
+       x2="524.40002"
+       y2="108"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n871"
+       x="467.20001"
+       y="100"
+       fill="#000000"
+       class="diagram-class-title">Mapping</text>
+    <text
+       id="n872"
+       x="416"
+       y="122"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n873"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.mapping.identity"><title
+   id="title1543">An Internal id that is used to identify this mapping set when specific mappings are made</title>identity</a> : <a
+   id="n874"
+   xlink:href="datatypes.html#id">id</a> [1..1]</text>
+    <text
+       id="n878"
+       x="416"
+       y="136"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n879"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.mapping.uri"><title
+   id="title1548">An absolute URI that identifies the specification that this mapping is expressed to</title>uri</a> : <a
+   id="n880"
+   xlink:href="datatypes.html#uri">uri</a> [0..1] « <a
+   id="n881"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n882">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n888"
+       x="416"
+       y="150"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n889"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.mapping.name"><title
+   id="title1555">A name for the specification that is being mapped to</title>name</a> : <a
+   id="n890"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n891"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n892">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n898"
+       x="416"
+       y="164"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n899"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.mapping.comment"><title
+   id="title1562">Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage</title>comment</a> : <a
+   id="n900"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n904"
+     transform="translate(66.373066)">
+    <rect
+       id="StructureDefinition.context"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="189.2"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n905"
+       x1="320"
+       y1="28"
+       x2="509.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n906"
+       x="414.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Context</text>
+    <text
+       id="n907"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n908"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.context.type"><title
+   id="title1571">Defines how to interpret the expression that defines what the context of the extension is</title>type</a> : <a
+   id="n909"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n910"
+   xlink:href="valueset-extension-context-type.html"><title
+   id="n911">null (Strength=Required)</title>ExtensionContextType</a>! »</text>
+    <text
+       id="n917"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n918"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.context.expression"><title
+   id="title1578">An expression that defines where an extension can be used in resources</title>expression</a> : <a
+   id="n919"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+  </g>
+  <g
+     id="n923"
+     transform="translate(12.00364,22.595086)">
+    <rect
+       id="StructureDefinition.snapshot"
+       x="400"
+       y="190"
+       rx="4"
+       ry="4"
+       width="176"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n924"
+       x1="400"
+       y1="218"
+       x2="576"
+       y2="218"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n925"
+       x="488"
+       y="210"
+       fill="#000000"
+       class="diagram-class-title">Snapshot</text>
+    <text
+       id="n926"
+       x="406"
+       y="232"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n927"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.snapshot.element"><title
+   id="title1587">Captures constraints on each element within the resource</title>element</a> : <a
+   id="n928"
+   xlink:href="elementdefinition.html#ElementDefinition">ElementDefinition</a> [1..*] « <a
+   id="n929"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n930">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <g
+     id="n936"
+     transform="translate(9.8853503,25.419472)">
+    <rect
+       id="StructureDefinition.differential"
+       x="400"
+       y="270"
+       rx="4"
+       ry="4"
+       width="176"
+       height="50"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n937"
+       x1="400"
+       y1="298"
+       x2="576"
+       y2="298"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n938"
+       x="488"
+       y="290"
+       fill="#000000"
+       class="diagram-class-title">Differential</text>
+    <text
+       id="n939"
+       x="406"
+       y="312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n940"
+   xlink:href="structuredefinition-definitions.html#StructureDefinition.differential.element"><title
+   id="title1598">Captures constraints on each element within the resource</title>element</a> : <a
+   id="n941"
+   xlink:href="elementdefinition.html#ElementDefinition">ElementDefinition</a> [1..*] « <a
+   id="n942"
+   style="color:#301212;font-weight:bold"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n943">This element has or is affected by some invariants</title>C</a> »</text>
+  </g>
+  <line
+     id="n949"
+     x1="308.88000000000005"
+     y1="163.4590101035938"
+     x2="410.0"
+     y2="139.53369996163192"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n950"
+     points="308.88000000000005,163.4590101035938 314.88000000000005,167.4590101035938 320.88000000000005,163.4590101035938 314.88000000000005,159.4590101035938 308.88000000000005,163.4590101035938"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-13.311566433046922 308.88000000000005 163.4590101035938)" />
+  <rect
+     id="n951"
+     x="344.0"
+     y="144.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n952"
+     x="359.0"
+     y="154.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n953"
+       xlink:href="structuredefinition-definitions.html#StructureDefinition.mapping"><title
+   id="title1609">An external specification that the content is mapped to</title>mapping</a></text>
+  <text
+     id="n954"
+     x="390.0"
+     y="135.53369996163192"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n955"
+     x1="308.88000000000005"
+     y1="100.26937269372695"
+     x2="365.0457142857143"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n956"
+     points="308.88000000000005,100.26937269372695 314.88000000000005,104.26937269372695 320.88000000000005,100.26937269372695 314.88000000000005,96.26937269372695 308.88000000000005,100.26937269372695"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-32.8526136240913 308.88000000000005 100.26937269372695)" />
+  <rect
+     id="n957"
+     x="321.0"
+     y="75.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n958"
+     x="336.0"
+     y="85.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n959"
+       xlink:href="structuredefinition-definitions.html#StructureDefinition.context"><title
+   id="title1617">Identifies the types of resource or data type elements to which the extension can be applied. For more guidance on using the 'context' element, see the [defining extensions page](defining-extensions.html#context)</title>context</a></text>
+  <text
+     id="n960"
+     x="365.0457142857143"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n961"
+     x1="308.88000000000005"
+     y1="206.94507734740378"
+     x2="400.0"
+     y2="211.0426909701403"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n962"
+     points="308.88000000000005,206.94507734740378 314.88000000000005,210.94507734740378 320.88000000000005,206.94507734740378 314.88000000000005,202.94507734740378 308.88000000000005,206.94507734740378"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(2.574823309165855 308.88000000000005 206.94507734740378)" />
+  <rect
+     id="n963"
+     x="336.5"
+     y="201.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n964"
+     x="354.0"
+     y="211.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n965"
+       xlink:href="structuredefinition-definitions.html#StructureDefinition.snapshot"><title
+   id="title1625">A snapshot view is expressed in a standalone form that can be used and interpreted without considering the base StructureDefinition</title>snapshot</a></text>
+  <text
+     id="n966"
+     x="380.0"
+     y="207.0426909701403"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n967"
+     x1="308.88000000000005"
+     y1="243.98548986689053"
+     x2="400.22105263157897"
+     y2="270.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n968"
+     points="308.88000000000005,243.98548986689053 314.88000000000005,247.98548986689053 320.88000000000005,243.98548986689053 314.88000000000005,239.98548986689053 308.88000000000005,243.98548986689053"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(15.897288624643277 308.88000000000005 243.98548986689053)" />
+  <rect
+     id="n969"
+     x="328.0"
+     y="249.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n970"
+     x="354.0"
+     y="259.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n971"
+       xlink:href="structuredefinition-definitions.html#StructureDefinition.differential"><title
+   id="title1633">A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies</title>differential</a></text>
+  <text
+     id="n972"
+     x="400.22105263157897"
+     y="266.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>
