@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n567"
+   version="1.1"
+   width="823.6"
+   height="494.0"
+   sodipodi:docname="devicerequest.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview29752"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5128704"
+     inkscape:cx="411.79999"
+     inkscape:cy="247.54269"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n567" />
+  <defs
+     id="defs29536">
+    <filter
+       id="shadow1"
+       x="-0.01745718"
+       y="-0.0828125"
+       width="1.0447958"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset29527" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix29529" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur29531" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend29533" />
+    </filter>
+  </defs>
+  <g
+     id="n568">
+    <rect
+       id="DeviceRequest"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="303.6"
+       height="484.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n569"
+       x1="0.0"
+       y1="28.0"
+       x2="303.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n570"
+       x="151.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceRequest<tspan
+   class="diagram-class-title-link"
+   id="tspan29541"> (<a
+   id="n571"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n572"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n573"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.identifier"><title
+   id="title29544">Identifiers assigned to this order by the orderer or by the receiver</title>identifier</a> : <a
+   id="n574"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n578"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n579"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.instantiatesCanonical"><title
+   id="title29549">The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest</title>instantiatesCanonical</a> : <a
+   id="n580"
+   xlink:href="datatypes.html#canonical">canonical</a> [0..*] « <a
+   id="n581"
+   xlink:href="activitydefinition.html#ActivityDefinition">ActivityDefinition</a>|</text>
+    <text
+       id="n582"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n583"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a> »</text>
+    <text
+       id="n590"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.instantiatesUri"><title
+   id="title29557">The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this DeviceRequest</title>instantiatesUri</a> : <a
+   id="n592"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n596"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.basedOn"><title
+   id="title29562">Plan/proposal/order fulfilled by this request</title>basedOn</a> : <a
+   id="n598"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n599"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n604"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n605"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.replaces"><title
+   id="title29568">The request takes the place of the referenced completed or terminated request(s)</title>replaces</a> : <a
+   id="n606"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n607"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a> »</text>
+    <text
+       id="n612"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n613"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.groupIdentifier"><title
+   id="title29574">A shared identifier common to multiple independent Request instances that were activated/authorized more or less simultaneously by a single author.  The presence of the same identifier on each request ties those requests together and may have business ramifications in terms of reporting of results, billing, etc.  E.g. a requisition number shared by a set of lab tests ordered together, or a prescription number shared by all meds ordered at one time</title>groupIdentifier</a> : <a
+   id="n614"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n618"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n619"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.status"><title
+   id="title29579">The status of the request (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n620"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n621"
+   xlink:href="valueset-request-status.html"><title
+   id="n622">null (Strength=Required)</title>RequestStatus</a>! »</text>
+    <text
+       id="n628"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n629"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.intent"><title
+   id="title29586">Whether the request is a proposal, plan, an original order or a reflex order (this element modifies the meaning of other elements)</title>intent</a> : <a
+   id="n630"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n631"
+   xlink:href="valueset-request-intent.html"><title
+   id="n632">null (Strength=Required)</title>RequestIntent</a>! »</text>
+    <text
+       id="n638"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n639"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.priority"><title
+   id="title29593">Indicates how quickly the request should be addressed with respect to other requests</title>priority</a> : <a
+   id="n640"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n641"
+   xlink:href="valueset-request-priority.html"><title
+   id="n642">null (Strength=Required)</title>RequestPriority</a>! »</text>
+    <text
+       id="n648"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n649"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.doNotPerform"><title
+   id="title29600">If true, indicates that the provider is asking for the patient to either stop using or to not start using the specified device or category of devices. For example, the patient has undergone surgery and the provider is indicating that the patient should not wear contact lenses (this element modifies the meaning of other elements)</title>doNotPerform</a> : <a
+   id="n650"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n654"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n655"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.code"><title
+   id="title29605">The details of the device to be used</title>code</a> : <a
+   id="n656"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n657"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n658"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a>; <a
+   id="n659"
+   xlink:href="valueset-device-type.html"><title
+     id="n660">null (Strength=Example)</title></a></text>
+    <text
+       id="n661"
+       x="26.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n662"
+   xlink:href="valueset-device-type.html">DeviceType</a>?? »</text>
+    <text
+       id="n672"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n673"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.quantity"><title
+   id="title29616">The number of devices to be provided</title>quantity</a> : <a
+   id="n674"
+   xlink:href="datatypes.html#integer">integer</a> [0..1]</text>
+    <text
+       id="n678"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n679"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.subject"><title
+   id="title29621">The patient who will use the device</title>subject</a> : <a
+   id="n680"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n681"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n682"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n683"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n684"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n692"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n693"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.encounter"><title
+   id="title29630">An encounter that provides additional context in which this request is made</title>encounter</a> : <a
+   id="n694"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n695"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n700"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n701"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.occurrence_x_"><title
+   id="title29636">The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;</title>occurrence[x]</a> : <a
+   id="n702"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n703"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n704"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n705"
+   xlink:href="datatypes.html#Timing">Timing</a> »</text>
+    <text
+       id="n712"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n713"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.authoredOn"><title
+   id="title29644">When the request transitioned to being actionable</title>authoredOn</a> : <a
+   id="n714"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n718"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n719"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.requester"><title
+   id="title29649">The individual or entity who initiated the request and has responsibility for its activation</title>requester</a> : <a
+   id="n720"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n721"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n722"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n723"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n724"
+       x="26.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n734"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n735"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.performer"><title
+   id="title29659">The desired individual or entity to provide the device to the subject of the request (e.g., patient, location)</title>performer</a> : <a
+   id="n736"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n737"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n738"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n739"
+       x="26.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n740"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n741"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n742"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n743"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n744"
+   xlink:href="device.html#Device">Device</a>|</text>
+    <text
+       id="n745"
+       x="26.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n746"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n760"
+       x="6.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n761"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.reason"><title
+   id="title29674">Reason or justification for the use of this device</title>reason</a> : <a
+   id="n762"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n763"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n764"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n765"
+       x="26.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n766"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n767"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>; <a
+   id="n768"
+   xlink:href="valueset-condition-code.html"><title
+     id="n769">null (Strength=Example)</title></a></text>
+    <text
+       id="n770"
+       x="26.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n771"
+   xlink:href="valueset-condition-code.html">ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n784"
+       x="6.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n785"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.asNeeded"><title
+   id="title29688">This status is to indicate whether the request is a PRN or may be given as needed</title>asNeeded</a> : <a
+   id="n786"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n790"
+       x="6.0"
+       y="420.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n791"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.asNeededFor"><title
+   id="title29693">The reason for using the device</title>asNeededFor</a> : <a
+   id="n792"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n796"
+       x="6.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n797"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.insurance"><title
+   id="title29698">Insurance plans, coverage extensions, pre-authorizations and/or pre-determinations that may be required for delivering the requested service</title>insurance</a> : <a
+   id="n798"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n799"
+   xlink:href="coverage.html#Coverage">Coverage</a>|<a
+   id="n800"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
+    <text
+       id="n806"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n807"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.supportingInfo"><title
+   id="title29705">Additional clinical information about the patient that may influence the request fulfilment.  For example, this may include where on the subject's body the device will be used (i.e. the target site)</title>supportingInfo</a> : <a
+   id="n808"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n809"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n814"
+       x="6.0"
+       y="462.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n815"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.note"><title
+   id="title29711">Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement</title>note</a> : <a
+   id="n816"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n820"
+       x="6.0"
+       y="476.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n821"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.relevantHistory"><title
+   id="title29716">Key events in the history of the request</title>relevantHistory</a> : <a
+   id="n822"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n823"
+   xlink:href="provenance.html#Provenance">Provenance</a> »</text>
+  </g>
+  <g
+     id="n828"
+     transform="translate(146.07993,206.23049)">
+    <rect
+       id="DeviceRequest.parameter"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="303.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n829"
+       x1="320"
+       y1="28"
+       x2="623.59998"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n830"
+       x="471.79999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Parameter</text>
+    <text
+       id="n831"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n832"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.parameter.code"><title
+   id="title29726">A code or string that identifies the device detail being asserted</title>code</a> : <a
+   id="n833"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <title
+   id="title29730">null (Strength=Example)</title>ParameterCode?? »</text>
+    <text
+       id="n837"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n838"
+   xlink:href="devicerequest-definitions.html#DeviceRequest.parameter.value_x_"><title
+   id="title29733">The value of the device detail</title>value[x]</a> : <a
+   id="n839"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n840"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n841"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n842"
+   xlink:href="datatypes.html#Range">Range</a>|<a
+   id="n843"
+   xlink:href="datatypes.html#boolean">boolean</a> »</text>
+  </g>
+  <line
+     id="n851"
+     x1="303.6"
+     y1="142.38124999999997"
+     x2="423.0380952380952"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n852"
+     points="303.6,142.38124999999997 309.6,146.38124999999997 315.6,142.38124999999997 309.6,138.38124999999997 303.6,142.38124999999997"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-33.27488798483493 303.6 142.38124999999997)" />
+  <rect
+     id="n853"
+     x="343.5"
+     y="96.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n854"
+     x="363.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n855"
+       xlink:href="devicerequest-definitions.html#DeviceRequest.parameter"><title
+   id="title29746">Specific parameters for the ordered item.  For example, the prism value for lenses</title>parameter</a></text>
+  <text
+     id="n856"
+     x="423.0380952380952"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

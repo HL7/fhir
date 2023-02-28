@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n395"
+   version="1.1"
+   width="792.8"
+   height="326.0"
+   sodipodi:docname="deviceusage.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30107"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5716448"
+     inkscape:cx="396.39999"
+     inkscape:cy="163.20481"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n395" />
+  <defs
+     id="defs29954">
+    <filter
+       id="shadow1"
+       x="-0.019428153"
+       y="-0.0828125"
+       width="1.0498534"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset29945" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix29947" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur29949" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend29951" />
+    </filter>
+  </defs>
+  <g
+     id="n396">
+    <rect
+       id="DeviceUsage"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="281.6"
+       height="316.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n397"
+       x1="0.0"
+       y1="28.0"
+       x2="281.6"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n398"
+       x="140.8"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceUsage<tspan
+   class="diagram-class-title-link"
+   id="tspan29959"> (<a
+   id="n399"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n400"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n401"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.identifier"><title
+   id="title29962">An external identifier for this statement such as an IRI</title>identifier</a> : <a
+   id="n402"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n406"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n407"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.basedOn"><title
+   id="title29967">A plan, proposal or order that is fulfilled in whole or in part by this DeviceUsage</title>basedOn</a> : <a
+   id="n408"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n409"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n414"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n415"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.status"><title
+   id="title29973">A code representing the patient or other source's judgment about the state of the device used that this statement is about.  Generally this will be active or completed (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n416"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n417"
+   xlink:href="valueset-deviceusage-status.html"><title
+   id="n418">null (Strength=Required)</title>DeviceUsageStatus</a>! »</text>
+    <text
+       id="n424"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n425"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.category"><title
+   id="title29980">This attribute indicates a category for the statement - The device statement may be made in an inpatient or outpatient settting (inpatient | outpatient | community | patientspecified)</title>category</a> : <a
+   id="n426"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n430"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n431"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.patient"><title
+   id="title29985">The patient who used the device</title>patient</a> : <a
+   id="n432"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n433"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n438"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n439"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.derivedFrom"><title
+   id="title29991">Allows linking the DeviceUsage to the underlying Request, or to other information that supports or is used to derive the DeviceUsage</title>derivedFrom</a> : <a
+   id="n440"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n441"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n442"
+   xlink:href="procedure.html#Procedure">Procedure</a>|<a
+   id="n443"
+   xlink:href="claim.html#Claim">Claim</a>|</text>
+    <text
+       id="n444"
+       x="26.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n445"
+   xlink:href="observation.html#Observation">Observation</a>|<a
+   id="n446"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a>|<a
+   id="n447"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+    <text
+       id="n458"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n459"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.context"><title
+   id="title30003">The encounter or episode of care that establishes the context for this device use statement</title>context</a> : <a
+   id="n460"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n461"
+   xlink:href="encounter.html#Encounter">Encounter</a>|<a
+   id="n462"
+   xlink:href="episodeofcare.html#EpisodeOfCare">EpisodeOfCare</a> »</text>
+    <text
+       id="n468"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n469"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.timing_x_"><title
+   id="title30010">How often the device was used</title>timing[x]</a> : <a
+   id="n470"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n471"
+   xlink:href="datatypes.html#Timing">Timing</a>|<a
+   id="n472"
+   xlink:href="datatypes.html#Period">Period</a>|<a
+   id="n473"
+   xlink:href="datatypes.html#dateTime">dateTime</a> »</text>
+    <text
+       id="n480"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n481"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.dateAsserted"><title
+   id="title30018">The time at which the statement was recorded by informationSource</title>dateAsserted</a> : <a
+   id="n482"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n486"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n487"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.usageStatus"><title
+   id="title30023">The status of the device usage, for example always, sometimes, never. This is not the same as the status of the statement</title>usageStatus</a> : <a
+   id="n488"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n489"
+   xlink:href="valueset-deviceusage-status.html"><title
+   id="n490">null (Strength=Required)</title>DeviceUsageStatus</a>! »</text>
+    <text
+       id="n496"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n497"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.usageReason"><title
+   id="title30030">The reason for asserting the usage status - for example forgot, lost, stolen, broken</title>usageReason</a> : <a
+   id="n498"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n502"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n503"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.informationSource"><title
+   id="title30035">Who reported the device was being used by the patient</title>informationSource</a> : <a
+   id="n504"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n505"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n506"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n507"
+       x="26.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n508"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n509"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n510"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n520"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n521"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.device"><title
+   id="title30046">Code or Reference to device used</title>device</a> : <a
+   id="n522"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n523"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n524"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+    <text
+       id="n530"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n531"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.reason"><title
+   id="title30053">Reason or justification for the use of the device. A coded concept, or another resource whose existence justifies this DeviceUsage</title>reason</a> : <a
+   id="n532"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n533"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n534"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
+    <text
+       id="n535"
+       x="26.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n536"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>|<a
+   id="n537"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|<a
+   id="n538"
+   xlink:href="procedure.html#Procedure">Procedure</a> »</text>
+    <text
+       id="n548"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n549"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.bodySite"><title
+   id="title30064">Indicates the anotomic location on the subject's body where the device was used ( i.e. the target)</title>bodySite</a> : <a
+   id="n550"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n551"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n552"
+   xlink:href="valueset-body-site.html"><title
+     id="n553">null (Strength=Example)</title></a></text>
+    <text
+       id="n554"
+       x="26.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n555"
+   xlink:href="valueset-body-site.html">SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n564"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n565"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.note"><title
+   id="title30074">Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement</title>note</a> : <a
+   id="n566"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+  </g>
+  <g
+     id="n570"
+     transform="translate(99.895344,129.80032)">
+    <rect
+       id="DeviceUsage.adherence"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n571"
+       x1="320"
+       y1="28"
+       x2="592.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n572"
+       x="456.39999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Adherence</text>
+    <text
+       id="n573"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n574"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.adherence.code"><title
+   id="title30083">Type of adherence</title>code</a> : <a
+   id="n575"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n576"
+   xlink:href="valueset-deviceusage-adherence-code.html"><title
+   id="n577">null (Strength=Example)</title>DeviceUsageAdherenceCode</a>?? »</text>
+    <text
+       id="n583"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n584"
+   xlink:href="deviceusage-definitions.html#DeviceUsage.adherence.reason"><title
+   id="title30090">Reason for adherence type</title>reason</a> : <a
+   id="n585"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..*] « <a
+   id="n586"
+   xlink:href="valueset-deviceusage-adherence-reason.html"><title
+   id="n587">null (Strength=Example)</title>DeviceUsageAdherenceReason</a>?? »</text>
+  </g>
+  <line
+     id="n593"
+     x1="281.6"
+     y1="101.78707224334597"
+     x2="376.247619047619"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n594"
+     points="281.6,101.78707224334597 287.6,105.78707224334597 293.6,101.78707224334597 287.6,97.78707224334597 281.6,101.78707224334597"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-21.76383848877748 281.6 101.78707224334597)" />
+  <rect
+     id="n595"
+     x="308.5"
+     y="75.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n596"
+     x="328.0"
+     y="85.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n597"
+       xlink:href="deviceusage-definitions.html#DeviceUsage.adherence"><title
+   id="title30101">This indicates how or if the device is being used</title>adherence</a></text>
+  <text
+     id="n598"
+     x="376.247619047619"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+</svg>

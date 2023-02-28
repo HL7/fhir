@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n584"
+   version="1.1"
+   width="2006.8"
+   height="368.0"
+   sodipodi:docname="conditiondefinition.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview27494"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.62088896"
+     inkscape:cx="1003.4"
+     inkscape:cy="184.41301"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n584" />
+  <defs
+     id="defs27218">
+    <filter
+       id="shadow1"
+       x="-0.025628626"
+       y="-0.0828125"
+       width="1.065764"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset27209" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix27211" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur27213" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend27215" />
+    </filter>
+  </defs>
+  <g
+     id="n585">
+    <rect
+       id="ConditionDefinition"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="300.96000000000004"
+       height="358.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n586"
+       x1="0.0"
+       y1="28.0"
+       x2="300.96000000000004"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n587"
+       x="150.48000000000002"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">ConditionDefinition<tspan
+   class="diagram-class-title-link"
+   id="tspan27224"> (<a
+   id="n588"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>) +<a
+   id="n589"
+   xlink:href="metadataresource.html#MetadataResource"
+   class="diagram-class-reference"
+   style="font-style: italic">MetadataResource</a></tspan></text>
+    <text
+       id="n590"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n591"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.url"><title
+   id="title27227">An absolute URI that is used to identify this condition definition when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this condition definition is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the condition definition is stored on different servers</title>url</a> : <a
+   id="n592"
+   xlink:href="datatypes.html#uri">uri</a> [0..1]</text>
+    <text
+       id="n596"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n597"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.identifier"><title
+   id="title27232">A formal identifier that is used to identify this condition definition when it is represented in other formats, or referenced in a specification, model, design or an instance</title>identifier</a> : <a
+   id="n598"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n602"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n603"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.version"><title
+   id="title27237">The identifier that is used to identify this version of the condition definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the condition definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence</title>version</a> : <a
+   id="n604"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n608"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n609"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.name"><title
+   id="title27242">A natural language name identifying the condition definition. This name should be usable as an identifier for the module by machine processing applications such as code generation</title>name</a> : <a
+   id="n610"
+   xlink:href="datatypes.html#string">string</a> [0..1] « <a
+   id="n611"
+   style="padding-left: 3px; padding-right: 3px; border: 1px maroon solid; font-weight: bold; color: #301212; background-color: #fdeeee;"
+   xlink:href="conformance-rules.html#constraints"><title
+   id="n612">This element has or is affected by some invariants</title>C</a> »</text>
+    <text
+       id="n618"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n619"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.title"><title
+   id="title27249">A short, descriptive, user-friendly title for the condition definition</title>title</a> : <a
+   id="n620"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n624"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n625"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.subtitle"><title
+   id="title27254">An explanatory or alternate title for the event definition giving additional information about its content</title>subtitle</a> : <a
+   id="n626"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n630"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n631"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.status"><title
+   id="title27259">The status of this condition definition. Enables tracking the life-cycle of the content (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n632"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n633"
+   xlink:href="valueset-publication-status.html"><title
+   id="n634">null (Strength=Required)</title>PublicationStatus</a>! »</text>
+    <text
+       id="n640"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n641"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.experimental"><title
+   id="title27266">A Boolean value to indicate that this condition definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage</title>experimental</a> : <a
+   id="n642"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n646"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n647"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.date"><title
+   id="title27271">The date  (and optionally time) when the condition definition was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the condition definition changes</title>date</a> : <a
+   id="n648"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n652"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n653"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.publisher"><title
+   id="title27276">The name of the organization or individual responsible for the release and ongoing maintenance of the condition definition</title>publisher</a> : <a
+   id="n654"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n658"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n659"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.contact"><title
+   id="title27281">Contact details to assist a user in finding and communicating with the publisher</title>contact</a> : <a
+   id="n660"
+   xlink:href="metadatatypes.html#ContactDetail">ContactDetail</a> [0..*]</text>
+    <text
+       id="n664"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n665"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.description"><title
+   id="title27286">A free text natural language description of the condition definition from a consumer's perspective</title>description</a> : <a
+   id="n666"
+   xlink:href="datatypes.html#markdown">markdown</a> [0..1]</text>
+    <text
+       id="n670"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n671"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.useContext"><title
+   id="title27291">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate condition definition instances</title>useContext</a> : <a
+   id="n672"
+   xlink:href="metadatatypes.html#UsageContext">UsageContext</a> [0..*]</text>
+    <text
+       id="n676"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n677"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.jurisdiction"><title
+   id="title27296">A legal or geographic region in which the condition definition is intended to be used</title>jurisdiction</a> : <a
+   id="n678"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n679"
+   xlink:href="valueset-jurisdiction.html"><title
+   id="n680">null (Strength=Extensible)</title>JurisdictionValueSet</a>+ »</text>
+    <text
+       id="n686"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n687"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.code"><title
+   id="title27303">Identification of the condition, problem or diagnosis</title>code</a> : <a
+   id="n688"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n689"
+   xlink:href="valueset-condition-code.html"><title
+   id="n690">null (Strength=Example)</title>ConditionProblemDiagnosisCodes</a>?? »</text>
+    <text
+       id="n696"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n697"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.severity"><title
+   id="title27310">A subjective assessment of the severity of the condition as evaluated by the clinician</title>severity</a> : <a
+   id="n698"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n699"
+   xlink:href="valueset-condition-severity.html"><title
+   id="title27314">null (Strength=Preferred)</title>ConditionDiagnosisSeverity</a>? »</text>
+    <text
+       id="n704"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n705"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.bodySite"><title
+   id="title27318">The anatomical location where this condition manifests itself</title>bodySite</a> : <a
+   id="n706"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n707"
+   xlink:href="valueset-body-site.html"><title
+   id="n708">null (Strength=Example)</title>SNOMEDCTBodyStructures</a>?? »</text>
+    <text
+       id="n714"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n715"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.stage"><title
+   id="title27325">Clinical stage or grade of a condition. May include formal severity assessments</title>stage</a> : <a
+   id="n716"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n717"
+   xlink:href="valueset-condition-stage.html"><title
+   id="n718">null (Strength=Example)</title>ConditionStage</a>?? »</text>
+    <text
+       id="n724"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n725"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.hasSeverity"><title
+   id="title27332">Whether Severity is appropriate to collect for this condition</title>hasSeverity</a> : <a
+   id="n726"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n730"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n731"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.hasBodySite"><title
+   id="title27337">Whether bodySite is appropriate to collect for this condition</title>hasBodySite</a> : <a
+   id="n732"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n736"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n737"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.hasStage"><title
+   id="title27342">Whether stage is appropriate to collect for this condition</title>hasStage</a> : <a
+   id="n738"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n742"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n743"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.definition"><title
+   id="title27347">Formal definitions of the condition. These may be references to ontologies, published clinical protocols or research papers</title>definition</a> : <a
+   id="n744"
+   xlink:href="datatypes.html#uri">uri</a> [0..*]</text>
+    <text
+       id="n748"
+       x="6.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n749"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.team"><title
+   id="title27352">Appropriate team for this condition</title>team</a> : <a
+   id="n750"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n751"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+  </g>
+  <g
+     id="n756"
+     transform="translate(45.09663,6.4423758)">
+    <rect
+       id="ConditionDefinition.observation"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="272.79999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#ecffec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n757"
+       x1="320"
+       y1="28"
+       x2="592.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n758"
+       x="456.39999"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Observation</text>
+    <text
+       id="n759"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n760"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.observation.category"><title
+   id="title27362">Category that is relevant</title>category</a> : <a
+   id="n761"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n762"
+   xlink:href="valueset-observation-category.html"><title
+   id="title27366">null (Strength=Preferred)</title>ObservationCategoryCodes</a>? »</text>
+    <text
+       id="n767"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n768"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.observation.code"><title
+   id="title27370">Code for relevant Observation</title>code</a> : <a
+   id="n769"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n770"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n771">null (Strength=Example)</title>LOINCCodes</a>?? »</text>
+  </g>
+  <g
+     id="n777"
+     transform="translate(-248.03147,101.46742)">
+    <rect
+       id="ConditionDefinition.medication"
+       x="640"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n778"
+       x1="640"
+       y1="28"
+       x2="917.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n779"
+       x="778.59998"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Medication</text>
+    <text
+       id="n780"
+       x="646"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n781"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.medication.category"><title
+   id="title27381">Category that is relevant</title>category</a> : <a
+   id="n782"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n783"
+   xlink:href="http://this-is-a-broken-link"><title
+   id="n784">null (Strength=Example)</title>MedicationRequestCategory</a>?? »</text>
+    <text
+       id="n790"
+       x="646"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n791"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.medication.code"><title
+   id="title27388">Code for relevant Medication</title>code</a> : <a
+   id="n792"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n793"
+   xlink:href="valueset-medication-codes.html"><title
+   id="n794">null (Strength=Example)</title>SNOMEDCTMedicationCodes</a>?? »</text>
+  </g>
+  <g
+     id="n800"
+     transform="translate(-549.21253,206.15602)">
+    <rect
+       id="ConditionDefinition.precondition"
+       x="960"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n801"
+       x1="960"
+       y1="28"
+       x2="1202"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n802"
+       x="1081"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Precondition</text>
+    <text
+       id="n803"
+       x="966"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n804"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.precondition.type"><title
+   id="title27399">Kind of pre-condition</title>type</a> : <a
+   id="n805"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n806"
+   xlink:href="valueset-condition-precondition-type.html"><title
+   id="n807">null (Strength=Required)</title>ConditionPreconditionType</a>! »</text>
+    <text
+       id="n813"
+       x="966"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n814"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.precondition.code"><title
+   id="title27406">Code for relevant Observation</title>code</a> : <a
+   id="n815"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n816"
+   xlink:href="valueset-observation-codes.html"><title
+   id="n817">null (Strength=Example)</title>LOINCCodes</a>?? »</text>
+    <text
+       id="n823"
+       x="966"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n824"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.precondition.value_x_"><title
+   id="title27413">Value of Observation</title>value[x]</a> : <a
+   id="n825"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n826"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n827"
+   xlink:href="datatypes.html#Quantity">Quantity</a> »</text>
+  </g>
+  <g
+     id="n833"
+     transform="translate(-889.04785,317.28701)">
+    <rect
+       id="ConditionDefinition.questionnaire"
+       x="1280"
+       y="0"
+       rx="4"
+       ry="4"
+       width="242"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n834"
+       x1="1280"
+       y1="28"
+       x2="1522"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n835"
+       x="1401"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Questionnaire</text>
+    <text
+       id="n836"
+       x="1286"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n837"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.questionnaire.purpose"><title
+   id="title27424">Use of the questionnaire</title>purpose</a> : <a
+   id="n838"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n839"
+   xlink:href="valueset-condition-questionnaire-purpose.html"><title
+   id="n840">null (Strength=Required)</title>ConditionQuestionnairePurpose</a>! »</text>
+    <text
+       id="n846"
+       x="1286"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n847"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.questionnaire.reference"><title
+   id="title27431">Specific Questionnaire</title>reference</a> : <a
+   id="n848"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n849"
+   xlink:href="questionnaire.html#Questionnaire">Questionnaire</a> »</text>
+  </g>
+  <g
+     id="n854"
+     transform="translate(-1307.8023,441.30274)">
+    <rect
+       id="ConditionDefinition.plan"
+       x="1600"
+       y="0"
+       rx="4"
+       ry="4"
+       width="206.8"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n855"
+       x1="1600"
+       y1="28"
+       x2="1806.8"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n856"
+       x="1703.4"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Plan</text>
+    <text
+       id="n857"
+       x="1606"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n858"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.plan.role"><title
+   id="title27441">Use for the plan</title>role</a> : <a
+   id="n859"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n863"
+       x="1606"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n864"
+   xlink:href="conditiondefinition-definitions.html#ConditionDefinition.plan.reference"><title
+   id="title27446">The actual plan</title>reference</a> : <a
+   id="n865"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n866"
+   xlink:href="plandefinition.html#PlanDefinition">PlanDefinition</a> »</text>
+  </g>
+  <line
+     id="n871"
+     x1="300.96000000000004"
+     y1="106.6916841004184"
+     x2="389.8051700680272"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n872"
+     points="300.96000000000004,106.6916841004184 306.96000000000004,110.6916841004184 312.96000000000004,106.6916841004184 306.96000000000004,102.6916841004184 300.96000000000004,106.6916841004184"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-25.665112419448036 300.96000000000004 106.6916841004184)" />
+  <rect
+     id="n873"
+     x="321.0"
+     y="78.0"
+     width="48.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n874"
+     x="345.0"
+     y="88.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n875"
+       xlink:href="conditiondefinition-definitions.html#ConditionDefinition.observation"><title
+   id="title27456">Observations particularly relevant to this condition</title>observation</a></text>
+  <text
+     id="n876"
+     x="389.8051700680272"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n877"
+     x1="300.96000000000004"
+     y1="143.78290772463856"
+     x2="641.866394557823"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n878"
+     points="300.96000000000004,143.78290772463856 306.96000000000004,147.78290772463856 312.96000000000004,143.78290772463856 306.96000000000004,139.78290772463856 300.96000000000004,143.78290772463856"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-13.17196461631915 300.96000000000004 143.78290772463856)" />
+  <rect
+     id="n879"
+     x="449.0"
+     y="96.0"
+     width="44.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n880"
+     x="471.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n881"
+       xlink:href="conditiondefinition-definitions.html#ConditionDefinition.medication"><title
+   id="title27464">Medications particularly relevant for this condition</title>medication</a></text>
+  <text
+     id="n882"
+     x="641.866394557823"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n883"
+     x1="300.96000000000004"
+     y1="156.35975583544686"
+     x2="960.0"
+     y2="57.20487469371966"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n884"
+     points="300.96000000000004,156.35975583544686 306.96000000000004,160.35975583544686 312.96000000000004,156.35975583544686 306.96000000000004,152.35975583544686 300.96000000000004,156.35975583544686"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.556176339485349 300.96000000000004 156.35975583544686)" />
+  <rect
+     id="n885"
+     x="604.0"
+     y="99.0"
+     width="52.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n886"
+     x="630.0"
+     y="109.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n887"
+       xlink:href="conditiondefinition-definitions.html#ConditionDefinition.precondition"><title
+   id="title27472">An observation that suggests that this condition applies</title>precondition</a></text>
+  <text
+     id="n888"
+     x="940.0"
+     y="53.20487469371966"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n889"
+     x1="300.96000000000004"
+     y1="161.31091066116497"
+     x2="1280.0"
+     y2="46.22368294789368"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n890"
+     points="300.96000000000004,161.31091066116497 306.96000000000004,165.31091066116497 312.96000000000004,161.31091066116497 306.96000000000004,157.31091066116497 300.96000000000004,161.31091066116497"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.704413699254406 300.96000000000004 161.31091066116497)" />
+  <rect
+     id="n891"
+     x="761.5"
+     y="96.0"
+     width="57.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n892"
+     x="790.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n893"
+       xlink:href="conditiondefinition-definitions.html#ConditionDefinition.questionnaire"><title
+   id="title27480">Questionnaire for this condition</title>questionnaire</a></text>
+  <text
+     id="n894"
+     x="1260.0"
+     y="42.22368294789368"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n895"
+     x1="300.96000000000004"
+     y1="164.7555057568967"
+     x2="1600.0"
+     y2="41.78788347113826"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n896"
+     points="300.96000000000004,164.7555057568967 306.96000000000004,168.7555057568967 312.96000000000004,164.7555057568967 306.96000000000004,160.7555057568967 300.96000000000004,164.7555057568967"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-5.4075272332380715 300.96000000000004 164.7555057568967)" />
+  <rect
+     id="n897"
+     x="941.5"
+     y="96.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n898"
+     x="950.0"
+     y="106.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n899"
+       xlink:href="conditiondefinition-definitions.html#ConditionDefinition.plan"><title
+   id="title27488">Plan that is appropriate</title>plan</a></text>
+  <text
+     id="n900"
+     x="1580.0"
+     y="37.78788347113826"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

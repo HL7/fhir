@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n411"
+   version="1.1"
+   width="785.2"
+   height="354.0"
+   sodipodi:docname="devicedispense.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview29378"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5868568"
+     inkscape:cx="392.60001"
+     inkscape:cy="177.39471"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n411" />
+  <defs
+     id="defs29211">
+    <filter
+       id="shadow1"
+       x="-0.020768025"
+       y="-0.067948718"
+       width="1.0532915"
+       height="1.174359">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset29202" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix29204" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur29206" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend29208" />
+    </filter>
+  </defs>
+  <g
+     id="n412">
+    <rect
+       id="DeviceDispense"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="286.0"
+       height="344.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n413"
+       x1="0.0"
+       y1="28.0"
+       x2="286.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n414"
+       x="143.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">DeviceDispense<tspan
+   class="diagram-class-title-link"
+   id="tspan29216"> (<a
+   id="n415"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n416"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n417"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.identifier"><title
+   id="title29219">Business identifier for this dispensation</title>identifier</a> : <a
+   id="n418"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n422"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n423"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.basedOn"><title
+   id="title29224">The order or request that this dispense is fulfilling</title>basedOn</a> : <a
+   id="n424"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n425"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n426"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a> »</text>
+    <text
+       id="n432"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n433"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.partOf"><title
+   id="title29231">The bigger event that this dispense is a part of</title>partOf</a> : <a
+   id="n434"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n435"
+   xlink:href="procedure.html#Procedure">Procedure</a> »</text>
+    <text
+       id="n440"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n441"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.status"><title
+   id="title29237">A code specifying the state of the set of dispense events (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n442"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n443"
+   xlink:href="valueset-devicedispense-status.html"><title
+   id="n444">null (Strength=Required)</title>DeviceDispenseStatusCodes</a>! »</text>
+    <text
+       id="n450"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n451"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.statusReason"><title
+   id="title29244">Indicates the reason why a dispense was or was not performed</title>statusReason</a> : <a
+   id="n452"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n453"
+   xlink:href="detectedissue.html#DetectedIssue">DetectedIssue</a>; <a
+   id="n454"
+   xlink:href="valueset-devicedispense-status-reason.html"><title
+     id="n455">null (Strength=Example)</title></a></text>
+    <text
+       id="n456"
+       x="26.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n457"
+   xlink:href="valueset-devicedispense-status-reason.html">DeviceDispenseStatusReasonCod...</a>?? »</text>
+    <text
+       id="n466"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n467"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.category"><title
+   id="title29254">Indicates the type of device dispense</title>category</a> : <a
+   id="n468"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*]</text>
+    <text
+       id="n472"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n473"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.device"><title
+   id="title29259">Identifies the device being dispensed. This is either a link to a resource representing the details of the device or a simple attribute carrying a code that identifies the device from a known list of devices</title>device</a> : <a
+   id="n474"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..1] « <a
+   id="n475"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n476"
+   xlink:href="devicedefinition.html#DeviceDefinition">DeviceDefinition</a> »</text>
+    <text
+       id="n482"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n483"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.subject"><title
+   id="title29266">A link to a resource representing the person to whom the device is intended</title>subject</a> : <a
+   id="n484"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n485"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n486"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a> »</text>
+    <text
+       id="n492"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n493"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.receiver"><title
+   id="title29273">Identifies the person who picked up the device or the person or location where the device was delivered.  This may be a patient or their caregiver, but some cases exist where it can be a healthcare professional or a location</title>receiver</a> : <a
+   id="n494"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n495"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n496"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n497"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|</text>
+    <text
+       id="n498"
+       x="26.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n499"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n500"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n510"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n511"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.encounter"><title
+   id="title29284">The encounter that establishes the context for this event</title>encounter</a> : <a
+   id="n512"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n513"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n518"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n519"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.supportingInformation"><title
+   id="title29290">Additional information that supports the device being dispensed</title>supportingInformation</a> : <a
+   id="n520"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n521"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
+    <text
+       id="n526"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n527"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.location"><title
+   id="title29296">The principal physical location where the dispense was performed</title>location</a> : <a
+   id="n528"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n529"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n534"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n535"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.type"><title
+   id="title29302">Indicates the type of dispensing event that is performed</title>type</a> : <a
+   id="n536"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n540"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n541"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.quantity"><title
+   id="title29307">The number of devices that have been dispensed</title>quantity</a> : <a
+   id="n542"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a29311">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n546"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n547"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.preparedDate"><title
+   id="title29314">The time when the dispensed product was packaged and reviewed</title>preparedDate</a> : <a
+   id="n548"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n552"
+       x="6.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n553"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.whenHandedOver"><title
+   id="title29319">The time the dispensed product was made available to the patient or their representative</title>whenHandedOver</a> : <a
+   id="n554"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n558"
+       x="6.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n559"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.destination"><title
+   id="title29324">Identification of the facility/location where the device was /should be shipped to, as part of the dispense process</title>destination</a> : <a
+   id="n560"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n561"
+   xlink:href="location.html#Location">Location</a> »</text>
+    <text
+       id="n566"
+       x="6.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n567"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.note"><title
+   id="title29330">Extra information about the dispense that could not be conveyed in the other attributes</title>note</a> : <a
+   id="n568"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
+    <text
+       id="n572"
+       x="6.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n573"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.usageInstruction"><title
+   id="title29335">The full representation of the instructions</title>usageInstruction</a> : <a
+   id="n574"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n578"
+       x="6.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n579"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.eventHistory"><title
+   id="title29340">A summary of the events of interest that have occurred, such as when the dispense was verified</title>eventHistory</a> : <a
+   id="n580"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n581"
+   xlink:href="provenance.html#Provenance">Provenance</a> »</text>
+  </g>
+  <g
+     id="n586"
+     transform="translate(85.704014,130.44655)">
+    <rect
+       id="DeviceDispense.performer"
+       x="330"
+       y="0"
+       rx="4"
+       ry="4"
+       width="255.2"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n587"
+       x1="330"
+       y1="28"
+       x2="585.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n588"
+       x="457.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
+    <text
+       id="n589"
+       x="336"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n590"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.performer.function"><title
+   id="title29350">Distinguishes the type of performer in the dispense.  For example, date enterer, packager, final checker</title>function</a> : <a
+   id="n591"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1]</text>
+    <text
+       id="n595"
+       x="336"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n596"
+   xlink:href="devicedispense-definitions.html#DeviceDispense.performer.actor"><title
+   id="title29355">The device, practitioner, etc. who performed the action.  It should be assumed that the actor is the dispenser of the device</title>actor</a> : <a
+   id="n597"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n598"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n599"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n600"
+       x="356"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n601"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n602"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n603"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n604"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n605"
+   xlink:href="careteam.html#CareTeam">CareTeam</a> »</text>
+  </g>
+  <line
+     id="n617"
+     x1="286.0"
+     y1="111.54545454545453"
+     x2="365.3488721804511"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n618"
+     points="286.0,111.54545454545453 292.0,115.54545454545453 298.0,111.54545454545453 292.0,107.54545454545453 286.0,111.54545454545453"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-22.916651386180014 286.0 111.54545454545453)" />
+  <rect
+     id="n619"
+     x="305.5"
+     y="87.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n620"
+     x="325.0"
+     y="97.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n621"
+       xlink:href="devicedispense-definitions.html#DeviceDispense.performer"><title
+   id="title29372">Indicates who or what performed the event</title>performer</a></text>
+  <text
+     id="n622"
+     x="365.3488721804511"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

@@ -1,1007 +1,1006 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n587"
+   id="n787"
    version="1.1"
-   width="1450.0"
+   width="1068.0"
    height="480.0"
    sodipodi:docname="consent.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata279">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview28078"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview277"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="1.5668965"
-     inkscape:cx="725"
-     inkscape:cy="240"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n587" />
+     inkscape:zoom="1.1666667"
+     inkscape:cx="534"
+     inkscape:cy="240.42857"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n787" />
   <defs
-     id="defs11">
+     id="defs27744">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.033459597"
+       y="-0.0828125"
+       width="1.0858586"
+       height="1.2125">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset27735" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix27737" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur27739" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend27741" />
     </filter>
   </defs>
   <g
-     id="n588">
+     id="n788"
+     transform="translate(20.571429,-23.142857)">
     <rect
        id="Consent"
-       x="0.0"
-       y="50.0"
+       x="0"
+       y="50"
        rx="4"
        ry="4"
-       width="286.0"
-       height="204.0"
+       width="303.60001"
+       height="316"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n589"
-       x1="0.0"
-       y1="78.0"
-       x2="286.0"
-       y2="78.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n789"
+       x1="0"
+       y1="78"
+       x2="303.60001"
+       y2="78"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n590"
-       x="143.0"
-       y="70.0"
-       fill="black"
+       id="n790"
+       x="151.8"
+       y="70"
+       fill="#000000"
        class="diagram-class-title  diagram-class-resource">Consent<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan27749">(<a
+   id="n791"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n591">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n592"
-       x="6.0"
-       y="92.0"
-       fill="black"
+       id="n792"
+       x="6"
+       y="92"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.identifier"
-   id="n593"><title
-   id="title19">Unique identifier for this copy of the Consent Statement</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n594">Identifier</a>
- [0..*]</text>
+   id="n793"
+   xlink:href="consent-definitions.html#Consent.identifier"><title
+   id="title27752">Unique identifier for this copy of the Consent Statement</title>identifier</a> : <a
+   id="n794"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n598"
-       x="6.0"
-       y="106.0"
-       fill="black"
+       id="n798"
+       x="6"
+       y="106"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.status"
-   id="n599"><title
-   id="title24">Indicates the current state of this consent (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n600">code</a>
- [1..1] « <a
-   xlink:href="valueset-consent-state-codes.html"
-   id="n601"><title
-   id="n602">Indicates the state of the consent. (Strength=Required)</title>
-ConsentState</a>
-! »</text>
+   id="n799"
+   xlink:href="consent-definitions.html#Consent.status"><title
+   id="title27757">Indicates the current state of this Consent resource (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n800"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n801"
+   xlink:href="valueset-consent-state-codes.html"><title
+   id="n802">null (Strength=Required)</title>ConsentState</a>! »</text>
     <text
-       id="n608"
-       x="6.0"
-       y="120.0"
-       fill="black"
+       id="n808"
+       x="6"
+       y="120"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.scope"
-   id="n609"><title
-   id="title31">A selector of the type of consent being presented: ADR, Privacy, Treatment, Research.  This list is now extensible (this element modifies the meaning of other elements)</title>
-scope</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n610">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-consent-scope.html"
-   id="n611"><title
-   id="n612">The four anticipated uses for the Consent Resource. (Strength=Extensible)</title>
-ConsentScopeCodes</a>
-+ »</text>
+   id="n809"
+   xlink:href="consent-definitions.html#Consent.category"><title
+   id="title27764">A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements</title>category</a> : <a
+   id="n810"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n811"
+   xlink:href="valueset-consent-category.html"><title
+   id="n812">null (Strength=Example)</title>ConsentCategoryCodes</a>?? »</text>
     <text
-       id="n618"
-       x="6.0"
-       y="134.0"
-       fill="black"
+       id="n818"
+       x="6"
+       y="134"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.category"
-   id="n619"><title
-   id="title38">A classification of the type of consents found in the statement. This element supports indexing and retrieval of consent statements</title>
-category</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n620">CodeableConcept</a>
- [1..*] « <a
-   xlink:href="valueset-consent-category.html"
-   id="n621"><title
-   id="n622">A classification of the type of consents found in a consent statement. (Strength=Extensible)</title>
-ConsentCategoryCodes</a>
-+ »</text>
+   id="n819"
+   xlink:href="consent-definitions.html#Consent.subject"><title
+   id="title27771">The patient/healthcare practitioner or group of persons to whom this consent applies</title>subject</a> : <a
+   id="n820"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n821"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n822"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n823"
+   xlink:href="group.html#Group">Group</a> »</text>
     <text
-       id="n628"
-       x="6.0"
-       y="148.0"
-       fill="black"
+       id="n830"
+       x="6"
+       y="148"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.patient"
-   id="n629"><title
-   id="title45">The patient/healthcare consumer to whom this consent applies</title>
-patient</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n630">Reference</a>
- [0..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n631">Patient</a>
- »</text>
+   id="n831"
+   xlink:href="consent-definitions.html#Consent.date"><title
+   id="title27779">Date the consent instance was agreed to</title>date</a> : <a
+   id="n832"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n636"
-       x="6.0"
-       y="162.0"
-       fill="black"
+       id="n836"
+       x="6"
+       y="162"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.dateTime"
-   id="n637"><title
-   id="title51">When this  Consent was issued / created / indexed</title>
-dateTime</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n638">dateTime</a>
- [0..1]</text>
+   id="n837"
+   xlink:href="consent-definitions.html#Consent.period"><title
+   id="title27784">Effective period for this Consent Resource and all provisions unless specified in that provision</title>period</a> : <a
+   id="n838"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n642"
-       x="6.0"
-       y="176.0"
-       fill="black"
+       id="n842"
+       x="6"
+       y="176"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.performer"
-   id="n643"><title
-   id="title56">Either the Grantor, which is the entity responsible for granting the rights listed in a Consent Directive or the Grantee, which is the entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions</title>
-performer</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n644">Reference</a>
- [0..*] « <a
-   xlink:href="organization.html#Organization"
-   id="n645">Organization</a>
-|<a
-   xlink:href="patient.html#Patient"
-   id="n646">Patient</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n647">Practitioner</a>
-|</text>
+   id="n843"
+   xlink:href="consent-definitions.html#Consent.grantor"><title
+   id="title27789">The entity responsible for granting the rights listed in a Consent Directive</title>grantor</a> : <a
+   id="n844"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n845"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n846"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n847"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
     <text
-       id="n648"
-       x="26.0"
-       y="190.0"
-       fill="black"
+       id="n848"
+       x="26"
+       y="190"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n649">RelatedPerson</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n650">PractitionerRole</a>
- »</text>
+   id="n849"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n850"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n851"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n852"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
-       id="n660"
-       x="6.0"
-       y="204.0"
-       fill="black"
+       id="n864"
+       x="6"
+       y="204"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.organization"
-   id="n661"><title
-   id="title67">The organization that manages the consent, and the framework within which it is executed</title>
-organization</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n662">Reference</a>
- [0..*] « <a
-   xlink:href="organization.html#Organization"
-   id="n663">Organization</a>
- »</text>
+   id="n865"
+   xlink:href="consent-definitions.html#Consent.grantee"><title
+   id="title27802">The entity responsible for complying with the Consent Directive, including any obligations or limitations on authorizations and enforcement of prohibitions</title>grantee</a> : <a
+   id="n866"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n867"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n868"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n869"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
     <text
-       id="n668"
-       x="6.0"
-       y="218.0"
-       fill="black"
+       id="n870"
+       x="26"
+       y="218"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.source_x_"
-   id="n669"><title
-   id="title73">The source on which this consent statement is based. The source might be a scanned original paper form, or a reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document</title>
-source[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n670">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#Attachment"
-   id="n671">Attachment</a>
-|<a
-   xlink:href="references.html#Reference"
-   id="n672">Reference</a>
-(<a
-   xlink:href="consent.html#Consent"
-   id="n673">Consent</a>
-|</text>
+   id="n871"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n872"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n873"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n874"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
     <text
-       id="n674"
-       x="26.0"
-       y="232.0"
-       fill="black"
+       id="n886"
+       x="6"
+       y="232"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="documentreference.html#DocumentReference"
-   id="n675">DocumentReference</a>
-|<a
-   xlink:href="contract.html#Contract"
-   id="n676">Contract</a>
-|<a
-   xlink:href="questionnaireresponse.html#QuestionnaireResponse"
-   id="n677">QuestionnaireResponse</a>
-) »</text>
+   id="n887"
+   xlink:href="consent-definitions.html#Consent.manager"><title
+   id="title27815">The actor that manages the consent through its lifecycle</title>manager</a> : <a
+   id="n888"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n889"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n890"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n891"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
     <text
-       id="n688"
-       x="6.0"
-       y="246.0"
-       fill="black"
+       id="n892"
+       x="26"
+       y="246"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.policyRule"
-   id="n689"><title
-   id="title85">A reference to the specific base computable regulation or policy</title>
-policyRule</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n690">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-consent-policy.html"
-   id="n691"><title
-   id="n692">Regulatory policy examples. (Strength=Extensible)</title>
-ConsentPolicyRuleCodes</a>
-+ »</text>
+   id="n893"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a> »</text>
+    <text
+       id="n902"
+       x="6"
+       y="260"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n903"
+   xlink:href="consent-definitions.html#Consent.controller"><title
+   id="title27825">The actor that controls/enforces the access according to the consent</title>controller</a> : <a
+   id="n904"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n905"
+   xlink:href="healthcareservice.html#HealthcareService">HealthcareService</a>|<a
+   id="n906"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
+    <text
+       id="n907"
+       x="26"
+       y="274"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n908"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n909"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a> »</text>
+    <text
+       id="n918"
+       x="6"
+       y="288"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n919"
+   xlink:href="consent-definitions.html#Consent.sourceAttachment"><title
+   id="title27835">The source on which this consent statement is based. The source might be a scanned original paper form</title>sourceAttachment</a> : <a
+   id="n920"
+   xlink:href="datatypes.html#Attachment">Attachment</a> [0..*]</text>
+    <text
+       id="n924"
+       x="6"
+       y="302"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n925"
+   xlink:href="consent-definitions.html#Consent.sourceReference"><title
+   id="title27840">A reference to a consent that links back to such a source, a reference to a document repository (e.g. XDS) that stores the original consent document</title>sourceReference</a> : <a
+   id="n926"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n927"
+   xlink:href="consent.html#Consent">Consent</a>|<a
+   id="n928"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a>|</text>
+    <text
+       id="n929"
+       x="26"
+       y="316"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n930"
+   xlink:href="contract.html#Contract">Contract</a>|<a
+   id="n931"
+   xlink:href="questionnaireresponse.html#QuestionnaireResponse">QuestionnaireResponse</a> »</text>
+    <text
+       id="n940"
+       x="6"
+       y="330"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n941"
+   xlink:href="consent-definitions.html#Consent.regulatoryBasis"><title
+   id="title27850">A set of codes that indicate the regulatory basis (if any) that this consent supports</title>regulatoryBasis</a> : <a
+   id="n942"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n943"
+   xlink:href="valueset-consent-policy.html"><title
+   id="n944">null (Strength=Example)</title>ConsentPolicyRuleCodes</a>?? »</text>
+    <text
+       id="n950"
+       x="6"
+       y="344"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n951"
+   xlink:href="consent-definitions.html#Consent.policyText"><title
+   id="title27857">A Reference to the human readable policy explaining the basis for the Consent</title>policyText</a> : <a
+   id="n952"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n953"
+   xlink:href="documentreference.html#DocumentReference">DocumentReference</a> »</text>
+    <text
+       id="n958"
+       x="6"
+       y="358"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n959"
+   xlink:href="consent-definitions.html#Consent.decision"><title
+   id="title27863">Action to take - permit or deny - as default (this element modifies the meaning of other elements)</title>decision</a> : <a
+   id="n960"
+   xlink:href="datatypes.html#code">code</a> [0..1] « <a
+   id="n961"
+   xlink:href="valueset-consent-provision-type.html"><title
+   id="n962">null (Strength=Required)</title>ConsentProvisionType</a>! »</text>
   </g>
   <g
-     id="n698">
+     id="n968">
     <rect
-       id="Consent.policy"
-       x="400.0"
-       y="50.0"
+       id="Consent.policyBasis"
+       x="423.6"
+       y="176.0"
        rx="4"
        ry="4"
-       width="96.80000000000001"
+       width="158.4"
        height="64.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n699"
-       x1="400.0"
-       y1="78.0"
-       x2="496.8"
-       y2="78.0"
+       id="n969"
+       x1="423.6"
+       y1="204.0"
+       x2="582.0"
+       y2="204.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n700"
-       x="448.4"
-       y="70.0"
+       id="n970"
+       x="502.8"
+       y="196.0"
        fill="black"
-       class="diagram-class-title">Policy</text>
+       class="diagram-class-title">PolicyBasis</text>
     <text
-       id="n701"
-       x="406.0"
-       y="92.0"
+       id="n971"
+       x="429.6"
+       y="218.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.policy.authority"
-   id="n702"><title
-   id="title96">Entity or Organization having regulatory jurisdiction or accountability for  enforcing policies pertaining to Consent Directives</title>
-authority</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n703">uri</a>
- [0..1]</text>
+   id="n972"
+   xlink:href="consent-definitions.html#Consent.policyBasis.reference"><title
+   id="title27874">A Reference that identifies the policy the organization will enforce for this Consent</title>reference</a> : <a
+   id="n973"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n974"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n707"
-       x="406.0"
-       y="106.0"
+       id="n979"
+       x="429.6"
+       y="232.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.policy.uri"
-   id="n708"><title
-   id="title101">The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law</title>
-uri</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n709">uri</a>
- [0..1]</text>
+   id="n980"
+   xlink:href="consent-definitions.html#Consent.policyBasis.url"><title
+   id="title27880">A URL that links to a computable version of the policy the organization will enforce for this Consent</title>url</a> : <a
+   id="n981"
+   xlink:href="datatypes.html#url">url</a> [0..1]</text>
   </g>
   <g
-     id="n713">
+     id="n985"
+     transform="translate(-157.71429,-19.714286)">
     <rect
        id="Consent.verification"
-       x="560.0"
-       y="50.0"
+       x="560"
+       y="50"
        rx="4"
        ry="4"
-       width="250.8"
-       height="78.0"
+       width="308"
+       height="120"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n714"
-       x1="560.0"
-       y1="78.0"
-       x2="810.8"
-       y2="78.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n986"
+       x1="560"
+       y1="78"
+       x2="868"
+       y2="78"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n715"
-       x="685.4"
-       y="70.0"
-       fill="black"
+       id="n987"
+       x="714"
+       y="70"
+       fill="#000000"
        class="diagram-class-title">Verification</text>
     <text
-       id="n716"
-       x="566.0"
-       y="92.0"
-       fill="black"
+       id="n988"
+       x="566"
+       y="92"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.verification.verified"
-   id="n717"><title
-   id="title110">Has the instruction been verified</title>
-verified</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n718">boolean</a>
- [1..1]</text>
+   id="n989"
+   xlink:href="consent-definitions.html#Consent.verification.verified"><title
+   id="title27889">Has the instruction been verified</title>verified</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
     <text
-       id="n722"
-       x="566.0"
-       y="106.0"
-       fill="black"
+       id="n994"
+       x="566"
+       y="106"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.verification.verifiedWith"
-   id="n723"><title
-   id="title115">Who verified the instruction (Patient, Relative or other Authorized Person)</title>
-verifiedWith</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n724">Reference</a>
- [0..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n725">Patient</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n726">RelatedPerson</a>
- »</text>
+   id="n995"
+   xlink:href="consent-definitions.html#Consent.verification.verificationType"><title
+   id="title27894">Extensible list of verification type starting with verification and re-validation</title>verificationType</a> : <a
+   id="n996"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n997"
+   xlink:href="valueset-consent-verification.html"><title
+   id="n998">null (Strength=Example)</title>ConsentVerificationCodes</a>?? »</text>
     <text
-       id="n732"
-       x="566.0"
-       y="120.0"
-       fill="black"
+       id="n1004"
+       x="566"
+       y="120"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.verification.verificationDate"
-   id="n733"><title
-   id="title122">Date verification was collected</title>
-verificationDate</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n734">dateTime</a>
- [0..1]</text>
+   id="n1005"
+   xlink:href="consent-definitions.html#Consent.verification.verifiedBy"><title
+   id="title27901">The person who conducted the verification/validation of the Grantor decision</title>verifiedBy</a> : <a
+   id="n1006"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1007"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1008"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
+    <text
+       id="n1009"
+       x="586"
+       y="134"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1010"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
+    <text
+       id="n1018"
+       x="566"
+       y="148"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1019"
+   xlink:href="consent-definitions.html#Consent.verification.verifiedWith"><title
+   id="title27910">Who verified the instruction (Patient, Relative or other Authorized Person)</title>verifiedWith</a> : <a
+   id="n1020"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1021"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1022"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n1028"
+       x="566"
+       y="162"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1029"
+   xlink:href="consent-definitions.html#Consent.verification.verificationDate"><title
+   id="title27917">Date(s) verification was collected</title>verificationDate</a> : <a
+   id="n1030"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..*]</text>
   </g>
   <g
-     id="n738">
+     id="n1034"
+     transform="translate(19.714286,108.85714)">
     <rect
        id="Consent.provision"
-       x="406.0"
-       y="158.0"
+       x="406"
+       y="158"
        rx="4"
        ry="4"
-       width="237.60000000000002"
-       height="148.0"
+       width="242"
+       height="162"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n739"
-       x1="406.0"
-       y1="186.0"
-       x2="643.6"
-       y2="186.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1035"
+       x1="406"
+       y1="186"
+       x2="648"
+       y2="186"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n740"
-       x="524.8"
-       y="178.0"
-       fill="black"
+       id="n1036"
+       x="527"
+       y="178"
+       fill="#000000"
        class="diagram-class-title">provision</text>
     <text
-       id="n741"
-       x="412.0"
-       y="200.0"
-       fill="black"
+       id="n1037"
+       x="412"
+       y="200"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.type"
-   id="n742"><title
-   id="title131">Action  to take - permit or deny - when the rule conditions are met.  Not permitted in root rule, required in all nested rules</title>
-type</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n743">code</a>
- [0..1] « <a
-   xlink:href="valueset-consent-provision-type.html"
-   id="n744"><title
-   id="n745">How a rule statement is applied, such as adding additional consent or removing consent. (Strength=Required)</title>
-ConsentProvisionType</a>
-! »</text>
+   id="n1038"
+   xlink:href="consent-definitions.html#Consent.provision.period"><title
+   id="title27926">Timeframe for this provision</title>period</a> : <a
+   id="n1039"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
     <text
-       id="n751"
-       x="412.0"
-       y="214.0"
-       fill="black"
+       id="n1043"
+       x="412"
+       y="214"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.period"
-   id="n752"><title
-   id="title138">The timeframe in this rule is valid</title>
-period</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n753">Period</a>
- [0..1]</text>
+   id="n1044"
+   xlink:href="consent-definitions.html#Consent.provision.action"><title
+   id="title27931">Actions controlled by this provision</title>action</a> : <a
+   id="n1045"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1046"
+   xlink:href="valueset-consent-action.html"><title
+   id="n1047">null (Strength=Example)</title>ConsentActionCodes</a>?? »</text>
     <text
-       id="n757"
-       x="412.0"
-       y="228.0"
-       fill="black"
+       id="n1053"
+       x="412"
+       y="228"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.action"
-   id="n758"><title
-   id="title143">Actions controlled by this Rule</title>
-action</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n759">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-consent-action.html"
-   id="n760"><title
-   id="n761">Detailed codes for the consent action. (Strength=Example)</title>
-ConsentActionCodes</a>
-?? »</text>
+   id="n1054"
+   xlink:href="consent-definitions.html#Consent.provision.securityLabel"><title
+   id="title27938">A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception</title>securityLabel</a> : <a
+   id="n1055"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1056"
+   xlink:href="valueset-security-label-examples.html"><title
+   id="n1057">null (Strength=Example)</title>SecurityLabelExamples</a>?? »</text>
     <text
-       id="n767"
-       x="412.0"
-       y="242.0"
-       fill="black"
+       id="n1063"
+       x="412"
+       y="242"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.securityLabel"
-   id="n768"><title
-   id="title150">A security label, comprised of 0..* security label fields (Privacy tags), which define which resources are controlled by this exception</title>
-securityLabel</a>
- : <a
-   xlink:href="datatypes.html#Coding"
-   id="n769">Coding</a>
- [0..*] « <a
-   xlink:href="valueset-security-labels.html"
-   id="n770"><title
-   id="n771">Security Labels from the Healthcare Privacy and Security Classification System. (Strength=Extensible)</title>
-All Security Labels</a>
-+ »</text>
+   id="n1064"
+   xlink:href="consent-definitions.html#Consent.provision.purpose"><title
+   id="title27945">The context of the activities a user is taking - why the user is accessing the data - that are controlled by this provision</title>purpose</a> : <a
+   id="n1065"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1066"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-PurposeOfUse.html"><title
+   id="n1067">null (Strength=Extensible)</title>PurposeOfUse</a>+ »</text>
     <text
-       id="n777"
-       x="412.0"
-       y="256.0"
-       fill="black"
+       id="n1073"
+       x="412"
+       y="256"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.purpose"
-   id="n778"><title
-   id="title157">The context of the activities a user is taking - why the user is accessing the data - that are controlled by this rule</title>
-purpose</a>
- : <a
-   xlink:href="datatypes.html#Coding"
-   id="n779">Coding</a>
- [0..*] « <a
-   xlink:href="v3/PurposeOfUse/vs.html"
-   id="n780"><title
-   id="n781">What purposes of use are controlled by this exception. If more than one label is specified, operations must have all the specified labels. (Strength=Extensible)</title>
-v3.PurposeOfUse</a>
-+ »</text>
+   id="n1074"
+   xlink:href="consent-definitions.html#Consent.provision.documentType"><title
+   id="title27952">The documentType(s) covered by this provision. The type can be a CDA document, or some other type that indicates what sort of information the consent relates to</title>documentType</a> : <a
+   id="n1075"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1076"
+   xlink:href="valueset-consent-content-class.html"><title
+   id="title27956">null (Strength=Preferred)</title>ConsentContentClass</a>? »</text>
     <text
-       id="n787"
-       x="412.0"
-       y="270.0"
-       fill="black"
+       id="n1081"
+       x="412"
+       y="270"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.class"
-   id="n788"><title
-   id="title164">The class of information covered by this rule. The type can be a FHIR resource type, a profile on a type, or a CDA document, or some other type that indicates what sort of information the consent relates to</title>
-class</a>
- : <a
-   xlink:href="datatypes.html#Coding"
-   id="n789">Coding</a>
- [0..*] « <a
-   xlink:href="valueset-consent-content-class.html"
-   id="n790"><title
-   id="n791">The class (type) of information a consent rule covers. (Strength=Extensible)</title>
-ConsentContentClass</a>
-+ »</text>
+   id="n1082"
+   xlink:href="consent-definitions.html#Consent.provision.resourceType"><title
+   id="title27960">The resourceType(s) covered by this provision. The type can be a FHIR resource type or a profile on a type that indicates what information the consent relates to</title>resourceType</a> : <a
+   id="n1083"
+   xlink:href="datatypes.html#Coding">Coding</a> [0..*] « <a
+   id="n1084"
+   xlink:href="valueset-resource-types.html"><title
+   id="n1085">null (Strength=Extensible)</title>ResourceType</a>+ »</text>
     <text
-       id="n797"
-       x="412.0"
-       y="284.0"
-       fill="black"
+       id="n1091"
+       x="412"
+       y="284"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.code"
-   id="n798"><title
-   id="title171">If this code is found in an instance, then the rule applies</title>
-code</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n799">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-consent-content-code.html"
-   id="n800"><title
-   id="n801">If this code is found in an instance, then the exception applies. (Strength=Example)</title>
-ConsentContentCodes</a>
-?? »</text>
+   id="n1092"
+   xlink:href="consent-definitions.html#Consent.provision.code"><title
+   id="title27967">If this code is found in an instance, then the provision applies</title>code</a> : <a
+   id="n1093"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1094"
+   xlink:href="valueset-consent-content-code.html"><title
+   id="n1095">null (Strength=Example)</title>ConsentContentCodes</a>?? »</text>
     <text
-       id="n807"
-       x="412.0"
-       y="298.0"
-       fill="black"
+       id="n1101"
+       x="412"
+       y="298"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.dataPeriod"
-   id="n808"><title
-   id="title178">Clinical or Operational Relevant period of time that bounds the data controlled by this rule</title>
-dataPeriod</a>
- : <a
-   xlink:href="datatypes.html#Period"
-   id="n809">Period</a>
- [0..1]</text>
+   id="n1102"
+   xlink:href="consent-definitions.html#Consent.provision.dataPeriod"><title
+   id="title27974">Clinical or Operational Relevant period of time that bounds the data controlled by this provision</title>dataPeriod</a> : <a
+   id="n1103"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n1107"
+       x="412"
+       y="312"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1108"
+   xlink:href="consent-definitions.html#Consent.provision.expression"><title
+   id="title27979">A computable (FHIRPath or other) definition of what is controlled by this consent</title>expression</a> : <a
+   id="n1109"
+   xlink:href="metadatatypes.html#Expression">Expression</a> [0..1]</text>
   </g>
   <g
-     id="n813"
-     transform="translate(-814.9868,312.72007)">
+     id="n1113"
+     transform="translate(-23.142857,79.714286)">
     <rect
        id="Consent.provision.actor"
-       x="859.59998"
-       y="0"
+       x="44.613178"
+       y="312.72006"
        rx="4"
        ry="4"
        width="290.39999"
        height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n814"
-       x1="859.59998"
-       y1="28"
-       x2="1150"
-       y2="28"
+       id="n1114"
+       x1="44.613178"
+       y1="340.72006"
+       x2="335.01318"
+       y2="340.72006"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n815"
-       x="1004.8"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">provisionActor</text>
+       id="n1115"
+       x="189.81319"
+       y="332.72006"
+       fill="#000000"
+       class="diagram-class-title">provisionActor</text>
     <text
-       id="n816"
-       x="865.59998"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="consent-definitions.html#Consent.provision.actor.role"
-   id="n817"><title
-   id="title187">How the individual is involved in the resources content that is described in the exception</title>
-role</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n818">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-security-role-type.html"
-   id="n819"><title
-   id="n820">How an actor is involved in the consent considerations. (Strength=Extensible)</title>
-SecurityRoleType</a>
-+ »</text>
+       id="n1116"
+       x="50.613178"
+       y="354.72006"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1117"
+   xlink:href="consent-definitions.html#Consent.provision.actor.role"><title
+   id="title27988">How the individual is involved in the resources content that is described in the exception</title>role</a> : <a
+   id="n1118"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n1119"
+   xlink:href="valueset-participation-role-type.html"><title
+   id="n1120">null (Strength=Extensible)</title>ParticipationRoleType</a>+ »</text>
     <text
-       id="n826"
-       x="865.59998"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="consent-definitions.html#Consent.provision.actor.reference"
-   id="n827"><title
-   id="title194">The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>
-reference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n828">Reference</a>
- [1..1] « <a
-   xlink:href="device.html#Device"
-   id="n829">Device</a>
-|<a
-   xlink:href="group.html#Group"
-   id="n830">Group</a>
-|<a
-   xlink:href="careteam.html#CareTeam"
-   id="n831">CareTeam</a>
-|<a
-   xlink:href="organization.html#Organization"
-   id="n832">Organization</a>
-|</text>
+       id="n1126"
+       x="50.613178"
+       y="368.72006"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1127"
+   xlink:href="consent-definitions.html#Consent.provision.actor.reference"><title
+   id="title27995">The resource that identifies the actor. To identify actors by type, use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>reference</a> : <a
+   id="n1128"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1129"
+   xlink:href="device.html#Device">Device</a>|<a
+   id="n1130"
+   xlink:href="group.html#Group">Group</a>|<a
+   id="n1131"
+   xlink:href="careteam.html#CareTeam">CareTeam</a>|<a
+   id="n1132"
+   xlink:href="organization.html#Organization">Organization</a>|</text>
     <text
-       id="n833"
-       x="885.59998"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="patient.html#Patient"
-   id="n834">Patient</a>
-|<a
-   xlink:href="practitioner.html#Practitioner"
-   id="n835">Practitioner</a>
-|<a
-   xlink:href="relatedperson.html#RelatedPerson"
-   id="n836">RelatedPerson</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n837">PractitionerRole</a>
- »</text>
+       id="n1133"
+       x="70.613182"
+       y="382.72006"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1134"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1135"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1136"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n1137"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a> »</text>
   </g>
   <g
-     id="n850">
+     id="n1150"
+     transform="translate(2.5714286,114.85714)">
     <rect
        id="Consent.provision.data"
-       x="427.99999999999994"
-       y="386.0"
+       x="428"
+       y="386"
        rx="4"
        ry="4"
-       width="193.60000000000002"
-       height="64.0"
+       width="193.60001"
+       height="64"
        filter="url(#shadow1)"
-       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n851"
-       x1="427.99999999999994"
-       y1="414.0"
-       x2="621.5999999999999"
-       y2="414.0"
-       style="stroke:dimgrey;stroke-width:1" />
+       id="n1151"
+       x1="428"
+       y1="414"
+       x2="621.59998"
+       y2="414"
+       style="stroke:#696969;stroke-width:1" />
     <text
-       id="n852"
-       x="524.8"
-       y="406.0"
-       fill="black"
+       id="n1152"
+       x="524.79999"
+       y="406"
+       fill="#000000"
        class="diagram-class-title">provisionData</text>
     <text
-       id="n853"
-       x="433.99999999999994"
-       y="428.0"
-       fill="black"
+       id="n1153"
+       x="434"
+       y="428"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.data.meaning"
-   id="n854"><title
-   id="title212">How the resource reference is interpreted when testing consent restrictions</title>
-meaning</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n855">code</a>
- [1..1] « <a
-   xlink:href="valueset-consent-data-meaning.html"
-   id="n856"><title
-   id="n857">How a resource reference is interpreted when testing consent restrictions. (Strength=Required)</title>
-ConsentDataMeaning</a>
-! »</text>
+   id="n1154"
+   xlink:href="consent-definitions.html#Consent.provision.data.meaning"><title
+   id="title28013">How the resource reference is interpreted when testing consent restrictions</title>meaning</a> : <a
+   id="n1155"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n1156"
+   xlink:href="valueset-consent-data-meaning.html"><title
+   id="n1157">null (Strength=Required)</title>ConsentDataMeaning</a>! »</text>
     <text
-       id="n863"
-       x="433.99999999999994"
-       y="442.0"
-       fill="black"
+       id="n1163"
+       x="434"
+       y="442"
+       fill="#000000"
        class="diagram-class-detail"><a
-   xlink:href="consent-definitions.html#Consent.provision.data.reference"
-   id="n864"><title
-   id="title219">A reference to a specific resource that defines which resources are covered by this consent</title>
-reference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n865">Reference</a>
- [1..1] « <a
-   xlink:href="resourcelist.html#Any"
-   id="n866">Any</a>
- »</text>
+   id="n1164"
+   xlink:href="consent-definitions.html#Consent.provision.data.reference"><title
+   id="title28020">A reference to a specific resource that defines which resources are covered by this consent</title>reference</a> : <a
+   id="n1165"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1166"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
   </g>
   <line
-     id="n871"
-     x1="286.0"
-     y1="119.22331368696794"
-     x2="400.0"
-     y2="93.09364767518012"
+     id="n1171"
+     x1="303.6"
+     y1="208.0"
+     x2="423.6"
+     y2="208.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n872"
-     points="286.0,119.22331368696794 292.0,123.22331368696794 298.0,119.22331368696794 292.0,115.22331368696794 286.0,119.22331368696794"
+     id="n1172"
+     points="303.6,208.0 309.6,212.0 315.6,208.0 309.6,204.0 303.6,208.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-12.909636749694435 286.0 119.22331368696794)" />
+     transform="rotate(0.0 303.6 208.0)" />
   <rect
-     id="n873"
-     x="330.0"
-     y="99.0"
-     width="26.0"
+     id="n1173"
+     x="339.0"
+     y="201.0"
+     width="48.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n874"
-     x="343.0"
-     y="109.0"
+     id="n1174"
+     x="363.0"
+     y="211.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.policy"
-       id="n875"><title
-   id="title229">The references to the policies that are included in this consent scope. Policies may be organizational, but are often defined jurisdictionally, or in law</title>
-policy</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1175"
+       xlink:href="consent-definitions.html#Consent.policyBasis"><title
+   id="title28030">A Reference or URL used to uniquely identify the policy the organization will enforce for this Consent. This Reference or URL should be specific to the version of the policy and should be dereferencable to a computable policy of some form</title>policyBasis</a></text>
   <text
-     id="n876"
-     x="380.0"
-     y="89.09364767518012"
+     id="n1176"
+     x="403.6"
+     y="204.0"
      fill="black"
-     class="diagram-class-linkage">[0..*]</text>
+     class="diagram-class-linkage">[0..1]</text>
   <line
-     id="n877"
-     x1="286.0"
-     y1="135.39048672566375"
+     id="n1177"
+     x1="303.6"
+     y1="181.53895410885804"
      x2="560.0"
-     y2="103.56526548672569"
+     y2="136.84453930985416"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n878"
-     points="286.0,135.39048672566375 292.0,139.39048672566375 298.0,135.39048672566375 292.0,131.39048672566375 286.0,135.39048672566375"
+     id="n1178"
+     points="303.6,181.53895410885804 309.6,185.53895410885804 315.6,181.53895410885804 309.6,177.53895410885804 303.6,181.53895410885804"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-6.625243023493737 286.0 135.39048672566375)" />
+     transform="rotate(-9.888170298460807 303.6 181.53895410885804)" />
   <rect
-     id="n879"
-     x="397.0"
-     y="112.0"
+     id="n1179"
+     x="405.0"
+     y="152.0"
      width="52.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n880"
-     x="423.0"
-     y="122.0"
+     id="n1180"
+     x="431.0"
+     y="162.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.verification"
-       id="n881"><title
-   id="title237">Whether a treatment instruction (e.g. artificial respiration yes or no) was verified with the patient, his/her family or another authorized person</title>
-verification</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1181"
+       xlink:href="consent-definitions.html#Consent.verification"><title
+   id="title28038">Whether a treatment instruction (e.g. artificial respiration: yes or no) was verified with the patient, his/her family or another authorized person</title>verification</a></text>
   <text
-     id="n882"
+     id="n1182"
      x="540.0"
-     y="99.56526548672569"
+     y="132.84453930985416"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n883"
-     x1="643.6"
-     y1="184.2324999999999"
-     x2="907.8051813471501"
-     y2="78.0"
+     id="n1183"
+     x1="406.0"
+     y1="279.4497674909121"
+     x2="306.4763969408699"
+     y2="312.72006999999996"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n884"
-     points="643.6,184.2324999999999 649.6,188.2324999999999 655.6,184.2324999999999 649.6,180.2324999999999 643.6,184.2324999999999"
+     id="n1184"
+     points="406.0,279.4497674909121 412.0,283.4497674909121 418.0,279.4497674909121 412.0,275.4497674909121 406.0,279.4497674909121"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-21.904237408100673 643.6 184.2324999999999)" />
+     transform="rotate(161.51544511933983 406.0 279.4497674909121)" />
   <rect
-     id="n885"
-     x="764.0"
-     y="124.0"
+     id="n1185"
+     x="345.0"
+     y="289.0"
      width="22.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n886"
-     x="775.0"
-     y="134.0"
+     id="n1186"
+     x="356.0"
+     y="299.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.provision.actor"
-       id="n887"><title
-   id="title245">Who or what is controlled by this rule. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>
-actor</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1187"
+       xlink:href="consent-definitions.html#Consent.provision.actor"><title
+   id="title28046">Who or what is controlled by this provision. Use group to identify a set of actors by some property they share (e.g. 'admitting officers')</title>actor</a></text>
   <text
-     id="n888"
-     x="907.8051813471501"
-     y="92.0"
+     id="n1188"
+     x="306.4763969408699"
+     y="308.72006999999996"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n889"
-     x1="524.8"
-     y1="306.0"
-     x2="524.8"
-     y2="386.0000000000001"
+     id="n1189"
+     x1="526.004469273743"
+     y1="320.0"
+     x2="525.1932960893855"
+     y2="385.9999999999927"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n890"
-     points="524.8,306.0 530.8,310.0 536.8,306.0 530.8,302.0 524.8,306.0"
+     id="n1190"
+     points="526.004469273743,320.0 532.004469273743,324.0 538.004469273743,320.0 532.004469273743,316.0 526.004469273743,320.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(90.0 524.8 306.0)" />
+     transform="rotate(90.70415848368206 526.004469273743 320.0)" />
   <rect
-     id="n891"
-     x="515.5"
-     y="339.0"
+     id="n1191"
+     x="516.5"
+     y="345.0"
      width="17.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n892"
-     x="524.0"
-     y="349.0"
+     id="n1192"
+     x="525.0"
+     y="355.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.provision.data"
-       id="n893"><title
-   id="title253">The resources controlled by this rule if specific resources are referenced</title>
-data</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1193"
+       xlink:href="consent-definitions.html#Consent.provision.data"><title
+   id="title28054">The resources controlled by this provision if specific resources are referenced</title>data</a></text>
   <text
-     id="n894"
-     x="524.8"
-     y="382.0000000000001"
+     id="n1194"
+     x="525.1932960893855"
+     y="381.9999999999927"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n895"
-     x1="643.6"
-     y1="207.0"
-     x2="703.6"
-     y2="207.0"
+     id="n1195"
+     x1="648.0"
+     y1="214.0"
+     x2="708.0"
+     y2="214.0"
      style="stroke:navy;stroke-width:1" />
   <line
-     id="n896"
-     x1="703.6"
-     y1="207.0"
-     x2="703.6"
-     y2="257.0"
+     id="n1196"
+     x1="708.0"
+     y1="214.0"
+     x2="708.0"
+     y2="264.0"
      style="stroke:navy;stroke-width:1" />
   <line
-     id="n897"
-     x1="703.6"
-     y1="257.0"
-     x2="643.6"
-     y2="257.0"
+     id="n1197"
+     x1="708.0"
+     y1="264.0"
+     x2="648.0"
+     y2="264.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n898"
-     points="643.6,207.0 649.6,211.0 655.6,207.0 649.6,203.0 643.6,207.0"
+     id="n1198"
+     points="648.0,214.0 654.0,218.0 660.0,214.0 654.0,210.0 648.0,214.0"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(0.0 643.6 207.0)" />
+     transform="rotate(0.0 648.0 214.0)" />
   <rect
-     id="n899"
-     x="683.5"
-     y="225.0"
+     id="n1199"
+     x="688.5"
+     y="232.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n900"
-     x="703.0"
-     y="235.0"
+     id="n1200"
+     x="708.0"
+     y="242.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.provision.provision"
-       id="n901"><title
-   id="title263">Rules which provide exceptions to the base rule or subrules</title>
-provision</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1201"
+       xlink:href="consent-definitions.html#Consent.provision.provision"><title
+   id="title28064">Provisions which provide exceptions to the base provision or subprovisions</title>provision</a></text>
   <text
-     id="n902"
-     x="658.6"
-     y="253.0"
+     id="n1202"
+     x="663.0"
+     y="260.0"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n903"
-     x1="286.0"
-     y1="181.96333158721845"
+     id="n1203"
+     x1="303.6"
+     y1="220.5421108742004"
      x2="406.0"
-     y2="207.10738606600313"
+     y2="229.00266524520254"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n904"
-     points="286.0,181.96333158721845 292.0,185.96333158721845 298.0,181.96333158721845 292.0,177.96333158721845 286.0,181.96333158721845"
+     id="n1204"
+     points="303.6,220.5421108742004 309.6,224.5421108742004 315.6,220.5421108742004 309.6,216.5421108742004 303.6,220.5421108742004"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(11.834192949158215 286.0 181.96333158721845)" />
+     transform="rotate(4.723198212544074 303.6 220.5421108742004)" />
   <rect
-     id="n905"
-     x="326.5"
-     y="187.0"
+     id="n1205"
+     x="334.5"
+     y="217.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n906"
-     x="346.0"
-     y="197.0"
+     id="n1206"
+     x="354.0"
+     y="227.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="consent-definitions.html#Consent.provision"
-       id="n907"><title
-   id="title271">An exception to the base policy of this consent. An exception can be an addition or removal of access permissions</title>
-provision</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1207"
+       xlink:href="consent-definitions.html#Consent.provision"><title
+   id="title28072">An exception to the base policy of this consent. An exception can be an addition or removal of access permissions</title>provision</a></text>
   <text
-     id="n908"
+     id="n1208"
      x="386.0"
-     y="203.10738606600313"
+     y="225.00266524520254"
      fill="black"
-     class="diagram-class-linkage">[0..1]</text>
+     class="diagram-class-linkage">[0..*]</text>
 </svg>

@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n542"
+   version="1.1"
+   width="1020.4000000000001"
+   height="324.0"
+   sodipodi:docname="coverage.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18844"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2210897"
+     inkscape:cx="510.20001"
+     inkscape:cy="162.55971"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n542" />
+  <defs
+     id="defs18597">
+    <filter
+       id="shadow1"
+       x="-0.023164335"
+       y="-0.0828125"
+       width="1.0594406"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset18588" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix18590" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur18592" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend18594" />
+    </filter>
+  </defs>
+  <g
+     id="n543">
+    <rect
+       id="Coverage"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="308.0"
+       height="274.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n544"
+       x1="0.0"
+       y1="28.0"
+       x2="308.0"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n545"
+       x="154.0"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Coverage<tspan
+   class="diagram-class-title-link"
+   id="tspan18602"> (<a
+   id="n546"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n547"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n548"
+   xlink:href="coverage-definitions.html#Coverage.identifier"><title
+   id="title18605">The identifier of the coverage as issued by the insurer</title>identifier</a> : <a
+   id="n549"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n553"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n554"
+   xlink:href="coverage-definitions.html#Coverage.status"><title
+   id="title18610">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n555"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n556"
+   xlink:href="valueset-fm-status.html"><title
+   id="n557">null (Strength=Required)</title>FinancialResourceStatusCodes</a>! »</text>
+    <text
+       id="n563"
+       x="6.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n564"
+   xlink:href="coverage-definitions.html#Coverage.kind"><title
+   id="title18617">The nature of the coverage be it insurance, or cash payment such as self-pay</title>kind</a> : <a
+   id="n565"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n566"
+   xlink:href="valueset-coverage-kind.html"><title
+   id="n567">null (Strength=Required)</title>Kind</a>! »</text>
+    <text
+       id="n573"
+       x="6.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n574"
+   xlink:href="coverage-definitions.html#Coverage.type"><title
+   id="title18624">The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization</title>type</a> : <a
+   id="n575"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n576"
+   xlink:href="valueset-coverage-type.html"><title
+   id="title18628">null (Strength=Preferred)</title>CoverageTypeAndSelfPayCodes</a>? »</text>
+    <text
+       id="n581"
+       x="6.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n582"
+   xlink:href="coverage-definitions.html#Coverage.policyHolder"><title
+   id="title18632">The party who 'owns' the insurance policy</title>policyHolder</a> : <a
+   id="n583"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n584"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n585"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n586"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n593"
+       x="6.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n594"
+   xlink:href="coverage-definitions.html#Coverage.subscriber"><title
+   id="title18640">The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due</title>subscriber</a> : <a
+   id="n595"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n596"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n597"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n603"
+       x="6.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n604"
+   xlink:href="coverage-definitions.html#Coverage.subscriberId"><title
+   id="title18647">The insurer assigned ID for the Subscriber</title>subscriberId</a> : <a
+   id="n605"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n609"
+       x="6.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n610"
+   xlink:href="coverage-definitions.html#Coverage.beneficiary"><title
+   id="title18652">The party who benefits from the insurance coverage; the patient when products and/or services are provided</title>beneficiary</a> : <a
+   id="n611"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n612"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n617"
+       x="6.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n618"
+   xlink:href="coverage-definitions.html#Coverage.dependent"><title
+   id="title18658">A designator for a dependent under the coverage</title>dependent</a> : <a
+   id="n619"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n623"
+       x="6.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n624"
+   xlink:href="coverage-definitions.html#Coverage.relationship"><title
+   id="title18663">The relationship of beneficiary (patient) to the subscriber</title>relationship</a> : <a
+   id="n625"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n626"
+   xlink:href="valueset-subscriber-relationship.html"><title
+   id="n627">null (Strength=Extensible)</title>SubscriberRelationshipCodes</a>+ »</text>
+    <text
+       id="n633"
+       x="6.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n634"
+   xlink:href="coverage-definitions.html#Coverage.period"><title
+   id="title18670">Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force</title>period</a> : <a
+   id="n635"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n639"
+       x="6.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n640"
+   xlink:href="coverage-definitions.html#Coverage.insurer"><title
+   id="title18675">The program or plan underwriter, payor, insurance company</title>insurer</a> : <a
+   id="n641"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n642"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n647"
+       x="6.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n648"
+   xlink:href="coverage-definitions.html#Coverage.order"><title
+   id="title18681">The order of applicability of this coverage relative to other coverages which are currently in force. Note, there may be gaps in the numbering and this does not imply primary, secondary etc. as the specific positioning of coverages depends upon the episode of care. For example; a patient might have (0) auto insurance (1) their own health insurance and (2) spouse's health insurance. When claiming for treatments which were not the result of an auto accident then only coverages (1) and (2) above would be applicatble and would apply in the order specified in parenthesis</title>order</a> : <a
+   id="n649"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..1]</text>
+    <text
+       id="n653"
+       x="6.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n654"
+   xlink:href="coverage-definitions.html#Coverage.network"><title
+   id="title18686">The insurer-specific identifier for the insurer-defined network of providers to which the beneficiary may seek treatment which will be covered at the 'in-network' rate, otherwise 'out of network' terms and conditions apply</title>network</a> : <a
+   id="n655"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n659"
+       x="6.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n660"
+   xlink:href="coverage-definitions.html#Coverage.subrogation"><title
+   id="title18691">When 'subrogation=true' this insurance instance has been included not for adjudication but to provide insurers with the details to recover costs</title>subrogation</a> : <a
+   id="n661"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n665"
+       x="6.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n666"
+   xlink:href="coverage-definitions.html#Coverage.contract"><title
+   id="title18696">The policy(s) which constitute this insurance coverage</title>contract</a> : <a
+   id="n667"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n668"
+   xlink:href="contract.html#Contract">Contract</a> »</text>
+    <text
+       id="n673"
+       x="6.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n674"
+   xlink:href="coverage-definitions.html#Coverage.insurancePlan"><title
+   id="title18702">The insurance plan details, benefits and costs, which constitute this insurance coverage</title>insurancePlan</a> : <a
+   id="n675"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n676"
+   xlink:href="insuranceplan.html#InsurancePlan">InsurancePlan</a> »</text>
+  </g>
+  <g
+     id="n681"
+     transform="translate(-281.71558,308.74062)">
+    <rect
+       id="Coverage.paymentBy"
+       x="320"
+       y="0"
+       rx="4"
+       ry="4"
+       width="277.20001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n682"
+       x1="320"
+       y1="28"
+       x2="597.20001"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n683"
+       x="458.60001"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">PaymentBy</text>
+    <text
+       id="n684"
+       x="326"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n685"
+   xlink:href="coverage-definitions.html#Coverage.paymentBy.party"><title
+   id="title18712">The list of parties providing non-insurance payment for the treatment costs</title>party</a> : <a
+   id="n686"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n687"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n688"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n689"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n696"
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n697"
+   xlink:href="coverage-definitions.html#Coverage.paymentBy.responsibility"><title
+   id="title18720"> Description of the financial responsibility</title>responsibility</a> : <a
+   id="n698"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n702"
+     transform="translate(15.559872,15.559872)">
+    <rect
+       id="Coverage.class"
+       x="430"
+       y="0"
+       rx="4"
+       ry="4"
+       width="228.8"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n703"
+       x1="430"
+       y1="28"
+       x2="658.79999"
+       y2="28"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n704"
+       x="544.40002"
+       y="20"
+       fill="#000000"
+       class="diagram-class-title">Class</text>
+    <text
+       id="n705"
+       x="436"
+       y="42"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n706"
+   xlink:href="coverage-definitions.html#Coverage.class.type"><title
+   id="title18729">The type of classification for which an insurer-specific class label or number and optional name is provided.  For example, type may be used to identify a class of coverage or employer group, policy, or plan</title>type</a> : <a
+   id="n707"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n708"
+   xlink:href="valueset-coverage-class.html"><title
+   id="n709">null (Strength=Extensible)</title>CoverageClassCodes</a>+ »</text>
+    <text
+       id="n715"
+       x="436"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n716"
+   xlink:href="coverage-definitions.html#Coverage.class.value"><title
+   id="title18736">The alphanumeric identifier associated with the insurer issued label</title>value</a> : <a
+   id="n717"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [1..1]</text>
+    <text
+       id="n721"
+       x="436"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n722"
+   xlink:href="coverage-definitions.html#Coverage.class.name"><title
+   id="title18741">A short description for the class</title>name</a> : <a
+   id="n723"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+  </g>
+  <g
+     id="n727"
+     transform="translate(3.2757625,40.947031)">
+    <rect
+       id="Coverage.costToBeneficiary"
+       x="430"
+       y="100"
+       rx="4"
+       ry="4"
+       width="268.39999"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n728"
+       x1="430"
+       y1="128"
+       x2="698.40002"
+       y2="128"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n729"
+       x="564.20001"
+       y="120"
+       fill="#000000"
+       class="diagram-class-title">CostToBeneficiary</text>
+    <text
+       id="n730"
+       x="436"
+       y="142"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n731"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.type"><title
+   id="title18750">The category of patient centric costs associated with treatment</title>type</a> : <a
+   id="n732"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n733"
+   xlink:href="valueset-coverage-copay-type.html"><title
+   id="n734">null (Strength=Extensible)</title>CoverageCopayTypeCodes</a>+ »</text>
+    <text
+       id="n740"
+       x="436"
+       y="156"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n741"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.category"><title
+   id="title18757">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n742"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n743"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n744">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n750"
+       x="436"
+       y="170"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n751"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.network"><title
+   id="title18764">Is a flag to indicate whether the benefits refer to in-network providers or out-of-network providers</title>network</a> : <a
+   id="n752"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n753"
+   xlink:href="valueset-benefit-network.html"><title
+   id="n754">null (Strength=Example)</title>NetworkTypeCodes</a>?? »</text>
+    <text
+       id="n760"
+       x="436"
+       y="184"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n761"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.unit"><title
+   id="title18771">Indicates if the benefits apply to an individual or to the family</title>unit</a> : <a
+   id="n762"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n763"
+   xlink:href="valueset-benefit-unit.html"><title
+   id="n764">null (Strength=Example)</title>UnitTypeCodes</a>?? »</text>
+    <text
+       id="n770"
+       x="436"
+       y="198"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n771"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.term"><title
+   id="title18778">The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual visits'</title>term</a> : <a
+   id="n772"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n773"
+   xlink:href="valueset-benefit-term.html"><title
+   id="n774">null (Strength=Example)</title>BenefitTermCodes</a>?? »</text>
+    <text
+       id="n780"
+       x="436"
+       y="212"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n781"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.value_x_"><title
+   id="title18785">The amount due from the patient for the cost category</title>value[x]</a> : <a
+   id="n782"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n783"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a18790">SimpleQuantity</a>)|<a
+   id="n784"
+   xlink:href="datatypes.html#Money">Money</a> »</text>
+  </g>
+  <g
+     id="n790"
+     transform="translate(-8.1894063,67.153132)">
+    <rect
+       id="Coverage.costToBeneficiary.exception"
+       x="430"
+       y="230"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n791"
+       x1="430"
+       y1="258"
+       x2="720.40002"
+       y2="258"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n792"
+       x="575.20001"
+       y="250"
+       fill="#000000"
+       class="diagram-class-title">Exemption</text>
+    <text
+       id="n793"
+       x="436"
+       y="272"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n794"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.exception.type"><title
+   id="title18798">The code for the specific exception</title>type</a> : <a
+   id="n795"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n796"
+   xlink:href="valueset-coverage-financial-exception.html"><title
+   id="n797">null (Strength=Example)</title>ExampleCoverageFinancialExcep...</a>?? »</text>
+    <text
+       id="n803"
+       x="436"
+       y="286"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n804"
+   xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.exception.period"><title
+   id="title18805">The timeframe the exception is in force</title>period</a> : <a
+   id="n805"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+  </g>
+  <line
+     id="n809"
+     x1="308.0"
+     y1="83.91398555482598"
+     x2="365.7695238095238"
+     y2="64.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n810"
+     points="308.0,83.91398555482598 314.0,87.91398555482598 320.0,83.91398555482598 314.0,79.91398555482598 308.0,83.91398555482598"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-19.019808864600105 308.0 83.91398555482598)" />
+  <rect
+     id="n811"
+     x="316.5"
+     y="66.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n812"
+     x="336.0"
+     y="76.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n813"
+       xlink:href="coverage-definitions.html#Coverage.paymentBy"><title
+   id="title18814">Link to the paying party and optionally what specifically they will be responsible to pay</title>paymentBy</a></text>
+  <text
+     id="n814"
+     x="365.7695238095238"
+     y="78.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n815"
+     x1="308.0"
+     y1="98.34221311475412"
+     x2="430.0"
+     y2="67.71721311475412"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n816"
+     points="308.0,98.34221311475412 314.0,102.34221311475412 320.0,98.34221311475412 314.0,94.34221311475412 308.0,98.34221311475412"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-14.091481608935508 308.0 98.34221311475412)" />
+  <rect
+     id="n817"
+     x="358.0"
+     y="76.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n818"
+     x="369.0"
+     y="86.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n819"
+       xlink:href="coverage-definitions.html#Coverage.class"><title
+   id="title18822">A suite of underwriter specific classifiers</title>class</a></text>
+  <text
+     id="n820"
+     x="410.0"
+     y="63.71721311475412"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n821"
+     x1="570.6705882352943"
+     y1="220.0"
+     x2="571.7490196078434"
+     y2="230.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n822"
+     points="570.6705882352943,220.0 576.6705882352943,224.0 582.6705882352943,220.0 576.6705882352943,216.0 570.6705882352943,220.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(83.84483165672576 570.6705882352943 220.0)" />
+  <rect
+     id="n823"
+     x="551.5"
+     y="218.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n824"
+     x="571.0"
+     y="228.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n825"
+       xlink:href="coverage-definitions.html#Coverage.costToBeneficiary.exception"><title
+   id="title18830">A suite of codes indicating exceptions or reductions to patient costs and their effective periods</title>exception</a></text>
+  <text
+     id="n826"
+     x="571.7490196078434"
+     y="226.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n827"
+     x1="308.0"
+     y1="145.63481228668942"
+     x2="430.0"
+     y2="152.47537786445636"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n828"
+     points="308.0,145.63481228668942 314.0,149.63481228668942 320.0,145.63481228668942 314.0,141.63481228668942 308.0,145.63481228668942"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(3.209226056332538 308.0 145.63481228668942)" />
+  <rect
+     id="n829"
+     x="332.0"
+     y="142.0"
+     width="74.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n830"
+     x="369.0"
+     y="152.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n831"
+       xlink:href="coverage-definitions.html#Coverage.costToBeneficiary"><title
+   id="title18838">A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card</title>costToBeneficiary</a></text>
+  <text
+     id="n832"
+     x="410.0"
+     y="148.47537786445636"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>

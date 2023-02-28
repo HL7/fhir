@@ -1,84 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="n700"
+   id="n742"
    version="1.1"
-   width="1144.4"
-   height="458.0"
+   width="894.26128"
+   height="469.081338"
    sodipodi:docname="immunization.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <metadata
-     id="metadata307">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
+     id="namedview40701"
      pagecolor="#ffffff"
      bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1377"
-     id="namedview305"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.99265989"
-     inkscape:cx="572.20001"
-     inkscape:cy="229"
-     inkscape:window-x="-8"
-     inkscape:window-y="358"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="n700" />
+     inkscape:zoom="1.3933288"
+     inkscape:cx="447.13065"
+     inkscape:cy="235.04861"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="0"
+     inkscape:window-y="52"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n742" />
   <defs
-     id="defs11">
+     id="defs40394">
     <filter
        id="shadow1"
-       x="0"
-       y="0"
-       width="200%"
-       height="200%">
+       x="-0.026767677"
+       y="-0.067948718"
+       width="1.0686869"
+       height="1.174359">
       <feOffset
          result="offOut"
          in="SourceGraphic"
          dx="3"
          dy="3"
-         id="feOffset2" />
+         id="feOffset40385" />
       <feColorMatrix
          result="matrixOut"
          in="offOut"
          type="matrix"
          values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
-         id="feColorMatrix4" />
+         id="feColorMatrix40387" />
       <feGaussianBlur
          result="blurOut"
          in="matrixOut"
          stdDeviation="2"
-         id="feGaussianBlur6" />
+         id="feGaussianBlur40389" />
       <feBlend
          in="SourceGraphic"
          in2="blurOut"
          mode="normal"
-         id="feBlend8" />
+         id="feBlend40391" />
     </filter>
   </defs>
   <g
-     id="n701">
+     id="n743">
     <rect
        id="Immunization"
        x="0.0"
@@ -86,944 +71,826 @@
        rx="4"
        ry="4"
        width="299.20000000000005"
-       height="428.0"
+       height="456.0"
        filter="url(#shadow1)"
        style="fill:#fff9ec;stroke:black;stroke-width:1" />
     <line
-       id="n702"
+       id="n744"
        x1="0.0"
        y1="28.0"
        x2="299.20000000000005"
        y2="28.0"
        style="stroke:dimgrey;stroke-width:1" />
     <text
-       id="n703"
+       id="n745"
        x="149.60000000000002"
        y="20.0"
        fill="black"
        class="diagram-class-title  diagram-class-resource">Immunization<tspan
    class="diagram-class-title-link"
-   id="tspan16"> (<a
-   xlink:href="domainresource.html"
+   id="tspan40399"> (<a
+   id="n746"
+   xlink:href="domainresource.html#DomainResource"
    class="diagram-class-reference"
-   id="n704">DomainResource</a>
-)</tspan>
-</text>
+   style="font-style: italic">DomainResource</a>)</tspan></text>
     <text
-       id="n705"
+       id="n747"
        x="6.0"
        y="42.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.identifier"
-   id="n706"><title
-   id="title19">A unique identifier assigned to this immunization record</title>
-identifier</a>
- : <a
-   xlink:href="datatypes.html#Identifier"
-   id="n707">Identifier</a>
- [0..*]</text>
+   id="n748"
+   xlink:href="immunization-definitions.html#Immunization.identifier"><title
+   id="title40402">A unique identifier assigned to this immunization record</title>identifier</a> : <a
+   id="n749"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
     <text
-       id="n711"
+       id="n753"
        x="6.0"
        y="56.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.status"
-   id="n712"><title
-   id="title24">Indicates the current status of the immunization event (this element modifies the meaning of other elements)</title>
-status</a>
- : <a
-   xlink:href="datatypes.html#code"
-   id="n713">code</a>
- [1..1] « <a
-   xlink:href="valueset-immunization-status.html"
-   id="n714"><title
-   id="n715">A set of codes indicating the current status of an Immunization. (Strength=Required)</title>
-ImmunizationStatusCodes</a>
-! »</text>
+   id="n754"
+   xlink:href="immunization-definitions.html#Immunization.basedOn"><title
+   id="title40407">A plan, order or recommendation fulfilled in whole or in part by this immunization</title>basedOn</a> : <a
+   id="n755"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n756"
+   xlink:href="careplan.html#CarePlan">CarePlan</a>|<a
+   id="n757"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
     <text
-       id="n721"
-       x="6.0"
+       id="n758"
+       x="26.0"
        y="70.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.statusReason"
-   id="n722"><title
-   id="title31">Indicates the reason the immunization event was not performed</title>
-statusReason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n723">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-status-reason.html"
-   id="n724">
-  <title
-     id="n725">The reason why a vaccine was not administered. (Strength=Example)</title>
-</a>
-</text>
+   id="n759"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n760"
+   xlink:href="immunizationrecommendation.html#ImmunizationRecommendation">ImmunizationRecommendation</a> »</text>
     <text
-       id="n726"
-       x="26.0"
+       id="n769"
+       x="6.0"
        y="84.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-immunization-status-reason.html"
-   id="n727">ImmunizationStatusReasonCodes</a>
-?? »</text>
+   id="n770"
+   xlink:href="immunization-definitions.html#Immunization.status"><title
+   id="title40417">Indicates the current status of the immunization event (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n771"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n772"
+   xlink:href="valueset-immunization-status.html"><title
+   id="n773">null (Strength=Required)</title>ImmunizationStatusCodes</a>! »</text>
     <text
-       id="n735"
+       id="n779"
        x="6.0"
        y="98.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.vaccineCode"
-   id="n736"><title
-   id="title40">Vaccine that was administered or was to be administered</title>
-vaccineCode</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n737">CodeableConcept</a>
- [1..1] « <a
-   xlink:href="valueset-vaccine-code.html"
-   id="n738"><title
-   id="n739">The code for vaccine product administered. (Strength=Example)</title>
-VaccineAdministeredValueSet</a>
-?? »</text>
+   id="n780"
+   xlink:href="immunization-definitions.html#Immunization.statusReason"><title
+   id="title40424">Indicates the reason the immunization event was not performed</title>statusReason</a> : <a
+   id="n781"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n782"
+   xlink:href="valueset-immunization-status-reason.html"><title
+     id="n783">null (Strength=Example)</title></a></text>
     <text
-       id="n745"
-       x="6.0"
+       id="n784"
+       x="26.0"
        y="112.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.patient"
-   id="n746"><title
-   id="title47">The patient who either received or did not receive the immunization</title>
-patient</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n747">Reference</a>
- [1..1] « <a
-   xlink:href="patient.html#Patient"
-   id="n748">Patient</a>
- »</text>
+   id="n785"
+   xlink:href="valueset-immunization-status-reason.html">ImmunizationStatusReasonCodes</a>?? »</text>
     <text
-       id="n753"
+       id="n793"
        x="6.0"
        y="126.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.encounter"
-   id="n754"><title
-   id="title53">The visit or admission or other contact between patient and health care provider the immunization was performed as part of</title>
-encounter</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n755">Reference</a>
- [0..1] « <a
-   xlink:href="encounter.html#Encounter"
-   id="n756">Encounter</a>
- »</text>
+   id="n794"
+   xlink:href="immunization-definitions.html#Immunization.vaccineCode"><title
+   id="title40433">Vaccine that was administered or was to be administered</title>vaccineCode</a> : <a
+   id="n795"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n796"
+   xlink:href="valueset-vaccine-code.html"><title
+   id="n797">null (Strength=Example)</title>VaccineAdministeredValueSet</a>?? »</text>
     <text
-       id="n761"
+       id="n803"
        x="6.0"
        y="140.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.occurrence_x_"
-   id="n762"><title
-   id="title59">Date vaccine administered or was to be administered</title>
-occurrence[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n763">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#dateTime"
-   id="n764">dateTime</a>
-|<a
-   xlink:href="datatypes.html#string"
-   id="n765">string</a>
- »</text>
+   id="n804"
+   xlink:href="immunization-definitions.html#Immunization.administeredProduct"><title
+   id="title40440">An indication of which product was administered to the patient. This is typically a more detailed representation of the concept conveyed by the vaccineCode data element. If a Medication resource is referenced, it may be to a stand-alone resource or a contained resource within the Immunization resource</title>administeredProduct</a> : <a
+   id="n805"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n806"
+   xlink:href="medication.html#Medication">Medication</a> »</text>
     <text
-       id="n771"
+       id="n811"
        x="6.0"
        y="154.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.recorded"
-   id="n772"><title
-   id="title66">The date the occurrence of the immunization was first captured in the record - potentially significantly after the occurrence of the event</title>
-recorded</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n773">dateTime</a>
- [0..1]</text>
+   id="n812"
+   xlink:href="immunization-definitions.html#Immunization.manufacturer"><title
+   id="title40446">Name of vaccine manufacturer</title>manufacturer</a> : <a
+   id="n813"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n814"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
     <text
-       id="n777"
+       id="n819"
        x="6.0"
        y="168.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.primarySource"
-   id="n778"><title
-   id="title71">An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded</title>
-primarySource</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n779">boolean</a>
- [0..1]</text>
+   id="n820"
+   xlink:href="immunization-definitions.html#Immunization.lotNumber"><title
+   id="title40452">Lot number of the  vaccine product</title>lotNumber</a> : <a
+   id="n821"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
     <text
-       id="n783"
+       id="n825"
        x="6.0"
        y="182.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.reportOrigin"
-   id="n784"><title
-   id="title76">The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine</title>
-reportOrigin</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n785">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-origin.html"
-   id="n786"><title
-   id="n787">The source of the data for a record which is not from a primary source. (Strength=Example)</title>
-ImmunizationOriginCodes</a>
-?? »</text>
+   id="n826"
+   xlink:href="immunization-definitions.html#Immunization.expirationDate"><title
+   id="title40457">Date vaccine batch expires</title>expirationDate</a> : <a
+   id="n827"
+   xlink:href="datatypes.html#date">date</a> [0..1]</text>
     <text
-       id="n793"
+       id="n831"
        x="6.0"
        y="196.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.location"
-   id="n794"><title
-   id="title83">The service delivery location where the vaccine administration occurred</title>
-location</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n795">Reference</a>
- [0..1] « <a
-   xlink:href="location.html#Location"
-   id="n796">Location</a>
- »</text>
+   id="n832"
+   xlink:href="immunization-definitions.html#Immunization.patient"><title
+   id="title40462">The patient who either received or did not receive the immunization</title>patient</a> : <a
+   id="n833"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n834"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
     <text
-       id="n801"
+       id="n839"
        x="6.0"
        y="210.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.manufacturer"
-   id="n802"><title
-   id="title89">Name of vaccine manufacturer</title>
-manufacturer</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n803">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n804">Organization</a>
- »</text>
+   id="n840"
+   xlink:href="immunization-definitions.html#Immunization.encounter"><title
+   id="title40468">The visit or admission or other contact between patient and health care provider the immunization was performed as part of</title>encounter</a> : <a
+   id="n841"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n842"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
     <text
-       id="n809"
+       id="n847"
        x="6.0"
        y="224.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.lotNumber"
-   id="n810"><title
-   id="title95">Lot number of the  vaccine product</title>
-lotNumber</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n811">string</a>
- [0..1]</text>
+   id="n848"
+   xlink:href="immunization-definitions.html#Immunization.supportingInformation"><title
+   id="title40474">Additional information that is relevant to the immunization (e.g. for a vaccine recipient who is pregnant, the gestational age of the fetus). The reason why a vaccine was given (e.g. occupation, underlying medical condition) should be conveyed in Immunization.reason, not as supporting information. The reason why a vaccine was not given (e.g. contraindication) should be conveyed in Immunization.statusReason, not as supporting information</title>supportingInformation</a> : <a
+   id="n849"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n850"
+   xlink:href="resourcelist.html#Any">Any</a> »</text>
     <text
-       id="n815"
+       id="n855"
        x="6.0"
        y="238.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.expirationDate"
-   id="n816"><title
-   id="title100">Date vaccine batch expires</title>
-expirationDate</a>
- : <a
-   xlink:href="datatypes.html#date"
-   id="n817">date</a>
- [0..1]</text>
+   id="n856"
+   xlink:href="immunization-definitions.html#Immunization.occurrence_x_"><title
+   id="title40480">Date vaccine administered or was to be administered</title>occurrence[x]</a> : <a
+   id="n857"
+   xlink:href="types.html#PrimitiveType">PrimitiveType</a> [1..1] « <a
+   id="n858"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n859"
+   xlink:href="datatypes.html#string">string</a> »</text>
     <text
-       id="n821"
+       id="n865"
        x="6.0"
        y="252.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.site"
-   id="n822"><title
-   id="title105">Body site where vaccine was administered</title>
-site</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n823">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-site.html"
-   id="n824"><title
-   id="n825">The site at which the vaccine was administered. (Strength=Example)</title>
-CodesForImmunizationSiteOfAdm...</a>
-?? »</text>
+   id="n866"
+   xlink:href="immunization-definitions.html#Immunization.primarySource"><title
+   id="title40487">Indicates whether the data contained in the resource was captured by the individual/organization which was responsible for the administration of the vaccine rather than as 'secondary reported' data documented by a third party. A value of 'true' means this data originated with the individual/organization which was responsible for the administration of the vaccine</title>primarySource</a> : <a
+   id="n867"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n831"
+       id="n871"
        x="6.0"
        y="266.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.route"
-   id="n832"><title
-   id="title112">The path by which the vaccine product is taken into the body</title>
-route</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n833">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-route.html"
-   id="n834"><title
-   id="n835">The route by which the vaccine was administered. (Strength=Example)</title>
-ImmunizationRouteCodes</a>
-?? »</text>
+   id="n872"
+   xlink:href="immunization-definitions.html#Immunization.informationSource"><title
+   id="title40492">Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine</title>informationSource</a> : <a
+   id="n873"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n874"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n875"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|</text>
     <text
-       id="n841"
-       x="6.0"
+       id="n876"
+       x="26.0"
        y="280.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.doseQuantity"
-   id="n842"><title
-   id="title119">The quantity of vaccine product that was administered</title>
-doseQuantity</a>
- : <a
-   xlink:href="datatypes.html#Quantity"
-   id="n843">Quantity</a>
-(<a
-   xlink:href="datatypes.html#SimpleQuantity"
-   id="a123">SimpleQuantity</a>
-) [0..1]</text>
+   id="n877"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n878"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a>|<a
+   id="n879"
+   xlink:href="organization.html#Organization">Organization</a>; <a
+   id="n880"
+   xlink:href="valueset-immunization-origin.html"><title
+     id="n881">null (Strength=Example)</title></a></text>
     <text
-       id="n847"
-       x="6.0"
+       id="n882"
+       x="26.0"
        y="294.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.note"
-   id="n848"><title
-   id="title126">Extra information about the immunization that is not conveyed by the other attributes</title>
-note</a>
- : <a
-   xlink:href="datatypes.html#Annotation"
-   id="n849">Annotation</a>
- [0..*]</text>
+   id="n883"
+   xlink:href="valueset-immunization-origin.html">ImmunizationOriginCodes</a>?? »</text>
     <text
-       id="n853"
+       id="n897"
        x="6.0"
        y="308.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.reasonCode"
-   id="n854"><title
-   id="title131">Reasons why the vaccine was administered</title>
-reasonCode</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n855">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-immunization-reason.html"
-   id="n856"><title
-   id="n857">The reason why a vaccine was administered. (Strength=Example)</title>
-ImmunizationReasonCodes</a>
-?? »</text>
+   id="n898"
+   xlink:href="immunization-definitions.html#Immunization.location"><title
+   id="title40507">The service delivery location where the vaccine administration occurred</title>location</a> : <a
+   id="n899"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n900"
+   xlink:href="location.html#Location">Location</a> »</text>
     <text
-       id="n863"
+       id="n905"
        x="6.0"
        y="322.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.reasonReference"
-   id="n864"><title
-   id="title138">Condition, Observation or DiagnosticReport that supports why the immunization was administered</title>
-reasonReference</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n865">Reference</a>
- [0..*] « <a
-   xlink:href="condition.html#Condition"
-   id="n866">Condition</a>
-|<a
-   xlink:href="observation.html#Observation"
-   id="n867">Observation</a>
-|</text>
+   id="n906"
+   xlink:href="immunization-definitions.html#Immunization.site"><title
+   id="title40513">Body site where vaccine was administered</title>site</a> : <a
+   id="n907"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n908"
+   xlink:href="valueset-immunization-site.html"><title
+   id="n909">null (Strength=Example)</title>CodesForImmunizationSiteOfAdm...</a>?? »</text>
     <text
-       id="n868"
-       x="26.0"
+       id="n915"
+       x="6.0"
        y="336.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="diagnosticreport.html#DiagnosticReport"
-   id="n869">DiagnosticReport</a>
- »</text>
+   id="n916"
+   xlink:href="immunization-definitions.html#Immunization.route"><title
+   id="title40520">The path by which the vaccine product is taken into the body</title>route</a> : <a
+   id="n917"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n918"
+   xlink:href="valueset-immunization-route.html"><title
+   id="n919">null (Strength=Example)</title>ImmunizationRouteCodes</a>?? »</text>
     <text
-       id="n877"
+       id="n925"
        x="6.0"
        y="350.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.isSubpotent"
-   id="n878"><title
-   id="title147">Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent (this element modifies the meaning of other elements)</title>
-isSubpotent</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n879">boolean</a>
- [0..1]</text>
+   id="n926"
+   xlink:href="immunization-definitions.html#Immunization.doseQuantity"><title
+   id="title40527">The quantity of vaccine product that was administered</title>doseQuantity</a> : <a
+   id="n927"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a40531">SimpleQuantity</a>) [0..1]</text>
     <text
-       id="n883"
+       id="n931"
        x="6.0"
        y="364.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.subpotentReason"
-   id="n884"><title
-   id="title152">Reason why a dose is considered to be subpotent</title>
-subpotentReason</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n885">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-immunization-subpotent-reason.html"
-   id="n886">
-  <title
-     id="n887">The reason why a dose is considered to be subpotent. (Strength=Example)</title>
-</a>
-</text>
+   id="n932"
+   xlink:href="immunization-definitions.html#Immunization.note"><title
+   id="title40534">Extra information about the immunization that is not conveyed by the other attributes</title>note</a> : <a
+   id="n933"
+   xlink:href="datatypes.html#Annotation">Annotation</a> [0..*]</text>
     <text
-       id="n888"
-       x="26.0"
+       id="n937"
+       x="6.0"
        y="378.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-immunization-subpotent-reason.html"
-   id="n889">ImmunizationSubpotentReason</a>
-?? »</text>
+   id="n938"
+   xlink:href="immunization-definitions.html#Immunization.reason"><title
+   id="title40539">Describes why the immunization occurred in coded or textual form, or Indicates another resource (Condition, Observation or DiagnosticReport) whose existence justifies this immunization</title>reason</a> : <a
+   id="n939"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..*] « <a
+   id="n940"
+   xlink:href="condition.html#Condition">Condition</a>|<a
+   id="n941"
+   xlink:href="observation.html#Observation">Observation</a>|</text>
     <text
-       id="n897"
-       x="6.0"
+       id="n942"
+       x="26.0"
        y="392.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.programEligibility"
-   id="n898"><title
-   id="title161">Indicates a patient's eligibility for a funding program</title>
-programEligibility</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n899">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-immunization-program-eligibility.html"
-   id="n900">
-  <title
-     id="n901">The patient's eligibility for a vaccation program. (Strength=Example)</title>
-</a>
-</text>
+   id="n943"
+   xlink:href="diagnosticreport.html#DiagnosticReport">DiagnosticReport</a>; <a
+   id="n944"
+   xlink:href="valueset-immunization-reason.html"><title
+   id="n945">null (Strength=Example)</title>ImmunizationReasonCodes</a>?? »</text>
     <text
-       id="n902"
-       x="26.0"
+       id="n955"
+       x="6.0"
        y="406.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="valueset-immunization-program-eligibility.html"
-   id="n903">ImmunizationProgramEligibility</a>
-?? »</text>
+   id="n956"
+   xlink:href="immunization-definitions.html#Immunization.isSubpotent"><title
+   id="title40550">Indication if a dose is considered to be subpotent. By default, a dose should be considered to be potent (this element modifies the meaning of other elements)</title>isSubpotent</a> : <a
+   id="n957"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
     <text
-       id="n911"
+       id="n961"
        x="6.0"
        y="420.0"
        fill="black"
        class="diagram-class-detail"><a
-   xlink:href="immunization-definitions.html#Immunization.fundingSource"
-   id="n912"><title
-   id="title170">Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)</title>
-fundingSource</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n913">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-funding-source.html"
-   id="n914"><title
-   id="n915">The source of funding used to purchase the vaccine administered. (Strength=Example)</title>
-ImmunizationFundingSource</a>
-?? »</text>
+   id="n962"
+   xlink:href="immunization-definitions.html#Immunization.subpotentReason"><title
+   id="title40555">Reason why a dose is considered to be subpotent</title>subpotentReason</a> : <a
+   id="n963"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n964"
+   xlink:href="valueset-immunization-subpotent-reason.html"><title
+     id="n965">null (Strength=Example)</title></a></text>
+    <text
+       id="n966"
+       x="26.0"
+       y="434.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n967"
+   xlink:href="valueset-immunization-subpotent-reason.html">ImmunizationSubpotentReason</a>?? »</text>
+    <text
+       id="n975"
+       x="6.0"
+       y="448.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n976"
+   xlink:href="immunization-definitions.html#Immunization.fundingSource"><title
+   id="title40564">Indicates the source of the vaccine actually administered. This may be different than the patient eligibility (e.g. the patient may be eligible for a publically purchased vaccine but due to inventory issues, vaccine purchased with private funds was actually administered)</title>fundingSource</a> : <a
+   id="n977"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n978"
+   xlink:href="valueset-immunization-funding-source.html"><title
+   id="n979">null (Strength=Example)</title>ImmunizationFundingSource</a>?? »</text>
   </g>
   <g
-     id="n921"
-     transform="translate(417.06128,11.081338)">
+     id="n985"
+     transform="translate(-3.5885285,12.918702)">
     <rect
        id="Immunization.performer"
-       x="0"
-       y="360"
+       x="417.06128"
+       y="371.08133"
        rx="4"
        ry="4"
        width="277.20001"
        height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n922"
-       x1="0"
-       y1="388"
-       x2="277.20001"
-       y2="388"
+       id="n986"
+       x1="417.06128"
+       y1="399.08133"
+       x2="694.26129"
+       y2="399.08133"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n923"
-       x="138.60001"
-       y="380"
-       class="diagram-class-title"
-       style="fill:#000000">Performer</text>
+       id="n987"
+       x="555.66125"
+       y="391.08133"
+       fill="#000000"
+       class="diagram-class-title">Performer</text>
     <text
-       id="n924"
-       x="6"
-       y="402"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.performer.function"
-   id="n925"><title
-   id="title181">Describes the type of performance (e.g. ordering provider, administering provider, etc.)</title>
-function</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n926">CodeableConcept</a>
- [0..1] « <a
-   xlink:href="valueset-immunization-function.html"
-   id="n927"><title
-   id="n928">The role a practitioner or organization plays in the immunization event. (Strength=Extensible)</title>
-ImmunizationFunctionCodes</a>
-+ »</text>
+       id="n988"
+       x="423.06128"
+       y="413.08133"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n989"
+   xlink:href="immunization-definitions.html#Immunization.performer.function"><title
+   id="title40575">Describes the type of performance (e.g. ordering provider, administering provider, etc.)</title>function</a> : <a
+   id="n990"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n991"
+   xlink:href="valueset-immunization-function.html"><title
+   id="n992">null (Strength=Extensible)</title>ImmunizationFunctionCodes</a>+ »</text>
     <text
-       id="n934"
-       x="6"
-       y="416"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.performer.actor"
-   id="n935"><title
-   id="title188">The practitioner or organization who performed the action</title>
-actor</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n936">Reference</a>
- [1..1] « <a
-   xlink:href="practitioner.html#Practitioner"
-   id="n937">Practitioner</a>
-|<a
-   xlink:href="practitionerrole.html#PractitionerRole"
-   id="n938">PractitionerRole</a>
-|</text>
+       id="n998"
+       x="423.06128"
+       y="427.08133"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n999"
+   xlink:href="immunization-definitions.html#Immunization.performer.actor"><title
+   id="title40582">The practitioner or organization who performed the action</title>actor</a> : <a
+   id="n1000"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n1001"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n1002"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
     <text
-       id="n939"
-       x="26"
-       y="430"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="organization.html#Organization"
-   id="n940">Organization</a>
- »</text>
+       id="n1003"
+       x="443.06128"
+       y="441.08133"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1004"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n1005"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n1006"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
   </g>
   <g
-     id="n948"
-     transform="translate(86.5,15)">
+     id="n1016"
+     transform="translate(91.866329,20.813465)">
     <rect
-       id="Immunization.education"
+       id="Immunization.programEligibility"
        x="320"
        y="0"
        rx="4"
        ry="4"
-       width="149.60001"
-       height="92"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
+       width="294.79999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
     <line
-       id="n949"
+       id="n1017"
        x1="320"
        y1="28"
-       x2="469.60001"
+       x2="614.79999"
        y2="28"
        style="stroke:#696969;stroke-width:1" />
     <text
-       id="n950"
-       x="394.79999"
+       id="n1018"
+       x="467.39999"
        y="20"
-       class="diagram-class-title"
-       style="fill:#000000">Education</text>
+       fill="#000000"
+       class="diagram-class-title">ProgramEligibility</text>
     <text
-       id="n951"
+       id="n1019"
        x="326"
        y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.education.documentType"
-   id="n952"><title
-   id="title201">Identifier of the material presented to the patient</title>
-documentType</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n953">string</a>
- [0..1]</text>
-    <text
-       id="n957"
-       x="326"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.education.reference"
-   id="n958"><title
-   id="title206">Reference pointer to the educational material given to the patient if the information was on line</title>
-reference</a>
- : <a
-   xlink:href="datatypes.html#uri"
-   id="n959">uri</a>
- [0..1]</text>
-    <text
-       id="n963"
-       x="326"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.education.publicationDate"
-   id="n964"><title
-   id="title211">Date the educational material was published</title>
-publicationDate</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n965">dateTime</a>
- [0..1]</text>
-    <text
-       id="n969"
-       x="326"
-       y="84"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.education.presentationDate"
-   id="n970"><title
-   id="title216">Date the educational material was given to the patient</title>
-presentationDate</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n971">dateTime</a>
- [0..1]</text>
-  </g>
-  <g
-     id="n975"
-     transform="translate(-62.458452,131.96866)">
-    <rect
-       id="Immunization.reaction"
-       x="480"
-       y="0"
-       rx="4"
-       ry="4"
-       width="180.39999"
-       height="78"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n976"
-       x1="480"
-       y1="28"
-       x2="660.40002"
-       y2="28"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n977"
-       x="570.20001"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">Reaction</text>
-    <text
-       id="n978"
-       x="486"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.reaction.date"
-   id="n979"><title
-   id="title225">Date of reaction to the immunization</title>
-date</a>
- : <a
-   xlink:href="datatypes.html#dateTime"
-   id="n980">dateTime</a>
- [0..1]</text>
-    <text
-       id="n984"
-       x="486"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.reaction.detail"
-   id="n985"><title
-   id="title230">Details of the reaction</title>
-detail</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n986">Reference</a>
- [0..1] « <a
-   xlink:href="observation.html#Observation"
-   id="n987">Observation</a>
- »</text>
-    <text
-       id="n992"
-       x="486"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.reaction.reported"
-   id="n993"><title
-   id="title236">Self-reported indicator</title>
-reported</a>
- : <a
-   xlink:href="datatypes.html#boolean"
-   id="n994">boolean</a>
- [0..1]</text>
-  </g>
-  <g
-     id="n998"
-     transform="translate(-312.29226,223.64155)">
-    <rect
-       id="Immunization.protocolApplied"
-       x="720"
-       y="0"
-       rx="4"
-       ry="4"
-       width="224.39999"
-       height="120"
-       style="fill:#fff9ec;stroke:#000000;stroke-width:1;filter:url(#shadow1)" />
-    <line
-       id="n999"
-       x1="720"
-       y1="28"
-       x2="944.40002"
-       y2="28"
-       style="stroke:#696969;stroke-width:1" />
-    <text
-       id="n1000"
-       x="832.20001"
-       y="20"
-       class="diagram-class-title"
-       style="fill:#000000">ProtocolApplied</text>
-    <text
-       id="n1001"
-       x="726"
-       y="42"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.protocolApplied.series"
-   id="n1002"><title
-   id="title245">One possible path to achieve presumed immunity against a disease - within the context of an authority</title>
-series</a>
- : <a
-   xlink:href="datatypes.html#string"
-   id="n1003">string</a>
- [0..1]</text>
-    <text
-       id="n1007"
-       x="726"
-       y="56"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.protocolApplied.authority"
-   id="n1008"><title
-   id="title250">Indicates the authority who published the protocol (e.g. ACIP) that is being followed</title>
-authority</a>
- : <a
-   xlink:href="references.html#Reference"
-   id="n1009">Reference</a>
- [0..1] « <a
-   xlink:href="organization.html#Organization"
-   id="n1010">Organization</a>
- »</text>
-    <text
-       id="n1015"
-       x="726"
-       y="70"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.protocolApplied.targetDisease"
-   id="n1016"><title
-   id="title256">The vaccine preventable disease the dose is being administered against</title>
-targetDisease</a>
- : <a
-   xlink:href="datatypes.html#CodeableConcept"
-   id="n1017">CodeableConcept</a>
- [0..*] « <a
-   xlink:href="valueset-immunization-target-disease.html"
-   id="n1018">
-  <title
-     id="n1019">The vaccine preventable disease the dose is being administered for. (Strength=Example)</title>
-</a>
-</text>
-    <text
-       id="n1020"
-       x="746"
-       y="84"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="valueset-immunization-target-disease.html"
-   id="n1021">ImmunizationTargetDiseaseCodes</a>
-?? »</text>
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1020"
+   xlink:href="immunization-definitions.html#Immunization.programEligibility.program"><title
+   id="title40597">Indicates which program the patient had their eligility evaluated for</title>program</a> : <a
+   id="n1021"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1022"
+   xlink:href="valueset-immunization-vaccine-funding-program.html"><title
+   id="n1023">null (Strength=Example)</title>CodesForVaccineFundingPrograms</a>?? »</text>
     <text
        id="n1029"
-       x="726"
-       y="98"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_"
-   id="n1030"><title
-   id="title265">Nominal position in a series</title>
-doseNumber[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1031">Type</a>
- [1..1] « <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1032">positiveInt</a>
-|<a
-   xlink:href="datatypes.html#string"
-   id="n1033">string</a>
- »</text>
+       x="326"
+       y="56"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1030"
+   xlink:href="immunization-definitions.html#Immunization.programEligibility.programStatus"><title
+   id="title40604">Indicates the patient's eligility status for for a specific payment program</title>programStatus</a> : <a
+   id="n1031"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n1032"
+   xlink:href="valueset-immunization-program-eligibility.html"><title
+     id="n1033">null (Strength=Example)</title></a></text>
     <text
-       id="n1039"
-       x="726"
-       y="112"
-       class="diagram-class-detail"
-       style="fill:#000000"><a
-   xlink:href="immunization-definitions.html#Immunization.protocolApplied.seriesDoses_x_"
-   id="n1040"><title
-   id="title272">The recommended number of doses to achieve immunity</title>
-seriesDoses[x]</a>
- : <a
-   xlink:href="formats.html#umlchoice"
-   id="n1041">Type</a>
- [0..1] « <a
-   xlink:href="datatypes.html#positiveInt"
-   id="n1042">positiveInt</a>
-|<a
-   xlink:href="datatypes.html#string"
-   id="n1043">string</a>
- »</text>
+       id="n1034"
+       x="346"
+       y="70"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1035"
+   xlink:href="valueset-immunization-program-eligibility.html">ImmunizationProgramEligibility</a>?? »</text>
+  </g>
+  <g
+     id="n1043"
+     transform="translate(12.918702,-5.0239398)">
+    <rect
+       id="Immunization.reaction"
+       x="417.54153"
+       y="131.96866"
+       rx="4"
+       ry="4"
+       width="246.39999"
+       height="78"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1044"
+       x1="417.54153"
+       y1="159.96866"
+       x2="663.94153"
+       y2="159.96866"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1045"
+       x="540.74158"
+       y="151.96866"
+       fill="#000000"
+       class="diagram-class-title">Reaction</text>
+    <text
+       id="n1046"
+       x="423.54153"
+       y="173.96866"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1047"
+   xlink:href="immunization-definitions.html#Immunization.reaction.date"><title
+   id="title40617">Date of reaction to the immunization</title>date</a> : <a
+   id="n1048"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n1052"
+       x="423.54153"
+       y="187.96866"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1053"
+   xlink:href="immunization-definitions.html#Immunization.reaction.manifestation"><title
+   id="title40622">Details of the reaction</title>manifestation</a> : <a
+   id="n1054"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [0..1] « <a
+   id="n1055"
+   xlink:href="observation.html#Observation">Observation</a> »</text>
+    <text
+       id="n1060"
+       x="423.54153"
+       y="201.96866"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1061"
+   xlink:href="immunization-definitions.html#Immunization.reaction.reported"><title
+   id="title40628">Self-reported indicator</title>reported</a> : <a
+   id="n1062"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+  </g>
+  <g
+     id="n1066"
+     transform="translate(43.780047,7.1770569)">
+    <rect
+       id="Immunization.protocolApplied"
+       x="407.70773"
+       y="223.64156"
+       rx="4"
+       ry="4"
+       width="198"
+       height="120"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n1067"
+       x1="407.70773"
+       y1="251.64156"
+       x2="605.70776"
+       y2="251.64156"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n1068"
+       x="506.70773"
+       y="243.64156"
+       fill="#000000"
+       class="diagram-class-title">ProtocolApplied</text>
+    <text
+       id="n1069"
+       x="413.70773"
+       y="265.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1070"
+   xlink:href="immunization-definitions.html#Immunization.protocolApplied.series"><title
+   id="title40637">One possible path to achieve presumed immunity against a disease - within the context of an authority</title>series</a> : <a
+   id="n1071"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n1075"
+       x="413.70773"
+       y="279.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1076"
+   xlink:href="immunization-definitions.html#Immunization.protocolApplied.authority"><title
+   id="title40642">Indicates the authority who published the protocol (e.g. ACIP) that is being followed</title>authority</a> : <a
+   id="n1077"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n1078"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n1083"
+       x="413.70773"
+       y="293.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1084"
+   xlink:href="immunization-definitions.html#Immunization.protocolApplied.targetDisease"><title
+   id="title40648">The vaccine preventable disease the dose is being administered against</title>targetDisease</a> : <a
+   id="n1085"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n1086"
+   xlink:href="valueset-immunization-target-disease.html"><title
+     id="n1087">null (Strength=Example)</title></a></text>
+    <text
+       id="n1088"
+       x="433.70773"
+       y="307.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1089"
+   xlink:href="valueset-immunization-target-disease.html">ImmunizationTargetDiseaseCodes</a>?? »</text>
+    <text
+       id="n1097"
+       x="413.70773"
+       y="321.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1098"
+   xlink:href="immunization-definitions.html#Immunization.protocolApplied.doseNumber"><title
+   id="title40657">Nominal position in a series as intended by the practitioner administering the dose</title>doseNumber</a> : <a
+   id="n1099"
+   xlink:href="datatypes.html#string">string</a> [1..1]</text>
+    <text
+       id="n1103"
+       x="413.70773"
+       y="335.64154"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n1104"
+   xlink:href="immunization-definitions.html#Immunization.protocolApplied.seriesDoses"><title
+   id="title40662">The recommended number of doses to achieve immunity as intended by the practitioner administering the dose</title>seriesDoses</a> : <a
+   id="n1105"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
   </g>
   <line
-     id="n1049"
+     id="n1109"
      x1="299.20000000000005"
-     y1="111.50081566068508"
-     x2="327.6619047619047"
-     y2="92.00000000000003"
+     y1="295.0819147415385"
+     x2="468.687018420266"
+     y2="371.0813380000001"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1050"
-     points="299.20000000000005,111.50081566068508 305.20000000000005,115.50081566068508 311.20000000000005,111.50081566068508 305.20000000000005,107.50081566068508 299.20000000000005,111.50081566068508"
+     id="n1110"
+     points="299.20000000000005,295.0819147415385 305.20000000000005,299.0819147415385 311.20000000000005,295.0819147415385 305.20000000000005,291.0819147415385 299.20000000000005,295.0819147415385"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-34.41718657149677 299.20000000000005 111.50081566068508)" />
+     transform="rotate(24.151870627356352 299.20000000000005 295.0819147415385)" />
   <rect
-     id="n1051"
-     x="293.5"
-     y="94.0"
+     id="n1111"
+     x="363.5"
+     y="326.0"
      width="39.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1052"
-     x="313.0"
-     y="104.0"
+     id="n1112"
+     x="383.0"
+     y="336.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="immunization-definitions.html#Immunization.education"
-       id="n1053"><title
-   id="title283">Educational material presented to the patient (or guardian) at the time of vaccine administration</title>
-education</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1113"
+       xlink:href="immunization-definitions.html#Immunization.performer"><title
+   id="title40671">Indicates who performed the immunization event</title>performer</a></text>
   <text
-     id="n1054"
-     x="327.6619047619047"
-     y="106.00000000000003"
+     id="n1114"
+     x="468.687018420266"
+     y="367.0813380000001"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1055"
+     id="n1115"
      x1="299.20000000000005"
-     y1="151.7555872563005"
-     x2="480.0"
-     y2="76.52971944840704"
+     y1="139.0308370044053"
+     x2="401.8222222222223"
+     y2="78.0"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1056"
-     points="299.20000000000005,151.7555872563005 305.20000000000005,155.7555872563005 311.20000000000005,151.7555872563005 305.20000000000005,147.7555872563005 299.20000000000005,151.7555872563005"
+     id="n1116"
+     points="299.20000000000005,139.0308370044053 305.20000000000005,143.0308370044053 311.20000000000005,139.0308370044053 305.20000000000005,135.0308370044053 299.20000000000005,139.0308370044053"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-22.590840713155334 299.20000000000005 151.7555872563005)" />
+     transform="rotate(-30.740527351789506 299.20000000000005 139.0308370044053)" />
   <rect
-     id="n1057"
-     x="371.5"
-     y="107.0"
+     id="n1117"
+     x="310.5"
+     y="101.0"
+     width="79.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n1118"
+     x="350.0"
+     y="111.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n1119"
+       xlink:href="immunization-definitions.html#Immunization.programEligibility"><title
+   id="title40679">Indicates a patient's eligibility for a funding program</title>programEligibility</a></text>
+  <text
+     id="n1120"
+     x="401.8222222222223"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n1121"
+     x1="299.20000000000005"
+     y1="206.18720995602337"
+     x2="417.541548"
+     y2="188.93213415386307"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n1122"
+     points="299.20000000000005,206.18720995602337 305.20000000000005,210.18720995602337 311.20000000000005,206.18720995602337 305.20000000000005,202.18720995602337 299.20000000000005,206.18720995602337"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-8.29569116293348 299.20000000000005 206.18720995602337)" />
+  <rect
+     id="n1123"
+     x="340.5"
+     y="190.0"
      width="35.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1058"
-     x="389.0"
-     y="117.0"
+     id="n1124"
+     x="358.0"
+     y="200.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="immunization-definitions.html#Immunization.reaction"
-       id="n1059"><title
-   id="title291">Categorical data indicating that an adverse event is associated in time to an immunization</title>
-reaction</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1125"
+       xlink:href="immunization-definitions.html#Immunization.reaction"><title
+   id="title40687">Categorical data indicating that an adverse event is associated in time to an immunization</title>reaction</a></text>
   <text
-     id="n1060"
-     x="460.0"
-     y="72.52971944840704"
+     id="n1126"
+     x="397.541548"
+     y="184.93213415386307"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
   <line
-     id="n1061"
+     id="n1127"
      x1="299.20000000000005"
-     y1="180.24904775857016"
-     x2="720.0"
-     y2="85.3132141810724"
+     y1="251.3094244330856"
+     x2="407.70774"
+     y2="268.2161955957521"
      style="stroke:navy;stroke-width:1" />
   <polygon
-     id="n1062"
-     points="299.20000000000005,180.24904775857016 305.20000000000005,184.24904775857016 311.20000000000005,180.24904775857016 305.20000000000005,176.24904775857016 299.20000000000005,180.24904775857016"
+     id="n1128"
+     points="299.20000000000005,251.3094244330856 305.20000000000005,255.3094244330856 311.20000000000005,251.3094244330856 305.20000000000005,247.3094244330856 299.20000000000005,251.3094244330856"
      style="fill:navy;stroke:navy;stroke-width:1"
-     transform="rotate(-12.71353475824647 299.20000000000005 180.24904775857016)" />
+     transform="rotate(8.856141064082705 299.20000000000005 251.3094244330856)" />
   <rect
-     id="n1063"
-     x="476.0"
-     y="125.0"
+     id="n1129"
+     x="320.0"
+     y="252.0"
      width="66.0"
      height="18.0"
      style="fill:white;stroke:black;stroke-width:0" />
   <text
-     id="n1064"
-     x="509.0"
-     y="135.0"
+     id="n1130"
+     x="353.0"
+     y="262.0"
      fill="black"
-     class="diagram-class-linkage">
-    <a
-       xlink:href="immunization-definitions.html#Immunization.protocolApplied"
-       id="n1065"><title
-   id="title299">The protocol (set of recommendations) being followed by the provider who administered the dose</title>
-protocolApplied</a>
-  </text>
+     class="diagram-class-linkage"><a
+       id="n1131"
+       xlink:href="immunization-definitions.html#Immunization.protocolApplied"><title
+   id="title40695">The protocol (set of recommendations) being followed by the provider who administered the dose</title>protocolApplied</a></text>
   <text
-     id="n1066"
-     x="700.0"
-     y="81.3132141810724"
+     id="n1132"
+     x="387.70774"
+     y="264.2161955957521"
      fill="black"
      class="diagram-class-linkage">[0..*]</text>
 </svg>

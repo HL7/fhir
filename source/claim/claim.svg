@@ -1,0 +1,2506 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="n2183"
+   version="1.1"
+   width="1452.229787"
+   height="1008.022528"
+   sodipodi:docname="claim.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview24668"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.85799097"
+     inkscape:cx="726.11487"
+     inkscape:cy="504.08456"
+     inkscape:window-width="1390"
+     inkscape:window-height="1205"
+     inkscape:window-x="431"
+     inkscape:window-y="145"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="n2183" />
+  <defs
+     id="defs23753">
+    <filter
+       id="shadow1"
+       x="-0.030113636"
+       y="-0.0828125"
+       width="1.0772727"
+       height="1.2125">
+      <feOffset
+         result="offOut"
+         in="SourceGraphic"
+         dx="3"
+         dy="3"
+         id="feOffset23744" />
+      <feColorMatrix
+         result="matrixOut"
+         in="offOut"
+         type="matrix"
+         values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0"
+         id="feColorMatrix23746" />
+      <feGaussianBlur
+         result="blurOut"
+         in="matrixOut"
+         stdDeviation="2"
+         id="feGaussianBlur23748" />
+      <feBlend
+         in="SourceGraphic"
+         in2="blurOut"
+         mode="normal"
+         id="feBlend23750" />
+    </filter>
+  </defs>
+  <g
+     id="n2184">
+    <rect
+       id="Claim"
+       x="360.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="414.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2185"
+       x1="360.0"
+       y1="28.0"
+       x2="654.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2186"
+       x="507.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title  diagram-class-resource">Claim<tspan
+   class="diagram-class-title-link"
+   id="tspan23758"> (<a
+   id="n2187"
+   xlink:href="domainresource.html#DomainResource"
+   class="diagram-class-reference"
+   style="font-style: italic">DomainResource</a>)</tspan></text>
+    <text
+       id="n2188"
+       x="366.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2189"
+   xlink:href="claim-definitions.html#Claim.identifier"><title
+   id="title23761">A unique identifier assigned to this claim</title>identifier</a> : <a
+   id="n2190"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2194"
+       x="366.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2195"
+   xlink:href="claim-definitions.html#Claim.traceNumber"><title
+   id="title23766">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2196"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2200"
+       x="366.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2201"
+   xlink:href="claim-definitions.html#Claim.status"><title
+   id="title23771">The status of the resource instance (this element modifies the meaning of other elements)</title>status</a> : <a
+   id="n2202"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n2203"
+   xlink:href="valueset-fm-status.html"><title
+   id="n2204">null (Strength=Required)</title>FinancialResourceStatusCodes</a>! »</text>
+    <text
+       id="n2210"
+       x="366.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2211"
+   xlink:href="claim-definitions.html#Claim.type"><title
+   id="title23778">The category of claim, e.g. oral, pharmacy, vision, institutional, professional</title>type</a> : <a
+   id="n2212"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2213"
+   xlink:href="valueset-claim-type.html"><title
+   id="n2214">null (Strength=Extensible)</title>ClaimTypeCodes</a>+ »</text>
+    <text
+       id="n2220"
+       x="366.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2221"
+   xlink:href="claim-definitions.html#Claim.subType"><title
+   id="title23785">A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service</title>subType</a> : <a
+   id="n2222"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2223"
+   xlink:href="valueset-claim-subtype.html"><title
+   id="n2224">null (Strength=Example)</title>ExampleClaimSubTypeCodes</a>?? »</text>
+    <text
+       id="n2230"
+       x="366.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2231"
+   xlink:href="claim-definitions.html#Claim.use"><title
+   id="title23792">A code to indicate whether the nature of the request is: Claim - A request to an Insurer to adjudicate the supplied charges for health care goods and services under the identified policy and to pay the determined Benefit amount, if any; Preauthorization - A request to an Insurer to adjudicate the supplied proposed future charges for health care goods and services under the identified policy and to approve the services and provide the expected benefit amounts and potentially to reserve funds to pay the benefits when Claims for the indicated services are later submitted; or, Pre-determination - A request to an Insurer to adjudicate the supplied 'what if' charges for health care goods and services under the identified policy and report back what the Benefit payable would be had the services actually been provided</title>use</a> : <a
+   id="n2232"
+   xlink:href="datatypes.html#code">code</a> [1..1] « <a
+   id="n2233"
+   xlink:href="valueset-claim-use.html"><title
+   id="n2234">null (Strength=Required)</title>Use</a>! »</text>
+    <text
+       id="n2240"
+       x="366.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2241"
+   xlink:href="claim-definitions.html#Claim.patient"><title
+   id="title23799">The party to whom the professional services and/or products have been supplied or are being considered and for whom actual or forecast reimbursement is sought</title>patient</a> : <a
+   id="n2242"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n2243"
+   xlink:href="patient.html#Patient">Patient</a> »</text>
+    <text
+       id="n2248"
+       x="366.0"
+       y="140.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2249"
+   xlink:href="claim-definitions.html#Claim.billablePeriod"><title
+   id="title23805">The period for which charges are being submitted</title>billablePeriod</a> : <a
+   id="n2250"
+   xlink:href="datatypes.html#Period">Period</a> [0..1]</text>
+    <text
+       id="n2254"
+       x="366.0"
+       y="154.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2255"
+   xlink:href="claim-definitions.html#Claim.created"><title
+   id="title23810">The date this resource was created</title>created</a> : <a
+   id="n2256"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [1..1]</text>
+    <text
+       id="n2260"
+       x="366.0"
+       y="168.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2261"
+   xlink:href="claim-definitions.html#Claim.enterer"><title
+   id="title23815">Individual who created the claim, predetermination or preauthorization</title>enterer</a> : <a
+   id="n2262"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2263"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2264"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|<a
+   id="n2265"
+   xlink:href="patient.html#Patient">Patient</a>|</text>
+    <text
+       id="n2266"
+       x="386.0"
+       y="182.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2267"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+    <text
+       id="n2276"
+       x="366.0"
+       y="196.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2277"
+   xlink:href="claim-definitions.html#Claim.insurer"><title
+   id="title23825">The Insurer who is target of the request</title>insurer</a> : <a
+   id="n2278"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2279"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2284"
+       x="366.0"
+       y="210.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2285"
+   xlink:href="claim-definitions.html#Claim.provider"><title
+   id="title23831">The provider which is responsible for the claim, predetermination or preauthorization</title>provider</a> : <a
+   id="n2286"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2287"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2288"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n2289"
+       x="386.0"
+       y="224.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2290"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2298"
+       x="366.0"
+       y="238.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2299"
+   xlink:href="claim-definitions.html#Claim.priority"><title
+   id="title23840">The provider-required urgency of processing the request. Typical values include: stat, normal, deferred</title>priority</a> : <a
+   id="n2300"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2301"
+   xlink:href="valueset-process-priority.html"><title
+   id="n2302">null (Strength=Example)</title>ProcessPriorityCodes</a>?? »</text>
+    <text
+       id="n2308"
+       x="366.0"
+       y="252.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2309"
+   xlink:href="claim-definitions.html#Claim.fundsReserve"><title
+   id="title23847">A code to indicate whether and for whom funds are to be reserved for future claims</title>fundsReserve</a> : <a
+   id="n2310"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2311"
+   xlink:href="valueset-fundsreserve.html"><title
+   id="n2312">null (Strength=Example)</title>FundsReservationCodes</a>?? »</text>
+    <text
+       id="n2318"
+       x="366.0"
+       y="266.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2319"
+   xlink:href="claim-definitions.html#Claim.prescription"><title
+   id="title23854">Prescription is the document/authorization given to the claim author for them to provide products and services for which consideration (reimbursement) is sought. Could be a RX for medications, an 'order' for oxygen or wheelchair or physiotherapy treatments</title>prescription</a> : <a
+   id="n2320"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2321"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n2322"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n2323"
+       x="386.0"
+       y="280.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2324"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n2332"
+       x="366.0"
+       y="294.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2333"
+   xlink:href="claim-definitions.html#Claim.originalPrescription"><title
+   id="title23863">Original prescription which has been superseded by this prescription to support the dispensing of pharmacy services, medications or products</title>originalPrescription</a> : <a
+   id="n2334"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2335"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|</text>
+    <text
+       id="n2336"
+       x="386.0"
+       y="308.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2337"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|<a
+   id="n2338"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n2346"
+       x="366.0"
+       y="322.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2347"
+   xlink:href="claim-definitions.html#Claim.referral"><title
+   id="title23872">The referral information received by the claim author, it is not to be used when the author generates a referral for a patient. A copy of that referral may be provided as supporting information. Some insurers require proof of referral to pay for services or to pay specialist rates for services</title>referral</a> : <a
+   id="n2348"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2349"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a> »</text>
+    <text
+       id="n2354"
+       x="366.0"
+       y="336.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2355"
+   xlink:href="claim-definitions.html#Claim.encounter"><title
+   id="title23878">Healthcare encounters related to this claim</title>encounter</a> : <a
+   id="n2356"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2357"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+    <text
+       id="n2362"
+       x="366.0"
+       y="350.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2363"
+   xlink:href="claim-definitions.html#Claim.facility"><title
+   id="title23884">Facility where the services were provided</title>facility</a> : <a
+   id="n2364"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2365"
+   xlink:href="location.html#Location">Location</a>|<a
+   id="n2366"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2372"
+       x="366.0"
+       y="364.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2373"
+   xlink:href="claim-definitions.html#Claim.diagnosisRelatedGroup"><title
+   id="title23891">A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system</title>diagnosisRelatedGroup</a> : <a
+   id="n2374"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2375"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html"><title
+     id="n2376">null (Strength=Example)</title></a></text>
+    <text
+       id="n2377"
+       x="386.0"
+       y="378.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2378"
+   xlink:href="valueset-ex-diagnosisrelatedgroup.html">ExampleDiagnosisRelatedGroupC...</a>?? »</text>
+    <text
+       id="n2386"
+       x="366.0"
+       y="392.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2387"
+   xlink:href="claim-definitions.html#Claim.patientPaid"><title
+   id="title23900">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n2388"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2392"
+       x="366.0"
+       y="406.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2393"
+   xlink:href="claim-definitions.html#Claim.total"><title
+   id="title23905">The total value of the all the items in the claim</title>total</a> : <a
+   id="n2394"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+  </g>
+  <g
+     id="n2398">
+    <rect
+       id="Claim.related"
+       x="792.64831"
+       y="242.455569"
+       rx="4"
+       ry="4"
+       width="176.0"
+       height="92.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2399"
+       x1="792.64831"
+       y1="270.45556899999997"
+       x2="968.64831"
+       y2="270.45556899999997"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2400"
+       x="880.64831"
+       y="262.45556899999997"
+       fill="black"
+       class="diagram-class-title">RelatedClaim</text>
+    <text
+       id="n2401"
+       x="798.64831"
+       y="284.45556899999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2402"
+   xlink:href="claim-definitions.html#Claim.related.claim"><title
+   id="title23914">Reference to a related claim</title>claim</a> : <a
+   id="n2403"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2404"
+   xlink:href="claim.html#Claim">Claim</a> »</text>
+    <text
+       id="n2409"
+       x="798.64831"
+       y="298.45556899999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2410"
+   xlink:href="claim-definitions.html#Claim.related.relationship"><title
+   id="title23920">A code to convey how the claims are related</title>relationship</a> : <a
+   id="n2411"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2412"
+   xlink:href="valueset-related-claim-relationship.html"><title
+     id="n2413">null (Strength=Example)</title></a></text>
+    <text
+       id="n2414"
+       x="818.64831"
+       y="312.45556899999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2415"
+   xlink:href="valueset-related-claim-relationship.html">ExampleRelatedClaimRelationsh...</a>?? »</text>
+    <text
+       id="n2423"
+       x="798.64831"
+       y="326.45556899999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2424"
+   xlink:href="claim-definitions.html#Claim.related.reference"><title
+   id="title23929">An alternate organizational reference to the case or file to which this particular claim pertains</title>reference</a> : <a
+   id="n2425"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+  </g>
+  <g
+     id="n2429">
+    <rect
+       id="Claim.payee"
+       x="0.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="250.8"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2430"
+       x1="0.0"
+       y1="28.0"
+       x2="250.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2431"
+       x="125.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">Payee</text>
+    <text
+       id="n2432"
+       x="6.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2433"
+   xlink:href="claim-definitions.html#Claim.payee.type"><title
+   id="title23938">Type of Party to be reimbursed: subscriber, provider, other</title>type</a> : <a
+   id="n2434"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2435"
+   xlink:href="valueset-payeetype.html"><title
+   id="n2436">null (Strength=Example)</title>ClaimPayeeTypeCodes</a>?? »</text>
+    <text
+       id="n2442"
+       x="6.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2443"
+   xlink:href="claim-definitions.html#Claim.payee.party"><title
+   id="title23945">Reference to the individual or organization to whom any payment will be made</title>party</a> : <a
+   id="n2444"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2445"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2446"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n2447"
+       x="26.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2448"
+   xlink:href="organization.html#Organization">Organization</a>|<a
+   id="n2449"
+   xlink:href="patient.html#Patient">Patient</a>|<a
+   id="n2450"
+   xlink:href="relatedperson.html#RelatedPerson">RelatedPerson</a> »</text>
+  </g>
+  <g
+     id="n2460">
+    <rect
+       id="Claim.event"
+       x="788.057575"
+       y="166.93367"
+       rx="4"
+       ry="4"
+       width="211.20000000000002"
+       height="64.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2461"
+       x1="788.057575"
+       y1="194.93367"
+       x2="999.2575750000001"
+       y2="194.93367"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2462"
+       x="893.6575750000001"
+       y="186.93367"
+       fill="black"
+       class="diagram-class-title">Event</text>
+    <text
+       id="n2463"
+       x="794.057575"
+       y="208.93367"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2464"
+   xlink:href="claim-definitions.html#Claim.event.type"><title
+   id="title23960">A coded event such as when a service is expected or a card printed</title>type</a> : <a
+   id="n2465"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2466"
+   xlink:href="valueset-datestype.html"><title
+   id="n2467">null (Strength=Example)</title>DatesTypeCodes</a>?? »</text>
+    <text
+       id="n2473"
+       x="794.057575"
+       y="222.93367"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2474"
+   xlink:href="claim-definitions.html#Claim.event.when_x_"><title
+   id="title23967">A date or period in the past or future indicating when the event occurred or is expectd to occur</title>when[x]</a> : <a
+   id="n2475"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n2476"
+   xlink:href="datatypes.html#dateTime">dateTime</a>|<a
+   id="n2477"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+  </g>
+  <g
+     id="n2483"
+     transform="translate(740.10103,165.5029)">
+    <rect
+       id="Claim.careTeam"
+       x="40"
+       y="440"
+       rx="4"
+       ry="4"
+       width="264"
+       height="134"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2484"
+       x1="40"
+       y1="468"
+       x2="304"
+       y2="468"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2485"
+       x="172"
+       y="460"
+       fill="#000000"
+       class="diagram-class-title">CareTeam</text>
+    <text
+       id="n2486"
+       x="46"
+       y="482"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2487"
+   xlink:href="claim-definitions.html#Claim.careTeam.sequence"><title
+   id="title23978">A number to uniquely identify care team entries</title>sequence</a> : <a
+   id="n2488"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2492"
+       x="46"
+       y="496"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2493"
+   xlink:href="claim-definitions.html#Claim.careTeam.provider"><title
+   id="title23983">Member of the team who provided the product or service</title>provider</a> : <a
+   id="n2494"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n2495"
+   xlink:href="practitioner.html#Practitioner">Practitioner</a>|<a
+   id="n2496"
+   xlink:href="practitionerrole.html#PractitionerRole">PractitionerRole</a>|</text>
+    <text
+       id="n2497"
+       x="66"
+       y="510"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2498"
+   xlink:href="organization.html#Organization">Organization</a> »</text>
+    <text
+       id="n2506"
+       x="46"
+       y="524"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2507"
+   xlink:href="claim-definitions.html#Claim.careTeam.responsible"><title
+   id="title23992">The party who is billing and/or responsible for the claimed products or services</title>responsible</a> : <a
+   id="n2508"
+   xlink:href="datatypes.html#boolean">boolean</a> [0..1]</text>
+    <text
+       id="n2512"
+       x="46"
+       y="538"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2513"
+   xlink:href="claim-definitions.html#Claim.careTeam.role"><title
+   id="title23997">The lead, assisting or supervising practitioner and their discipline if a multidisciplinary team</title>role</a> : <a
+   id="n2514"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2515"
+   xlink:href="valueset-claim-careteamrole.html"><title
+   id="n2516">null (Strength=Example)</title>ClaimCareTeamRoleCodes</a>?? »</text>
+    <text
+       id="n2522"
+       x="46"
+       y="552"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2523"
+   xlink:href="claim-definitions.html#Claim.careTeam.specialty"><title
+   id="title24004">The specialization of the practitioner or provider which is applicable for this service</title>specialty</a> : <a
+   id="n2524"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2525"
+   xlink:href="valueset-provider-qualification.html"><title
+     id="n2526">null (Strength=Example)</title></a></text>
+    <text
+       id="n2527"
+       x="66"
+       y="566"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2528"
+   xlink:href="valueset-provider-qualification.html">ExampleProviderQualificationC...</a>?? »</text>
+  </g>
+  <g
+     id="n2536">
+    <rect
+       id="Claim.supportingInfo"
+       x="740.0"
+       y="0.0"
+       rx="4"
+       ry="4"
+       width="294.8"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2537"
+       x1="740.0"
+       y1="28.0"
+       x2="1034.8"
+       y2="28.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2538"
+       x="887.4"
+       y="20.0"
+       fill="black"
+       class="diagram-class-title">SupportingInformation</text>
+    <text
+       id="n2539"
+       x="746.0"
+       y="42.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2540"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.sequence"><title
+   id="title24017">A number to uniquely identify supporting information entries</title>sequence</a> : <a
+   id="n2541"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2545"
+       x="746.0"
+       y="56.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2546"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.category"><title
+   id="title24022">The general class of the information supplied: information; exception; accident, employment; onset, etc</title>category</a> : <a
+   id="n2547"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [1..1] « <a
+   id="n2548"
+   xlink:href="valueset-claim-informationcategory.html"><title
+   id="n2549">null (Strength=Example)</title>ClaimInformationCategoryCodes</a>?? »</text>
+    <text
+       id="n2555"
+       x="746.0"
+       y="70.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2556"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.code"><title
+   id="title24029">System and code pertaining to the specific information regarding special conditions relating to the setting, treatment or patient  for which care is sought</title>code</a> : <a
+   id="n2557"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2558"
+   xlink:href="valueset-claim-exception.html"><title
+   id="n2559">null (Strength=Example)</title>ExceptionCodes</a>?? »</text>
+    <text
+       id="n2565"
+       x="746.0"
+       y="84.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2566"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.timing_x_"><title
+   id="title24036">The date when or period to which this information refers</title>timing[x]</a> : <a
+   id="n2567"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2568"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n2569"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n2575"
+       x="746.0"
+       y="98.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2576"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.value_x_"><title
+   id="title24043">Additional data or information such as resources, documents, images etc. including references to the data or the actual inclusion of the data</title>value[x]</a> : <a
+   id="n2577"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2578"
+   xlink:href="datatypes.html#boolean">boolean</a>|<a
+   id="n2579"
+   xlink:href="datatypes.html#string">string</a>|<a
+   id="n2580"
+   xlink:href="datatypes.html#Quantity">Quantity</a>|<a
+   id="n2581"
+   xlink:href="datatypes.html#Attachment">Attachment</a>|</text>
+    <text
+       id="n2582"
+       x="766.0"
+       y="112.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2583"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2584"
+   xlink:href="resourcelist.html#Any">Any</a>)|<a
+   id="n2585"
+   xlink:href="datatypes.html#Identifier">Identifier</a> »</text>
+    <text
+       id="n2597"
+       x="746.0"
+       y="126.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2598"
+   xlink:href="claim-definitions.html#Claim.supportingInfo.reason"><title
+   id="title24056">Provides the reason in the situation where a reason code is required in addition to the content</title>reason</a> : <a
+   id="n2599"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2600"
+   xlink:href="valueset-missing-tooth-reason.html"><title
+   id="n2601">null (Strength=Example)</title>MissingToothReasonCodes</a>?? »</text>
+  </g>
+  <g
+     id="n2607">
+    <rect
+       id="Claim.diagnosis"
+       x="0.0"
+       y="115.0"
+       rx="4"
+       ry="4"
+       width="312.40000000000003"
+       height="120.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2608"
+       x1="0.0"
+       y1="143.0"
+       x2="312.40000000000003"
+       y2="143.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2609"
+       x="156.20000000000002"
+       y="135.0"
+       fill="black"
+       class="diagram-class-title">Diagnosis</text>
+    <text
+       id="n2610"
+       x="6.0"
+       y="157.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2611"
+   xlink:href="claim-definitions.html#Claim.diagnosis.sequence"><title
+   id="title24067">A number to uniquely identify diagnosis entries</title>sequence</a> : <a
+   id="n2612"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2616"
+       x="6.0"
+       y="171.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2617"
+   xlink:href="claim-definitions.html#Claim.diagnosis.diagnosis_x_"><title
+   id="title24072">The nature of illness or problem in a coded form or as a reference to an external defined Condition</title>diagnosis[x]</a> : <a
+   id="n2618"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n2619"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2620"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2621"
+   xlink:href="condition.html#Condition">Condition</a>); <a
+   id="n2622"
+   xlink:href="valueset-icd-10.html"><title
+     id="n2623">null (Strength=Example)</title></a></text>
+    <text
+       id="n2624"
+       x="26.0"
+       y="185.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2625"
+   xlink:href="valueset-icd-10.html">ICD10Codes</a>?? »</text>
+    <text
+       id="n2636"
+       x="6.0"
+       y="199.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2637"
+   xlink:href="claim-definitions.html#Claim.diagnosis.type"><title
+   id="title24084">When the condition was observed or the relative ranking</title>type</a> : <a
+   id="n2638"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2639"
+   xlink:href="valueset-ex-diagnosistype.html"><title
+   id="n2640">null (Strength=Example)</title>ExampleDiagnosisTypeCodes</a>?? »</text>
+    <text
+       id="n2646"
+       x="6.0"
+       y="213.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2647"
+   xlink:href="claim-definitions.html#Claim.diagnosis.onAdmission"><title
+   id="title24091">Indication of whether the diagnosis was present on admission to a facility</title>onAdmission</a> : <a
+   id="n2648"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2649"
+   xlink:href="valueset-ex-diagnosis-on-admission.html"><title
+     id="n2650">null (Strength=Example)</title></a></text>
+    <text
+       id="n2651"
+       x="26.0"
+       y="227.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2652"
+   xlink:href="valueset-ex-diagnosis-on-admission.html">ExampleDiagnosisOnAdmissionCo...</a>?? »</text>
+  </g>
+  <g
+     id="n2660">
+    <rect
+       id="Claim.procedure"
+       x="0.0"
+       y="300.0"
+       rx="4"
+       ry="4"
+       width="312.40000000000003"
+       height="120.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2661"
+       x1="0.0"
+       y1="328.0"
+       x2="312.40000000000003"
+       y2="328.0"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2662"
+       x="156.20000000000002"
+       y="320.0"
+       fill="black"
+       class="diagram-class-title">Procedure</text>
+    <text
+       id="n2663"
+       x="6.0"
+       y="342.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2664"
+   xlink:href="claim-definitions.html#Claim.procedure.sequence"><title
+   id="title24104">A number to uniquely identify procedure entries</title>sequence</a> : <a
+   id="n2665"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2669"
+       x="6.0"
+       y="356.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2670"
+   xlink:href="claim-definitions.html#Claim.procedure.type"><title
+   id="title24109">When the condition was observed or the relative ranking</title>type</a> : <a
+   id="n2671"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2672"
+   xlink:href="valueset-ex-procedure-type.html"><title
+   id="n2673">null (Strength=Example)</title>ExampleProcedureTypeCodes</a>?? »</text>
+    <text
+       id="n2679"
+       x="6.0"
+       y="370.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2680"
+   xlink:href="claim-definitions.html#Claim.procedure.date"><title
+   id="title24116">Date and optionally time the procedure was performed</title>date</a> : <a
+   id="n2681"
+   xlink:href="datatypes.html#dateTime">dateTime</a> [0..1]</text>
+    <text
+       id="n2685"
+       x="6.0"
+       y="384.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2686"
+   xlink:href="claim-definitions.html#Claim.procedure.procedure_x_"><title
+   id="title24121">The code or reference to a Procedure resource which identifies the clinical intervention performed</title>procedure[x]</a> : <a
+   id="n2687"
+   xlink:href="types.html#DataType">DataType</a> [1..1] « <a
+   id="n2688"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2689"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2690"
+   xlink:href="procedure.html#Procedure">Procedure</a>); <a
+   id="n2691"
+   xlink:href="valueset-icd-10-procedures.html"><title
+     id="n2692">null (Strength=Example)</title></a></text>
+    <text
+       id="n2693"
+       x="26.0"
+       y="398.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2694"
+   xlink:href="valueset-icd-10-procedures.html">ICD10ProcedureCodes</a>?? »</text>
+    <text
+       id="n2705"
+       x="6.0"
+       y="412.0"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2706"
+   xlink:href="claim-definitions.html#Claim.procedure.udi"><title
+   id="title24133">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n2707"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2708"
+   xlink:href="device.html#Device">Device</a> »</text>
+  </g>
+  <g
+     id="n2713">
+    <rect
+       id="Claim.insurance"
+       x="773.306634"
+       y="352.45556999999997"
+       rx="4"
+       ry="4"
+       width="220.00000000000003"
+       height="134.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2714"
+       x1="773.306634"
+       y1="380.45556999999997"
+       x2="993.306634"
+       y2="380.45556999999997"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2715"
+       x="883.306634"
+       y="372.45556999999997"
+       fill="black"
+       class="diagram-class-title">Insurance</text>
+    <text
+       id="n2716"
+       x="779.306634"
+       y="394.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2717"
+   xlink:href="claim-definitions.html#Claim.insurance.sequence"><title
+   id="title24143">A number to uniquely identify insurance entries and provide a sequence of coverages to convey coordination of benefit order</title>sequence</a> : <a
+   id="n2718"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2722"
+       x="779.306634"
+       y="408.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2723"
+   xlink:href="claim-definitions.html#Claim.insurance.focal"><title
+   id="title24148">A flag to indicate that this Coverage is to be used for adjudication of this claim when set to true</title>focal</a> : <a
+   id="n2724"
+   xlink:href="datatypes.html#boolean">boolean</a> [1..1]</text>
+    <text
+       id="n2728"
+       x="779.306634"
+       y="422.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2729"
+   xlink:href="claim-definitions.html#Claim.insurance.identifier"><title
+   id="title24153">The business identifier to be used when the claim is sent for adjudication against this insurance policy</title>identifier</a> : <a
+   id="n2730"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..1]</text>
+    <text
+       id="n2734"
+       x="779.306634"
+       y="436.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2735"
+   xlink:href="claim-definitions.html#Claim.insurance.coverage"><title
+   id="title24158">Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system</title>coverage</a> : <a
+   id="n2736"
+   xlink:href="references.html#Reference">Reference</a> [1..1] « <a
+   id="n2737"
+   xlink:href="coverage.html#Coverage">Coverage</a> »</text>
+    <text
+       id="n2742"
+       x="779.306634"
+       y="450.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2743"
+   xlink:href="claim-definitions.html#Claim.insurance.businessArrangement"><title
+   id="title24164">A business agreement number established between the provider and the insurer for special business processing purposes</title>businessArrangement</a> : <a
+   id="n2744"
+   xlink:href="datatypes.html#string">string</a> [0..1]</text>
+    <text
+       id="n2748"
+       x="779.306634"
+       y="464.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2749"
+   xlink:href="claim-definitions.html#Claim.insurance.preAuthRef"><title
+   id="title24169">Reference numbers previously provided by the insurer to the provider to be quoted on subsequent claims containing services or products related to the prior authorization</title>preAuthRef</a> : <a
+   id="n2750"
+   xlink:href="datatypes.html#string">string</a> [0..*]</text>
+    <text
+       id="n2754"
+       x="779.306634"
+       y="478.45556999999997"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2755"
+   xlink:href="claim-definitions.html#Claim.insurance.claimResponse"><title
+   id="title24174">The result of the adjudication of the line items for the Coverage specified in this insurance</title>claimResponse</a> : <a
+   id="n2756"
+   xlink:href="references.html#Reference">Reference</a> [0..1] « <a
+   id="n2757"
+   xlink:href="claimresponse.html#ClaimResponse">ClaimResponse</a> »</text>
+  </g>
+  <g
+     id="n2762">
+    <rect
+       id="Claim.accident"
+       x="755.409269"
+       y="507.59199"
+       rx="4"
+       ry="4"
+       width="268.40000000000003"
+       height="78.0"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:black;stroke-width:1" />
+    <line
+       id="n2763"
+       x1="755.409269"
+       y1="535.59199"
+       x2="1023.8092690000001"
+       y2="535.59199"
+       style="stroke:dimgrey;stroke-width:1" />
+    <text
+       id="n2764"
+       x="889.609269"
+       y="527.59199"
+       fill="black"
+       class="diagram-class-title">Accident</text>
+    <text
+       id="n2765"
+       x="761.409269"
+       y="549.59199"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2766"
+   xlink:href="claim-definitions.html#Claim.accident.date"><title
+   id="title24184">Date of an accident event  related to the products and services contained in the claim</title>date</a> : <a
+   id="n2767"
+   xlink:href="datatypes.html#date">date</a> [1..1]</text>
+    <text
+       id="n2771"
+       x="761.409269"
+       y="563.59199"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2772"
+   xlink:href="claim-definitions.html#Claim.accident.type"><title
+   id="title24189">The type or context of the accident event for the purposes of selection of potential insurance coverages and determination of coordination between insurers</title>type</a> : <a
+   id="n2773"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2774"
+   xlink:href="http://terminology.hl7.org/4.0.0/ValueSet-v3-ActIncidentCode.html"><title
+   id="n2775">null (Strength=Extensible)</title>ActIncidentCode</a>+ »</text>
+    <text
+       id="n2781"
+       x="761.409269"
+       y="577.59199"
+       fill="black"
+       class="diagram-class-detail"><a
+   id="n2782"
+   xlink:href="claim-definitions.html#Claim.accident.location_x_"><title
+   id="title24196">The physical location of the accident event</title>location[x]</a> : <a
+   id="n2783"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2784"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n2785"
+   xlink:href="references.html#Reference">Reference</a>(<a
+   id="n2786"
+   xlink:href="location.html#Location">Location</a>) »</text>
+  </g>
+  <g
+     id="n2793"
+     transform="translate(27.972322,-2.3310269)">
+    <rect
+       id="Claim.item"
+       x="360"
+       y="500"
+       rx="4"
+       ry="4"
+       width="308"
+       height="386"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2794"
+       x1="360"
+       y1="528"
+       x2="668"
+       y2="528"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2795"
+       x="514"
+       y="520"
+       fill="#000000"
+       class="diagram-class-title">Item</text>
+    <text
+       id="n2796"
+       x="366"
+       y="542"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2797"
+   xlink:href="claim-definitions.html#Claim.item.sequence"><title
+   id="title24208">A number to uniquely identify item entries</title>sequence</a> : <a
+   id="n2798"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n2802"
+       x="366"
+       y="556"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2803"
+   xlink:href="claim-definitions.html#Claim.item.traceNumber"><title
+   id="title24213">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n2804"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n2808"
+       x="366"
+       y="570"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2809"
+   xlink:href="claim-definitions.html#Claim.item.careTeamSequence"><title
+   id="title24218">CareTeam members related to this service or product</title>careTeamSequence</a> : <a
+   id="n2810"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n2814"
+       x="366"
+       y="584"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2815"
+   xlink:href="claim-definitions.html#Claim.item.diagnosisSequence"><title
+   id="title24223">Diagnosis applicable for this service or product</title>diagnosisSequence</a> : <a
+   id="n2816"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n2820"
+       x="366"
+       y="598"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2821"
+   xlink:href="claim-definitions.html#Claim.item.procedureSequence"><title
+   id="title24228">Procedures applicable for this service or product</title>procedureSequence</a> : <a
+   id="n2822"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n2826"
+       x="366"
+       y="612"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2827"
+   xlink:href="claim-definitions.html#Claim.item.informationSequence"><title
+   id="title24233">Exceptions, special conditions and supporting information applicable for this service or product</title>informationSequence</a> : <a
+   id="n2828"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [0..*]</text>
+    <text
+       id="n2832"
+       x="366"
+       y="626"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2833"
+   xlink:href="claim-definitions.html#Claim.item.revenue"><title
+   id="title24238">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n2834"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2835"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n2836">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n2842"
+       x="366"
+       y="640"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2843"
+   xlink:href="claim-definitions.html#Claim.item.category"><title
+   id="title24245">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n2844"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2845"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n2846">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n2852"
+       x="366"
+       y="654"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2853"
+   xlink:href="claim-definitions.html#Claim.item.productOrService"><title
+   id="title24252">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n2854"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2855"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2856">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2862"
+       x="366"
+       y="668"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2863"
+   xlink:href="claim-definitions.html#Claim.item.productOrServiceEnd"><title
+   id="title24259">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n2864"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n2865"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n2866">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n2872"
+       x="366"
+       y="682"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2873"
+   xlink:href="claim-definitions.html#Claim.item.request"><title
+   id="title24266">Request or Referral for Goods or Service to be rendered</title>request</a> : <a
+   id="n2874"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2875"
+   xlink:href="devicerequest.html#DeviceRequest">DeviceRequest</a>|<a
+   id="n2876"
+   xlink:href="medicationrequest.html#MedicationRequest">MedicationRequest</a>|</text>
+    <text
+       id="n2877"
+       x="386"
+       y="696"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2878"
+   xlink:href="nutritionorder.html#NutritionOrder">NutritionOrder</a>|<a
+   id="n2879"
+   xlink:href="servicerequest.html#ServiceRequest">ServiceRequest</a>|<a
+   id="n2880"
+   xlink:href="supplyrequest.html#SupplyRequest">SupplyRequest</a>|<a
+   id="n2881"
+   xlink:href="visionprescription.html#VisionPrescription">VisionPrescription</a> »</text>
+    <text
+       id="n2892"
+       x="366"
+       y="710"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2893"
+   xlink:href="claim-definitions.html#Claim.item.modifier"><title
+   id="title24278">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n2894"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2895"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n2896">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n2902"
+       x="366"
+       y="724"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2903"
+   xlink:href="claim-definitions.html#Claim.item.programCode"><title
+   id="title24285">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n2904"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n2905"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n2906">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n2912"
+       x="366"
+       y="738"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2913"
+   xlink:href="claim-definitions.html#Claim.item.serviced_x_"><title
+   id="title24292">The date or dates when the service or product was supplied, performed or completed</title>serviced[x]</a> : <a
+   id="n2914"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2915"
+   xlink:href="datatypes.html#date">date</a>|<a
+   id="n2916"
+   xlink:href="datatypes.html#Period">Period</a> »</text>
+    <text
+       id="n2922"
+       x="366"
+       y="752"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2923"
+   xlink:href="claim-definitions.html#Claim.item.location_x_"><title
+   id="title24299">Where the product or service was provided</title>location[x]</a> : <a
+   id="n2924"
+   xlink:href="types.html#DataType">DataType</a> [0..1] « <a
+   id="n2925"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a>|<a
+   id="n2926"
+   xlink:href="datatypes.html#Address">Address</a>|<a
+   id="n2927"
+   xlink:href="references.html#Reference">Reference</a>(</text>
+    <text
+       id="n2928"
+       x="386"
+       y="766"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2929"
+   xlink:href="location.html#Location">Location</a>); <a
+   id="n2930"
+   xlink:href="valueset-service-place.html"><title
+   id="n2931">null (Strength=Example)</title>ExampleServicePlaceCodes</a>?? »</text>
+    <text
+       id="n2942"
+       x="366"
+       y="780"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2943"
+   xlink:href="claim-definitions.html#Claim.item.patientPaid"><title
+   id="title24311">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n2944"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2948"
+       x="366"
+       y="794"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2949"
+   xlink:href="claim-definitions.html#Claim.item.quantity"><title
+   id="title24316">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n2950"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a24320">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n2954"
+       x="366"
+       y="808"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2955"
+   xlink:href="claim-definitions.html#Claim.item.unitPrice"><title
+   id="title24323">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n2956"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2960"
+       x="366"
+       y="822"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2961"
+   xlink:href="claim-definitions.html#Claim.item.factor"><title
+   id="title24328">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n2962"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n2966"
+       x="366"
+       y="836"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2967"
+   xlink:href="claim-definitions.html#Claim.item.tax"><title
+   id="title24333">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n2968"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2972"
+       x="366"
+       y="850"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2973"
+   xlink:href="claim-definitions.html#Claim.item.net"><title
+   id="title24338">The total amount claimed for the group (if a grouper) or the line item. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n2974"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n2978"
+       x="366"
+       y="864"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2979"
+   xlink:href="claim-definitions.html#Claim.item.udi"><title
+   id="title24343">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n2980"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2981"
+   xlink:href="device.html#Device">Device</a> »</text>
+    <text
+       id="n2986"
+       x="366"
+       y="878"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2987"
+   xlink:href="claim-definitions.html#Claim.item.encounter"><title
+   id="title24349">Healthcare encounters related to this claim</title>encounter</a> : <a
+   id="n2988"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n2989"
+   xlink:href="encounter.html#Encounter">Encounter</a> »</text>
+  </g>
+  <g
+     id="n2994"
+     transform="translate(2.3310269,162.00637)">
+    <rect
+       id="Claim.item.bodySite"
+       x="774.67084"
+       y="614.28534"
+       rx="4"
+       ry="4"
+       width="281.60001"
+       height="64"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n2995"
+       x1="774.67084"
+       y1="642.28534"
+       x2="1056.2709"
+       y2="642.28534"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n2996"
+       x="915.47083"
+       y="634.28534"
+       fill="#000000"
+       class="diagram-class-title">BodySite</text>
+    <text
+       id="n2997"
+       x="780.67084"
+       y="656.28534"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n2998"
+   xlink:href="claim-definitions.html#Claim.item.bodySite.site"><title
+   id="title24359">Physical service site on the patient (limb, tooth, etc.)</title>site</a> : <a
+   id="n2999"
+   xlink:href="references.html#CodeableReference">CodeableReference</a> [1..*] « <a
+   id="n3000"
+   xlink:href="bodystructure.html#BodyStructure">BodyStructure</a>; <a
+   id="n3001"
+   xlink:href="valueset-tooth.html"><title
+   id="n3002">null (Strength=Example)</title>OralSiteCodes</a>?? »</text>
+    <text
+       id="n3009"
+       x="780.67084"
+       y="670.28534"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3010"
+   xlink:href="claim-definitions.html#Claim.item.bodySite.subSite"><title
+   id="title24367">A region or surface of the bodySite, e.g. limb region or tooth surface(s)</title>subSite</a> : <a
+   id="n3011"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3012"
+   xlink:href="valueset-surface.html"><title
+   id="n3013">null (Strength=Example)</title>SurfaceCodes</a>?? »</text>
+  </g>
+  <g
+     id="n3019"
+     transform="translate(-11.655134,-214.45447)">
+    <rect
+       id="Claim.item.detail"
+       x="33.74218"
+       y="682.34296"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="246"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n3020"
+       x1="33.74218"
+       y1="710.34296"
+       x2="324.14218"
+       y2="710.34296"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n3021"
+       x="178.94218"
+       y="702.34296"
+       fill="#000000"
+       class="diagram-class-title">Detail</text>
+    <text
+       id="n3022"
+       x="39.74218"
+       y="724.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3023"
+   xlink:href="claim-definitions.html#Claim.item.detail.sequence"><title
+   id="title24378">A number to uniquely identify item entries</title>sequence</a> : <a
+   id="n3024"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n3028"
+       x="39.74218"
+       y="738.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3029"
+   xlink:href="claim-definitions.html#Claim.item.detail.traceNumber"><title
+   id="title24383">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n3030"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n3034"
+       x="39.74218"
+       y="752.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3035"
+   xlink:href="claim-definitions.html#Claim.item.detail.revenue"><title
+   id="title24388">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n3036"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3037"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n3038">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n3044"
+       x="39.74218"
+       y="766.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3045"
+   xlink:href="claim-definitions.html#Claim.item.detail.category"><title
+   id="title24395">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n3046"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3047"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n3048">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n3054"
+       x="39.74218"
+       y="780.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3055"
+   xlink:href="claim-definitions.html#Claim.item.detail.productOrService"><title
+   id="title24402">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n3056"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3057"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n3058">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n3064"
+       x="39.74218"
+       y="794.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3065"
+   xlink:href="claim-definitions.html#Claim.item.detail.productOrServiceEnd"><title
+   id="title24409">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n3066"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3067"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n3068">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n3074"
+       x="39.74218"
+       y="808.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3075"
+   xlink:href="claim-definitions.html#Claim.item.detail.modifier"><title
+   id="title24416">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n3076"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3077"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n3078">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n3084"
+       x="39.74218"
+       y="822.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3085"
+   xlink:href="claim-definitions.html#Claim.item.detail.programCode"><title
+   id="title24423">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n3086"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3087"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n3088">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n3094"
+       x="39.74218"
+       y="836.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3095"
+   xlink:href="claim-definitions.html#Claim.item.detail.patientPaid"><title
+   id="title24430">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n3096"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3100"
+       x="39.74218"
+       y="850.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3101"
+   xlink:href="claim-definitions.html#Claim.item.detail.quantity"><title
+   id="title24435">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n3102"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a24439">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n3106"
+       x="39.74218"
+       y="864.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3107"
+   xlink:href="claim-definitions.html#Claim.item.detail.unitPrice"><title
+   id="title24442">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n3108"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3112"
+       x="39.74218"
+       y="878.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3113"
+   xlink:href="claim-definitions.html#Claim.item.detail.factor"><title
+   id="title24447">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n3114"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n3118"
+       x="39.74218"
+       y="892.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3119"
+   xlink:href="claim-definitions.html#Claim.item.detail.tax"><title
+   id="title24452">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n3120"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3124"
+       x="39.74218"
+       y="906.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3125"
+   xlink:href="claim-definitions.html#Claim.item.detail.net"><title
+   id="title24457">The total amount claimed for the group (if a grouper) or the line item.detail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n3126"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3130"
+       x="39.74218"
+       y="920.34296"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3131"
+   xlink:href="claim-definitions.html#Claim.item.detail.udi"><title
+   id="title24462">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n3132"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n3133"
+   xlink:href="device.html#Device">Device</a> »</text>
+  </g>
+  <g
+     id="n3138"
+     transform="translate(-737.77,22.144755)">
+    <rect
+       id="Claim.item.detail.subDetail"
+       x="761.82977"
+       y="722.02252"
+       rx="4"
+       ry="4"
+       width="290.39999"
+       height="246"
+       filter="url(#shadow1)"
+       style="fill:#fff9ec;stroke:#000000;stroke-width:1" />
+    <line
+       id="n3139"
+       x1="761.82977"
+       y1="750.02252"
+       x2="1052.2297"
+       y2="750.02252"
+       style="stroke:#696969;stroke-width:1" />
+    <text
+       id="n3140"
+       x="907.02979"
+       y="742.02252"
+       fill="#000000"
+       class="diagram-class-title">SubDetail</text>
+    <text
+       id="n3141"
+       x="767.82977"
+       y="764.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3142"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.sequence"><title
+   id="title24472">A number to uniquely identify item entries</title>sequence</a> : <a
+   id="n3143"
+   xlink:href="datatypes.html#positiveInt">positiveInt</a> [1..1]</text>
+    <text
+       id="n3147"
+       x="767.82977"
+       y="778.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3148"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.traceNumber"><title
+   id="title24477">Trace number for tracking purposes. May be defined at the jurisdiction level or between trading partners</title>traceNumber</a> : <a
+   id="n3149"
+   xlink:href="datatypes.html#Identifier">Identifier</a> [0..*]</text>
+    <text
+       id="n3153"
+       x="767.82977"
+       y="792.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3154"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.revenue"><title
+   id="title24482">The type of revenue or cost center providing the product and/or service</title>revenue</a> : <a
+   id="n3155"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3156"
+   xlink:href="valueset-ex-revenue-center.html"><title
+   id="n3157">null (Strength=Example)</title>ExampleRevenueCenterCodes</a>?? »</text>
+    <text
+       id="n3163"
+       x="767.82977"
+       y="806.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3164"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.category"><title
+   id="title24489">Code to identify the general type of benefits under which products and services are provided</title>category</a> : <a
+   id="n3165"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3166"
+   xlink:href="valueset-ex-benefitcategory.html"><title
+   id="n3167">null (Strength=Example)</title>BenefitCategoryCodes</a>?? »</text>
+    <text
+       id="n3173"
+       x="767.82977"
+       y="820.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3174"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.productOrService"><title
+   id="title24496">When the value is a group code then this item collects a set of related item details, otherwise this contains the product, service, drug or other billing code for the item. This element may be the start of a range of .productOrService codes used in conjunction with .productOrServiceEnd or it may be a solo element where .productOrServiceEnd is not used</title>productOrService</a> : <a
+   id="n3175"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3176"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n3177">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n3183"
+       x="767.82977"
+       y="834.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3184"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.productOrServiceEnd"><title
+   id="title24503">This contains the end of a range of product, service, drug or other billing codes for the item. This element is not used when the .productOrService is a group code. This value may only be present when a .productOfService code has been provided to convey the start of the range. Typically this value may be used only with preauthorizations and not with claims</title>productOrServiceEnd</a> : <a
+   id="n3185"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..1] « <a
+   id="n3186"
+   xlink:href="valueset-service-uscls.html"><title
+   id="n3187">null (Strength=Example)</title>USCLSCodes</a>?? »</text>
+    <text
+       id="n3193"
+       x="767.82977"
+       y="848.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3194"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.modifier"><title
+   id="title24510">Item typification or modifiers codes to convey additional context for the product or service</title>modifier</a> : <a
+   id="n3195"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3196"
+   xlink:href="valueset-claim-modifiers.html"><title
+   id="n3197">null (Strength=Example)</title>ModifierTypeCodes</a>?? »</text>
+    <text
+       id="n3203"
+       x="767.82977"
+       y="862.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3204"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.programCode"><title
+   id="title24517">Identifies the program under which this may be recovered</title>programCode</a> : <a
+   id="n3205"
+   xlink:href="datatypes.html#CodeableConcept">CodeableConcept</a> [0..*] « <a
+   id="n3206"
+   xlink:href="valueset-ex-program-code.html"><title
+   id="n3207">null (Strength=Example)</title>ExampleProgramReasonCodes</a>?? »</text>
+    <text
+       id="n3213"
+       x="767.82977"
+       y="876.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3214"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.patientPaid"><title
+   id="title24524">The amount paid by the patient, in total at the claim claim level or specifically for the item and detail level, to the provider for goods and services</title>patientPaid</a> : <a
+   id="n3215"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3219"
+       x="767.82977"
+       y="890.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3220"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.quantity"><title
+   id="title24529">The number of repetitions of a service or product</title>quantity</a> : <a
+   id="n3221"
+   xlink:href="datatypes.html#Quantity">Quantity</a>(<a
+   xlink:href="datatypes.html#SimpleQuantity"
+   id="a24533">SimpleQuantity</a>) [0..1]</text>
+    <text
+       id="n3225"
+       x="767.82977"
+       y="904.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3226"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.unitPrice"><title
+   id="title24536">If the item is not a group then this is the fee for the product or service, otherwise this is the total of the fees for the details of the group</title>unitPrice</a> : <a
+   id="n3227"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3231"
+       x="767.82977"
+       y="918.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3232"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.factor"><title
+   id="title24541">A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount</title>factor</a> : <a
+   id="n3233"
+   xlink:href="datatypes.html#decimal">decimal</a> [0..1]</text>
+    <text
+       id="n3237"
+       x="767.82977"
+       y="932.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3238"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.tax"><title
+   id="title24546">The total of taxes applicable for this product or service</title>tax</a> : <a
+   id="n3239"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3243"
+       x="767.82977"
+       y="946.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3244"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.net"><title
+   id="title24551">The total amount claimed for line item.detail.subDetail. Net = unit price * quantity * factor</title>net</a> : <a
+   id="n3245"
+   xlink:href="datatypes.html#Money">Money</a> [0..1]</text>
+    <text
+       id="n3249"
+       x="767.82977"
+       y="960.02252"
+       fill="#000000"
+       class="diagram-class-detail"><a
+   id="n3250"
+   xlink:href="claim-definitions.html#Claim.item.detail.subDetail.udi"><title
+   id="title24556">Unique Device Identifiers associated with this line item</title>udi</a> : <a
+   id="n3251"
+   xlink:href="references.html#Reference">Reference</a> [0..*] « <a
+   id="n3252"
+   xlink:href="device.html#Device">Device</a> »</text>
+  </g>
+  <line
+     id="n3257"
+     x1="654.8"
+     y1="239.1677300309812"
+     x2="792.64831"
+     y2="269.2509540561305"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3258"
+     points="654.8,239.1677300309812 660.8,243.1677300309812 666.8,239.1677300309812 660.8,235.1677300309812 654.8,239.1677300309812"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(12.310883986705075 654.8 239.1677300309812)" />
+  <rect
+     id="n3259"
+     x="708.0"
+     y="247.0"
+     width="30.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3260"
+     x="723.0"
+     y="257.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3261"
+       xlink:href="claim-definitions.html#Claim.related"><title
+   id="title24566">Other claims which are related to this claim such as prior submissions or claims for related services or for the same event</title>related</a></text>
+  <text
+     id="n3262"
+     x="772.64831"
+     y="265.2509540561305"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3263"
+     x1="360.0"
+     y1="142.17486910994762"
+     x2="214.07857142857145"
+     y2="78.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3264"
+     points="360.0,142.17486910994762 366.0,146.17486910994762 372.0,142.17486910994762 366.0,138.17486910994762 360.0,142.17486910994762"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-156.26055916197183 360.0 142.17486910994762)" />
+  <rect
+     id="n3265"
+     x="276.0"
+     y="103.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3266"
+     x="287.0"
+     y="113.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3267"
+       xlink:href="claim-definitions.html#Claim.payee"><title
+   id="title24574">The party to be reimbursed for cost of the products and services according to the terms of the policy</title>payee</a></text>
+  <text
+     id="n3268"
+     x="214.07857142857145"
+     y="92.0"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n3269"
+     x1="654.8"
+     y1="203.9218026546146"
+     x2="788.057575"
+     y2="201.13894571012685"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3270"
+     points="654.8,203.9218026546146 660.8,207.9218026546146 666.8,203.9218026546146 660.8,199.9218026546146 654.8,203.9218026546146"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-1.1963506405576039 654.8 203.9218026546146)" />
+  <rect
+     id="n3271"
+     x="710.0"
+     y="195.0"
+     width="22.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3272"
+     x="721.0"
+     y="205.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3273"
+       xlink:href="claim-definitions.html#Claim.event"><title
+   id="title24582">Information code for an event with a corresponding date or period</title>event</a></text>
+  <text
+     id="n3274"
+     x="768.057575"
+     y="197.13894571012685"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3275"
+     x1="360.0"
+     y1="338.8425760286225"
+     x2="246.90599999999995"
+     y2="440.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3276"
+     points="360.0,338.8425760286225 366.0,342.8425760286225 372.0,338.8425760286225 366.0,334.8425760286225 360.0,338.8425760286225"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(138.18881957319454 360.0 338.8425760286225)" />
+  <rect
+     id="n3277"
+     x="285.5"
+     y="382.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3278"
+     x="303.0"
+     y="392.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3279"
+       xlink:href="claim-definitions.html#Claim.careTeam"><title
+   id="title24590">The members of the team who provided the products and services</title>careTeam</a></text>
+  <text
+     id="n3280"
+     x="246.90599999999995"
+     y="436.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3281"
+     x1="654.8"
+     y1="152.6947368421053"
+     x2="740.0"
+     y2="121.30526315789479"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3282"
+     points="654.8,152.6947368421053 660.8,156.6947368421053 666.8,152.6947368421053 660.8,148.6947368421053 654.8,152.6947368421053"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-20.224859431168063 654.8 152.6947368421053)" />
+  <rect
+     id="n3283"
+     x="666.5"
+     y="130.0"
+     width="61.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3284"
+     x="697.0"
+     y="140.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3285"
+       xlink:href="claim-definitions.html#Claim.supportingInfo"><title
+   id="title24598">Additional information codes regarding exceptions, special considerations, the condition, situation, prior or concurrent issues</title>supportingInfo</a></text>
+  <text
+     id="n3286"
+     x="720.0"
+     y="117.30526315789479"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3287"
+     x1="360.0"
+     y1="193.56947608200457"
+     x2="312.40000000000003"
+     y2="189.23234624145786"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3288"
+     points="360.0,193.56947608200457 366.0,197.56947608200457 372.0,193.56947608200457 366.0,189.56947608200457 360.0,193.56947608200457"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-174.79380362898578 360.0 193.56947608200457)" />
+  <rect
+     id="n3289"
+     x="316.5"
+     y="184.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3290"
+     x="336.0"
+     y="194.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3291"
+       xlink:href="claim-definitions.html#Claim.diagnosis"><title
+   id="title24606">Information about diagnoses relevant to the claim items</title>diagnosis</a></text>
+  <text
+     id="n3292"
+     x="327.40000000000003"
+     y="185.23234624145786"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3293"
+     x1="360.0"
+     y1="271.2146924829158"
+     x2="293.92549019607867"
+     y2="300.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3294"
+     points="360.0,271.2146924829158 366.0,275.2146924829158 372.0,271.2146924829158 366.0,267.2146924829158 360.0,271.2146924829158"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(156.4596892070964 360.0 271.2146924829158)" />
+  <rect
+     id="n3295"
+     x="306.5"
+     y="278.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3296"
+     x="326.0"
+     y="288.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3297"
+       xlink:href="claim-definitions.html#Claim.procedure"><title
+   id="title24614">Procedures performed on the patient relevant to the billing items with the claim</title>procedure</a></text>
+  <text
+     id="n3298"
+     x="293.92549019607867"
+     y="296.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3299"
+     x1="654.8"
+     y1="290.3077902477241"
+     x2="773.306634"
+     y2="357.28557727781777"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3300"
+     points="654.8,290.3077902477241 660.8,294.3077902477241 666.8,290.3077902477241 660.8,286.3077902477241 654.8,290.3077902477241"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(29.474341404074014 654.8 290.3077902477241)" />
+  <rect
+     id="n3301"
+     x="694.5"
+     y="316.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3302"
+     x="714.0"
+     y="326.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3303"
+       xlink:href="claim-definitions.html#Claim.insurance"><title
+   id="title24622">Financial instruments for reimbursement for the health care products and services specified on the claim</title>insurance</a></text>
+  <text
+     id="n3304"
+     x="753.306634"
+     y="353.28557727781777"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3305"
+     x1="654.8"
+     y1="337.96453536295587"
+     x2="845.7149430737611"
+     y2="507.5919899999999"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3306"
+     points="654.8,337.96453536295587 660.8,341.96453536295587 666.8,337.96453536295587 660.8,333.96453536295587 654.8,337.96453536295587"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(41.62101071017613 654.8 337.96453536295587)" />
+  <rect
+     id="n3307"
+     x="732.5"
+     y="415.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3308"
+     x="750.0"
+     y="425.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3309"
+       xlink:href="claim-definitions.html#Claim.accident"><title
+   id="title24630">Details of an accident which resulted in injuries which required the products and services listed in the claim</title>accident</a></text>
+  <text
+     id="n3310"
+     x="845.7149430737611"
+     y="503.5919899999999"
+     fill="black"
+     class="diagram-class-linkage">[0..1]</text>
+  <line
+     id="n3311"
+     x1="668.0"
+     y1="675.0807505772544"
+     x2="774.670839"
+     y2="662.6686637579392"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3312"
+     points="668.0,675.0807505772544 674.0,679.0807505772544 680.0,675.0807505772544 674.0,671.0807505772544 668.0,675.0807505772544"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(-6.6370197170948995 668.0 675.0807505772544)" />
+  <rect
+     id="n3313"
+     x="703.5"
+     y="661.0"
+     width="35.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3314"
+     x="721.0"
+     y="671.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3315"
+       xlink:href="claim-definitions.html#Claim.item.bodySite"><title
+   id="title24638">Physical location where the service is performed or applies</title>bodySite</a></text>
+  <text
+     id="n3316"
+     x="754.670839"
+     y="658.6686637579392"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3317"
+     x1="324.14218"
+     y1="813.2560953584099"
+     x2="761.829787"
+     y2="837.1093626415899"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3318"
+     points="324.14218,813.2560953584099 330.14218,817.2560953584099 336.14218,813.2560953584099 330.14218,809.2560953584099 324.14218,813.2560953584099"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(3.1194415124360684 324.14218 813.2560953584099)" />
+  <rect
+     id="n3319"
+     x="522.5"
+     y="818.0"
+     width="39.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3320"
+     x="542.0"
+     y="828.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3321"
+       xlink:href="claim-definitions.html#Claim.item.detail.subDetail"><title
+   id="title24646">A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>subDetail</a></text>
+  <text
+     id="n3322"
+     x="741.829787"
+     y="833.1093626415899"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3323"
+     x1="360.0"
+     y1="744.6353004982843"
+     x2="324.14218"
+     y2="756.6582181016179"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3324"
+     points="360.0,744.6353004982843 366.0,748.6353004982843 372.0,744.6353004982843 366.0,740.6353004982843 360.0,744.6353004982843"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(161.46399839032358 360.0 744.6353004982843)" />
+  <rect
+     id="n3325"
+     x="329.0"
+     y="743.0"
+     width="26.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3326"
+     x="342.0"
+     y="753.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3327"
+       xlink:href="claim-definitions.html#Claim.item.detail"><title
+   id="title24654">A claim detail line. Either a simple (a product or service) or a 'group' of sub-details which are simple items</title>detail</a></text>
+  <text
+     id="n3328"
+     x="339.14218"
+     y="752.6582181016179"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+  <line
+     id="n3329"
+     x1="510.2111111111111"
+     y1="414.0"
+     x2="511.37901234567903"
+     y2="500.0"
+     style="stroke:navy;stroke-width:1" />
+  <polygon
+     id="n3330"
+     points="510.2111111111111,414.0 516.2111111111111,418.0 522.2111111111111,414.0 516.2111111111111,410.0 510.2111111111111,414.0"
+     style="fill:navy;stroke:navy;stroke-width:1"
+     transform="rotate(89.22195699445689 510.2111111111111 414.0)" />
+  <rect
+     id="n3331"
+     x="501.5"
+     y="450.0"
+     width="17.0"
+     height="18.0"
+     style="fill:white;stroke:black;stroke-width:0" />
+  <text
+     id="n3332"
+     x="510.0"
+     y="460.0"
+     fill="black"
+     class="diagram-class-linkage"><a
+       id="n3333"
+       xlink:href="claim-definitions.html#Claim.item"><title
+   id="title24662">A claim line. Either a simple  product or service or a 'group' of details which can each be a simple items or groups of sub-details</title>item</a></text>
+  <text
+     id="n3334"
+     x="511.37901234567903"
+     y="496.0"
+     fill="black"
+     class="diagram-class-linkage">[0..*]</text>
+</svg>
